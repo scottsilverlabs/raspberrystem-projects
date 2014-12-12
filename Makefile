@@ -39,6 +39,8 @@ targets:
 
 clean:
 	rm -f $(TARGETS)
+	rm -rf out
+	rm -rf build
 
 install:
 	scp $(LP_TAR) $(PI):/tmp
