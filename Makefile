@@ -14,16 +14,23 @@ PI=pi@raspberrypi
 RUNONPI=ssh $(SSHFLAGS) -q -t $(PI) "cd rsinstall;"
 
 VERSION:=$(shell git describe --tags --dirty)
+LP_DIR=build/lessons
+
+TGT_VAR_DIR=/var/local/raspberrystem/ide/
+TGT_LESSONS_DIR=$(TGT_VAR_DIR)/website/lessons
+OUT=$(abspath out)
 
 # Final targets
-IM_PDF:=$(OUT)/RaspberrySTEM_Instructor_Manual-$(RSTEM_VER).pdf
-SP_PDF:=$(OUT)/RaspberrySTEM_Supplementary_Projects-$(RSTEM_VER).pdf
-UG_PDF:=$(OUT)/RaspberrySTEM_User_Guide-$(RSTEM_VER).pdf
+LP_TAR:=$(OUT)/lesson_plans-$(VERSION).tar.gz
+IM_PDF:=$(OUT)/RaspberrySTEM_Instructor_Manual-$(VERSION).pdf
+SP_PDF:=$(OUT)/RaspberrySTEM_Supplementary_Projects-$(VERSION).pdf
+UG_PDF:=$(OUT)/RaspberrySTEM_User_Guide-$(VERSION).pdf
 
 TARGETS=
-TARGETS+=$(IM_PDF)
-TARGETS+=$(SP_PDF)
-TARGETS+=$(UG_PDF)
+TARGETS+=$(LP_TAR)
+#TARGETS+=$(IM_PDF)
+#TARGETS+=$(SP_PDF)
+#TARGETS+=$(UG_PDF)
 
 all: $(TARGETS)
 
@@ -34,4 +41,17 @@ clean:
 	rm -f $(TARGETS)
 
 install:
-	@echo "TBD"
+	scp $(LP_TAR) $(PI):/tmp
+	$(RUNONPI) "cd $(TGT_LESSONS_DIR) && sudo tar xvf /tmp/$(notdir $(LP_TAR))"
+
+$(OUT):
+	mkdir -p $@
+
+.PHONY: $(LP_TAR)
+$(LP_TAR): $(shell git ls-files im)| $(OUT)
+	rm -rf $(LP_DIR)
+	mkdir -p $(LP_DIR)
+	cp "im/RaspberrySTEM Instructor Manual.html" $(LP_DIR)/index.html
+	cp im/default.css $(LP_DIR)
+	cp -r im/images $(LP_DIR)
+	cd $(LP_DIR) && tar cvzf $@ *
