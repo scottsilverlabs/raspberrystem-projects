@@ -1,53 +1,55 @@
+/* 
+ * DISCUSSION/ACTIVITY BLOCKS
+ */
 div.lesson_discussion_header:before {
   content: "DISCUSSION";
 }
+div.lesson_activity_header:before {
+  content: "ACTIVITY";
+}
 div.lesson_discussion_header {
-  padding: 8pt;
-  border-bottom: 3pt solid black;
-  font-size: 120%;
   background-color: #ccffff;
 }
-div.lesson_discussion_body {
-  padding: 5pt;
-  padding-left: 8pt;
+div.lesson_activity_header {
+  background-color: #cccdff;
 }
-div.lesson_discussion {
+div.lesson_discussion, div.lesson_activity {
   margin: 10pt 2%;
   border: 3pt solid black;
   width: 96%;
   border-collapse: collapse;
 }
-div.lesson_activity_header:before {
-  content: "DISCUSSION";
-}
-div.lesson_activity_header {
+div.lesson_discussion_header, div.lesson_activity_header {
+  font-weight: bold;
   padding: 8pt;
   border-bottom: 3pt solid black;
   font-size: 120%;
-  background-color: #cccdff;
 }
-div.lesson_activity_body {
+div.lesson_discussion_body, div.lesson_activity_body {
   padding: 5pt;
   padding-left: 8pt;
 }
-div.lesson_activity {
-  margin: 10pt 2%;
-  border: 3pt solid black;
-  width: 96%;
-  border-collapse: collapse;
-}
+
+/*
+ * Tables
+ */
 table {
   margin: 10pt 2%;
   border: 3pt solid black;
   width: 96%;
   border-collapse: collapse;
 }
-table td, table th {
+table td {
+  padding: 2pt;
   border: 1px solid black;
 }
-div.lesson_header_table {
+table.lesson_header_table {
   background-color: #51ff7c;
 }
+
+/*
+ * Lesson plan counting header
+ */
 div#lesson_plans h2 {
   background-color: #eeeeee;
   border: 1px solid black;
@@ -55,12 +57,20 @@ div#lesson_plans h2 {
 div#lesson_plans {
   counter-reset: h2
 }
-
 div#lesson_plans h2:before {
     counter-increment: h2; content: "Lesson " counter(h2) ": "
 }
-
 div#lesson_plans h2.nocount:before { 
     content: ""; counter-increment: none 
 } 
 
+/*
+ * Formatted code block
+ */
+pre.code {
+  padding: 3pt;
+  border: 1pt solid black;
+  margin-left: 80px;
+  margin-right: 40%;
+  background-color: rgb(200, 255, 255);
+}
