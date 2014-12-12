@@ -14,7 +14,7 @@ PI=pi@raspberrypi
 RUNONPI=ssh $(SSHFLAGS) -q -t $(PI) "cd rsinstall;"
 
 VERSION:=$(shell git describe --tags --dirty)
-LP_DIR=build/lessons
+LP_INDEX_HTML=RaspberrySTEM_Instructor_Manual.html
 
 TGT_VAR_DIR=/var/local/raspberrystem/ide/
 TGT_LESSONS_DIR=$(TGT_VAR_DIR)/website/lessons
@@ -51,9 +51,10 @@ $(OUT):
 
 .PHONY: $(LP_TAR)
 $(LP_TAR): $(shell git ls-files im)| $(OUT)
-	rm -rf $(LP_DIR)
-	mkdir -p $(LP_DIR)
-	cp "im/RaspberrySTEM Instructor Manual.html" $(LP_DIR)/index.html
-	cp im/default.css $(LP_DIR)
-	cp -r im/images $(LP_DIR)
-	cd $(LP_DIR) && tar cvzf $@ *
+	rm -rf build/im
+	@for f in $^; do \
+		mkdir -p `dirname build/$$f`; \
+		cp -v $$f build/$$f; \
+	done
+	cd build/im && mv $(LP_INDEX_HTML) index.html
+	cd build/im && tar cvzf $@ *
