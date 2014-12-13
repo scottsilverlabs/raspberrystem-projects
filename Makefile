@@ -15,6 +15,7 @@ RUNONPI=ssh $(SSHFLAGS) -q -t $(PI) "cd rsinstall;"
 
 VERSION:=$(shell git describe --tags --dirty)
 LP_INDEX_HTML=RaspberrySTEM_Instructor_Manual.html
+CREATE_LESSON_PLANS=python3 $(abspath scripts/create_lesson_plans.py)
 
 TGT_VAR_DIR=/var/local/raspberrystem/ide/
 TGT_LESSONS_DIR=$(TGT_VAR_DIR)/website/lessons
@@ -56,5 +57,6 @@ $(LP_TAR): $(shell git ls-files im)| $(OUT)
 		mkdir -p `dirname build/$$f`; \
 		cp -v $$f build/$$f; \
 	done
-	cd build/im && mv $(LP_INDEX_HTML) index.html
+	cd build/im && $(CREATE_LESSON_PLANS) $(LP_INDEX_HTML)
+	rm build/im/$(LP_INDEX_HTML)
 	cd build/im && tar cvzf $@ *
