@@ -51,12 +51,13 @@ $(OUT):
 	mkdir -p $@
 
 .PHONY: $(LP_TAR)
-$(LP_TAR): $(shell git ls-files im)| $(OUT)
+$(LP_TAR): $(shell git ls-files im) | $(OUT)
 	rm -rf build/im
 	@for f in $^; do \
 		mkdir -p `dirname build/$$f`; \
 		cp -v $$f build/$$f; \
 	done
+	echo "div.lesson_discussion { display: none; }" > build/im/override.css
 	cd build/im && $(CREATE_LESSON_PLANS) $(LP_INDEX_HTML)
 	rm build/im/$(LP_INDEX_HTML)
 	cd build/im && tar cvzf $@ *
