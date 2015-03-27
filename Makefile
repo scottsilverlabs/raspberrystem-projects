@@ -47,6 +47,9 @@ install:
 	scp $(LP_TAR) $(PI):/tmp
 	$(RUNONPI) "cd $(TGT_LESSONS_DIR) && sudo tar xvf /tmp/$(notdir $(LP_TAR))"
 
+tidy:
+	tidy -im im/$(LP_INDEX_HTML)
+
 $(OUT):
 	mkdir -p $@
 
