@@ -77,19 +77,19 @@ pre.code {
 
 
 /*
- * Expandable/collapsible div
+ * Expandable/collapsible summary and details
  *
  * Modified from: http://www.realcombiz.com/2014/01/how-to-expand-collapse-toggle-div-layer.html
  *
  * Expected detail block should look something like:
  *
- *      <label class="details">
- *          <input type="checkbox">
- *          <div>More details</div>
- *          <div>Lorem ipsum dolor sit amet, consectetuer adipiscing.</div>
+ *      <input class="details" type="checkbox" id="77c51440a5b5df65174a8cb0e56b22f4">
+ *      <label for="77c51440a5b5df65174a8cb0e56b22f4">
+ *        More details
  *      </label>
- *
- * that is, a <label> of class "details" with 3 children, the first one an input.
+ *      <div>
+ *        Lorem ipsum dolor sit amet, consectetuer adipiscing.
+ *      </div>
  *
  * And it should look like (collapsed, default):
  *
@@ -100,13 +100,14 @@ pre.code {
  *      (-) More details
  *          Lorem ipsum dolor sit amet, consectetuer adipiscing.
  */
+
 /* Don't display default input checkbox, as we make our own */
-.details input {
+.details {
   display: none;
 }
 
-/* Style the summary */
-.details :nth-child(2) {
+/* Style the summary label */
+.details + label {
   cursor: pointer;
   display: block;
   font-weight: bold;
@@ -114,18 +115,20 @@ pre.code {
   margin-bottom: 5px;
 }
 
-.details :last-child {
+/* By default, don't show the details div */
+.details + label + div {
   display: none;
   margin-bottom: 10px;
 }
 
-.details input:checked ~ :last-child {
+/* Show the details div when the checkbox is checked */
+.details:checked + label + div {
   display: block;
 }
 
 
 /* Our own checkbox (a +/- sign), before the summary */
-.details :nth-child(2):before {
+.details + label:before {
   background-color: #4F5150;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -143,7 +146,7 @@ pre.code {
 }
 
 /* When clicked, convert our checkbox to long dash */
-.details input:checked ~ :nth-child(2):before {
+.details:checked + label:before {
   content: "\2212";
 }
 
