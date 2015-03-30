@@ -1023,6 +1023,154 @@ for i in range(5):<br>    print('hello')<br>
 
         <div class="body">
           <div class="summary">
+          Description of the LED dot app: 
+          Uses an LED Matrix and Accelerometer to move a dot around the LED
+          Matrix.
+          
+          </div>
+
+          <div>
+            <input class="details" type="checkbox" id=
+            "c411f52ce570d4fecbcfd33d75f8d8c8"> <label for=
+            "c411f52ce570d4fecbcfd33d75f8d8c8">More details</label>
+
+            <div>
+          Only one of the LED Matrix drawing functions is needed: point().  The
+          point() function is used to draw a dot on the Matrix.  The program
+          continually reads the forces on the accelereometer, and when the
+          force passes a threshold, the point is moved.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity">
+        <div class="header"></div>
+
+        <div class="body">
+          As in the previous LED Matrix examples, initialize the framebuffer:
+          <pre class="code">
+from rstem.led_matrix import FrameBuffer
+</pre>
+          <pre class="codespacer"></pre>
+          <pre class="code">
+fb = FrameBuffer()
+</pre>
+    Create a game loop (an infinite loop) that writes a point() to the display.
+          <pre class="code">
+fb.erase()
+fb.point(x, y)
+fb.show()
+</pre>
+You should see the point displayed on the screen.
+        </div>
+      </div>
+      <div class="discussion">
+        <div class="header"></div>
+
+        <div class="body">
+          <div class="summary">
+          We'll add in the accelerometer
+          </div>
+
+          <div>
+            <input class="details" type="checkbox" id=
+            "9c94f66e83817679dea4d83b303c6387"> <label for=
+            "9c94f66e83817679dea4d83b303c6387">More details</label>
+
+            <div>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity">
+        <div class="header"></div>
+
+        <div class="body">
+        As in the previous Accelerometer examples, initialize the Accelerometer:
+          <pre class="code">
+from rstem.accel import Accel
+</pre>
+          <pre class="codespacer"></pre>
+          <pre class="code">
+accel = Accel()
+</pre>
+        As in the previous Accelerometer examples, you can get all the forces with:
+          <pre class="code">
+x_force, y_force, z_force = accel.forces()
+</pre>
+        In your game loop, check if the x_force is greater than some threshold.
+        If so, increase x a little bit.  Likewise, if the x_force is lower than
+        some threshold, decrease x.  <p> 
+        The effect should be that tilting the
+        board left and right move the dot to the left and right.  Adjust the
+        threshold  and step (the amount of the increase or decrease) so that the dot moves at a
+        reasonable rate.<p>
+        Note that the dot will just run right off the screen.  It'll come back,
+        though.
+        </div>
+      </div>
+      <div class="discussion">
+        <div class="header"></div>
+
+        <div class="body">
+          <div class="summary">
+            This is a summary of this thing
+          </div>
+
+          <div>
+            <input class="details" type="checkbox" id=
+            "6f4739d183eb9bd07b63f4ea9a9697e0"> <label for=
+            "6f4739d183eb9bd07b63f4ea9a9697e0">More details</label>
+
+            <div>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity">
+        <div class="header"></div>
+
+        <div class="body">
+          Connect the LED Matrix
+        </div>
+      </div>
+      <div class="discussion">
+        <div class="header"></div>
+
+        <div class="body">
+          <div class="summary">
+            This is a summary of this thing
+          </div>
+
+          <div>
+            <input class="details" type="checkbox" id=
+            "ff2967e43eb92281a1c8223253bc1f43"> <label for=
+            "ff2967e43eb92281a1c8223253bc1f43">More details</label>
+
+            <div>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity">
+        <div class="header"></div>
+
+        <div class="body">
+          Connect the LED Matrix
+        </div>
+      </div>
+      <div class="discussion">
+        <div class="header"></div>
+
+        <div class="body">
+          <div class="summary">
             This is a summary of this thing
           </div>
 
@@ -1030,15 +1178,6 @@ for i in range(5):<br>    print('hello')<br>
             <input class="details" type="checkbox" id=
             "77c51440a5b5df65174a8cb0e56b22f4"> <label for=
             "77c51440a5b5df65174a8cb0e56b22f4">More details</label>
-
-            <div>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing.
-            </div>
-          </div>
-          <div>
-            <input class="details" type="checkbox" id=
-            "278045f8378811dd4941c83df4f34678"> <label for=
-            "278045f8378811dd4941c83df4f34678">More details</label>
 
             <div>
               Lorem ipsum dolor sit amet, consectetuer adipiscing.

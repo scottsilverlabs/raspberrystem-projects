@@ -71,8 +71,12 @@ pre.code {
   padding: 3pt;
   border: 1pt solid black;
   margin-left: 80px;
-  margin-right: 40%;
+  margin-right: 40px;
   background-color: rgb(200, 255, 255);
+}
+pre.codespacer:before {
+  margin-left: 80px;
+  content: "...";
 }
 
 
