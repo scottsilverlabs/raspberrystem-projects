@@ -1,0 +1,35 @@
+FRITZING PARTS FILES
+
+Fritzing supports user parts libaraies, which it calls bins.  We have a
+RaspberrySTEM bin, which contains RaspberrySTEM Cells and other parts.
+
+CREATING PARTS
+
+To create a part:
+    - Right click on a existing part that's the most similar to the new part,
+      and choose "Edit part (new parts editor)..."
+    - Save as new part.  Choose default prefix.
+    - Drag part from MINE bin to RaspberrySTEM bin
+    - The part in MINE can now be deleted (or kept)
+
+Part can be further edited using the parts editor.
+
+EXPORT
+
+To export the RaspberrySTEM bin, select the bin, choose "Export Bin..." from
+the drop down menu, and export to this directory.
+
+IMPORT
+
+To import, choose "Import..." from the drop down menu, and import the .fzbz
+file.  Note that this will likely create a duplicate bin in the bin list.   The
+extra bin can be removed.
+
+The image files for the bin are stored separately in this in directory, and
+need to be installed manually the first time the bin is imported.  To do so,
+from this directory:
+    
+    cp *.png ~/.config/Fritzing/bins
+
+One potential issue - the .fzbz file has some hardcoded /User paths in it -
+this may need to be resolved.
