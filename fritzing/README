@@ -10,14 +10,21 @@ To create a part:
       and choose "Edit part (new parts editor)..."
     - Save as new part.  Choose default prefix.
     - Drag part from MINE bin to RaspberrySTEM bin
-    - The part in MINE can now be deleted (or kept)
+    - The part in MINE must NOT be deleted!  Perhaps it can be deleted later if
+      the bin is reimported.
 
 Part can be further edited using the parts editor.
 
 EXPORT
 
+Before Export, make sure to first save and close the open bins, then close and
+reopen the Fritzing app.  Otherwise, it appears Fritzing will export old data.
+
 To export the RaspberrySTEM bin, select the bin, choose "Export Bin..." from
 the drop down menu, and export to this directory.
+
+After export, you may want to untar the resulting .fzbz file, and verify that
+the svg files within it are correct.
 
 IMPORT
 
