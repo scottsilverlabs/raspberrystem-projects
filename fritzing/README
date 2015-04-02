@@ -40,3 +40,20 @@ from this directory:
 
 One potential issue - the .fzbz file has some hardcoded /User paths in it -
 this may need to be resolved.
+
+On first exit after import, make sure to choose to save both the imported parts
+and the bin when asked to do so (use the default file name).
+
+USING BREADBOARD DIAGRAMS
+
+Create and save breadboard diagrams in the diagrams dir.  To use in HTML docs,
+export the diagram via File -> Export -> As Image -> PNG.  The resolution is
+fixed.  Move the resultant file to the HTML docs dir where it will be used, and
+incorporate it in the doc.
+
+TBD: It might be useful in the future to export as an SVG, and then convert to
+PNG at a specific resolution.  However, the current parts (either by a Fritzing
+error or user error) do not correct export as SVG - all the RaspberrySTEM
+custom parts are missing.
+
+
