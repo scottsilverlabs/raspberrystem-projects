@@ -51,6 +51,10 @@ export the diagram via File -> Export -> As Image -> PNG.  The resolution is
 fixed.  Move the resultant file to the HTML docs dir where it will be used, and
 incorporate it in the doc.
 
+To trim the Friting logo and whitespace use:
+
+    mogrify -crop -0-51 -trim exported_fritzing_image.png 
+
 TBD: It might be useful in the future to export as an SVG, and then convert to
 PNG at a specific resolution.  However, the current parts (either by a Fritzing
 error or user error) do not correct export as SVG - all the RaspberrySTEM
