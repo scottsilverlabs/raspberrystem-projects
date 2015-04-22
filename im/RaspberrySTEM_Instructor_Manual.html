@@ -994,7 +994,7 @@ for i in range(5):<br>    print('hello')<br>
           <tr>
             <td>Description</td>
 
-            <td>Create a dot - a sngle point of light on the LED
+            <td>Create a dot - a single point of light on the LED
             Matrix - that moves around on the LED Matrix as you
             tilt the screen. The effect is that it appears that the
             user is balancing a dot on the lid of the
@@ -1059,39 +1059,25 @@ from rstem.led_matrix import FrameBuffer
           <pre class="code">
 fb = FrameBuffer()
 </pre>
-    Create a game loop (an infinite loop) that writes a point() to the display.
+    Create an infinite loop that writes a point() to the display.
           <pre class="code">
 fb.erase()
 fb.point(x, y)
 fb.show()
 </pre>
-You should see the point displayed on the screen.
+You should see the point displayed on the screen.<p>
+
+Didn't work - no worries.  Go back to the first LED Matrix Project to troubleshoot the circuit.<p>
         </div>
       </div>
-      <div class="discussion">
-        <div class="header"></div>
-
-        <div class="body">
-          <div class="summary">
-          We'll add in the accelerometer
-          </div>
-
-          <div>
-            <input class="details" type="checkbox" id=
-            "9c94f66e83817679dea4d83b303c6387"> <label for=
-            "9c94f66e83817679dea4d83b303c6387">More details</label>
-
-            <div>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing.
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="activity">
         <div class="header"></div>
 
         <div class="body">
+        Hook as the Accelerometer the same way as was done in previous
+        examples.  The LED Matrix and Accelerometer circuits need to sit separately on the
+        breadboard - they don't interact with each other.<p>
+
         As in the previous Accelerometer examples, initialize the Accelerometer:
           <pre class="code">
 from rstem.accel import Accel
@@ -1104,34 +1090,28 @@ accel = Accel()
           <pre class="code">
 x_force, y_force, z_force = accel.forces()
 </pre>
-        In your game loop, check if the x_force is greater than some threshold.
-        If so, increase x a little bit.  Likewise, if the x_force is lower than
-        some threshold, decrease x.  <p> 
-        The effect should be that tilting the
-        board left and right move the dot to the left and right.  Adjust the
-        threshold  and step (the amount of the increase or decrease) so that the dot moves at a
-        reasonable rate.<p>
-        Note that the dot will just run right off the screen.  It'll come back,
-        though.
+        As a quick check to make sure the accelerometer is working, just print out the forces
+        returned from the Accelerometer:
+          <pre class="code">
+print(x_force, y_force, z_force)
+</pre>
+
         </div>
       </div>
-      <div class="discussion">
+      <div class="activity">
         <div class="header"></div>
 
         <div class="body">
-          <div class="summary">
-            This is a summary of this thing
-          </div>
-
-          <div>
-            <input class="details" type="checkbox" id=
-            "6f4739d183eb9bd07b63f4ea9a9697e0"> <label for=
-            "6f4739d183eb9bd07b63f4ea9a9697e0">More details</label>
-
-            <div>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing.
-            </div>
-          </div>
+        In your game loop, check if the x_force is greater than some threshold.
+        If so, increase x a little bit.  Likewise, if the x_force is lower than
+        some threshold, decrease x.  <p> 
+        What is a "threshold"?  ...<p>
+        The effect should be that tilting the board left and right move the dot
+        to the left and right.  Adjust the threshold and step (the amount of
+        the increase or decrease) so that the dot moves at a reasonable
+        rate.<p>
+        Note that the dot will just run right off the screen.  It'll come back,
+        though.
         </div>
       </div>
 
@@ -1139,7 +1119,21 @@ x_force, y_force, z_force = accel.forces()
         <div class="header"></div>
 
         <div class="body">
-          Connect the LED Matrix
+        How do you prevent the dot from falling off the screen?  <p>
+
+        Each time you 
+        In your game loop, check if the x_force is greater than some threshold.
+        If so, increase x a little bit.  Likewise, if the x_force is lower than
+        some threshold, decrease x.  <p> 
+        The effect should be that tilting the
+        board left and right move the dot to the left and right.  Adjust the
+        threshold  and step (the amount of the increase or decrease) so that the dot moves at a
+        reasonable rate.<p>
+          <pre class="code">
+from rstem.accel import Accel
+</pre>
+        Note that the dot will just run right off the screen.  It'll come back,
+        though.
         </div>
       </div>
       <div class="discussion">
