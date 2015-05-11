@@ -20,9 +20,9 @@ with open(sys.argv[1]) as f:
 # For each div.lesson_plan, extract the plan and write it to a new file (with
 # the same head as the original file)
 #
-lesson_plans = [tag for tag in soup.select('div.lesson_plan')]
+lesson_plans = [tag for tag in soup.select('div.project')]
 for i, plan in enumerate(lesson_plans):
-	plan.h2.string = "Lesson {}: {}".format(i + 1, plan.h2.string)
+	plan.h2.string = "Project {}: {}".format(i + 1, plan.h2.string)
 	soup.body.clear()
 	soup.body.append(plan)
 	filename = make_html_filename(plan.h2.string)
@@ -33,7 +33,7 @@ for i, plan in enumerate(lesson_plans):
 # Create an index file of the lesson plans
 #
 header = '''
-<h2>Lesson Plan Index</h2>
+<h2>Project Index</h2>
 <ul>
 '''
 line_item_format = '<li><a href="{}">{}</a></li>'

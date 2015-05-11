@@ -10,57 +10,76 @@
 #		cd /usr/local/go/src
 #		sudo GOOS=linux GOARCH=arm ./make.bash
 #		
+PYTHON=python3
+SETUP=$(PYTHON) setup.py
+PIP=pip-3.2
+
 PI=pi@raspberrypi
 RUNONPI=ssh $(SSHFLAGS) -q -t $(PI) "cd rsinstall;"
 
-VERSION:=$(shell git describe --tags --dirty)
-LP_INDEX_HTML=RaspberrySTEM_Instructor_Manual.html
-CREATE_LESSON_PLANS=python3 $(abspath scripts/create_lesson_plans.py)
+# Create version name
+DUMMY:=$(shell scripts/version.sh)
 
-TGT_VAR_DIR=/var/local/raspberrystem/ide/
-TGT_LESSONS_DIR=$(TGT_VAR_DIR)/website/lessons
-OUT=$(abspath out)
+# Name must be generated the same way as setup.py
+NAME:=$(shell cat NAME)
+VER:=$(shell cat VERSION)
+
+PRJ_INDEX_HTML=RaspberrySTEM_Instructor_Manual.html
+CREATE_PROJECTS=python3 $(abspath scripts/create_lesson_plans.py)
+
+BUILDDIR=projects.build
 
 # Final targets
-PR_TAR:=$(OUT)/raspberrystem_projects-$(VERSION).tar.gz
-IM_PDF:=$(OUT)/RaspberrySTEM_Instructor_Manual-$(VERSION).pdf
-SP_PDF:=$(OUT)/RaspberrySTEM_Supplementary_Projects-$(VERSION).pdf
-UG_PDF:=$(OUT)/RaspberrySTEM_User_Guide-$(VERSION).pdf
+PRJ_TAR:=$(abspath $(NAME)-$(VER).tar.gz)
 
 TARGETS=
-TARGETS+=$(PR_TAR)
-#TARGETS+=$(IM_PDF)
-#TARGETS+=$(SP_PDF)
-#TARGETS+=$(UG_PDF)
+TARGETS+=$(PRJ_TAR)
 
+# Default target
 all: $(TARGETS)
+
+#########################################################################
+# Targets
+#
+
+upload:
+	$(SETUP) sdist upload
+
+register:
+	$(SETUP) register
 
 targets:
 	@echo $(TARGETS)
 
+install:
+	scp $(PRJ_TAR) $(PI):/tmp
+	-$(RUNONPI) sudo $(PIP) uninstall -y $(NAME)
+	$(RUNONPI) sudo $(PIP) install /tmp/$(notdir $(PRJ_TAR))
+
 clean:
+	rm NAME VERSION
+	rm -f *.tar.gz
+	rm -rf *.egg-info
+	rm -rf __pycache__
 	rm -f $(TARGETS)
 	rm -rf out
-	rm -rf build
-
-install:
-	scp $(PR_TAR) $(PI):/tmp
-	$(RUNONPI) "cd $(TGT_LESSONS_DIR) && sudo tar xvf /tmp/$(notdir $(PR_TAR))"
+	rm -rf $(BUILDDIR)
 
 tidy:
-	tidy -im im/$(LP_INDEX_HTML)
+	tidy -im im/$(PRJ_INDEX_HTML)
 
-$(OUT):
-	mkdir -p $@
-
-.PHONY: $(PR_TAR)
-$(PR_TAR): $(shell git ls-files im) | $(OUT)
-	rm -rf build/im
+$(BUILDDIR): $(shell git ls-files im)
+	rm -rf $(BUILDDIR)
 	@for f in $^; do \
-		mkdir -p `dirname build/$$f`; \
-		cp -v $$f build/$$f; \
+		SRC=$$f ; \
+		DEST=$(BUILDDIR)/`cut -f 2- -d / <<< $$f`; \
+		mkdir -p `dirname $$DEST`; \
+		cp -v $$SRC $$DEST ; \
 	done
-	#echo "div.lesson_discussion { display: none; }" > build/im/override.css
-	cd build/im && $(CREATE_LESSON_PLANS) $(LP_INDEX_HTML)
-	rm build/im/$(LP_INDEX_HTML)
-	cd build/im && tar cvzf $@ *
+	#echo "div.lesson_discussion { display: none; }" > $(BUILDDIR)/override.css
+	cd $(BUILDDIR) && $(CREATE_PROJECTS) $(PRJ_INDEX_HTML)
+	rm $(BUILDDIR)/$(PRJ_INDEX_HTML)
+
+$(PRJ_TAR): $(BUILDDIR) $(shell find $(BUILDDIR) 2>/dev/null) Makefile
+	$(SETUP) sdist
+	mv dist/$(notdir $@) $@

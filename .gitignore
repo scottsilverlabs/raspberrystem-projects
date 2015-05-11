@@ -1,3 +1,16 @@
-build/
+# wildcards
+*.pyc
+*.egg-info/
+*.tar.gz
+
+# dirs
+__pycache__/
+/dist/
+projects.build/
 out/
+
+# specific files
+/server
+/VERSION
+/NAME
 
