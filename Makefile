@@ -24,10 +24,8 @@ DUMMY:=$(shell scripts/version.sh)
 NAME:=$(shell cat NAME)
 VER:=$(shell cat VERSION)
 
-PRJ_INDEX_HTML=RaspberrySTEM_Instructor_Manual.html
-CREATE_PROJECTS=python3 $(abspath scripts/create_lesson_plans.py)
-
 BUILDDIR=projects.build
+PROJECTSDIR=im
 
 # Final targets
 PRJ_TAR:=$(abspath $(NAME)-$(VER).tar.gz)
@@ -64,25 +62,21 @@ clean:
 	rm -f *.tar.gz
 	rm -rf *.egg-info
 	rm -rf __pycache__
+	rm -rf dist
 	rm -f $(TARGETS)
-	rm -rf out
 	rm -rf $(BUILDDIR)
 
-tidy:
-	tidy -im im/$(PRJ_INDEX_HTML)
+.PHONY: $(BUILDDIR)
+$(BUILDDIR):
+	@if [ -z "$(FORCE)" -a `git clean -n $(PROJECTSDIR) | wc -l` -gt 0 ]; then \
+		echo "Refusing to build.  The $(PROJECTSDIR) directory is not git clean"; \
+		echo "To force: make FORCE=1"; \
+		exit 1; \
+	fi
+	rm -rf $@
+	mkdir -p $@
+	cp -r $(PROJECTSDIR)/* $@
 
-$(BUILDDIR): $(shell git ls-files im)
-	rm -rf $(BUILDDIR)
-	@for f in $^; do \
-		SRC=$$f ; \
-		DEST=$(BUILDDIR)/`cut -f 2- -d / <<< $$f`; \
-		mkdir -p `dirname $$DEST`; \
-		cp -v $$SRC $$DEST ; \
-	done
-	#echo "div.lesson_discussion { display: none; }" > $(BUILDDIR)/override.css
-	cd $(BUILDDIR) && $(CREATE_PROJECTS) $(PRJ_INDEX_HTML)
-	rm $(BUILDDIR)/$(PRJ_INDEX_HTML)
-
-$(PRJ_TAR): $(BUILDDIR) $(shell find $(BUILDDIR) 2>/dev/null) Makefile
+$(PRJ_TAR): $(BUILDDIR) Makefile
 	$(SETUP) sdist
 	mv dist/$(notdir $@) $@
