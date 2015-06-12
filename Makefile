@@ -51,6 +51,9 @@ register:
 targets:
 	@echo $(TARGETS)
 
+uninstall:
+	$(RUNONPI) sudo $(PIP) uninstall -y $(NAME)
+
 install:
 	scp $(PRJ_TAR) $(PI):/tmp
 	-$(RUNONPI) sudo $(PIP) uninstall -y $(NAME)
