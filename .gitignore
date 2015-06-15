@@ -2,6 +2,7 @@
 *.pyc
 *.egg-info/
 *.tar.gz
+.~lock.*#
 
 # dirs
 __pycache__/
