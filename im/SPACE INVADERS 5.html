@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
+	<meta name="author" content="J Scott"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changedby" content="Brian Silverman"/>
+	<meta name="changed" content="2015-06-15T14:57:13.381704000"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
+		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
+		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
+		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
+		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
+		a:link { color: #0563c1; so-language: en-US }
+	</style>
+</head>
+<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
+<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">SPACE
+INVADERS 5</h1>
+<p class="western" style="margin-bottom: 0.25in">Fire missiles:</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">from
+rstem.button import Button</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">fire_button
+= Button(25)</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_x,
+missile_y = -1, -1</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">MISSILE_COLOR
+= 10</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">MISSILE_STEP_TIME
+= 0.1</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">while
+True:</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Get inputs</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">presses
+= fire_button.presses()</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">x_force,
+y_force, z_force = accel.forces()</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">now
+= time.time()</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Change the World</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
+missile_x &gt;= 0 and now - missile_start_time &gt;
+MISSILE_STEP_TIME:</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Missile already launched - move it up</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_y
++= 1</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
+missile_y &gt;= fb.height:</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_x,
+missile_y = -1, -1</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_start_time
+= now</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">elif
+presses:</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Button was pressed - launch missile</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_x,
+missile_y = (round(spaceship_position), 1)</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">missile_start_time
+= now</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Show world</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+########################################</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
+Draw missile</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
+missile_x &gt;= 0:</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">fb.point(missile_x,
+missile_y, MISSILE_COLOR)</font></font></p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+
+</body>
+</html>
