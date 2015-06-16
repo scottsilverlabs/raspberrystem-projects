@@ -1,60 +1,47 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
-	<meta name="author" content="J Scott"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changedby" content="Brian Silverman"/>
-	<meta name="changed" content="2015-06-15T14:56:44.481562000"/>
-	<style type="text/css">
-		@page { margin: 0.79in }
-		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
-		a:link { color: #0563c1; so-language: en-US }
-	</style>
-</head>
-<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
-<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">SPACE
-INVADERS 2</h1>
-<p class="western" style="margin-bottom: 0.25in">Keep track of the
-position of the spaceship, and display it in a gaming loop:</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">import
-time</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">spaceship_position
-= fb.width / 2</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">while
-True:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">fb.erase()</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
-Draw spaceship</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">fb.point(round(spaceship_position),
-0)</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
-Show FrameBuffer on LED Matrix</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">fb.show()</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">time.sleep(0.001)</font></font></p>
-
-</body>
-</html>
+<H1>SPACE INVADERS 2</H1>
+<P>Keep track of the
+position of the spaceship, and display it in a gaming loop:</P>
+<P>...</P>
+<P>import
+time</P>
+<P>...</P>
+<P><BR>
+</P>
+<P>spaceship_position
+= fb.width / 2</P>
+<P><BR>
+</P>
+<P>while
+True:</P>
+<P>   
+fb.erase()</P>
+<P><BR>
+</P>
+<P>   
+#
+Draw spaceship</P>
+<P>   
+fb.point(round(spaceship_position),
+0)</P>
+<P><BR>
+</P>
+<P>   
+#
+Show FrameBuffer on LED Matrix</P>
+<P>   
+fb.show()</P>
+<P><BR>
+</P>
+<P>   
+time.sleep(0.001)</P>
+</BODY>
+</HTML>

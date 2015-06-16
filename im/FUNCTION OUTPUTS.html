@@ -1,99 +1,85 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
-	<meta name="author" content="J Scott"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changedby" content="Brian Silverman"/>
-	<meta name="changed" content="2015-06-15T14:49:41.039483000"/>
-	<style type="text/css">
-		@page { margin: 0.79in }
-		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
-		a:link { color: #0563c1; so-language: en-US }
-	</style>
-</head>
-<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
-<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">FUNCTION
-OUTPUTS</h1>
-<p class="western" style="margin-bottom: 0.25in">In the previous
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>FUNCTION OUTPUTS</H1>
+<P>In the previous
 project, we talked about how functions can take inputs to allow them
-to do customized tasks. But, not only can functions take inputs, they
-can also send information back (return output) to other parts of the
-code. A good example of this is when we have a function that does
-some calculations for us, and we want to get the results of those
-calculations.</p>
-<p class="western" style="margin-bottom: 0.25in">Perhaps instead of
+to do customized tasks.  But, not only can functions take inputs,
+they can also send information back (return output) to other parts of
+the code.  A good example of this is when we have a function that
+does some calculations for us, and we want to get the results of
+those calculations.</P>
+<P>Perhaps instead of
 printing the name and birth year of people, we’d rather know how
-old the person will be on their birthday this year. Using the
+old the person will be on their birthday this year.  Using the
 information we already have from our previous project, this
 calculation is pretty simple – we just subtract the birth year from
 the current year (2015 as of this writing) and we’ll get the age
-they will be turning this year.</p>
-<p class="western" style="margin-bottom: 0.25in">To create a new
+they will be turning this year.</P>
+<P>To create a new
 function to do this, we can still pass in the “year” parameter
 for the person’s birth year (like we did in the previous project)
 but, instead of printing the information, we do our age calculation
-and store the resulting value in a new variable called “age”. 
-</p>
-<p class="western" style="margin-bottom: 0.25in">This is what the
-function would look like:</p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">def
-calculate_age (birth_year):</font></p>
-<p class="western" style="margin-left: 0.5in; text-indent: 0.5in; margin-bottom: 0.25in">
-<font face="Courier New, serif">age = 2015 - year</font></p>
-<p class="western" style="margin-bottom: 0.25in"><b>Note: </b>This is
-the reason we decided to keep the “year” parameter as a number
+and store the resulting value in a new variable called “age”.  
+</P>
+<P>This is what the
+function would look like:</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P><B>Note:  </B>This
+is the reason we decided to keep the “year” parameter as a number
 instead of a string, so that we could use it to perform this
-calculation.</p>
-<p class="western" style="margin-bottom: 0.25in">Now, to send the
+calculation.</P>
+<P>Now, to send the
 information we’ve calculated back to the main program, we end the
 function with a return statement that contains the information we’re
 sending back (in this case, we’re sending the information contained
-in the variable, “age”):</p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">def
-calculate_age (birth_year):</font></p>
-<p class="western" style="margin-left: 0.5in; text-indent: 0.5in; margin-bottom: 0.25in">
-<font face="Courier New, serif">age = 2015 - year</font></p>
-<p class="western" style="margin-left: 0.5in; text-indent: 0.5in; margin-bottom: 0.25in">
-<font face="Courier New, serif">return (age)</font></p>
-<p class="western" style="margin-bottom: 0.25in">The value of “age”
+in the variable, “age”):</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+return (age)</P>
+<P>The value of “age”
 would then be returned to where the function was called and that
 value could be stored in another variable, printed or used however it
-is needed.</p>
-<p class="western" style="margin-bottom: 0.25in">For example, we
+is needed.</P>
+<P>For example, we
 could call this function for Bob and Susie like we did in the last
 project, but this time, we could get their age as well, store it in a
-variable and then print it out:</p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">bob_age
-= calculate_age (1992)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">susie_age
-= calculate_age (1985)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">print
-(“Bob will be %s year old this year” % bob_age)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">print
-(“Susie will be %s year old this year” % susie_age)</font></p>
-<p class="western" style="margin-bottom: 0.25in">Here is what the
-entire program would look like:</p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">def
-calculate_age (birth_year):</font></p>
-<p class="western" style="margin-left: 0.5in; text-indent: 0.5in; margin-bottom: 0.25in">
-<font face="Courier New, serif">age = 2015 - year</font></p>
-<p class="western" style="margin-left: 0.5in; text-indent: 0.5in; margin-bottom: 0.25in">
-<font face="Courier New, serif">return (age)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">bob_age
-= calculate_age (1992)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">susie_age
-= calculate_age (1985)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">print
-(“Bob will be %s year old this year” % bob_age)</font></p>
-<p class="western" style="margin-left: 0.5in; margin-bottom: 0.25in"><font face="Courier New, serif">print
-(“Susie will be %s year old this year” % susie_age)</font></p>
-
-</body>
-</html>
+variable and then print it out:</P>
+<P STYLE="margin-left: 0.5in">bob_age
+= calculate_age (1992)</P>
+<P STYLE="margin-left: 0.5in">susie_age
+= calculate_age (1985)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Bob will be %s year old this year” % bob_age)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Susie will be %s year old this year” % susie_age)</P>
+<P>Here is what the
+entire program would look like:</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+return (age)</P>
+<P STYLE="margin-left: 0.5in">bob_age
+= calculate_age (1992)</P>
+<P STYLE="margin-left: 0.5in">susie_age
+= calculate_age (1985)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Bob will be %s year old this year” % bob_age)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Susie will be %s year old this year” % susie_age)</P>
+</BODY>
+</HTML>

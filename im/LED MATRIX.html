@@ -1,116 +1,78 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
-	<meta name="author" content="J Scott"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changedby" content="Brian Silverman"/>
-	<meta name="changed" content="2015-06-15T14:54:02.918899000"/>
-	<style type="text/css">
-		@page { margin: 0.79in }
-		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
-		a:link { color: #0563c1; so-language: en-US }
-	</style>
-</head>
-<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
-<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">LED
-MATRIX</h1>
-<p class="western" style="margin-bottom: 0.25in">Introduction to the
-LED Matrix and libraries</p>
-<ul>
-	<ul>
-		<li/>
-<p class="western" style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none"><a name="docs-internal-guid-efe0c74c-e964-f29b-0f60-adaf8e7f6c16"></a>
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">First
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>LED MATRIX</H1>
+<P>Introduction to the
+LED Matrix and libraries</P>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">First
 		step, power on (2 wires) - should see vertical and horizontal bars
-		sweep across display</font></font></font></p>
-	</ul>
-</ul>
-<ul>
-	<ul>
-		<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">Second
-		step, hook it up (4 wires)</font></font></font></p>
-		<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">Optional:
-		mounting posts</font></font></font></p>
-		<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">Quick
+		sweep across display</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Second
+		step, hook it up (4 wires)</SPAN></SPAN></SPAN></P>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Optional:
+		mounting posts</SPAN></SPAN></SPAN></P>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Quick
 		test - is it connected. &nbsp;If this program runs without error,
-		then the LED Matrix is connected.</font></font></font></p>
-	</ul>
-</ul>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">from
-rstem.led_matrix import FrameBuffer</font></font></font></p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">FrameBuffer()</font></font></font></p>
-<ul>
-	<ul>
-		<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">A
+		then the LED Matrix is connected.</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
+rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">FrameBuffer()</SPAN></SPAN></SPAN></P>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">A
 		framebuffer is where the next image to be displayed on the screen
-		is stored. &nbsp;General usage:</font></font></font></p>
-		<ul>
-			<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-			<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">erase()</font></font></font></p>
-			<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-			<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">draw
-			stuff</font></font></font></p>
-			<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-			<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">show()</font></font></font></p>
-			<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; line-height: 137%">
-			<font color="#000000"><span style="text-decoration: none">…
-			</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">repeat</span></span></font></font></span></font></span></p>
-		</ul>
-		<li/>
-<p class="western" style="margin-bottom: 0in; background: #ffffff; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-		<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">New
-		code - a dot on the screen.</font></font></font></p>
-	</ul>
-</ul>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">from
-rstem.led_matrix import FrameBuffer</font></font></font></p>
-<p class="western" style="margin-bottom: 0.1in; line-height: 120%"><br/>
-<br/>
-
-</p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">fb
-= FrameBuffer()</font></font></font></p>
-<p class="western" style="margin-bottom: 0.1in; line-height: 120%"><br/>
-<br/>
-
-</p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">x,
-y = (3, 3)</font></font></font></p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">fb.erase()</font></font></font></p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">fb.point(x,
-y)</font></font></font></p>
-<p class="western" style="margin-left: 1.5in; margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">fb.show()</font></font></font></p>
-<p class="western" style="margin-bottom: 0.1in; line-height: 120%"><br/>
-<br/>
-
-</p>
-
-</body>
-</html>
+		is stored. &nbsp;General usage:</SPAN></SPAN></SPAN></P>
+		<UL>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">erase()</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">draw
+			stuff</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">show()</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none">...
+			</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">repeat</SPAN></SPAN></SPAN></P>
+		</UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
+		code - a dot on the screen.</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
+rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb
+= FrameBuffer()</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x,
+y = (3, 3)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.erase()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(x,
+y)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.show()</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

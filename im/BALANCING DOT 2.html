@@ -1,62 +1,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
-	<meta name="author" content="J Scott"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changedby" content="Brian Silverman"/>
-	<meta name="changed" content="2015-06-15T14:55:47.657325000"/>
-	<style type="text/css">
-		@page { margin: 0.79in }
-		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
-		a:link { color: #0563c1; so-language: en-US }
-	</style>
-</head>
-<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
-<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">BALANCING
-DOT 2</h1>
-<p class="western" style="margin-bottom: 0.25in">Project: Balancing
-Dot using accelerometer – x direction only</p>
-<p class="western" style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 120%; text-decoration: none"><a name="docs-internal-guid-efe0c74c-e969-47c8-d456-f63829567aba"></a>
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">TILT_FORCE
-= 0.1</font></font></font></p>
-<p class="western" style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">STEP
-= 0.1</font></font></font></p>
-<p class="western" style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">x,
-y = (3, 3)</font></font></font></p>
-<p class="western" style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 137%; text-decoration: none">
-<font color="#000000"><font face="Arial, serif"><font size="2" style="font-size: 9pt">while
-True:</font></font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">x_force,
-y_force, z_force = accel.forces()</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%; text-decoration: none">
-<font color="#000000">&nbsp;&nbsp;&nbsp;</font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">if
-x_force &gt; TILT_FORCE:</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">x
--= STEP</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">elif
-x_force &lt; -TILT_FORCE:</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">x
-+= STEP</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0.1in; line-height: 120%"><br/>
-<br/>
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">fb.erase()</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">fb.point(round(x),
-round(y))</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">fb.show()</span></span></font></font></span></font></span></p>
-<p class="western" style="margin-bottom: 0in; line-height: 137%; text-decoration: none">
-<font color="#000000">&nbsp;&nbsp;&nbsp;</font></p>
-<p class="western" style="margin-bottom: 0.1in; line-height: 120%"><font color="#000000"><span style="text-decoration: none">&nbsp;&nbsp;&nbsp;</span></font><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial, serif"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal">time.sleep(.1)</span></span></font></font></span></font></span></p>
-</body>
-</html>
+<H1>BOUNCING BALL 2</H1>
+<P>Project:  Bouncing
+Ball using accelerometer – x direction only</P>
+<P>
+<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">TILT_FORCE
+= 0.1</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">STEP
+= 0.1</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x,
+y = (3, 3)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">while
+True:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x_force,
+y_force, z_force = accel.forces()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">if
+x_force &gt; TILT_FORCE:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x
+-= STEP</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">elif
+x_force &lt; -TILT_FORCE:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x
++= STEP</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.erase()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(round(x),
+round(y))</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.show()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">time.sleep(.1)</SPAN></SPAN></SPAN></P>
+</BODY>
+</HTML>
+

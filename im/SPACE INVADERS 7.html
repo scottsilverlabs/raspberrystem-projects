@@ -1,69 +1,66 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 4.3.2.2 (MacOSX)"/>
-	<meta name="author" content="J Scott"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changedby" content="Brian Silverman"/>
-	<meta name="changed" content="2015-06-15T14:57:33.496902000"/>
-	<style type="text/css">
-		@page { margin: 0.79in }
-		h1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-		h1.western { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-		p { margin-bottom: 0.08in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-		p.western { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-		p.cjk { font-family: "Calibri"; font-size: 11pt; so-language: en-US }
-		a:link { color: #0563c1; so-language: en-US }
-	</style>
-</head>
-<body lang="en-US" text="#00000a" link="#0563c1" dir="ltr">
-<h1 class="western" style="margin-top: 0in; margin-bottom: 0.2in">SPACE
-INVADERS 7</h1>
-<p class="western" style="margin-bottom: 0.25in">Move the aliens back
-and forth:</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_direction
-= 1</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_speed
-= 1</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">while
-True:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">#
-Move alien</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
-now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_at_right_side
-= alien_direction &gt; 0 and max(alien_columns) == fb.width - 1</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_at_left_side
-= alien_direction &lt; 0 and min(alien_columns) == 0</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
-alien_at_left_side or alien_at_right_side:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_row
--= 1</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_speed
-*= 1.3</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_direction
-= - alien_direction</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">if
-alien_row == 0:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">break</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">else:</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">alien_columns
-= [column + alien_direction for column in alien_columns]</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><font face="Courier New, serif"><font size="1" style="font-size: 8pt">...</font></font></p>
-<p class="western" style="margin-bottom: 0in; line-height: 100%"><br/>
-
-</p>
-
-</body>
-</html>
+<H1>SPACE INVADERS 7</H1>
+<P>Move the aliens back
+and forth:</P>
+<P>...</P>
+<P>alien_direction
+= 1</P>
+<P>alien_speed
+= 1</P>
+<P>...</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+<P>while
+True:</P>
+<P>   
+...</P>
+<P>   
+#
+Move alien</P>
+<P>   
+if
+now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:</P>
+<P>    
+   alien_at_right_side
+= alien_direction &gt; 0 and max(alien_columns) == fb.width - 1</P>
+<P>    
+   alien_at_left_side
+= alien_direction &lt; 0 and min(alien_columns) == 0</P>
+<P>    
+   if
+alien_at_left_side or alien_at_right_side:</P>
+<P>    
+       alien_row
+-= 1</P>
+<P>    
+       alien_speed
+*= 1.3</P>
+<P>    
+       alien_direction
+= - alien_direction</P>
+<P>    
+       if
+alien_row == 0:</P>
+<P>    
+           break</P>
+<P>    
+   else:</P>
+<P>    
+       alien_columns
+= [column + alien_direction for column in alien_columns]</P>
+<P>   
+...</P>
+<P><BR>
+</P>
+</BODY>
+</HTML>
