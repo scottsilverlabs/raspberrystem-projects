@@ -52,6 +52,10 @@ H3 {
 A:link {
     color: #0563c1;
 }
+
+/*
+ * Code blocks
+ */
 div.code {
     margin-left: 25px;
 }
@@ -59,13 +63,51 @@ div.code > div:first-child::before {
     content: "Code";
 }
 div.code > div:first-child {
-    font-size: 20pt;
+    font-size: 14pt;
     color: #ffffff;
     background-color: #657777;
     padding: 10
 }
 div.code div:last-child {
-    font-size: 20pt;
+    font-size: 14pt;
 }
 
 .CodeMirror-cursor { visibility: hidden; }
+
+/*
+ * Output blocks
+ */
+div.output {
+    margin-left: 25px;
+}
+div.output > div:first-child::before {
+    content: "Program Output";
+}
+div.output > div:first-child {
+    font-size: 14pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10
+}
+div.output div:last-child {
+    font-size: 14pt;
+}
+
+/*
+ * Info blocks
+ */
+div.info {
+    margin-left: 25px;
+}
+div.info > div:first-child::before {
+    content: "Understanding";
+}
+div.info > div:first-child {
+    font-size: 14pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10
+}
+div.info div:last-child {
+    font-size: 14pt;
+}
