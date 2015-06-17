@@ -1,10 +1,71 @@
-@page { margin: 0.79in }
-P { margin-bottom: 0.14in; direction: ltr; color: #00000a; line-height: 150%; text-align: left; widows: 2; orphans: 2 }
-P { font-family: "Verdana", serif; font-size: 11pt; so-language: en-US }
-H1 { margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-H1 { font-family: "Calibri Light", serif; font-size: 16pt; so-language: en-US; font-weight: normal }
-H2 { margin-top: 0.03in; margin-bottom: 0in; direction: ltr; color: #2e74b5; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-H2 { font-family: "Calibri Light", serif; font-size: 13pt; so-language: en-US; font-weight: normal }
-H3 { margin-top: 0.03in; margin-bottom: 0in; direction: ltr; color: #1f4d78; line-height: 150%; text-align: left; page-break-inside: avoid; widows: 2; orphans: 2 }
-H3 { font-family: "Calibri Light", serif; font-size: 12pt; so-language: en-US; font-weight: normal }
-A:link { color: #0563c1; so-language: en-US }
+@page {
+    margin: 0.79in
+}
+P {
+    margin-bottom: 0.14in;
+    color: #00000a;
+    line-height: 150%;
+    text-align: left;
+    widows: 2;
+    orphans: 2;;
+    font-family: "Verdana", serif;
+    font-size: 11pt;
+}
+H1 {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 16pt;
+    font-weight: normal
+}
+H2 {
+    margin-top: 0.03in;
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 13pt;
+    font-weight: normal
+}
+H3 {
+    margin-top: 0.03in;
+    margin-bottom: 0in;
+    color: #1f4d78;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 12pt;
+    font-weight: normal
+}
+A:link {
+    color: #0563c1;
+}
+div.code {
+    margin-left: 25px;
+}
+div.code > div:first-child::before {
+    content: "Code";
+}
+div.code > div:first-child {
+    font-size: 20pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10
+}
+div.code div:last-child {
+    font-size: 20pt;
+}
+
+.CodeMirror-cursor { visibility: hidden; }

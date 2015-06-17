@@ -4,6 +4,10 @@
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE></TITLE>
     <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 </HEAD>
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
@@ -12,27 +16,58 @@
 Accelerometer and libraries</P>
 <UL>
 	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Attach
-		4 wires (power, ground, SDA, SCL)</SPAN></SPAN></SPAN></P>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
-		code</SPAN></SPAN></SPAN></P>
+		<LI><P> Attach 4 wires (power, ground, SDA, SCL)</P>
+		<LI><P> New code</P>
 	</UL>
 </UL>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">accel
-= Accel()</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">while
-True:</SPAN></SPAN></SPAN></P>
-<P>
-<SPAN STYLE="text-decoration: none">
-&nbsp;&nbsp;&nbsp;<SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x_force,
-y_force, z_force = accel.forces()</SPAN></SPAN></SPAN></P>
-<P><BR><BR><BR>
-</P>
-<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;
-</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">print(x_force,
-y_force, z_force)</SPAN></SPAN></SPAN><BR><BR>
-</P>
+before
+<div class=code>
+<div></div>
+<div>
+vkjdnfksvjn
+    jkvenwkvn
+    jkenrf
+</div>
+</div>
+after
+<P>accel = Accel()</P>
+<P>while True:</P>
+<P>&nbsp;&nbsp;&nbsp;x_force, y_force, z_force = accel.forces()</P>
+<P>&nbsp;&nbsp;&nbsp;print(x_force, y_force, z_force) </P>
+
+<script>
+
+    var codeblocks = document.getElementsByClassName("code");
+    for (i = 0; i < codeblocks.length; i++) { 
+        codeblock = codeblocks[i].children[1]
+
+        // Split into lines and delete first and last lines.  Then rejoin.
+        var lines = codeblock.innerHTML.split('\n');
+        lines.splice(0,1);
+        lines.splice(-1,1);
+        var newtext = lines.join('\n');
+
+        codeblock.value = newtext
+
+        var cm = CodeMirror.fromTextArea(codeblock, {
+            mode: {
+                name: "python",
+                version: 3,
+                singleLineStringErrors: false
+            },
+            autofocus: true,
+            firstLineNumber: 7,
+            lineNumbers: true,
+            indentUnit: 4,
+            indentWithTabs: true,
+            matchBrackets: true,
+            theme: "solarized-dark",
+            readOnly: true,
+            textWrapping: true,
+            viewportMargin: 3, //Default: 10
+        });
+    }
+
+</script>
 </BODY>
 </HTML>
