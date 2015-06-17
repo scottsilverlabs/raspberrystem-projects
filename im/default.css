@@ -78,14 +78,8 @@ div.code > div:first-child {
     background-color: #657777;
     padding: 10
 }
-div.code textarea:last-child {
-    font-size: 20pt;
-}
 
 .CodeMirror-cursor { visibility: hidden; }
-.CodeMirror {
-  height: auto;
-}
 
 /*
  * Output blocks

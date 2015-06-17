@@ -32,6 +32,8 @@ window.onload = function() {
             textWrapping: true,
         });
 
+        // Auto height computation...  CodeMirror seems like it supports
+        // auto-height via CSS, but it wasn't working.
         cm.setSize(null, cm.defaultTextHeight() * (numLines+1));
     }
 }
