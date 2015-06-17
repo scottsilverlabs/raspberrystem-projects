@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>INTRO TO FUNCTIONS</H1>
+<P>In this project
+we’re going to learn about functions.  A function is one of the
+most basic concepts in programming, and also one of the most
+important.  It often takes a lot of code to get a computer to do even
+a simple task.  And if you want the computer to do a simple task over
+and over again, that could mean having to write lots of code over and
+over again.  
+</P>
+<P>That doesn’t sound
+very efficient, does it?  
+</P>
+<P>It’s not, which is
+why instead of writing the same code many times, we just write the
+code once in a special format, and then we can use that code over and
+over again, as many times as we want.  That special format that
+allows us to re-use the code over and over again is called a
+function.</P>
+<P>Here’s an example…</P>
+<P>Let’s say that we
+wanted to write some code that would print my name and the year I was
+born.  We could do this exactly like we did with the “Hello,
+World!” code we wrote in Project #1, and our code might look like
+the following:</P>
+<P STYLE="margin-left: 0.5in">print
+(‘My name is:  Jason’)</P>
+<P STYLE="margin-left: 0.5in">print
+(‘I was born in:  1971’)</P>
+<P>Now let’s say we
+expected to print those same lines many times within our code.  While
+we could type those lines over and over again in the code, that would
+…</P>
+<P>The simpler way
+would be to create a function that prints those two lines, and then
+“call” the function every time we want those lines printed. 
+Let’s turn the above two lines into a function that we can call
+from other places in our code.</P>
+<P>The first step in
+creating a function is giving it a name.  In this case, let’s say
+we wanted to call this function, “print_info”.  This is done by
+using the “def” keyword on the first line of the function,
+followed by the function name, a set of parentheses and a colon:</P>
+<P STYLE="margin-left: 0.5in">def
+print_info ( ):</P>
+<P>After the first line
+that names the function comes the code that we want our function to
+run every time it is called.  In this case, it’s the two print
+lines we discussed earlier.  So, this is what our function would look
+like:</P>
+<P STYLE="margin-left: 0.5in">def
+print_info ( ):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘My name is:  Jason’)</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘I was born in:  1971’)</P>
+<P>Notice that all the
+code lines of the function are indented.  This is required, and is
+how the code knows which lines are associated with which function.</P>
+<P>To now use that
+function, we can call it elsewhere in our code like this:</P>
+<P STYLE="margin-left: 0.5in">print_info
+( )</P>
+<P>All we have to do to
+call the function is to provide the function name followed by a set
+of parentheses.</P>
+<P>Let’s put it all
+together and write a program that defines this function and then
+calls this function to actually have it print out those two lines:</P>
+<P STYLE="margin-left: 0.5in">def
+print_info ( ):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘My name is:  Jason’)</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘I was born in:  1971’)</P>
+<P STYLE="margin-left: 0.5in">print_info
+( )</P>
+<P>One big value in
+functions is that it allows us to reuse the same code over and over. 
+So, let’s see what happens when we call that function several times
+in a row:</P>
+<P STYLE="margin-left: 0.5in">def
+print_info ( ):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘My name is:  Jason’)</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+print (‘I was born in:  1971’)</P>
+<P STYLE="margin-left: 0.5in">print_info
+( )</P>
+<P STYLE="margin-left: 0.5in">print_info
+( )</P>
+<P STYLE="margin-left: 0.5in">print_info
+( )</P>
+<P>If you run this
+program, you’ll see that each of the three times the function is
+called, it prints the two lines.  Imagine if we were going to need
+those two lines printed a hundred times throughout our program –
+you can see how using a function is a lot simpler and also makes our
+code much less complicated.</P>
+<P><B>Note: </B> We
+mentioned earlier that when you run a program, the computer will
+execute each line of code, starting at the top and moving down
+through the code, line-by-line.  But, when the computer sees a
+function, it doesn’t execute that code until the function is
+called.  So, for our code above, the first three lines (the function
+definition and the two lines of code in the function) are ignored and
+the computer will start by executing the first line below the
+function.  To make things simpler, functions are often stored in
+separate files, so that the code is easier to read and follow.</P>
+</BODY>
+</HTML>

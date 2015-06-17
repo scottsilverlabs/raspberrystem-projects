@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>ACCELEROMETER</H1>
+<P>Introduce
+Accelerometer and libraries</P>
+<UL>
+	<UL>
+		<LI><P> Attach 4 wires (power, ground, SDA, SCL)</P>
+		<LI><P> New code</P>
+	</UL>
+</UL>
+before
+<div class=code data-firstline=5><div></div><div>
+This code is just for testing the code blocks!!!!
+from rstem.led_matrix import FrameBuffer
+import time
+
+fb = FrameBuffer()
+
+spaceship_position = fb.width / 2
+
+while True:
+    fb.erase()
+
+    # Draw spaceship
+    fb.point(round(spaceship_position), 0)
+
+    # Show FrameBuffer on LED Matrix
+    fb.show()
+
+    time.sleep(0.01)
+</div></div>
+after
+<P>accel = Accel()</P>
+<P>while True:</P>
+<P>&nbsp;&nbsp;&nbsp;x_force, y_force, z_force = accel.forces()</P>
+<P>&nbsp;&nbsp;&nbsp;print(x_force, y_force, z_force) </P>
+</BODY>
+</HTML>

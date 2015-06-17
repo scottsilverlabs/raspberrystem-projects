@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>LED MATRIX</H1>
+<P>Introduction to the
+LED Matrix and libraries</P>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">First
+		step, power on (2 wires) - should see vertical and horizontal bars
+		sweep across display</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Second
+		step, hook it up (4 wires)</SPAN></SPAN></SPAN></P>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Optional:
+		mounting posts</SPAN></SPAN></SPAN></P>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Quick
+		test - is it connected. &nbsp;If this program runs without error,
+		then the LED Matrix is connected.</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
+rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">FrameBuffer()</SPAN></SPAN></SPAN></P>
+<UL>
+	<UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">A
+		framebuffer is where the next image to be displayed on the screen
+		is stored. &nbsp;General usage:</SPAN></SPAN></SPAN></P>
+		<UL>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">erase()</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">draw
+			stuff</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">show()</SPAN></SPAN></SPAN></P>
+			<LI><P>
+			<SPAN STYLE="text-decoration: none">...
+			</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">repeat</SPAN></SPAN></SPAN></P>
+		</UL>
+		<LI><P>
+		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
+		code - a dot on the screen.</SPAN></SPAN></SPAN></P>
+	</UL>
+</UL>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
+rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb
+= FrameBuffer()</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x,
+y = (3, 3)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.erase()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(x,
+y)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.show()</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

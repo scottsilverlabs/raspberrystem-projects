@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>USING THE BREADBOARD</H1>
+<P>In the previous
+sections, we talked about circuits, how they work, how we build them
+and how we represent them on a schematic diagram.  We even built our
+first circuit using a battery, a resistor, and LED and some wires.  
+</P>
+<P>When it comes to
+building circuits in real life, connecting wires and components
+together like we did above – either twisting the wires together or
+soldering them together – is certainly one way to do it.  While
+sometimes it makes sense to build circuits by twisting wires together
+or soldering, the problem is that these modifying these types of
+circuits can be very difficult and cumbersome.</P>
+<P>In most cases,
+you’ll want to build temporary circuits that are easy to modify –
+this lets you “play around” with the circuit and work out the
+kinks in your design; then, once you have a temporary circuit that is
+working exactly the way you want, you can use the design as the basis
+for your permanent circuit.</P>
+<P>One of the most
+common ways of building a temporary circuit involves the use of a
+“breadboard,” which you may also hear referred to as a
+“proto-board.”  The name breadboard stems from the fact that
+early electronics hobbyists would often use the large wooden boards
+designed for rolling out and cutting bread dough to house their
+temporary circuits.</P>
+<P>The breadboards used
+to build electronics are often called “solderless” breadboards,
+which can help avoid confusion when talking to your pastry chef
+friends.  </P>
+<H2>Breadboard Design</H2>
+<P>Breadboards come in
+many shapes and sizes, but the fundamental components of the
+breadboard will remain the same:</P>
+<P ALIGN=CENTER><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m2bb8db12.png" ALIGN=BOTTOM WIDTH=487 HEIGHT=271 BORDER=0></P>
+<P>We’ll get to the
+purpose of each of these parts in a moment, but the key to a
+breadboard’s usefulness is how the various areas are electrically
+connected.  Those connections are illustrated here:</P>
+<P ALIGN=CENTER><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_17c6d178.png" ALIGN=BOTTOM WIDTH=486 HEIGHT=269 BORDER=0></P>
+<P>As you can see, each
+of the two rails consists of two long row of connections (a red row
+in each rail and a blue row in each rail).  There are spaces between
+the groups of holes in the rail, but the entire row is still
+electrically connected as indicated.  Also note that the two red rows
+are not connected and the two blue rows are not connected – they
+are denoted in the same color only because they serve the same
+purpose.  
+</P>
+<P>In the center of the
+board, each row of five connect strips are electrically connected
+together.  While I only highlighted a few rows of connect strips, in
+actuality, every row of five is a connected strip.  It’s important
+to note that there is no electrical connection across the notch –
+there’s good reason for this which we’ll get to in a bit.</P>
+<P>If you recall from
+our previous on basic electrical circuits, in order to have a closed
+circuit, electricity must be able to flow from power, through the
+circuit, to ground.  A breadboard makes it easy to wire a circuit in
+this fashion – the rails contain the start of the circuit (power)
+and the end of the circuit (ground), while the connect strips provide
+space for your components and the connections between those
+components.</P>
+<H2>
+Your First Circuit on the Breadboard</H2>
+<P>In a previous
+project (Project #2), we built the following circuit using a battery,
+an LED, a resistor, and some wires:</P>
+<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_7ea4d21c.jpg" ALIGN=BOTTOM WIDTH=735 HEIGHT=237 BORDER=0></P>
+<P>We’re now going to
+build that same circuit again, but this time using the breadboard on
+our RaspberrySTEM.  Note that all future projects will use the
+breadboard as well…</P>
+<P>
+Let’s look back at our example schematic from our first circuit:</P>
+<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_4512390.jpg" ALIGN=BOTTOM WIDTH=484 HEIGHT=293 BORDER=0></P>
+<P>To implement that
+design on our breadboard, we would follow the schematic from power to
+ground, inserting each component along the way.  Let’s look at this
+step-by-step:</P>
+<OL>
+	<LI><P><B>Provide power and ground to
+	the breadboard.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+The first step is to provide power and ground to the breadboard. 
+This is done by wiring the (+) terminal of the 3V battery to one of
+the holes in the red row along the rail.  This will provide power to
+the entire red row, as all the holes in that row are connected.</P>
+<P STYLE="margin-left: 0.25in">
+Next, wire the (-) terminal of the 3V battery to one of the holes in
+the blue row along the rail.  This will provide ground to the entire
+blue row, as all holes in that row are connected.</P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_23e4358d.jpg" ALIGN=BOTTOM WIDTH=186 HEIGHT=142 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m49a96a62.png" ALIGN=BOTTOM WIDTH=735 HEIGHT=443 BORDER=0></P>
+<OL START=2>
+	<LI><P><B>Bring power to one of the
+	connect strips on the breadboard.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+Next, we will connect power from the red rail to one of the connect
+strips on the breadboard (the connect strips are where we’ll be
+creating the heart of the circuit).  We do this by running a wire
+from the power row (the red row along the rail) to any connect strip,
+and firmly planting the ends of the wire into their respective holes.
+ Remember, it doesn’t matter which hole you choose in the power
+row, as the entire row is connected.  And it doesn’t matter which
+connect strip you choose or which hole of the connect strip you
+choose.</P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_4d08d3c4.jpg" ALIGN=BOTTOM WIDTH=205 HEIGHT=205 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_7916df97.png" ALIGN=BOTTOM WIDTH=735 HEIGHT=443 BORDER=0></P>
+<OL START=3>
+	<LI><P><B>Connect the resistor.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+The next step is to connect the resistor to the breadboard.  We do
+this by inserting one end of the resistor into the same connect strip
+as the wire.  We then insert the other end of the resistor into a
+different connect strip.  Because all five holes in the connect strip
+are connected, there is now continuity all the way from the power
+source (the battery) to the first connect strip, through the
+resistor, and to the second connect strip.</P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m36fdb311.jpg" ALIGN=BOTTOM WIDTH=360 HEIGHT=254 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_27c294ad.png" ALIGN=BOTTOM WIDTH=735 HEIGHT=443 BORDER=0></P>
+<OL START=4>
+	<LI><P><B>Provide continuity from the
+	resistor to new connect strip.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+We now place a wire from the same connect strip as the resistor to a
+new connect strip.  This new connect strip is where we will connect
+the first lead of our LED.</P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m3fececbd.jpg" ALIGN=BOTTOM WIDTH=396 HEIGHT=258 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_1a585efc.png" ALIGN=BOTTOM WIDTH=735 HEIGHT=443 BORDER=0></P>
+<OL START=5>
+	<LI><P><B>Connect the LED.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+Now that we have continuity from the resistor to a new connect strip,
+it’s time to insert the next component – the LED.  We insert one
+end of the LED anywhere in the connect strip we just wired.  And we
+insert the other end of the LED into a new connect strip.</P>
+<P STYLE="margin-left: 0.25in">
+<I>Note that LEDs must be oriented the correct way for electricity to
+flow through them, so ensure that the long side of the LED is the
+side inserted into second connect strip.</I></P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m232fd057.jpg" ALIGN=BOTTOM WIDTH=476 HEIGHT=257 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_1d619bc5.png" ALIGN=BOTTOM WIDTH=713 HEIGHT=430 BORDER=0></P>
+<P><BR><BR>
+</P>
+<OL START=6>
+	<LI><P><B>Complete the circuit.</B></P>
+</OL>
+<P STYLE="margin-left: 0.25in">
+We now have continuity all the way from power, through the resistor
+and to the LED – it’s now time to complete the circuit by
+attaching the LED to ground.  We do this by attaching the second leg
+of the LED to the blue row along the rail (the ground row).  Because
+the second leg of the LED is embedded in a connect strip, we can
+accomplish this by connecting any part of that connect strip to any
+hole in the blue row using a wire.</P>
+<P STYLE="margin-left: 0.25in">
+Now that the circuit is completed, electricity should be flowing, and
+your LED should be lit!</P>
+<P STYLE="margin-left: 0.25in">
+Here’s what the final breadboard layout should look like:</P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m39c7b3e5.jpg" ALIGN=BOTTOM WIDTH=477 HEIGHT=292 BORDER=0></P>
+<P STYLE="margin-left: 0.25in">
+<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_m265ab630.png" ALIGN=BOTTOM WIDTH=735 HEIGHT=443 BORDER=0></P>
+<P>
+<BR><BR>
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

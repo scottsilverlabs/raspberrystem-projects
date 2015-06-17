@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>FUNCTION OUTPUTS</H1>
+<P>In the previous
+project, we talked about how functions can take inputs to allow them
+to do customized tasks.  But, not only can functions take inputs,
+they can also send information back (return output) to other parts of
+the code.  A good example of this is when we have a function that
+does some calculations for us, and we want to get the results of
+those calculations.</P>
+<P>Perhaps instead of
+printing the name and birth year of people, we’d rather know how
+old the person will be on their birthday this year.  Using the
+information we already have from our previous project, this
+calculation is pretty simple – we just subtract the birth year from
+the current year (2015 as of this writing) and we’ll get the age
+they will be turning this year.</P>
+<P>To create a new
+function to do this, we can still pass in the “year” parameter
+for the person’s birth year (like we did in the previous project)
+but, instead of printing the information, we do our age calculation
+and store the resulting value in a new variable called “age”.  
+</P>
+<P>This is what the
+function would look like:</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P><B>Note:  </B>This
+is the reason we decided to keep the “year” parameter as a number
+instead of a string, so that we could use it to perform this
+calculation.</P>
+<P>Now, to send the
+information we’ve calculated back to the main program, we end the
+function with a return statement that contains the information we’re
+sending back (in this case, we’re sending the information contained
+in the variable, “age”):</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+return (age)</P>
+<P>The value of “age”
+would then be returned to where the function was called and that
+value could be stored in another variable, printed or used however it
+is needed.</P>
+<P>For example, we
+could call this function for Bob and Susie like we did in the last
+project, but this time, we could get their age as well, store it in a
+variable and then print it out:</P>
+<P STYLE="margin-left: 0.5in">bob_age
+= calculate_age (1992)</P>
+<P STYLE="margin-left: 0.5in">susie_age
+= calculate_age (1985)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Bob will be %s year old this year” % bob_age)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Susie will be %s year old this year” % susie_age)</P>
+<P>Here is what the
+entire program would look like:</P>
+<P STYLE="margin-left: 0.5in">def
+calculate_age (birth_year):</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+age = 2015 - year</P>
+<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+return (age)</P>
+<P STYLE="margin-left: 0.5in">bob_age
+= calculate_age (1992)</P>
+<P STYLE="margin-left: 0.5in">susie_age
+= calculate_age (1985)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Bob will be %s year old this year” % bob_age)</P>
+<P STYLE="margin-left: 0.5in">print
+(“Susie will be %s year old this year” % susie_age)</P>
+</BODY>
+</HTML>

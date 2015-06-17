@@ -2,12 +2,12 @@
 *.pyc
 *.egg-info/
 *.tar.gz
+.~lock.*#
 
 # dirs
 __pycache__/
 /dist/
 projects.build/
-out/
 
 # specific files
 /server

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>SPACE INVADERS 3</H1>
+<P>Add accelerometer to
+move the spaceship:</P>
+<P>from
+rstem.accel import Accel</P>
+<P>...</P>
+<P>accel
+= Accel()</P>
+<P>TILT_FORCE
+= 0.1</P>
+<P>SPACESHIP_STEP
+= 0.1</P>
+<P><BR>
+</P>
+<P>while
+True:</P>
+<P>   
+#
+########################################</P>
+<P>   
+#
+Get inputs</P>
+<P>   
+#
+########################################</P>
+<P>   
+x_force,
+y_force, z_force = accel.forces()</P>
+<P><BR>
+</P>
+<P>   
+#
+########################################</P>
+<P>   
+#
+Change the World</P>
+<P>   
+#
+########################################</P>
+<P><BR>
+</P>
+<P>   
+#
+Move spaceship</P>
+<P>   
+if
+x_force &gt; TILT_FORCE:</P>
+<P>    
+   spaceship_position
+-= SPACESHIP_STEP</P>
+<P>   
+elif
+x_force &lt; -TILT_FORCE:</P>
+<P>    
+   spaceship_position
++= SPACESHIP_STEP</P>
+<P>   
+spaceship_position
+= max(0, min(fb.width - 1, spaceship_position))</P>
+<P><BR>
+</P>
+<P>   
+#
+########################################</P>
+<P>   
+#
+Show world</P>
+<P>   
+#
+########################################</P>
+<P>   
+...</P>
+</BODY>
+</HTML>

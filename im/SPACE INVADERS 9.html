@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>SPACE INVADERS 9</H1>
+<P>Music:</P>
+<P>...</P>
+<P>from
+rstem.sound import Sound, Note</P>
+<P>from
+itertools import cycle</P>
+<P>...</P>
+<P>fire_sound
+= Sound(&quot;/home/pi/fire.wav&quot;)</P>
+<P>hit_sound
+= Sound(&quot;/home/pi/hit.wav&quot;)</P>
+<P>notes
+= cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])</P>
+<P>...</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+<P>while
+True:</P>
+<P>   
+...</P>
+<P>    
+   #
+Button was pressed - launch missile</P>
+<P>    
+   ...</P>
+<P>    
+   fire_sound.play()</P>
+<P>   
+...</P>
+<P>    
+</P>
+<P>   
+#
+Move alien</P>
+<P>   
+if
+...:</P>
+<P>    
+   next(notes).play(duration=0.20)</P>
+<P>    
+   ...</P>
+<P>    
+</P>
+<P>   
+#
+Check for collision</P>
+<P>   
+if
+...:</P>
+<P>    
+   ...</P>
+<P>    
+   hit_sound.play()</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>SIMON 7</H1>
+<P>Simon:
+Wrapping up - error sounds and volume control</P>
+<OL START=7>
+	<UL>
+		<LI><P>New
+		concept: volume</P>
+		<LI><P S>New
+		concept: chaining functions</P>
+		<LI><P>New
+		code:</P>
+	</UL>
+</OL>
+<P>you_failed_note
+= Note('E2')</P>
+<P>you_failed_note.volume
+= 1000</P>
+<P><BR><BR>
+</P>
+<P>for
+note in notes:</P>
+<P>&nbsp;&nbsp;&nbsp;note.volume
+= 400</P>
+<P>...</P>
+<P>#
+Play error tone with pressed light (or all lights) on.</P>
+<P>if
+button_pressed == None:</P>
+<P>&nbsp;&nbsp;&nbsp;for
+light in lights:</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;light.on()</P>
+<P>else:</P>
+<P>&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</P>
+<P>you_failed_note.play(1.5).wait()</P>
+<P>for
+light in lights:</P>
+<P>&nbsp;&nbsp;&nbsp;light.off()</P>
+<P>time.sleep(0.5)</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

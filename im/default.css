@@ -1,157 +1,71 @@
-/* 
- * DISCUSSION/ACTIVITY BLOCKS
- */
-div.project div.discussion div.header:before {
-  content: "DISCUSSION";
+@page {
+    margin: 0.79in
 }
-div.project div.activity div.header:before {
-  content: "ACTIVITY";
+P {
+    margin-bottom: 0.14in;
+    color: #00000a;
+    line-height: 150%;
+    text-align: left;
+    widows: 2;
+    orphans: 2;;
+    font-family: "Verdana", serif;
+    font-size: 11pt;
 }
-div.project div.discussion div.header {
-  background-color: #ccffff;
+H1 {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 16pt;
+    font-weight: normal
 }
-div.project div.activity div.header {
-  background-color: #cccdff;
+H2 {
+    margin-top: 0.03in;
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 13pt;
+    font-weight: normal
 }
-div.project div.discussion, div.project div.activity {
-  margin: 10pt 2%;
-  border: 3pt solid black;
-  width: 96%;
-  border-collapse: collapse;
+H3 {
+    margin-top: 0.03in;
+    margin-bottom: 0in;
+    color: #1f4d78;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 12pt;
+    font-weight: normal
 }
-div.project div.header {
-  font-weight: bold;
-  padding: 8pt;
-  border-bottom: 3pt solid black;
-  font-size: 120%;
+A:link {
+    color: #0563c1;
 }
-div.project div.body {
-  padding: 5pt;
-  padding-left: 8pt;
+div.code {
+    margin-left: 25px;
 }
-
-/*
- * Tables
- */
-table {
-  margin: 10pt 2%;
-  border: 3pt solid black;
-  width: 96%;
-  border-collapse: collapse;
+div.code > div:first-child::before {
+    content: "Code";
 }
-table td {
-  padding: 2pt;
-  border: 1px solid black;
+div.code > div:first-child {
+    font-size: 20pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10
 }
-table.project_header_table {
-  background-color: #51ff7c;
-}
-
-/*
- * Projects counting header
- */
-div#projects h2 {
-  background-color: #eeeeee;
-  border: 1px solid black;
-}
-div#projects {
-  counter-reset: h2
-}
-div#projects h2:before {
-    counter-increment: h2; content: "Project " counter(h2) ": "
-}
-div#projects h2.nocount:before { 
-    content: ""; counter-increment: none 
-} 
-
-/*
- * Formatted code block
- */
-pre.code {
-  padding: 3pt;
-  border: 1pt solid black;
-  margin-left: 80px;
-  margin-right: 40px;
-  background-color: rgb(200, 255, 255);
-}
-pre.codespacer:before {
-  margin-left: 80px;
-  content: "...";
+div.code div:last-child {
+    font-size: 20pt;
 }
 
-
-/*
- * Expandable/collapsible summary and details
- *
- * Modified from: http://www.realcombiz.com/2014/01/how-to-expand-collapse-toggle-div-layer.html
- *
- * Expected detail block should look something like:
- *
- *      <input class="details" type="checkbox" id="77c51440a5b5df65174a8cb0e56b22f4">
- *      <label for="77c51440a5b5df65174a8cb0e56b22f4">
- *        More details
- *      </label>
- *      <div>
- *        Lorem ipsum dolor sit amet, consectetuer adipiscing.
- *      </div>
- *
- * And it should look like (collapsed, default):
- *
- *      (+) More details
- *
- * or expanded:
- *
- *      (-) More details
- *          Lorem ipsum dolor sit amet, consectetuer adipiscing.
- */
-
-/* Don't display default input checkbox, as we make our own */
-.details {
-  display: none;
-}
-
-/* Style the summary label */
-.details + label {
-  cursor: pointer;
-  display: block;
-  font-weight: bold;
-  line-height: 21px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-/* By default, don't show the details div */
-.details + label + div {
-  display: none;
-  margin-bottom: 10px;
-}
-
-/* Show the details div when the checkbox is checked */
-.details:checked + label + div {
-  display: block;
-}
-
-
-/* Our own checkbox (a +/- sign), before the summary */
-.details + label:before {
-  background-color: #4F5150;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  color: #FFFFFF;
-  content: "+";
-  display: block;
-  float: left;
-  font-weight: bold;
-  height: 20px;
-  line-height: 20px;
-  margin-right: 5px;
-  text-align: center;
-  width: 20px;
-}
-
-/* When clicked, convert our checkbox to long dash */
-.details:checked + label:before {
-  content: "\2212";
-}
-
+.CodeMirror-cursor { visibility: hidden; }

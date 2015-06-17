@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</HEAD>
+<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+
+<H1>SPACE INVADERS 6</H1>
+<P>Move the aliens –
+to the right only:</P>
+<P>alien_start_time
+= time.time()</P>
+<P><BR>
+</P>
+<P>ALIENS_STEP_TIME
+= 0.8</P>
+<P>...</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+<P>while
+True:</P>
+<P>   
+...</P>
+<P>   
+#
+########################################</P>
+<P>   
+#
+Change the World</P>
+<P>   
+#
+########################################</P>
+<P><BR>
+</P>
+<P>   
+#
+Move alien</P>
+<P>   
+if
+now - alien_start_time &gt; ALIENS_STEP_TIME:</P>
+<P>    
+   alien_columns
+= [(column + 1) % fb.width for column in alien_columns]</P>
+<P>    
+   alien_start_time
+= now</P>
+<P><BR>
+</P>
+<P>   
+#
+Check for collision</P>
+<P>   
+if
+missile_y == alien_row and missile_x in alien_columns:</P>
+<P>    
+   alien_columns.remove(missile_x)</P>
+<P>    
+   missile_x,
+missile_y = -1, -1</P>
+<P>    
+   if
+not alien_columns:</P>
+<P>    
+       break</P>
+<P>   
+...</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+<P>if
+alien_columns:</P>
+<P>   
+print(&quot;Ouch!&quot;)</P>
+<P>else:</P>
+<P>   
+print(&quot;You
+win!&quot;)</P>
+<P><BR>
+</P>
+<P><BR>
+</P>
+</BODY>
+</HTML>
