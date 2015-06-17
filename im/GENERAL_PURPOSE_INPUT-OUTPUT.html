@@ -3,10 +3,12 @@
   
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
   <title></title>
-
-  
-  
   <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
 
 </head><body dir="ltr" style="color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GENERAL PURPOSE INPUT/OUTPUT</h1>
@@ -169,13 +171,11 @@ become a lot more clear.</p>
 <p style="margin-left: 0.25in;">
 Enter the following code into the your IDE’s Code Window:</p>
 
-<div class="code" data-firstline="1">
-<div>
+<div class="code" data-firstline="1"><div></div><textarea rows=4>
 import rstem
 led = rstem.GPIO.Output(14)
 led.on()
-</div>
-</div>
+</textarea></div>
 
 
 <ol start="3">
@@ -211,11 +211,9 @@ the new GPIO). Or try turning off the LED by replacing the led.on
 statement with:</p>
 
 
-<div class="code" data-firstline="3">
-<div>
+<div class="code" data-firstline="3"><div></div><textarea>
 led.off()
-</div>
-</div>
+</textarea></div>
 
 
 <h2><br>
@@ -245,10 +243,6 @@ pressed or unpressed button.</p>
 <p>GPIOs as inputs are
 very powerful, and we’ll be using them in many future projects.</p>
 
-<p><br>
-<br>
-</p>
-
-<p><b><a href="RASPBERRY%20PI%20POWER.html">prev</a></b>| <b><a href="STRING%20THEORY.html">next</a></b></p>
-
+	<p class=nextprev><a href="RASPBERRY_PI_POWER.html">prev</a> |
+	<a href="STRING_THEORY.html">next</a></p>
 </body></html>

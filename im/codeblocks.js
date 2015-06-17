@@ -1,22 +1,19 @@
 window.onload = function() {
     var codeblocks = document.getElementsByClassName("code");
     for (i = 0; i < codeblocks.length; i++) { 
-        codeblock = codeblocks[i].children[1]
-        firstline = codeblocks[i].getAttribute("data-firstline")
+        codeblock = codeblocks[i].children[1];
+        firstline = codeblocks[i].getAttribute("data-firstline");
         if (! firstline) {
-            firstline = 1
+            firstline = 1;
         }
 
-        // Split into lines and delete first and last lines.  Then rejoin.
+        // Split into lines and delete last line.  Then rejoin.
         // Rationale: its easier to keep the code blocks in the HTML when the
         // top and bottom lines are stripped.
-        var lines = codeblock.innerHTML.split('\n');
-        lines.splice(0,1);
+        var lines = codeblock.value.split('\n');
         lines.splice(-1,1);
-        var newtext = lines.join('\n');
-
-        // fromTextArea uses the "value" of the element, not the innerHTML content.
-        codeblock.value = newtext
+        numLines = lines.length;
+        codeblock.value = lines.join('\n');
 
         var cm = CodeMirror.fromTextArea(codeblock, {
             mode: {
@@ -30,5 +27,7 @@ window.onload = function() {
             readOnly: true,
             textWrapping: true,
         });
+
+        cm.setSize(null, cm.defaultTextHeight() * (numLines+1));
     }
 }

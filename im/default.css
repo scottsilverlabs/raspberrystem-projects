@@ -52,6 +52,16 @@ H3 {
 A:link {
     color: #0563c1;
 }
+p.toc {
+    line-height: 70%;
+    font-weight: bold;
+    font-size: 120%;
+}
+p.nextprev {
+    font-weight: bold;
+    font-size: 120%;
+}
+
 
 /*
  * Code blocks
@@ -68,11 +78,14 @@ div.code > div:first-child {
     background-color: #657777;
     padding: 10
 }
-div.code div:last-child {
-    font-size: 14pt;
+div.code textarea:last-child {
+    font-size: 20pt;
 }
 
 .CodeMirror-cursor { visibility: hidden; }
+.CodeMirror {
+  height: auto;
+}
 
 /*
  * Output blocks
