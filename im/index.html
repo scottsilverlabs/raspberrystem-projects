@@ -1,112 +1,74 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
     <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-<DIV ID="TextSection" DIR="LTR">
-	<P><BR><BR>
-	</P>
-	<P><B>RaspberrySTEM</B><SUP><B>TM</B></SUP><B>
-	Projects Guide</B></P>
-	<P><BR><BR>
-	</P>
-	<P><BR><BR>
-	</P>
-	<P><BR><BR>
-	</P>
-	<P><BR><BR>
-	</P>
-	<P><B>Version
-	0.1</B></P>
-	<P><BR><BR>
-	</P>
-</DIV>
-<P STYLE="page-break-before: always">
-Copyright © 2015 by Scott Silver Labs.  
-</P>
-<P><BR><BR>
-</P>
-<P>Copyright,
-Legal Notice and Disclaimer:</P>
-<P>This publication is protected under
-the U.S. Copyright Act of 1976 and all other applicable
-international, federal, state and local laws, and all rights are
-reserved, including resale rights: you are not allowed to give or
-sell this Guide to anyone else. If you received this publication from
-anyone other than Scott Silver Labs, you've received a pirated copy.
-Please contact us via e-mail at info@raspberrystem.com and notify us
-of the situation.<BR><BR><BR>
-</P>
-<P>Any
-trademarks, service marks, product names or named features are
-assumed to be the property of their respective owners, and are used
-only for reference. There is no implied endorsement if we use one of
-these terms.<BR><BR><BR><BR>
-</P>
-<P><BR><BR>
-</P>
+    <style>
+    p.toc {
+        line-height: 0.8;
+        font-weight: bold;
+        font-size: 140%;
+    }
+    </style>
+</head><body lang="en-US" link="#0563c1" text="#00000a">
+	<h1 style="font-size: 250%">RaspberrySTEM<sup>TM</sup> Projects Guide</h1>
+<p> <b>Version 0.1</b> </p>
+<p> <a href="COPYRIGHT.html">Copyright © 2015 by Scott Silver Labs</a>  </p>
 <!--
 VIM macro to create next/prev:
 0f"lk3yyjvt"gf/^<\/BODY>Pjddk0f"f"lldt<iprev$DDDDA|j0wxxxf"f"lldt<inext:wj
 -->
-<DIV ID="Table of Contents1" DIR="LTR">
-	<p><b><a href="INTRODUCTION TO THE PROJECTS GUIDE.html">INTRODUCTION TO THE PROJECTS GUIDE</a></b></p>
-	<p><b><a href="INTRODUCTION TO THE IDE.html">INTRODUCTION TO THE IDE</a></b></p>
-	<p><b><a href="HELLO, WORLD.html">PROJECT #1: HELLO, WORLD!</a></b></p>
-	<p><b><a href="YOUR FIRST CIRCUIT.html">PROJECT #2: YOUR FIRST CIRCUIT</a></b></p>
-	<p><b><a href="YOUR FIRST SCHEMATIC.html">PROJECT #3: YOUR FIRST SCHEMATIC</a></b></p>
-	<p><b><a href="USING THE BREADBOARD.html">PROJECT #4: USING THE BREADBOARD</a></b></p>
-	<p><b><a href="RASPBERRY PI POWER.html">PROJECT #5: RASPBERRY PI POWER</a></b></p>
-	<p><b><a href="GENERAL PURPOSE INPUT-OUTPUT.html">PROJECT #6: GENERAL PURPOSE INPUT/OUTPUT</a></b></p>
-	<p><b><a href="STRING THEORY.html">PROJECT #7: STRING THEORY</a></b></p>
-	<p><b><a href="CALCULATIONS.html">PROJECT #8: CALCULATIONS</a></b></p>
-	<p><b><a href="VARIABLES - ASSIGNMENTS.html">PROJECT #9: VARIABLES / ASSIGNMENTS</a></b></p>
-	<p><b><a href="INTRO TO FUNCTIONS.html">PROJECT #10: INTRO TO FUNCTIONS</a></b></p>
-	<p><b><a href="FUNCTION INPUTS.html">PROJECT #11: FUNCTION INPUTS</a></b></p>
-	<p><b><a href="FUNCTION OUTPUTS.html">PROJECT #12: FUNCTION OUTPUTS</a></b></p>
-	<p><b><a href="BUILT-IN FUNCTIONS.html">PROJECT #13: BUILT-IN FUNCTIONS</a></b></p>
-	<p><b><a href="MODULES - LIBRARY FUNCTIONS.html">PROJECT #14: MODULES / LIBRARY FUNCTIONS</a></b></p>
-	<p><b><a href="FOR LOOPS.html">PROJECT #15: FOR LOOPS</a></b></p>
-	<p><b><a href="WHILE LOOPS.html">PROJECT #16: WHILE LOOPS</a></b></p>
-	<p><b><a href="LOOPS AND LEDS.html">PROJECT #17: LOOPS &amp; LEDS</a></b></p>
-	<p><b><a href="INTRODUCING BUTTONS.html">PROJECT #18: INTRODUCING BUTTONS</a></b></p>
-	<p><b><a href="USING BUTTONS WITH GPIO.html">PROJECT #19: USING BUTTONS WITH GPIO</a></b></p>
-	<p><b><a href="IF - ELSE STATEMENTS.html">PROJECT #20: IF / ELSE STATEMENTS</a></b></p>
-	<p><b><a href="FLASHLIGHT.html">PROJECT #21: FLASHLIGHT</a></b></p>
-	<p><b><a href="LISTS.html">PROJECT #22: LISTS</a></b></p>
-	<p><b><a href="MANY BUTTONS.html">PROJECT #23: MANY BUTTONS</a></b></p>
-	<p><b><a href="SOUNDS - SPEAKER.html">PROJECT #24: SOUNDS/SPEAKER</a></b></p>
-	<p><b><a href="SIMPLE PIANO.html">PROJECT #25: SIMPLE PIANO</a></b></p>
-	<p><b><a href="BETTER PIANO.html">PROJECT #26: BETTER PIANO</a></b></p>
-	<p><b><a href="SIMON 1.html">PROJECT #27: SIMON 1</a></b></p>
-	<p><b><a href="SIMON 2.html">PROJECT #28: SIMON 2</a></b></p>
-	<p><b><a href="SIMON 3.html">PROJECT #29: SIMON 3</a></b></p>
-	<p><b><a href="SIMON 4.html">PROJECT #30: SIMON 4</a></b></p>
-	<p><b><a href="SIMON 5.html">PROJECT #31: SIMON 5</a></b></p>
-	<p><b><a href="SIMON 6.html">PROJECT #32: SIMON 6</a></b></p>
-	<p><b><a href="SIMON 7.html">PROJECT #33: SIMON 7</a></b></p>
-	<p><b><a href="SIMON 8.html">PROJECT #34: SIMON 8</a></b></p>
-	<p><b><a href="LED MATRIX.html">PROJECT #35: LED MATRIX</a></b></p>
-	<p><b><a href="BALANCING DOT 1.html">PROJECT #36: BALANCING DOT 1</a></b></p>
-	<p><b><a href="ACCELEROMETER.html">PROJECT #37: ACCELEROMETER</a></b></p>
-	<p><b><a href="BALANCING DOT 2.html">PROJECT #38: BALANCING DOT 2</a></b></p>
-	<p><b><a href="BALANCING DOT 3.html">PROJECT #39: BALANCING DOT 3</a></b></p>
-	<p><b><a href="BALANCING DOT 4.html">PROJECT #40: BALANCING DOT 4</a></b></p>
-	<p><b><a href="SPACE INVADERS 1.html">PROJECT #41: SPACE INVADERS 1</a></b></p>
-	<p><b><a href="SPACE INVADERS 2.html">PROJECT #42: SPACE INVADERS 2</a></b></p>
-	<p><b><a href="SPACE INVADERS 3.html">PROJECT #43: SPACE INVADERS 3</a></b></p>
-	<p><b><a href="SPACE INVADERS 4.html">PROJECT #44: SPACE INVADERS 4</a></b></p>
-	<p><b><a href="SPACE INVADERS 5.html">PROJECT #45: SPACE INVADERS 5</a></b></p>
-	<p><b><a href="SPACE INVADERS 6.html">PROJECT #46: SPACE INVADERS 6</a></b></p>
-	<p><b><a href="SPACE INVADERS 7.html">PROJECT #47: SPACE INVADERS 7</a></b></p>
-	<p><b><a href="SPACE INVADERS 8.html">PROJECT #48: SPACE INVADERS 8</a></b></p>
-	<p><b><a href="SPACE INVADERS 9.html">PROJECT #49: SPACE INVADERS 9</a></b></p>
-	<p><b><a href="ZZZ OTHER.html">OTHER</a></b></p>
-</DIV>
-<P><BR><BR>
-</P>
-</BODY>
-</HTML>
+	<p class=toc><a href="INTRODUCTION%20TO%20THE%20PROJECTS%20GUIDE.html">INTRODUCTION TO THE PROJECTS GUIDE</a></p>
+	<p class=toc><a href="INTRODUCTION%20TO%20THE%20IDE.html">INTRODUCTION TO THE IDE</a></p>
+	<p class=toc><a href="HELLO,%20WORLD.html">PROJECT #1: HELLO, WORLD!</a></p>
+	<p class=toc><a href="YOUR%20FIRST%20CIRCUIT.html">PROJECT #2: YOUR FIRST CIRCUIT</a></p>
+	<p class=toc><a href="YOUR%20FIRST%20SCHEMATIC.html">PROJECT #3: YOUR FIRST SCHEMATIC</a></p>
+	<p class=toc><a href="USING%20THE%20BREADBOARD.html">PROJECT #4: USING THE BREADBOARD</a></p>
+	<p class=toc><a href="RASPBERRY%20PI%20POWER.html">PROJECT #5: RASPBERRY PI POWER</a></p>
+	<p class=toc><a href="GENERAL%20PURPOSE%20INPUT-OUTPUT.html">PROJECT #6: GENERAL PURPOSE INPUT/OUTPUT</a></p>
+	<p class=toc><a href="STRING%20THEORY.html">PROJECT #7: STRING THEORY</a></p>
+	<p class=toc><a href="CALCULATIONS.html">PROJECT #8: CALCULATIONS</a></p>
+	<p class=toc><a href="VARIABLES%20-%20ASSIGNMENTS.html">PROJECT #9: VARIABLES / ASSIGNMENTS</a></p>
+	<p class=toc><a href="INTRO%20TO%20FUNCTIONS.html">PROJECT #10: INTRO TO FUNCTIONS</a></p>
+	<p class=toc><a href="FUNCTION%20INPUTS.html">PROJECT #11: FUNCTION INPUTS</a></p>
+	<p class=toc><a href="FUNCTION%20OUTPUTS.html">PROJECT #12: FUNCTION OUTPUTS</a></p>
+	<p class=toc><a href="BUILT-IN%20FUNCTIONS.html">PROJECT #13: BUILT-IN FUNCTIONS</a></p>
+	<p class=toc><a href="MODULES%20-%20LIBRARY%20FUNCTIONS.html">PROJECT #14: MODULES / LIBRARY FUNCTIONS</a></p>
+	<p class=toc><a href="FOR%20LOOPS.html">PROJECT #15: FOR LOOPS</a></p>
+	<p class=toc><a href="WHILE%20LOOPS.html">PROJECT #16: WHILE LOOPS</a></p>
+	<p class=toc><a href="LOOPS%20AND%20LEDS.html">PROJECT #17: LOOPS &amp; LEDS</a></p>
+	<p class=toc><a href="INTRODUCING%20BUTTONS.html">PROJECT #18: INTRODUCING BUTTONS</a></p>
+	<p class=toc><a href="USING%20BUTTONS%20WITH%20GPIO.html">PROJECT #19: USING BUTTONS WITH GPIO</a></p>
+	<p class=toc><a href="IF%20-%20ELSE%20STATEMENTS.html">PROJECT #20: IF / ELSE STATEMENTS</a></p>
+	<p class=toc><a href="FLASHLIGHT.html">PROJECT #21: FLASHLIGHT</a></p>
+	<p class=toc><a href="LISTS.html">PROJECT #22: LISTS</a></p>
+	<p class=toc><a href="MANY%20BUTTONS.html">PROJECT #23: MANY BUTTONS</a></p>
+	<p class=toc><a href="SOUNDS%20-%20SPEAKER.html">PROJECT #24: SOUNDS/SPEAKER</a></p>
+	<p class=toc><a href="SIMPLE%20PIANO.html">PROJECT #25: SIMPLE PIANO</a></p>
+	<p class=toc><a href="BETTER%20PIANO.html">PROJECT #26: BETTER PIANO</a></p>
+	<p class=toc><a href="SIMON%201.html">PROJECT #27: SIMON 1</a></p>
+	<p class=toc><a href="SIMON%202.html">PROJECT #28: SIMON 2</a></p>
+	<p class=toc><a href="SIMON%203.html">PROJECT #29: SIMON 3</a></p>
+	<p class=toc><a href="SIMON%204.html">PROJECT #30: SIMON 4</a></p>
+	<p class=toc><a href="SIMON%205.html">PROJECT #31: SIMON 5</a></p>
+	<p class=toc><a href="SIMON%206.html">PROJECT #32: SIMON 6</a></p>
+	<p class=toc><a href="SIMON%207.html">PROJECT #33: SIMON 7</a></p>
+	<p class=toc><a href="SIMON%208.html">PROJECT #34: SIMON 8</a></p>
+	<p class=toc><a href="LED%20MATRIX.html">PROJECT #35: LED MATRIX</a></p>
+	<p class=toc><a href="BALANCING%20DOT%201.html">PROJECT #36: BALANCING DOT 1</a></p>
+	<p class=toc><a href="ACCELEROMETER.html">PROJECT #37: ACCELEROMETER</a></p>
+	<p class=toc><a href="BALANCING%20DOT%202.html">PROJECT #38: BALANCING DOT 2</a></p>
+	<p class=toc><a href="BALANCING%20DOT%203.html">PROJECT #39: BALANCING DOT 3</a></p>
+	<p class=toc><a href="BALANCING%20DOT%204.html">PROJECT #40: BALANCING DOT 4</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%201.html">PROJECT #41: SPACE INVADERS 1</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%202.html">PROJECT #42: SPACE INVADERS 2</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%203.html">PROJECT #43: SPACE INVADERS 3</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%204.html">PROJECT #44: SPACE INVADERS 4</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%205.html">PROJECT #45: SPACE INVADERS 5</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%206.html">PROJECT #46: SPACE INVADERS 6</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%207.html">PROJECT #47: SPACE INVADERS 7</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%208.html">PROJECT #48: SPACE INVADERS 8</a></p>
+	<p class=toc><a href="SPACE%20INVADERS%209.html">PROJECT #49: SPACE INVADERS 9</a></p>
+	<p class=toc><a href="ZZZ%20OTHER.html">OTHER</a></p>
+<p><br><br>
+</p>
+</body></html>
