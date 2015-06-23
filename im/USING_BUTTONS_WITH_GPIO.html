@@ -1,18 +1,140 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>USING BUTTONS WITH GPIO</H1>
-<P>Discuss GPIO as
-inputs</P>
-<P>Project:  Wiring
-button using GPIO</P>
-	<p class=nextprev><a href="INTRODUCING_BUTTONS.html">prev</a> |
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>USING BUTTONS WITH GPIO</h1><p class="MsoNormal">In the previous project, we inserted a button into the
+circuit to act as a physical switch – when pressed, the circuit was completed
+and when left unpressed, the circuit was open.<o:p></o:p></p>
+
+<p class="MsoNormal">While using a button in this way is just fine when there
+isn’t much logic behind the button presses (you just want to flip the circuit
+between two states), if you want to do anything more complicated with the
+button, this won’t work.<span style="">&nbsp; </span>For example,
+perhaps you want to count how many times a button is pressed in a certain time
+period, and take different actions based on that number?<span style="">&nbsp; </span>Or perhaps you want to time how long a button
+is pressed and take action based on the length of the press?<span style="">&nbsp; </span>Or maybe a button press needs to trigger an
+action in another circuit that the button isn’t attached to?<o:p></o:p></p>
+
+<p class="MsoNormal">To do things more complicated operations like these, instead
+of wiring the button directly into the circuit, instead we can wire the button
+as an input to a GPIO.<span style="">&nbsp; </span>As we discussed
+earlier, GPIOs can be used as inputs to take information from external
+components (like buttons); that input can then be acted upon by the Raspberry
+Pi and appropriate actions can be taken.<o:p></o:p></p>
+
+<p class="MsoNormal">GPIO inputs work by reading the voltage being created by the
+circuit at the GPIO pin – either 0V (“low” or “off”) or 3.3V (“high” or “on”).<o:p></o:p></p>
+
+<p class="MsoNormal">For example, a GPIO can be used to get information from a
+button or switch.<span style="">&nbsp; </span>If the circuit is
+built properly, when a button is left unpressed, the voltage at the GPIO pin is
+“high” (3.3V); when the button is pressed, the voltage at the GPIO pin will go
+“low” (switch to 0V).<span style="">&nbsp; </span>The GPIO will
+register the voltage, and the Raspberry Pi can then take action on either a
+pressed or unpressed button.<o:p></o:p></p>
+
+<p class="MsoNormal">To wire a button to a GPIO, this is what the circuit would
+look like:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT SCHEMATIC
+DIAGRAM<o:p></o:p></i></p>
+
+<p class="MsoNormal">To implement this in an actual circuit is easy.<span style="">&nbsp; </span>Here is how to implement that circuit on the
+breadboard and then use code to get input from the button through the GPIO:<o:p></o:p></p>
+
+<p class="MsoListParagraph" style="text-indent: -0.25in;"><!--[if !supportLists]--><b style=""><span style=""><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp; </span></span></span></b><!--[endif]--><b style="">Place button on breadboard.<o:p></o:p></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in;">We start by placing a button on
+the breadboard.<span style="">&nbsp; </span>It’s important that the
+button is oriented correctly – the two independent sides of the button must sit
+on different connect strips, as follows:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in;"><span style=""><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_1" o:spid="_x0000_i1028" type="#_x0000_t75" style='width:200.25pt;
+ height:116.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image007.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img style="width: 542px; height: 316px;" alt="" src="img/buttonright.jpg" v:shapes="Picture_x0020_1"><!--[endif]--></span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=""><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_2" o:spid="_x0000_i1027" type="#_x0000_t75" style='width:196.5pt;
+ height:115.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image009.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img style="width: 540px; height: 318px;" alt="" src="img/buttonwrong.jpg" v:shapes="Picture_x0020_2"><!--[endif]--></span><o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 1.25in;"><b style="">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; CORRECT</b><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b style=""><span style="color: red;">WRONG!!!<o:p></o:p></span></b></p>
+
+<p class="MsoNormal" style="margin-left: 1.25in;"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoListParagraph" style="text-indent: -0.25in;"><!--[if !supportLists]--><b style=""><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp; </span></span></span></b><!--[endif]--><b style="">Wire one side of the button to a GPIO.<o:p></o:p></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in;">Next, we connect one side of the
+button (it doesn’t matter which one, as the internal components of the button
+are symmetrical) to a GPIO.<span style="">&nbsp; </span>In this
+example, we’ll connect the button to GPIO14.<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in; text-align: center;" align="center"><span style=""><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+ o:spid="_x0000_i1026" type="#_x0000_t75" style='width:421.5pt;height:234pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image011.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img style="width: 831px; height: 462px;" alt="" src="../../../../proj19-2.jpg" v:shapes="Picture_x0020_3"><!--[endif]--></span><o:p></o:p></p>
+
+<p class="MsoListParagraph" style="text-indent: -0.25in;"><!--[if !supportLists]--><b style=""><span style=""><span style="">3.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp; </span></span></span></b><!--[endif]--><b style="">Wire the other side of the button to
+ground.<o:p></o:p></b></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in;">Finally, we connect the other side
+of the button to ground.<span style="">&nbsp; </span>In this
+example, we are connecting the other side of the button to the blue strip,
+which is connected to ground.<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.25in; text-align: center;" align="center"><span style=""><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+ o:spid="_x0000_i1025" type="#_x0000_t75" style='width:432.75pt;height:234.75pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image013.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img style="width: 846px; height: 459px;" alt="" src="../../../../proj19-3.jpg" v:shapes="Picture_x0020_4"><!--[endif]--></span><o:p></o:p></p>
+
+<p class="MsoNormal"></p><p class="MsoNormal">That’s it for the wiring – pretty simple, right?<o:p></o:p></p>
+
+<p class="MsoNormal">Now that the circuit is wired, we can write the code to get
+the GPIO state (low or high):<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT CODE SNIPPET
+HERE<o:p></o:p></i></p>
+
+<p class="MsoNormal">In this most basic example, we are reading the GPIO a single
+time (the moment the program is run) and we are outputting the state of the
+button at that moment.<span style="">&nbsp; </span>Try running the
+program a couple times, either holding down or not holding down the button at
+the moment the program is run.<o:p></o:p></p>
+
+<p class="MsoNormal">To make the program a little more interesting (and
+convenient!), we can insert a loop so that, instead of just reading the state
+of the GPIO one time, we can continually read and print the state of the GPIO
+for as long as the program is running.<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal">Here’s what that code would look like:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT CODE SNIPPET
+HERE<o:p></o:p></i></p>
+
+<p class="MsoNormal">Run this program and then alternate between pressing and not
+pressing the button.<span style="">&nbsp; </span>Take a look at the
+output window – you should see an indication of when the button is pressed and
+when it is unpressed.<o:p></o:p></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p><p class="nextprev"><a href="INTRODUCING_BUTTONS.html">prev</a> |
 	<a href="IF_-_ELSE_STATEMENTS.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

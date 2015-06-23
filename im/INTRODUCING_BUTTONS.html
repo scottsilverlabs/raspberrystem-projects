@@ -1,17 +1,156 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>INTRODUCING BUTTONS</H1>
-<P>Discuss buttons</P>
-<P>Project:  Wiring
-button in series with LED</P>
-	<p class=nextprev><a href="LOOPS_AND_LEDS.html">prev</a> |
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>INTRODUCING BUTTONS</h1><p class="MsoNormal">It’s now time to add a new component to our circuit – a
+pushbutton (or just “button”).<span style="">&nbsp; </span>A button
+is just a very simple switch – when it’s not pressed, electricity doesn’t flow
+through the circuit and when it is pressed, electricity does flow through the
+circuit.<o:p></o:p></p>
+
+<p class="MsoNormal">Let’s take a closer look at how a button works.<span style="">&nbsp; </span>This is a representation of most basic
+pushbuttons – they have four “legs” that can be attached to your breadboard and
+wired to the circuit and then one button in the center of the device that can
+be un-pushed (“open”) or pushed (“closed”):<o:p></o:p></p>
+
+<p class="MsoNormal" style="text-align: center;" align="center"><span style=""><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_242" o:spid="_x0000_i1031" type="#_x0000_t75"
+ style='width:117pt;height:165.75pt;flip:x;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image001.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><!--[endif]--></span><o:p></o:p><img style="width: 377px; height: 534px;" alt="" src="img/button1%20cropped.jpg"></p>
+
+<p class="MsoNormal">Internally, the left side of the button (the two legs on the
+left) are connected together, and the right side of the button (the two legs on
+the right) are connected together.<span style="">&nbsp; </span>The
+left side and the right side are separated by a switch that opens and closes as
+the button is pressed or unpressed:<o:p></o:p></p>
+
+<p class="MsoNormal" style="text-align: center;" align="center"><span style=""><!--[if gte vml 1]><v:shape id="Picture_x0020_243"
+ o:spid="_x0000_i1030" type="#_x0000_t75" style='width:201pt;height:318.75pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image003.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img style="height: 637px; width: 402px;" alt="" src="img/button2%20cropped.jpg" v:shapes="Picture_x0020_243"><!--[endif]--></span><o:p></o:p></p>
+
+<p class="MsoNormal">When we insert a button into a circuit, it has one of two
+operations:<o:p></o:p></p>
+
+<p class="MsoListParagraphCxSpFirst" style="text-indent: -0.25in;"><!--[if !supportLists]--><span style=""><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]-->When the button is left unpressed, it creates an
+open circuit, no electricity flows through the circuit and nothing happens.<o:p></o:p></p>
+
+<p class="MsoListParagraphCxSpLast" style="text-indent: -0.25in;"><!--[if !supportLists]--><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+</span></span></span><!--[endif]-->When the button is pressed, the button acts as a
+wire and closes the circuit – electricity then flows through the circuit.<o:p></o:p></p>
+
+<p class="MsoNormal">So, if we go back to our first breadboard circuit containing
+a simple resistor and LED that is always illuminated, we should be able to add
+a switch that we can then use to control the LED turning on and off (by
+pressing the button).<o:p></o:p></p>
+
+<p class="MsoNormal">Let’s build that circuit now…<o:p></o:p></p>
+
+<p class="MsoNormal">Here’s what the schematic would look like:<o:p></o:p></p>
+
+<p class="MsoNormal">INSERT SCHEMATIC HERE<o:p></o:p></p>
+
+<p class="MsoNormal">To build the circuit, we can start with the circuit we built
+in Project #4:<o:p></o:p></p>
+
+<p class="MsoNormal"><span style=""><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_244" o:spid="_x0000_i1029" type="#_x0000_t75" style='width:426pt;
+ height:220.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:\Users\J\AppData\Local\Temp\msohtmlclip1\01\clip_image005.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img src="file:///C:%5CUsers%5CJ%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image006.jpg" v:shapes="Picture_x0020_244" height="294" width="568"><!--[endif]--></span><o:p></o:p></p>
+
+<p class="MsoNormal"><b style="">Step #1:<span style="">&nbsp; </span>Remove wire from LED to ground.<o:p></o:p></b></p>
+
+<p class="MsoNormal">We’re going to be adding the button into the circuit between
+the LED and ground, so the first step will be to remove the wire that connects
+the LED to ground.<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal">This is what the breadboard should look like at this point:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT FRITZING<o:p></o:p></i></p>
+
+<p class="MsoNormal"><i style=""><o:p>&nbsp;</o:p></i></p>
+
+<p class="MsoNormal"><b style="">Step #2:<span style="">&nbsp; </span>Place button on the breadboard.<o:p></o:p></b></p>
+
+<p class="MsoNormal">Next, we’ll place the button on the breadboard.<span style="">&nbsp; </span>Note that the button should be oriented so
+that the two sides of the button sit on different connect strips.<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal"><a name="_Toc422126948">This is what the breadboard should
+look like at this point:<o:p></o:p></a></p>
+
+<p class="MsoNormal"><span style=""><i style="">INSERT FRITZING<o:p></o:p></i></span></p>
+
+<p class="MsoNormal"><span style=""><b style=""><o:p>&nbsp;</o:p></b></span></p>
+
+<p class="MsoNormal"><span style=""><b style="">Step #3:<span style="">&nbsp;
+</span>Connect the LED to one side of the button.<o:p></o:p></b></span></p>
+
+<p class="MsoNormal"><span style="">Now, we connect the
+side of the LED that was previously connected to ground to one side of the
+button.<span style="">&nbsp; </span>It doesn’t matter which side of
+the button we connect to, so we’ll just connect to the side that is closest to
+the LED, like so: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style=""><i style="">INSERT FRITZING<o:p></o:p></i></span></p>
+
+<p class="MsoNormal"><span style=""><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style=""><b style="">Step #4:<span style="">&nbsp;
+</span>Connect the other side of the button to ground.<o:p></o:p></b></span></p>
+
+<p class="MsoNormal"><span style="">Finally, we can
+complete the circuit by connecting the other side of the button to ground, like
+this: <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style=""><i style="">INSERT FRITZING<o:p></o:p></i></span></p>
+
+<p class="MsoNormal"><span style=""><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="">At this point, your
+LED should not be lit.<span style="">&nbsp; </span>Remember, while
+we have a *potentially* complete circuit, there is still a lack of physical
+connection through the button until the button is pressed.<span style="">&nbsp; </span>If you press the button, you should see the
+LED illuminate.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">In this project,
+we’ve manipulated the circuit using a purely physical device.<span style="">&nbsp; </span>By inserting the button into the circuit, we
+can interrupt the flow of electricity by not pressing the button and then
+restore the electrical flow by pressing the button.<span style="">&nbsp; </span><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">Congratulations!<span style="">&nbsp; </span>You’ve just built the exact circuit used in
+most simple flashlights…<o:p></o:p></span></p>
+
+<p><span style="">In the next
+project, we’ll add software into the equation using GPIOs.</span></p><p class="nextprev"><a href="LOOPS_AND_LEDS.html">prev</a> |
 	<a href="USING_BUTTONS_WITH_GPIO.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>
