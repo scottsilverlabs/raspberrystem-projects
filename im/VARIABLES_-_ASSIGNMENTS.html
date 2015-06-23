@@ -1,414 +1,568 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
+<html>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE></TITLE>
     <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
 </HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>VARIABLES - ASSIGNMENTS</H1>
-<P>Variables are one of
+<body dir="ltr" style="color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>VARIABLES - ASSIGNMENTS</h1>
+
+<p>Variables are one of
 the most important concepts in programming, and you will almost
-certainly be using them in every useful program you ever write. 
-Using variables makes it easier to write your code, to change your
-code later and to help others understand your code (which is
-important when writing code in groups).  Variables also are essential
+certainly be using them in every useful program you ever write.
+Variables are like labels, or names, for the numbers, strings and other
+values in your programs.&nbsp; Variables are used
 for keeping track of all the facts and figures you use throughout
-your code.</P>
-<P>VARIABLES GET
-ASSIGNED A VALUE – VARIABLE ON LEFT, VALUE/EXPRESSION ON RIGHT</P>
-<P>The information that
-a variable holds could be a number, a phrase, a calculation, a list
+your code. Variables can be given any name you choose (although
+there are some rules to that!). &nbsp; Choosing good variable names
+makes it easier to write your code, to change your
+code later and to help others understand your code (which is
+important when writing code in groups).<!--I changed this section a good bit to change the emphasis, but it still needs work.-->
+</p>
+
+<p>The definition of "variable" is something that can vary (change),
+and that's what program variables do&nbsp; throughout a program.&nbsp;
+To assign a variable a value, you use the equals sign in what is called
+an assignment statement, which looks like:</p>
+
+
+<div class="code" data-firstline="0">
+<div> </div>
+<textarea>my_variable = 5
+</textarea></div>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">and to change it to a different value, you also use an assignment statement, <br>
+</span></p>
+
+<p>The information that
+a variable holds could be a number, a phrase, a calculation<!--I understand what your saying - but it doesn't hold a calculation, it holds the result of a calculation, which is different.-->, a list
 of information or pretty much anything you want that variable to
-hold.  
-</P>
-<H2>Variables Can Hold Numbers</H2>
-<P>For example, in the
+hold. </p>
+
+<h2>Variables Can Hold Numbers</h2>
+
+<p>For example, in the
 previous project, we calculated the number of seconds in a day by
 multiplying the number of seconds in a minute by the number of
-minutes in an hour by the number of hours in a day.  I we wanted, we
-could rewrite that calculation to use variables instead.  
-</P>
-<P>Let’s start by
+minutes in an hour by the number of hours in a day. I we wanted, we
+could rewrite that calculation to use variables instead. </p>
+
+<p>Let’s start by
 creating a variable called “sec_in_minute” that will hold the
-number of seconds in a minute (which is 60):</P>
-<P>sec_in_minute
-= 60</P>
-<P><BR><BR>
-</P>
-<P><B>Note:</B>  When
+number of seconds in a minute (which is 60):</p>
+
+<p>sec_in_minute
+= 60</p>
+
+<p><br>
+<br>
+</p>
+
+<p><b>Note:</b> When
 naming variables, you can use any combination of uppercase letters,
-lowercase letters, numbers and underscore characters (_).  The only
-rule is that the variable name must start with a letter.  It’s good
+lowercase letters, numbers and underscore characters (_). The only
+rule is that the variable name must start with a letter. It’s good
 practice to use variable names that make your code easier to
-understand and read.</P>
-<P>Now, let’s create
-two more variables:</P>
-<P>min_in_hour
-= 60</P>
-<P>hour_in_day
-= 24</P>
-<P><BR><BR>
-</P>
-<P>It’s probably
+understand and read.</p>
+
+<p>Now, let’s create
+two more variables:</p>
+
+<p>min_in_hour
+= 60</p>
+
+<p>hour_in_day
+= 24</p>
+
+<p><br>
+<br>
+</p>
+
+<p>It’s probably
 pretty obvious (that’s the goal!), but min_in_hour
 is the number of minutes there are in an hour and hour_in_day
-is the number of hours in a day.</P>
-<P>We could now change
+is the number of hours in a day.</p>
+
+<p>We could now change
 the code we did to do our calculation of number of seconds in a day
-to the following:</P>
-<P>print
-(sec_in_minute * min_in_hour * hour_in_day)</P>
-<P><BR><BR>
-</P>
-<P>Here is what the
-program would look like if you were to enter it into the Code Window
-(feel free to try it):</P>
-<P ALIGN=CENTER><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_524489da.png" ALIGN=BOTTOM WIDTH=636 HEIGHT=153 BORDER=0></P>
-<P>And here is what the
-output would look like if you ran that code:</P>
-<P ALIGN=CENTER><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P><BR><BR>
-</P>
-<H2>Variables Can Hold Other Variables</H2>
-<P>Remember I said
+to the following:</p>
+
+<p></p>
+<p></p>
+<div class="code" data-firstline="0">
+<div> </div>
+<textarea>print(sec_in_minute * min_in_hour * hour_in_day)
+</textarea></div>
+
+<p>And here is what the
+output would look like if you ran that code:</p>
+
+
+<div class="output">
+<div> </div>
+<textarea>86400
+</textarea></div>
+
+
+<p><br>
+</p>
+
+<p><br>
+<br>
+</p>
+
+<h2>Variables Can Hold Other Variables<!--Not sure exactly what to do here, but I would suggest we switch this project  to only: variables can hold numbers and strings (and other things), and how anassignment statements work.
+
+Then, lets do lists as a completely different project.--></h2>
+
+<p>Remember I said
 above that variables can hold almost any type of data – that
-includes data from other variables.  We can take our program one step
+includes data from other variables. We can take our program one step
 further by creating a variable called sec_in_day
 and using it to hold our calculation for the number of seconds in a
-day:</P>
-<P STYLE="text-indent: 0.5in">sec_in_day
-= sec_in_minute * min_in_hour * hour_in_day</P>
-<P>Now, if you want to
+day:</p>
+
+<p style="text-indent: 0.5in;">sec_in_day
+= sec_in_minute * min_in_hour * hour_in_day</p>
+
+<p>Now, if you want to
 output the number of seconds in a day, you can simply print the
 number being held by the sec_in_day
-variable:</P>
-<P>print
-(sec_in_day)</P>
-<P><BR><BR>
-</P>
-<P>This is what the
-code and output would look like:</P>
-<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P>You’re probably
+variable:</p>
+
+<p>print
+(sec_in_day)</p>
+
+<p><br>
+<br>
+</p>
+
+<p>This is what the
+code and output would look like:</p>
+
+<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+
+<p>You’re probably
 thinking to yourself that using variables took a lot more time and a
 lot more code – in fact, your program went from one line to five
-lines!  But, if someone were to look at your original code:</P>
-<P>print
-(60 * 60 * 24)</P>
-<P><BR><BR>
-</P>
-<P>They’d have no
-idea what it meant or what you were calculating.  But, if someone saw
-your final piece of code:</P>
-<P>sec_in_minute
-= 60</P>
-<P>min_in_hour
-= 60</P>
-<P>hour_in_day
-= 24</P>
-<P>sec_in_day
-= sec_in_minute * min_in_hour * hour_in_day</P>
-<P>print
-(sec_in_day)</P>
-<P><BR><BR>
-</P>
-<P>They would very
-likely know exactly what was going on in.</P>
-<P>Also, while it seems
+lines! But, if someone were to look at your original code:</p>
+
+<p>print
+(60 * 60 * 24)</p>
+
+<p><br>
+<br>
+</p>
+
+<p>They’d have no
+idea what it meant or what you were calculating. But, if someone saw
+your final piece of code:</p>
+
+<p>sec_in_minute
+= 60</p>
+
+<p>min_in_hour
+= 60</p>
+
+<p>hour_in_day
+= 24</p>
+
+<p>sec_in_day
+= sec_in_minute * min_in_hour * hour_in_day</p>
+
+<p>print
+(sec_in_day)</p>
+
+<p><br>
+<br>
+</p>
+
+<p>They would very
+likely know exactly what was going on in.</p>
+
+<p>Also, while it seems
 like we’ve made our code longer and more complicated, we’ve now
 made it easier to use our calculations to do additional calculations
-if we wanted to.  For example, let’s say we wanted to calculate the
-number of seconds in a month or a year?  
-</P>
-<P>Using the code we’ve
-already written, it would be easy to add these calculations.  To
+if we wanted to. For example, let’s say we wanted to calculate the
+number of seconds in a month or a year? </p>
+
+<p>Using the code we’ve
+already written, it would be easy to add these calculations. To
 determine the number of seconds in a month (assuming a 30 day month),
 we can just multiply the number of seconds in a day by 30 – and we
-can give the result its own variable:</P>
-<P STYLE="margin-left: 0.5in">sec_in_month
-= sec_in_day * 30 
-</P>
-<P>To determine the
+can give the result its own variable:</p>
+
+<p style="margin-left: 0.5in;">sec_in_month
+= sec_in_day * 30 </p>
+
+<p>To determine the
 number of seconds in a year, we can multiply the number of seconds in
-a day by 365:</P>
-<P STYLE="margin-left: 0.5in">sec_in_year
-= sec_in_day * 365 
-</P>
-<P>As you can see, but
+a day by 365:</p>
+
+<p style="margin-left: 0.5in;">sec_in_year
+= sec_in_day * 365 </p>
+
+<p>As you can see, but
 using variables to hold our first calculations, we make it easier to
-do additional calculations.  And, if we’re working on a team or in
+do additional calculations. And, if we’re working on a team or in
 a group, the entire program is easier for others to follow and
-understand.</P>
-<P>Let’s put this all
+understand.</p>
+
+<p>Let’s put this all
 together, and create a program that will calculate the number of
-seconds in a day, month and year, and print out the results:</P>
-<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P>The real benefit is
-that variables can change throughout a program…</P>
-<P>The final benefit of
+seconds in a day, month and year, and print out the results:</p>
+
+<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+
+<p>The real benefit is
+that variables can change throughout a program…</p>
+
+<p>The final benefit of
 using variables is that, if a variable needs to change, we can change
 it in one place as opposed to having to change it in lots of
-different places.  For example, if scientists decided tomorrow that
+different places. For example, if scientists decided tomorrow that
 there should actually be 61 seconds in a minute, we could change our
-first line of code to:</P>
-<P STYLE="margin-left: 0.5in">sec_in_minute
-= 61 
-</P>
-<P>And all of our code
-would now continue to make accurate calculations.  If we wouldn’t
+first line of code to:</p>
+
+<p style="margin-left: 0.5in;">sec_in_minute
+= 61 </p>
+
+<p>And all of our code
+would now continue to make accurate calculations. If we wouldn’t
 have used variables, we would have had to go through our code and
 change every instance of 60 to 61 where we were referring to the
-number of seconds in a minute.</P>
-<P>Of course, we don’t
+number of seconds in a minute.</p>
+
+<p>Of course, we don’t
 expect the number of seconds in a minute to change, but there are
 plenty of things in this world that do change, and being able to
 update your programs quickly and easily when things change is a huge
-benefit to programmers.</P>
-<H2>Variables Can Hold Strings</H2>
-<P>In addition to
-holding numbers and calculations, variables can also hold strings. 
-For example, we could have a variable that holds one of the output
-message we’re using above:</P>
-<P>
+benefit to programmers.</p>
+
+<h2>Variables Can Hold Strings</h2>
+
+<p>In addition to
+holding numbers and calculations, variables can also hold strings. For
+example, we could have a variable that holds one of the output
+message we’re using above:</p>
+
+<p>
 message = ‘Number of seconds in a
-day: ’</P>
-<P><BR><BR>
-</P>
-<P>We could then print
-that message to the output, along with our calculation:</P>
-<P>
-print (message, sec_in_day)</P>
-<P><BR><BR>
-</P>
-<P>Here is what the
-code and output would look like using a variable for the text string:</P>
-<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P>Note that because
-message is now a variable, we don’t put quotation marks around it.</P>
-<H2>Variables Can Hold Lists of Information</H2>
-<P>Another common use
-of variables is to hold lists of information.  These can be lists of
+day: ’</p>
+
+<p><br>
+<br>
+</p>
+
+<p>We could then print
+that message to the output, along with our calculation:</p>
+
+<p>
+print (message, sec_in_day)</p>
+
+<p><br>
+<br>
+</p>
+
+<p>Here is what the
+code and output would look like using a variable for the text string:</p>
+
+<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+
+<p>Note that because
+message is now a variable, we don’t put quotation marks around it.</p>
+
+<h2>Variables Can Hold Lists of Information</h2>
+
+<p>Another common use
+of variables is to hold lists of information. These can be lists of
 pretty much any type of information, though the two most common types
 of lists you’ll likely be using are lists of strings and lists of
-numbers.</P>
-<P>An example of a list
+numbers.</p>
+
+<p>An example of a list
 of strings would be a list containing the names of the months of the
-year.  To keep things simple, let’s just create a list containing
-the first five months; we’ll use a variable called “months”:</P>
-<P STYLE="margin-left: 0.5in">months
-= [‘January’, ‘February’, ‘March’, ‘April’, ‘May’]</P>
-<P>Notice how the
+year. To keep things simple, let’s just create a list containing
+the first five months; we’ll use a variable called “months”:</p>
+
+<p style="margin-left: 0.5in;">months
+= [‘January’, ‘February’, ‘March’, ‘April’, ‘May’]</p>
+
+<p>Notice how the
 entire list has brackets [ ] around it and how each of the items in
-the list are strings with quotation marks around them.</P>
-<P>Now let’s look at
-some of the things we can do with that list…</P>
-<UL>
-	<LI><P>We can reference the entire
-	list.  For example, let’s say we wanted to print the whole thing
-	out:</P>
-</UL>
-<P>
-print (months)</P>
-<P><BR><BR>
-</P>
-<UL>
-	<LI><P>We can reference a single item
-	in the list.  For example, let’s say we wanted to print out the
-	third item in the list (which is, “March”):</P>
-</UL>
-<P>
-print (months[2])</P>
-<P><BR><BR>
-</P>
-<P STYLE="margin-left: 0.5in">Wait!
- I said we were going to print out the third item on the list, and
+the list are strings with quotation marks around them.</p>
+
+<p>Now let’s look at
+some of the things we can do with that list…</p>
+
+<ul>
+
+  <li>
+    <p>We can reference the entire list. For example, let’s say we
+wanted to print the whole thing out:</p>
+  </li>
+</ul>
+
+<p>
+print (months)</p>
+
+<p><br>
+<br>
+</p>
+
+<ul>
+
+  <li>
+    <p>We can reference a single item in the list. For example, let’s
+say we wanted to print out the third item in the list (which is,
+“March”):</p>
+  </li>
+</ul>
+
+<p>
+print (months[2])</p>
+
+<p><br>
+<br>
+</p>
+
+<p style="margin-left: 0.5in;">Wait! I said we were going to print out
+the third item on the list, and
 then I had it print months[2]
-– that’s not a typo.  Computers always start counting lists at 0,
-not 1.  So, the first item on a list is [0], the second item on a
-list is [1] and so on.  To get the third item on the item, we
-reference it as [2].</P>
-<P STYLE="margin-left: 0.5in">Here
-is how the computer sees our list:</P>
-<CENTER>
-	<TABLE WIDTH=339 BORDER=1 BORDERCOLOR="#999999" CELLPADDING=8 CELLSPACING=0>
-		<COL WIDTH=96>
-		<COL WIDTH=209>
-		<TR>
-			<TD WIDTH=96 HEIGHT=17 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><B>ITEM #</B></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><B>ITEM NAME</B></P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">0</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>January</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">1</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>February</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">2</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>March</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">3</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>April</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=17 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">4</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>May</P>
-			</TD>
-		</TR>
-	</TABLE>
-</CENTER>
-<P STYLE="margin-left: 0.5in"><BR><BR>
-</P>
-<P STYLE="margin-left: 0.5in">So,
-the third item on our list of months is months[2].</P>
-<UL>
-	<LI><P>We can reference a range of
-	items on the list.  For example, let’s say we wanted to print out
-	items 2 and 3 in the list (February, March):</P>
-</UL>
-<P>
-<BR><BR>
-</P>
-<P>
-print (months[1:3])</P>
-<P>
-<BR><BR>
-</P>
-<P STYLE="margin-left: 0.5in">Notice
-that we referenced [1:3] to get items 1 and 2.  When we reference a
+– that’s not a typo. Computers always start counting lists at 0,
+not 1. So, the first item on a list is [0], the second item on a
+list is [1] and so on. To get the third item on the item, we
+reference it as [2].</p>
+
+<p style="margin-left: 0.5in;">Here
+is how the computer sees our list:</p>
+
+<center>
+<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
+  <col width="96"> <col width="209"> <tbody>
+    <tr>
+      <td bgcolor="#ffffff" height="17" width="96">
+      <p align="center"><b>ITEM #</b></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p align="center"><b>ITEM NAME</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">0</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>January</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">1</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>February</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">2</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>March</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">3</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>April</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="17" width="96">
+      <p align="center"><span style="font-weight: normal;">4</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>May</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+
+<p style="margin-left: 0.5in;"><br>
+<br>
+</p>
+
+<p style="margin-left: 0.5in;">So,
+the third item on our list of months is months[2].</p>
+
+<ul>
+
+  <li>
+    <p>We can reference a range of items on the list. For example,
+let’s say we wanted to print out items 2 and 3 in the list (February,
+March):</p>
+  </li>
+</ul>
+
+<p>
+<br>
+<br>
+</p>
+
+<p>
+print (months[1:3])</p>
+
+<p>
+<br>
+<br>
+</p>
+
+<p style="margin-left: 0.5in;">Notice
+that we referenced [1:3] to get items 1 and 2. When we reference a
 range, the second number is the item where we stop – that item is
-not included in the range.</P>
-<UL>
-	<LI><P>We can change an item in the
-	list.  For example, let’s say we wanted to change “February”
-	to “Feb” to make it shorter (and then print it out to verify
-	that it has been changed):</P>
-</UL>
-<P>
-months[1] = ‘Feb’</P>
-<P>
-<BR><BR>
-</P>
-<UL>
-	<LI><P>We can add an item to the list.
-	 For example, if we decide that we want to include June at the end
-	of the list, we can do the following:</P>
-</UL>
-<P>
-months.append(‘June’)</P>
-<P>
-<BR><BR>
-</P>
-<P STYLE="margin-left: 0.5in">The
+not included in the range.</p>
+
+<ul>
+
+  <li>
+    <p>We can change an item in the list. For example, let’s say we
+wanted to change “February” to “Feb” to make it shorter (and then print
+it out to verify that it has been changed):</p>
+  </li>
+</ul>
+
+<p>
+months[1] = ‘Feb’</p>
+
+<p>
+<br>
+<br>
+</p>
+
+<ul>
+
+  <li>
+    <p>We can add an item to the list. For example, if we decide that
+we want to include June at the end of the list, we can do the following:</p>
+  </li>
+</ul>
+
+<p>
+months.append(‘June’)</p>
+
+<p>
+<br>
+<br>
+</p>
+
+<p style="margin-left: 0.5in;">The
 .append() that we used above
-is called a function.  We’ll discuss later how and why this works. 
-For now, just be aware that there are bunch of ways you can act on a
+is called a function. We’ll discuss later how and why this works. For
+now, just be aware that there are bunch of ways you can act on a
 list (or any variable, for that matter) using what are known as
-functions.</P>
-<UL>
-	<LI><P>Just like we added an item to
-	the list above, we can also remove an item from the list.  For
-	example, if we decide that we don’t like April, we can get rid of
-	it from the list:</P>
-</UL>
-<P>
-months.remove(‘April’)</P>
-<P><BR><BR>
-</P>
-<P>Here is what the
-code and output would look like from creating and running this code:</P>
-<P><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P>Here is how the
-computer now sees this list:</P>
-<CENTER>
-	<TABLE WIDTH=339 BORDER=1 BORDERCOLOR="#999999" CELLPADDING=8 CELLSPACING=0>
-		<COL WIDTH=96>
-		<COL WIDTH=209>
-		<TR>
-			<TD WIDTH=96 HEIGHT=17 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><B>ITEM #</B></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><B>ITEM NAME</B></P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">0</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>January</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">1</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>Feb</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">2</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>March</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=18 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">3</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>May</P>
-			</TD>
-		</TR>
-		<TR>
-			<TD WIDTH=96 HEIGHT=17 BGCOLOR="#ffffff">
-				<P ALIGN=CENTER><SPAN STYLE="font-weight: normal">4</SPAN></P>
-			</TD>
-			<TD WIDTH=209 BGCOLOR="#ffffff">
-				<P>June</P>
-			</TD>
-		</TR>
-	</TABLE>
-</CENTER>
-<P><BR><BR>
-</P>
-<P><BR><BR>
-</P>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="CALCULATIONS.html">prev</a> |
-	<a href="INTRO_TO_FUNCTIONS.html">next</a></p>
-</BODY>
-</HTML>
+functions.</p>
+
+<ul>
+
+  <li>
+    <p>Just like we added an item to the list above, we can also remove
+an item from the list. For example, if we decide that we don’t like
+April, we can get rid of it from the list:</p>
+  </li>
+</ul>
+
+<p>
+months.remove(‘April’)</p>
+
+<p><br>
+<br>
+</p>
+
+<p>Here is what the
+code and output would look like from creating and running this code:</p>
+
+<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+
+<p>Here is how the
+computer now sees this list:</p>
+
+<center>
+<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
+  <col width="96"> <col width="209"> <tbody>
+    <tr>
+      <td bgcolor="#ffffff" height="17" width="96">
+      <p align="center"><b>ITEM #</b></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p align="center"><b>ITEM NAME</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">0</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>January</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">1</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>Feb</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">2</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>March</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="18" width="96">
+      <p align="center"><span style="font-weight: normal;">3</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>May</p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor="#ffffff" height="17" width="96">
+      <p align="center"><span style="font-weight: normal;">4</span></p>
+      </td>
+      <td bgcolor="#ffffff" width="209">
+      <p>June</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+
+<p><br>
+<br>
+</p>
+
+<p><br>
+<br>
+</p>
+
+<p><br>
+<br>
+</p>
+
+<p class="nextprev"><a href="CALCULATIONS.html">prev</a> | <a href="INTRO_TO_FUNCTIONS.html">next</a></p>
+
+</body></html>
