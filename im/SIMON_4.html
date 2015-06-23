@@ -10,33 +10,25 @@
 <H1>SIMON 4</H1>
 <P>Simon:
 random sequence playing forever</P>
-<OL START=4>
-	<UL>
-		<LI><P>New
-		code</P>
-	</UL>
-</OL>
-<P>…</P>
-<P>from
-random import randrange</P>
-<P>…</P>
-<P>play_order
-= []</P>
-<P>failed
-= False</P>
-<P>while
-not failed:</P>
-<P>play_order
-+= [randrange(4)]</P>
-<P><BR><BR>
-</P>
-<P>#
-Play sequence</P>
-<P>...</P>
-<P>&nbsp;&nbsp;&nbsp;time.sleep(1.0)</P>
-<P>&nbsp;&nbsp;&nbsp;
+<div class="code" data-firstline="0"><div></div><textarea>
+...
 
-</P>
+from random import randrange
+
+...
+
+play_order = []
+failed = False
+while not failed:
+    play_order += [randrange(4)]
+
+    # Play sequence
+    ...
+
+    time.sleep(1.0)
+
+</textarea></div>
+
 	<p class=nextprev><a href="SIMON_3.html">prev</a> |
 	<a href="SIMON_5.html">next</a></p>
 </BODY>

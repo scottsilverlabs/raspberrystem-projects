@@ -1,40 +1,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+  
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
 
-<H1>SIMON 1</H1>
-<P>Simon:
-add and light one LED</P>
-<OL>
-	<UL>
-		<LI><P>New
-		concept: from &lt;module&gt; import &lt;function&gt;</P>
-		<LI><P>Put
-		the new LED next to one of the buttons, in simon format</P>
-		<LI><P>Code:</P>
-	</UL>
-</OL>
-<P>import
-rstem</P>
-<P>from
-rstem.gpio import Output</P>
-<P>import
-time</P>
-<P><BR><BR>
-</P>
-<P>light
-= Output(4)</P>
-<P><BR><BR>
-</P>
-<P>lights.on()</P>
-<P>time.sleep(1)</P>
-<P>lights.off()</P>
-	<p class=nextprev><a href="BETTER_PIANO.html">prev</a> |
-	<a href="SIMON_2.html">next</a></p>
-</BODY>
-</HTML>
+  
+  
+  <link rel="stylesheet" type="text/css" href="default.css">
+
+</head><body dir="ltr" style="color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>SIMON 1</h1>
+
+<p>Simon:
+add and light one LED</p>
+
+<ol>
+
+  <ul>
+    <li>
+      <p>New concept: from &lt;module&gt; import &lt;function&gt;</p>
+    </li>
+    <li>
+      <p>Put the new LED next to one of the buttons, in simon format</p>
+    </li>
+    
+  </ul>
+</ol>
+
+<div class="code" data-firstline="1"><div></div><textarea>
+from rstem.gpio import Output
+import time
+light = Output(4)
+lights.on()
+time.sleep(1)
+lights.off()
+</textarea></div>
+
+<br>
+
+<p class="nextprev"><a href="BETTER_PIANO.html">prev</a> | <a href="SIMON_2.html">next</a></p>
+
+</body></html>

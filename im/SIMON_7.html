@@ -20,33 +20,27 @@ Wrapping up - error sounds and volume control</P>
 		code:</P>
 	</UL>
 </OL>
-<P>you_failed_note
-= Note('E2')</P>
-<P>you_failed_note.volume
-= 1000</P>
-<P><BR><BR>
-</P>
-<P>for
-note in notes:</P>
-<P>&nbsp;&nbsp;&nbsp;note.volume
-= 400</P>
-<P>...</P>
-<P>#
-Play error tone with pressed light (or all lights) on.</P>
-<P>if
-button_pressed == None:</P>
-<P>&nbsp;&nbsp;&nbsp;for
-light in lights:</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;light.on()</P>
-<P>else:</P>
-<P>&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</P>
-<P>you_failed_note.play(1.5).wait()</P>
-<P>for
-light in lights:</P>
-<P>&nbsp;&nbsp;&nbsp;light.off()</P>
-<P>time.sleep(0.5)</P>
-<P><BR><BR>
-</P>
+<div class="code" data-firstline="1"><div></div><textarea>
+you_failed_note = Note('E2')
+you_failed_note.volume = 1000
+
+for note in notes:
+    note.volume = 400
+
+...
+
+# Play error tone with pressed light (or all lights) on.
+if button_pressed == None:
+    for light in lights:
+        light.on()
+else:
+    lights[button_pressed].on()
+you_failed_note.play(1.5).wait()
+for light in lights:
+    light.off()
+time.sleep(0.5)
+</textarea></div>
+
 	<p class=nextprev><a href="SIMON_6.html">prev</a> |
 	<a href="SIMON_8.html">next</a></p>
 </BODY>

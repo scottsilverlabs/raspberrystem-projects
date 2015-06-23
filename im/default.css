@@ -79,6 +79,11 @@ div.code > div:first-child {
     padding: 10
 }
 
+textarea {
+    width: 100%;
+    height: 20em;
+}
+
 .CodeMirror-cursor { visibility: hidden; }
 
 /*
@@ -118,3 +123,4 @@ div.info > div:first-child {
 div.info div:last-child {
     font-size: 14pt;
 }
+
