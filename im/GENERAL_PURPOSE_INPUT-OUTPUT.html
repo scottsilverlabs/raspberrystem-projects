@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
 
+
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
     <link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -48,10 +49,10 @@ to do one of two things:</p>
 <ol>
 
   <li>
-    <p>Generate 0V of electricity (just like a ground)</p>
+    <p>Generate 0 Volts (0V, just like a ground)</p>
   </li>
   <li>
-    <p>Generate 3.3V of electricity (just like a battery or any other
+    <p>Generate 3.3 Volts (3.3V, just like a battery or any other
 power source)</p>
   </li>
 </ol>
@@ -103,18 +104,14 @@ this will work…</p>
 <p>We’ve already
 discussed that the software can force the GPIO into one of two
 states:</p>
-
 <ol>
-
-  <li>
-    <p>Generate 0V of electricity (just like a ground)</p>
-  </li>
-  <li>
-    <p>Generate 3.3V of electricity (just like a battery or any other
+<li>
+    <p>Generate 0 Volts (0V, just like a ground)</p>
+  </li><li>
+    <p>Generate 3.3 Volts (3.3V, just like a battery or any other
 power source)</p>
   </li>
 </ol>
-
 <p>If the software sets
 the GPIO to generate 0V (we call this setting the GPIO “low”),
 the GPIO acts just like a ground, and the LED will light up just like
@@ -244,7 +241,17 @@ statement with:</p>
 </textarea></div>
 
 <h2><br>
-</h2>
+</h2><br>
+<h2>Active Low</h2>
+<p><!--Added this - rewrite or remove as you like.-->You may have
+noticed that to turn the LED on, the GPIO needs to be low (0).&nbsp; To
+turn the LED off, the GPIO needs to be high (1).&nbsp; If this sounds a
+little reversed, its because it is.&nbsp; It is a reversed way of using
+a GPIO, called Active Low.&nbsp; A GPIO that is Active Low is turned
+"on" when the GPIO is low, and "off" when the GPIO is high.&nbsp; The
+reverse of this is called Active High -a GPIO that is Active High is turned "on" when the GPIO is high, and "off" when the GPIO is low.&nbsp;   </p>
+<br>
+
 
 <h2>GPIOs as Inputs</h2>
 
