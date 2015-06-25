@@ -1,63 +1,82 @@
 FRITZING PARTS FILES
 
-Fritzing supports user parts libaraies, which it calls bins.  We have a
-RaspberrySTEM bin, which contains RaspberrySTEM Cells and other parts.
+    Fritzing supports user parts libraries, which it calls bins.  We have a
+    RaspberrySTEM bin, which contains RaspberrySTEM Cells and other parts.
 
 CREATING PARTS
 
-To create a part:
-    - Right click on a existing part that's the most similar to the new part,
-      and choose "Edit part (new parts editor)..."
-    - Save as new part.  Choose default prefix.
-    - Drag part from MINE bin to RaspberrySTEM bin
-    - The part in MINE must NOT be deleted!  Perhaps it can be deleted later if
-      the bin is reimported.
+    To create a part:
+        - Right click on a existing part that's the most similar to the new part,
+          and choose "Edit part (new parts editor)..."
+        - Save as new part.  Choose default prefix.
+        - Drag part from MINE bin to RaspberrySTEM bin
+        - The part in MINE must NOT be deleted!  Perhaps it can be deleted later if
+          the bin is reimported.
 
-Part can be further edited using the parts editor.
+    Part can be further edited using the parts editor.
 
 EXPORT
 
-Before Export, make sure to first save and close the open bins, then close and
-reopen the Fritzing app.  Otherwise, it appears Fritzing will export old data.
+    Before Export, make sure to first save and close the open bins, then close and
+    reopen the Fritzing app.  Otherwise, it appears Fritzing will export old data.
 
-To export the RaspberrySTEM bin, select the bin, choose "Export Bin..." from
-the drop down menu, and export to this directory.
+    To export the RaspberrySTEM bin, select the bin, choose "Export Bin..." from
+    the drop down menu, and export to this directory.
 
-After export, you may want to untar the resulting .fzbz file, and verify that
-the svg files within it are correct.
+    After export, you may want to untar the resulting .fzbz file, and verify that
+    the svg files within it are correct.
 
 IMPORT
 
-To import, choose "Import..." from the drop down menu, and import the .fzbz
-file.  Note that this will likely create a duplicate bin in the bin list.   The
-extra bin can be removed.
+    To import, choose "Import..." from the drop down menu, and import the .fzbz
+    file.  Note that this will likely create a duplicate bin in the bin list.   The
+    extra bin can be removed.
 
-The image files for the bin are stored separately in this in directory, and
-need to be installed manually the first time the bin is imported.  To do so,
-from this directory:
-    
-    cp *.png ~/.config/Fritzing/bins
+    The image files for the bin are stored separately in this in directory, and
+    need to be installed manually the first time the bin is imported.  To do so,
+    from this directory:
+        
+        cp *.png ~/.config/Fritzing/bins
 
-One potential issue - the .fzbz file has some hardcoded /User paths in it -
-this may need to be resolved.
+    One potential issue - the .fzbz file has some hardcoded /User paths in it -
+    this may need to be resolved.
 
-On first exit after import, make sure to choose to save both the imported parts
-and the bin when asked to do so (use the default file name).
+    On first exit after import, make sure to choose to save both the imported parts
+    and the bin when asked to do so (use the default file name).
 
 USING BREADBOARD DIAGRAMS
 
-Create and save breadboard diagrams in the diagrams dir.  To use in HTML docs,
-export the diagram via File -> Export -> As Image -> PNG.  The resolution is
-fixed.  Move the resultant file to the HTML docs dir where it will be used, and
-incorporate it in the doc.
+    To use diagrams in HTML docs, export the diagram via File -> Export -> As Image
+    -> PNG.  The resolution is fixed.  Make sure to unselect any parts before
+    exporting, as the dashed selection box will be saved in the export.
 
-To trim the Friting logo and whitespace use:
+    To trim the Friting logo and whitespace use:
 
-    mogrify -crop -0-51 -trim exported_fritzing_image.png 
+        ./bb_crop diagram_bb.png
 
-TBD: It might be useful in the future to export as an SVG, and then convert to
-PNG at a specific resolution.  However, the current parts (either by a Fritzing
-error or user error) do not correct export as SVG - all the RaspberrySTEM
-custom parts are missing.
+    Move the resultant file to the HTML docs dir where it will be used, and
+    incorporate it in the doc.
 
+    TBD: It might be useful in the future to export as an SVG, and then convert to
+    PNG at a specific resolution.  However, the current parts (either by a Fritzing
+    error or user error) do not correctly export as SVG - all the RaspberrySTEM
+    custom parts are missing.
 
+USING "DOUBLE-WIDE" BREADBOARD DIAGRAMS
+
+    Some breadboard diagrams use the "double-wide" RaspberrySTEM breadboard, which
+    is not directly supported by Frizting.  To use these, we use two overlaid
+    single-wide breadboards, and then stich the images together in postprocessing:
+
+    In Fritzing, "send to front" the TOP breadboard, delect it, then export is with
+    the name:
+        mydiagram_top_bb.png
+    Repeat for the BOTTOM breadboard, using the name:
+        mydiagram_bot_bb.png
+
+    To stich the two images together, do:
+
+        ./bb_stich mydiagram
+        
+    Move the resultant file to the HTML docs dir where it will be used, and
+    incorporate it in the doc.

@@ -1,0 +1,9 @@
+#
+# crop off Fritzing logo and trim whitespace.  
+#
+# Note - Fritzing sometimes leaves some garbage on the right side, causing
+# "-trim" to not work.  So we crop off a few extra pixels from the right before
+# trimming.
+#
+mogrify -crop 100%x100%-3-60 -trim +repage "$1"
+

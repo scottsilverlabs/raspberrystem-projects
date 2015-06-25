@@ -1,0 +1,40 @@
+#
+# Stitch two double-wide breadboard Fritzing images together
+# 
+BASENAME="$1"
+DEFAULT_STITCH_POINT_FROM_BOTTOM=605
+if [ $# -eq 1 ]; then
+    STITCH_POINT_FROM_BOTTOM=$DEFAULT_STITCH_POINT_FROM_BOTTOM
+elif [ $# -eq 2 ]; then
+    STITCH_POINT_FROM_BOTTOM="$2"
+else
+    echo "Usage: $0 <diagram_name> [<stich_point_from_bottom>]"
+    echo "    <stich_point_from_bottom> default $DEFAULT_STITCH_POINT_FROM_BOTTOM"
+    exit 1
+fi
+
+BOT_NAME="${BASENAME}_bot_bb.png"
+TOP_NAME="${BASENAME}_top_bb.png"
+NAME="${BASENAME}_bb.png"
+if [ ! -f "$TOP_NAME" ]; then
+    echo "Top image: \"$TOP_NAME\" does not exist"
+    exit 1
+fi
+if [ ! -f "$BOT_NAME" ]; then
+    echo "Bottom image: \"$BOT_NAME\" does not exist"
+    exit 1
+fi
+
+BOT_HEIGHT=`identify -format %h "$BOT_NAME"`
+TOP_HEIGHT=`identify -format %h "$TOP_NAME"`
+if [ $BOT_HEIGHT -ne $TOP_HEIGHT ]; then
+    echo "Bottom height ($BOT_HEIGHT) is NOT equal to top height ($TOP_HEIGHT)"
+    exit 1
+fi
+
+TOP_CROP=$STITCH_POINT_FROM_BOTTOM
+BOT_CROP=$((BOT_HEIGHT-STITCH_POINT_FROM_BOTTOM))
+convert \( "$TOP_NAME" -crop -0-$TOP_CROP \) \( "$BOT_NAME" -crop -0+$BOT_CROP \) -append "$NAME"
+
+./bb_crop "$NAME"
+
