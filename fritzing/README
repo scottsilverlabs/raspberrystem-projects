@@ -64,12 +64,15 @@ USING BREADBOARD DIAGRAMS
 
 USING "DOUBLE-WIDE" BREADBOARD DIAGRAMS
 
-    Some breadboard diagrams use the "double-wide" RaspberrySTEM breadboard, which
-    is not directly supported by Frizting.  To use these, we use two overlaid
-    single-wide breadboards, and then stich the images together in postprocessing:
+    Some breadboard diagrams use the "double-wide" RaspberrySTEM breadboard,
+    which is not directly supported by Frizting.  To use these, we use two
+    overlaid single-wide breadboards, and then stich the images together in
+    postprocessing.  The images also must have notes correctly positioned in
+    the top-left, top-right, bottom-left, and bottom-right corners.  Use
+    another image as a starting point if creating new Fritzing diagrams.
 
-    In Fritzing, "send to front" the TOP breadboard, delect it, then export is with
-    the name:
+    In Fritzing, "send to front" the TOP breadboard, delect it, then export is
+    with the name:
         mydiagram_top_bb.png
     Repeat for the BOTTOM breadboard, using the name:
         mydiagram_bot_bb.png
@@ -78,5 +81,5 @@ USING "DOUBLE-WIDE" BREADBOARD DIAGRAMS
 
         ./bb_stich mydiagram
         
-    Move the resultant file to the HTML docs dir where it will be used, and
-    incorporate it in the doc.
+    Move the resultant file (mydiagram_bb.png) to the HTML docs dir where it
+    will be used, and incorporate it in the doc.

@@ -5,5 +5,5 @@
 # "-trim" to not work.  So we crop off a few extra pixels from the right before
 # trimming.
 #
-mogrify -crop 100%x100%-3-60 -trim +repage "$1"
+mogrify -crop 100%x100%-3-51 -trim +repage "$1"
 
