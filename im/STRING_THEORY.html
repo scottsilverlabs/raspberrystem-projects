@@ -1,93 +1,114 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
+<html>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
+	<TITLE>STRING THEORY</TITLE>
     <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
 </HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>STRING THEORY</H1>
-<P>Now that we’ve
+<body dir="ltr" style="color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>STRING THEORY</h1>
+
+<p>Now that we’ve
 successfully created a circuit and were able to control that circuit
 through code, we’re well on our way to doing some really cool
-stuff.  But, before we go much further, we need to spend the next
-couple projects learning some basic coding concepts.</P>
-<P>First, let’s talk
-about “strings.”  When we talk about strings in programming,
-we’re generally just talking about text.  For example, in our very
-first project, we printed out the text “Hello, World!”  In this
-example, “Hello, World!” is a string.</P>
-<P>In fact, a string is
+stuff. But, before we go much further, we need to spend the next
+couple projects learning some basic coding concepts.</p>
+
+<p>First, let’s talk
+about "strings." When we talk about strings in programming,
+we’re generally just talking about text. For example, in our very
+first project, we printed out the text 'Hello, World!' .&nbsp; In this
+example, 'Hello, World!' is a string.</p>
+
+<p>In fact, a string is
 any combination of letters, numbers and symbols that is used as text,
 and we typically indicate something is a string by putting quotation
-marks (“”) around it.  Here are some examples of strings:</P>
-<P STYLE="margin-left: 0.5in">‘Hello,
-World!’</P>
-<P STYLE="margin-left: 0.5in">‘Four
-score and seven years ago.’</P>
-<P STYLE="margin-left: 0.5in">‘4
-score and 7 years ago.’</P>
-<P STYLE="margin-left: 0.5in">‘1
-2 3 4 5 6 7 8 9 10’</P>
-<P STYLE="margin-left: 0.5in">‘My
-name is Jason’</P>
-<P STYLE="margin-left: 0.5in">‘1+1’</P>
-<P>While some of those
+marks (') around it. Here are some examples of strings:</p>
+
+<p style="margin-left: 0.5in;">'Hello,
+World!'</p>
+
+<p style="margin-left: 0.5in;">'Four
+score and seven years ago.'</p>
+
+<p style="margin-left: 0.5in;">'4
+score and 7 years ago.'</p>
+
+<p style="margin-left: 0.5in;">'1
+2 3 4 5 6 7 8 9 10'</p>
+
+<p style="margin-left: 0.5in;">'My
+name is Jason'</p>
+
+<p style="margin-left: 0.5in;">'1+1'</p>
+
+<p>While some of those
 strings contain numbers and other symbols, because they are each
 surrounded by quotation marks, we treat them as a single group of
-characters, exactly as they are.  
-</P>
-<P>For example, you
-might look at that last string (“1+1”) and think to yourself,
-“That is the same as 2.”  While you’re obviously correct that
+characters, exactly as they are. </p>
+
+<p>For example, you
+might look at that last string ('1+1') and think to yourself, "That is
+the same as 2." While you’re obviously correct that
 1+1 = 2, when the computer sees the quotation marks around that
 string, it just thinks of it as a series of three characters put
-together.</P>
-<P>Just to verify this,
+together.</p>
+
+<p>Just to verify this,
 let’s revisit our program from Project #1 and replace the string
-“Hello, World!” with these other strings.  While we could just
-replace the “Hello, World!” string with another one in line 1 and
+'Hello, World!' with these other strings. While we could just
+replace the 'Hello, World!' string with another one in line 1 and
 re-run the program, we can also just add additional lines below line
-1 with our new commands.  Let’s take a look at how this would work…</P>
-<H2>Step #1:  Enter Your Code in The Code Window</H2>
-<P>Starting on line 2
+1 with our new commands. Let’s take a look at how this would work…</p>
+
+<h2>Step #1: Enter Your Code in The Code Window</h2>
+
+<p>Starting on line 2
 of the Code Window, add the following lines (you can either type them
-in or cut-and-paste as we described in Project #1):</P>
-<P>print
-(‘Hello, World!’)</P>
-<P>print
-(‘Four score and seven years ago.’)</P>
-<P>print
-(‘4 score and 7 years ago.’)</P>
-<P>print
-(‘1 2 3 4 5 6 7 8 9 10’)</P>
-<P>print
-(‘My name is Jason’)</P>
-<P>print
-(‘1+1’)</P>
-<P><BR><BR>
-</P>
-<P>When you are
-finished, your code window should now look like this:</P>
-<P ALIGN=CENTER><IMG SRC="img/Projects%20Guide%20-%20061115-2_html_524489da.png" ALIGN=BOTTOM WIDTH=636 HEIGHT=153 BORDER=0></P>
-<H2>Step #2:  Run Your Code</H2>
-<P>Now that you’ve
+in or cut-and-paste as we described in Project #1):</p>
+
+<div class="code" data-firstline="2">
+<div> </div>
+<textarea>print('Hello, World!')
+print('Four score and seven years ago.')
+print('4 score and 7 years ago.')
+print('1 2 3 4 5 6 7 8 9 10')
+print('My name is Jason')
+print('1+1')
+</textarea></div>
+
+<br>
+
+<h2>Step #2: Run Your Code</h2>
+
+<p>Now that you’ve
 entered all of your code into the Code Window, let’s see if it
-works.  To run the program, click on the Play icon in the Icon menu.</P>
-<H2>Step #3:  Verify the “Output” of Your Code</H2>
-<P>If you’ve done
+works. To run the program, click on the Play icon in the Icon menu.</p>
+
+<h2>Step #3: Verify the "Output" of Your Code</h2>
+
+<p>If you’ve done
 everything correctly, you should see the following in your Output
-Window:</P>
-<P ALIGN=CENTER>
-<IMG SRC="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" ALIGN=BOTTOM WIDTH=612 HEIGHT=167 BORDER=0></P>
-<P><BR><BR>
-</P>
-<P><BR><BR>
-</P>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a> |
-	<a href="CALCULATIONS.html">next</a></p>
-</BODY>
-</HTML>
+Window:</p>
+
+<div class="output" data-firstline="2">
+<div> </div>
+<textarea>Hello, World!
+Four score and seven years ago.
+4 score and 7 years ago.
+1 2 3 4 5 6 7 8 9 10
+My name is Jason
+1+1
+</textarea></div>
+<!--TBD: Could use more on why strings are useful, and some operations we can use on strings len(), slices, testing, upper/lower(), etc.-->&nbsp;
+
+<p class="nextprev"><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a>
+| <a href="CALCULATIONS.html">next</a></p>
+
+</body></html>
