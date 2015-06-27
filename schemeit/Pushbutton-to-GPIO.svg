@@ -1,0 +1,70 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="850"
+     height="408">
+    <defs/>
+    <g transform=" translate(-836,-756)">
+        <path d="M 1480 840 L 1652.31 840 L 1680 880 L 1652.31 920 L 1480 920 Z"
+              fill="#ffffff" stroke="#000000" stroke-width="4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="48px">
+            <text x="1579.75" y="895.75">
+                GPIO
+            </text>
+        </g>
+        <rect x="1316" y="876" width="8" height="8" fill="#000000" stroke="none"
+              pointer-events="none"/>
+        <rect x="1076" y="876" width="8" height="8" fill="#000000" stroke="none"
+              pointer-events="none"/>
+        <ellipse cx="1270" cy="880" rx="8" ry="8" fill="none" stroke="#000000"
+                 stroke-width="8" pointer-events="none"/>
+        <rect x="1122.62" y="848.51" width="155.69" height="3.75" fill="none"
+              stroke="#000000" stroke-width="4.32" pointer-events="none"/>
+        <ellipse cx="1130" cy="880" rx="8" ry="8" fill="none" stroke="#000000"
+                 stroke-width="8" pointer-events="none"/>
+        <path d="M 1282 880 L 1316 880" fill="none" stroke="#000000"
+              stroke-width="8" stroke-linecap="square" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1084 880 L 1118 880" fill="none" stroke="#000000"
+              stroke-width="8" stroke-linecap="square" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1200.46 782.9 C 1200.46 846.42 1200.46 846.42 1200.46 846.42"
+              fill="none" stroke="#000000" stroke-width="8"
+              stroke-linecap="square" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <rect x="1064" y="864" width="32" height="32" fill="none" stroke="none"
+              pointer-events="none"/>
+        <rect x="1304" y="864" width="32" height="32" fill="none" stroke="none"
+              pointer-events="none"/>
+        <rect x="1040" y="920" width="304" height="48" fill-opacity="0"
+              fill="#dae2f2" stroke="#000000" stroke-opacity="0"
+              pointer-events="none"/>
+        <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="48px">
+            <text x="1191.75" y="959.75">
+                PUSHBUTTON
+            </text>
+        </g>
+        <path d="M 1320 880 L 1480 880" fill="none" stroke="#000000"
+              stroke-width="8" stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="916" y="996" width="8" height="8" fill="#000000" stroke="none"
+              pointer-events="none"/>
+        <path d="M 876 1084 C 964.08 1084 964.08 1084 964.08 1084" fill="none"
+              stroke="#000000" stroke-width="8" stroke-linecap="round"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 892 1108 C 930.28 1108 948 1108 948 1108" fill="none"
+              stroke="#000000" stroke-width="8" stroke-linecap="round"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 908 1132 C 920.48 1132 932 1132 932 1132" fill="none"
+              stroke="#000000" stroke-width="8" stroke-linecap="round"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 920 1004 L 920 1076" fill="#000000" stroke="#000000"
+              stroke-width="8" stroke-linecap="square" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <rect x="904" y="984" width="32" height="32" fill="none" stroke="none"
+              pointer-events="none"/>
+        <path d="M 1080 880 L 920 880 L 920 1000" fill="none" stroke="#000000"
+              stroke-width="8" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>

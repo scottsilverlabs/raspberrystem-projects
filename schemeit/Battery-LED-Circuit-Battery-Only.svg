@@ -1,0 +1,53 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="414"
+     height="280">
+    <defs/>
+    <g transform=" translate(-950.4375,-940)">
+        <rect x="1276" y="956" width="8" height="8" fill="#000000" stroke="none"
+              pointer-events="none"/>
+        <rect x="1276" y="1196" width="8" height="8" fill="#000000"
+              stroke="none" pointer-events="none"/>
+        <path d="M 1210.12 998.23 C 1250.12 998.23 1250.12 998.23 1250.12 998.23"
+              fill="none" stroke="#000000" stroke-width="6"
+              stroke-linecap="round" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1230.12 978.23 C 1230.12 1018.23 1230.12 1018.23 1230.12 1018.23"
+              fill="none" stroke="#000000" stroke-width="6"
+              stroke-linecap="round" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1208 1034.13 C 1352 1034.13 1352 1034.13 1352 1034.13"
+              fill="none" stroke="#000000" stroke-width="8"
+              stroke-linecap="round" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1244 1064 C 1316 1064 1316 1064 1316 1064" fill="none"
+              stroke="#000000" stroke-width="8" stroke-linecap="round"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1208 1098.13 C 1352 1098.13 1352 1098.13 1352 1098.13"
+              fill="none" stroke="#000000" stroke-width="8"
+              stroke-linecap="round" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 1244 1128 C 1316 1128 1316 1128 1316 1128" fill="none"
+              stroke="#000000" stroke-width="8" stroke-linecap="round"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1280 964 L 1280 1032" fill="none" stroke="#000000"
+              stroke-width="8" stroke-linejoin="round" stroke-linecap="square"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1280 1128 L 1280 1196" fill="none" stroke="#000000"
+              stroke-width="8" stroke-linejoin="round" stroke-linecap="square"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="1264" y="944" width="32" height="32" fill="none" stroke="none"
+              pointer-events="none"/>
+        <rect x="1264" y="1184" width="32" height="32" fill="none" stroke="none"
+              pointer-events="none"/>
+        <rect x="960" y="1040" width="216" height="52" fill-opacity="0"
+              fill="#dae2f2" stroke="#000000" stroke-opacity="0"
+              pointer-events="none"/>
+        <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="48px">
+            <text x="1067.75" y="1081.75">
+                BATTERY
+            </text>
+        </g>
+    </g>
+</svg>

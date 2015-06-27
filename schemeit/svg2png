@@ -1,0 +1,15 @@
+#!/bin/bash
+INKSCAPE="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+SVG_FILE="$1"
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <svg>"
+    exit 1
+fi
+if [ ! -f "$SVG_FILE" ]; then
+    echo "SVG file: \"$SVG_FILE\" does not exist"
+    exit 1
+fi
+
+PNG_FILE="`basename "$SVG_FILE" .svg`.png"
+
+"$INKSCAPE" -z -e "$PNG_FILE" -D -d 300 "$SVG_FILE"

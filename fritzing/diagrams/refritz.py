@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 from bs4 import BeautifulSoup
 import os
 import platform
@@ -10,16 +11,17 @@ if platform.system() == "Darwin":
 # Determine input/out file names
 #
 if len(sys.argv) != 2:
-    print "Exactly one arg required - the name of the svg file"
+    print("Exactly one arg required - the name of the svg file")
     sys.exit()
 filebase, ext = os.path.splitext(sys.argv[1])
 if ext != ".svg":
-    print "File must have .svg extension"
+    print("File must have .svg extension")
     sys.exit()
 input_file = "'" + filebase + ext + "'"
 intermediate_svg_file = "/tmp/new.svg"
 output_file = "'" + filebase + ".png" + "'"
 
+intermediate_svg_file = "new.svg"
 soup = BeautifulSoup(open(filebase + ext))
 
 #
@@ -47,7 +49,7 @@ for tag in soup.find_all("path"):
     tag["stroke"] = "#000000"
 
 with open(intermediate_svg_file, "w") as f:
-    f.write(soup.prettify(encoding="UTF-8"))
+    f.write(soup.prettify())
 
 cmd = inkscape + " -z -e " + output_file + " -D -d 1200 " + intermediate_svg_file
 os.system(cmd)
