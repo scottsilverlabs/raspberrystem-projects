@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Crop off and trim just the top breadboard of a double-wide breadboard
+# Fritzing image.
+#
+# Requires the images be saved according to the README.
+#
+mogrify -crop 100x55%+250+125 -trim +repage "$1"
+
+
