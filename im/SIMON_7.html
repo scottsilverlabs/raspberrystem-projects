@@ -1,53 +1,78 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>SIMON 7</H1>
-<P>Simon:
-Wrapping up - error sounds and volume control</P>
-<OL START=7>
-	<UL>
-		<LI><P>New
-		concept: volume</P>
-		<LI><P S>New
-		concept: chaining functions</P>
-		<LI><P>New
-		code:</P>
-	</UL>
-</OL>
-<P>you_failed_note
-= Note('E2')</P>
-<P>you_failed_note.volume
-= 1000</P>
-<P><BR><BR>
-</P>
-<P>for
-note in notes:</P>
-<P>&nbsp;&nbsp;&nbsp;note.volume
-= 400</P>
-<P>...</P>
-<P>#
-Play error tone with pressed light (or all lights) on.</P>
-<P>if
-button_pressed == None:</P>
-<P>&nbsp;&nbsp;&nbsp;for
-light in lights:</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;light.on()</P>
-<P>else:</P>
-<P>&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</P>
-<P>you_failed_note.play(1.5).wait()</P>
-<P>for
-light in lights:</P>
-<P>&nbsp;&nbsp;&nbsp;light.off()</P>
-<P>time.sleep(0.5)</P>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="SIMON_6.html">prev</a> |
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SIMON 7</h1>
+<p>In our last project,&nbsp;added in the use
+of the buttons as input. &nbsp;Now we're going to add sounds...</p><span style="font-family: &quot;Verdana&quot;,serif;">...<br><br><br></span><h2>Programming Implementation</h2><p>...</p>
+<p>from
+rstem.sound import Note</p>
+<p>...</p>
+<p>notes
+= [Note('A'), Note('B'), Note('C'), Note('D')]</p>
+<p>...</p>
+<p>while
+not failed:</p>
+<p>&nbsp;&nbsp;&nbsp;#
+Play sequence</p>
+<p>&nbsp;&nbsp;&nbsp;for
+i in play_order:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[i].play(0.4).wait()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+<p><br><br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+Light and play while button is pressed.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[button_pressed].play(duration=None)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button_pressed].wait(press=False)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(0.2)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].off()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[button_pressed].stop()</p>
+<p>&nbsp;&nbsp;&nbsp;...</p>&nbsp; <h2>Executing Your Code</h2><br><br><br>..................................<br><p>Simon:
+Wrapping up - error sounds and volume control</p>
+<ol start="7">
+	<ul>
+		<li><p>New
+		concept: volume</p>
+		</li><li><p s="">New
+		concept: chaining functions</p>
+		</li><li><p>New
+		code:</p>
+	</li></ul>
+</ol>
+<p>you_failed_note
+= Note('E2')</p>
+<p>you_failed_note.volume
+= 1000</p>
+<p><br><br>
+</p>
+<p>for
+note in notes:</p>
+<p>&nbsp;&nbsp;&nbsp;note.volume
+= 400</p>
+<p>...</p>
+<p>#
+Play error tone with pressed light (or all lights) on.</p>
+<p>if
+button_pressed == None:</p>
+<p>&nbsp;&nbsp;&nbsp;for
+light in lights:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;light.on()</p>
+<p>else:</p>
+<p>&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</p>
+<p>you_failed_note.play(1.5).wait()</p>
+<p>for
+light in lights:</p>
+<p>&nbsp;&nbsp;&nbsp;light.off()</p>
+<p>time.sleep(0.5)</p>
+<p><br><br>
+</p>
+	<p class="nextprev"><a href="SIMON_6.html">prev</a> |
 	<a href="SIMON_8.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

@@ -1,38 +1,89 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>SIMON 2</H1>
-<P>Simon:
-list of LEDs</P>
-<OL START=2>
-	<UL>
-		<LI><P>Add
-		the rest of the LEDs, one at a time.</P>
-		<LI><P>New
-		concept: for loop</P>
-		<LI><P>Turn
-		off all LEDs, then turn them all back on.</P>
-		<LI><P>Code:</P>
-	</UL>
-</OL>
-<P>lights
-= [Output(4), Output(27), Output(17), Output(25)]</P>
-<P>for
-light in lights:</P>
-<P>light.off()</P>
-<P><BR><BR>
-</P>
-<P>for
-light in lights:</P>
-<P>light.on()</P>
-<P>time.sleep(1)</P>
-	<p class=nextprev><a href="SIMON_1.html">prev</a> |
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SIMON 2</h1><span style="font-family: &quot;Verdana&quot;,serif;"></span><p class="MsoNormal">In
+the previous project, we wired up and tested the four buttons we'll be
+using for our pattern-matching game. &nbsp;Now it's time to add four
+LEDs to the circuit from our last project and test those.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Hardware Implementation</span></h2><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #1</span>: &nbsp;Wire Your First LED Using a GPIO Output</p><p style="font-weight: bold;"><span style="font-weight: normal;">For
+this game that we're building, we'll have four different colored
+LEDs, and each LED will be associated with a particular button.
+&nbsp;For
+that reason, we're going to want to wire our LEDs in locations where we
+can
+easily tell which button each LED is associated with. &nbsp;While
+you're welcome to wire the buttons in any locations you choose, our
+instructions below will put each LED as close as possible to it's
+button.</span></p><p><span style="font-weight: normal;">If you recall from Project ???, to wire an LED to a GPIO, the circuit schematic should look as follows:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p style="font-weight: bold; text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-style: italic;"><img style="width: 511px; height: 519px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br></span></span></p><br><p>Based
+on that, to
+implement the LED circuit on the breadboard, we wire one side of the
+LED to 3.3V power with a resistor in-between and wire the other side of
+the LED to a GPIO.
+&nbsp;We've choosen GPIO&nbsp;4 for our first button. &nbsp;As for LED color, it
+shouldn't matter which LED color goes with which button, so we've
+arbritarily chosen orange for this one.</p><p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard should look like:</span></p><p style="text-align: center;"></p><p style="text-align: center;"></p>
+<p style="text-align: center;"><img style="width: 818px; height: 594px;" alt="" src="img/simon-4but-1led_bb.png"></p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Keep
+in mind that you're going to want to ensure that the neither leg of the
+LED sits in the same connect strip as button or another LED, as the
+components will need to act independently, and we don't want to
+inadvertently send (or receive) signals to a component while trying to
+control another component.&nbsp;</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #2</span>: &nbsp;Wire Your Second LED Using a GPIO Output</p><p>We can now wire our second LED.
+&nbsp;We've choosen GPIO 16 for this LED and are using a yellow LED.</p><p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p style="text-align: center;"></p>
+<p style="text-align: center;"><img style="width: 818px; height: 594px;" alt="" src="img/simon-4but-2led_bb.png"></p>
+<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #3</span>: &nbsp;Wire Your Third LED Using a GPIO Output</p><p>Time to wire our third LED to the bottom button, like just the previous two.
+&nbsp;We've choosen GPIO 23 for this LED and are using a red LED.</p><p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p style="text-align: center;"></p>
+<p style="text-align: center;"><img style="width: 818px; height: 594px;" alt="" src="img/simon-4but-3led_bb.png"></p>
+<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #4</span>: &nbsp;Wire Your Fourth LED Using a GPIO Output</p><p>It's time to wire our final LED.
+&nbsp;We've choosen GPIO 27 for this LED and are using a green LED. &nbsp;</p><p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p style="text-align: center;"></p>
+<p style="text-align: center;"><img style="width: 818px; height: 594px;" alt="" src="img/simon-4but-4led_bb.png"></p>
+<span style="font-family: &quot;Verdana&quot;,serif;"><br></span><p style="font-weight: bold;"><span style="font-weight: normal;">You'll
+notice that we chose to use an extra jumper to attach the LED to the
+GPIO -- again, we're going to want to be able to press each of the
+buttons in our circuit, so keeping the wires off to the sides as much
+as possible is highly recommended.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Congratulations...you've just finished the wiring for your first game!</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Before
+we move on to start implementing the game software, we're going to
+write some code to verify that the LEDs are all wired
+correctly and are working properly. &nbsp;Like with our button test code, our LED test code is going to have two
+sections -- the first will import the functions we're going to need for
+the rest of the code and the second will test each of the LEDs.</span></p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming Implementation</span></h2><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Code Section #1</span>: &nbsp;Import Needed Functions</p><p style="font-weight: bold;"><span style="font-weight: normal;">The
+first part of our code is going to import the libraries and functions
+we'll use later in our code. &nbsp;For this test code, we're going to need
+two functions:</span></p><ol><li><p><span style="font-weight: normal;">The Output() function from the rstem.gpio library</span></p></li><li><p><span style="font-weight: normal;">The sleep() function from the time library</span></p></li></ol><p style="font-weight: bold;"><span style="font-weight: normal;">To
+make our code more readable, we'll pull in just the Output() function
+from the rstem.gpio library (that way we won't have to type
+rstem.gpio.Output() every time we want to call the function); and we'll
+pull in the entire time library (so we'll need to call time.sleep()
+each time we want to use that function).</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this introductory code should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">INSERT CODE</span></p><p>import
+rstem</p>
+<p>from
+rstem.gpio import Output</p>
+<p>import
+time</p>
+<p style="font-weight: bold;">Code Section #2: &nbsp;Test LEDs</p><p style="font-weight: bold;"><span style="font-weight: normal;">To test the LEDs, we'll assign each one to its own variable, turn each on for 3 seconds and then turn each off.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the LED test code should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">INSERT CODE</span></p><p>light1
+= Output(4)</p>
+
+<p>light2
+= Output(4)</p>
+
+<p>light3
+= Output(4)</p>
+
+<p>light4
+= Output(4)</p>
+
+<p>light1.on()</p>
+<p>light2.on()</p>
+<p>light3.on()</p>
+<p>light4.on()</p>
+<p>time.sleep(3)</p>
+<p>light1.off()</p><p>light2.off()</p><p>light3.off()</p><p>light4.off()</p><p style="font-weight: bold;"></p><span style="font-weight: normal;"></span><h2>Executing Your Code</h2><p>Let's
+run your code. &nbsp;The first thing you should (hopefully) notice is that all of the
+LEDs should immediately illuminate for three seconds, and then turn
+off. &nbsp;</p><p>If any of your LEDs don't illuminate when you run the program, you should first verify that your code was entered correctly....</p><p></p><p class="nextprev"><a href="SIMON_1.html">prev</a> |
 	<a href="SIMON_3.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

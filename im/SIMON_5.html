@@ -1,67 +1,94 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>SIMON 5</H1>
-<P>Simon:
-add buttons</P>
-<OL START=5>
-	<UL>
-		<LI><P>New
-		code:</P>
-	</UL>
-</OL>
-<P>...</P>
-<P>from
-rstem.button import Button</P>
-<P>...</P>
-<P>buttons
-= [Button(27), Button(23), Button(24), Button(22)]</P>
-<P>...</P>
-<P>failed
-= False</P>
-<P>while
-not failed:</P>
-<P>...</P>
-<P>&nbsp;&nbsp;&nbsp;#
-Play sequence</P>
-<P>&nbsp;&nbsp;&nbsp;....</P>
-<P><BR><BR>
-</P>
-<P>&nbsp;&nbsp;&nbsp;#
-Wait for user to repeat</P>
-<P>&nbsp;&nbsp;&nbsp;for
-i in play_order:</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_pressed
-= Button.wait_many(buttons, timeout=3)</P>
-<P><BR><BR>
-</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if
-button_pressed != i:</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failed
-= True</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</P>
-<P><BR><BR>
-</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
-Light and play while button is pressed.</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button_pressed].wait(press=False)</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(0.2)</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].off()</P>
-<P><BR><BR>
-</P>
-<P>&nbsp;&nbsp;&nbsp;if
-not failed:</P>
-<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1.0)</P>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="SIMON_4.html">prev</a> |
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SIMON 5</h1>
+<p>In our last project, we wrote some code to flash LEDs in a
+pre-planned sequence. &nbsp;While that's a good start, in our
+Simon-like game, we're going to need to flash LEDs in a random
+sequence. &nbsp;</p><p>In this project, we're going to make some
+modifications to the code from the last project which will give us a
+random sequence of LED flashes. &nbsp;In the next project, we'll add in
+the buttons.</p><br><h2>Programming Implementation</h2><p>Simon:
+random sequence playing forever</p>
+<ol start="4"><ul><li><p>New
+		code</p>
+	</li></ul></ol>
+<p>…</p>
+<p>from
+random import randrange</p>
+<p>…</p>
+<p>play_order
+= []</p>
+<p>failed
+= False</p>
+<p>while
+not failed:</p>
+<p>play_order
++= [randrange(4)]</p>
+<p><br><br>
+</p>
+<p>#
+Play sequence</p>
+<p>...</p>
+<p>&nbsp;&nbsp;&nbsp;time.sleep(1.0)</p>
+&nbsp; <br><h2>Executing Your Code</h2><p></p>................................<p></p><p>Simon:
+add buttons</p>
+<ol start="5">
+	<ul>
+		<li><p>New
+		code:</p>
+	</li></ul>
+</ol>
+<p>...</p>
+<p>from
+rstem.button import Button</p>
+<p>...</p>
+<p>buttons
+= [Button(27), Button(23), Button(24), Button(22)]</p>
+<p>...</p>
+<p>failed
+= False</p>
+<p>while
+not failed:</p>
+<p>...</p>
+<p>&nbsp;&nbsp;&nbsp;#
+Play sequence</p>
+<p>&nbsp;&nbsp;&nbsp;....</p>
+<p><br><br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;#
+Wait for user to repeat</p>
+<p>&nbsp;&nbsp;&nbsp;for
+i in play_order:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_pressed
+= Button.wait_many(buttons, timeout=3)</p>
+<p><br><br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if
+button_pressed != i:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failed
+= True</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
+<p><br><br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+Light and play while button is pressed.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button_pressed].wait(press=False)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(0.2)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].off()</p>
+<p><br><br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;if
+not failed:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1.0)</p>
+<p><br><br>
+</p>
+	<p class="nextprev"><a href="SIMON_4.html">prev</a> |
 	<a href="SIMON_6.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>
