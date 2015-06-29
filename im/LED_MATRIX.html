@@ -1,80 +1,104 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>LED MATRIX</H1>
-<P>Introduction to the
-LED Matrix and libraries</P>
-<UL>
-	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">First
-		step, power on (2 wires) - should see vertical and horizontal bars
-		sweep across display</SPAN></SPAN></SPAN></P>
-	</UL>
-</UL>
-<UL>
-	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Second
-		step, hook it up (4 wires)</SPAN></SPAN></SPAN></P>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Optional:
-		mounting posts</SPAN></SPAN></SPAN></P>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Quick
-		test - is it connected. &nbsp;If this program runs without error,
-		then the LED Matrix is connected.</SPAN></SPAN></SPAN></P>
-	</UL>
-</UL>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
-rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">FrameBuffer()</SPAN></SPAN></SPAN></P>
-<UL>
-	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">A
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>LED MATRIX</h1>
+<p>In this project, we're going to introduce a new component that can
+be used for a variety of purposes, including building games. &nbsp;It's
+called an LED Matrix, and like the name implies, it is basically a
+small device that contains lots of little LEDs (64 of them, to be
+exact). &nbsp;This is what an LED Matrix looks like:</p><p>XXX</p><p>Included
+with the RaspberrySTEM Kit is a bag labeled, "LED Matrix RaspberrySTEM
+Cell." &nbsp;This bag contains all the parts that you'll need to build
+and program with an LED Matrix. &nbsp;In that bag you should find the
+following:</p><ul><li><p><span style="font-weight: bold;">LED Matrix:</span>
+&nbsp;This actually consists of two parts that we've assembled for you
+-- the circuit board on the bottom and the LED display on the top.
+&nbsp;You can pull the display from the circuit board, but do so
+carefully so that none of pins bend or break.</p></li><li><p><span style="font-weight: bold;">LED Matrix Cable:</span>
+&nbsp;This cable consists of six wires, with connectors on each end.
+&nbsp;This is the cable that will be used to connect the LED Matrix to
+thebreadboard. </p></li><li><p><span style="font-weight: bold;">Binding Posts:</span>
+&nbsp;These two small posts and screws will allow you to lay the LED
+Matrix flat on the breadboard, as opposed to the default orientation of
+standing up.</p></li></ul><p>For the next several projects, we'll be
+introducing nbew components that will require at least one-third of the
+breadboard space. &nbsp;If you have enough room remaining on the
+breadboard, you can use that empty space; otherwise, we recommend
+removing some or all of the circuits you currently have on the
+breadboard to allow enough space for the next set of projects. </p><h2>Power Up the LED Matrix</h2><p>The
+first step in using the LED Matrix is to provide it power and ground.
+&nbsp;While this won't be enough to do anything interesting with it, by
+doing this, we can at least verify that it's working properly.</p><p style="font-weight: bold;">Step #1: &nbsp;Attach Connector to the LED Matrix</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach the 3.3V Pin to Power</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach the GND Pin to Ground</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p>If everything was done correctly, you should see vertical and horizontal bars sweep across the display a single time.</p><h2>Finish Wiring the LED Matrix</h2><p>Now
+that we've verified that the LED Matrix can be powered up and is
+working properly, we can finish wiring it so that we can start
+controlling it with our software. &nbsp;To finish wiring the LED Matrix
+we need to make four other connections, as follows:</p><p style="font-weight: bold;">Step #1: &nbsp;Attach SCLK Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach MOSI Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach CE Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #4: &nbsp;Attach MISO Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Note: &nbsp;<span style="font-weight: normal;">The
+wire attached to the RST pin on the LED Matrix will not get attached to
+anything at this point. &nbsp;RST stands for "Reset," and this wire can
+be used to reset the LED Matrix (essentially powering it off and on) by
+briefly attaching the pin to 3.3V.</span></p><p>Here is what the breadboard should look like with the LED Matrix fully connected:</p><br><div style="text-align: center;"><img style="width: 1017px; height: 721px;" alt="" src="img/LED_Matrix_bb.png"></div><h2><br></h2><h2><br></h2><h2>Testing the LED Matrix</h2><br><p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">from
+rstem.led_matrix import FrameBuffer</span></span></span></p>
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">FrameBuffer()</span></span></span></p>
+<ul><ul><li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">A
 		framebuffer is where the next image to be displayed on the screen
-		is stored. &nbsp;General usage:</SPAN></SPAN></SPAN></P>
-		<UL>
-			<LI><P>
-			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">erase()</SPAN></SPAN></SPAN></P>
-			<LI><P>
-			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">draw
-			stuff</SPAN></SPAN></SPAN></P>
-			<LI><P>
-			<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">show()</SPAN></SPAN></SPAN></P>
-			<LI><P>
-			<SPAN STYLE="text-decoration: none">...
-			</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">repeat</SPAN></SPAN></SPAN></P>
-		</UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
-		code - a dot on the screen.</SPAN></SPAN></SPAN></P>
-	</UL>
-</UL>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">from
-rstem.led_matrix import FrameBuffer</SPAN></SPAN></SPAN></P>
-<P><BR><BR>
-</P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb
-= FrameBuffer()</SPAN></SPAN></SPAN></P>
-<P><BR><BR>
-</P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x,
-y = (3, 3)</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.erase()</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(x,
-y)</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.show()</SPAN></SPAN></SPAN></P>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="SIMON_8.html">prev</a> |
+		is stored. &nbsp;General usage:</span></span></span></p>
+		<ul><li><p>
+			<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">erase()</span></span></span></p>
+			</li><li><p>
+			<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">draw
+			stuff</span></span></span></p>
+			</li><li><p>
+			<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">show()</span></span></span></p>
+			</li><li><p>
+			<span style="text-decoration: none;">...
+			</span><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">repeat</span></span></span></p>
+		</li></ul>
+		</li><li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">New
+		code - a dot on the screen.</span></span></span></p>
+	</li></ul></ul>
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">from
+rstem.led_matrix import FrameBuffer</span></span></span></p>
+
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">fb
+= FrameBuffer()</span></span></span></p>
+
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">x,
+y = (3, 3)</span></span></span></p>
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">fb.erase()</span></span></span></p>
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">fb.point(x,
+y)</span></span></span></p>
+<p><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">fb.show()</span></span></span></p><br><h2>Optional: &nbsp;Mounting Posts</h2><p>Introduction to the
+LED Matrix and libraries</p>
+<ul>
+	<ul>
+		<li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">First
+		step, power on (2 wires) - should see vertical and horizontal bars
+		sweep across display</span></span></span></p>
+	</li></ul>
+</ul>
+<ul>
+	<ul>
+		<li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">Second
+		step, hook it up (4 wires)</span></span></span></p>
+		</li><li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">Optional:
+		mounting posts</span></span></span></p>
+		</li><li><p>
+		<span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">Quick
+		test - is it connected. &nbsp;If this program runs without error,
+		then the LED Matrix is connected.</span></span></span></p>
+	</li></ul>
+</ul><br><p><br><br>
+</p>
+	<p class="nextprev"><a href="SIMON_8.html">prev</a> |
 	<a href="BALANCING_DOT_1.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>
