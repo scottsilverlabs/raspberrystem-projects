@@ -3,7 +3,6 @@
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
 	
     <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
-
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>FLASHLIGHT</h1>
@@ -13,9 +12,9 @@ GPIO.<span style="">&nbsp; </span>In this project, we’re going to
 use that input to control another circuit.<o:p></o:p></p><p class="MsoNormal">For this project, we’re going to wire two completely
 independent circuits:<o:p></o:p></p>
 
-<ol><li><!--[if !supportLists]--><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>The first circuit will consist of a button wired
-to a GPIO (like we did in the previous project);<o:p></o:p></li><li><!--[if !supportLists]--><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>The second circuit will consist of an LED wired
-to a separate GPIO (like we did back in Project #6)<o:p></o:p></li></ol>
+<ol><li><p><span style=""><span style=""></span></span>The first circuit will consist of a button wired
+to a GPIO (like we did in the previous project);<o:p></o:p></p></li><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>The second circuit will consist of an LED wired
+to a separate GPIO (like we did back in Project #6)<o:p></o:p></p></li></ol>
 
 
 
@@ -34,14 +33,12 @@ is wired to GPIO18.<span style="">&nbsp; </span><o:p></o:p></p>
 time to write our software.<span style="">&nbsp; </span>For this
 project, our software is going to do two things:<o:p></o:p></p>
 
-<p class="MsoListParagraphCxSpFirst" style="text-indent: -0.25in;"><!--[if !supportLists]--><span style=""><span style="">1.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
-</span></span></span><!--[endif]-->Read the state of the button (pressed or
-unpressed) using a GPIO as input<o:p></o:p></p>
-
-<p class="MsoListParagraphCxSpLast" style="text-indent: -0.25in;"><!--[if !supportLists]--><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
-</span></span></span><!--[endif]-->If the button is pressed, turn on the LED using
+<ol><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span>Read the state of the button (pressed or
+unpressed) using a GPIO as input<o:p></o:p></p></li><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;</span></span></span>If the button is pressed, turn on the LED using
 a GPIO as output, and if the button is not pressed, turn off the LED using the
-GPIO as output<o:p></o:p></p>
+GPIO as output<o:p></o:p></p></li></ol>
+
+
 
 <p class="MsoNormal">Here is the code that will accomplish this:<o:p></o:p></p>
 

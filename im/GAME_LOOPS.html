@@ -67,11 +67,10 @@ example, they might have pressed a button indicating they want their
 game character to move right), the game loop needs to figure out what
 the next set of graphics to display looks like and draw that set of
 graphics to the framebuffer.</p><p>In our example, we're just going to
-automatically move the dot over one space and down one space,
-regardless of what the user does. &nbsp;To do that, we need to
-increment the x-coordinate by 1 and increment the y-coordinate by 1.
-&nbsp;We then erase the current framebuffer data and update the
-framebuffer with the new location.</p><p>INSERT CODE</p><pre>x += 1<br>y += 1<br>fb.erase()<br>fb.point(x, y)</pre><h3><br></h3><h3><span style="">Wait for some period of time</span></h3><p>The
+automatically move the dot to the right one space, regardless of what
+the user does. &nbsp;To do that, we need to increment the x-coordinate
+by 1. &nbsp;We then erase the current framebuffer data and update the
+framebuffer with the new location.</p><p>INSERT CODE</p><pre>x += 1<br>fb.erase()<br>fb.point(x, y)</pre><h3><br></h3><h3><span style="">Wait for some period of time</span></h3><p>The
 very last thing we sometimes do in a game loop is to wait for some
 period of time. &nbsp;Remember, computers are VERY fast, and if we let
 them do things as fast as they can, we'll occasionally get results that
@@ -84,13 +83,13 @@ slower the game runs. &nbsp;In this case, we'd probably be happy moving
 the location of the dot every half-second, which means we'd want to put
 in a half-second delay at the end of the loop.</p><p>INSERT CODE</p><pre>time.sleep(.5)<br></pre><br><h2>Putting It All Together</h2><p>We
 now have all of the code necessary for a game loop that will place a
-dot at one corner of the LED Matrix display and then move that dot
-diagonally every half-second. &nbsp;Here's what the entire snippet of
-code should look like:</p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br>    fb.show()</pre><pre>    x += 1<br>    y += 1<br>    fb.erase()<br>    fb.point(x, y)</pre><pre>    time.sleep(.5)<br></pre><h3></h3><p>When you run this code, you should see
-the dot start at one corner of the LED Matrix and move diagonally until
-it is off the screen. &nbsp;Because we're not checking to see if the
-dot is still on the screen or not, the code will just continue to run
-even after you can no longer see the dot. &nbsp;So, once the dot has
-disappeared, you can stop the program.</p><p class="nextprev"><a href="LED_MATRIX.html">prev</a> |
+dot at one corner of the LED Matrix display and then move that dot to
+the right every half-second. &nbsp;Here's what the entire snippet of
+code should look like:</p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br>    fb.show()</pre><pre>    x += 1<br>    fb.erase()<br>    fb.point(x, y)</pre><pre>    time.sleep(.5)<br></pre><h3></h3><p>When you run this code, you should see
+the dot start at one corner of the LED Matrix and move in one direction
+until it is off the screen. &nbsp;Because we're not checking to see if
+the dot is still on the screen or not, the code will just continue to
+run even after you can no longer see the dot. &nbsp;So, once the dot
+has disappeared, you can stop the program.</p><p class="nextprev"><a href="LED_MATRIX.html">prev</a> |
 	<a href="ACCELEROMETER.html">next</a></p>
 </body></html>

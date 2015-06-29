@@ -7,43 +7,39 @@
 </HEAD>
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>BOUNCING BALL 1</H1>
+<H1>BOUNCING BALL 2</H1>
 <P>Project:  Bouncing
-Ball</P>
-<UL>
-	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
-		concept: any game, or interactive program, usually uses a gaming
-		loop, which is a never ending loop where you get inputs, make
-		changes, display output</SPAN></SPAN></SPAN></P>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">New
-		code</SPAN></SPAN></SPAN></P>
-	</UL>
-</UL>
+Ball using accelerometer – x direction only</P>
+<P>
+<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">TILT_FORCE
+= 0.1</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">STEP
+= 0.1</SPAN></SPAN></SPAN></P>
 <P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x,
 y = (3, 3)</SPAN></SPAN></SPAN></P>
 <P><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">while
 True:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x_force,
+y_force, z_force = accel.forces()</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">if
+x_force &gt; TILT_FORCE:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x
+-= STEP</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">elif
+x_force &lt; -TILT_FORCE:</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">x
++= STEP</SPAN></SPAN></SPAN></P>
+<P><BR><BR>
+</P>
 <P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.erase()</SPAN></SPAN></SPAN></P>
-<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(x,
-y)</SPAN></SPAN></SPAN></P>
+<P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.point(round(x),
+round(y))</SPAN></SPAN></SPAN></P>
 <P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">fb.show()</SPAN></SPAN></SPAN></P>
 <P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN></P>
 <P><SPAN STYLE="text-decoration: none">&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">time.sleep(.1)</SPAN></SPAN></SPAN></P>
-<P><BR><BR>
-</P>
-<UL>
-	<UL>
-		<LI><P>
-		<SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Note:
-		in this case we’re displaying something in a gaming loop - but we
-		didn’t change anything! &nbsp;(We could perhaps increment the
-		point until it falls off the screen)</SPAN></SPAN></SPAN></P>
-	</UL>
-</UL>
-	<p class=nextprev><a href="LED_MATRIX.html">prev</a> |
-	<a href="ACCELEROMETER.html">next</a></p>
+	<p class=nextprev><a href="ACCELEROMETER.html">prev</a> |
+	<a href="BALANCING_DOT_3.html">next</a></p>
 </BODY>
 </HTML>
+

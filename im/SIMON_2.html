@@ -3,13 +3,12 @@
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
 	
     <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
-
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>SIMON 2</h1><span style="font-family: &quot;Verdana&quot;,serif;"></span><p class="MsoNormal">In
 the previous project, we wired up and tested the four buttons we'll be
 using for our pattern-matching game. &nbsp;Now it's time to add four
-LEDs to the circuit from our last project and test those.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Hardware Implementation</span></h2><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #1</span>: &nbsp;Wire Your First LED Using a GPIO Output</p><p style="font-weight: bold;"><span style="font-weight: normal;">For
+LEDs to the circuit from our last project and test those.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Hardware Implementation</span></h2><p>We're going to start with the breadboard setup from the previous project, and add the following...</p><p></p><p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #1</span>: &nbsp;Wire Your First LED Using a GPIO Output</p><p style="font-weight: bold;"><span style="font-weight: normal;">For
 this game that we're building, we'll have four different colored
 LEDs, and each LED will be associated with a particular button.
 &nbsp;For
@@ -63,7 +62,7 @@ rstem</p>
 <p>from
 rstem.gpio import Output</p>
 <p>import
-time</p>
+time</p><p></p>
 <p style="font-weight: bold;">Code Section #2: &nbsp;Test LEDs</p><p style="font-weight: bold;"><span style="font-weight: normal;">To test the LEDs, we'll assign each one to its own variable, turn each on for 3 seconds and then turn each off.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the LED test code should look like:</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">INSERT CODE</span></p><p>light1
 = Output(4)</p>
 
