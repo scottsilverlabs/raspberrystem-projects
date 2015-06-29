@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GENERAL PURPOSE INPUT/OUTPUT</h1>
 <p>So far, we’ve
@@ -60,10 +59,10 @@ modify it to use a GPIO so that we can control that LED through
 software…</p>
 <p>Here is the
 schematic from our original circuit:</p>
-<p style="text-align: center;"><img src="img/Projects%20Guide%20-%20061115-2_html_m62681acf.jpg" align="bottom" border="0" height="374" width="62"></p>
-<p>To attach the LED to
+<p style="text-align: center;"><img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png"><br></p>
+<p></p><p>To attach the LED to
 a GPIO, we’re going to modify our circuit as follows:</p>
-<p style="text-align: center;"><img src="img/Projects%20Guide%20-%20061115-2_html_4f435892.jpg" align="bottom" border="0" height="337" width="162"></p>
+<p style="text-align: center;"><img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br></p>
 <p style="text-align: center;"><span style="font-weight: bold;">Schematic: Lighting
 an LED with a GPIO</span></p>
 <p>You’ve probably
@@ -104,8 +103,8 @@ this circuit:</p>
 <table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="text-align: center;"><img style="width: 162px; height: 336px;" alt="" src="img/gpio-schem-2_schem.png" align="top"></td>
-<td style="text-align: center;"><img style="width: 162px; height: 385px;" alt="" src="img/gpio-schem-3_schem.png"></td>
+<td style="text-align: center;"><img style="width: 285px; height: 346px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png" align="top"></td>
+<td style="text-align: center;"><img style="width: 260px; height: 378px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Ground.png"></td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">Schematic: GPIO set high (LED off)<br>
@@ -114,11 +113,10 @@ this circuit:</p>
 </span></td>
 </tr>
 </tbody>
-</table>
+</table><br><br>
 <div class="info">
 <div></div>
-<textarea>
-You may have
+<textarea>You may have
 noticed in the images above that, to turn the LED on, you need to set the GPIO low
 (0, Ground).&nbsp; And, to
 turn the LED off, you need to set the GPIO needs to be set to high (1, Power).&nbsp; Clearly, this
@@ -135,13 +133,9 @@ low.
 </textarea></div>
 <p>Now that we have the
 basic concept of how we can control our LED with a GPIO, let’s give
-it a try…</p>
-<ol>
-<li>
-<p><b>Connect the circuit to a GPIO instead of ground.</b></p>
-</li>
-</ol>
-<p style="margin-left: 0.25in;">
+it a try…<br></p><p><b>Step #1: &nbsp;Connect the circuit to a GPIO instead of ground.</b></p>
+
+<p>
 Find the wire that attaches the blue ground row to the 3.3V on the
 connector board. Remove the wire from the 3.3V hole and insert it
 into any of the numbered holes on the connector board (these are the
@@ -149,52 +143,42 @@ GPIOs). For this project, I will assume that you’re using GPIO14
 on the connector board, though you’re welcome to use any GPIO
 (you’ll just need to modify the code appropriately if you choose a
 GPIO other than 14 for this project).</p>
-<p style="margin-left: 0.25in;">
+<p>
 This is what your breadboard should now look like:</p>
-<p style="margin-left: 0.25in;">
+<p style="margin-left: 0.25in; text-align: center;">
 <img src="img/Projects%20Guide%20-%20061115-2_html_54ffce5c.jpg" align="bottom" border="0" height="373" width="674"></p>
-<p style="margin-left: 0.25in;">
+<p>
 The LED will probably not be lit at this point, as the default state
 of the GPIO Those are all the modifications we need to make to the
-hardware. Now let’s write the software…</p>
-<ol start="2">
-<li>
-<p><b>Write the code.</b></p>
-</li>
-</ol>
-<p style="margin-left: 0.25in;">
+hardware. Now let’s write the software…</p><p><br></p><p><b>Step #2: &nbsp;Write the code.</b></p>
+
+<p>
 The code to control the GPIO (and with it the LED) is pretty short. You
 probably won’t understand exactly what’s going on at first,
 but give it a try, trust us, and in a few projects it should all
 become a lot more clear.</p>
-<p style="margin-left: 0.25in;">
+<p>
 Enter the following code into the your IDE’s Code Window:</p>
 <div class="code" data-firstline="1">
-<div></div>
+<div>
+</div>
 <textarea>import rstem
 led = rstem.gpio.Output(14)
 led.on()
 </textarea></div>
-<ol start="3">
-<li>
-<p><b>Run the code.</b></p>
-</li>
+<p><b></b></p><p><b>Step #3: &nbsp;Run the code.</b></p><ol start="3">
 </ol>
-<p style="margin-left: 0.25in;">
+<p>
 Run the code the same way you did in Project #1 – press the Play
 icon above the code window. Assuming you did everything correctly,
 the LED should now be lit.</p>
-<p style="margin-left: 0.25in;">
+<p>
 Congratulations! You just controlled some hardware you built using
 software that you wrote. You’re now well on your way to building
 the next great consumer device, children’s toy or life changing
-gadget.</p>
-<ol start="4">
-<li>
-<p><b>Play around with it.</b></p>
-</li>
-</ol>
-<p style="margin-left: 0.25in;">
+gadget.<br></p><p><b></b></p><p><b>Step #4: &nbsp;Play around with it.</b></p>
+
+<p>
 Assuming everything worked properly in the previous step, feel free
 to play around with the circuit and the code. Try changing from
 GPIO14 to a different GPIO (make sure you change the code to reflect
@@ -225,7 +209,7 @@ pressed, the voltage at the GPIO pin will “go high” (go to 3.3V). The
 GPIO will register the voltage, and can take action on either a
 pressed or unpressed button.</p>
 <p>GPIOs as inputs are
-very powerful, and we’ll be using them in many future projects.</p>
+very powerful, and we’ll be using them in many future projects.</p><p></p>
 <p class="nextprev"><a href="RASPBERRY_PI_POWER.html">prev</a>
 | <a href="STRING_THEORY.html">next</a></p>
 <p></p>
