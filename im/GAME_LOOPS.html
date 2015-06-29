@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
+
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>GAME LOOPS</h1>
+<p class="MsoNormal"><span style="">Now that we have the LED Matrix as
+a display and can take input with buttons, there's no reason we can't
+start creating some simple games. &nbsp;But, before we do that, there
+are some basics of computer game programming that are helpful to
+understand; in fact, once you get through this project, we'd be willing
+to bet that you have a new appreciation for how video games
+work.&nbsp;&nbsp;</span></p><p class="MsoNormal"><span style="">Most
+computer games (and especially those that most kids would consider to be video
+games) share a common method of programming called the “game loop.” &nbsp;A game
+loop is a simple concept, but is the heart of most video games.<span style="">&nbsp; </span>The game loop essentially works by doing the
+same things over and over the entire time the game is running. <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">The pseudo-code for a typical game loop will look something like this:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize the game environment</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while True:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Draw graphics on the screen<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Check for user input<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Update graphics<span style=""> in the framebuffer</span></span></p>
+
+
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style=""> for some period of time &nbsp;</span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+
+
+
+<p class="MsoNormal"><span style="">Let's examine this loop piece by
+piece. &nbsp;And at the same time, let's build our very own (very
+simple) game loop that will move a dot around the LED Matrix...</span></p><h3><br><span style=""></span></h3><h3><span style="">Initialize the game environment</span></h3><p>The
+very first step in any game is to initialize anything that will be used
+in the game loop. &nbsp;For example, this might include importing
+libraries and functions we'll need, creating a framebuffer (or perhaps
+many framebuffers) that will hold the graphics during the game.
+&nbsp;It might also include initializing how the graphics will show up
+when the game starts.</p><p>In our case, we're going to want to do four things to get ready for our game loop:</p><ol><li><p>Import the Framebuffer() function and the time library</p></li><li><p>Create a framebuffer that we'll use to hold the dot&nbsp;</p></li><li><p>Initialize the location of the dot when the loop starts (in this case, let's put the dot in the corner of the LED Matrix)</p></li></ol><p>Here's what the code will look like:</p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer</pre><pre>import time<br><br>fb = FrameBuffer()</pre><pre>x, y = (1, 1)</pre><pre>fb.erase()</pre><pre>fb.point(x, y)</pre><h3></h3><h3><span style="">while True:</span></h3><p>We
+call it a game loop because it's an actual loop in the code that
+continues forever (or until the user says to exit). &nbsp;As we learned
+earlier, the simplest way to implement a loop that continues forever is
+to use a WHILE loop. &nbsp;So, this will be the very first line of our
+game loop:</p><p>INSERT CODE</p><pre>while True: </pre><pre><span style=""></span></pre><h3><span style="">Draw graphics on the screen</span></h3><p>Inside
+of our never-ending loop, the first thing we'll typically want to do is
+draw the graphics for our game. &nbsp;This is typically a simple task
+of just displaying on the screen whatever is in the framebuffer.
+&nbsp;We can do that just like we in the last project:</p><p>INSERT CODE</p><pre>fb.show()</pre><h3><br><span style=""></span></h3><h3><span style="">Check for user input</span></h3><p>In
+a typical game loop, this is where we would check for user input --
+check for button presses, check for joystick movement, check for
+controller movement, etc. &nbsp;And we'll do that in some subsequent
+projects. &nbsp;But, for this particular project, we're keeping things
+simple and we're not taking any input from the user. &nbsp;So, there's no code to add for this part of the loop.</p><h3><br><span style=""></span></h3><h3><span style="">Update graphics in the framebuffer</span></h3><p>Once
+we've gotten input from the user about what they want to do (for
+example, they might have pressed a button indicating they want their
+game character to move right), the game loop needs to figure out what
+the next set of graphics to display looks like and draw that set of
+graphics to the framebuffer.</p><p>In our example, we're just going to
+automatically move the dot over one space and down one space,
+regardless of what the user does. &nbsp;To do that, we need to
+increment the x-coordinate by 1 and increment the y-coordinate by 1.
+&nbsp;We then erase the current framebuffer data and update the
+framebuffer with the new location.</p><p>INSERT CODE</p><pre>x += 1<br>y += 1<br>fb.erase()<br>fb.point(x, y)</pre><h3><br></h3><h3><span style="">Wait for some period of time</span></h3><p>The
+very last thing we sometimes do in a game loop is to wait for some
+period of time. &nbsp;Remember, computers are VERY fast, and if we let
+them do things as fast as they can, we'll occasionally get results that
+we don't want. &nbsp;For example, in this project, if we let the
+computer run this game loop as it is, it would go through the loop and
+update the location of the dot so fast that we wouldn't even see it
+move across the screen.</p><p>So, to slow things down, we'll sometimes
+pause at the end of the game loop. &nbsp;The longer you pause, the
+slower the game runs. &nbsp;In this case, we'd probably be happy moving
+the location of the dot every half-second, which means we'd want to put
+in a half-second delay at the end of the loop.</p><p>INSERT CODE</p><pre>time.sleep(.5)<br></pre><br><h2>Putting It All Together</h2><p>We
+now have all of the code necessary for a game loop that will place a
+dot at one corner of the LED Matrix display and then move that dot
+diagonally every half-second. &nbsp;Here's what the entire snippet of
+code should look like:</p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br>    fb.show()</pre><pre>    x += 1<br>    y += 1<br>    fb.erase()<br>    fb.point(x, y)</pre><pre>    time.sleep(.5)<br></pre><h3></h3><p>When you run this code, you should see
+the dot start at one corner of the LED Matrix and move diagonally until
+it is off the screen. &nbsp;Because we're not checking to see if the
+dot is still on the screen or not, the code will just continue to run
+even after you can no longer see the dot. &nbsp;So, once the dot has
+disappeared, you can stop the program.</p><p class="nextprev"><a href="LED_MATRIX.html">prev</a> |
+	<a href="ACCELEROMETER.html">next</a></p>
+</body></html>
