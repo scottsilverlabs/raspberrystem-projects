@@ -1,27 +1,27 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-</HEAD>
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-<H1>FUNCTION INPUTS</H1>
-<P>Oftentimes,
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>FUNCTION INPUTS</h1>
+<p>Now that we have a basic idea of what a function is and how it
+works, let's talk about one of the more powerful aspects of using
+functions. &nbsp;Oftentimes,
 functions will contain code that we want to use over and over again,
 but we’re going to want the code to do slightly different things
-based on other things going on in our software.  
-</P>
-<P>For example, when
+based on other things going on in our software. </p>
+<p>For example, when
 your cell phone rings, the software inside your phone is doing a lot
 of complicated stuff to generate the ring.  Your phone has to “wake
 up,” turn on the back light, print information on the display,
 check to see if you’re pushing any buttons, play ringtone, etc.  In
 fact, the code that makes your cell phone ring may contain a hundred
 or more lines of code.  
-</P>
-<P>When different
+</p>
+<p>When different
 friends call, you’re going to see different information on your
 screen.  For your friend John, you might see John’s name, phone
 number and picture.  For your friend Allison, you might see Allison’s
@@ -29,102 +29,101 @@ name, phone number and picture.  Does this mean that the software has
 to have a hundred lines of code for John and a different hundred
 lines of code for Allison (as well as a different hundred lines of
 code every other person in your contact list)?  
-</P>
-<P>Luckily, no…</P>
-<P>With functions, we
+</p>
+<p>Luckily, no…</p>
+<p>With functions, we
 have the ability to do generic tasks (like generate a ring), while
 also changing based on specific information (like putting different
 information on the screen for different callers).  This is done by
 sending “inputs” (also called “parameters”) to the function. 
 Parameters are just pieces of information that the function uses to
-customize the task it is performing.</P>
-<P>Let’s go back to
+customize the task it is performing.</p>
+<p>Let’s go back to
 our previous project where we printed two pieces of information on
 the screen – my name (Jason) and the year I was born (1971).  What
 if we wanted to print a name and birth year for other people as well
 – people with a different name and birth year than mine?  To do
 this, we modify our function to receive parameters and to use those
-parameters to customize what the function does.</P>
-<P>In this example, our
-function is going to take two parameters:</P>
-<UL>
-	<LI><P>A name</P>
-	<LI><P>A birth year</P>
-</UL>
-<P>We tell the function
+parameters to customize what the function does.</p>
+<p>In this example, our
+function is going to take two parameters:</p>
+<ul>
+	<li><p>A name</p>
+	</li><li><p>A birth year</p>
+</li></ul>
+<p>We tell the function
 what parameters to expect by listing them between the parentheses in
 the first line of the function (the line that names the function). 
 Each parameter has its own name, which should be descriptive of what
 the parameter is.  
-</P>
-<P>For example, if we
+</p>
+<p>For example, if we
 wanted to modify our function from the previous project to take a
-name and a birth year parameters, it might look like this:</P>
-<P STYLE="margin-left: 0.5in">def
-print_info (name, birth_year):</P>
-<P>“name” and
+name and a birth year parameters, it might look like this:</p>
+<p style="margin-left: 0.5in;">def
+print_info (name, birth_year):</p>
+<p>“name” and
 “year” are now variables that we set when we call the function,
 and those variables can be used within that function.  
-</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-print (‘My name is:  %s’ % name)</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+</p>
+<p style="margin-left: 0.5in; text-indent: 0.5in;">
+print (‘My name is:  %s’ % name)</p>
+<p style="margin-left: 0.5in; text-indent: 0.5in;">
 print (‘I was born in:  %s’ %
-birth_year)</P>
-<P>Now, when we call
+birth_year)</p>
+<p>Now, when we call
 the print_info function, we will always supply two parameters to the
 function – a name and a year.  
-</P>
-<P>For example, let’s
+</p>
+<p>For example, let’s
 say we have a friend named Bob and he was born in 1992.  We can sent
-his information to the function like this:</P>
-<P STYLE="margin-left: 0.5in">print_info
-(“Bob”, 1992)</P>
-<P>Notice that we put
+his information to the function like this:</p>
+<p style="margin-left: 0.5in;">print_info
+(“Bob”, 1992)</p>
+<p>Notice that we put
 quotation marks around “Bob” to make it a string (as you would
 expect), but we left the quotation marks off of 1992, making it a
 number instead of a string.  While we could have put quotation marks
 around 1992 to make it a string, I’ve decided to make it a number
-for reasons that will become clear later on.</P>
-<P>As another example,
+for reasons that will become clear later on.</p>
+<p>As another example,
 let’s say we have a friend named Susie who was born in 1985, and we
-want to print her information as well:</P>
-<P STYLE="margin-left: 0.5in">print_info
-(“Susie”, 1985)</P>
-<P>Now, let’s put it
+want to print her information as well:</p>
+<p style="margin-left: 0.5in;">print_info
+(“Susie”, 1985)</p>
+<p>Now, let’s put it
 all together, and see what our code would look like if we had this
 new function and we called this function twice – once to print
-Bob’s information and once to print Susie’s information:</P>
-<P STYLE="margin-left: 0.5in">def
-print_info (name, birth_year):</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-print (‘My name is:  %s’ % name)</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
+Bob’s information and once to print Susie’s information:</p>
+<p style="margin-left: 0.5in;">def
+print_info (name, birth_year):</p>
+<p style="margin-left: 0.5in; text-indent: 0.5in;">
+print (‘My name is:  %s’ % name)</p>
+<p style="margin-left: 0.5in; text-indent: 0.5in;">
 print (‘I was born in:  %s’ %
-birth_year)</P>
-<P STYLE="margin-left: 0.5in">print_info
-(“Bob”, 1992)</P>
-<P STYLE="margin-left: 0.5in">print_info
-(“Susie”, 1985)</P>
-<P>You may have noticed
+birth_year)</p>
+<p style="margin-left: 0.5in;">print_info
+(“Bob”, 1992)</p>
+<p style="margin-left: 0.5in;">print_info
+(“Susie”, 1985)</p>
+<p>You may have noticed
 that this example is very similar to our cell phone example above. 
 The software in a cell phone likely handles a ring by calling a
 function – the parameters to this function would be all the
 information that the function needs to correctly display the caller’s
 information on the screen and make the phone ring.  So, the
-parameters that likely get sent to the function would include:</P>
-<UL>
-	<LI><P>Name of caller</P>
-	<LI><P>Phone number of caller</P>
-	<LI><P>Picture to be displayed for
-	that caller</P>
-	<LI><P>Ring tone to be used for that
-	caller</P>
-	<LI><P>Etc.</P>
-</UL>
-<P><BR><BR>
-</P>
-	<p class=nextprev><a href="INTRO_TO_FUNCTIONS.html">prev</a> |
+parameters that likely get sent to the function would include:</p>
+<ul>
+	<li><p>Name of caller</p>
+	</li><li><p>Phone number of caller</p>
+	</li><li><p>Picture to be displayed for
+	that caller</p>
+	</li><li><p>Ring tone to be used for that
+	caller</p>
+	</li><li><p>Etc.</p>
+</li></ul>
+<p><br><br>
+</p>
+	<p class="nextprev"><a href="INTRO_TO_FUNCTIONS.html">prev</a> |
 	<a href="FUNCTION_OUTPUTS.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>
