@@ -3,7 +3,6 @@
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
 	
     <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
-
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>BOUNCING BALL 1</h1>
@@ -16,7 +15,7 @@ games that we'll introduce in a bit.&nbsp;</p><p>For this project,
 we're going to modify the game loop to provide some testing of the
 location of the dot to determine when it comes to the edge of the
 display. &nbsp;When it does, we will reverse direction of the dot so
-that it never falls off the screen.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Tracking Direction</span></h2><p class="MsoNormal"><span style="">Here's a reminder of what our current code looks like:</span></p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br>    fb.show()</pre><pre>    x += 1<br>    fb.erase()<br>    fb.point(x, y)</pre><pre>    time.sleep(.5)</pre><p class="MsoNormal">You'll
+that it never falls off the screen.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Tracking Direction</span></h2><p class="MsoNormal"><span style="">Here's a reminder of what our current code looks like:</span></p><p>INSERT CODE:</p><pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br></pre><pre>    # Get user input<br><br>    # Update the game world<br>    x += 1<br><br>    # Draw graphics on the screen<br>    fb.erase()<br>    fb.point(x, y)<br>   &nbsp;fb.show()<br><br>    # Wait for some period of time<br>    time.sleep(.5)<br><span style="font-family: &quot;Calibri Light&quot;,serif;"><br></span></pre><p class="MsoNormal">You'll
 notice that on Line X, we increment (increase) x by 1 to move the dot
 to the right on the display. &nbsp;This works great...until we get to
 the edge of the screen and we don't want to go any further. &nbsp;At
@@ -28,7 +27,9 @@ we increase x by 1. &nbsp;And to go to the left, we decrease x by 1 --
 which is the same as increasing x by -1. &nbsp;</p><p class="MsoNormal">We
 can do this by creating a variable (let's call it "direction"), setting
 that variable to either 1 or -1 (depending on the direction we want the
-dot to go) and then increasing x by that variable. &nbsp;When direction is set to 1, the ball will move right; when direction is set to -1, the ball will move left.</p><p class="MsoNormal">This will require two changes to our code. &nbsp;First, Line X will change to:</p><p>INSERT CODE:</p><pre>x += direction<br><br></pre><p class="MsoNormal">Next,
+dot to go) and then increasing x by that variable. &nbsp;When direction
+is set to 1, the ball will move right; when direction is set to -1, the
+ball will move left.</p><p class="MsoNormal">This will require two changes to our code. &nbsp;First, Line X will change to:</p><p>INSERT CODE:</p><pre>x += direction<br><br></pre><p class="MsoNormal">Next,
 because the variable direction hasn't yet been set to anything (which
 would break our program), we need to initialize that variable before we
 jump into our loop. &nbsp;Since we want the ball to move right at

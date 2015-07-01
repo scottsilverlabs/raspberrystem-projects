@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>SPACE INVADERS 1</h1>
+<p>You're probably familiar with the game Space Invaders, which
+was
+originally made popular in the 1970s on the Atari (the first home
+gaming system). &nbsp;When it first came out, this game was pretty
+revolutionary. &nbsp;In fact, several of us here at RaspberrySTEM
+admit
+to spending many dozens (hundreds?) of hours sitting in front of our TV
+sets playing that game.</p>
+<p>Over the next 10 projects, we're going to
+build a basic version of Space Invaders using the RaspberrySTEM
+components we've already wired up. &nbsp;The LED Matrix will be
+used to
+display the graphics, the accelerometer will be used to control the
+left and right movement of the ship (by tilting the Raspberry STEM left
+or right) and the button will be used to fire missles at the invading
+aliens. &nbsp;As you can imagine, building this on an 8x8 LED
+Matrix
+display isn't going to allow us to create awesome graphics or slick
+features, but by the time we've completed this project, you should have
+all the basic skills necessary to build more complex games on other
+types of digital displays.</p>
+<p>Like most games you'll build, this one
+is going to start with a game loop, and in this first project, we'll
+start by writing the pseudo-code for our game loop. &nbsp;In our
+experience, the best way to write pseudo-code is in an iterative
+process, meaning that we write the very high level steps out first, and
+then we break each of those steps into smaller chunks with more
+details. &nbsp;We continue doing this until we have enough detail
+that
+we're ready to actually start writing our code.</p>
+<h2>Our Game Loop</h2>
+<p>Let's start with the basic outline for our game, much as we
+described in Project #???:</p><p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+the game environment</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while (game not finished):<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Check for user input<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Update the game world<span style=""></span></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Draw graphics on the screen<o:p></o:p></span></p>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style="">
+for some period of time</span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">Finish &amp; Cleanup</span></span></p><span style=""></span><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+<p>Now, let's look at each of these areas individually...</p>
+<span style="font-family: &quot;Verdana&quot;,serif;"><br></span>
+<h3><span style="">Initialize the game environment</span></h3>
+<p>This
+is where we're going to initialize all of the components and game
+elements that we'll be using throughout our game. &nbsp;In our
+Space
+Invaders implementation, the three major components we'll have are the
+ship that we control ("spaceship"), the alien ships that we try to
+destroy ("aliens") and the missiles that we fire from our spaceship at
+the aliens ("missiles"). &nbsp;We'll need to initialize the design,
+position and other aspects of each of those components, as well as
+general setup stuff, like importing the functions we'll need and
+initializing the framebuffer.<br>
+<br>
+Here's a general overview of what this part of the code will look like:</p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#
+Initialize the game environment</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
+required functions/modules</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+framebuffer</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+accelerometer</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize&nbsp;spaceship</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+aliens</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+missiles</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p>There
+will be other details that we'll add in there as well, but these are
+the big items we'll need to address in our intialization code.</p><p></p>
+<h3><span style="">while (game not finished):</span></h3>
+<p>This will be the start of our game loop. &nbsp;</p><p>
+<span style=""></span></p>
+<h3><span style="">Check for user input</span></h3>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Update the game world</span></h3>
+<pre><br></pre>
+<h3><span style="">Draw graphics on the screen</span></h3>
+<br>
+<h3><br>
+</h3>
+<h3><span style="">Wait for some period of time</span></h3>
+<br>
+<p>Start with a dot:</p>
+<p>from
+rstem.led_matrix import FrameBuffer</p>
+<p><br>
+</p>
+<p>fb
+= FrameBuffer()</p>
+<p><br>
+</p>
+<p>fb.erase()</p>
+<p>fb.point(3,
+0)</p>
+<p>fb.show()</p><p></p>
+<p class="nextprev"><a href="BALANCING_DOT_4.html">prev</a>
+| <a href="SPACE_INVADERS_2.html">next</a></p>
+</body></html>
