@@ -14,27 +14,25 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>SIMON 3</H1>
-<P>Simon:
-Flash in a sequence</P>
-<OL START=3>
-	<UL>
-		<LI><P>New
-		code (instead of turning on and off)</P>
-	</UL>
-</OL>
-<div class="code" data-firstline="1"><div></div><textarea>
-play_order = [2, 3, 1, 0, 2, 2, 3]
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
 
-# Play sequence
-for i in play_order:
-    lights[i].on()
-    time.sleep(0.4)
-    lights[i].off()
-    time.sleep(0.2)
-</textarea></div>
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
-	<p class=nextprev><a href="SIMON_2.html">prev</a> |
+<h1>SIMON 3</h1>
+<p>In our last project, we finished wiring up the four LEDs and tested
+to verify they work. &nbsp;Assuming your buttons and LEDs are all
+working correctly, we're done with the circuit implementation for our
+Simon-like game. &nbsp;Pretty amazing that you now know enough to build
+the hardware for an electronic toy you can buy at the store! &nbsp;And
+in just a few projects, you'll be able to write all the code as well.</p><p>So,
+let's jump in to that code writing. &nbsp;In this project, we're going
+to implement the buttons and LEDs using lists. &nbsp;They won't
+function any differently from the last two projects -- the LEDs will
+light up and the buttons will register as pushed when pushed -- but by
+using lists to manage the components, we'll make all our future code
+much easier to write and understand.</p><br><h2>Programming Implementation</h2><h2>Executing Your Code</h2><p></p><br><p class="nextprev"><a href="SIMON_2.html">prev</a> |
 	<a href="SIMON_4.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

@@ -1,4 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
 	<TITLE>YOUR FIRST CIRCUIT</TITLE>
@@ -10,218 +11,14 @@
     <script type="text/javascript" src="codeblocks.js"></script>
 </HEAD>
 
-<html><body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>YOUR FIRST CIRCUIT</h1>
 <p>In this project,
 you’re going to create your first electric circuit.  But, before we
 do that, some introductory discussion would probably be helpful. 
 Let’s talk about some of the basic of electricity, circuits and how
-they work.</p>
-<h2>INTRODUCTION TO CIRCUITS<!--Put in "concept" block
---></h2>
-<p>While we don’t
-intend this to be a complete textbook on electricity and circuits,
-there are some basic concepts you will want/need to understand to
-help you on your path of creating and programming electronics.  The
-information below should be enough to get you started, but as you
-gain some experience building circuits, you’ll no doubt find that
-you have more questions and will be ready for more in-depth
-discussion of the topic.  On our website<!--true?-->, we link to a lot of great
-resources that can provide deeper understanding of how and why
-electricity works the way it does.</p>
-<h3>What is Electricity</h3>
-<p>Simply stated,
-electricity is a flow of charged particles (electrons).  When
-electricity is allowed a constant<!--I don't think constant is the right word here (because it doesn't matter if it is constant).  --> flow, it creates<!--It does not "create" energy - transfers energy would work.--> energy – energy
-that can be used to power everything from a light bulb to an entire
-city.  All of our everyday electronic gadgets – from cell phones to
-computers to microwave ovens – are powered by electricity<!--"electricity" - looking a little further, I see you're using a number of different definitions of electricity: electric current, electric energy, electric power, electric charge electric phenomenon.  I think this can be quite confusing to a new reader...  I'd use the most appropriate wording where it makes sense, and use the word electricity sparingly.-->.</p>
-<h3>What is a Circuit?</h3>
-<p>A circuit is a
-closed loop that allows electricity to flow through it.  A typical
-circuit has a power source (something that provides electricity) and
-various components that do stuff when electricity passes through
-them.  For example, a circuit may contain a battery and a lightbulb. 
-The battery provides the electricity and the lightbulb uses the
-electricity to illuminate.</p>
-<p>Some circuits are
-very simple (like our battery and lightbulb example), while other
-circuits are very complicated, containing many electricity sources
-and many components.</p>
-<h3>Voltage, Current &amp; Resistance</h3>
-<p>When discussing
-electricity and circuits, there are three major components that are
-important to understand:</p>
-<ol>
-	<li><p>Voltage</p>
-	</li><li><p>Current</p>
-	</li><li><p>Resistance</p>
-</li></ol>
-<p>These three things
-define how and when electricity flows, and controlling these aspects
-of electricity allows us to harness the power that electricity
-provides.  While we can’t actually see voltage, current or
-resistance, there are some analogies we can use to help understand
-what each of these things are and how each of these components
-interacts with the others.</p>
-<p>Remember how we said
-that electricity is a flow of charged particles.  Well, electricity
-through wire (or any material that allows charged particles to flow)
-is very similar, in principle, to how water flows through pipes.  In
-fact, to understand the basic components of electricity – voltage,
-current and resistance – we’re going to use water flowing through
-pipes as our analogy.</p>
-<p><b>Voltage:</b></p>
-<p>Voltage is the
-difference<!--This isn't an accurate definition, although I know it has to be simplified to make it useful.  The problem is, to me I find it quite confusing, because it would mean that Voltage should be measured in Columbs (its a difference in charge).  I see other places online that are using this exact definition, though.--> in the amount of charge from one point in a circuit to
-another.  An important concept of electricity is that charge can only
-flow<!--"can only" - that's stricyly not true - it should be something more like "charge DOES flow when there is a difference in charge (a voltage) between 2 points.--> between two points that have a different amount of charge. 
-Specifically, electricity likes to flow from a point of higher charge
-to a point of lower charge.  If there is the same amount of charge at
-two points in a circuit, no electricity will flow.</p>
-<p>Using our water
-analogy, voltage is equivalent to the amount of pressure there is
-pushing water through a pipe.  Imagine a water pipe where the amount
-of water pressure on one side of the pipe was equivalent to the
-amount of water pressure on the other side of the pipe:</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_m1a88b3b3.jpg" align="bottom" border="0" height="131" width="735"><!--could use better pic that has plungers--></p>
-<p>Because the pressure
-on either side of the pipe is the same, water isn’t going to flow. 
-Electricity works the same way – if the amount of charge (measured
-in Volts)<!--This equates charge and voltage as being exactly the same, which they are not.--> is the same on both sides of a circuit, electricity will
-not flow.  The greater the voltage difference between two points in a
-circuit, the “harder” electricity will flow through the circuit.</p>
-<p>Before we go any
-further, let’s take a quick look at how a battery works.  In a
-battery, there are two “terminals” – a positive terminal and a
-negative terminal.  The positive terminal contains a lot of
-positively charged particles and the negative terminal contains a lot
-of negatively charged particles:</p>
-<p align="center"><img src="img/Projects%20Guide%20-%20061115-2_html_m69e7ef1a.jpg" align="bottom" border="0" height="170" width="590"></p>
-<p>There is a barrier
-between the two terminals which keeps the positively charged
-particles and the negatively charged particles from mixing together. 
-But, because there is a big charge differential between the two
-terminals, if that barrier wasn’t there, the charge would quickly
-flow from one side of the battery to the other (remember, it’s that
-charge differential that causes electricity to flow).<!--I think the barrier in a battery (if any) is to keep the solutions on one side of the battery from mixing with the other.  Even if the barrier wasn't there, the charges on one side wouldn't flow to the other - its the battery chemistry that separates them...  I think this is important, because the barrier (as described) seems to imply that charges don't flow across the barrier, but they do (and that's very important to describing a circuit as a loop). --></p>
-<p>Take a look at this
-electric circuit made up of two equal sized batteries with a wire
-running between them:<!--These examples need to be revamped (we discussed this briefly before.  In the four pics: 1 & 2) no current flows, 3) Brief high current then little flow, 4) normal flow.  I think the water anaolgy with a pump and load might be useful.--></p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_5defaaf3.jpg" align="bottom" border="0" height="161" width="735"></p>
-<p>Because the charge
-(voltage) on both side of the wire is exactly the same, there is no
-flow of electric charge (no flow of electricity).  But what happens
-if we create a charge differential on the opposite sides of the wire:</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_36311abf.jpg" align="bottom" border="0" height="145" width="735"></p>
-<p>In this case, we
-have a difference in charge (voltage) on either side of the wire, so
-electricity will flow through the wire if we do this.  In fact, we
-don’t even need the second battery in this example.  Electricity
-would flow just as well if we connected a wire to a single battery,
-like this:</p>
-<p align="center"><img src="img/Projects%20Guide%20-%20061115-2_html_3b280f49.jpg" align="bottom" border="0" height="161" width="495"></p>
-<p>And, in fact, this
-is what a typical battery-operated electronic circuit will look like
-before you insert various components into the circuit loop.  We could
-easily insert a lightbulb into the circuit above and you would see
-the lightbulb illuminate:</p>
-<p align="center"><img src="img/Projects%20Guide%20-%20061115-2_html_m184d94fb.jpg" align="bottom" border="0" height="396" width="574"></p>
-<p>Keep this particular
-circuit in mind, as we’ll be coming back to it often over the next
-few projects.</p>
-<p><b>Current:</b></p>
-<p>Current is a measure
-of the amount of electricity that flows through a circuit.  Using our
-water analogy, if voltage is the amount of water pressure in a pipe,
-current is the amount of water actually flowing through the pipe.</p>
-<p>Take a look at these
-two water pipes:</p>
-<p align="center"><img src="img/Projects%20Guide%20-%20061115-2_html_68411fab.jpg" align="bottom" border="0" height="229" width="735"></p>
-<p>Each pipe has the
-same amount of pressure pushing the water through, but notice that
-the second pipe is smaller than the first.  Because the second pipe
-is smaller, less water will flow through it, despite having the same
-amount of pressure.  
-</p>
-<p>What if we wanted to
-get the same amount of water through the second pipe as the first,
-but we couldn’t change the size of the pipes?  The obvious solution
-would be to increase the water pressure in the second pipe:</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_6e799d37.jpg" align="bottom" border="0" height="256" width="735"></p>
-<p>In an electric
-circuit, this would be equivalent to having to increase the amount of
-voltage (charge differential) in the circuit in order to get the same
-amount of electricity (charge) to flow.</p>
-<p>But, what does it
-mean to have a “smaller pipe” in a circuit?  That’s where
-“resistance” comes in…</p>
-<p><b>Resistance:</b></p>
-<p>If voltage is
-analogous to the amount of water pressure in a pipe, and current is
-analogous to the amount of water actually moving through the pipe,
-then resistance is analogous to the size of the pipe being used.  The
-smaller the pipe, the harder you have to push to get the same amount
-of water through the pipe.  In a circuit, that equates to the higher
-the resistance of the circuit, the more voltage you need to generate
-the same amount of current.</p>
-<p>But, in a circuit,
-wires are generally the same size.  So, you might be wondering --
-what causes different amounts of resistance in an electric circuit?</p>
-<p>The answer is that
-lots of things can impact the resistance of a circuit, including the
-material through which the electricity is flowing and the resistance
-of the components being used.  As an example, different types of wire
-will have different levels of resistance, which will ultimately
-impact the current and voltage levels within the circuit.  And some
-mediums – like air – have a nearly infinite resistance, meaning
-electricity won’t flow through it at all<!--cute aside can be placed here ("If you've ever seen lightning, you know that electric current CAN flow through air, but it takes a REALLY high voltage - a 100 million times more than the voltages we'll use in our circuits)"-->.  In addition, there are
-lots of times where we need to add resistance to a circuit (using
-things called “resistors”) in order to get the circuit to act in
-the way we want.<!--"to get circuit to act in the way we want" -> "to control the flow of current in the circuit"--></p>
-<h3>Ground</h3>
-<p>…<!--I'd discuss the battery circuit, and say that most circuits are similar in that they have a power source (like the battery) and a "load" (the part that the battery does work on).  The positive voltage of the power source has different names: Vcc, 3.3V (for our circuits), or just power.  The negative has names, too: 0V or ground. --></p>
-<h3>Open Circuits, Short Circuits &amp; Resistive
-Circuits</h3>
-<p>In general, at any
-given time, a circuit may be in one of three states:<!--I think the deinfitions in this section are good, and make sense - but I don't understand the "In general, at any given time, a circuit may be in one of three states" part.--></p>
-<ol>
-	<li><p>Open Circuit – An open
-	circuit is one that is not complete, and therefore electricity can’t
-	flow.  As just mentioned, electricity isn’t able to flow through
-	air, so if a circuit is not complete, the electrical current is
-	experiencing infinite resistance at some point in the circuit and
-	circuit will not function. 
-	</p>
-</li></ol>
-<p style="margin-left: 0.5in;">   
-</p>
-<ol start="2">
-	<li><p>Short Circuit – A short
-	circuit is what happens when the beginning of the circuit (power) is
-	attached to the end of the circuit (ground) with nothing in between.
-	 As mentioned above, electricity can flow through wire with almost
-	no resistance, so attaching a wire from power to ground with nothing
-	in between will cause large amounts of electricity to flow through
-	that wire.  This can dissipate your power source very quickly, or
-	worst-case, the large flow of current can heat up the wire to the
-	point where it breaks or causes a fire.  Sometimes, if an electrical
-	component breaks, it can provide a short circuit within itself, so
-	even circuits that don’t appear to be “shorted,” can be.</p>
-</li></ol>
-
-<ol start="3">
-	<li><p>Resistive Circuit – A
-	resistive circuit is one where electricity is flowing (circuit is
-	not open) and electricity is experiencing resistance from one or
-	more components within the circuit (circuit is not shorted).  This
-	is the goal of most functioning circuits. 
-	</p>
-</li></ol>
-<h3>Some Basic Components</h3>
-<p>…<!--Just wait for the schematics section to talke about other components?--></p>
-<h2>Your First Circuit<!--I think this section now should be pictures side by side of the battery circuit made by hand (photos) with the non-breadboarded fritzing diagrams.  Also, without wires.  But otherwise the same.--></h2>
+they work.</p><br><h2>Your First Circuit</h2>
 <p>Now that we’ve
 spent a good bit of time talking about electricity and circuits,
 let’s jump into a real-life example of building a circuit.  We’ve
@@ -234,9 +31,9 @@ lightbulb, so this circuit will work nearly identically to the
 circuit pictured above with the battery and the lightbulb. 
 </p>
 <p>To build this
-circuit, you’ll need the following components:</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_m455c5cf0.jpg" align="bottom" border="0" height="246" width="735"></p>
-<ol>
+circuit, you’ll need the following components (all provided in the bag marked "Your First Circuit RaspberrySTEM Cell"):</p><p></p>
+<p style="text-align: center;"><img style="width: 466px; height: 392px;" alt="" src="img/Your_First_Circuit_parts_bb.png"><br></p>
+<br><ol>
 	<li><p>
 	3 Volt Battery 
 	</p>
@@ -246,9 +43,7 @@ circuit, you’ll need the following components:</p>
 	</li><li><p>
 	Red LED 
 	</p>
-	</li><li><p>
-	Three Wires</p>
-</li></ol>
+	</li></ol>
 <p>By the way, remember
 how we mentioned earlier that sometimes we want to provide extra
 resistance to a circuit to get it to work?  Notice that we have
@@ -257,38 +52,21 @@ amount of electricity (current) flowing through the circuit so that
 the LED doesn’t burn out.</p>
 <p>Okay, let’s give
 this a try, step by step…</p>
-<p><b>Step #1:</b> 
-Connect the positive (+) side of the battery to one lead (the metal
-part) of the resistor using one of the wires.</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_m65f16c76.jpg" align="bottom" border="0" height="270" width="735"></p>
+<p style="font-weight: bold;">Step #1: 
+&nbsp;Connect the Resistor and LED to the Battery</p><p>Using
+your fingers, pinch one lead of the resistor (a "lead" is the metal
+wire on one side) to the positive (+) side of the battery and pinch the
+shorter lead of the LED (one of the leads is longer than the other) to
+the negative (-) side of the battery. &nbsp;</p><p>Like this:&nbsp; </p><p></p>
+<p style="text-align: center;"><img style="width: 764px; height: 222px;" alt="" src="img/Your_First_Circuit_connect_battery_bb.png"><br></p>
 <p><br><br>
 </p>
-<p><b>Step #2:</b> 
-Connect the other lead of the resistor to the longer lead of the LED
-using another wire.</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_m70ac4f6e.jpg" align="bottom" border="0" height="239" width="735"></p>
+<p style="font-weight: bold;">Step #2: Touch the Other Leads of the Resistor and LED Together</p><p style="font-weight: bold;"><span style="font-weight: normal;">Using your free hand, touch the other leads of the resistor and LED together, as indicated below:</span></p><p></p>
+<p style="text-align: center;"><img style="width: 767px; height: 222px;" alt="" src="img/Your_First_Circuit_complete_bb.png"><br></p>
 <p><br><br>
-</p>
-<p><b>Step #3:</b> 
-Connect the shorter lead of the LED to the negative (-) side of the
-Battery using Wire.</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_7ea4d21c.jpg" align="bottom" border="0" height="237" width="735"></p>
-<p>At this point, the
-LED should be lit, as you see in the picture above.</p>
-<p>One point to note –
-the wire is actually not completely necessary in this circuit.  While
-it makes it much easier to connect the parts together, if I were to
-connect the Battery directly to the Resistor lead, connect the other
-Resistor lead directly to the LED and then connect the LED directly
-back to the Battery, electricity will flow directly through all the
-parts exactly the same as when we used the wire.</p>
-<p>Here’s what this
-would look like if I were to connect the components directly together
-and then connect them directly to a battery (in this case, using a 9V
-battery):</p>
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_130350ad.png" align="bottom" border="0" height="518" width="474"></p>
-<p><br><br>
-</p>
+</p><p>At this point, the
+LED should be lit, like this:</p><p></p><p style="text-align: center;"><img src="img/Projects%20Guide%20-%20061115-2_html_130350ad.png" align="bottom" border="0" height="518" width="474"></p>
+<p><br>Congratulations...you just built your first electric circuit!</p><p></p>
 	<p class="nextprev"><a href="HELLO,_WORLD.html">prev</a> |
 	<a href="YOUR_FIRST_SCHEMATIC.html">next</a></p>
 </body></html>

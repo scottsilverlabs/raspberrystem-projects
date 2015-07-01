@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
+
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>BOUNCING BALL 3</h1>
+<span style=""><span style="font-family: &quot;Verdana&quot;,serif;"><br></span></span><p><span style="">We
+built a bouncing ball (dot) in the previous couple projects -- now let’s move on to building
+something a bit more dynamic.<span style="">&nbsp; </span>Instead of
+bouncing a single point, we'll bounce a sprite (a digital design), and we'll animate the sprite (have it change) as
+we move it.<o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal"><span style="">To
+make things a little simpler for this project, we'll assume the sprite is a fixed size: 3 pixels
+by 3 pixels (3x3), tough with minor changes to the code, you can change the
+size to anything that suits your fancy.<o:p></o:p> &nbsp;To
+animate the sprite, we'll keep a list of sprites that make up the animation, and
+we’ll rotate through them on the screen as we move the sprite and update our
+drawing.<o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal"><b style=""><span style="">Step 1: Create a sprite<o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span style="">The
+LED Matrix API has a simple way to create sprites. &nbsp;You create a text file
+that has the sprite drawn in text.<o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal"><span style="">Let’s
+start with just a single 3x3 sprite, we'll animate it later. &nbsp;To create
+the sprite, open a new file called ball0.txt, and input the following (or your
+own design)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="">3a7<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="">8fa<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="">183<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">That's
+a 3x3 sprite that is darkest in the center. &nbsp;It’s also not symmetrical –
+it’s darker in the upper right corners, which will give it a cool affect later
+when we animate it.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">Of
+course, if you don't like the above sprite, then change it.<span style="">&nbsp; </span>That's the power of programming it yourself.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">A
+quick test program to see if our sprite looks like we want:</span></p><p class="MsoNormal">INSERT CODE<span style=""><o:p></o:p></span></p>
+
+
+
+
+
+
+
+<pre><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">from rstem import led<o:p></o:p><br>led.erase()<o:p></o:p><br>led.sprite(LEDSprite("ball0.txt"))<o:p></o:p><br>led.show()</span></pre>
+
+<p><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;"><o:p></o:p></span><span style="">The above is a complete program, which should draw our sprite in the lower left
+corner of the matrix. &nbsp;If it doesn't look the way you expect, edit the
+sprite text file until it does, then move on to the next step.</span></p><p><span style=""><o:p></o:p></span></p>
+
+
+
+
+
+<p class="MsoNormal"><b style=""><span style="">Step 2: Change point to
+sprite<o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span style="">Now,
+given the work you did in Bouncing Ball 2 Project, you're ready to change the
+ball from a point to your sprite.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">First,
+we’ll initialize the sprite (create it) before jumping into our game loop.<span style="">&nbsp; </span>Next, we’ll change the line of code that
+previously drew a single point to a line of code that will instead draw your
+sprite. &nbsp;You'll need to set the position of the sprite when you draw it.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">sprite
+= LEDSprite("ball0.txt")<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">while
+True:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">...<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">led.sprite(sprite,
+(int(x), int(y)))<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">...<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="">If
+you ran the program as-is, you’d find that the sprite will now go over the
+right and top edge of the LED matrix – this is because our program is expecting
+an bouncing object that is only 1 pixel in width, and it doesn’t recognize that
+the edge is further out. &nbsp;Remember, the sprite is 3x3, and we are keeping
+track of the lower left corner of the sprite in our x and y variables. &nbsp;We
+need to adjust the collision with the left and top walls.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">For
+example, in the x direction, we need to adjust the collision with the wall by
+the width of the sprite minus one:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">if
+x &gt;= (led.width() - (sprite.width() - 1)) or x &lt; 0:<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">and,
+you'll need to do the same thing for the y direction with the height of the
+sprite.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style=""><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><b style=""><span style="">Step 3: Animate the sprite<o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span style="">Now,
+to animate the sprite, we'll create four versions of the sprite, each rotated
+90 degrees from the first one. &nbsp;For example, given the ball0.txt we
+created before, here's ball1.txt:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="">183<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="">8fa<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="">3a7<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">You
+can then create ball2.txt and ball3.txt using the same methodology.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">Once
+we have all four sprites created (ball0, ball1, ball2, and ball3), we are ready
+to animate.<span style="">&nbsp; </span>We make a list of the
+sprites, and rotate through them. &nbsp;You <i style="">could</i>
+simply create the list using the following code:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">sprites = [
+LEDSprite("ball0.txt"),<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">LEDSprite("ball1.txt"),<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">LEDSprite("ball2.txt"),<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">LEDSprite("ball3.txt") ]<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="">and
+that will certainly work. &nbsp;But we're going to use a cool feature of Python
+called list comprehensions. &nbsp;If you haven't used them before, they are a
+simply way to create a list dynamically within the code, in an easy to read
+format. &nbsp;<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">For
+example, here's how we could create the list above using list comprehensions:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">sprites
+= [LEDSprite("ball%d.txt" % i) for i in range(4)]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">The
+list comprehension above says to create a sprite for i in the range 0 to 3.
+&nbsp;For each sprite created, it replaces the %d in the name with the value of
+i. &nbsp;The advantage of the above code is it works for any number of balls,
+just by changing the number in the </span><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">range()</span><span style=""> function.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">Finally,
+it’s time to animate the sprite. &nbsp;That is, every fixed amount of time, we
+want to change the sprite from one animation to the next one in the list.
+&nbsp;For each step in the game loop, we will be moving the ball's position.
+&nbsp;However, we don't want to animate the sprite that frequently.
+&nbsp;Therefore we'll only change the sprite every few steps:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">step += 1<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">if step % sprite_steps == 0:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;">n = (n + 1) % len(sprites)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span style="font-size: 10pt; line-height: 107%; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><span style="">The
+above code uses the modulus operator "%". &nbsp;Modulus is like
+division, except that it returns the remainder, not the dividend. &nbsp;It’s a
+handy tool when creating loops. &nbsp;&nbsp; &nbsp; &nbsp; <o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="">In
+the if statement, its used to run the if statement once every strite_steps.
+&nbsp;That is, step is incremented each time the above code is run, but
+"step % sprite_steps" is only equal to 0 once every sprite_steps times.<o:p></o:p></span></p>
+
+
+
+<p class="MsoNormal"><span style="">The
+second time modulus is used, it causes n to be incremented by one, but once n equals
+len(sprites), its set back to 0.<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style=""><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal"><b style=""><span style="">Step 4: Even More<o:p></o:p></span></b></p>
+
+<p class="MsoNormal"><span style="">Try changing
+the sprite. &nbsp;It doesn't have to be a square sprite, it can be a rectangle,
+too. &nbsp;However, if it’s a rectangle that rotates, the collisions with the
+walls can get tricky. &nbsp;We'll do more with collisions in a later project.<o:p></o:p></span></p>
+<p></p><p></p><p class="nextprev"><a href="LED_MATRIX.html">prev</a> |
+	<a href="ACCELEROMETER.html">next</a></p>
+</body></html>

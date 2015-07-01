@@ -13,10 +13,84 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>BUILT-IN FUNCTIONS</H1>
-<P>Discuss built-in
-Python functions (i.e., print())</P>
-	<p class=nextprev><a href="FUNCTION_OUTPUTS.html">prev</a> |
+<h1>BUILT-IN FUNCTIONS</h1>
+<p>The last couple projects discussed many of the important aspects of
+functions and how you can write functions to make your code easier to
+write, easier to read and more reusable. &nbsp;This project is going to
+discuss how you can use OTHER PEOPLE'S functions to make your code much
+more powerful.</p><p>While you may not have realized it, you've already
+used several functions that other people have written. &nbsp;Some of
+those functions are included in the Python programming language that
+everyone (at least everyone who uses Python) has access to. &nbsp;For
+example, when you use the command print(), you are actually calling a
+function named "print" that comes standard with the Python language.
+&nbsp;You may think that print() requires just a single line of code,
+but what you don't see behind-the-scenes is that the print() function
+is many dozens of lines of code. &nbsp;Everytime you use print(),
+Python is running those many dozens of lines of code. &nbsp;But,
+because Python provides this command as a function, you can print
+things to output using a single programming line.</p><p>Now, in
+addition to hundreds of functions that are provided by the Python
+programming language, you also have access to many dozens of functions
+that we (the RaspberrySTEM team) have written to make building with and
+using the RaspberrySTEM kit easier and more functional. &nbsp;For
+example, in the GPIO project (Project #?), your program included the
+following lines of code:</p><p>INSERT CODE</p><pre>rstem.gpio.Output(14)<br>led.on</pre><p>Both of
+those lines of code are calling RaspberrySTEM functions that we have
+written to make using the RaspberrySTEM easier and more powerful.
+&nbsp;While you only needed to write two lines of code to setup the GPIO and turn on the LED, behind the scenes, there were XX lines of code being run to handle those tasks.</p><h2>Built-In Commands and Importing Functions/Modules</h2><p>In our Introduction to Functions project, you saw how functions
+could be included in the same file as the rest of your program. &nbsp;But,
+many times, functions are separated into their own files. &nbsp;These files
+are called modules, and a module will generally contain many functions
+all related to a common task. &nbsp;</p><p>In Python, there are two specific ways functions are used:</p><ul><li><p><span style="font-weight: bold;">Built-In Commands:</span> &nbsp;Some functions can be called anytime, anywhere in your code
+without having to do anything other than calling the function. &nbsp;These
+are referred to as "built-in" functions or "commands", and the print() function is a
+good example. &nbsp;We can use the print() function anywhere in our code
+without having to do anything other than calling the print() function.</p></li><li><p><span style="font-weight: bold;">Importing
+Functions/Modules:</span>
+&nbsp;For non-built-in functions that we want to use (including all the
+RaspberrySTEM functions we provide), we need
+to tell the computer that we are going to want access to the
+function(s) before we can&nbsp;use them. &nbsp;We do this by
+"importing" the function or the whole module into our code before we
+can call those functions. &nbsp;There are two common ways of importing
+functions into your code, which we discuss below.</p></li></ul><h3>Importing an Entire Module</h3><p>If
+you're going to be using several functions within the same module, it's
+generally easiest to just import an entire module into your code.
+&nbsp;Doing this gives you access to any of the functions in that
+module any time you need them. &nbsp;We do this using the "import"
+command, and a good example that you've already seen is as follows:</p><pre>import rstem</pre><p>The
+module "rstem" contains all of the functions that we provide specially
+for the RaspberrySTEM kit projects. &nbsp;By importing that entire
+modules, we now have access to all the functions within that module.
+&nbsp;As an example, within that module is a set of functions called
+"gpio" functions, and within the set of "gpio" functions is a specific
+function called "Output()". &nbsp;If you recall from our GPIO project,
+this function is used to&nbsp;configure a GPIO as an output. &nbsp;</p><p>Once we import the entire rstem module, we can get access to the Output() function by calling:</p><pre>rstem.gpio.Output()</pre><p>And
+because the Output() function takes a single input (the GPIO number we
+are using), we'll call the function using that single function input.
+&nbsp;In our GPIO project, we were using GPIO14, so to set that GPIO to
+be used as an output, we used the following:</p><pre>rstem.gpio.Output(14)</pre><p>Because we imported the entire rstem module, we could just as easily call any of the other functions in that module using a similar approach.</p><p></p><h3>Importing Individual Functions From a Module</h3><p>In
+some cases, we don't need access to all the functions within a module
+-- we only need access to one or two. &nbsp;While we could still import
+the entire module, there are some situations where importing just the
+one or two functions we want access to makes more sense. &nbsp;For
+example, let's say that we only needed access to one function in the
+rstem module (we can stick with the Output() function that we've been
+using).&nbsp;</p><p>To import just a single function from a module, we
+use the "from...import" command. &nbsp;For example, to import just the
+Output() function from the rstem module, we would do the following:</p><pre>from rstem.gpio import Output</pre><p>One
+of the big benefits of importing this specific function (as opposed to
+the entire module) is that we can now call the Output() function using
+the following command:</p><pre>Output(14)</pre><p>You probably noticed
+that calling that function now requires a whole lot less typing than it
+did above when we imported the entire module. &nbsp;That's the tradeoff
+-- by importing the entire module, you have access to all the functions
+in the module, but by importing a single function, it requires a lot
+less information to call that function in your code.</p><p>Throughout
+the rest of the projects, we'll be using a lot of functions.
+&nbsp;We'll make sure to point them out as we're using them, and
+hopefully you can begin to get an idea of how powerful functions and
+modules can be when writing complex code.</p><br><p class="nextprev"><a href="FUNCTION_OUTPUTS.html">prev</a> |
 	<a href="MODULES_-_LIBRARY_FUNCTIONS.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

@@ -14,29 +14,42 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>SIMON 4</H1>
-<P>Simon:
-random sequence playing forever</P>
-<div class="code" data-firstline="0"><div></div><textarea>
-...
-
-from random import randrange
-
-...
-
-play_order = []
-failed = False
-while not failed:
-    play_order += [randrange(4)]
-
-    # Play sequence
-    ...
-
-    time.sleep(1.0)
-
-</textarea></div>
-
-	<p class=nextprev><a href="SIMON_3.html">prev</a> |
+<h1>SIMON 4</h1>
+<p>In our last project, we rewrote our previous test code using lists
+-- doing this will make all the code we'll be writing in the next
+several projects easier to write and easier to understand (both for
+ourselves and for others who might read our code). &nbsp;Now we can
+start writing code more specific to our game.</p><p>If you're not
+familiar with Simon, let me describe how our pattern-matching game will
+work. &nbsp;The game will start by flashing an LED at random (and will
+play a tone speciific to that LED).&nbsp; You'll then have a short
+amount of time to press the button associated with that LED. &nbsp;If
+you do that successfully, the game will repeat the first LED flash and
+then add a second LED flash at random. &nbsp;Again, you'll need to
+remember the pattern and press the correct buttons to replicate the
+pattern. &nbsp;Each time you successfully enter the correct sequence,
+the game will&nbsp;replay the previous pattern and add a random new LED
+flash at the end. &nbsp;If you incorrectly repeat the sequence -- of if
+you take too long between button presses -- the game ends.</p><p>To start programming our game, the first thing we want to do is learn how to flash a sequence of LEDs.
+&nbsp;For this project, we'll use a planned sequence of LED flashes.
+&nbsp;For the next project, we'll expand on that by making the flashing
+sequence random.</p><br><h2>Programming Implementation</h2><p>Simon:
+Flash in a sequence</p>
+<ol start="3"><ul><li><p>New
+		code (instead of turning on and off)</p>
+	</li></ul></ol>
+<p>play_order
+= [2, 3, 1, 0, 2, 2, 3]</p>
+<p><br><br>
+</p>
+<p>#
+Play sequence</p>
+<p>for
+i in play_order:</p>
+<p>lights[i].on()</p>
+<p>time.sleep(0.4)</p>
+<p>lights[i].off()</p>
+<p>time.sleep(0.2)</p><h2></h2><h2>Executing Your Code</h2><p>&nbsp;</p>
+	<p class="nextprev"><a href="SIMON_3.html">prev</a> |
 	<a href="SIMON_5.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

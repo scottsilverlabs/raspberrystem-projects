@@ -13,10 +13,56 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>FLASHLIGHT</H1>
-<P>Project:  Control an
-LED using button, GPIO and IF/ELSE statement</P>
-	<p class=nextprev><a href="IF_-_ELSE_STATEMENTS.html">prev</a> |
+<h1>FLASHLIGHT</h1>
+
+<p class="MsoNormal">In Project #19, we were able to get button input from a
+GPIO.<span style="">&nbsp; </span>In this project, we’re going to
+use that input to control another circuit.<o:p></o:p></p><p class="MsoNormal">For this project, we’re going to wire two completely
+independent circuits:<o:p></o:p></p>
+
+<ol><li><p><span style=""><span style=""></span></span>The first circuit will consist of a button wired
+to a GPIO (like we did in the previous project);<o:p></o:p></p></li><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>The second circuit will consist of an LED wired
+to a separate GPIO (like we did back in Project #6)<o:p></o:p></p></li></ol>
+
+
+
+<p class="MsoNormal">Here is what the breadboard should look like with the two
+circuits wired.<span style="">&nbsp; </span>If you have any
+questions about how to wire either of these two circuits, refer back to Project
+#6 and/or Project #19:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT FRITZING
+DIAGRAM INDICATING THE TWO CIRCUITS<o:p></o:p></i></p>
+
+<p class="MsoNormal">You’ll notice that our button is wired to GPIO14 and our LED
+is wired to GPIO18.<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal">Now that we have the circuits built and ready to go, it’s
+time to write our software.<span style="">&nbsp; </span>For this
+project, our software is going to do two things:<o:p></o:p></p>
+
+<ol><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span>Read the state of the button (pressed or
+unpressed) using a GPIO as input<o:p></o:p></p></li><li><p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;</span></span></span>If the button is pressed, turn on the LED using
+a GPIO as output, and if the button is not pressed, turn off the LED using the
+GPIO as output<o:p></o:p></p></li></ol>
+
+
+
+<p class="MsoNormal">Here is the code that will accomplish this:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT CODE SNIPPET<o:p></o:p></i></p>
+
+<p class="MsoNormal">The button state will be read at the time the program is
+run.<span style="">&nbsp; </span>If you’re holding down the button at
+the time the program is run, the LED will illuminate.<span style="">&nbsp; </span>If you’re not holding down the button at the
+time the program is run, the LED will not illuminate.<o:p></o:p></p>
+
+<p class="MsoNormal">We can also put the code into a loop so that it will
+continually read the button state and update the LED every time it changes:<o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">INSERT CODE SNIPPET<o:p></o:p></i></p>
+
+<p>Give it a try…the flashlight will continue to work until you
+manually stop the program.</p><p class="nextprev"><a href="IF_-_ELSE_STATEMENTS.html">prev</a> |
 	<a href="LISTS.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>

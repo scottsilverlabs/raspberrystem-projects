@@ -14,12 +14,379 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>IF - ELSE STATEMENTS</H1>
-<P>Discuss IF/ELSE
-statements</P>
-<P>Programming project
-using IF/ELSE statements</P>
-	<p class=nextprev><a href="USING_BUTTONS_WITH_GPIO.html">prev</a> |
+<h1>IF - ELSE STATEMENTS</h1><p class="MsoNormal">Much of our lives are spent asking questions in order to
+figure out what we should be saying or doing at any given time.<span style="">&nbsp; </span>For example, we may ask our mom, “Is it time
+for lunch?”<span style="">&nbsp; </span>If the answer is “Yes,”
+we’ll eat lunch…if the answer is “No,” we’ll probably do something else.<o:p></o:p></p>
+
+<p class="MsoNormal">As another example, you may ask a friend, “What would you
+like to do today?”<span style="">&nbsp; </span>If he says, “I’d like
+to go to a movie,” perhaps you’ll spend some time figuring out what movie to
+see.<span style="">&nbsp; </span>But, if he says, “I’d like to play
+in the park,” you probably won’t be eating popcorn in a dark theater that day.<o:p></o:p></p>
+
+<p class="MsoNormal">Programming is very similar – we often ask a lot of
+questions in our software to determine what to do next.<span style="">&nbsp; </span>For example, when you push a button on your
+television remote control, it sends a signal to your TV telling the TV to
+change the station or adjust the volume.<span style="">&nbsp;
+</span>But, what you probably don’t realize is that this works because several
+times per second, the software in your TV is asking, “Did I receive a signal
+from the remote control?”<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal">Most of the time the answer is “No,” so the TV software
+moves onto something else for short period of time.<span style="">&nbsp; </span>But, if the answer is “Yes” (in other words,
+if you were pressing a button on the remote), the TV will then take action to
+determine what button was pressed and then carry out the request.<o:p></o:p></p>
+
+<p class="MsoNormal">The most basic way for software to ask and respond to a
+question is by using what is known as an IF statement.<span style="">&nbsp; </span>An IF statement asks a True or False
+question, and based on the answer, takes appropriate action.<o:p></o:p></p>
+
+<p class="MsoNormal">Let’s say we have a circuit that contains a thermometer and
+sends the current temperature back to computer.<span style="">&nbsp;
+</span>And let’s pretend that the current temperature is 95 degrees and that
+value is stored in a variable named <span style="font-family: &quot;Courier New&quot;;">temperature</span>:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature
+= 95 <o:p></o:p></span></p>
+
+<p class="MsoNormal">The software might then use an IF statement to evaluate the
+temperature and comment on it if it’s over 90 degrees:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &gt;
+90:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Wow, it’s hot out there!’)<o:p></o:p></span></p>
+
+<p class="MsoNormal">Type those three lines into your code window and see what
+happens:<o:p></o:p></p>
+
+<p class="MsoNormal">CODE SNIPPET<o:p></o:p></p>
+
+<p class="MsoNormal">If you run the program, you’ll see that the computer prints,
+“Wow, it’s hot out there!” in your output window.<span style="">&nbsp; </span>In this case, the computer evaluated the
+statement (<span style="font-family: &quot;Courier New&quot;;">temperature &gt; 90</span>),
+determined that the statement was True (the temperature is 95, which is over
+90) and then took the specified action based on the fact that the statement was
+True.<o:p></o:p></p>
+
+<p class="MsoNormal">What if the statement were false?<span style="">&nbsp; </span>For example, like this:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature = 95 <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &lt;
+90:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Okay, it’s not too hot out there.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal">In this case, the temperature is still defined as 95
+degrees, but this time, we’re asking if the temperature is LESS THAN 90.<span style="">&nbsp; </span>The answer to that question is obviously
+False (the temperature is not less than 90).<span style="">&nbsp;
+</span>And because the statement is False, the action following the IF
+statement is not executed, and nothing is printed to the screen.<o:p></o:p></p>
+
+<p class="MsoNormal">We typically call the evaluation the “conditional statement”
+and we typically call the action commands after the conditional statement the
+“code block.”<span style="">&nbsp; </span>We’ll be using those terms
+from here on out.<o:p></o:p></p>
+
+<p class="MsoNormal">Now, let’s discuss some additional features of conditional statements
+and code blocks…<o:p></o:p></p>
+
+<h2>Comparison Operators<o:p></o:p></h2>
+
+<p class="MsoNormal">In the above examples, we used the symbols &gt; and &lt; in
+our condition statements.<span style="">&nbsp; </span>We used &gt; to
+ask the question, “Is the first value greater than the second value?”<span style="">&nbsp; </span>And, we used the symbol &lt; to ask the
+question “Is the first value less than the second value?”<o:p></o:p></p>
+
+<p class="MsoNormal">These are just two of several symbols (we called them
+“operators”) that can be used to compare values in a conditional
+statement.<span style="">&nbsp; </span>Here is the full list:<o:p></o:p></p>
+
+<div align="center">
+
+<table class="MsoTable15Grid1Light" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr style="height: 0.3in;">
+  <td style="border-style: solid; border-color: rgb(153, 153, 153) rgb(153, 153, 153) rgb(102, 102, 102); border-width: 1pt 1pt 1.5pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>OPERATOR<o:p></o:p></b></p>
+  </td>
+  <td style="border-style: solid solid solid none; border-color: rgb(153, 153, 153) rgb(153, 153, 153) rgb(102, 102, 102) -moz-use-text-color; border-width: 1pt 1pt 1.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>DEFINITION<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>==<o:p></o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Equal To?<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>!=<o:p></o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Not Equal To?<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;<o:p>&nbsp;</o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Greater Than?<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;<o:p>&nbsp;</o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Less Than?<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;=<o:p></o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Greater Than or
+  Equal To?<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style="height: 0.3in;">
+  <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
+  <p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;=<o:p></o:p></b></p>
+  </td>
+  <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
+  <p class="MsoNormal" style="text-align: center;" align="center">Is Less Than or
+  Equal To?<o:p></o:p></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">Let’s look at some examples…but first, let’s define a couple
+variables to use in our examples:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_dogs_age
+= 4<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
+= 43<o:p></o:p></span></p>
+
+<p class="MsoNormal">Now for our examples:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_dogs_age
+== 4</span> would evaluate as True <o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
+!= 43</span> would evaluate as False<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
+&gt; my_dogs_age</span> would evaluate as True<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
+&lt; my_dogs_age</span> would evaluate as False<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_dogs_age
+&gt;= 4</span> would evaluate as True<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
+&lt;= 45</span> would evaluate as False<o:p></o:p></p>
+
+<p class="MsoNormal"><b style="">Note:</b><span style="">&nbsp; </span>Keep in mind that = and == are very different
+in programming.<span style="">&nbsp; </span>The = sign tells the
+computer that we’re forcing one thing (generally a variable) to equal another
+thing.<span style="">&nbsp; </span>But, the == asks the computer
+whether two things are equal, and returns a True (if they are equal) or a False
+(if they are not equal).<o:p></o:p></p>
+
+<h2>Code Blocks<o:p></o:p></h2>
+
+<p class="MsoNormal">In all the examples so far in this chapter, our code blocks
+have consisted of a single line of code.<span style="">&nbsp;
+</span>For example, in this piece of code:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature = 95 <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &lt;
+90:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Okay, it’s not too hot out there.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal">our code block was a single print statement.<o:p></o:p></p>
+
+<p class="MsoNormal">But, in many situations, after evaluating a conditional,
+we’re going to want to take action that require many commands, not just
+one.<span style="">&nbsp; </span>For this reason, code blocks can be
+any number of commands following a conditional statement.<span style="">&nbsp; </span>Our example above could be changed to:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature = 95 <o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &lt;
+90:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Okay, it’s not too hot out there.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘It’s only % degrees.’ temperature)<o:p></o:p></span></p>
+
+<p class="MsoNormal">In this example, we have two print statements in our code
+block.<span style="">&nbsp; </span>Notice that both commands are
+indented the exact same amount – this is how the computer knows that all the
+lines are part of the same code block.<span style="">&nbsp;
+</span>It’s very important that you use the same number of spaces or indents
+for every line of the code block, or your code will not function as you expect
+(and may not function at all).<o:p></o:p></p>
+
+<h2>Compound Conditional Statements<o:p></o:p></h2>
+
+<p class="MsoNormal">In some situations, you may find that you need to have more
+complex conditional statements in your code than just a single comparison.<span style="">&nbsp; </span>When that happens, we can use compound
+conditional statements, which is really just a fancy way of saying that we can
+string multiple comparisons together into a single conditional statement.<o:p></o:p></p>
+
+<p class="MsoNormal">For example, in the previous section, used the conditional
+statement:<o:p></o:p></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature
+&lt; 90 <o:p></o:p></span></p>
+
+<p class="MsoNormal">to determine if it was less than 90 degrees outside.<o:p></o:p></p>
+
+<p class="MsoNormal">But, what if didn’t just want to know if the temperature was
+less than 90 degrees – we wanted to know whether the temperature was between 80
+and 90 degrees?<span style="">&nbsp; </span>That would actually
+require two different conditional statements:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin-bottom: 6pt; text-indent: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature &gt; 80<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">temperature
+&lt; 90 <o:p></o:p></span></p>
+
+<p class="MsoNormal">We can create a compound conditional statement that will
+check both of those comparisons before taking any action, as follows:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if (temperature &gt;
+80) and (temperature &lt; 90):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘The temperature is between 80 and
+90 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">The <span style="font-family: &quot;Courier New&quot;;">and</span>
+keyword tells the computer that both statements must be True in order for the
+entire compound conditional statement to be True.<o:p></o:p></p>
+
+<p class="MsoNormal">What if we only cared about the situation where the
+temperature was less than 80 degrees or more than 90 degrees?<span style="">&nbsp; </span>We can create a compound conditional
+statement to do this as well:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if (temperature &lt;
+80) or (temperature &gt; 90):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘The temperature is not between 80
+and 90 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal">In this case, the <span style="font-family: &quot;Courier New&quot;;">or</span>
+keyword tells the computer that either one or both of the statements must be
+True in order for the entire compound conditional statement to be True.<o:p></o:p></p>
+
+<p class="MsoNormal">Any number or combination of <span style="font-family: &quot;Courier New&quot;;">and</span>
+and <span style="font-family: &quot;Courier New&quot;;">or</span> keywords can be used to
+combine conditional statements.<o:p></o:p></p>
+
+<h2>IF/ELSE Statements<o:p></o:p></h2>
+
+<p class="MsoNormal">In our previous examples, we evaluated a conditional, and
+took action if the result of the evaluation was True.<span style="">&nbsp; </span>But, in many cases, we also want to take
+action when the result of the evaluation is False, in addition to when it’s
+True.<o:p></o:p></p>
+
+<p class="MsoNormal">For example, perhaps we don’t just want to let the user know
+if the temperature is over 90 degrees, but we also want to let the user know if
+the temperature is over 90 degrees:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &gt;
+90:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Over 90 degrees -- make sure to
+wear sunscreen.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">else:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Under 90 degrees today – keep
+warm!’)<o:p></o:p></span></p>
+
+<p class="MsoNormal">We use the else: keyword to indicate what action should be
+taken if the conditional statement evaluates to False.<span style="">&nbsp; </span>We are basically telling the computer:<span style="">&nbsp; </span><o:p></o:p></p>
+
+<p class="MsoNormal"><i style="">If the conditional
+statement is True, do this.<span style="">&nbsp; </span>Otherwise (</i><i style=""><span style="font-family: &quot;Courier New&quot;;">else:</span>),
+do that.<o:p></o:p></i></p>
+
+<h2>ELIF Statements<o:p></o:p></h2>
+
+<p class="MsoNormal">There are going to be some cases where, “If True, do
+this.<span style="">&nbsp; </span>If False, do that,” just isn’t
+enough to provide the functionality you need.<span style="">&nbsp;
+</span><o:p></o:p></p>
+
+<p class="MsoNormal">For example, perhaps we want to know more than whether the
+temperature is above or below 90 degrees?<span style="">&nbsp;
+</span>Perhaps we want to know if it’s below 60 degrees?<span style="">&nbsp; </span>Or in the 60s?<span style="">&nbsp; </span>Or in the 70s?<span style="">&nbsp; </span>Or in the 80s?<span style="">&nbsp; </span>Or in the 90s?<span style="">&nbsp; </span>Or above 90 degrees?<o:p></o:p></p>
+
+<p class="MsoNormal">In the case where you want to test for many different conditions,
+you can use the ELIF (“else if”) statement.<span style="">&nbsp;
+</span>Like this:<o:p></o:p></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">if temperature &lt; 60:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Brrrr…under 60 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">elif (temperature
+&gt;= 60) and (temperature &lt; 70):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in; text-indent: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">print
+(‘Between 60 and 70 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">elif (temperature
+&gt;= 70) and (temperature &lt; 80):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Between 70 and 80 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">elif (temperature &gt;=
+80) and (temperature &lt; 90):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Between 80 and 90 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">elif (temperature
+&gt; 90):<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘Wear sunscreen!<span style="">&nbsp; </span>Over 90 degrees.’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;">else:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin: 0in 0in 6pt 0.5in;"><span style="font-family: &quot;Courier New&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span>print (‘There was an error somewhere!!!’)<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom: 6pt;"><span style="font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal">Notice that we finished conditional block with an <span style="font-family: &quot;Courier New&quot;;">else:</span> statement.<span style="">&nbsp; </span>In this case, we don’t ever actually expect
+to end up in the else: block – all of the possible temperature conditions are
+covered in the various conditional statements above.<span style="">&nbsp; </span>But, in the case where there is a major error
+(for example, if temperature was left undefined or if temperature were defined
+as something other than a number).<span style="">&nbsp; </span>Using
+a final <span style="font-family: &quot;Courier New&quot;;">else:</span> in a larger IF
+statement is a great way to catch these types of internal errors.<o:p></o:p></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p><p class="nextprev"><a href="USING_BUTTONS_WITH_GPIO.html">prev</a> |
 	<a href="FLASHLIGHT.html">next</a></p>
-</BODY>
-</HTML>
+</body></html>
