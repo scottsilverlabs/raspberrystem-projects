@@ -47,8 +47,8 @@ call it a game loop because it's an actual loop in the code that
 continues until the game is finished or until the user says to exit.
 &nbsp;For this project, we're going to take the easy way out and just
 let the program run forever (until we stop the program). &nbsp;We can
-do this using a while True: loop. &nbsp;So, this will be the very first
-line of our
+do this using a while loop. &nbsp;So, this will be the very first line
+of our
 game loop:</p><p>INSERT CODE</p><pre>while True: </pre><h3><br><span style=""></span></h3><h3><span style="">Check for user input</span></h3><p>In
 a typical game loop, this is where we would check for user input --
 check for button presses, check for joystick movement, check for
@@ -78,14 +78,23 @@ displaying that framebuffer. &nbsp;We can do that just like we in the
 last project:</p><p>INSERT CODE</p><pre>fb.erase()<br>fb.point(x, y)<br>fb.show()</pre><h3><br></h3><h3><span style="">Wait for some period of time</span></h3><p>The
 very last thing we sometimes do in a game loop is to wait for some
 period of time. &nbsp;Remember, computers are VERY fast, and if we let
-them do things as fast as they can, we'll occasionally get results that
-we don't want. &nbsp;For example, in this project, if we let the
-computer run this game loop as it is, it would go through the loop and
-update the location of the dot so fast that we wouldn't even see it
-move across the screen.</p><p>So, to slow things down, we'll sometimes
-pause at the end of the game loop. &nbsp;The longer you pause, the
-slower the game runs. &nbsp;In this case, we'd probably be happy moving
-the location of the dot every half-second, which means we'd want to put
+them do things as fast as they can, we may occasionally get results
+that
+we don't want. &nbsp;For example, in some programs, the graphics will
+update each time through the loop -- if we loop this project too
+quickly, the dot will scroll off the screen so quickly that we won't
+even see it. &nbsp;But, even in programs where the graphics aren't
+updating each time through the loop, if we let the
+computer run at full speed, the processor may get bogged down and not
+react the way we would like. &nbsp;</p><p>For
+those reasons, we will typically put a pause at the end of a game loop.
+&nbsp;If your graphics will be updating each time through the loop,
+you'll want to choose a wait time that makes sense for your graphics
+updates. &nbsp;If not, you'll probably want to play around with various
+pause times and see which work the best -- too slow, and you might find
+that your program is not responsive; too fast, and you might find that
+the processor does unexpected things.</p><p>In this case, our graphics rely on the loop speed, and we'd probably be happy moving
+the location of the dot every half-second. &nbsp;Which means we'll want to put
 in a half-second delay at the end of the loop.</p><p>INSERT CODE</p><pre>time.sleep(.5)<br></pre><br><h3><span style="">Finish &amp; Cleanup</span></h3><p>At
 some point, the game will probably end and we'll drop out of the loop.
 &nbsp;This is most common when the player wins or loses a game, or when
