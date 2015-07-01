@@ -73,7 +73,14 @@ $(BUILDDIR):
 		echo "To force: make FORCE=1"; \
 		exit 1; \
 	fi
-	rm -rf $@
+	@#
+	@# Weirdo race condition.  Sometimes this rm fails with "Directory not
+	@# empty".  The file in there is a Mac .DS_Store.  So we retry if it fails.
+	@#
+	if ! rm -rf $@; then \
+		sleep 1 ; \
+		rm -rf $@ ; \
+	fi
 	mkdir -p $@
 	cp -r $(PROJECTSDIR)/* $@
 
