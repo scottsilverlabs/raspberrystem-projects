@@ -87,32 +87,33 @@ missiles</span></p>
 will be other details that we'll add in there as well, but these are
 the big items we'll need to address in our intialization code.</p><p></p>
 <h3><span style="">while (game not finished):</span></h3>
-<p>This will be the start of our game loop. &nbsp;</p><p>
-<span style=""></span></p>
-<h3><span style="">Check for user input</span></h3>
+<p>This will be the start of our game loop. &nbsp;For this game, we'll
+loop continuously until the game is completed (either you destroy all
+the aliens or they get to the bottom of the screen and destroy you), at
+which point we can break from our while loop.</p><p>So, our loop will just be:</p><pre>while True: </pre><h3><br></h3><h3><span style="">Check for user input</span></h3><p>Unlike
+our previous game loops, for this game we'll be taking user input.
+&nbsp;Specifically, we'll be reading data from the accelerometer to
+know which direction the game is being tilted and we'll be checking the
+button to determine if a missile was fired. &nbsp; This part of the
+code will look something like:</p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Check for user input</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get accelerometer input</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get button input</span></p>
 <h3><br>
 <span style=""></span></h3>
 <h3><span style="">Update the game world</span></h3>
-<pre><br></pre>
-<h3><span style="">Draw graphics on the screen</span></h3>
-<br>
+<p>Each time through the loop, we'll have to update the status of all
+the three major components of the game -- the spaceship, the aliens and
+the missiles.&nbsp; In addition, we'll want to test to see any of the
+previously launched missiles has collided with an alien.</p><p>With that in mind this section of the code will look something like:</p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Update the game world</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Update the location of the spaceship</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Update the location of the aliens</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Update the location of any missiles&nbsp;</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Check for any missile collisions</span></p><br><h3><span style="">Draw graphics on the screen</span></h3>
+Now that we have updated information for each of the components of our
+game, it's time to update the graphics based on the new information.
+&nbsp;This involves erasing the framebuffer, writing the new graphics
+to the framebuffer and then showing the revised framebuffer.
+&nbsp;Here's what that will look like in our code:<br><br><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Draw graphics on the screen</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Erase the framebuffer</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Draw the spaceship</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Draw the aliens</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Draw any missiles</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Show the framebuffer</span></p>
 <h3><br>
 </h3>
 <h3><span style="">Wait for some period of time</span></h3>
-<br>
-<p>Start with a dot:</p>
-<p>from
-rstem.led_matrix import FrameBuffer</p>
-<p><br>
-</p>
-<p>fb
-= FrameBuffer()</p>
-<p><br>
-</p>
-<p>fb.erase()</p>
-<p>fb.point(3,
-0)</p>
-<p>fb.show()</p><p></p>
+<br>Too big - not responsive<br>Too small - CPU overworked<br><br><br><h3><span style="">Finish &amp; Cleanup</span></h3>
+<br>d<br><br><p></p>
 <p class="nextprev"><a href="BALANCING_DOT_4.html">prev</a>
 | <a href="SPACE_INVADERS_2.html">next</a></p>
 </body></html>
