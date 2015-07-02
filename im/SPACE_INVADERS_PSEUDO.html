@@ -2,8 +2,7 @@
 <html><head>
 <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
 
-<link rel="stylesheet" type="text/css" href="default.css">
-</head>
+<link rel="stylesheet" type="text/css" href="default.css"></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SPACE INVADERS 1</h1>
 <p>You're probably familiar with the game Space Invaders, which
@@ -36,9 +35,9 @@ then we break each of those steps into smaller chunks with more
 details. &nbsp;We continue doing this until we have enough detail
 that
 we're ready to actually start writing our code.</p>
-<h2>Our Game Loop</h2>
+<h2><br></h2><h2>Our Game Loop</h2>
 <p>Let's start with the basic outline for our game, much as we
-described in Project #???:</p><p></p>
+described in Project #???:</p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
 the game environment</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
@@ -90,7 +89,8 @@ the big items we'll need to address in our intialization code.</p><p></p>
 <p>This will be the start of our game loop. &nbsp;For this game, we'll
 loop continuously until the game is completed (either you destroy all
 the aliens or they get to the bottom of the screen and destroy you), at
-which point we can break from our while loop.</p><p>So, our loop will just be:</p><pre>while True: </pre><h3><br></h3><h3><span style="">Check for user input</span></h3><p>Unlike
+which point we can break from our while loop.</p><p>So, our loop will just be:</p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while True:</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><br><h3><span style="">Check for user input</span></h3><p>Unlike
 our previous game loops, for this game we'll be taking user input.
 &nbsp;Specifically, we'll be reading data from the accelerometer to
 know which direction the game is being tilted and we'll be checking the
@@ -112,8 +112,41 @@ to the framebuffer and then showing the revised framebuffer.
 <h3><br>
 </h3>
 <h3><span style="">Wait for some period of time</span></h3>
-<br>Too big - not responsive<br>Too small - CPU overworked<br><br><br><h3><span style="">Finish &amp; Cleanup</span></h3>
-<br>d<br><br><p></p>
+<p>At the end of our game loop, we need to include a pause before
+continuing our next round through the loop. &nbsp;For this game, our
+graphics aren't going to (necessarily) update each time through the
+loop, so our wait time doesn't need to be correlated to our graphics
+updates. &nbsp;That said, we need to pick a time that is not too long
+-- otherwise the graphics will be as responsive as we'd like -- and
+also not too short -- or we risk overworking the processor.</p><p>We'll
+play around with various wait times and see what works, but typically,
+we'd expect something in the .001 to .1 seconds time frame...</p><br><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Wait for some period of time</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Wait for between .001 and .01 seconds</span></p><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span><br><br><h3><span style="">Finish &amp; Cleanup</span></h3>
+<p>Finally, we need to handle the case where we fall through the loop,
+either because we've won the game (destroyed all the aliens) or lost
+the game (the aliens got to the bottom of the screen). &nbsp;In either
+case, we'll at least print the final game status (win or lose) to the
+output window.</p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Finish &amp; Cleanup</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print "You won!" if the player wins</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print "You lost..." if the player loses</span></p><span style="font-family: &quot;Verdana&quot;,serif;"><br></span><h3><br><span style=""></span></h3><h3><span style="">Putting It All Together</span></h3>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what the full pseduo-code for this game will look like...we'll spend the next 8 projects building it piece-by-piece:</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#
+Initialize the game environment</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
+required functions/modules</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+framebuffer</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+accelerometer</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize&nbsp;spaceship</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+aliens</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+missiles<span style="font-family: monospace;"></span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="font-family: monospace;"></span></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while True:</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; # Check for user input</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Get accelerometer input</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Get button input</span></p>
+<h3><br></h3><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; # Update the game world</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Update the location of the spaceship</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Update the location of the aliens</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Update the location of any missiles&nbsp;</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Check for any missile collisions</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; # Draw graphics on the screen</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Erase the framebuffer</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Draw the spaceship</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Draw the aliens</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Draw any missiles</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Show the framebuffer</span></p>
+<h3><br>
+</h3><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; # Wait for some period of time</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp; Wait for between .001 and .01 seconds</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp; &nbsp;&nbsp;</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Finish &amp; Cleanup</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print "You won!" if the player wins</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print "You lost..." if the player loses</span></p><span style="font-family: &quot;Verdana&quot;,serif;"><br></span><p></p>
 <p class="nextprev"><a href="BALANCING_DOT_4.html">prev</a>
 | <a href="SPACE_INVADERS_2.html">next</a></p>
 </body></html>
