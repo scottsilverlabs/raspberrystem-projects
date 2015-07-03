@@ -79,12 +79,17 @@ div.code > div:first-child {
     padding: 10
 }
 
-textarea {
+div.code > textarea {
     width: 100%;
     height: 20em;
 }
 
 .CodeMirror-cursor { visibility: hidden; }
+.CodeMirror {
+    padding-top: 10px;
+    font-size: 12pt;
+}
+
 
 /*
  * Output blocks
@@ -101,8 +106,16 @@ div.output > div:first-child {
     background-color: #657777;
     padding: 10
 }
-div.output div:last-child {
-    font-size: 14pt;
+div.output > pre {
+    font-family: Courier;
+    font-size: 12pt;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #657777;
+    background-color: #002B36;
+    top-margin: 0;
 }
 
 /*
