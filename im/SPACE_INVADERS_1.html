@@ -1,32 +1,106 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 1</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 1</title>
 
-
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<h1>SPACE INVADERS 1</h1><br><p>Start with a dot:</p>
-<p>from
-rstem.led_matrix import FrameBuffer</p>
-<p><br>
-</p>
-<p>fb
-= FrameBuffer()</p>
-<p><br>
-</p>
-<p>fb.erase()</p>
-<p>fb.point(3,
-0)</p>
-<p>fb.show()</p>
-	<p class="nextprev"><a href="BALANCING_DOT_4.html">prev</a> |
-	<a href="SPACE_INVADERS_2.html">next</a></p>
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>SPACE INVADERS 1</h1>
+<p>For our first Space Invaders project, we're going to keep
+things very simple. &nbsp;This project will simply initialize the
+framebuffer and write a single dot to the LED Matrix (we'll consider
+this our spaceship for now). &nbsp;While
+none of this is new, it will allow us to verify that the LED Matrix is
+working properly and will get some of our initialization code out of
+the way.</p>
+<p>Here's what our initialization code should look like for the
+framebuffer:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+#Import required functions/modules
+rstem.led_matrix import FrameBuffer
+# Initialize the framebuffer
+fb = FrameBuffer()
+</textarea></div>
+<p></p>
+<p>And here's what our code to write a single dot spaceship to
+the LED
+Matrix should look like:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+#Erase the framebuffer
+fb.erase()
+#Draw the spaceship
+fb.point(3,0)
+#Show the framebuffer
+fb.show()
+</textarea></div>
+<br>
+<p>If you run the program at this point, you should see a dot on
+the LED
+Matrix at x = 3 and y = 0.&nbsp;</p>
+<p>Here is the full code for our game at this point:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+# ###############################################################
+#
+# SPACE INVADERS GAME
+#
+# ###############################################################
+# ################################
+# Initialize the game environment
+# ################################
+# Import required functions/modules
+rstem.led_matrix import FrameBuffer
+# Initialize framebuffer
+fb = FrameBuffer()
+# Initialize accelerometer
+# Initialize spaceship
+# Initialize aliens
+# Initialize missiles
+while True:
+# ################################
+# Check for user input
+# ################################
+# Get accelerometer input
+# Get button input
+# ################################
+# Update the game world
+# ################################
+# Update the location of the spaceship
+# Update the location of the aliens
+# Update the location of any missiles # Check for any missile
+collisions
+# ################################
+# Draw graphics on the screen
+# ################################
+# Erase the framebuffer
+fb.erase()
+# Draw the spaceship
+fb.point(3,0)
+# Draw the aliens
+# Draw any missiles
+# Show the framebuffer
+fb.show()
+# ################################
+# Wait for some period of time
+# ################################
+# Wait for between .001 and .01 seconds
+# ################################
+# Finish and cleanup
+# ################################
+# Print "You won!" if the player wins
+# Print "You lost..." if the player loses
+</textarea></div>
+<br>
+<p class="nextprev"><a href="BALANCING_DOT_4.html">prev</a>
+| <a href="SPACE_INVADERS_2.html">next</a></p>
 </body></html>

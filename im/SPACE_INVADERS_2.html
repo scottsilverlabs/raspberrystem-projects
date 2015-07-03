@@ -1,56 +1,161 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 2</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 2</title>
 
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>SPACE INVADERS 2</H1>
-<P>Keep track of the
-position of the spaceship, and display it in a gaming loop:</P>
-<P>...</P>
-<P>import
-time</P>
-<P>...</P>
-<P><BR>
-</P>
-<P>spaceship_position
-= fb.width / 2</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-fb.erase()</P>
-<P><BR>
-</P>
-<P>   
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>SPACE INVADERS 2</h1>
+<p>Now that we have the framebuffer initialized and have verified
+that the LED Matrix is working, let's put our spaceship where it's
+supposed to be located -- in the middle of the LED Matrix horizontally
+(along the x-axis) and at the bottom of the LED Matrix vertically (y=0).</p>
+<p>To determine the middle of the LED Matrix, we could take the
+known length of it (8 pixels) and divide that by two -- that would give
+us our middle dot (x=4). &nbsp;But, what if you later want to use
+this code on a smaller or larger LED Matrix display? &nbsp;For
+example, let's say you put four LED Matrices together to build a 16x16
+display. &nbsp;If you put x=4 right into your code, when you run
+the program on your new 16x16 display, your spaceship will no longer be
+in the middle of the display.</p>
+<p>Luckily, we have a way to handle this. &nbsp;There is a <span style="font-family: Courier New,Courier,monospace;">FrameBuffer</span>
+function called <span style="font-family: Courier New,Courier,monospace;">width()</span>
+that will determine how many LED Matrices you have chained together and
+will tell you the width of your LED Matrix display. &nbsp;We can
+use that function to determine the actual width of the display, and
+then divide that actual width by 2 to get the starting position of our
+spaceship.</p>
+<br>
+<div class="info">
+<div></div>
+<div>
+This is actually a very common situation when programming for
+a potentially changing environment -- you have to decide between
+putting definitive numbers into your code&nbsp;(called
+"hard-coding") based on the most common usage scenario, or by using
+variables and inputs that will allow your code to adapt to different
+scenarios. &nbsp;For example, if you were writing code for
+...&nbsp; &nbsp;
+Hard-coding typically makes your code easier to write -- since
+you don't have to test for lots of different situations and change the
+functionality of your code for each possible situation. &nbsp;But,
+hard-coding also means that your code will break (or at very least be
+less useful) when exposed to a situation where the assumptions you made
+about the environment are no longer true. &nbsp;In general, it's
+best to try to figure out who your users will be and the situations
+where your code will be used, and then try to be as generic as possible
+to accomodate the most common situations and environments.
+</div>
+</div>
+<p></p>
+<p>Here is what the initialization code for the initial position
+of the&nbsp;ship would look like:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Initialize the spaceship
+spaceship_position = fb.width
+</textarea></div>
+<p></p>
+<p>In our previous project, we just drew the ship at x=3, y=0.
+&nbsp;But, now we have the actual x-coordinate from our calculation
+above, so we can draw the ship at it's actual starting position.
+&nbsp;</p>
+<p>But, there's one thing we need to keep in mind -- now that
+we're using a calculation to determine the position of the ship, it's
+possible that the result of our calculation won't be a whole number
+(for example, if we were using an LED Matrix that was 7 pixels wide,
+our initial position would be x=3.5). &nbsp;To accomodate for that,
+we need to round our calcuation to the nearest whole number, and that
+is where we will display our ship.</p>
+<p>We do that using the built-in math function called <span style="font-family: Courier New,Courier,monospace;">round()</span>.
+&nbsp;Here is what the code will look like:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Draw the spaceship
+fb.point(round(spaceship_position),0)
+</textarea></div>
+<p></p>
+<p>Finally, now is as good a time as any to put our pause at the
+end of the game loop. &nbsp;We had discussed trying a pause of of
+between .001 and .01 seconds. &nbsp;Let's start with the smaller
+number and see if that poses any problems as we're continuing to
+develop the game:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Import required functions/modules
+import time
+# Wait for some period of time
+time.sleep(.001)
+</textarea></div>
+<p>Here is the full code for our game at this point:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+# ###############################################################
 #
-Draw spaceship</P>
-<P>   
-fb.point(round(spaceship_position),
-0)</P>
-<P><BR>
-</P>
-<P>   
+# SPACE INVADERS GAME
 #
-Show FrameBuffer on LED Matrix</P>
-<P>   
-fb.show()</P>
-<P><BR>
-</P>
-<P>   
-time.sleep(0.001)</P>
-	<p class=nextprev><a href="SPACE_INVADERS_1.html">prev</a> |
-	<a href="SPACE_INVADERS_3.html">next</a></p>
-</BODY>
-</HTML>
+# ###############################################################
+# ################################
+# Initialize the game environment
+# ################################
+# Import required functions/modules
+rstem.led_matrix import FrameBuffer
+import time
+# Initialize framebuffer
+fb = FrameBuffer()
+# Initialize accelerometer
+# Initialize spaceship
+spaceship_position = fb.width
+# Initialize aliens
+# Initialize missiles
+while True:
+# ################################
+# Check for user input
+# ################################
+# Get accelerometer input
+# Get button input
+# ################################
+# Update the game world
+# ################################
+# Update the location of the spaceship
+# Update the location of the aliens
+# Update the location of any missiles # Check for any missile
+collisions
+# ################################
+# Draw graphics on the screen
+# ################################
+# Erase the framebuffer
+fb.erase()
+# Draw the spaceship
+fb.point(round(spaceship_position),0)
+# Draw the aliens
+# Draw any missiles
+# Show the framebuffer
+fb.show()
+# ################################
+# Wait for some period of time
+# ################################
+# Wait for between .001 and .01 seconds
+time.sleep(.001)
+# ################################
+# Finish and cleanup
+# ################################
+# Print "You won!" if the player wins
+# Print "You lost..." if the player loses
+</textarea></div>
+<br>
+<p class="nextprev"><a href="SPACE_INVADERS_1.html">prev</a>
+| <a href="SPACE_INVADERS_3.html">next</a></p>
+</body></html>
