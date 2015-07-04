@@ -26,34 +26,43 @@ play.</p>
 <p>GPIOs are specific pins (little metal "legs"
 on the bottom or sides of a computer chip) that give us a connection
 between a physical circuit and the software inside the chip.
-&nbsp;We
+We
 make these connections to the computer chip available on the
 RaspberrySTEM by plugging wires into the connector board holes.
 &nbsp;While we could get access to this functionality by
 individually
 attaching pins on the Raspberry Pi to the breadboard using wires, we've
-made these connections available through teh connector board to make
-the whole process much cleaner and easier.&nbsp;</p>
+made these connections available through the connector board to make
+the whole process much cleaner and easier. &nbsp;In fact, that's
+why we have the ribbon cable connected from the Raspberry Pi to the
+connector board -- the ribbon cable simply brings the GPIO pins (and
+other pins) from the Raspberry Pi to the RaspberrySTEM Lid, where there
+are easier for you to attach to.&nbsp;</p>
 <p>The purpose of GPIOs are like the
 nerve-system of the platform – their job is to relay signals from
 the brain (the Raspberry Pi computer) to the muscles (the components
 of the circuit) and to take signals from the muscles and relay it
 back to the brain. </p>
-<p>The Raspberry Pi has
-17 GPIOs, and each one can be set to act as an input (it can take a
+<p>The Raspberry Pi has 26 GPIOs, and each one can be set to act
+as an input (it can take a
 signal from somewhere else and relay it to the Raspberry Pi) or set
 to act as an output (it can relay a signal from the Raspberry Pi to
-somewhere else).</p>
+somewhere else). &nbsp;GPIOs are referenced as number (for example,
+GPIO17), and each pin (hole) on the connector board is labeled with the
+GPIO it is connected to. &nbsp;So, if you want to hook up a
+component to GPIO17, you'll insert a wire from the component to the
+hole on the connector board labled "17".</p>
 <h2>GPIOs as Outputs</h2>
 <p>When a GPIO is
 configured as an output, the software has the ability to set the GPIO
 to do one of two things:</p>
 <ol>
 <li>
-<p>Generate 0V of electricity (just like a ground)</p>
+<p>Set the voltage to 0V (so that it acts just like a ground)</p>
 </li>
 <li>
-<p>Generate 3.3V of electricity (just like a battery or any
+<p>Set the voltage to 3.3V (so that it acts just like a
+battery or some
 other
 power source)</p>
 </li>
@@ -87,19 +96,20 @@ discussed that the software can force the GPIO into one of two
 states:</p>
 <ol>
 <li>
-<p>Generate 0V of electricity (just like a ground)</p>
+<p>Set the voltage to 0V (so that it acts just like a ground)</p>
 </li>
 <li>
-<p>Generate 3.3V of electricity (just like a battery or any
+<p>Set the voltage to 3.3V (so that it acts just like a
+battery or some
 other
 power source)</p>
 </li>
 </ol>
 <p>If the software sets
-the GPIO to generate 0V (we call this setting the GPIO “low”),
+the GPIO to 0V (we call this setting the GPIO “low”),
 the GPIO acts just like a ground, and the LED will light up just like
-it currently does. But, if the software sets the GPIO to generate
-3.3V (we call this setting the GPIO “high”), the LED will not
+it currently does. But, if the software sets the GPIO to 3.3V (we call
+this setting the GPIO “high”), the LED will not
 light up.</p>
 <p>If that’s
 confusing, think back to our earlier discussion – electricity will
@@ -110,7 +120,7 @@ GPIO, there is no voltage difference between the beginning and end of
 the circuit, and no electricity will flow (i.e., the LED won’t
 light up).</p>
 <p>This can be a
-confusing concept at first, but stick with us and I promise it will
+confusing concept at first, but stick with us and it will
 become more clear. Here is a overview of how the GPIO will work in
 this circuit:</p>
 <table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
@@ -131,7 +141,8 @@ this circuit:</p>
 <br>
 <div class="info">
 <div>"Active Low"</div>
-<textarea>You may have
+<div>
+<p>You may have
 noticed in the images above that, to turn the LED on, you need to set
 the GPIO low
 (0, Ground).&nbsp; And, to
@@ -145,13 +156,14 @@ a GPIO, but it's pretty standard. And it's called "Active
 Low."&nbsp; A GPIO that is Active Low is
 turned
 "on" when the GPIO is set low, and "off" when the GPIO is set
-high.&nbsp;
-The
+high.&nbsp;&nbsp;</p><p>The
 reverse of this is called "Active High" -- a GPIO that is Active High
 is
 turned "on" when the GPIO is high, and "off" when the GPIO is
 low.
-</textarea></div>
+</p>
+</div>
+</div>
 <p>Now that we have the
 basic concept of how we can control our LED with a GPIO, let’s give
 it a try…<br>
@@ -170,39 +182,61 @@ GPIO other than 14 for this project).</p>
 This is what your breadboard should now look like:</p>
 <p style="margin-left: 0.25in; text-align: center;">
 <img src="img/Projects%20Guide%20-%20061115-2_html_54ffce5c.jpg" align="bottom" border="0" height="373" width="674"></p>
-<p>
-The LED will probably not be lit at this point, as the default state
-of the GPIO Those are all the modifications we need to make to the
-hardware. Now let’s write the software…</p>
-<p><br>
-</p>
+<p></p>
+<div class="info">
+<div>&nbsp;Inner Workings of GPIOs</div>
+<div>
+<p>You will probably notice that the LED is not lit at this
+point, even though we've hooked it up to the GPIO. &nbsp;The reason
+for this is that the GPIO is designed internally so that, by default
+(if it's unconnected to anything), it reads a high voltage.
+&nbsp;As we discussed above, if the GPIO voltage is high, there is
+no voltage difference between the start and end of the circuit, and no
+electric current will flow -- the LED will not light up.</p>
+<p>When the button is pressed, the internal components of the
+GPIO get connected
+(physically) to ground, which makes it read a low voltage. &nbsp;At
+that point, electric current will flow and the LED will illuminate.</p>
+<p>Again, this can be a bit confusing at first, but as you use
+GPIOs more and more, the concepts and the conventions should become
+clearer.</p>
+</div>
+</div>
+<p></p>
+<p>Now that our circuit is complete, let’s write the software…</p>
+<br>
 <p><b>Step #2: &nbsp;Write the code.</b></p>
 <p>
-The code to control the GPIO (and with it the LED) is pretty short. You
-probably won’t understand exactly what’s going on at first,
-but give it a try, trust us, and in a few projects it should all
-become a lot more clear.</p>
+The code to control the GPIO (and with it the LED) is pretty short.&nbsp;</p>
 <p>
-Enter the following code into the your IDE’s Code Window:</p>
+Type (or cut-and-paste) the following code into the your IDE’s Code Window:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>import rstem
-led = rstem.gpio.Output(14)
-led.on()
+<textarea>
+from rstem.gpio import Output
+my_led = Output(14)
+my_led.on()
 </textarea></div>
-<p></p>
-<p><b>Step #3: &nbsp;Run the code.</b></p>
+<p>
+Don't feel bad if you don't understanding anything going on in this
+code. &nbsp;Our goal is to get you doing some fun stuff early on, and
+that means using some programming concepts that we haven't yet
+discussed. &nbsp;The code above will make a lot more sense later, but
+for now, we just want to give you a taste of how software and hardware
+can work together.</p><br><p><b>Step #3: Run the code.</b></p>
 <ol start="3">
 </ol>
 <p>
-Run the code the same way you did in Project #1 – press the Play
+Run the code the same way you did in the <a href="HELLO,_WORLD.html">Hello,
+World!</a> project – press the Play
 icon above the code window. Assuming you did everything correctly,
 the LED should now be lit.</p>
 <p>
 Congratulations! You just controlled some hardware you built using
-software that you wrote. You’re now well on your way to building
-the next great consumer device, children’s toy or life changing
-gadget.<br>
+software that you wrote. &nbsp;This is the foundation for how
+many&nbsp;electronic devices and toys are made these days, and have
+accomplished something that even many experienced engineers don't
+understand.<br>
 </p>
 <p></p>
 <p><b>Step #4: &nbsp;Play around with it.</b></p>
@@ -210,11 +244,11 @@ gadget.<br>
 Assuming everything worked properly in the previous step, feel free
 to play around with the circuit and the code. Try changing from
 GPIO14 to a different GPIO (make sure you change the code to reflect
-the new GPIO). Or try turning off the LED by replacing the led.on
+the new GPIO). Or try turning off the LED by replacing the <span style="font-family: Courier New,Courier,monospace;">my_led.on()</span>
 statement with:</p>
 <div class="code" data-firstline="3">
 <div></div>
-<textarea>led.off()
+<textarea>my_led.off()
 </textarea></div>
 <h2><br>
 </h2>
@@ -231,14 +265,18 @@ outputs work by simply setting a voltage on the GPIO pin to either 0V
 or 3.3V, GPIO inputs work by reading the voltage – either 0V or
 3.3V – being sent to the GPIO pin.</p>
 <p>For example, a GPIO
-can be used to get information from a button or switch. If the
-circuit is built properly, when a button is left unpressed, the
-voltage at the GPIO pin is “low” (0V); when the button is
-pressed, the voltage at the GPIO pin will “go high” (go to 3.3V). The
-GPIO will register the voltage, and can take action on either a
-pressed or unpressed button.</p>
+can be used to get the current&nbsp;state of a button or switch
+(pressed or unpressed). &nbsp;Based on the current state, the software can take appropriate action. &nbsp;</p>
+<div class="info">
+<div>"State"</div>
+<div><p>
+"State" is a common term using in electronics and just means the current condition or situation of a component or circuit.<br><br>For
+example, in the case of a button or switch, state would refer to
+whether the button is currently being pressed or unpressed. &nbsp;For
+an LED, state might refer to whether the LED was illuminated or not.</p></div>
+</div>
 <p>GPIOs as inputs are
-very powerful, and we’ll be using them in many future projects.</p>
+very powerful, and we’ll be using them in many future projects, including some upcoming projects related to buttons/switches.</p>
 <p></p>
 <p class="nextprev"><a href="RASPBERRY_PI_POWER.html">prev</a>
 | <a href="STRING_THEORY.html">next</a></p>
