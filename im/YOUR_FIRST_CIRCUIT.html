@@ -1,72 +1,136 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>YOUR FIRST CIRCUIT</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>YOUR FIRST CIRCUIT</title>
 
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>YOUR FIRST CIRCUIT</h1>
+<span style="font-family: &quot;Verdana&quot;,serif;"></span>
+<h4>Hardware Required:</h4>
+<h5>&nbsp;&nbsp;&nbsp; - &nbsp;Your First Circuit
+RaspberrySTEM Cell</h5>
+<h4><br>
+New Concepts Required:</h4>
+<h5>&nbsp;&nbsp;&nbsp; - <a href="INTRO_TO_ELECTONICS.html">Introduction to Electronics</a></h5>
+<h4><br>
+Hardware Setup:</h4>
+<h5>&nbsp;&nbsp;&nbsp; - No Previous Hardware Setup
+Required</h5>
 <p>In this project,
-you’re going to create your first electric circuit.  But, before we
-do that, some introductory discussion would probably be helpful. 
-Let’s talk about some of the basic of electricity, circuits and how
-they work.</p><br><h2>Your First Circuit</h2>
-<p>Now that we’ve
-spent a good bit of time talking about electricity and circuits,
-let’s jump into a real-life example of building a circuit.  We’ve
+you’re going to create your first electric circuit. But, before we
+do that, some introductory discussion would probably be helpful.
+&nbsp;We highly recommend reading the following: &nbsp;<a href="INTRO_TO_ELECTONICS.html">Introduction to Electronics</a>.
+&nbsp;Note that in future projects we will be calling out
+introductory
+material in the "New Concepts Required" section at the top of the
+projects. &nbsp;We recommend that before jumping into a project,
+you
+ensure that you've read and familiarized yourself with any of the
+concepts listed in that section.</p>
+<br>
+<h2>Your First Circuit</h2>
+<p>Now that you've (hopefully) spent some time reading our
+introduction to electricity and circuits,
+let’s jump into a real-life example of building a circuit. We’ve
 provided all parts you will need to build this circuit as part of the
-RaspberrySTEM kit, so follow along!</p>
+RaspberrySTEM<sup>TM</sup> kit, in the bag marked <span style="font-weight: bold;">Your First Circuit RaspberrySTEM</span><sup style="font-weight: bold;">TM</sup><span style="font-weight: bold;"> Cell</span>.
+&nbsp;Open the bag and follow along!</p>
 <p>The purpose of this
-circuit to power and illuminate a “light emitting diode (or “LED”
-for short).  An LED a light source that looks and works a bit like a
-lightbulb, so this circuit will work nearly identically to the
-circuit pictured above with the battery and the lightbulb. 
-</p>
+circuit is to power and illuminate a “light emitting diode" (or “LED”
+for short). An LED a light source that looks and works a bit like a
+lightbulb (in that they both light up when you run electric current
+through them), so this circuit will work nearly identically to the
+circuit discussed in&nbsp;<span style="text-decoration: underline; font-style: italic;">Introduction
+to Electronics</span> with the battery and the lightbulb. </p>
 <p>To build this
-circuit, you’ll need the following components (all provided in the bag marked "Your First Circuit RaspberrySTEM Cell"):</p><p></p>
-<p style="text-align: center;"><img style="width: 466px; height: 392px;" alt="" src="img/Your_First_Circuit_parts_bb.png"><br></p>
-<br><ol>
-	<li><p>
-	3 Volt Battery 
-	</p>
-	</li><li><p>
-	100 Ohm Resistor 
-	</p>
-	</li><li><p>
-	Red LED 
-	</p>
-	</li></ol>
+circuit, you’ll need the following three components (all provided in
+the bag marked&nbsp;<span style="font-weight: bold;">Your
+First Circuit RaspberrySTEM Cell</span>):</p>
+<p></p>
+<p style="text-align: center;"><img style="width: 466px; height: 392px;" alt="" src="img/Your_First_Circuit_parts_bb.png"><br>
+</p>
+<br>
+<ol>
+</ol>
 <p>By the way, remember
-how we mentioned earlier that sometimes we want to provide extra
-resistance to a circuit to get it to work?  Notice that we have
+how we mentioned in <a href="INTRO_TO_ELECTONICS.html">Introduction
+to Electronics</a> that sometimes we want to provide extra
+resistance to a circuit to get it to work? Notice that we have
 included a resistor in this circuit – its job is to reduce the
-amount of electricity (current) flowing through the circuit so that
-the LED doesn’t burn out.</p>
+amount of electric current flowing through the circuit so that
+the LED doesn’t break.</p>
 <p>Okay, let’s give
 this a try, step by step…</p>
-<p style="font-weight: bold;">Step #1: 
-&nbsp;Connect the Resistor and LED to the Battery</p><p>Using
-your fingers, pinch one lead of the resistor (a "lead" is the metal
-wire on one side) to the positive (+) side of the battery and pinch the
+<p></p>
+<h2>Step #1: &nbsp;Connect the Resistor and LED to the Battery</h2>
+<p>Using
+your fingers, pinch one lead of the resistor (the "leads" are the metal
+wires on either side) to the positive (+) side of the battery and pinch
+the
 shorter lead of the LED (one of the leads is longer than the other) to
-the negative (-) side of the battery. &nbsp;</p><p>Like this:&nbsp; </p><p></p>
-<p style="text-align: center;"><img style="width: 764px; height: 222px;" alt="" src="img/Your_First_Circuit_connect_battery_bb.png"><br></p>
-<p><br><br>
+the other side of the battery (we refer to this as the "negative"
+side). &nbsp;</p>
+<p>Like this:&nbsp; </p>
+<p></p>
+<p style="text-align: center;"><img style="width: 764px; height: 222px;" alt="" src="img/Your_First_Circuit_connect_battery_bb.png"><br>
 </p>
-<p style="font-weight: bold;">Step #2: Touch the Other Leads of the Resistor and LED Together</p><p style="font-weight: bold;"><span style="font-weight: normal;">Using your free hand, touch the other leads of the resistor and LED together, as indicated below:</span></p><p></p>
-<p style="text-align: center;"><img style="width: 767px; height: 222px;" alt="" src="img/Your_First_Circuit_complete_bb.png"><br></p>
-<p><br><br>
-</p><p>At this point, the
-LED should be lit, like this:</p><p></p><p style="text-align: center;"><img src="img/Projects%20Guide%20-%20061115-2_html_130350ad.png" align="bottom" border="0" height="518" width="474"></p>
-<p><br>Congratulations...you just built your first electric circuit!</p><p></p>
-	<p class="nextprev"><a href="HELLO,_WORLD.html">prev</a> |
-	<a href="YOUR_FIRST_SCHEMATIC.html">next</a></p>
+<p><br>
+</p>
+
+<div class="info">
+<div>Wiring LEDs</div>
+<div>
+<p></p>An important concept to understand about LEDs is that they are
+"unidirectional" -- in other words, they only allow electric current to
+flow in one direction. &nbsp;If you hook up the LED backwards -- in
+the way that electric current won't be allowed to flow through it -- it
+will not illuminate and the rest of the circuit will stop working as
+well (remember, if electric current isn't flowing at any point in the
+circuit, it's not going to be flowing anywhere in the circuit).
+<p></p>
+<p>To determine the correct way to orient the LED, you can look
+at it's leads (the metal legs on either side of the LED). &nbsp;One
+is going to be a bit longer than the other. &nbsp;In order for the
+LED to work correctly, the longer lead should be closest to the power
+source and the shorter lead should be closer to ground. &nbsp;If
+you find that you believe an LED circuit should be working, but it's
+not, you might want to verify that the LED is oriented correctly.
+&nbsp;
+</p>
+<p>By the way, even experienced electronics engineers will
+sometimes
+make this mistake, so don't feel bad if you find that you're constantly
+wiring LED backwards!
+</p>
+</div>
+</div>
+<p></p>
+<h2>Step #2: Touch the Other Leads of the Resistor and LED
+Together</h2>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Using your free hand, touch the
+other leads of the resistor and LED together, as indicated below:</span></p>
+<p></p>
+<p style="text-align: center;"><img style="width: 767px; height: 222px;" alt="" src="img/Your_First_Circuit_complete_bb.png"><br>
+</p>
+<p><br>
+<br>
+</p>
+<p>At this point, the
+LED should be lit, like this:</p>
+<p></p>
+<p style="text-align: center;"><img src="img/Projects%20Guide%20-%20061115-2_html_130350ad.png" align="bottom" border="0" height="518" width="474"></p>
+<p><br>
+</p>
+<h2>Congratulations...you just built your first electric circuit!</h2>
+<p>UNDERSTANDING BLOCK - SHORTING WIRES AND STUFF
+(TROUBLESHOOTING)</p>
+<p class="nextprev"></p>
+<p class="nextprev"><a href="HELLO,_WORLD.html">prev</a>
+| <a href="YOUR_FIRST_SCHEMATIC.html">next</a></p>
 </body></html>

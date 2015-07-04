@@ -1,17 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>GENERAL PURPOSE INPUT-OUTPUT</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GENERAL PURPOSE INPUT-OUTPUT</title>
 
-<body dir="ltr" style="color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GENERAL PURPOSE INPUT/OUTPUT</h1>
 <p>So far, we’ve
 discussed some basics of software programming, we’ve discussed
@@ -25,9 +23,18 @@ the first time, we’ll use the software to control the hardware. And,
 that’s where General Purpose Input/Outputs (GPIOs) come into
 play.</p>
 <h2>What Are GPIOs?</h2>
-<p>GPIOs are pins
-(holes) on the connector board that can be individually attached to
-the breadboard with jumper wires. The purpose of GPIOs are like the
+<p>GPIOs are specific pins (little metal "legs"
+on the bottom or sides of a computer chip) that give us a connection
+between a physical circuit and the software inside the chip.
+&nbsp;We
+make these connections to the computer chip available on the
+RaspberrySTEM by plugging wires into the connector board holes.
+&nbsp;While we could get access to this functionality by
+individually
+attaching pins on the Raspberry Pi to the breadboard using wires, we've
+made these connections available through teh connector board to make
+the whole process much cleaner and easier.&nbsp;</p>
+<p>The purpose of GPIOs are like the
 nerve-system of the platform – their job is to relay signals from
 the brain (the Raspberry Pi computer) to the muscles (the components
 of the circuit) and to take signals from the muscles and relay it
@@ -62,10 +69,13 @@ modify it to use a GPIO so that we can control that LED through
 software…</p>
 <p>Here is the
 schematic from our original circuit:</p>
-<p style="text-align: center;"><img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png"><br></p>
-<p></p><p>To attach the LED to
+<p style="text-align: center;"><img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png"><br>
+</p>
+<p></p>
+<p>To attach the LED to
 a GPIO, we’re going to modify our circuit as follows:</p>
-<p style="text-align: center;"><img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br></p>
+<p style="text-align: center;"><img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br>
+</p>
 <p style="text-align: center;"><span style="font-weight: bold;">Schematic: Lighting
 an LED with a GPIO</span></p>
 <p>You’ve probably
@@ -116,28 +126,38 @@ this circuit:</p>
 </span></td>
 </tr>
 </tbody>
-</table><br><br>
+</table>
+<br>
+<br>
 <div class="info">
-<div></div>
+<div>"Active Low"</div>
 <textarea>You may have
-noticed in the images above that, to turn the LED on, you need to set the GPIO low
+noticed in the images above that, to turn the LED on, you need to set
+the GPIO low
 (0, Ground).&nbsp; And, to
-turn the LED off, you need to set the GPIO needs to be set to high (1, Power).&nbsp; Clearly, this
+turn the LED off, you need to set the GPIO needs to be set to high (1,
+Power).&nbsp; Clearly, this
 sounds a
-little reversed, but you can see from the images above that this is how it works. &nbsp; It is a reversed way of
+little reversed, but you can see from the images above that this is how
+it works. &nbsp; It is a reversed way of
 using
-a GPIO, but it's pretty standard. And it's called "Active Low."&nbsp; A GPIO that is Active Low is
+a GPIO, but it's pretty standard. And it's called "Active
+Low."&nbsp; A GPIO that is Active Low is
 turned
-"on" when the GPIO is set low, and "off" when the GPIO is set high.&nbsp;
+"on" when the GPIO is set low, and "off" when the GPIO is set
+high.&nbsp;
 The
-reverse of this is called "Active High" -- a GPIO that is Active High is
+reverse of this is called "Active High" -- a GPIO that is Active High
+is
 turned "on" when the GPIO is high, and "off" when the GPIO is
 low.
 </textarea></div>
 <p>Now that we have the
 basic concept of how we can control our LED with a GPIO, let’s give
-it a try…<br></p><p><b>Step #1: &nbsp;Connect the circuit to a GPIO instead of ground.</b></p>
-
+it a try…<br>
+</p>
+<p><b>Step #1: &nbsp;Connect the circuit to a GPIO
+instead of ground.</b></p>
 <p>
 Find the wire that attaches the blue ground row to the 3.3V on the
 connector board. Remove the wire from the 3.3V hole and insert it
@@ -153,8 +173,10 @@ This is what your breadboard should now look like:</p>
 <p>
 The LED will probably not be lit at this point, as the default state
 of the GPIO Those are all the modifications we need to make to the
-hardware. Now let’s write the software…</p><p><br></p><p><b>Step #2: &nbsp;Write the code.</b></p>
-
+hardware. Now let’s write the software…</p>
+<p><br>
+</p>
+<p><b>Step #2: &nbsp;Write the code.</b></p>
 <p>
 The code to control the GPIO (and with it the LED) is pretty short. You
 probably won’t understand exactly what’s going on at first,
@@ -163,13 +185,14 @@ become a lot more clear.</p>
 <p>
 Enter the following code into the your IDE’s Code Window:</p>
 <div class="code" data-firstline="1">
-<div>
-</div>
+<div></div>
 <textarea>import rstem
 led = rstem.gpio.Output(14)
 led.on()
 </textarea></div>
-<p><b></b></p><p><b>Step #3: &nbsp;Run the code.</b></p><ol start="3">
+<p></p>
+<p><b>Step #3: &nbsp;Run the code.</b></p>
+<ol start="3">
 </ol>
 <p>
 Run the code the same way you did in Project #1 – press the Play
@@ -179,8 +202,10 @@ the LED should now be lit.</p>
 Congratulations! You just controlled some hardware you built using
 software that you wrote. You’re now well on your way to building
 the next great consumer device, children’s toy or life changing
-gadget.<br></p><p><b></b></p><p><b>Step #4: &nbsp;Play around with it.</b></p>
-
+gadget.<br>
+</p>
+<p></p>
+<p><b>Step #4: &nbsp;Play around with it.</b></p>
 <p>
 Assuming everything worked properly in the previous step, feel free
 to play around with the circuit and the code. Try changing from
@@ -192,18 +217,8 @@ statement with:</p>
 <textarea>led.off()
 </textarea></div>
 <h2><br>
-</h2><br>
-<h2>Active Low</h2>
-<p><!--Added this - rewrite or remove as you like.-->You may have
-noticed that to turn the LED on, the GPIO needs to be low (0).&nbsp; To
-turn the LED off, the GPIO needs to be high (1).&nbsp; If this sounds a
-little reversed, its because it is.&nbsp; It is a reversed way of using
-a GPIO, called Active Low.&nbsp; A GPIO that is Active Low is turned
-"on" when the GPIO is low, and "off" when the GPIO is high.&nbsp; The
-reverse of this is called Active High -a GPIO that is Active High is turned "on" when the GPIO is high, and "off" when the GPIO is low.&nbsp;   </p>
+</h2>
 <br>
-
-
 <h2>GPIOs as Inputs</h2>
 <p>In the previous
 section, we saw how GPIOs can be used as outputs to control
@@ -223,7 +238,8 @@ pressed, the voltage at the GPIO pin will “go high” (go to 3.3V). The
 GPIO will register the voltage, and can take action on either a
 pressed or unpressed button.</p>
 <p>GPIOs as inputs are
-very powerful, and we’ll be using them in many future projects.</p><p></p>
+very powerful, and we’ll be using them in many future projects.</p>
+<p></p>
 <p class="nextprev"><a href="RASPBERRY_PI_POWER.html">prev</a>
 | <a href="STRING_THEORY.html">next</a></p>
 <p></p>
