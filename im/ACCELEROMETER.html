@@ -1,55 +1,103 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>ACCELEROMETER</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>ACCELEROMETER</title>
 
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>ACCELEROMETER</H1>
-<P>Introduce
-Accelerometer and libraries</P>
-<UL>
-	<UL>
-		<LI><P> Attach 4 wires (power, ground, SDA, SCL)</P>
-		<LI><P> New code</P>
-	</UL>
-</UL>
-before
-<div class=code data-firstline=5><div></div><div>
-This code is just for testing the code blocks!!!!
-from rstem.led_matrix import FrameBuffer
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>ACCELEROMETER</h1>
+<p>Do you have smart phone or an iPad that switches the screen
+orientation when you rotate it? &nbsp;Ever wonder how that works?
+&nbsp;It's done using a component called an accelerometer, and
+there are lots of cool applications for them when designing and
+building electronics. &nbsp;</p>
+<p>The RaspberrySTEM kit includes it's own accelerometer -- it's
+in the bag marked <span style="font-weight: bold;">Accelerometer
+RaspberrySTEM Cell</span>. &nbsp;Feel free to pull it out
+now...</p>
+<p>By plugging in the accelerometer to the RaspberrySTEM and then
+writing code to get input from it, we can turn our RaspberrySTEM into a
+controller that can detect magnitude of movement (acceleration) along
+all three axes -- left/right, front/back and up/down. &nbsp;From
+this information, we can determine the orientation of the kit&nbsp;
+and/or the vector (speed and direction) of movement at a given time.
+&nbsp;I know that might sound a little confusing, but follow along
+and you'll see what we mean.</p>
+<p>Your Accelerometer RaspberrySTEM Cell contains a single part
+-- the accelerometer circuit board -- that looks like this:</p>
+<br>
+<br>
+<h2>How the Accelerometer Works</h2><h2>Wiring Your Accelerometer</h2>
+<p>Let's wire up your accelerometer and write some code to get it
+working...</p>
+<p style="font-weight: bold;">Step #1: &nbsp;Place the
+accelerometer on the breadboard<br>
+</p>
+<p>...</p>
+<p style="font-weight: bold;">Step #2: &nbsp;Attach
+power and ground</p>
+<p>...</p>
+<p style="font-weight: bold;">Step #3: &nbsp;Attach
+SDA pin to the connector board</p>
+<p>...</p>
+<p style="font-weight: bold;">Step #4: &nbsp;Attach
+SCL pin to the connector board</p>
+<p>...</p>
+<p></p>
+<h2>Testing Your Accelerometer</h2>
+<p>Now let's write some code to test your accelerometer and see
+how it works:</p>
+<div class="code" data-firstline="5">
+<div></div>
+<textarea>
+from rstem.accel import Accel
 import time
-
-fb = FrameBuffer()
-
-spaceship_position = fb.width / 2
-
+accel = Accel()
 while True:
-    fb.erase()
+x_force, y_force, z_force = accel.forces()
+print(x_force, y_force, z_force)
+time.sleep(.01)
+</textarea></div>
+<br><p>
+Now, let's take a look at what our code is doing:</p>
 
-    # Draw spaceship
-    fb.point(round(spaceship_position), 0)
-
-    # Show FrameBuffer on LED Matrix
-    fb.show()
-
-    time.sleep(0.01)
-</div></div>
-after
-<P>accel = Accel()</P>
-<P>while True:</P>
-<P>&nbsp;&nbsp;&nbsp;x_force, y_force, z_force = accel.forces()</P>
-<P>&nbsp;&nbsp;&nbsp;print(x_force, y_force, z_force) </P>
-	<p class=nextprev><a href="BALANCING_DOT_1.html">prev</a> |
-	<a href="BALANCING_DOT_2.html">next</a></p>
-</BODY>
-</HTML>
+<ul>
+<li>
+<p>On Line 1, we import the module we will need to initialize
+and get information from the accelerometer (called <span style="font-family: Courier New,Courier,monospace;">Accel()</span>)</p>
+</li>
+<li>
+<p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
+module, as we're going to be using a loop and will want to slow the
+repetition of the loop down a bit</p>
+</li>
+<li>
+<p>On Line 4, we initialize our accelerometer. &nbsp;We
+call the <span style="font-family: Courier New,Courier,monospace;">Accel()</span>
+function, which returns an "accelerometer object" to our <span style="font-family: Courier New,Courier,monospace;">accel </span>variable.
+&nbsp;We talked about that a bit in <span style="font-style: italic; text-decoration: underline;">Variables...</span>,
+but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">accel</span>
+to call other accelerometer functions.</p>
+</li>
+<li>
+<p>On Line 6, we start a loop (this is where we'll spend all of our time once we run the program)</p></li><li><p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>, which returns three values, representing the forces in the x-direction, y-direction and z-direction</p></li><li><p>On Line 8, we print those three values to the screen</p></li><li><p>On
+Line 9, we pause briefly (so we don't overwork the processor) and then
+return to the top of the loop where we read the new values from the
+accelerometer</p></li></ul>
+<h2>Running Your Code</h2><p>If you run your test code, what you should
+immediately see is that your Output Window starts filling up with
+numbers. &nbsp;These numbers -- three per line -- indicate the relative
+movement of the RaspberrySTEM (specifically, the accelerometer we wired
+on the breadboard). &nbsp;The first number indicates the<br><br>If you
+move tilt, pan and rotate the RaspberrySTEM, you'll notice that the
+numbers being printed to the screen continue to change, with all the
+numbers generally between -1 and 1.</p><br><br>
+<p class="nextprev"><a href="BALANCING_DOT_1.html">prev</a>
+| <a href="BALANCING_DOT_2.html">next</a></p>
+</body></html>

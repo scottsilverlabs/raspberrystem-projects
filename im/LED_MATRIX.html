@@ -1,18 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>LED MATRIX</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>LED MATRIX</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
 
-
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>LED MATRIX</h1>
 <p>In this project, we're going to introduce a new component that can
@@ -38,14 +35,14 @@ introducing new components that will require at least one-third of the
 breadboard space. &nbsp;If you have enough room remaining on the
 breadboard, you can use that empty space; otherwise, we recommend
 removing some or all of the circuits you currently have on the
-breadboard to allow enough space for the next set of projects. </p><h2>Power Up the LED Matrix</h2><p>The
+breadboard to allow enough space for the next set of projects. </p><h2>Installing the Binding Posts</h2><h2>Power Up the LED Matrix</h2><p>The
 first step in using the LED Matrix is to provide it power and ground.
 &nbsp;While this won't be enough to do anything interesting with it, by
-doing this, we can at least verify that it's working properly.</p><p style="font-weight: bold;">Step #1: &nbsp;Attach Connector to the LED Matrix</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach the 3.3V Pin to Power</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach the GND Pin to Ground</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p>If everything was done correctly, you should see vertical and horizontal bars sweep across the display a single time.</p><h2>Finish Wiring the LED Matrix</h2><p>Now
+doing this, we can at least verify that it's working properly.</p><br><p style="font-weight: bold;">Step #1: &nbsp;Place the LED Matrix on the breadboard</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach LED Matrix Cable to the LED Matrix</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach the 3.3V Pin to Power</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #4: &nbsp;Attach the GND Pin to Ground</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;"><span style="font-weight: normal;"></span></p><p>If everything was done correctly, you should see vertical and horizontal bars sweep across the display a single time.</p><h2>Finish Wiring the LED Matrix</h2><p>Now
 that we've verified that the LED Matrix can be powered up and is
 working properly, we can finish wiring it so that we can start
 controlling it with our software. &nbsp;To finish wiring the LED Matrix
-we need to make four other connections, as follows:</p><p style="font-weight: bold;">Step #1: &nbsp;Attach SCLK Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach MOSI Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach CE Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #4: &nbsp;Attach MISO Pin to Connector Board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Note: &nbsp;<span style="font-weight: normal;">The
+we need to make four other connections, as follows:</p><p style="font-weight: bold;">Step #1: &nbsp;Attach SCLK pin to connector board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #2: &nbsp;Attach MOSI pin to connector board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #3: &nbsp;Attach CE pin to connector board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Step #4: &nbsp;Attach MISO pin to connector board</p><p style="font-weight: bold;"><span style="font-weight: normal;">...</span></p><p style="font-weight: bold;">Note: &nbsp;<span style="font-weight: normal;">The
 wire attached to the RST pin on the LED Matrix will not get attached to
 anything at this point. &nbsp;RST stands for "Reset," and this wire can
 be used to reset the LED Matrix (essentially powering it off and on) by
