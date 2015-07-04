@@ -1,93 +1,94 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>FUNCTION OUTPUTS</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>FUNCTION OUTPUTS</title>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>FUNCTION OUTPUTS</H1>
-<P>In the previous
-project, we talked about how functions can take inputs to allow them
-to do customized tasks.  But, not only can functions take inputs,
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>FUNCTION OUTPUTS</h1>
+<p>In the previous lesson, we talked about how functions can take
+inputs to allow them
+to do customized tasks. But, not only can functions take inputs,
 they can also send information back (return output) to other parts of
-the code.  A good example of this is when we have a function that
+the code. A good example of this is when we have a function that
 does some calculations for us, and we want to get the results of
-those calculations.</P>
-<P>Perhaps instead of
+those calculations.</p>
+<p>Perhaps instead of
 printing the name and birth year of people, we’d rather know how
-old the person will be on their birthday this year.  Using the
-information we already have from our previous project, this
+old the person will be on their birthday this year. Using the
+information we already have from our previous lesson, this
 calculation is pretty simple – we just subtract the birth year from
 the current year (2015 as of this writing) and we’ll get the age
-they will be turning this year.</P>
-<P>To create a new
+they will be turning this year.</p>
+<p>To create a new
 function to do this, we can still pass in the “year” parameter
 for the person’s birth year (like we did in the previous project)
 but, instead of printing the information, we do our age calculation
-and store the resulting value in a new variable called “age”.  
-</P>
-<P>This is what the
-function would look like:</P>
-<P STYLE="margin-left: 0.5in">def
-calculate_age (birth_year):</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-age = 2015 - year</P>
-<P><B>Note:  </B>This
+and store the resulting value in a new variable called “age”. </p>
+<p>This is what the
+function would look like:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+def calculate_age(birth_year):
+age = 2015 - year
+</textarea></div>
+<p><b>Note: </b>This
 is the reason we decided to keep the “year” parameter as a number
-instead of a string, so that we could use it to perform this
-calculation.</P>
-<P>Now, to send the
+instead of a string in the previous lesson -- so that we could use it
+to perform this
+calculation.</p>
+<p>Now, to send the
 information we’ve calculated back to the main program, we end the
 function with a return statement that contains the information we’re
 sending back (in this case, we’re sending the information contained
-in the variable, “age”):</P>
-<P STYLE="margin-left: 0.5in">def
-calculate_age (birth_year):</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-age = 2015 - year</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-return (age)</P>
-<P>The value of “age”
+in the variable, “age”):</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+def calculate_age(birth_year):
+age = 2015 - year
+return age
+</textarea></div>
+<p>The value of “age”
 would then be returned to where the function was called and that
 value could be stored in another variable, printed or used however it
-is needed.</P>
-<P>For example, we
+is needed.</p>
+<p>For example, we
 could call this function for Bob and Susie like we did in the last
 project, but this time, we could get their age as well, store it in a
-variable and then print it out:</P>
-<P STYLE="margin-left: 0.5in">bob_age
-= calculate_age (1992)</P>
-<P STYLE="margin-left: 0.5in">susie_age
-= calculate_age (1985)</P>
-<P STYLE="margin-left: 0.5in">print
-(“Bob will be %s year old this year” % bob_age)</P>
-<P STYLE="margin-left: 0.5in">print
-(“Susie will be %s year old this year” % susie_age)</P>
-<P>Here is what the
-entire program would look like:</P>
-<P STYLE="margin-left: 0.5in">def
-calculate_age (birth_year):</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-age = 2015 - year</P>
-<P STYLE="margin-left: 0.5in; text-indent: 0.5in">
-return (age)</P>
-<P STYLE="margin-left: 0.5in">bob_age
-= calculate_age (1992)</P>
-<P STYLE="margin-left: 0.5in">susie_age
-= calculate_age (1985)</P>
-<P STYLE="margin-left: 0.5in">print
-(“Bob will be %s year old this year” % bob_age)</P>
-<P STYLE="margin-left: 0.5in">print
-(“Susie will be %s year old this year” % susie_age)</P>
-	<p class=nextprev><a href="FUNCTION_INPUTS.html">prev</a> |
-	<a href="BUILT-IN_FUNCTIONS.html">next</a></p>
-</BODY>
-</HTML>
+variable and then print it out:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+bob_age = calculate_age(1992)
+susie_age = calculate_age(1985)
+print(“This year, Bob will be ” bob_age)
+print(“This year, Susie will be " susie_age)
+</textarea></div>
+<p>Here is what the
+entire program would look like:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+def calculate_age(birth_year):
+age = 2015 - year
+return age
+bob_age = calculate_age(1992)&lt;/p&gt;
+susie_age = calculate_age(1985)&lt;/p&gt;
+print(“This year, Bob will be ” bob_age)
+print(“This year, Susie will be " susie_age)
+</textarea></div>
+<span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br>
+</span></span>
+<p>There's only one more function lesson you need to be familiar
+with before jumping back into the project. &nbsp;We promise...just
+one more! &nbsp;Here you go:&nbsp; <a href="BUILT-IN_FUNCTIONS.html">Using Functions &amp;
+Modules.</a></p>
+<br>
+</body></html>
