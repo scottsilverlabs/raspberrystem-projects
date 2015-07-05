@@ -1,38 +1,123 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
 
+<link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GAME LOOPS</h1>
-<p class="MsoNormal"><span style="">Now that we have the LED Matrix as
+<p class="MsoNormal"><span style="">Now that
+we have the LED Matrix as
 a display and can take input with buttons, there's no reason we can't
-start creating some simple games. &nbsp;But, before we do that, there
+start creating some simple games. &nbsp;But, before we do that,
+there
 are some basics of computer game programming that are helpful to
 understand; in fact, once you get through this project, we'd be willing
 to bet that you have a new appreciation for how video games
-work.&nbsp;&nbsp;</span></p><p class="MsoNormal"><span style="">Most
-computer games (and especially those that most kids would consider to be video
-games) share a common method of programming called the “game loop.” &nbsp;A game
-loop is a simple concept, but is the heart of most video games.<span style="">&nbsp; </span>The game loop essentially works by doing the
-same things over and over the entire time the game is running. <o:p></o:p></span></p>
-
-<p class="MsoNormal"><span style="">The pseudo-code for a typical game loop will look something like this:<o:p></o:p></span></p>
-
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize the game environment</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while (game not finished):<o:p></o:p></span></p>
-
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Check for user input<o:p></o:p></span></p>
-
+work.&nbsp;&nbsp;</span></p>
+<p class="MsoNormal"><span style="">Most
+computer games (and especially those that most kids would consider to
+be video
+games) share a common method of programming called the “game loop.”
+&nbsp;A game
+loop is a simple concept, but is the heart of most video games.<span style="">&nbsp; </span>The game loop essentially
+works by doing the
+same things over and over the entire time the game is running.</span></p>
+<p class="MsoNormal"><span style="">We're
+going to explain game loops below, but to explain game loops, we're
+going to use a concept called pseudo-code. &nbsp;Here's a quick
+overview of what pseudo-code is and how it works so that you can better
+understand the game loop concept, and also as another tool to help you
+with your programming skills...</span></p>
+<p class="MsoNormal"><span style=""></span></p>
+<div class="info">
+<div>Pseudo-Code</div>
+<div>
+<p class="MsoNormal">It's common for software developers
+(people who program and write code) to plan to use something called
+"pseudo-code" when they are preparing to write their software.
+&nbsp;Writing pseudo-code before you write software is similar to
+writing an outline before you write a paper or an article.
+&nbsp;Basically, you create an outline for your code using a
+combination of regular English mixed with some bits of programming
+code. &nbsp;This allows you (or others) to read the order of the
+code and determine if what you're getting ready to write is logical and
+will accomplish what you expect your code to accomplish.</p>
+<p class="MsoNormal">Let's look at an example of
+pseudo-code...</p>
+<p class="MsoNormal">Imagine you are planning to write
+some code that will add two numbers together. &nbsp;Here is what
+our pseudo-code might look like:</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
+user to enter the first
+number and store that number in a variable</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
+user to enter the second
+number and store that number in a variable</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Add the two
+numbers together and
+store the result in a variable</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Display the
+result on the screen for
+the user to see</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
+user if they want to run the
+program again</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; If they
+want to run the program again:</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Run
+the program again</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; else:</p>
+<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Stop
+running the program and exit</p>
+<p class="MsoNormal">You notice that each line is easily
+readable as English -- with some code formatting for the<span style="font-family: Courier New,Courier,monospace;"> if/else</span>
+statement -- and overall, you now have a detailed outline that you can
+use as a template for your new code. &nbsp;</p>
+<p class="MsoNormal">Now, in reality, you probably
+wouldn't need this much detail to write a simple program like adding
+two numbers together. &nbsp;But, for more complex software, writing
+the pseudo-code before you start writing the actual code can make the
+entire process much easier.</p>
+</div>
+</div>
+<p class="MsoNormal"></p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;"></span><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">Now
+that you hopefully have a general understanding of how pseudo-code
+works, let's get back to our discussion about game loops. &nbsp;As
+we
+mentioned earlier, nearly all video games use the game loop format to
+design and build their games. &nbsp;</span></span></p>
+<p><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">Here is what the </span>pseudo-code
+for a typical game loop will look something like this:<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
+the game environment</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while
+(game not finished):<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Check for user input<o:p></o:p></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Update the game world<span style=""></span></span></p>
-
-
-
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Draw graphics on the screen<o:p></o:p></span></p>
-
-<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style=""> for some period of time</span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">Finish &amp; Cleanup</span></span></p><span style=""></span><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p><span style=""></span><p class="MsoNormal"><span style="">Let's examine this loop piece by
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style="">
+for some period of time</span></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">Finish &amp; Cleanup</span></span></p>
+<span style=""></span>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+<span style=""></span>
+<p class="MsoNormal"><span style="">Let's
+examine this loop piece by
 piece. &nbsp;And at the same time, let's build our very own (very
-simple) game loop that will move a dot around the LED Matrix...</span></p><h3><br><span style=""></span></h3><h3><span style="">Initialize the game environment</span></h3><p>The
+simple) game loop that will move a dot around the LED Matrix...</span></p>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Initialize the game environment</span></h3>
+<p>The
 very first step in any game is to initialize anything that will be used
 in the game loop. &nbsp;If you're not familiar with the term
 "initialize," it basically means setting up all the aspect of the game
@@ -42,77 +127,205 @@ libraries and functions we'll need later in the code, creating a
 framebuffer (or perhaps
 many framebuffers) that will hold the graphics during the game,
 defining the start location and speed of various game characters, etc.
-&nbsp;</p><p>In our case, we're going to want to do four things to get ready for our game loop:</p><ol><li><p>Import the Framebuffer() function and the time library</p></li><li><p>Create a framebuffer that we'll use to hold the dot&nbsp;</p></li><li><p>Initialize the location of the dot when the loop starts (in this case, let's put the dot in the corner of the LED Matrix)</p></li></ol><p>Here's what the code will look like:</p><p>INSERT CODE:</p><pre>from rstem.led_matrix import FrameBuffer</pre><pre>import time<br><br>fb = FrameBuffer()</pre><pre>x, y = (1, 1)</pre><pre>fb.erase()</pre><pre>fb.point(x, y)</pre><h3></h3><h3><span style="">while (game not finished):</span></h3><p>We
+&nbsp;</p>
+<p>In our case, we're going to want to do four things to get
+ready for our game loop:</p>
+<ol>
+<li>
+<p>Import the Framebuffer() function and the time library</p>
+</li>
+<li>
+<p>Create a framebuffer that we'll use to draw and display
+the
+dot&nbsp;</p>
+</li>
+<li>
+<p>Initialize the location of the dot when the loop starts
+(in this case, let's put the dot in the corner of the LED Matrix)</p>
+</li>
+</ol>
+<p>Here's what the code will look like:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+from rstem.led_matrix import FrameBuffer
+import time&lt;br&gt;&lt;br&gt;fb = FrameBuffer()
+x, y = (1, 1)
+fb.erase()
+fb.point(x, y)
+</textarea></div>
+<h3><span style="">while (game not finished):</span></h3>
+<p>We
 call it a game loop because it's an actual loop in the code that
 continues until the game is finished or until the user says to exit.
-&nbsp;For this project, we're going to take the easy way out and just
-let the program run forever (until we stop the program). &nbsp;We can
-do this using a while loop. &nbsp;So, this will be the very first line
+&nbsp;For this project, we're going to take the easy way out and
+just
+let the program run forever (until we stop the program). &nbsp;We
+can
+do this using a <span style="font-family: Courier New,Courier,monospace;">while
+True:</span> loop. &nbsp;</p>
+<p>So, this will be the very first
+line
 of our
-game loop:</p><p>INSERT CODE</p><pre>while True: </pre><h3><br><span style=""></span></h3><h3><span style="">Check for user input</span></h3><p>In
+game loop:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+while True:
+</textarea></div>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Check for user input</span></h3>
+<p>In
 a typical game loop, this is where we would check for user input --
 check for button presses, check for joystick movement, check for
-controller movement, etc. &nbsp;And we'll do that in some subsequent
-projects. &nbsp;But, for this particular project, we're keeping things
-simple and we're not taking any input from the user. &nbsp;So, there's no code to add for this part of the loop.</p><h3><br><span style=""></span></h3><h3><span style="">Update the game world</span></h3><p>Updating
+controller movement, etc. &nbsp;And we'll do that in some
+subsequent
+projects. &nbsp;But, for this particular project, we're keeping
+things
+simple and we're not taking any input from the user. &nbsp;So,
+there's no code to add for this part of the loop.</p>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Update the game world</span></h3>
+<p>Updating
 the game world means to take the new information we have -- either from
 the user input we've received or just because we are further along in
 time -- and to use this new information to update any parts of our game
-that now need to change. &nbsp;For example, in a character-based game,
+that now need to change. &nbsp;For example, in a character-based
+game,
 if a user has indicated that they want their character to move to the
 right of the screen, the game world update might involve changing the
 location of the character, shifting the background, changing the
-location of other characters in the game, etc. &nbsp;This part of the
+location of other characters in the game, etc. &nbsp;This part of
+the
 game loop will figure out&nbsp;what
 the next set of graphics to display looks like in preparation to draw
-the new graphics.</p><p>In our example, we're just going to
+the new graphics.</p>
+<p>In our example, we're just going to
 automatically move the dot to the right one space, regardless of what
-the user does. &nbsp;To do that, we need to increment the x-coordinate
-by 1. &nbsp;We then erase the current framebuffer data and update the
-framebuffer with the new location.</p><p>INSERT CODE</p><pre>x += 1<br><br></pre><h3><span style="">Draw graphics on the screen</span></h3><p>Once
+the user does. &nbsp;To do that, we need to increment the
+x-coordinate
+by 1. &nbsp;We then erase the current framebuffer data and update
+the
+framebuffer with the new location.</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+x += 1
+</textarea></div>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Draw graphics on the screen</span></h3>
+<p>Once
 we have updated all the aspects of the game world and have the
 information about what will get displayed next, it's time to actually
-display the the new graphics. &nbsp;This&nbsp;typically involves
+display the the new graphics. &nbsp;This&nbsp;typically
+involves
 erasing and drawing the new graphics to the framebuffer and then
-displaying that framebuffer. &nbsp;We can do that just like we in the
-last project:</p><p>INSERT CODE</p><pre>fb.erase()<br>fb.point(x, y)<br>fb.show()</pre><h3><br></h3><h3><span style="">Wait for some period of time</span></h3><p>The
+displaying that framebuffer. &nbsp;We can do that just like we did
+in
+the
+last project:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+fb.erase()
+fb.point(x, y)
+fb.show()
+</textarea></div>
+<h3><br>
+<span style=""></span></h3>
+<h3><span style="">Wait for some period of time</span></h3>
+<p>The
 very last thing we sometimes do in a game loop is to wait for some
-period of time. &nbsp;Remember, computers are VERY fast, and if we let
+period of time. &nbsp;Remember, computers are VERY fast, and if we
+let
 them do things as fast as they can, we may occasionally get results
 that
-we don't want. &nbsp;For example, in some programs, the graphics will
+we don't want. &nbsp;For example, in some programs, the graphics
+will
 update each time through the loop -- if we loop this project too
 quickly, the dot will scroll off the screen so quickly that we won't
 even see it. &nbsp;But, even in programs where the graphics aren't
 updating each time through the loop, if we let the
 computer run at full speed, the processor may get bogged down and not
-react the way we would like. &nbsp;</p><p>For
+react the way we would like. &nbsp;</p>
+<p>For
 those reasons, we will typically put a pause at the end of a game loop.
 &nbsp;If your graphics will be updating each time through the loop,
 you'll want to choose a wait time that makes sense for your graphics
-updates. &nbsp;If not, you'll probably want to play around with various
+updates. &nbsp;If not, you'll probably want to play around with
+various
 pause times and see which work the best -- too slow, and you might find
 that your program is not responsive; too fast, and you might find that
-the processor does unexpected things.</p><p>In this case, our graphics rely on the loop speed, and we'd probably be happy moving
-the location of the dot every half-second. &nbsp;Which means we'll want to put
-in a half-second delay at the end of the loop.</p><p>INSERT CODE</p><pre>time.sleep(.5)<br></pre><br><h3><span style="">Finish &amp; Cleanup</span></h3><p>At
+the processor wastes power and causes poor performance of other
+programs running on the computer at the same time.</p>
+<p>In this case, our graphics rely on the loop speed, and we'd
+probably be happy moving
+the location of the dot every half-second. &nbsp;Which means we'll
+want to put
+in a half-second delay at the end of the loop.</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+time.sleep(.5)
+</textarea></div>
+<br>
+<h3><span style="">Finish &amp; Cleanup</span></h3>
+<p>At
 some point, the game will probably end and we'll drop out of the loop.
-&nbsp;This is most common when the player wins or loses a game, or when
+&nbsp;This is most common when the player wins or loses a game, or
+when
 a player purposefully exits a game for some reason. &nbsp;When that
 happens, you may want to indicate to the user the final outcome of the
 game, play a separate set of graphics (for example, something special
 if the player beats the game) or you may want to go back to another
-menu screen.&nbsp;&nbsp;</p><p>In this project, we never drop out of
+menu screen.&nbsp;&nbsp;</p>
+<p>In this project, we never drop out of
 the loop (remember, we used a while True: loop), so there doesn't need
-to be any code at this point in the program.</p><br><h2>Putting It All Together</h2><p>We
+to be any code at this point in the program.</p>
+<br>
+<h2>Putting It All Together</h2>
+<p>We
 now have all of the code necessary for a game loop that will place a
 dot at one corner of the LED Matrix display and then move that dot to
-the right every half-second. &nbsp;Here's what the entire snippet of
-code should look like:</p><p>INSERT CODE:</p><pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre><pre>while True:<br></pre><pre>    # Get user input<br><br>    # Update the game world<br>    x += 1<br><br>    # Draw graphics on the screen<br>    fb.erase()<br>    fb.point(x, y)<br>   &nbsp;fb.show()<br><br>    # Wait for some period of time<br>    time.sleep(.5)<br><br># Finish &amp; Cleanup<br><br></pre><p>When you run this code, you should see
+the right every half-second. &nbsp;Here's what the entire snippet
+of
+code should look like:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+# Initialize the game environment
+from rstem.led_matrix import FrameBuffer
+import time
+fb = FrameBuffer()
+x, y = (1, 1)
+fb.erase()
+while True:
+# Get user input
+# Update the game world
+x += 1
+# Draw graphics on the screen
+fb.erase()
+fb.point(x, y)
+fb.show()
+# Wait for some period of time
+time.sleep(.5)
+# Finish &amp; Cleanup
+</textarea></div>
+<p>REMOVE THIS...JUST HERE FOR REFERENCE TO FORMAT ABOVE:</p>
+<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br></pre>
+<pre>while True:<br></pre>
+<pre> # Get user input<br><br> # Update the game world<br> x += 1<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> &nbsp;fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><br># Finish &amp; Cleanup<br><br></pre>
+<p>When you run this code, you should see
 the dot start at one corner of the LED Matrix and move in one direction
-until it is off the screen. &nbsp;Because we're not checking to see if
+until it is off the screen. &nbsp;Because we're not checking to see
+if
 the dot is still on the screen or not, the code will just continue to
-run even after you can no longer see the dot. &nbsp;So, once the dot
-has disappeared, you can stop the program.</p><p class="nextprev"><a href="LED_MATRIX.html">prev</a> |
-	<a href="ACCELEROMETER.html">next</a></p>
+run even after you can no longer see the dot. &nbsp;So, once the
+dot
+has disappeared, you can stop the program.</p>
+<p class="nextprev"><a href="LED_MATRIX.html">prev</a>
+| <a href="ACCELEROMETER.html">next</a></p>
 </body></html>
