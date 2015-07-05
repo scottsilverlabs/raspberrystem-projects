@@ -70,21 +70,23 @@ this:</p><p class="MsoNormal"><o:p></o:p></p>
 <div></div>
 <textarea>from rstem.button import Button
 from rstem.gpio import Output
+
 my_button = Button(14)
 my_led = Output(18)
+
 if my_button.is_pressed():
-my_led.on()
+    my_led.on()
 else:
-my_led.off()
+    my_led.off()
 </textarea></div>
 <p></p><p>Let's to through the code line-by-line and take a look at what
 it's doing:</p>
 <ul>
 <li>
 <p>On Line 1, we import the module we will need to initialize
-and get information from the button (called <span style="font-family: Courier New,Courier,monospace;">Button()</span>)</p></li><li>
+the button (called <span style="font-family: Courier New,Courier,monospace;">Button()</span>)</p></li><li>
 <p>On Line 2, we import the module we will need to initialize
-and get information from the LED (called <span style="font-family: Courier New,Courier,monospace;">Output()</span>)</p></li><li><p>On Line 4, we initialize our button. &nbsp;We
+the LED (called <span style="font-family: Courier New,Courier,monospace;">Output()</span>)</p></li><li><p>On Line 4, we initialize our button. &nbsp;We
 call the <span style="font-family: Courier New,Courier,monospace;">Button()</span>
 function, which returns a "Button object" to our <span style="font-family: Courier New,Courier,monospace;">my_button </span>variable.
 &nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp; Assignments</a>,
@@ -118,16 +120,18 @@ or off) in a <span style="font-family: Courier New,Courier,monospace;">while Tru
 <div></div>
 <textarea>from rstem.button import Button
 from rstem.gpio import Output
-while True:
+
 my_button = Button(14)
 my_led = Output(18)
-if my_button.is_pressed():
-my_led.on()
-else:
-my_led.off()
+
+while True:
+    if my_button.is_pressed():
+        my_led.on()
+    else:
+        my_led.off()
 </textarea></div>
 <p>Give it a try…the flashlight will continue to work until you
-manually stop the program.</p><p></p>
+manually stop the program.</p>
 	<p class=nextprev><a href="USING_BUTTONS_WITH_GPIO.html">prev</a>|
 <a href="MANY_BUTTONS.html">next</a></p>
 </body></html>
