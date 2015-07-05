@@ -179,3 +179,13 @@ th, td
     padding: 8px;
 }
 
+.bb {
+    display: block; 
+    margin: auto;
+    width: 80%
+}
+
+.schematic {
+    display: block; 
+    margin: auto;
+}
