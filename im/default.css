@@ -20,12 +20,11 @@ H1 {
     widows: 2;
     orphans: 2;
     font-family: "Calibri Light", serif;
-    font-size: 16pt;
+    font-size: 20pt;
     font-weight: normal
 }
 H2 {
-    margin-top: 0.03in;
-    margin-bottom: 0in;
+    margin-top: 0.3in;
     color: #2e74b5;
     line-height: 150%;
     text-align: left;
@@ -33,12 +32,11 @@ H2 {
     widows: 2;
     orphans: 2;
     font-family: "Calibri Light", serif;
-    font-size: 13pt;
+    font-size: 16pt;
     font-weight: normal
 }
 H3 {
-    margin-top: 0.03in;
-    margin-bottom: 0in;
+    margin-top: 0.1in;
     color: #1f4d78;
     line-height: 150%;
     text-align: left;
@@ -55,7 +53,8 @@ A:link {
 p.toc {
     line-height: 70%;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 110%;
+    margin-left: 0.5in;
 }
 p.nextprev {
     font-weight: bold;
