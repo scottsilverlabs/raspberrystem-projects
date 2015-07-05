@@ -9,7 +9,6 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
-
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>ACCELEROMETER</h1>
 <p>Do you have smart phone or an iPad that switches the screen
@@ -33,7 +32,8 @@ and you'll see what we mean.</p>
 -- the accelerometer circuit board -- that looks like this:</p>
 <br>
 <br>
-<h2>How the Accelerometer Works</h2><h2>Wiring Your Accelerometer</h2>
+<h2>How the Accelerometer Works</h2>
+<h2>Wiring Your Accelerometer</h2>
 <p>Let's wire up your accelerometer and write some code to get it
 working...</p>
 <p style="font-weight: bold;">Step #1: &nbsp;Place the
@@ -53,10 +53,9 @@ SCL pin to the connector board</p>
 <h2>Testing Your Accelerometer</h2>
 <p>Now let's write some code to test your accelerometer and see
 how it works:</p>
-<div class="code" data-firstline="5">
+<div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.accel import Accel
+<textarea>from rstem.accel import Accel
 import time
 accel = Accel()
 while True:
@@ -64,9 +63,8 @@ x_force, y_force, z_force = accel.forces()
 print(x_force, y_force, z_force)
 time.sleep(.01)
 </textarea></div>
-<br><p>
-Now, let's take a look at what our code is doing:</p>
-
+<br>
+<p>Now, let's take a look at what our code is doing:</p>
 <ul>
 <li>
 <p>On Line 1, we import the module we will need to initialize
@@ -86,18 +84,38 @@ but the important thing to understand is that we can now use <span style="font-f
 to call other accelerometer functions.</p>
 </li>
 <li>
-<p>On Line 6, we start a loop (this is where we'll spend all of our time once we run the program)</p></li><li><p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>, which returns three values, representing the forces in the x-direction, y-direction and z-direction</p></li><li><p>On Line 8, we print those three values to the screen</p></li><li><p>On
+<p>On Line 6, we start a loop (this is where we'll spend all
+of our time once we run the program)</p>
+</li>
+<li>
+<p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>,
+which returns three values, representing the forces in the x-direction,
+y-direction and z-direction</p>
+</li>
+<li>
+<p>On Line 8, we print those three values to the screen</p>
+</li>
+<li>
+<p>On
 Line 9, we pause briefly (so we don't overwork the processor) and then
 return to the top of the loop where we read the new values from the
-accelerometer</p></li></ul>
-<h2>Running Your Code</h2><p>If you run your test code, what you should
+accelerometer</p>
+</li>
+</ul>
+<h2>Running Your Code</h2>
+<p>If you run your test code, what you should
 immediately see is that your Output Window starts filling up with
-numbers. &nbsp;These numbers -- three per line -- indicate the relative
+numbers. &nbsp;These numbers -- three per line -- indicate the
+relative
 movement of the RaspberrySTEM (specifically, the accelerometer we wired
-on the breadboard). &nbsp;The first number indicates the<br><br>If you
+on the breadboard). &nbsp;The first number indicates the<br>
+<br>
+If you
 move tilt, pan and rotate the RaspberrySTEM, you'll notice that the
 numbers being printed to the screen continue to change, with all the
-numbers generally between -1 and 1.</p><br><br>
+numbers generally between -1 and 1.</p>
+<br>
+<br>
 <p class="nextprev"><a href="BALANCING_DOT_1.html">prev</a>
 | <a href="BALANCING_DOT_2.html">next</a></p>
 </body></html>
