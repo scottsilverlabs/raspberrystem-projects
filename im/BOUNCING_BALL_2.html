@@ -1,19 +1,56 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
 
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
-<h1>BOUNCING BALL 2</h1><span style="font-family: &quot;Verdana&quot;,serif;"></span><p><span style="font-family: &quot;Verdana&quot;,serif;">In
+<link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>BOUNCING BALL 2</h1>
+<span style="font-family: &quot;Verdana&quot;,serif;"></span>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">In
 our last project, we learned how to move our dot on a single axis, but
 keep it from falling off the edge of the screen by setting and testing
-boundaries. &nbsp;In this project, we're going to start moving the dot
+boundaries. &nbsp;In this project, we're going to start moving the
+dot
 on two axes (left and right; up and down) and learn how to constrain
-the dot on both axes so that it doesn't fall off the screen.</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
-
-	<p class=nextprev><a href="BOUNCING_BALL_1.html">prev</a>|
+the dot on both axes so that it doesn't fall off the screen.</span></p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
+Here is the code we finished with from our last project:</p>
+<p>INSERT CODE:</p>
+<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br><br>fb = FrameBuffer()<br><br>x, y = (1, 1)<br>direction = 1<br><br>fb.erase()<br>fb.point(x, y)</pre>
+<pre>while True:<br></pre>
+<pre> # Get user input<br><br> # Update the game world<br> x += direction<br> if (x &gt;= 7 or x &lt; 1):<br> direction = -direction<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><br></pre>
+<p>Adding the same functionality along the other axis (the
+y-axis) is actually pretty simple. &nbsp;In addition to changing
+the x location by 1 each time through the loop, we also do the same
+with the y location. &nbsp;This requires another direction variable
+to keep track of the y-axis direction:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+y_direction = 1
+</textarea></div>
+<p></p>
+<p>And then we need to increment in the y-direction each time
+through the loop and test whether we've hit the y-axis edge: </p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+y += y_direction
+if (y &gt;= 7 or y &lt; 1):
+y_direction = -y_direction
+</textarea></div>
+<p class="MsoNormal"><span style=""></span></p><p class="MsoNormal"><span style="">Lastly,
+you'll probably want to set the initial position of the ball to
+something other than (1, 1) to make the bouncing a little more
+interesting. &nbsp;In fact, you can play around with different initial
+points and see how it affects the bouncing.</span></p><p class="MsoNormal"><span style="">Give it a
+try. &nbsp;You should now see the dot boucing back and forth on the
+display in two directions.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p><p>INSERT CODE:</p>
+<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br><br>fb = FrameBuffer()<br><br>x, y = (3, 1)<br>direction = 1<br>y_direction = 1<br><br>fb.erase()<br>fb.point(x, y)</pre>
+<pre>while True:<br></pre>
+<pre> # Get user input<br><br> # Update the game world<br> x += direction<br> y += y_direction<br> if (x &gt;= 7 or x &lt; 1):<br>   direction = -direction<br> if (y &gt;= 7 or y &lt; 1):<br>   y_direction = -y_direction<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)</pre><p class="nextprev"><a href="BOUNCING_BALL_1.html">prev</a>|
 <a href="BOUNCING_BALL_3.html">next</a></p>
+<p></p>
+<span style="font-family: &quot;Verdana&quot;,serif;"></span>
 </body></html>
-</p><span style="font-family: &quot;Verdana&quot;,serif;"></span>

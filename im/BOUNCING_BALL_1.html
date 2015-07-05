@@ -27,7 +27,7 @@ reminder of what our current code looks like:</span></p>
 <p>INSERT CODE:</p>
 <pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br>fb.point(x, y)</pre>
 <pre>while True:<br></pre>
-<pre> # Get user input<br><br> # Update the game world<br> x += 1<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> &nbsp;fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><span style="font-family: &quot;Calibri Light&quot;,serif;"><br></span></pre>
+<pre> # Get user input<br><br> # Update the game world<br> x += 1<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><span style="font-family: &quot;Calibri Light&quot;,serif;"><br></span></pre>
 <p class="MsoNormal">You'll
 notice that on Line 14, we increment (increase) x by 1 to move the dot
 to the right on the display. &nbsp;This works great...until we get
@@ -100,8 +100,7 @@ direction = -1
 </textarea></div>
 <br>
 <p class="MsoNormal"><span style="">If
-you insert this code at the end of the loop (we prefer just before the
-delay at the end of the loop) and run the program, you'll see that the
+you insert this code at any point after&nbsp;</span><span style="font-family: Courier New,Courier,monospace;">x += direction</span><span style=""> and run the program, you'll see that the
 ball gets to the right of the display and then -- before disappearing
 -- reverses direction.</span></p>
 <p class="MsoNormal"><span style="">But,
@@ -130,7 +129,10 @@ whatever it previously was.</span>
 </p>
 <p class="MsoNormal"><span style="">Give it a
 try. &nbsp;You should now see the dot boucing back and forth on the
-display. </span></p>
+display.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p><p>INSERT CODE:</p>
+<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br><br>fb = FrameBuffer()<br><br>x, y = (1, 1)<br>direction = 1<br><br>fb.erase()<br>fb.point(x, y)</pre>
+<pre>while True:<br></pre>
+<pre> # Get user input<br><br> # Update the game world<br> x += direction<br> if (x &gt;= 7 or x &lt; 1):<br>   direction = -direction<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)</pre>
 <p class="MsoNormal"><span style="">
 <p class="nextprev"><a href="GAME_LOOPS.html">prev</a>|
 <a href="BOUNCING_BALL_2.html">next</a></p>
