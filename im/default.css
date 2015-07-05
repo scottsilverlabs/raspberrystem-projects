@@ -1,7 +1,7 @@
 @page {
     margin: 0.79in
 }
-P {
+p {
     margin-bottom: 0.14in;
     color: #00000a;
     line-height: 150%;
@@ -11,7 +11,7 @@ P {
     font-family: "Verdana", serif;
     font-size: 11pt;
 }
-H1 {
+h1 {
     margin-bottom: 0in;
     color: #2e74b5;
     line-height: 150%;
@@ -23,7 +23,7 @@ H1 {
     font-size: 20pt;
     font-weight: normal
 }
-H2 {
+h2 {
     margin-top: 0.3in;
     color: #2e74b5;
     line-height: 150%;
@@ -35,7 +35,7 @@ H2 {
     font-size: 16pt;
     font-weight: normal
 }
-H3 {
+h3 {
     margin-top: 0.1in;
     color: #1f4d78;
     line-height: 150%;
@@ -46,6 +46,24 @@ H3 {
     font-family: "Calibri Light", serif;
     font-size: 12pt;
     font-weight: normal
+}
+h4 {
+    margin: 0in;
+    margin-top: 0.2in;
+    margin-bottom: 0.1in;
+    color: black;
+    text-align: left;
+    font-family: "Calibri Light", serif;
+    font-size: 12pt;
+    font-weight: bold
+}
+h5 {
+    margin: 0.0in;
+    color: black;
+    text-align: left;
+    font-family: "Calibri Light", serif;
+    font-size: 12pt;
+    font-weight: bold
 }
 A:link {
     color: #0563c1;
