@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>BREADBOARDING YOUR FIRST CIRCUIT</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>BREADBOARDING YOUR FIRST CIRCUIT</h1>
+<p>In our previous
+project (<a href="YOUR_FIRST_CIRCUIT.html">Your First
+Circuit</a>), we built the following circuit using a battery,
+an LED and a resistor:</p>
+<p></p>
+<p style="text-align: center;"><img style="width: 767px; height: 222px;" alt="" src="img/Your_First_Circuit_complete_bb.png"><br>
+</p>
+<p style="text-align: center;"><span style="font-weight: bold;">Lighting an LED Diagram</span></p>
+<p style="text-align: center;"><span style="font-weight: bold;"></span><br>
+</p>
+<p>We’re now going to
+build that same circuit again, but this time using the breadboard on
+our RaspberrySTEM. Note that all future projects will use the
+breadboard as well -- if you haven't read our Using The Breadboard tutorial, we highly recommend you do so now.</p>
+<p>
+Let’s look back at our example schematic from our first circuit:</p>
+<br>
+<p style="text-align: center;"><img style="width: 636px; height: 343px;" alt="" src="img/Battery-LED-Circuit.png"><br>
+</p>
+<p style="text-align: center;"><span style="font-weight: bold;">Lighting an LED Schematic</span></p>
+<p style="text-align: center;"><span style="font-weight: bold;"></span><br>
+</p>
+<p>To implement that
+design on our breadboard, we would follow the schematic from power (the
++ terminal of the battery) to
+ground (the - terminal of the battery), inserting each component along
+the way.&nbsp;</p>
+<p>Let’s look at this
+step-by-step:<br>
+</p>
+<p><b>Step #1: &nbsp;Provide power and ground to the
+breadboard.</b><br>
+</p>
+<p>The
+first step is to provide power and ground to the breadboard. To do
+this, you'll need the 3V battery we used in the last project, as well
+as the two bare wires and the two round adhesive dots included in the
+"Your First Circuit RaspberrySTEM Cell" bag.&nbsp;</p>
+<p>....</p>
+<p>This
+is done by wiring the (+) terminal of the 3V battery to one of
+the holes in the red row along the rail. This will provide power to
+the entire red row, as all the holes in that row are connected.</p>
+<p>
+Next, wire the (-) terminal of the 3V battery to one of the holes in
+the blue row along the rail. This will provide ground to the entire
+blue row, as all holes in that row are connected.</p>
+<p>
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<img style="border: 0px solid ; width: 250px; height: 190px;" alt="" src="img/Battery-LED-Circuit-Battery-Only.png"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Schematic</span><br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;"><br>
+</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<img style="width: 891px; height: 365px;" alt="" src="img/Your_First_Breadboard_Battery_Only_bb.png"><br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Diagram</span></p>
+<p><span style="font-weight: bold;"></span><br>
+<b>Step #2: &nbsp;Bring power to one of the connect strips on
+the breadboard.</b></p>
+<p>
+Next, we will connect power from the red rail to one of the connect
+strips on the breadboard (the connect strips are where we’ll be
+creating the heart of the circuit). We do this by running a wire
+from the power row (the red row along the rail) to any connect strip,
+and firmly planting the ends of the wire into their respective holes.
+Remember, it doesn’t matter which hole you choose in the power
+row, as the entire row is connected. And it doesn’t matter which
+connect strip you choose or which hole of the connect strip you
+choose.</p>
+<p>
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</p>
+<br>
+<div style="text-align: center;"><img style="width: 307px; height: 213px;" alt="" src="img/Battery-LED-Circuit-Resistor-Added.png"></div>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Schematic</span></p>
+<span style="font-weight: bold;"><br>
+<br>
+</span>
+<p style="margin-left: 0.25in; text-align: center;"><img style="width: 980px; height: 402px;" alt="" src="img/Your_First_Breadboard_Resistor_Added_bb.png"><br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Diagram</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<ol start="3">
+<li>
+<p><b>Connect the resistor.</b></p>
+</li>
+</ol>
+<p style="margin-left: 0.25in;">
+The next step is to connect the resistor to the breadboard. We do
+this by inserting one end of the resistor into the same connect strip
+as the wire. We then insert the other end of the resistor into a
+different connect strip. Because all five holes in the connect strip
+are connected, there is now continuity all the way from the power
+source (the battery) to the first connect strip, through the
+resistor, and to the second connect strip.</p>
+<p style="margin-left: 0.25in;">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Schematic</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<div style="text-align: center;">
+</div>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_27c294ad.png" align="bottom" border="0" height="443" width="735"><span style="font-weight: bold;"><br>
+</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Diagram</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<ol start="4">
+<li>
+<p><b>Provide continuity from the resistor to new
+connect strip.</b></p>
+</li>
+</ol>
+<p style="margin-left: 0.25in;">
+We now place a wire from the same connect strip as the resistor to a
+new connect strip. This new connect strip is where we will connect
+the first lead of our LED.</p>
+<p style="margin-left: 0.25in;">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_m3fececbd.jpg" align="bottom" border="0" height="258" width="396"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Schematic</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_1a585efc.png" align="bottom" border="0" height="443" width="735"><span style="font-weight: bold;"><br>
+</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Diagram</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<ol start="5">
+<li>
+<p><b>Connect the LED.</b></p>
+</li>
+</ol>
+<p style="margin-left: 0.25in;">
+Now that we have continuity from the resistor to a new connect strip,
+it’s time to insert the next component – the LED. We insert one
+end of the LED anywhere in the connect strip we just wired. And we
+insert the other end of the LED into a new connect strip.</p>
+<p style="margin-left: 0.25in;">
+<i>Note that LEDs must be oriented the correct way for
+electricity to
+flow through them, so ensure that the long side of the LED is the
+side inserted into second connect strip.</i></p>
+<p style="margin-left: 0.25in;">
+Here’s what the breadboard should look like at this point (with the
+corresponding portion of the schematic):</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_m232fd057.jpg" align="bottom" border="0" height="257" width="476"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Schematic</span></p>
+<p style="margin-left: 0.25in;" align="right"><br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_1d619bc5.png" align="bottom" border="0" height="430" width="713"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Partial Diagram</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;"><br>
+</span></p>
+<p>
+<br>
+</p>
+<ol start="6">
+<li>
+<p><b>Complete the circuit.</b></p>
+</li>
+</ol>
+<p style="margin-left: 0.25in;">
+We now have continuity all the way from power, through the resistor
+and to the LED – it’s now time to complete the circuit by
+attaching the LED to ground. We do this by attaching the second leg
+of the LED to the blue row along the rail (the ground row). Because
+the second leg of the LED is embedded in a connect strip, we can
+accomplish this by connecting any part of that connect strip to any
+hole in the blue row using a wire.</p>
+<p style="margin-left: 0.25in;">
+Now that the circuit is completed, electricity should be flowing, and
+your LED should be lit!</p>
+<p style="margin-left: 0.25in;">
+Here’s what the final breadboard layout should look like:</p>
+<br>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_m39c7b3e5.jpg" align="bottom" border="0" height="292" width="477"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Schematic</span></p>
+<p style="margin-left: 0.25in; text-align: center;"><br>
+</p>
+<p style="margin-left: 0.25in; text-align: center;">
+<img src="img/Projects%20Guide%20-%20061115-2_html_m265ab630.png" align="bottom" border="0" height="443" width="735"></p>
+<p style="margin-left: 0.25in; text-align: center;"><span style="font-weight: bold;">Lighting an LED Diagram</span></p>
+<p>
+<br>
+</p>
+<p class="nextprev"><a href="YOUR_FIRST_SCHEMATIC.html">prev</a>
+| <a href="RASPBERRY_PI_POWER.html">next</a></p>
+</body></html>
