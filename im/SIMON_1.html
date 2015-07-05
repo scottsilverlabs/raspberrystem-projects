@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 1</h1>
 <p class="MsoNormal">We've come a long way in the past
@@ -90,7 +89,7 @@ should look as follows:</span></p>
 <p>To
 implement that circuit on the breadboard, we wire one side of the
 button to ground and wire the other side of the button to a GPIO.
-&nbsp;We're going to choose GPIO 14 for our implementation; you're
+&nbsp;We're going to choose GPIO14 for our implementation; you're
 welcome to use a different GPIO, but if you do, keep in mind that
 you'll have to modify the code we provide to match your GPIO selection.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
@@ -105,7 +104,7 @@ can now wire the second button similarly to the first. &nbsp;Again,
 remember that we're looking to build a diamond pattern, so this button
 should be positioned appropriately. &nbsp;For our circuit, we're
 going
-to attach the second button to GPIO 15.</span></p>
+to attach the second button to GPIO15.</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
 <p style="text-align: center;"></p>
@@ -126,7 +125,7 @@ using the small jumpers as much as possible.</span></p>
 &nbsp;Wire Your Third Button Using a GPIO Input</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">We can now wire the third
 button just like the first two. &nbsp;For this button, we've chosen
-to use GPIO 22.</span></p>
+to use GPIO22.</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
 <p style="text-align: center;"></p>
@@ -137,7 +136,7 @@ should look like:</span></p>
 &nbsp;Wire Your Fourth Button Using a GPIO Input</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">It's time to wire our fourth
 and final button in our circuit. &nbsp;For this last button, we've
-chosen to use GPIO 17.</span></p>
+chosen to use GPIO17.</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like with all the buttons wired:</span></p>
 <p style="text-align: center;"></p>
@@ -171,15 +170,14 @@ library.</span></p>
 code should look like:</span></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-from rstem.button import Button
+<textarea>from rstem.button import Button
 </textarea></div>
 <br>
 <p style="font-weight: bold;">Code Section #2:
 &nbsp;Test Buttons</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">To
-test a button, we'll initialize it just like we did in Using Buttons
-With GPIO, and we can then check for the button being pressed and
+test a button, we'll initialize it just like we did in <a href="USING_BUTTONS_WITH_GPIO.html">Using Buttons
+With GPIO</a>, and we can then check for the button being pressed and
 display a message to the Output Window when it is being
 pressed.&nbsp;</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the&nbsp;LED
@@ -188,8 +186,7 @@ should look like for one of the buttons:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-button1 = Button(14)
+<textarea>button1 = Button(14)
 if button1.is_pressed():
 print("Button 1 is pressed")
 else:
@@ -210,8 +207,7 @@ point:
 </p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.button import Button()
+<textarea>from rstem.button import Button()
 button1 = Button(14)
 button2 = Button(15)
 button3 = Button(22)
