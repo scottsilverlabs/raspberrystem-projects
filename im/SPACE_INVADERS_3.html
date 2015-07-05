@@ -1,92 +1,151 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 3</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 1</title>
 
-
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>SPACE INVADERS 3</H1>
-<P>Add accelerometer to
-move the spaceship:</P>
-<P>from
-rstem.accel import Accel</P>
-<P>...</P>
-<P>accel
-= Accel()</P>
-<P>TILT_FORCE
-= 0.1</P>
-<P>SPACESHIP_STEP
-= 0.1</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Get inputs</P>
-<P>   
-#
-########################################</P>
-<P>   
-x_force,
-y_force, z_force = accel.forces()</P>
-<P><BR>
-</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Change the World</P>
-<P>   
-#
-########################################</P>
-<P><BR>
-</P>
-<P>   
-#
-Move spaceship</P>
-<P>   
-if
-x_force &gt; TILT_FORCE:</P>
-<P>    
-   spaceship_position
--= SPACESHIP_STEP</P>
-<P>   
-elif
-x_force &lt; -TILT_FORCE:</P>
-<P>    
-   spaceship_position
-+= SPACESHIP_STEP</P>
-<P>   
-spaceship_position
-= max(0, min(fb.width - 1, spaceship_position))</P>
-<P><BR>
-</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Show world</P>
-<P>   
-#
-########################################</P>
-<P>   
-...</P>
-	<p class=toc><a href="SPACE_INVADERS_2.html">prev</a>|
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>SPACE INVADERS 3</h1>
+<p>In the last project, we initialized our ship where it's
+supposed to start and we created the loop in our game loop.
+&nbsp;In this project, we're going to add the accelerometer and use
+it to get input from the user about which direction to move our ship
+(tilting the RaspberrySTEM left will move the ship left and tilting
+right will move the ship right). &nbsp;In this project, we'll use
+that input to animate our ship.</p>
+<p>As we learned in <a href="ACCELEROMETER.html">Accelerometer</a>,
+the initialization code for the accelerometer will consist of importing
+the Accel() function and then initializing the accelerometer:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>#Import required functions/modules
+rstem.accel import Accel
+# Initialize the accelerometer
+accel = Accel()
+</textarea></div>
+<p>We also need to create and define two other variables that
+we'll need at this point:</p>
+<ul>
+<li>
+<p><span style="font-weight: bold;">TILT_FORCE:</span>
+&nbsp;If we tilt the accelerometer right or
+left, it will register a value greater than 0 (if we tilt left) or less
+than 0 (if we tilt right). &nbsp;In theory, any value greater than
+0 is a left tilt and any value less than 0 is a right tilt.
+&nbsp;But, because the accelerometer is very sensitive, even if we
+try to hold it perfectly flat, it will likely register at least a tiny
+bit of tilt. &nbsp;So, to give us a margin of error, we're going to
+assume that the accelerometer needs to be tilted at least a certain
+amount before we register it as a tilt. &nbsp;If we want the game
+to be very sensitive to tilting, we can set this value close to 0 (so
+just a small tilt will register); if we don't want the game to be very
+sensitive, we can set the value close to 1 (so only a large tilt will
+register). &nbsp;And we'll initially set the value to .1 and see
+how that works for us.</p>
+</li>
+<li>
+<p><span style="font-weight: bold;">SPACESHIP_STEP:</span>
+&nbsp;As we register tilt in one
+direction or the other, we need to have the ship move in that
+direction. &nbsp;And we need to tell it how far to move each time
+we register a tilt. &nbsp;If we move it too far each time we
+register a tilt, the ship will appear to move very fast and we'll feel
+like we have no control over it; if we move it too small of a distance
+each time, the game will feel sluggish and non-responsive.
+&nbsp;Most likely, we'll just want the ship to move a fraction of a
+pixel each time a tilt is registered. &nbsp;We'll start with .1
+pixels for now and see how that works for us.</p>
+</li>
+</ul>
+<p>In our initialization section for the ship, we can set these
+values:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Initialize the spaceship
+TILT_FORCE = 0.1
+SPACESHIP_STEP = 0.1
+</textarea></div>
+<p></p>
+<p>Now that the accelerometer is initialized, we can use it to
+get input from the controller. &nbsp;We do this just like we did in
+<a href="ACCELEROMETER.html">Accelerometer</a>:</p>
+<p></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Check for user input
+x_force, y_force, z_force = accel.forces()
+</textarea></div>
+<p></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>#Draw the spaceship
+if x_force &gt; TILT_FORCE:
+spaceship_position -= SPACESHIP_STEP
+elif x_force &lt; -TILT_FORCE:
+spaceship_position += SPACESHIP_STEP&lt;/p&gt;
+spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+</textarea></div>
+<p></p>
+<p>Add accelerometer to
+move the spaceship:</p>
+<p>from
+rstem.accel import Accel</p>
+<p>...</p>
+<p>accel
+= Accel()</p>
+<p>TILT_FORCE
+= 0.1</p>
+<p>SPACESHIP_STEP
+= 0.1</p>
+<p><br>
+</p>
+<p>while
+True:</p>
+<p> #
+########################################</p>
+<p> #
+Get inputs</p>
+<p> #
+########################################</p>
+<p> x_force,
+y_force, z_force = accel.forces()</p>
+<p><br>
+</p>
+<p> #
+########################################</p>
+<p> #
+Change the World</p>
+<p> #
+########################################</p>
+<p><br>
+</p>
+<p> #
+Move spaceship</p>
+<p> if
+x_force &gt; TILT_FORCE:</p>
+<p> spaceship_position
+-= SPACESHIP_STEP</p>
+<p> elif
+x_force &lt; -TILT_FORCE:</p>
+<p> spaceship_position
++= SPACESHIP_STEP</p>
+<p> spaceship_position
+= max(0, min(fb.width - 1, spaceship_position))</p>
+<p><br>
+</p>
+<p> #
+########################################</p>
+<p> #
+Show world</p>
+<p> #
+########################################</p>
+<p> ...</p>
+<p class="toc"><a href="SPACE_INVADERS_2.html">prev</a>|
 <a href="SPACE_INVADERS_4.html">next</a></p>
 </body></html>
-	

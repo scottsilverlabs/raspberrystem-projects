@@ -7,9 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
-
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SPACE INVADERS 2</h1>
 <p>Now that we have the framebuffer initialized and have verified
@@ -24,34 +22,31 @@ example, let's say you put four LED Matrices together to build a 16x16
 display. &nbsp;If you put x=4 right into your code, when you run
 the program on your new 16x16 display, your spaceship will no longer be
 in the middle of the display.</p>
-<p>Luckily, we have a way to handle this. &nbsp;There is a <span style="font-family: Courier New,Courier,monospace;">FrameBuffer</span>
-function called <span style="font-family: Courier New,Courier,monospace;">width()</span>
+<p>Luckily, we have a way to handle this. &nbsp;There is a <span style="font-family: Courier New,Courier,monospace;">FrameBuffer</span> attribute called <span style="font-family: Courier New,Courier,monospace;">width</span>
 that will determine how many LED Matrices you have chained together and
 will tell you the width of your LED Matrix display. &nbsp;We can
-use that function to determine the actual width of the display, and
+use that attribute to determine the actual width of the display, and
 then divide that actual width by 2 to get the starting position of our
 spaceship.</p>
 <br>
 <div class="info">
 <div>Hard-Coding</div>
-<div>
+<div><p>
 This is actually a very common situation when programming for
 a potentially changing environment -- you have to decide between
 putting definitive numbers into your code&nbsp;(called
 "hard-coding") based on the most common usage scenario, or by using
 variables and inputs that will allow your code to adapt to different
-scenarios. &nbsp;For example, if you were writing code for
-...&nbsp; &nbsp;
-Hard-coding typically makes your code easier to write -- since
+scenarios. &nbsp;&nbsp;</p><p>Hard-coding typically makes your code easier to write -- since
 you don't have to test for lots of different situations and change the
 functionality of your code for each possible situation. &nbsp;But,
 hard-coding also means that your code will break (or at very least be
 less useful) when exposed to a situation where the assumptions you made
 about the environment are no longer true. &nbsp;In general, it's
-best to try to figure out who your users will be and the situations
+best to try to figure out who will&nbsp;be using your software and the specific situations
 where your code will be used, and then try to be as generic as possible
-to accomodate the most common situations and environments.
-</div>
+to accommodate the most common situations and environments.
+</p></div>
 </div>
 <p></p>
 <p>Here is what the initialization code for the initial position
@@ -59,8 +54,7 @@ of the&nbsp;ship would look like:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Initialize the spaceship
+<textarea># Initialize the spaceship
 spaceship_position = fb.width
 </textarea></div>
 <p></p>
@@ -80,8 +74,7 @@ is where we will display our ship.</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Draw the spaceship
+<textarea># Draw the spaceship
 fb.point(round(spaceship_position),0)
 </textarea></div>
 <p></p>
@@ -92,8 +85,7 @@ number and see if that poses any problems as we're continuing to
 develop the game:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Import required functions/modules
+<textarea># Import required functions/modules
 import time
 # Wait for some period of time
 time.sleep(.001)
@@ -101,8 +93,7 @@ time.sleep(.001)
 <p>Here is the full code for our game at this point:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-# ###############################################################
+<textarea># ###############################################################
 #
 # SPACE INVADERS GAME
 #
@@ -156,7 +147,6 @@ time.sleep(.001)
 # Print "You lost..." if the player loses
 </textarea></div>
 <br>
-	<p class=toc><a href="SPACE_INVADERS_1.html">prev</a>|
+	<p class="toc"><a href="SPACE_INVADERS_1.html">prev</a>|
 <a href="SPACE_INVADERS_3.html">next</a></p>
 </body></html>
-
