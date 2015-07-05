@@ -9,7 +9,6 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
-
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 1</h1>
 <p class="MsoNormal">We've come a long way in the past
@@ -165,9 +164,10 @@ Code Section #1</span>: &nbsp;Import Needed Functions</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">The
 first part of our code is going to import the one library and function
 we'll need later in our code. &nbsp;For this test code, the only
-function we'll need is the <span style="font-family: Courier New,Courier,monospace;">Button()</span> function from the <span style="font-family: Courier New,Courier,monospace;">rstem.button</span>
+function we'll need is the <span style="font-family: Courier New,Courier,monospace;">Button()</span>
+function from the <span style="font-family: Courier New,Courier,monospace;">rstem.button</span>
 library.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this introductory
+<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the import
 code should look like:</span></p>
 <div class="code" data-firstline="0">
 <div></div>
@@ -178,48 +178,66 @@ from rstem.button import Button
 <p style="font-weight: bold;">Code Section #2:
 &nbsp;Test Buttons</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">To
-test the LEDs, we'll assign each one to its own variable, and then --
-in a WHILE loop -- we'll check for each button being pressed and will
-display any button presses in the Code Output window.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the LED test code
-should look like:</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">INSERT CODE</span></p>
-<p>from
-rstem.button import Button</p>
-<p>button1
-=&nbsp;Button(1)</p>
-<p>button2
-=&nbsp;Button(1)</p>
-<p>button3
-=&nbsp;Button(1)</p>
-<p>button4
-=&nbsp;Button(1)</p>
-<p>while true:<span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">&nbsp;&nbsp;&nbsp;
-if button_pressed</span> = <br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp; print("Button 1 pressed") </p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">&nbsp;&nbsp;&nbsp;
-if button_pressed</span> = <br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp; print("Button 2 pressed") </p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">&nbsp;&nbsp;&nbsp;
-if button_pressed</span> = <br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp; print("Button 3 pressed") </p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">&nbsp;&nbsp;&nbsp;
-if button_pressed</span> = <br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp; print("Button 4 pressed") </p>
+test a button, we'll initialize it just like we did in Using Buttons
+With GPIO, and we can then check for the button being pressed and
+display a message to the Output Window when it is being
+pressed.&nbsp;</span></p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the&nbsp;LED
+test code
+should look like for one of the buttons:</span></p>
+<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+button1 = Button(14)
+if button1.is_pressed():
+print("Button 1 is pressed")
+else:
+print("Button 1 NOT pressed")
+</textarea></div>
 <br>
+<p>If you replicate that code for each of the buttons and put the
+whole thing in a <span style="font-family: Courier New,Courier,monospace;">while</span>&nbsp;loop,
+you will
+now have the ability to test each of the buttons in your circuit.
+&nbsp;This code will be useful later if, after adding more
+components to your circuit, you find that the code isn't working
+properly. &nbsp;Using this code will allow you to test the buttons
+independently of the other components.</p>
 <h2>Executing Your Code</h2>
-<p>Let's run your code. &nbsp;</p>
-<p>....</p>
+<p>Here is what your full set of code should look like at this
+point:
+</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+from rstem.button import Button()
+button1 = Button(14)
+button2 = Button(15)
+button3 = Button(22)
+button4 = Button(17)
+while True:
+if button1.is_pressed():
+print("Button 1 is pressed")
+else:
+print("Button 1 NOT pressed")
+if button2.is_pressed():
+print("Button 2 is pressed")
+else:
+print("Button 2 NOT pressed")
+if button3.is_pressed():
+print("Button 3 is pressed")
+else:
+print("Button 3 NOT pressed")
+if button4.is_pressed():
+print("Button 4 is pressed")
+else:
+print("Button 4 NOT pressed")
+</textarea></div>
 <p></p>
+<p>If you run this code, you should see the status of each button
+being updated in the Output Window.</p>
+<br>
 <p class="nextprev"><a href="BETTER_PIANO.html">prev</a>
 | <a href="SIMON_2.html">next</a></p>
 </body></html>
