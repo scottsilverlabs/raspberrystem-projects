@@ -78,25 +78,18 @@ important that the
 button is oriented correctly – the two independent sides of the button
 must sit
 on different connect strips, as follows:</p>
-<p class="MsoNormal"><o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.25in;"><span style=""><img style="width: 542px; height: 316px;" alt="" src="img/buttonright.jpg" v:shapes="Picture_x0020_1"></span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><span style=""><img style="width: 540px; height: 318px;" alt="" src="img/buttonwrong.jpg" v:shapes="Picture_x0020_2"><!--[endif]--></span><o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 1.25in;"><b style="">&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; CORRECT</b><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span><b style=""><span style="color: red;">WRONG!!!<o:p></o:p></span></b></p>
-<p class="MsoNormal" style="margin-left: 1.25in;"><o:p>&nbsp;</o:p></p>
+<table style="margin: auto; width: 70%;">
+<tbody>
+<tr>
+<td><img width=285px src="img/Button_orientation_correct.png"></td>
+<td><img width=285px src="img/Button_orientation_wrong.png"></td>
+</tr>
+<tr>
+<td><b>CORRECT</b></td>
+<td><b><span style="color: red;">WRONG!!!</span></b></td>
+</tr>
+</tbody>
+</table>
 <p style="text-indent: -0.25in;"><b style=""><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
 </span></span></span></b><b style="">Step
 #2: &nbsp;Wire one side of the button to a GPIO.<o:p></o:p></b></p>
@@ -106,7 +99,7 @@ button
 are symmetrical) to a GPIO.<span style="">&nbsp; </span>In
 this
 example, we’ll connect the button to GPIO14.<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.25in; text-align: center;" align="center"><span style=""><img style="width: 831px; height: 462px;" alt="" src="../../../../proj19-2.jpg" v:shapes="Picture_x0020_3"><!--[endif]--></span><o:p></o:p></p>
+<img class=bb src="img/Buttons_with_GPIO_1_bb.png">
 <p><span style="font-weight: bold;">Step #3:
 &nbsp;Wire the other side of the button to
 ground.</span><o:p></o:p></p>
@@ -116,9 +109,7 @@ this
 example, we are connecting the other side of the button to the
 blue&nbsp;strip,
 which is connected to ground.</p>
-<p class="MsoNormal"><o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.25in; text-align: center;" align="center"><span style=""><img style="width: 846px; height: 459px;" alt="" src="../../../../proj19-3.jpg" v:shapes="Picture_x0020_4"></span><o:p></o:p></p>
-
+<img class=bb src="img/Buttons_with_GPIO_2_bb.png">
 <p class="MsoNormal">That’s it for the wiring – pretty
 simple, right?</p><h2>Writing the Code</h2>
 <p class="MsoNormal">Now that the circuit is wired, we can
@@ -154,11 +145,13 @@ for as long as the program is running.<span style="">&nbsp;
 <textarea>
 from rstem.button import Button
 import time
+
 my_button = Button(14)
+
 while True:
-my_button = Button(14)
-print(button.is_pressed())
-time.sleep(.01)
+    my_button = Button(14)
+    print(button.is_pressed())
+    time.sleep(.01)
 </textarea></div>
 <p class="MsoNormal">Run this program and then alternate
 between pressing and not
@@ -166,8 +159,7 @@ pressing the button.<span style="">&nbsp; </span>Take
 a look at the
 output window – you should see an indication of when the button is
 pressed and
-when it is unpressed.<o:p></o:p></p>
-<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+when it is unpressed.</p>
 	<p class=nextprev><a href="INTRODUCING_BUTTONS.html">prev</a>|
 <a href="FLASHLIGHT.html">next</a></p>
 </body></html>
