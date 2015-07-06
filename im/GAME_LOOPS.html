@@ -1,9 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-</head>
+<html>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>GAME LOOPS</TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+</HEAD>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GAME LOOPS</h1>
 <p class="MsoNormal"><span style="">Now that
@@ -149,12 +155,14 @@ dot&nbsp;</p>
 <div></div>
 <textarea>
 from rstem.led_matrix import FrameBuffer
-import time&lt;br&gt;&lt;br&gt;fb = FrameBuffer()
+import time
+
+fb = FrameBuffer()
 x, y = (1, 1)
 fb.erase()
 fb.point(x, y)
 </textarea></div>
-<h3><span style="">while (game not finished):</span></h3>
+<h3>while (game not finished):</h3>
 <p>We
 call it a game loop because it's an actual loop in the code that
 continues until the game is finished or until the user says to exit.
@@ -173,8 +181,6 @@ game loop:</p>
 <textarea>
 while True:
 </textarea></div>
-<h3><br>
-<span style=""></span></h3>
 <h3><span style="">Check for user input</span></h3>
 <p>In
 a typical game loop, this is where we would check for user input --
@@ -185,8 +191,6 @@ projects. &nbsp;But, for this particular project, we're keeping
 things
 simple and we're not taking any input from the user. &nbsp;So,
 there's no code to add for this part of the loop.</p>
-<h3><br>
-<span style=""></span></h3>
 <h3><span style="">Update the game world</span></h3>
 <p>Updating
 the game world means to take the new information we have -- either from
@@ -214,8 +218,6 @@ framebuffer with the new location.</p>
 <textarea>
 x += 1
 </textarea></div>
-<h3><br>
-<span style=""></span></h3>
 <h3><span style="">Draw graphics on the screen</span></h3>
 <p>Once
 we have updated all the aspects of the game world and have the
@@ -234,8 +236,6 @@ fb.erase()
 fb.point(x, y)
 fb.show()
 </textarea></div>
-<h3><br>
-<span style=""></span></h3>
 <h3><span style="">Wait for some period of time</span></h3>
 <p>The
 very last thing we sometimes do in a game loop is to wait for some
@@ -271,8 +271,7 @@ in a half-second delay at the end of the loop.</p>
 <textarea>
 time.sleep(.5)
 </textarea></div>
-<br>
-<h3><span style="">Finish &amp; Cleanup</span></h3>
+<h3>Finish &amp; Cleanup</h3>
 <p>At
 some point, the game will probably end and we'll drop out of the loop.
 &nbsp;This is most common when the player wins or loses a game, or
@@ -285,7 +284,6 @@ menu screen.&nbsp;&nbsp;</p>
 <p>In this project, we never drop out of
 the loop (remember, we used a while True: loop), so there doesn't need
 to be any code at this point in the program.</p>
-<br>
 <h2>Putting It All Together</h2>
 <p>We
 now have all of the code necessary for a game loop that will place a
@@ -296,28 +294,30 @@ code should look like:</p>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
-# Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
+
+# Initialize the game environment
 fb = FrameBuffer()
 x, y = (1, 1)
 fb.erase()
+
 while True:
-# Get user input
-# Update the game world
-x += 1
-# Draw graphics on the screen
-fb.erase()
-fb.point(x, y)
-fb.show()
-# Wait for some period of time
-time.sleep(.5)
-# Finish &amp; Cleanup
+	# Get user input
+
+	# Update the game world
+	x += 1
+
+	# Draw graphics on the screen
+	fb.erase()
+	fb.point(x, y)
+	fb.show()
+
+	# Wait for some period of time
+	time.sleep(.5)
+
+# Finish & Cleanup
 </textarea></div>
-<p>REMOVE THIS...JUST HERE FOR REFERENCE TO FORMAT ABOVE:</p>
-<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br>fb = FrameBuffer()<br>x, y = (1, 1)<br>fb.erase()<br></pre>
-<pre>while True:<br></pre>
-<pre> # Get user input<br><br> # Update the game world<br> x += 1<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> &nbsp;fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><br># Finish &amp; Cleanup<br><br></pre>
 <p>When you run this code, you should see
 the dot start at one corner of the LED Matrix and move in one direction
 until it is off the screen. &nbsp;Because we're not checking to see

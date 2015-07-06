@@ -1,9 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title></title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-</head>
+<html>
+<HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <TITLE>BOUNCING_BALL_2</TITLE>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+</HEAD>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>BOUNCING BALL 2</h1>
 <span style="font-family: &quot;Verdana&quot;,serif;"></span>
@@ -16,10 +22,33 @@ on two axes (left and right; up and down) and learn how to constrain
 the dot on both axes so that it doesn't fall off the screen.</span></p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
 Here is the code we finished with from our last project:</p>
-<p>INSERT CODE:</p>
-<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br><br>fb = FrameBuffer()<br><br>x, y = (1, 1)<br>direction = 1<br><br>fb.erase()<br>fb.point(x, y)</pre>
-<pre>while True:<br></pre>
-<pre> # Get user input<br><br> # Update the game world<br> x += direction<br> if (x &gt;= 7 or x &lt; 1):<br> direction = -direction<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)<br><br></pre>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+from rstem.led_matrix import FrameBuffer
+import time
+
+# Initialize the game environment
+fb = FrameBuffer()
+x, y = (1, 1)
+fb.erase()
+
+while True:
+    # Get user input
+
+    # Update the game world
+    x += direction
+    if (x <= 7) or (x > 1):
+        direction = -direction
+
+    # Draw graphics on the screen
+    fb.erase()
+    fb.point(x, y)
+    fb.show()
+
+    # Wait for some period of time
+    time.sleep(.5)
+</textarea></div>
 <p>Adding the same functionality along the other axis (the
 y-axis) is actually pretty simple. &nbsp;In addition to changing
 the x location by 1 each time through the loop, we also do the same
@@ -37,8 +66,8 @@ through the loop and test whether we've hit the y-axis edge: </p>
 <div></div>
 <textarea>
 y += y_direction
-if (y &gt;= 7 or y &lt; 1):
-y_direction = -y_direction
+if (y >= 7) or (y < 1):
+    y_direction = -y_direction
 </textarea></div>
 <p class="MsoNormal"><span style=""></span></p><p class="MsoNormal"><span style="">Lastly,
 you'll probably want to set the initial position of the ball to
@@ -46,11 +75,43 @@ something other than (1, 1) to make the bouncing a little more
 interesting. &nbsp;In fact, you can play around with different initial
 points and see how it affects the bouncing.</span></p><p class="MsoNormal"><span style="">Give it a
 try. &nbsp;You should now see the dot boucing back and forth on the
-display in two directions.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p><p>INSERT CODE:</p>
-<pre># Initialize the game environment<br>from rstem.led_matrix import FrameBuffer<br>import time<br><br>fb = FrameBuffer()<br><br>x, y = (3, 1)<br>direction = 1<br>y_direction = 1<br><br>fb.erase()<br>fb.point(x, y)</pre>
-<pre>while True:<br></pre>
-<pre> # Get user input<br><br> # Update the game world<br> x += direction<br> y += y_direction<br> if (x &gt;= 7 or x &lt; 1):<br>   direction = -direction<br> if (y &gt;= 7 or y &lt; 1):<br>   y_direction = -y_direction<br><br> # Draw graphics on the screen<br> fb.erase()<br> fb.point(x, y)<br> fb.show()<br><br> # Wait for some period of time<br> time.sleep(.5)</pre><p class="nextprev"><a href="BOUNCING_BALL_1.html">prev</a>|
+display in two directions.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p>
+<div class="code" data-firstline="0">
+
+<div></div>
+<textarea>
+# Initialize the game environment
+from rstem.led_matrix import FrameBuffer
+import time
+
+fb = FrameBuffer()
+
+x, y = (3, 1)
+direction = 1
+y_direction = 1
+
+fb.erase()
+fb.point(x, y)
+while True:
+    # Get user input
+
+    # Update the game world
+    x += direction
+    y += y_direction
+    if (x >= 7) or (x < 1):
+        direction = -direction
+    if (y >= 7) or (y < 1):
+        y_direction = -y_direction
+
+    # Draw graphics on the screen
+    fb.erase()
+    fb.point(x, y)
+    fb.show()
+
+    # Wait for some period of time
+    time.sleep(.5)
+
+</textarea></div>
+<p class="nextprev"><a href="BOUNCING_BALL_1.html">prev</a>|
 <a href="BOUNCING_BALL_3.html">next</a></p>
-<p></p>
-<span style="font-family: &quot;Verdana&quot;,serif;"></span>
 </body></html>
