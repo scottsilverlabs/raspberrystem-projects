@@ -55,12 +55,9 @@ could rewrite that calculation to use variables instead. </p>
 creating a variable called “sec_in_minute” that will hold the
 number of seconds in a minute (which is 60):</p>
 
-<p>sec_in_minute
-= 60</p>
-
-<p><br>
-<br>
-</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_minute = 60
+</textarea></div>
 
 <p><b>Note:</b> When
 naming variables, you can use any combination of uppercase letters,
@@ -72,15 +69,10 @@ understand and read.</p>
 <p>Now, let’s create
 two more variables:</p>
 
-<p>min_in_hour
-= 60</p>
-
-<p>hour_in_day
-= 24</p>
-
-<p><br>
-<br>
-</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+min_in_hour = 60
+hour_in_day = 24
+</textarea></div>
 
 <p>It’s probably
 pretty obvious (that’s the goal!), but min_in_hour
@@ -104,16 +96,9 @@ output would look like if you ran that code:</p>
 
 <div class="output">
 <div> </div>
-<textarea>86400
-</textarea></div>
+<pre>86400
+</pre></div>
 
-
-<p><br>
-</p>
-
-<p><br>
-<br>
-</p>
 
 <h2>Variables Can Hold Other Variables<!--Not sure exactly what to do here, but I would suggest we switch this project  to only: variables can hold numbers and strings (and other things), and how anassignment statements work.
 
@@ -126,60 +111,50 @@ further by creating a variable called sec_in_day
 and using it to hold our calculation for the number of seconds in a
 day:</p>
 
-<p style="text-indent: 0.5in;">sec_in_day
-= sec_in_minute * min_in_hour * hour_in_day</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_day = sec_in_minute * min_in_hour * hour_in_day
+</textarea></div>
 
 <p>Now, if you want to
 output the number of seconds in a day, you can simply print the
 number being held by the sec_in_day
 variable:</p>
 
-<p>print
-(sec_in_day)</p>
-
-<p><br>
-<br>
-</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+print(sec_in_day)
+</textarea></div>
 
 <p>This is what the
 code and output would look like:</p>
 
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+<div class="output">
+<div> </div>
+<pre>86400
+</pre></div>
+
 
 <p>You’re probably
 thinking to yourself that using variables took a lot more time and a
 lot more code – in fact, your program went from one line to five
 lines! But, if someone were to look at your original code:</p>
 
-<p>print
-(60 * 60 * 24)</p>
-
-<p><br>
-<br>
-</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+print(60 * 60 * 24)
+</textarea></div>
 
 <p>They’d have no
 idea what it meant or what you were calculating. But, if someone saw
 your final piece of code:</p>
 
-<p>sec_in_minute
-= 60</p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_minute = 60
+min_in_hour = 60
+hour_in_day = 24
 
-<p>min_in_hour
-= 60</p>
+sec_in_day = sec_in_minute * min_in_hour * hour_in_day
 
-<p>hour_in_day
-= 24</p>
-
-<p>sec_in_day
-= sec_in_minute * min_in_hour * hour_in_day</p>
-
-<p>print
-(sec_in_day)</p>
-
-<p><br>
-<br>
-</p>
+print(sec_in_day)
+</textarea></div>
 
 <p>They would very
 likely know exactly what was going on in.</p>
@@ -196,15 +171,17 @@ determine the number of seconds in a month (assuming a 30 day month),
 we can just multiply the number of seconds in a day by 30 – and we
 can give the result its own variable:</p>
 
-<p style="margin-left: 0.5in;">sec_in_month
-= sec_in_day * 30 </p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_month = sec_in_day * 30
+</textarea></div>
 
 <p>To determine the
 number of seconds in a year, we can multiply the number of seconds in
 a day by 365:</p>
 
-<p style="margin-left: 0.5in;">sec_in_year
-= sec_in_day * 365 </p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_year = sec_in_day * 365
+</textarea></div>
 
 <p>As you can see, but
 using variables to hold our first calculations, we make it easier to
@@ -216,10 +193,12 @@ understand.</p>
 together, and create a program that will calculate the number of
 seconds in a day, month and year, and print out the results:</p>
 
-<p><img src="img/Projects%20Guide%20-%20061115-2_html_70568b2c.png" align="bottom" border="0" height="167" width="612"></p>
+<div class="output">
+<div> </div>
+<pre>946080000
+</pre></div>
 
-<p>The real benefit is
-that variables can change throughout a program…</p>
+<p>The real benefit is that variables can change throughout a program…</p>
 
 <p>The final benefit of
 using variables is that, if a variable needs to change, we can change
@@ -228,8 +207,9 @@ different places. For example, if scientists decided tomorrow that
 there should actually be 61 seconds in a minute, we could change our
 first line of code to:</p>
 
-<p style="margin-left: 0.5in;">sec_in_minute
-= 61 </p>
+<div class="code" data-firstline="0"><div></div><textarea>
+sec_in_minute = 61
+</textarea></div>
 
 <p>And all of our code
 would now continue to make accurate calculations. If we wouldn’t
