@@ -1,21 +1,92 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>FOR LOOPS</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>FOR LOOPS</title>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 
-<H1>FOR LOOPS</H1>
-<P>Discuss FOR loops</P>
-<P>Programming project
-using FOR loops</P>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>FOR LOOPS</h1>
+<p>We've already discussed how <span style="font-family: Courier New,Courier,monospace;">while</span>
+loops can be used to cycle through code an indefinite (or even an
+infinite) number of times. &nbsp;But, what about when you only want
+to cycle though a piece of code a specific number of times?
+&nbsp;For that, we can use another type of loop called <span style="font-family: Courier New,Courier,monospace;">for</span>
+loop.</p>
+<p><span style="font-family: Courier New,Courier,monospace;">for
+</span>loops allow you to cycle through a range of numbers, a
+list of items or even through a string. &nbsp;As an example, a <span style="font-family: Courier New,Courier,monospace;">for</span>
+loop can be used to simply iterate through a range of numbers, and
+execute a statement (or set of statements) on each iteration:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+for x in range(1, 5)
+print("This is time #", x, "through the loop.")
+</textarea></div>
+<br>
+<p>If you ran that code, the output would be:</p>
+<p></p>
+<div class="output">
+<div></div>
+<pre>This is time # 1 through the loop.<br>This is time # 2 through the loop.<br>This is time # 3 through the loop.<br>This is time # 4 through the loop.<br>This is time # 5 through the loop.<br></pre>
+</div>
+<br>
+<p>Essentially, the code ran through the code block 5 times, and
+with each time through the loop, the loop variable (x) was set to the
+current range value (1, 2, 3...). &nbsp; There is no reason the
+range needed to run from 1 to 5; it could have just as easily run from
+10 to 20. &nbsp;Or even from 20 to 10!<br>
+<br>
+Here is another example:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+print("The countdown has begun...")for x in range(5, 1)
+print(x)
+print("BLAST OFF!!!")
+</textarea></div>
+<br>
+<p>The output from this code would be:</p>
+<br>
+<div class="output">
+<div></div>
+<pre>The countdown has begun...<br>5<br>4<br>3<br>2<br>1<br>BLAST OFF!!!<br><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre>
+</div>
+<p>We can also use for loops to iterate through the items in a
+list. &nbsp;Here's the example list we saw earlier -- a list of the
+first five months of the year:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+months = ["January", "February", "March", "April", "May"]
+</textarea></div>
+<br>
+<p>We can use a for loop to iterate through each item in that
+list and do what we want with it. &nbsp;As a simple example, we can
+print each item and also the number of letters it has:</p>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+months = ["January", "February", "March", "April", "May"]
+for j in months:
+print j, len(j)
+</textarea></div>
+<br>
+<p>Here's the output from that code:</p>
+<br>
+<div class="output">
+<div></div>
+<pre>January 7<br>February 8<br>March 5<br>April 5<br>May 3<br><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre>
+</div>
+<br>
+<span style="font-family: &quot;Verdana&quot;,serif;"></span>
 </body></html>
-	
