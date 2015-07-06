@@ -39,12 +39,10 @@ circuits wired.<span style="">&nbsp; </span>If
 you have any
 questions about how to wire either of these two circuits, refer back to
 the projects referenced above.<o:p></o:p></p>
-<p class="MsoNormal"><i style=""><span style="font-weight: bold;">BRI - INSERT
-FRITZING
-DIAGRAM INDICATING THE TWO CIRCUITS</span><o:p></o:p></i></p>
+<img class=bb src="img/Flashlight_bb.png">
 <p class="MsoNormal">You’ll notice that our button is
-wired to GPIO14 and our LED
-is wired to GPIO18.<span style="">&nbsp; </span><o:p></o:p></p>
+wired to GPIO18 and our LED
+is wired to GPIO14.<span style="">&nbsp; </span><o:p></o:p></p>
 <p class="MsoNormal">Now that we have the circuits built
 and ready to go, it’s
 time to write our software.<span style="">&nbsp; </span>For
@@ -71,8 +69,8 @@ this:</p><p class="MsoNormal"><o:p></o:p></p>
 <textarea>from rstem.button import Button
 from rstem.gpio import Output
 
-my_button = Button(14)
-my_led = Output(18)
+my_button = Button(18)
+my_led = Output(14)
 
 if my_button.is_pressed():
     my_led.on()
@@ -121,8 +119,8 @@ or off) in a <span style="font-family: Courier New,Courier,monospace;">while Tru
 <textarea>from rstem.button import Button
 from rstem.gpio import Output
 
-my_button = Button(14)
-my_led = Output(18)
+my_button = Button(18)
+my_led = Output(14)
 
 while True:
     if my_button.is_pressed():
