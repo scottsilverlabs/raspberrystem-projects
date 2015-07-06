@@ -220,11 +220,17 @@ provides a simple and efficient way to draw&nbsp;graphics.</p>
 </div></div>
 <p></p>
 <p>Here is the basic code we'll use to initialize our LED Matrix and draw a single dot to it:</p>
-<pre><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;"><br></span></span></span><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;"></span></span></span></pre>INSERT CODE BLOCK<br><pre><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;"></span></span></span><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">from rstem.led_matrix import FrameBuffer<br>fb = FrameBuffer()</span></span></span></pre>
-<pre><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">x, y = (3, 3)</span></span></span></pre>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.led_matrix import FrameBuffer
+fb = FrameBuffer()
+x, y = (3, 3)
+fb.erase()
+fb.point(x,y)
+fb.show()
+</textarea></div>
 
 
-<pre><span style="text-decoration: none;"><span style="font-style: normal;"><span style="font-weight: normal;">fb.erase()<br>fb.point(x,y)<br>fb.show()</span></span></span></pre>
+
 <br>
 <p>Let's take a look at what our code is doing:</p>
 <ul><li>
