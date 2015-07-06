@@ -12,7 +12,8 @@
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>MANY BUTTONS</h1>
-<p>Requires Lists and FOR Loops</p><p>In General Purpose Input Output
+<p>Note: Requires Lists and FOR Loops</p>
+<p>In General Purpose Input Output
 and Using Buttons With GPIO, we introduced the concept of controlling
 and monitoring the state of a component (LEDs and buttons) using GPIOs
 as inputs/outputs. &nbsp;In the gaming world, this concept gets more
@@ -29,31 +30,30 @@ we're going to handle the input from those buttons using a list,
 instead of trying to manage input from each button individually.
 &nbsp;While this project will focus on buttons, the concept of
 monitoring inputs and controlling outputs using lists and loops can be
-applied to pretty much any component.</p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Hardware
-Implementation</span></h2>
-<p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring four buttons to four different GPIOs is no different than wiring a single button </span></span>to a GPIO and then replicating that circuit four times. &nbsp;Give it a try!</p><p>Here is what your breadboard should look like assuming you've chosen to use GPIOxx, GPIOxx, GPIOxx and GPIOxx for your buttons:</p><p>INSERT PIC</p><p></p><h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming
-Implementation</span></h2>
+applied to pretty much any component.</p>
+<h2>Hardware Implementation</h2>
+<p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
+four buttons to four different GPIOs is no different than wiring a single button </span></span>to
+a GPIO and then replicating that circuit four times. &nbsp;Give it a try!</p><p>Here is what your
+breadboard should look like assuming you've chosen to use GPIO14, GPIO15, GPIO25 and GPIO7 for your buttons:</p>
+<img class=bb src="img/Many_Buttons_bb.png">
+<h2>Programming Implementation</h2>
 <p class="MsoNormal">
 
-For this project, we're simply going to create a list of buttons and then use a <span style="font-family: Courier New,Courier,monospace;">for</span> loop to cycle through the list and determine which buttons are current being pressed.</p><p class="MsoNormal">Here is what that code will look like:</p><p class="MsoNormal">CREATE CODE BLOCK</p>
+For this project, we're simply going to create a list of buttons and then use a <span style="font-family: Courier New,Courier,monospace;">for</span> loop to cycle through the list and determine which buttons are current being pressed.</p><p class="MsoNormal">Here is what that code will look like:</p>
+<div class="code" data-firstline="1"><div></div><textarea>
+from rstem.button import Button
+import time
 
+my_buttons = [Button(14), Button(15), Button(16), Button(17)]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<pre>from rstem.button import Button<o:p></o:p><br>import time<o:p></o:p><br><br>my_buttons = [Button(14), Button(15), Button(16), Button(17)]<o:p></o:p><br><br>while True:<o:p></o:p><span style=""><br>	</span>for&nbsp;button in my_buttons:<o:p></o:p><span style=""><br>		</span>if button.is_pressed():<o:p></o:p><span style=""></span><br>			print("Button connected to GPIO", button.pin, "is pressed")<o:p></o:p><span style=""><br><br>	</span>time.sleep(0.1)<o:p></o:p></pre>
-
-<span style="font-family: monospace;"><br></span><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"></span></span><p>Let's look at this code in more detail:</p><ul><li>
+while True:
+	for button in my_buttons:
+		if button.is_pressed():
+			print("Button connected to GPIO", button.pin, "is pressed")
+	time.sleep(0.1)
+</textarea></div>
+<p>Let's look at this code in more detail:</p><ul><li>
 <p>On Line 1, we import the module we will need to initialize our buttons</p>
 </li><li>
 <p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
