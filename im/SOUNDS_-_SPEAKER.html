@@ -19,6 +19,19 @@
 speaker and speaker library</P>
 <P>Project:  Make noise
 from speaker</P>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.sound import Note
+note = Note('A')
+note.play() # by default, notes play for one second
+note.wait()
+</textarea></div>
+or:
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.sound import Note
+note = Note('A')
+note.play(duration=0.5)
+note.wait()
+</textarea></div>
 	<p class=nextprev><a href="MANY_BUTTONS.html">prev</a>|
 <a href="MARY_HAD_A_LITTLE_LAMB.html">next</a></p>
 </body></html>

@@ -22,26 +22,27 @@ Piano</P>
 		Play while key is held down.</P>
 		<LI><P>
 		If key is released, stop playing</P>
-		<LI><P>
-		code</P>
-		<UL>
-			<LI><P>
-			if button.is_pressed():</P>
-			<UL>
-				<LI><P>
-				note.play()</P>
-			</UL>
-			<LI><P>
-			else:</P>
-			<UL>
-				<LI><P>
-				note.stop()</P>
-			</UL>
-		</UL>
 	</UL>
 </OL>
 <P><BR><BR>
 </P>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.button import Button
+from rstem.sound import Note
+import time
+
+buttons = [Button(14), Button(15), Button(25), Button(7)]
+notes = [Note('A'), Note('B'), Note('C'), Note('D')]
+
+while True:
+	for button, note in zip(buttons, notes):
+		if button.is_pressed():
+			if not note.is_playing():
+				note.play(duration=None)
+		else:
+			note.stop()
+	time.sleep(0.01)
+</textarea></div>
 	<p class=nextprev><a href="SIMPLE_PIANO.html">prev</a>|
 <a href="WALKABLE_PIANO.html">next</a></p>
 </body></html>

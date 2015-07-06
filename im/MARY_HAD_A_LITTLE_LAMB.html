@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>WALKABLE PIANO</TITLE>
+	<TITLE>MARY HAD A LITTLE LAMB</TITLE>
     <link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
@@ -13,35 +13,41 @@
 
 <BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
 
-<H1>BETTER PIANO</H1>
-<P>Project:  Better
-Piano</P>
-<OL>
-	<UL>
-		<LI><P>
-		Play while key is held down.</P>
-		<LI><P>
-		If key is released, stop playing</P>
-		<LI><P>
-		code</P>
-		<UL>
-			<LI><P>
-			if button.is_pressed():</P>
-			<UL>
-				<LI><P>
-				note.play()</P>
-			</UL>
-			<LI><P>
-			else:</P>
-			<UL>
-				<LI><P>
-				note.stop()</P>
-			</UL>
-		</UL>
-	</UL>
-</OL>
-<P><BR><BR>
-</P>
+<H1>MARY HAD A LITTLE LAMB</H1>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.sound import Note
+song = [
+    Note('E'),
+    Note('D'),
+    Note('C'),
+    Note('D'),
+    Note('E'),
+    Note('E'),
+    Note('E'),
+    Note('D'),
+    Note('D'),
+    Note('D'),
+    Note('E'),
+    Note('E'),
+    Note('E'),
+    Note('E'),
+    Note('D'),
+    Note('C'),
+    Note('D'),
+    Note('E'),
+    Note('E'),
+    Note('E'),
+    Note('E'),
+    Note('D'),
+    Note('D'),
+    Note('E'),
+    Note('D'),
+    Note('C')
+    ]
+for note in song:
+    note.play(duration=0.5)
+    note.wait()
+</textarea></div>
 	<p class=nextprev><a href="SOUNDS_-_SPEAKER.html">prev</a>|
 <a href="SIMPLE_PIANO.html">next</a></p>
 </body></html>
