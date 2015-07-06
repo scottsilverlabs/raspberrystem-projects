@@ -18,108 +18,48 @@
 <p>In our last project, we learned how to create a random sequence of
 LED flashes. &nbsp;Now that we have our flashing going, let's add in
 the use of the buttons as input.. &nbsp;</p><span style="font-family: &quot;Verdana&quot;,serif;">...<br><br><br></span><h2>Programming Implementation</h2><p>...</p>
-<p>from
-rstem.button import Button</p>
-<p>...</p>
-<p>buttons
-= [Button(27), Button(23), Button(24), Button(22)]</p>
-<p>...</p>
-<p>failed
-= False</p>
-<p>while
-not failed:</p>
-<p>...</p>
-<p>&nbsp;&nbsp;&nbsp;#
-Play sequence</p>
-<p>&nbsp;&nbsp;&nbsp;....</p>
-<p><br><br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;#
-Wait for user to repeat</p>
-<p>&nbsp;&nbsp;&nbsp;for
-i in play_order:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_pressed
-= Button.wait_many(buttons, timeout=3)</p>
-<p><br><br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if
-button_pressed != i:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failed
-= True</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p>
-<p><br><br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
-Light and play while button is pressed.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button_pressed].wait(press=False)</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(0.2)</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].off()</p>
-<p><br><br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;if
-not failed:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1.0)</p>
-<br><p></p><p>Simon:
-random sequence playing forever</p>
-<ol start="4"><ul><li><p>New
-		code</p>
-	</li></ul></ol>
-<p>…</p>
-<p>from
-random import randrange</p>
-<p>…</p>
-<p>play_order
-= []</p>
-<p>failed
-= False</p>
-<p>while
-not failed:</p>
-<p>play_order
-+= [randrange(4)]</p>
-<p><br><br>
-</p>
-<p>#
-Play sequence</p>
-<p>...</p>
-<p>&nbsp;&nbsp;&nbsp;time.sleep(1.0)</p>
-&nbsp; <br><h2>Executing Your Code</h2><br><br><br><p>............................</p><p>Simon:
-Music to your ears</p>
-<ol start="6">
-	<ul>
-		<li><p>New
-		code:</p>
-	</li></ul>
-</ol>
-<p>...</p>
-<p>from
-rstem.sound import Note</p>
-<p>...</p>
-<p>notes
-= [Note('A'), Note('B'), Note('C'), Note('D')]</p>
-<p>...</p>
-<p>while
-not failed:</p>
-<p>&nbsp;&nbsp;&nbsp;#
-Play sequence</p>
-<p>&nbsp;&nbsp;&nbsp;for
-i in play_order:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[i].play(0.4).wait()</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
-<p><br><br>
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
-Light and play while button is pressed.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].on()</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[button_pressed].play(duration=None)</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button_pressed].wait(press=False)</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(0.2)</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lights[button_pressed].off()</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notes[button_pressed].stop()</p>
-<p>&nbsp;&nbsp;&nbsp;...</p>
-<p><br><br>
-</p>
+&nbsp; <br><h2>Executing Your Code</h2>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.button import Button
+from rstem.gpio import Output
+from random import randrange
+import time
+
+buttons = [Button(27), Button(23), Button(24), Button(22)]
+lights = [Output(4), Output(18), Output(14), Output(15)]
+
+for light in lights:
+    light.off()
+
+play_order = []
+failed = False
+while not failed:
+    play_order += [randrange(4)]
+
+    # Play sequence
+    for i in play_order:
+        lights[i].on()
+        time.sleep(0.4)
+        lights[i].off()
+        time.sleep(0.2)
+
+    # Wait for user to repeat
+    for i in play_order:
+        button_pressed = Button.wait_many(buttons, timeout=3)
+
+        if button_pressed != i:
+            failed = True
+            break
+
+        # Light and play while button is pressed.
+        lights[button_pressed].on()
+        buttons[button_pressed].wait(press=False)
+        time.sleep(0.2)
+        lights[button_pressed].off()
+
+    if not failed:
+        time.sleep(1.0)
+</textarea></div>
 	<p class=nextprev><a href="SIMON_5.html">prev</a>|
 <a href="SIMON_7.html">next</a></p>
 </body></html>

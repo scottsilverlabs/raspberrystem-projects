@@ -33,23 +33,27 @@ flash at the end. &nbsp;If you incorrectly repeat the sequence -- of if
 you take too long between button presses -- the game ends.</p><p>To start programming our game, the first thing we want to do is learn how to flash a sequence of LEDs.
 &nbsp;For this project, we'll use a planned sequence of LED flashes.
 &nbsp;For the next project, we'll expand on that by making the flashing
-sequence random.</p><br><h2>Programming Implementation</h2><p>Simon:
-Flash in a sequence</p>
-<ol start="3"><ul><li><p>New
-		code (instead of turning on and off)</p>
-	</li></ul></ol>
-<p>play_order
-= [2, 3, 1, 0, 2, 2, 3]</p>
-<p><br><br>
-</p>
-<p>#
-Play sequence</p>
-<p>for
-i in play_order:</p>
-<p>lights[i].on()</p>
-<p>time.sleep(0.4)</p>
-<p>lights[i].off()</p>
-<p>time.sleep(0.2)</p><h2></h2><h2>Executing Your Code</h2><p>&nbsp;</p>
+sequence random.</p><br><h2>Programming Implementation</h2><p>
+</p><h2></h2><h2>Executing Your Code</h2><p>&nbsp;</p>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.gpio import Output
+import time
+
+lights = [Output(4), Output(18), Output(14), Output(15)]
+
+for light in lights:
+    light.off()
+
+play_order = [2, 3, 1, 0, 2, 2, 3]
+
+# Play sequence
+for i in play_order:
+    lights[i].on()
+    time.sleep(0.4)
+    lights[i].off()
+    time.sleep(0.2)
+
+</textarea></div>
 	<p class=nextprev><a href="SIMON_3.html">prev</a>|
 <a href="SIMON_5.html">next</a></p>
 </body></html>
