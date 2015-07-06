@@ -28,7 +28,7 @@ execute a statement (or set of statements) on each iteration:</p>
 <div></div>
 <textarea>
 for x in range(1, 5)
-print("This is time #", x, "through the loop.")
+    print("This is time #", x, "through the loop.")
 </textarea></div>
 <br>
 <p>If you ran that code, the output would be:</p>
@@ -42,15 +42,19 @@ print("This is time #", x, "through the loop.")
 with each time through the loop, the loop variable (x) was set to the
 current range value (1, 2, 3...). &nbsp; There is no reason the
 range needed to run from 1 to 5; it could have just as easily run from
-10 to 20. &nbsp;Or even from 20 to 10!<br>
+10 to 20. <!-- Or even from 20 to 10! --><br>
 <br>
 Here is another example:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print("The countdown has begun...")for x in range(5, 1)
-print(x)
+import time
+
+print("The countdown has begun...")
+for x in range(5, 1):
+    print(x)
+    time.sleep(1)
 print("BLAST OFF!!!")
 </textarea></div>
 <br>
@@ -77,8 +81,8 @@ print each item and also the number of letters it has:</p>
 <div></div>
 <textarea>
 months = ["January", "February", "March", "April", "May"]
-for j in months:
-print j, len(j)
+for month in months:
+    print(month, len(month))
 </textarea></div>
 <br>
 <p>Here's the output from that code:</p>
