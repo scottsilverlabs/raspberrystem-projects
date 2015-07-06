@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>ACCELEROMETER</h1>
 <p>Do you have smart phone or an iPad that switches the screen
@@ -29,30 +28,37 @@ and/or the vector (speed and direction) of movement at a given time.
 &nbsp;I know that might sound a little confusing, but follow along
 and you'll see what we mean.</p>
 <p>Your Accelerometer RaspberrySTEM Cell contains a single part
--- the accelerometer circuit board -- that looks like this:</p>
+-- the accelerometer circuit board -- that looks like this (from the top):</p><p></p>
+<div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"><br></div>
 <br>
-<br>
-<h2>How the Accelerometer Works</h2>
+
 <h2>Wiring Your Accelerometer</h2>
 <p>Let's wire up your accelerometer and write some code to get it
 working...</p>
 <p style="font-weight: bold;">Step #1: &nbsp;Place the
 accelerometer on the breadboard<br>
 </p>
-<p>...</p>
+<p>The accelerometer has six pins coming from the bottom of it.
+&nbsp;It should be inserted into the breadboard such that each pin sits
+in a different connect strip, and you should ensure that at least one
+other hole is usable in each connect strip where the accelerometer sits.</p><p> &nbsp;</p>
 <p style="font-weight: bold;">Step #2: &nbsp;Attach
 power and ground</p>
-<p>...</p>
+<p>To wire the accelerometer, the first thing you'll need to do is to
+run a wire from VCC on the accelerometer to 3.3V power somewhere on the
+breadboard. &nbsp;Next, run a wire from GND on the accelerometer to GND
+somewhere on the breadboard.</p><p></p>
 <p style="font-weight: bold;">Step #3: &nbsp;Attach
 SDA pin to the connector board</p>
-<p>...</p>
+<p>Next, you'll need to attach a wire from the connect strip attached
+to the SDA pin on the accelerometer to the SDA pin on the connector
+board.</p><p></p>
 <p style="font-weight: bold;">Step #4: &nbsp;Attach
 SCL pin to the connector board</p>
-<p>...</p>
-<p></p>
-<h2>Testing Your Accelerometer</h2>
-<p>Now let's write some code to test your accelerometer and see
-how it works:</p>
+<p>Finally, you'll attach&nbsp;a wire from the connect strip attached to the SCL pin on the accelerometer to the SCL pin on the connector board.</p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img style="width: 1012px; height: 721px;" alt="" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
+<p>Let's write some code to test your accelerometer and see
+how it works:</p><p></p>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.accel import Accel
@@ -79,7 +85,7 @@ repetition of the loop down a bit</p>
 <p>On Line 4, we initialize our accelerometer. &nbsp;We
 call the <span style="font-family: Courier New,Courier,monospace;">Accel()</span>
 function, which returns an "accelerometer object" to our <span style="font-family: Courier New,Courier,monospace;">accel </span>variable.
-&nbsp;We talked about that a bit in <span style="font-style: italic; text-decoration: underline;">Variables...</span>,
+&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp; Assignments</a>,
 but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">accel</span>
 to call other accelerometer functions.</p>
 </li>
@@ -108,15 +114,19 @@ immediately see is that your Output Window starts filling up with
 numbers. &nbsp;These numbers -- three per line -- indicate the
 relative
 movement of the RaspberrySTEM (specifically, the accelerometer we wired
-on the breadboard). &nbsp;The first number indicates the<br>
+on the breadboard), as follows:</p><ul><li><p>The
+first number indicates the left/right tilt of the RaspberrySTEM -- if
+you tilt to the left, the number increases towards 1 and if you tilt to
+the right, the number decreases towards -1.</p></li><li><p>The second number indicates the front/back tilt of the accelerometer -- if you tilt backwards, the number increases towards 1 and if you tilt forwards, the number decreases towards -1.</p></li><li><p>The
+third number indicates the up/down movement of the accelerometer -- if
+you move it upwards, the number increases towards 1 and if you move it
+downwards, the number decreases towards -1.</p></li></ul><p>Play around
+with the RaspberrySTEM and try to get a feel for how different
+movements and rotations affect the numbers on the screen. &nbsp;In
+future projects, we'll be using this functionality to turn the
+RaspberrySTEM into a game controller.</p>
+
 <br>
-If you
-move tilt, pan and rotate the RaspberrySTEM, you'll notice that the
-numbers being printed to the screen continue to change, with all the
-numbers generally between -1 and 1.</p>
-<br>
-<br>
-	<p class=nextprev><a href="BOUNCING_BALL_3.html">prev</a>|
+	<p class="nextprev"><a href="BOUNCING_BALL_3.html">prev</a>|
 <a href="BALANCING_DOT_1.html">next</a></p>
 </body></html>
-
