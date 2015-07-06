@@ -68,7 +68,7 @@ name and a birth year parameters, it might look like this:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-def print_info(name, birth_year):&lt;/p&gt;
+def print_info(name, birth_year):
 </textarea></div>
 <p>“name” and “year” are now variables that we set when we call
 the function,
@@ -76,9 +76,9 @@ and those variables can be used within that function: </p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-def print_info(name, birth_year):&lt;/p&gt;
-print(‘My name is: ’, name)
-print(‘I was born in: ’, birth_year)
+def print_info(name, birth_year):
+    print('My name is: ', name)
+    print('I was born in: ', birth_year)
 </textarea></div>
 <p>Now, when we call
 the print_info function, we will always supply two parameters to the
@@ -89,7 +89,7 @@ his information to the function like this:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print_info(“Bob”, 1992)
+print_info('Bob', 1992)
 </textarea></div>
 <p>Notice that we put
 quotation marks around “Bob” to make it a string (as you would
@@ -103,7 +103,7 @@ want to print her information as well:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print_info(“Susie”, 1985)
+print_info('Susie', 1985)
 </textarea></div>
 <p>Now, let’s put it
 all together, and see what our code would look like if we had this
@@ -113,10 +113,10 @@ Bob’s information and once to print Susie’s information:</p>
 <div></div>
 <textarea>
 def print_info (name, birth_year):
-print(‘My name is:&nbsp;’ name)
-print(‘I was born in:&nbsp;’ birth_year)
-print_info(“Bob”, 1992)
-print_info(“Susie”, 1985)
+    print('My name is: ', name)
+    print('I was born in: ', birth_year)
+    print_info('Bob', 1992)
+    print_info('Susie', 1985)
 </textarea></div>
 <p>You may have noticed
 that this example is very similar to our cell phone example above. The
