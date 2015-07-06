@@ -2,7 +2,6 @@
 <html><head>
 <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 1</title>
 
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
@@ -25,9 +24,8 @@ the Accel() function and then initializing the accelerometer:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>#Import required functions/modules
+<textarea>
 rstem.accel import Accel
-# Initialize the accelerometer
 accel = Accel()
 </textarea></div>
 <p>We also need to create and define two other variables that
@@ -85,68 +83,60 @@ x_force, y_force, z_force = accel.forces()
 <p></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>#Draw the spaceship
+<textarea># Draw the spaceship
 if x_force &gt; TILT_FORCE:
-spaceship_position -= SPACESHIP_STEP
+    spaceship_position -= SPACESHIP_STEP
 elif x_force &lt; -TILT_FORCE:
-spaceship_position += SPACESHIP_STEP&lt;/p&gt;
-spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+    spaceship_position += SPACESHIP_STEP&lt;/p&gt;
+    spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 </textarea></div>
 <p></p>
 <p>Add accelerometer to
 move the spaceship:</p>
-<p>from
-rstem.accel import Accel</p>
-<p>...</p>
-<p>accel
-= Accel()</p>
-<p>TILT_FORCE
-= 0.1</p>
-<p>SPACESHIP_STEP
-= 0.1</p>
-<p><br>
-</p>
-<p>while
-True:</p>
-<p> #
-########################################</p>
-<p> #
-Get inputs</p>
-<p> #
-########################################</p>
-<p> x_force,
-y_force, z_force = accel.forces()</p>
-<p><br>
-</p>
-<p> #
-########################################</p>
-<p> #
-Change the World</p>
-<p> #
-########################################</p>
-<p><br>
-</p>
-<p> #
-Move spaceship</p>
-<p> if
-x_force &gt; TILT_FORCE:</p>
-<p> spaceship_position
--= SPACESHIP_STEP</p>
-<p> elif
-x_force &lt; -TILT_FORCE:</p>
-<p> spaceship_position
-+= SPACESHIP_STEP</p>
-<p> spaceship_position
-= max(0, min(fb.width - 1, spaceship_position))</p>
-<p><br>
-</p>
-<p> #
-########################################</p>
-<p> #
-Show world</p>
-<p> #
-########################################</p>
-<p> ...</p>
+<p>Full project:</p>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.accel import Accel
+from rstem.led_matrix import FrameBuffer
+import time
+
+fb = FrameBuffer()
+accel = Accel()
+
+spaceship_position = fb.width / 2
+
+TILT_FORCE = 0.1
+SPACESHIP_STEP = 0.1
+
+while True:
+    # ########################################
+    # Get inputs
+    # ########################################
+    x_force, y_force, z_force = accel.forces()
+
+    # ########################################
+    # Change the World
+    # ########################################
+
+    # Move spaceship
+    if x_force > TILT_FORCE:
+        spaceship_position -= SPACESHIP_STEP
+    elif x_force < -TILT_FORCE:
+        spaceship_position += SPACESHIP_STEP
+    spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+
+    # ########################################
+    # Show world
+    # ########################################
+
+    fb.erase()
+
+    # Draw spaceship
+    fb.point(round(spaceship_position), 0)
+
+    # Show FrameBuffer on LED Matrix
+    fb.show()
+    time.sleep(0.001)
+</textarea></div>
 	<p class=nextprev><a href="SPACE_INVADERS_2.html">prev</a>|
 <a href="SPACE_INVADERS_4.html">next</a></p>
 </body></html>
