@@ -1,31 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>MANY BUTTONS</title><link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>MANY BUTTONS</title>
 
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>MANY BUTTONS</h1>
 <p>Note: Requires Lists and FOR Loops</p>
 <p>In General Purpose Input Output
 and Using Buttons With GPIO, we introduced the concept of controlling
 and monitoring the state of a component (LEDs and buttons) using GPIOs
-as inputs/outputs. &nbsp;In the gaming world, this concept gets more
+as inputs/outputs. &nbsp;In the gaming world, this concept gets
+more
 useful -- and interesting -- as we add more components.
-&nbsp;Unfortunately, it can also get tricky to manage inputs from, and
+&nbsp;Unfortunately, it can also get tricky to manage inputs from,
+and
 outputs to, lots of different components. &nbsp;Which is why it's
 important to learn how to use lists to manage sets of similar
-components. &nbsp;We also will often use loops along with those lists
+components. &nbsp;We also will often use loops along with those
+lists
 to efficiently handle the information flowing to and from those
-components.</p><p>In this project, we're going to wire four buttons to
-four different GPIOs. &nbsp;Based on the projects we've already done,
-it shouldn't be too difficult to create the circuit. &nbsp;But, then
+components.</p>
+<p>In this project, we're going to wire four buttons to
+four different GPIOs. &nbsp;Based on the projects we've already
+done,
+it shouldn't be too difficult to create the circuit. &nbsp;But,
+then
 we're going to handle the input from those buttons using a list,
 instead of trying to manage input from each button individually.
 &nbsp;While this project will focus on buttons, the concept of
@@ -33,53 +38,97 @@ monitoring inputs and controlling outputs using lists and loops can be
 applied to pretty much any component.</p>
 <h2>Hardware Implementation</h2>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
-four buttons to four different GPIOs is no different than wiring a single button </span></span>to
-a GPIO and then replicating that circuit four times. &nbsp;Give it a try!</p><p>Here is what your
-breadboard should look like assuming you've chosen to use GPIO14, GPIO15, GPIO25 and GPIO7 for your buttons:</p>
-<img class=bb src="img/Many_Buttons_bb.png">
+four buttons to four different GPIOs is no different than wiring a
+single button </span></span>to
+a GPIO and then replicating that circuit four times. &nbsp;Give it
+a try!</p>
+<p>Here is what your
+breadboard should look like assuming you've chosen to use GPIO14,
+GPIO15, GPIO25 and GPIO7 for your buttons:</p>
+<img class="bb" src="img/Many_Buttons_bb.png">
 <h2>Programming Implementation</h2>
 <p class="MsoNormal">
-
-For this project, we're simply going to create a list of buttons and then use a <span style="font-family: Courier New,Courier,monospace;">for</span> loop to cycle through the list and determine which buttons are current being pressed.</p><p class="MsoNormal">Here is what that code will look like:</p>
-<div class="code" data-firstline="1"><div></div><textarea>
-from rstem.button import Button
+For this project, we're simply going to create a list of buttons and
+then use a <span style="font-family: Courier New,Courier,monospace;">for</span>
+loop to cycle through the list and determine which buttons are current
+being pressed.</p>
+<p class="MsoNormal">Here is what that code will look like:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.button import Button
 import time
-
-my_buttons = [Button(14), Button(15), Button(16), Button(17)]
-
-while True:
-	for button in my_buttons:
-		if button.is_pressed():
-			print("Button connected to GPIO", button.pin, "is pressed")
-	time.sleep(0.1)
+my_buttons = [Button(14), Button(15), Button(25), Button(7)]
+while True: for button in my_buttons: if button.is_pressed():
+print("Button connected to GPIO", button.pin, "is pressed")
+time.sleep(0.1)
 </textarea></div>
-<p>Let's look at this code in more detail:</p><ul><li>
-<p>On Line 1, we import the module we will need to initialize our buttons</p>
-</li><li>
+<p>Let's look at this code in more detail:</p>
+<ul>
+<li>
+<p>On Line 1, we import the module we will need to initialize
+our buttons</p>
+</li>
+<li>
 <p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
 module, as we're going to be using a loop and will want to slow the
 repetition of the loop down a bit</p>
-</li><li>
-<p>On Line 4, we create a list&nbsp;called buttons that contains the
-initialization for each of the four buttons we've created. &nbsp;For
+</li>
+<li>
+<p>On Line 4, we create a list&nbsp;called buttons that
+contains the
+initialization for each of the four buttons we've created.
+&nbsp;For
 each button in the list, we call the Button() function, which returns a
 "button object" for each item in the my_buttons<span style="font-family: Courier New,Courier,monospace;"> </span>variable.
-&nbsp;We talked about that a bit in <span style="font-style: italic; text-decoration: underline;">Variables...</span>,
-but the important thing to understand is that we can use these objects to access Button() funtions and attributes</p></li><li><p>On Line 6, we start a loop (this is where we'll spend all
+&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp;
+Assignments</a>,
+but the important thing to understand is that we can use these objects
+to access Button() funtions and attributes</p>
+</li>
+<li>
+<p>On Line 6, we start a loop (this is where we'll spend all
 of our time once we run the program)</p>
-</li><li>
-<p>On Line 7, we create a <span style="font-family: Courier New,Courier,monospace;">for</span> loop that we use to cycle through the items in the <span style="font-family: Courier New,Courier,monospace;">my_buttons</span> list</p></li><li>
-<p>On Line 8, we check to see if the next button in our list is currently being pressed</p></li><li><p>On Line 9, if the button we observed in Line 8 was being pressed, we send that information to the Output Window</p></li><li><p>Lines 7-9 will loop for each of the buttons in the list <span style="font-family: Courier New,Courier,monospace;">my_buttons</span></p></li><li><p>On
+</li>
+<li>
+<p>On Line 7, we create a <span style="font-family: Courier New,Courier,monospace;">for</span>
+loop that we use to cycle through the items in the <span style="font-family: Courier New,Courier,monospace;">my_buttons</span>
+list</p>
+</li>
+<li>
+<p>On Line 8, we check to see if the next button in our list
+is currently being pressed</p>
+</li>
+<li>
+<p>On Line 9, if the button we observed in Line 8 was being
+pressed, we send that information to the Output Window</p>
+</li>
+<li>
+<p>Lines 7-9 will loop for each of the buttons in the list <span style="font-family: Courier New,Courier,monospace;">my_buttons</span></p>
+</li>
+<li>
+<p>On
 Line 10, we pause briefly (so we don't hog the processor) and then
-return to the top of the <span style="font-family: Courier New,Courier,monospace;">while</span> loop to check our buttons again</p></li></ul><p>By
+return to the top of the <span style="font-family: Courier New,Courier,monospace;">while</span>
+loop to check our buttons again</p>
+</li>
+</ul>
+<p>By
 using lists and loops, we've reduced the amount of code required to
 create and test four buttons from about 20 lines of code down to about
-6 lines of code. &nbsp;While that might not seem significant, imagine
+6 lines of code. &nbsp;While that might not seem significant,
+imagine
 if you were creating something with dozens or hundreds of buttons (like
-a piano keyboard that has 88 keys)? &nbsp;The code to monitor the 88
-keys on a piano keyboard would be no longer than the code you see above.<br><br>When you run this code, you'll see that every time you press a button, that information is sent to the Output Window.<br><br>If
+a piano keyboard that has 88 keys)? &nbsp;The code to monitor the
+88
+keys on a piano keyboard would be no longer than the code you see above.<br>
+<br>
+When you run this code, you'll see that every time you press a button,
+that information is sent to the Output Window.<br>
+<br>
+If
 you want to try a variation of this project, why not try replacing the
 buttons with LEDs, and then rewrite the code to flash the LEDs instead
-of reading the buttons?</p><p class="nextprev"><a href="FLASHLIGHT.html">prev</a>|
+of reading the buttons?</p>
+<p class="nextprev"><a href="FLASHLIGHT.html">prev</a>|
 <a href="SOUNDS_-_SPEAKER.html">next</a></p>
 </body></html>

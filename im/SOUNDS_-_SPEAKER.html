@@ -1,38 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SOUNDS - SPEAKER</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SOUNDS - SPEAKER</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
 
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>SOUNDS-SPEAKER</H1>
-<P>Introduction to
-speaker and speaker library</P>
-<P>Project:  Make noise
-from speaker</P>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.sound import Note
+<h1>SOUNDS-SPEAKER</h1><p><span style="font-family: &quot;Verdana&quot;,serif;">The
+RaspberrySTEM comes with an attached speaker and audio cable, and also
+a library of functions that allow you to play notes, music and sound
+effects. &nbsp;</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;">The
+hardware required to use the speaker is assembled as part of the kit
+assembly, so we can start making noise with just some lines of code...</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span>In
+this project, we're just going to use the basic functionality of the
+sound library to play notes in variable durations. &nbsp;Let's start
+with this code:</p>
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.sound import Note
 note = Note('A')
 note.play() # by default, notes play for one second
 note.wait()
 </textarea></div>
-or:
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.sound import Note
+<br><p>If you run this code, you'll hear a single tone play for one
+second. &nbsp;If you want to change the duration of the note, you can
+set duration in the <span style="font-family: Courier New,Courier,monospace;">play()</span> function, as you see below:</p><br>
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.sound import Note
 note = Note('A')
 note.play(duration=0.5)
 note.wait()
 </textarea></div>
-	<p class=nextprev><a href="MANY_BUTTONS.html">prev</a>|
+	<p class="nextprev"><a href="MANY_BUTTONS.html">prev</a>|
 <a href="MARY_HAD_A_LITTLE_LAMB.html">next</a></p>
 </body></html>
-	
