@@ -73,13 +73,12 @@ GPIO:</p>
 <p style="font-weight: bold;">Step
 #1: &nbsp;Pl<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span>ace
 button on breadboard.<o:p></o:p></p>
-<p class="MsoNormal"><!--Should this be moved back to previous project???-->We
-start by placing a button on
-the breadboard.<span style="">&nbsp; </span>It’s
-important that the
-button is oriented correctly – the two independent sides of the button
+<p class="MsoNormal">
+We start by placing a button on
+the breadboard.  Remember, it is important that the button is oriented correctly -- the two independent sides of the button
 must sit
 on different connect strips, as follows:</p>
+<br>
 <table style="margin: auto; width: 70%;">
 <tbody>
 <tr>
@@ -92,6 +91,7 @@ on different connect strips, as follows:</p>
 </tr>
 </tbody>
 </table>
+<br>
 <p style="text-indent: -0.25in;"><b style=""><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
 </span></span></span></b><b style="">Step
 #2: &nbsp;Wire one side of the button to a GPIO.<o:p></o:p></b></p>
@@ -144,13 +144,16 @@ for as long as the program is running.<span style="">&nbsp;
 <p class="MsoNormal">Here’s what that code would look like:<o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea>
+from rstem.button import Button
 import time
+
 my_button = Button(14)
+
 while True: 
-my_button = Button(14) 
-print(my_button.is_pressed())
-time.sleep(.01)
+    my_button = Button(14) 
+    print(my_button.is_pressed())
+    time.sleep(.01)
 </textarea></div>
 <p class="MsoNormal">Run this program and then alternate
 between pressing and not

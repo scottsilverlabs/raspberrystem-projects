@@ -104,10 +104,20 @@ the rest of the code and the second will test each of the LEDs.</span></p>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming
 Implementation</span></h2><p><span style="font-family: &quot;Verdana&quot;,serif;">To test our LEDs, we'll create a list of LEDs and cycle through turning each of them on and off.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this import
 code should look like:</span></p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.gpio import Output
+<textarea>
+from rstem.gpio import Output
 import time
+
+my_leds = [Output(15), Output(18), Output(23), Output(27)]
+
+for led in my_leds: 
+    my_leds[led].on()
+    time.sleep(.6)
+    my_leds[led].off()
+    time.sleep(.2)
+
 </textarea></div>
 <p></p>
 	<p class="nextprev"><a href="SIMON_1.html">prev</a>|

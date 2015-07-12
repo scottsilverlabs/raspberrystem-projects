@@ -38,10 +38,11 @@ in more detail in our Simon 0 project.</span></p>
 we
 mentioned above, nearly all video games use the game loop format to
 design and build their games. &nbsp;The </span>pseudo-code
-for a typical game loop will look something like this:<o:p></o:p></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
+for a typical game loop will look something like this:</span></p>
+<p></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
 the game environment</span></p>
+<p></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while
 (game not finished):<o:p></o:p></span></p>
@@ -52,6 +53,7 @@ the game environment</span></p>
 <span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style="">
 for some period of time</span></span></p>
+<p></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">Finish &amp; Cleanup</span></span></p>
 <span style=""></span>
@@ -93,7 +95,9 @@ dot&nbsp;</p>
 <div></div>
 <textarea>from rstem.led_matrix import FrameBuffer
 import time
+
 fb = FrameBuffer()
+
 x, y = (1, 1)
 fb.erase()
 fb.point(x, y)
@@ -225,15 +229,30 @@ of
 code should look like:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.led_matrix import FrameBuffer
-import time
+<textarea>
 # Initialize the game environment
+from rstem.led_matrix import FrameBuffer
+import time
+
 fb = FrameBuffer()
 x, y = (1, 1)
 fb.erase()
-while True: # Get user input # Update the game world x += 1 # Draw
-graphics on the screen fb.erase() fb.point(x, y) fb.show() # Wait for
-some period of time time.sleep(.5)
+
+while True: 
+
+    # Get user input 
+
+    # Update the game world 
+    x += 1 
+
+    # Draw graphics on the screen 
+    fb.erase() 
+    fb.point(x, y) 
+    fb.show() 
+
+    # Wait for some period of time 
+    time.sleep(.5)
+
 # Finish &amp; Cleanup
 </textarea></div>
 <p>When you run this code, you should see

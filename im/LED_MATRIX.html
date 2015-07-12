@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>LED MATRIX</h1>
 <p>In this project, we're going to introduce a new component that
@@ -79,7 +78,15 @@ are secured and tightened, you'll need to re-attach the LED Display to
 the circuit board. &nbsp;Holding the circuit board in one hand and the
 LED Display in the other, carefully align the 16 pins on the LED
 Display with the 16 holes on the circuit board. &nbsp;Once the pins and
-holes are aligned, gently press theLED Display into the circuit board, applying equal pressure around the display to avoid damaging it. </p><h2>Power Up the LED Matrix</h2>
+holes are aligned, gently press the LED Display into the circuit board,
+applying equal pressure around the display to avoid damaging it.</p><p><span style="font-weight: bold;">Note:</span>
+&nbsp;There is a specific orientation for the LED display to be mounted
+on the LED Matrix circuit board. &nbsp;You will want to ensure that the
+serial number on the LED display is facing up when the metal pins on
+the LED Matrix circuit board are facing to the left. &nbsp;As another
+check to ensure the display is oriented correctly, the circuit board
+says "Matrix Top" on one side -- the serial number of the LED display
+should be facing this direction. </p><h2>Power Up the LED Matrix</h2>
 <p><span style="font-weight: bold;">Note:</span>
 For the next several projects, we'll be
 introducing new components that will require at least one-third of the
@@ -220,10 +227,14 @@ provides a simple and efficient way to draw&nbsp;graphics.</p>
 </div></div>
 <p></p>
 <p>Here is the basic code we'll use to initialize our LED Matrix and draw a single dot to it:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
+<div class="code" data-firstline="1"> 
+<div></div> 
+<textarea>
 from rstem.led_matrix import FrameBuffer
 fb = FrameBuffer()
+
 x, y = (3, 3)
+
 fb.erase()
 fb.point(x,y)
 fb.show()
@@ -255,6 +266,6 @@ Line 8,&nbsp;we call the framebuffer function <span style="font-family: Courier 
 which displays the framebuffer on the LED Matrix</p></li></ul><p></p><p>When you run this code, you should see a dot appear on the LED Matrix towards the middle of the display.<br>
 <br>
 </p>
-	<p class=nextprev><a href="SIMON_8.html">prev</a>|
+	<p class="nextprev"><a href="SIMON_8.html">prev</a>|
 <a href="GAME_LOOPS.html">next</a></p>
 </body></html>

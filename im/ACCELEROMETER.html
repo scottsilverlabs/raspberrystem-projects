@@ -61,9 +61,12 @@ SCL pin to the connector board</p>
 how it works:</p><p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.accel import Accel
+<textarea>
+from rstem.accel import Accel
 import time
+
 accel = Accel()
+
 while True:
     x_force, y_force, z_force = accel.forces()
     print(x_force, y_force, z_force)

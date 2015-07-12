@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 1</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 3</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -24,8 +24,7 @@ the Accel() function and then initializing the accelerometer:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-rstem.accel import Accel
+<textarea>rstem.accel import Accel
 accel = Accel()
 </textarea></div>
 <p>We also need to create and define two other variables that
@@ -81,62 +80,108 @@ get input from the controller. &nbsp;We do this just like we did in
 x_force, y_force, z_force = accel.forces()
 </textarea></div>
 <p></p>
+<p>Next, we can add code to move the ship based on teh input we've received from the accelerometer:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Draw the spaceship
-if x_force &gt; TILT_FORCE:
+if x_force &gt; TILT_FORCE: 
     spaceship_position -= SPACESHIP_STEP
-elif x_force &lt; -TILT_FORCE:
-    spaceship_position += SPACESHIP_STEP&lt;/p&gt;
-    spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+elif x_force &lt; -TILT_FORCE: 
+    spaceship_position += SPACESHIP_STEP
+
+spaceship_position = max(0,min(fb.width - 1, spaceship_position))
 </textarea></div>
 <p></p>
-<p>Add accelerometer to
-move the spaceship:</p>
-<p>Full project:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
+<p>Here is the full code for our game at this point:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea># ###############################################################
+#
+# SPACE INVADERS GAME
+#
+# ###############################################################
+
+# ################################
+# Initialize the game environment
+# ################################
+
+# Import required functions/modules
+rstem.led_matrix import FrameBuffer4
 from rstem.accel import Accel
-from rstem.led_matrix import FrameBuffer
 import time
 
+# Initialize framebuffer
 fb = FrameBuffer()
+
+# Initialize accelerometer
 accel = Accel()
 
+# Initialize spaceship
 spaceship_position = fb.width / 2
-
 TILT_FORCE = 0.1
 SPACESHIP_STEP = 0.1
 
+# Initialize aliens
+# Initialize missiles
+
 while True:
-    # ########################################
-    # Get inputs
-    # ########################################
+
+    # ################################
+    # Check for user input
+    # ################################
+
+    # Get accelerometer input
     x_force, y_force, z_force = accel.forces()
+    
+    # Get button input
 
-    # ########################################
-    # Change the World
-    # ########################################
+    # ################################
+    # Update the game world
+    # ################################
 
-    # Move spaceship
-    if x_force > TILT_FORCE:
-        spaceship_position -= SPACESHIP_STEP
-    elif x_force < -TILT_FORCE:
+    # Update the location of the spaceship
+    if x_force > TILT_FORCE: 
+        spaceship_position -= SPACESHIP_STEP 
+    elif x_force < -TILT_FORCE: 
         spaceship_position += SPACESHIP_STEP
+
     spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
-    # ########################################
-    # Show world
-    # ########################################
+    # Update the location of the aliens
+    # Update the location of any missiles 
+    # Check for any missile collisions
 
+    # ################################
+    # Draw graphics on the screen
+    # ################################
+
+    # Erase the framebuffer
     fb.erase()
 
-    # Draw spaceship
-    fb.point(round(spaceship_position), 0)
+    # Draw the spaceship
+    fb.point(round(spaceship_position),0)
 
-    # Show FrameBuffer on LED Matrix
+    # Draw the aliens
+    # Draw any missiles
+
+    # Show the framebuffer
     fb.show()
-    time.sleep(0.001)
+
+    # ################################
+    # Wait for some period of time
+    # ################################
+
+    # Wait for between .001 and .01 seconds
+    time.sleep(.001)
+
+# ################################
+# Finish and cleanup
+# ################################
+
+# Print "You won!" if the player wins
+# Print "You lost..." if the player loses
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_2.html">prev</a>|
+<br>
+<p class="nextprev"><a href="SPACE_INVADERS_2.html">prev</a>|
 <a href="SPACE_INVADERS_4.html">next</a></p>
 </body></html>

@@ -7,11 +7,10 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>MANY BUTTONS</h1>
-<p>Note: Requires Lists and FOR Loops</p>
+
 <p>In General Purpose Input Output
 and Using Buttons With GPIO, we introduced the concept of controlling
 and monitoring the state of a component (LEDs and buttons) using GPIOs
@@ -35,16 +34,16 @@ we're going to handle the input from those buttons using a list,
 instead of trying to manage input from each button individually.
 &nbsp;While this project will focus on buttons, the concept of
 monitoring inputs and controlling outputs using lists and loops can be
-applied to pretty much any component.</p>
+applied to pretty much any component.</p><p>For this project, you'll want to read the following two concept lessons before you get started: &nbsp;<a href="LISTS.html">Lists</a> and <a href="FOR_LOOPS.html">For Loops</a>.</p>
 <h2>Hardware Implementation</h2>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
 four buttons to four different GPIOs is no different than wiring a
 single button </span></span>to
 a GPIO and then replicating that circuit four times. &nbsp;Give it
-a try!</p>
+a try!</p><p>Here are three things to remember as you're wiring your buttons:</p><ol><li><p>The un-connected sides of each button should sit on different connect strips</p></li><li><p>One side of each button should be wired to ground</p></li><li><p>One side of each button should be wired to your chosen GPIO</p></li></ol>
 <p>Here is what your
-breadboard should look like assuming you've chosen to use GPIO14,
-GPIO15, GPIO25 and GPIO7 for your buttons:</p>
+breadboard should look like at this point (we've chosen to use GPIO14,
+GPIO15, GPIO25 and GPIO7 for our buttons):</p>
 <img class="bb" src="img/Many_Buttons_bb.png">
 <h2>Programming Implementation</h2>
 <p class="MsoNormal">
@@ -55,12 +54,17 @@ being pressed.</p>
 <p class="MsoNormal">Here is what that code will look like:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea>
+from rstem.button import Button
 import time
+
 my_buttons = [Button(14), Button(15), Button(25), Button(7)]
-while True: for button in my_buttons: if button.is_pressed():
-print("Button connected to GPIO", button.pin, "is pressed")
-time.sleep(0.1)
+
+while True: 
+    for button in my_buttons: 
+        if button.is_pressed():
+        print("Button connected to GPIO", button.pin, "is pressed")
+    time.sleep(0.1)
 </textarea></div>
 <p>Let's look at this code in more detail:</p>
 <ul>
@@ -129,6 +133,6 @@ If
 you want to try a variation of this project, why not try replacing the
 buttons with LEDs, and then rewrite the code to flash the LEDs instead
 of reading the buttons?</p>
-	<p class=nextprev><a href="FLASHLIGHT.html">prev</a>|
+	<p class="nextprev"><a href="FLASHLIGHT.html">prev</a>|
 <a href="SOUNDS_-_SPEAKER.html">next</a></p>
 </body></html>
