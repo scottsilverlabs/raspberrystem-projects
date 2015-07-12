@@ -1,60 +1,129 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SIMON 4</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 4</title>
 
-
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 4</h1>
-<p>In our last project, we rewrote our previous test code using lists
--- doing this will make all the code we'll be writing in the next
-several projects easier to write and easier to understand (both for
-ourselves and for others who might read our code). &nbsp;Now we can
-start writing code more specific to our game.</p><p>If you're not
-familiar with Simon, let me describe how our pattern-matching game will
-work. &nbsp;The game will start by flashing an LED at random (and will
-play a tone speciific to that LED).&nbsp; You'll then have a short
-amount of time to press the button associated with that LED. &nbsp;If
-you do that successfully, the game will repeat the first LED flash and
-then add a second LED flash at random. &nbsp;Again, you'll need to
-remember the pattern and press the correct buttons to replicate the
-pattern. &nbsp;Each time you successfully enter the correct sequence,
-the game will&nbsp;replay the previous pattern and add a random new LED
-flash at the end. &nbsp;If you incorrectly repeat the sequence -- of if
-you take too long between button presses -- the game ends.</p><p>To start programming our game, the first thing we want to do is learn how to flash a sequence of LEDs.
-&nbsp;For this project, we'll use a planned sequence of LED flashes.
-&nbsp;For the next project, we'll expand on that by making the flashing
-sequence random.</p><br><h2>Programming Implementation</h2><p>
-</p><h2></h2><h2>Executing Your Code</h2><p>&nbsp;</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.gpio import Output
-import time
-
-lights = [Output(4), Output(18), Output(14), Output(15)]
-
-for light in lights:
-    light.off()
-
-play_order = [2, 3, 1, 0, 2, 2, 3]
-
-# Play sequence
-for i in play_order:
-    lights[i].on()
-    time.sleep(0.4)
-    lights[i].off()
-    time.sleep(0.2)
-
+<p>In our last project, we wrote some code to flash LEDs in a
+pre-planned sequence. &nbsp;While that's a good start, in our
+Simon-like game, we're going to need to flash LEDs in a random
+sequence. &nbsp;</p>
+<p>In this project, we're going to make some
+modifications to the code from the last project which will give us a
+random sequence of LED flashes. &nbsp;In the next project, we'll
+add in
+the buttons.</p>
+<p>INFO BOX ON RANDRANGE()</p>
+<h2>Programming Implementation</h2>
+<p>Starting with the code we left off with in the
+previous project, the first thing we'll need to
+do is import the function randrange() to create our random generation
+of LED flashes:</p>
+<p></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>from random import randrange
 </textarea></div>
-	<p class=nextprev><a href="SIMON_3.html">prev</a>|
-<a href="SIMON_5.html">next</a></p>
+<p></p>
+<p>Next, instead of filling the list <span style="font-family: Courier New,Courier,monospace;">play_order[]</span>
+with a pre-defined sequence, we're going to make that an empty list
+that we can use to hold our random sequence. &nbsp;To do that,
+we'll replace the list we created previously with a new (empty) list:</p>
+<br>
+INSERT CODE BOX<br>
+<br>
+<span style="font-family: Courier New,Courier,monospace;">play_order
+= []</span><br style="font-family: Courier New,Courier,monospace;">
+<br>
+<p>Finally, we'll have to create our random sequence of LEDs.
+&nbsp;We can add a random LED to play_order[] with the following
+line of code:</p>
+<br>
+INSERT CODE BOX<br>
+<br>
+<span style="font-family: Courier New,Courier,monospace;">play_order
++= [randrange(4)]<br>
+<br>
+<br>
+</span>
+<p>If we add this code to our previous code that includes the
+play sequence, we'll see that we're adding a single random LED flash to
+our sequence list and then flashing it:</p>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<p style="font-family: Courier New,Courier,monospace;">#
+Initialize the LEDs and sequence list<br>
+from rstem.gpio import Output<br>
+import time<br>
+lights = [Output(4), Output(18), Output(14), Output(15)]<br>
+play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
+</p>
+<p style="font-family: Courier New,Courier,monospace;">#
+Play sequence<br>
+for light in lights: light.off()<br>
+</p>
+<p style="font-family: Courier New,Courier,monospace;">for
+i in play_order:<br>
+&nbsp; &nbsp; lights[i].on()<br>
+&nbsp; &nbsp; time.sleep(0.4)<br>
+&nbsp; &nbsp; lights[i].off()<br>
+&nbsp; &nbsp; time.sleep(0.2)</p>
+<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
+<p>If we add a while: loop, we can continue to generate a random
+LED and
+add it to the list each time through the loop. &nbsp;This will play
+the entire sequence of random LED flashes, add a new LED to the
+sequence, play the list again with the new LED added, and then repeat:</p>
+<span style="font-family: Courier New,Courier,monospace;"><br>
+</span>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<p style="font-family: Courier New,Courier,monospace;">#
+Initialize the LEDs and sequence list<br>
+from rstem.gpio import Output<br>
+import time<br>
+lights = [Output(4), Output(18), Output(14), Output(15)]<br>
+play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
+</p>
+<p style="font-family: Courier New,Courier,monospace;">#
+Play sequence<br>
+for light in lights: light.off()<br>
+</p>
+<p style="font-family: Courier New,Courier,monospace;">while
+True:<br>
+&nbsp; &nbsp; for i in play_order:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; lights[i].on()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.4)<br>
+&nbsp; &nbsp; &nbsp; &nbsp; lights[i].off()<br>
+&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.2)</p>
+<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
+REMOVE THIS CODE BLOCK<br>
+<span style="font-family: Courier New,Courier,monospace;"><br>
+</span>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.gpio import Output
+from random import randrange
+import time
+lights = [Output(4), Output(18), Output(14), Output(15)]
+for light in lights: light.off()
+# Create list to hold sequence of flashes
+play_order = []
+# Generate random sequence
+num_flashes = 0
+while num_flashes &lt; 5: play_order += [randrange(4)] num_flashes
++= 1
+# Play sequence for i in play_order: lights[i].on() time.sleep(0.4)
+lights[i].off()
+time.sleep(0.2) time.sleep(1.0)
+</textarea></div>
+<p class="nextprev"><a href="SIMON_4.html">prev</a>|
+<a href="SIMON_6.html">next</a></p>
 </body></html>
-	

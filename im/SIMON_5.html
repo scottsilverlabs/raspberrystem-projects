@@ -1,54 +1,149 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SIMON 5</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 5</title>
 
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 5</h1>
-<p>In our last project, we wrote some code to flash LEDs in a
-pre-planned sequence. &nbsp;While that's a good start, in our
-Simon-like game, we're going to need to flash LEDs in a random
-sequence. &nbsp;</p><p>In this project, we're going to make some
-modifications to the code from the last project which will give us a
-random sequence of LED flashes. &nbsp;In the next project, we'll add in
-the buttons.</p><br><h2>Programming Implementation</h2><p>Simon:
-random sequence playing forever</p>
-<h2>Executing Your Code</h2>
-<div class="code" data-firstline="1"> <div></div> <textarea>
+<p>In our last project, we created a random sequence of
+LED flashes. &nbsp;We included that code in a loop that will
+continue to add another flash to the end of the sequence and replay the
+sequence. &nbsp;This is exactly how our game will work, except that
+after playing a sequence, the player will have to repeat the sequence
+using the buttons on the breadboard. &nbsp;If they do it correctly,
+we add a new LED to the sequence; if they do it incorrectly, the game
+is over.</p>
+<p>In this project, we'll add the buttons as input, and add the
+code that will verify the button sequence that the player enters.</p>
+<h2>Programming Implementation</h2>
+<p style="font-weight: bold;">Step #1: &nbsp;Add the
+initialization code</p>
+<p>The first thing we're going to need to do is initialize the
+buttons -- we'll import the function we need and create the button list
+just like we did in <a href="MANY_BUTTONS.html">Many
+Buttons</a>:</p>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<span style="font-family: Courier New,Courier,monospace;">#
+Initialize the LEDs and sequence list</span><br style="font-family: Courier New,Courier,monospace;">
+<p><span style="font-family: Courier New,Courier,monospace;">from
+rstem.button import Button</span><br style="font-family: Courier New,Courier,monospace;">
+<br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">buttons
+= [Button(27), Button(23), Button(24), Button(22)]</span><br>
+</p>
+<p style="font-weight: bold;">Step #2: &nbsp;Check the
+button sequence entered by the player</p>
+<p>Next, we need to add code after we play the sequence to check
+for whether the user has entered the correct sequence back.
+&nbsp;We can do this by creating a for loop that runs through the
+entire sequence of buttons -- each time through the loop we check to
+see if the button pressed matches the next button in the sequence.
+&nbsp;If the button pressed is incorrect, we end the game and drop
+through the loop. &nbsp;If the button pressed is correct, we light
+that LED and move on to check the next button press.</p>
+<p>Here is what the beginning of the for loop would look like:</p>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<p style="font-family: Courier New,Courier,monospace;">#Wait
+for user to repeat</p>
+<p style="font-family: Courier New,Courier,monospace;">for
+i in play order:</p>
+<p style="font-family: Courier New,Courier,monospace;">&nbsp;
+&nbsp; button_pressed = Button.wait_many(buttons, timeout=3)</p>
+<p style="font-family: Courier New,Courier,monospace;"></p>
+<p>Notice we use the function wait_many() for this. &nbsp;</p>
+<p>Talk about wait_many()...</p>
+<p></p>
+<p>Next, we check to see if the button_pressed was incorrect:</p>
+<p style="font-family: Courier New,Courier,monospace;"></p>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<span style="font-family: Courier New,Courier,monospace;">if
+button_pressed != i:<br>
+&nbsp; &nbsp; failed = True<br>
+&nbsp; &nbsp; break</span>
+<p style="font-family: Courier New,Courier,monospace;"></p>
+<p>We do three things in this loop:</p>
+<p>1. &nbsp;First, we use an if statement test the
+button_pressed to see if it was different than the next button in the
+sequence.&nbsp;</p>
+<p>2. &nbsp;If it is (the if statement resolves to True), we
+set a variable called failed to True. &nbsp;This will be our
+indication to the while: loop that the game is over and on our next
+pass, we should drop through the loop. &nbsp;This will require us
+to change our test in the while: loop that we already created -- we'll
+get to that soon.</p>
+<p>3. &nbsp;Lastly, now that the player has entered an
+incorrect button, we don't need to keep checking buttons, so we want to
+abruptly stop the for loop we're in. &nbsp;We do this using the
+break command.</p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">If
+the button entered by the player was correct</span>, we need to
+light the LED before moving on to checking the next
+button entered. &nbsp;Here is what that code should look like:</p>
+<p></p>
+<p style="font-family: Courier New,Courier,monospace;">#
+Light and play while button is pressed.<br>
+lights[button_pressed].on()&nbsp;<br>
+buttons[button_pressed].wait(press=False)<br>
+time.sleep(0.2)&nbsp;<br>
+lights[button_pressed].off()</p>
+<br>
+<p style="font-weight: bold;">Step #3: &nbsp;Update
+the while: loop</p>
+<p>Finally, we have to update our while: loop, as we want it to
+drop through if we determine that the user made a mistake and the game
+is over. &nbsp;Remember, we set a variable called failed to True
+when the user made a mistake, so we can simply test to see whether
+failed == True in our while loop.</p>
+<p>To update the while: loop, we need to first initialize our
+failed variable when we start the program, and then we can update our
+while: loop as follows:</p>
+<p style="font-family: Courier New,Courier,monospace;"></p>
+<p style="font-family: Courier New,Courier,monospace;">NSERT
+CODE BLOCK</p>
+<span style="font-family: Courier New,Courier,monospace;">#
+Initialize the LEDs and sequence list</span><br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">failed
+= False<br>
+<br>
+...<br>
+<br>
+while not Failed:<br style="font-family: Courier New,Courier,monospace;">
+</span><br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: &quot;Verdana&quot;,serif;"><br>
+</span><span style="font-family: Courier New,Courier,monospace;"></span>
+<p><span style="font-family: &quot;Calibri Light&quot;,serif;">H</span>ere
+is what the full code should look like at this point:</p>
+REMOVE (IF NOT FAILED BLOCK BELOW)<br>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.button import Button
 from rstem.gpio import Output
 from random import randrange
 import time
-
+buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(4), Output(18), Output(14), Output(15)]
-
-for light in lights:
-    light.off()
-
+for light in lights: light.off()
 play_order = []
 failed = False
-while not failed:
-    play_order += [randrange(4)]
-
-    # Play sequence
-    for i in play_order:
-        lights[i].on()
-        time.sleep(0.4)
-        lights[i].off()
-        time.sleep(0.2)
-
-    time.sleep(1.0)
+while not failed: play_order += [randrange(4)] # Play sequence for i in
+play_order: lights[i].on() time.sleep(0.4) lights[i].off()
+time.sleep(0.2) # Wait for user to repeat for i in play_order:
+button_pressed = Button.wait_many(buttons, timeout=3) if button_pressed
+!= i: failed = True break # Light and play while button is pressed.
+lights[button_pressed].on() buttons[button_pressed].wait(press=False)
+time.sleep(0.2) lights[button_pressed].off() if not failed:
+time.sleep(1.0)
 </textarea></div>
-	<p class=nextprev><a href="SIMON_4.html">prev</a>|
-<a href="SIMON_6.html">next</a></p>
+<p class="nextprev"><a href="SIMON_5.html">prev</a>|
+<a href="SIMON_7.html">next</a></p>
 </body></html>
-	

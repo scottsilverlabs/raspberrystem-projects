@@ -7,22 +7,24 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 1</h1>
-<p class="MsoNormal">We've come a long way in the past
-several
-projects, and we're now ready to build and program&nbsp;a
-working pattern-matching game (similar to the electronic Simon game).
-The game will require four different colored buttons (wired as GPIO
+<p class="MsoNormal">In our previous project, we discussed
+the pseudo-code for our pattern-matching game. &nbsp;But, before we
+start writing the code, we're going to build the electronics for the
+game, and write some test code to ensure that what we've built works as
+we expect it to.&nbsp;</p>
+<p class="MsoNormal">The game will require four different
+colored buttons (wired as GPIO
 Inputs) and four LEDs (wired as GPIO Outputs). &nbsp;We'll also
 need
 four resistors -- one for each LED we'll be wiring. &nbsp;We will
 essentially be replicating the circuit designs that we learned in
-previous projects, but on a larger scale. &nbsp;And we'll be
-writing
-some longer and more complex code to handle all the game conditions.</p>
-<p class="MsoNormal">Because the fully-built circuit will
+previous projects, but on a larger scale. &nbsp;</p>
+<p class="MsoNormal"><span style="font-weight: bold;">Note:
+&nbsp;</span>Because the fully-built circuit will
 use up a lot of
 breadboard space
 and require a lot of wires, we highly recommend starting this project
@@ -71,7 +73,7 @@ one red rail to the other and from one blue rail to the other. </span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like: </span></p>
 <p></p>
-<img class=bb src="img/simon-0but-0led_bb.png">
+<img class="bb" src="img/simon-0but-0led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #2</span>:
 &nbsp;Wire Your First Button Using a GPIO Input</p>
@@ -84,7 +86,7 @@ from <a href="USING_BUTTONS_WITH_GPIO.html">Using Buttons
 With GPIO</a>, to wire a button to a GPIO, the circuit schematic
 should look as follows:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<img class=schematic width=600px src="img/Pushbutton-to-GPIO.png">
+<img class="schematic" src="img/Pushbutton-to-GPIO.png" width="600">
 <br>
 <p>To
 implement that circuit on the breadboard, we wire one side of the
@@ -95,7 +97,7 @@ you'll have to modify the code we provide to match your GPIO selection.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like: </span></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-1but-0led_bb.png">
+<img class="bb" src="img/simon-1but-0led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #3</span>:
 &nbsp;Wire Your Second Button Using a GPIO Input</p>
@@ -109,7 +111,7 @@ to attach the second button to GPIO15.</span></p>
 should look like:</span></p>
 <p style="text-align: center;"></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-2but-0led_bb.png">
+<img class="bb" src="img/simon-2but-0led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">You'll
 notice that we used two small jumper wires to attache the second button
@@ -130,7 +132,7 @@ to use GPIO22.</span></p>
 should look like:</span></p>
 <p style="text-align: center;"></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-3but-0led_bb.png">
+<img class="bb" src="img/simon-3but-0led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #5</span>:
 &nbsp;Wire Your Fourth Button Using a GPIO Input</p>
@@ -141,7 +143,7 @@ chosen to use GPIO17.</span></p>
 should look like with all the buttons wired:</span></p>
 <p style="text-align: center;"></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-4but-0led_bb.png">
+<img class="bb" src="img/simon-4but-0led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p>Good
 job! &nbsp;You should now have four buttons wired on your
@@ -154,90 +156,29 @@ expect...</p>
 </span>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming
 Implementation</span></h2>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Our test code is going to have
-two
-sections -- the first will import the functions we're going to need for
-the rest of the code and the second will test each of the buttons.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span><span style="font-family: &quot;Verdana&quot;,serif;"><br>
-Code Section #1</span>: &nbsp;Import Needed Functions</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">The
-first part of our code is going to import the one library and function
-we'll need later in our code. &nbsp;For this test code, the only
-function we'll need is the <span style="font-family: Courier New,Courier,monospace;">Button()</span>
-function from the <span style="font-family: Courier New,Courier,monospace;">rstem.button</span>
-library.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the import
-code should look like:</span></p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>from rstem.button import Button
-</textarea></div>
-<br>
-<p style="font-weight: bold;">Code Section #2:
-&nbsp;Test Buttons</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">To
-test a button, we'll initialize it just like we did in <a href="USING_BUTTONS_WITH_GPIO.html">Using Buttons
-With GPIO</a>, and we can then check for the button being pressed and
-display a message to the Output Window when it is being
-pressed.&nbsp;</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the&nbsp;LED
-test code
-should look like for one of the buttons:</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>button1 = Button(14)
-if button1.is_pressed():
-    print("Button 1 is pressed")
-else:
-    print("Button 1 NOT pressed")
-</textarea></div>
-<br>
-<p>If you replicate that code for each of the buttons and put the
-whole thing in a <span style="font-family: Courier New,Courier,monospace;">while</span>&nbsp;loop,
-you will
-now have the ability to test each of the buttons in your circuit.
-&nbsp;This code will be useful later if, after adding more
-components to your circuit, you find that the code isn't working
-properly. &nbsp;Using this code will allow you to test the buttons
-independently of the other components.</p>
-<h2>Executing Your Code</h2>
-<p>Here is what your full set of code should look like at this
-point:
-</p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Now that we have our buttons
+wired, we're going to write some test code to verify that they are each
+working correctly. &nbsp;In our <a href="MANY_BUTTONS.html">Many
+Buttons</a> project, we learned
+how to generate a list of buttons and take input from each of them --
+we're going to do the same in our test code below.</span></p>
+<p class="MsoNormal">The GPIOs we use for our buttons are:
+&nbsp;GPIO14 (top button), GPIO15 (right button), GPIO17 (bottom
+button), GPIO22 (left button). &nbsp;In our button list, we'll
+initialize the buttons in that order, so that we refer to button #1 as
+the top button, button #2 as the right button and so forth. &nbsp;</p>
+<p class="MsoNormal">Here is what that code will look like:</p><p class="MsoNormal"></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.button import Button()
+<textarea>from rstem.button import Button
 import time
-
-button1 = Button(14)
-button2 = Button(15)
-button3 = Button(22)
-button4 = Button(17)
-
-while True:
-    if button1.is_pressed():
-        print("Button 1 is pressed")
-    else:
-        print("Button 1 NOT pressed")
-    if button2.is_pressed():
-        print("Button 2 is pressed")
-    else:
-        print("Button 2 NOT pressed")
-    if button3.is_pressed():
-        print("Button 3 is pressed")
-    else:
-        print("Button 3 NOT pressed")
-    if button4.is_pressed():
-        print("Button 4 is pressed")
-    else:
-        print("Button 4 NOT pressed")
-    time.sleep(0.1)
+my_buttons = [Button(14), Button(15), Button(17), Button(22)]
+while True: for button in my_buttons: if button.is_pressed():
+print("Button connected to GPIO", button.pin, "is pressed")
+time.sleep(0.1)
 </textarea></div>
-<p></p>
-<p>If you run this code, you should see the status of each button
+<span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br></span></span><p>If you run this code, you should see the status of each button
 being updated in the Output Window.</p>
-	<p class=nextprev><a href="WALKABLE_PIANO.html">prev</a>|
+<p class="nextprev"><a href="WALKABLE_PIANO.html">prev</a>|
 <a href="SIMON_2.html">next</a></p>
 </body></html>

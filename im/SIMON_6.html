@@ -1,66 +1,75 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SIMON 6</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 6</title>
 
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 6</h1>
-<p>In our last project, we learned how to create a random sequence of
-LED flashes. &nbsp;Now that we have our flashing going, let's add in
-the use of the buttons as input.. &nbsp;</p><span style="font-family: &quot;Verdana&quot;,serif;">...<br><br><br></span><h2>Programming Implementation</h2><p>...</p>
-&nbsp; <br><h2>Executing Your Code</h2>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.button import Button
+<p>In our last project,&nbsp;added in the use
+of the buttons as input and we tested the sequence of button presses to
+determine if they were correct or not. &nbsp;This was much of the
+basis for our game, but now it's time to add some additional features.
+&nbsp;In this project, we'll add sound to our LED flashes.</p>
+<h2>Programming Implementation</h2>
+<span style="font-family: &quot;Verdana&quot;,serif;">First, we need
+to import the sound function we'll use and initialize a list of four
+sounds -- one for each of the LEDs:<br>
+<br>
+</span>
+<p style="font-family: Courier New,Courier,monospace;">INSERT
+CODE BLOCK</p>
+<span style="font-family: Courier New,Courier,monospace;">#
+Initialize the LEDs and sequence list</span><br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">from
+rstem.sound import Note</span><br style="font-family: Courier New,Courier,monospace;">
+<br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">notes
+= [Note('A'),&nbsp;</span><span style="font-family: Courier New,Courier,monospace;">Note('B'),
+</span><span style="font-family: Courier New,Courier,monospace;">Note('C'),
+</span><span style="font-family: Courier New,Courier,monospace;">Note('D')</span><span style="font-family: Courier New,Courier,monospace;">]<br>
+<br>
+<br>
+</span>
+<p><span style="font-family: Courier New,Courier,monospace;">Next,
+we need to insert our sounds into two locations -- where we flash the
+sequence of LEDs for the player and where the player presses a button
+while repeating the sequence. &nbsp;Here are what those two code
+blocks should be updated to:</span></p>
+<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
+<span style="font-family: Courier New,Courier,monospace;"><br>
+</span>
+<h2>Executing Your Code</h2>
+<p>Full project:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.button import Button
 from rstem.gpio import Output
+from rstem.sound import Note
 from random import randrange
 import time
-
 buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(4), Output(18), Output(14), Output(15)]
-
-for light in lights:
-    light.off()
-
+notes = [Note('A'), Note('B'), Note('C'), Note('D')]
+for light in lights: light.off()
 play_order = []
 failed = False
-while not failed:
-    play_order += [randrange(4)]
-
-    # Play sequence
-    for i in play_order:
-        lights[i].on()
-        time.sleep(0.4)
-        lights[i].off()
-        time.sleep(0.2)
-
-    # Wait for user to repeat
-    for i in play_order:
-        button_pressed = Button.wait_many(buttons, timeout=3)
-
-        if button_pressed != i:
-            failed = True
-            break
-
-        # Light and play while button is pressed.
-        lights[button_pressed].on()
-        buttons[button_pressed].wait(press=False)
-        time.sleep(0.2)
-        lights[button_pressed].off()
-
-    if not failed:
-        time.sleep(1.0)
+while not failed: play_order += [randrange(4)] # Play sequence for i in
+play_order: lights[i].on() notes[i].play(0.4).wait() lights[i].off()
+time.sleep(0.2) # Wait for user to repeat for i in play_order:
+button_pressed = Button.wait_many(buttons, timeout=3) if button_pressed
+!= i: failed = True break # Light and play while button is pressed.
+lights[button_pressed].on() notes[button_pressed].play(duration=None)
+buttons[button_pressed].wait(press=False) time.sleep(0.2)
+lights[button_pressed].off() notes[button_pressed].stop() if not
+failed: time.sleep(1.0)
 </textarea></div>
-	<p class=nextprev><a href="SIMON_5.html">prev</a>|
-<a href="SIMON_7.html">next</a></p>
+<p class="nextprev"><a href="SIMON_6.html">prev</a>|
+<a href="SIMON_8.html">next</a></p>
 </body></html>
-	

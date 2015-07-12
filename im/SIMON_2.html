@@ -7,9 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
-
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 2</h1>
 <span style="font-family: &quot;Verdana&quot;,serif;"></span>
@@ -39,7 +37,7 @@ button.</span></p>
 from <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">General
 Purpose Input/Output</a>, to wire an LED to a GPIO, the circuit
 schematic should look as follows:</span></p>
-<img class=schematic width=400px src="img/Battery-LED-Circuit-to-GPIO.png">
+<img class="schematic" src="img/Battery-LED-Circuit-to-GPIO.png" width="400">
 <br>
 <p>Based
 on that, to
@@ -52,13 +50,13 @@ shouldn't matter which LED color goes with which button, so we've
 arbitrarily chosen orange for this one.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
-<img class=bb src="img/simon-4but-1led_bb.png">
+<img class="bb" src="img/simon-4but-1led_bb.png">
 <p>Keep
 in mind that you're going to want to ensure that the neither leg of the
 LED sits in the same connect strip as button or another LED, as the
 components will need to act independently, and we don't want to
 inadvertently send (or receive) signals to a component while trying to
-control another component.&nbsp;</span></p>
+control another component.&nbsp;</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #2</span>:
 &nbsp;Wire Your Second LED Using a GPIO Output</p>
@@ -68,7 +66,7 @@ control another component.&nbsp;</span></p>
 should look like:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-4but-2led_bb.png">
+<img class="bb" src="img/simon-4but-2led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #3</span>:
 &nbsp;Wire Your Third LED Using a GPIO Output</p>
 <p>Time to wire our third LED to the bottom button, like just the
@@ -77,7 +75,7 @@ previous two.
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<img class=bb src="img/simon-4but-3led_bb.png">
+<img class="bb" src="img/simon-4but-3led_bb.png">
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #4</span>:
 &nbsp;Wire Your Fourth LED Using a GPIO Output</p>
@@ -88,7 +86,7 @@ should look like:</span></p>
 should look like:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <p style="text-align: center;"></p>
-<img class=bb src="img/simon-4but-4led_bb.png">
+<img class="bb" src="img/simon-4but-4led_bb.png">
 <p style="font-weight: bold;"><span style="font-weight: normal;">You'll
 notice that we chose to use an extra jumper to attach the LED to the
 GPIO -- again, we're going to want to be able to press each of the
@@ -104,93 +102,14 @@ code, our LED test code is going to have two
 sections -- the first will import the functions we're going to need for
 the rest of the code and the second will test each of the LEDs.</span></p>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming
-Implementation</span></h2>
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Code Section #1</span>:
-&nbsp;Import Needed Functions</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">The
-first part of our code is going to import the libraries and functions
-we'll use later in our code. &nbsp;For this test code, we're going
-to need
-two functions:</span></p>
-<ol>
-<li>
-<p><span style="font-weight: normal;">The
-Output() function from the rstem.gpio library</span></p>
-</li>
-<li>
-<p><span style="font-weight: normal;">The
-sleep() function from the time library</span></p>
-</li>
-</ol>
-<p style="font-weight: bold;"><span style="font-weight: normal;">To
-make our code more readable, we'll pull in just the Output() function
-from the rstem.gpio library (that way we won't have to type
-rstem.gpio.Output() every time we want to call the function); and we'll
-pull in the entire time library (so we'll need to call time.sleep()
-each time we want to use that function).</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this import
+Implementation</span></h2><p><span style="font-family: &quot;Verdana&quot;,serif;">To test our LEDs, we'll create a list of LEDs and cycle through turning each of them on and off.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this import
 code should look like:</span></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-from rstem.gpio import Output
+<textarea>from rstem.gpio import Output
 import time
 </textarea></div>
 <p></p>
-<p style="font-weight: bold;">Code Section #2:
-&nbsp;Test LEDs</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">To
-test an LED, we'll initialize it just like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">General Purpose
-Input Output</a>, and we can then illuminate the LED for 2
-seconds before turning it off again.&nbsp;</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here's what the&nbsp;LED
-test code
-should look like for one of the LEDs:</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-led1 = Output(4)
-led1.on()
-time.sleep(2)
-led1.off()
-</textarea></div>
-<p>If you replicate that code for each of the LEDs&nbsp;,
-you can test each of the LEDs in your circuit.
-&nbsp;Just like for the previous project where we wired and tested
-the buttons, this code will be useful later if, after adding more
-components to your circuit, you find that the code isn't working
-properly. &nbsp;Using this code will allow you to test the LEDs
-independently of the other components.</p>
-<h2>Executing Your Code</h2>
-<p>Here is what your full set of LED test code should look like
-at this
-point:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-led1 = Output(15)
-led2 = Output(18)
-led3 = Output(23)
-led4 = Output(27)
-led1.on()
-led2.on()
-led3.on()
-led4.on()
-time.sleep(2)
-led1.off()
-led2.off()
-led3.off()
-led4.off()
-</textarea></div>
-<p>Let's
-run your code. &nbsp;You should see all your
-LEDs immediately illuminate for three seconds, and then turn
-off. &nbsp;</p>
-<p>If any of your LEDs don't illuminate when you run the program,
-you should both verify that your circuit is wired correctly and also
-verify that your code was entered correctly.</p>
-<p></p>
-	<p class=nextprev><a href="SIMON_1.html">prev</a>|
+	<p class="nextprev"><a href="SIMON_1.html">prev</a>|
 <a href="SIMON_3.html">next</a></p>
 </body></html>

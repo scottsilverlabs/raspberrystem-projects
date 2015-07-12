@@ -1,39 +1,114 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SIMON 3</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
-
-
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
 <html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title></title><link rel="stylesheet" type="text/css" href="default.css"></head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 3</title>
 
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 3</h1>
-<p>In our last project, we finished wiring up the four LEDs and tested
+<p>In our last project, we finished wiring up the four LEDs and
+tested
 to verify they work. &nbsp;Assuming your buttons and LEDs are all
 working correctly, we're done with the circuit implementation for our
-Simon-like game. &nbsp;Pretty amazing that you now know enough to build
-the hardware for an electronic toy you can buy at the store! &nbsp;And
-in just a few projects, you'll be able to write all the code as well.</p><p>So,
-let's jump in to that code writing. &nbsp;In this project, we're going
-to implement the buttons and LEDs using lists. &nbsp;They won't
-function any differently from the last two projects -- the LEDs will
-light up and the buttons will register as pushed when pushed -- but by
-using lists to manage the components, we'll make all our future code
-much easier to write and understand.</p><br><h2>Programming Implementation</h2><h2>Executing Your Code</h2><p></p><br>
-	<p class=nextprev><a href="SIMON_2.html">prev</a>|
-<a href="SIMON_4.html">next</a></p>
+Simon-like game. &nbsp;Pretty amazing that you now know enough to
+build
+the hardware for an electronic toy you can buy at the store!
+&nbsp;And
+in just a few projects, you'll be able to write all the code as well.</p>
+<p>So,
+let's jump in to that code writing.
+</p>
+<p>To start programming our game, the first thing we want to do
+is learn how to flash a sequence of LEDs, as this will be the basis for
+the entire game.
+&nbsp;For this project, we'll start slow and just use a pre-defined
+list to create a planned sequence of LED
+flashes.
+&nbsp;For the next project, we'll expand on that by making the
+flashing
+sequence random.</p>
+<h2>Programming Implementation</h2>
+<p>The first thing we're going to need to do is to import the
+modules and functions we'll be using&nbsp;and initialize our list
+of LEDs. &nbsp;Here's what our initialization code should look like:</p>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp; INSERT CODE BOX</p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#Initialize
+LEDs</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">from
+rstem.gpio import Output<br>
+import time</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">lights
+= [Output(4), Output(18), Output(14), Output(15)]<br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p>The sequence of LED flashes will be contained in a list, and
+the items in the list will be indexes to the LED list we implemented in
+the previous project. &nbsp;In other words, we'll create a list of
+values between 0 and 3, each representing an LED. &nbsp;Remember,
+lists start counting at 0, so the first LED is actually represented as
+the 0th element of the list. &nbsp;The fourth LED is represented as
+the 3rd element of the list.</p>
+<p>We'll
+call our list of LEDs <span style="font-family: Courier New,Courier,monospace;">play_order</span>
+and we'll have it run through a quick
+sequence of 8 LED flashes hitting each LED twice.</p>
+<p>Here's what our LED sequence list should look like:</p>
+<p></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Initialize the LED sequence list
+play_order = [0, 1, 2, 3, 2, 1, 0, 3]
+</textarea></div>
+<p></p>
+<p>Finally, we want to actually play that sequence of flashes on
+our LED. &nbsp;First, we'll ensure that all the LEDs are turned off
+when we start, since we can't be sure of the previous state of the
+GPIOs. &nbsp;Then, we'll use a for loop to run through our sequence
+list, turning the LEDs on one at a time for .4 seconds and then waiting
+.2 seconds between each flash. &nbsp;Here's what the play sequence
+should look like:</p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Play sequence
+for light in lights: 
+light.off()
+for i in play_order:
+lights[i].on()
+time.sleep(0.4)
+lights[i].off()
+time.sleep(0.2)
+</textarea></div>
+<p></p>
+<p>Notice that we leave the LEDs on for .4 seconds and then have
+a .2 second delay between flashes. &nbsp;</p>
+
+<p>Here is our full code at this point:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+# Initialize the LEDs and sequence list
+from rstem.gpio import Output
+import time
+lights = [Output(4), Output(18), Output(14), Output(15)]
+play_order = [0, 1, 2, 3, 2, 1, 0, 3]
+# Play sequence
+for light in lights: light.off()
+for i in play_order:
+lights[i].on()
+time.sleep(0.4)
+lights[i].off()
+time.sleep(0.2)
+</textarea></div>
+<p class="nextprev"><a href="SIMON_3.html">prev</a>|
+<a href="SIMON_5.html">next</a></p>
 </body></html>

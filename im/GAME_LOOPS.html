@@ -1,15 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>GAME LOOPS</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GAME LOOPS</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>GAME LOOPS</h1>
 <p class="MsoNormal"><span style="">Now that
@@ -29,74 +29,15 @@ games) share a common method of programming called the “game loop.”
 loop is a simple concept, but is the heart of most video games.<span style="">&nbsp; </span>The game loop essentially
 works by doing the
 same things over and over the entire time the game is running.</span></p>
-<p class="MsoNormal"><span style="">We're
-going to explain game loops below, but to explain game loops, we're
-going to use a concept called pseudo-code. &nbsp;Here's a quick
-overview of what pseudo-code is and how it works so that you can better
-understand the game loop concept, and also as another tool to help you
-with your programming skills...</span></p>
-<p class="MsoNormal"><span style=""></span></p>
-<div class="info">
-<div>Pseudo-Code</div>
-<div>
-<p class="MsoNormal">It's common for software developers
-(people who program and write code) to plan to use something called
-"pseudo-code" when they are preparing to write their software.
-&nbsp;Writing pseudo-code before you write software is similar to
-writing an outline before you write a paper or an article.
-&nbsp;Basically, you create an outline for your code using a
-combination of regular English mixed with some bits of programming
-code. &nbsp;This allows you (or others) to read the order of the
-code and determine if what you're getting ready to write is logical and
-will accomplish what you expect your code to accomplish.</p>
-<p class="MsoNormal">Let's look at an example of
-pseudo-code...</p>
-<p class="MsoNormal">Imagine you are planning to write
-some code that will add two numbers together. &nbsp;Here is what
-our pseudo-code might look like:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user to enter the first
-number and store that number in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user to enter the second
-number and store that number in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Add the two
-numbers together and
-store the result in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Display the
-result on the screen for
-the user to see</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user if they want to run the
-program again</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; If they
-want to run the program again:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; Run
-the program again</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; else:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; Stop
-running the program and exit</p>
-<p class="MsoNormal">You notice that each line is easily
-readable as English -- with some code formatting for the<span style="font-family: Courier New,Courier,monospace;"> if/else</span>
-statement -- and overall, you now have a detailed outline that you can
-use as a template for your new code. &nbsp;</p>
-<p class="MsoNormal">Now, in reality, you probably
-wouldn't need this much detail to write a simple program like adding
-two numbers together. &nbsp;But, for more complex software, writing
-the pseudo-code before you start writing the actual code can make the
-entire process much easier.</p>
-</div>
-</div>
-<p class="MsoNormal"></p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;"></span><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">Now
-that you hopefully have a general understanding of how pseudo-code
-works, let's get back to our discussion about game loops. &nbsp;As
+
+
+<p><span style="">We're
+going to explain game loops below using pseudo-code, which we discussed
+in more detail in our Simon 0 project.</span></p>
+<p><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">As
 we
-mentioned earlier, nearly all video games use the game loop format to
-design and build their games. &nbsp;</span></span></p>
-<p><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">Here is what the </span>pseudo-code
+mentioned above, nearly all video games use the game loop format to
+design and build their games. &nbsp;The </span>pseudo-code
 for a typical game loop will look something like this:<o:p></o:p></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><o:p>&nbsp;</o:p></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
@@ -116,12 +57,9 @@ for some period of time</span></span></p>
 <span style=""></span>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
 <span style=""></span>
-<p class="MsoNormal"><span style="">Let's
-examine this loop piece by
-piece. &nbsp;And at the same time, let's build our very own (very
+<p class="MsoNormal"><span style="">We'll examine this loop line-by-line below. &nbsp;And at the same time, let's build our very own (very
 simple) game loop that will move a dot around the LED Matrix...</span></p>
-<h3><br>
-<span style=""></span></h3>
+
 <h3><span style="">Initialize the game environment</span></h3>
 <p>The
 very first step in any game is to initialize anything that will be used
@@ -153,10 +91,8 @@ dot&nbsp;</p>
 <p>Here's what the code will look like:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-from rstem.led_matrix import FrameBuffer
+<textarea>from rstem.led_matrix import FrameBuffer
 import time
-
 fb = FrameBuffer()
 x, y = (1, 1)
 fb.erase()
@@ -178,8 +114,7 @@ of our
 game loop:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-while True:
+<textarea>while True:
 </textarea></div>
 <h3><span style="">Check for user input</span></h3>
 <p>In
@@ -215,8 +150,7 @@ the
 framebuffer with the new location.</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-x += 1
+<textarea>x += 1
 </textarea></div>
 <h3><span style="">Draw graphics on the screen</span></h3>
 <p>Once
@@ -231,8 +165,7 @@ the
 last project:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-fb.erase()
+<textarea>fb.erase()
 fb.point(x, y)
 fb.show()
 </textarea></div>
@@ -268,8 +201,7 @@ want to put
 in a half-second delay at the end of the loop.</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-time.sleep(.5)
+<textarea>time.sleep(.5)
 </textarea></div>
 <h3>Finish &amp; Cleanup</h3>
 <p>At
@@ -293,30 +225,16 @@ of
 code should look like:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.led_matrix import FrameBuffer
+<textarea>from rstem.led_matrix import FrameBuffer
 import time
-
 # Initialize the game environment
 fb = FrameBuffer()
 x, y = (1, 1)
 fb.erase()
-
-while True:
-	# Get user input
-
-	# Update the game world
-	x += 1
-
-	# Draw graphics on the screen
-	fb.erase()
-	fb.point(x, y)
-	fb.show()
-
-	# Wait for some period of time
-	time.sleep(.5)
-
-# Finish & Cleanup
+while True: # Get user input # Update the game world x += 1 # Draw
+graphics on the screen fb.erase() fb.point(x, y) fb.show() # Wait for
+some period of time time.sleep(.5)
+# Finish &amp; Cleanup
 </textarea></div>
 <p>When you run this code, you should see
 the dot start at one corner of the LED Matrix and move in one direction
@@ -326,7 +244,6 @@ the dot is still on the screen or not, the code will just continue to
 run even after you can no longer see the dot. &nbsp;So, once the
 dot
 has disappeared, you can stop the program.</p>
-	<p class=nextprev><a href="LED_MATRIX.html">prev</a>|
+<p class="nextprev"><a href="LED_MATRIX.html">prev</a>|
 <a href="BOUNCING_BALL_1.html">next</a></p>
 </body></html>
-

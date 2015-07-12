@@ -7,9 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
-
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="background: transparent none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>INTRODUCING BUTTONS</h1>
 <p>It’s now time to add a new component to our circuit – a
@@ -57,13 +55,13 @@ pressing the button).<o:p></o:p></p>
 <p class="MsoNormal">Let’s build that circuit now…<o:p></o:p></p>
 <p class="MsoNormal">Here’s what the schematic will look
 like:<o:p></o:p></p>
-<img class=schematic width=200px src="img/Battery-LED-Circuit-With-Button.png">  
-<p class="MsoNormal">To build the circuit, we can start
+<img class="schematic" src="img/Battery-LED-Circuit-With-Button.png" width="200">  
+<p class="MsoNormal"></p><p class="MsoNormal">To build the circuit, we can start
 with the circuit we built
 in 
-	<a href="RASPBERRY_PI_POWER.html">RASPBERRY PI POWER</a>:</p>
+	<a href="RASPBERRY_PI_POWER.html">Raspberry Pi Power</a>:</p>
 <p class="MsoNormal"></p>
-<img class=bb src="img/Your_First_Breadboard_Add_Power_bb.png">
+<img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
 <p class="MsoNormal"><span style=""></span><o:p></o:p></p>
 <h2>Step #1:<span style="">&nbsp; </span>Remove
 wire from LED to ground.<b style=""><o:p></o:p></b></h2>
@@ -74,16 +72,16 @@ connects
 the LED to ground.<span style="">&nbsp; </span><o:p></o:p></p>
 <p class="MsoNormal">This is what the breadboard should
 look like at this point:<o:p></o:p></p>
-<img class=bb src="img/Introducing_Buttons_1_bb.png">
+<img class="bb" src="img/Introducing_Buttons_1_bb.png">
 <h2>Step #2:<span style="">&nbsp; </span>Place
 button on the breadboard.<b style=""><o:p></o:p></b></h2>
-<p class="MsoNormal">Next, we’ll place the button on the
+<p class="MsoNormal"><!--Need to talk about placing that new green wire.  Troubleshooting box on seating the button correctly.  Diagram the right and wrong way to place the button?-->Next, we’ll place the button on the
 breadboard.<span style="">&nbsp; </span>Note
 that the button should be oriented so
 that the two sides of the button sit on different connect strips.<span style="">&nbsp; </span><o:p></o:p></p>
 <p class="MsoNormal">This is what the breadboard should
 look like at this point:<o:p></o:p></p>
-<img class=bb src="img/Introducing_Buttons_2_bb.png">
+<img class="bb" src="img/Introducing_Buttons_2_bb.png">
 <h2><span style="">Step #3:<span style="">&nbsp;
 </span>Connect the LED to one side of the button.<b style=""><o:p></o:p></b></span></h2>
 <p class="MsoNormal"><span style="">Now, we
@@ -95,7 +93,7 @@ matter which side of
 the button we connect to, so we’ll just connect to the side that is
 closest to
 the LED, like so: <o:p></o:p></span></p>
-<img class=bb src="img/Introducing_Buttons_3_bb.png">
+<img class="bb" src="img/Introducing_Buttons_3_bb.png">
 <h2><span style="">Step #4:<span style="">&nbsp;
 </span>Connect the other side of the button to ground.<b style=""><o:p></o:p></b></span></h2>
 <p class="MsoNormal"><span style="">Finally,
@@ -103,16 +101,19 @@ we can
 complete the circuit by connecting the other side of the button to
 ground, like
 this: <o:p></o:p></span></p>
-<img class=bb src="img/Introducing_Buttons_4_bb.png">
+<img class="bb" src="img/Introducing_Buttons_4_bb.png">
 <p class="MsoNormal"><span style="">At this
 point, your
 LED should not be lit.<span style="">&nbsp; </span>Remember,
 while
 we have a&nbsp;<span style="font-style: italic;">potentially</span>
 complete circuit, there is still a lack of physical
-connection through the button until the button is pressed.<span style="">&nbsp; </span>If you press the button,
+connection through the button until the button is pressed.<span style="">&nbsp;
+In other words, there is a break in the circuit inside the button (this
+is how a button works) and the way to complete the circuit is to press
+the button.</span></span></p><p class="MsoNormal"><span style=""><span style=""></span>If you press the button,
 you should see the
-LED illuminate.</span></p>
+LED illuminate.</span></p><p class="MsoNormal"><span style=""></span></p>
 <div class="info">
 <div>"Breaking the Circuit"</div>
 <div>
@@ -140,7 +141,6 @@ circuit used in
 most simple flashlights…<o:p></o:p></span></p>
 <p><span style="">In the next
 project, we’ll add software into the equation using GPIOs.</span></p>
-	<p class=nextprev><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a>|
+	<p class="nextprev"><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a>|
 <a href="USING_BUTTONS_WITH_GPIO.html">next</a></p>
 </body></html>
-

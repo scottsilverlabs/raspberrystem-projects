@@ -9,7 +9,6 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
-
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>USING BUTTONS WITH GPIO</h1>
 <p class="MsoNormal">In the previous project, we inserted
@@ -64,7 +63,9 @@ what the circuit schematic would
 look like:<o:p></o:p></p>
 <div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-style: italic;"><img style="width: 745px; height: 329px;" alt="" src="img/Pushbutton-to-GPIO.png"></span></span><br>
 </div>
-<p class="MsoNormal"></p><h1>Building the Circuit</h1><p class="MsoNormal">To implement this in an actual
+<p class="MsoNormal"></p>
+<h1>Building the Circuit</h1>
+<p class="MsoNormal">To implement this in an actual
 breadboard circuit is easy.<span style="">&nbsp; </span>Here
 is how to build that circuit on the
 breadboard and then use code to get input from the button through the
@@ -72,7 +73,8 @@ GPIO:</p>
 <p style="font-weight: bold;">Step
 #1: &nbsp;Pl<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span>ace
 button on breadboard.<o:p></o:p></p>
-<p class="MsoNormal">We start by placing a button on
+<p class="MsoNormal"><!--Should this be moved back to previous project???-->We
+start by placing a button on
 the breadboard.<span style="">&nbsp; </span>It’s
 important that the
 button is oriented correctly – the two independent sides of the button
@@ -81,8 +83,8 @@ on different connect strips, as follows:</p>
 <table style="margin: auto; width: 70%;">
 <tbody>
 <tr>
-<td><img width=285px src="img/Button_orientation_correct.png"></td>
-<td><img width=285px src="img/Button_orientation_wrong.png"></td>
+<td><img src="img/Button_orientation_correct.png" width="285"></td>
+<td><img src="img/Button_orientation_wrong.png" width="285"></td>
 </tr>
 <tr>
 <td><b>CORRECT</b></td>
@@ -99,7 +101,7 @@ button
 are symmetrical) to a GPIO.<span style="">&nbsp; </span>In
 this
 example, we’ll connect the button to GPIO14.<o:p></o:p></p>
-<img class=bb src="img/Buttons_with_GPIO_1_bb.png">
+<img class="bb" src="img/Buttons_with_GPIO_1_bb.png">
 <p><span style="font-weight: bold;">Step #3:
 &nbsp;Wire the other side of the button to
 ground.</span><o:p></o:p></p>
@@ -109,18 +111,18 @@ this
 example, we are connecting the other side of the button to the
 blue&nbsp;strip,
 which is connected to ground.</p>
-<img class=bb src="img/Buttons_with_GPIO_2_bb.png">
+<img class="bb" src="img/Buttons_with_GPIO_2_bb.png">
 <p class="MsoNormal">That’s it for the wiring – pretty
-simple, right?</p><h2>Writing the Code</h2>
+simple, right?</p>
+<h2>Writing the Code</h2>
 <p class="MsoNormal">Now that the circuit is wired, we can
 write the code to get
 the GPIO state (low or high):<o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.button import Button
+<textarea>from rstem.button import Button
 my_button = Button(14)
-print(button.is_pressed())
+print(my_button.is_pressed())
 </textarea></div>
 <p class="MsoNormal">In this most basic example, we are
 reading the GPIO a single
@@ -142,16 +144,13 @@ for as long as the program is running.<span style="">&nbsp;
 <p class="MsoNormal">Here’s what that code would look like:<o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.button import Button
+<textarea>from rstem.button import Button
 import time
-
 my_button = Button(14)
-
-while True:
-    my_button = Button(14)
-    print(button.is_pressed())
-    time.sleep(.01)
+while True: 
+my_button = Button(14) 
+print(my_button.is_pressed())
+time.sleep(.01)
 </textarea></div>
 <p class="MsoNormal">Run this program and then alternate
 between pressing and not
@@ -160,7 +159,6 @@ a look at the
 output window – you should see an indication of when the button is
 pressed and
 when it is unpressed.</p>
-	<p class=nextprev><a href="INTRODUCING_BUTTONS.html">prev</a>|
+<p class="nextprev"><a href="INTRODUCING_BUTTONS.html">prev</a>|
 <a href="FLASHLIGHT.html">next</a></p>
 </body></html>
-
