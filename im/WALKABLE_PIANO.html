@@ -1,33 +1,110 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>WALKABLE PIANO</title><link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>WALKABLE PIANO</title>
 
-<h1>WALKABLE PIANO</h1><p>This project uses the same code as Better
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>WALKABLE PIANO</h1>
+<p>This project uses the same code as Better
 Piano, but instead of using buttons attached to the RaspberrySTEM to
 play the notes, we are creating our own walkable piano keys that will
-play sounds when you walk on them.</p><p>The only code changes that are
+play sounds when you walk on them.</p>
+<p>The only code changes that are
 required are if you want to add additional keys over and above the four
-that have already been wired.</p><p>Below
+that have already been wired.</p>
+<p>Below
 are step-by-step instructions for building your piano keys and
-attaching them to the breadboard. &nbsp;This is what the final circuit
+attaching them to the breadboard. &nbsp;This is what the final
+circuit
 on your breadboard should look like -- notice that we'll be leaving the
 button wired in the circuit in addition to the homemade pressure pad
 (this is so you can use the button to test the breadboard wiring should
-you have trouble with your pressure pad):</p><p><img style="width: 520px; height: 372px;" class="schematic" src="img/Pushbuttons-2-to-GPIO.png"></p><p style="margin-left: 40px;"><br></p><p style="font-weight: bold;">Parts Required:&nbsp;</p><ul style="margin-left: 40px;"><li><p>(2) 8" cardboard squares</p></li><li><p>(2) 1x8" cardboard strips</p></li><li><p>(2) 8x12" foil rectangles</p></li><li><p>6ft wire pair (stripped)</p></li><li><p>Tape</p></li></ul>&nbsp;<br><div style="text-align: center;"><img src="img/pressure-pad-1-parts.jpg"><br></div><br><p style="font-weight: bold; text-align: left;">Step #1: &nbsp;Place cardboard centered on tin foil
-&nbsp;</p><p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-2-cardboard-on-foil.jpg"></p><br><p style="font-weight: bold;">Step #2: &nbsp;Fold and Tape Foil on One Side:</p><p style="font-weight: bold; text-align: center;">&nbsp;<img src="img/pressure-pad-3-cardboard-on-foil-flap-1.jpg"></p><p style="font-weight: bold; text-align: center;"></p><p style="font-weight: bold; text-align: left;">Step #3: &nbsp;Fold and tape foil on other side.  Repeat and make another foil/cardboard square</p><p style="font-weight: bold; text-align: center;">
-<img src="img/pressure-pad-4-cardboard-on-foil-flap-2.jpg"></p><p style="font-weight: bold; text-align: center;"></p><p style="font-weight: bold; text-align: left;">Step #4: &nbsp;Flip one cardboard/foil square over</p><p style="font-weight: bold; text-align: center;">&nbsp;<img src="img/pressure-pad-5-cardboard-on-foil-flipped-over.jpg">
-</p><p><span style="font-weight: bold;"></span></p><p><span style="font-weight: bold;">Step #5: &nbsp;Tape cardboard strip on one side&nbsp;</span></p><p style="text-align: center;"><span style="font-weight: bold;"></span><img src="img/pressure-pad-6-cardboard-spacer-1.jpg"></p><p style="text-align: center;"></p><p style="text-align: left; font-weight: bold;">Step #6: &nbsp;Tape cardboard strip on other side&nbsp;</p><p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-7-cardboard-spacer-2.jpg"></p><p style="font-weight: bold; text-align: center;"></p><p style="font-weight: bold; text-align: left;">Step #7: &nbsp;Attach other cardboard/foil square to top, with tape.&nbsp;</p><p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-8-attach-top.jpg"></p><p style="font-weight: bold; text-align: center;"></p><p style="font-weight: bold; text-align: left;">Step #8: &nbsp;Tape wire to one side of pressure pad&nbsp;</p><p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-9-attach-wire-1.jpg"></p><br><p><span style="font-weight: bold;">Step #9: &nbsp;Tape other wire to other side of pressure pad</span></p><div style="text-align: center;">&nbsp;<img src="img/pressure-pad-10-attach-wire-2.jpg"><br>&nbsp;</div><br><p><span style="font-weight: bold;">Pressure Pad is complete</span></p><p style="text-align: center;"><span style="font-weight: bold;"></span><img src="img/pressure-pad-11-complete.jpg"></p><p></p><p style="font-weight: bold;">Step #10: &nbsp;Attach pad in parallel with button on breadboard</p><p style="text-align: center;">
-<img src="img/pressure-pad-12-complete-and-attached.jpg">
-</p><p><span style="font-weight: bold;"></span></p><p><span style="font-family: &quot;Verdana&quot;,serif;">Your homemade piano key should now play a note every time it is pressed...just like our buttons did in previous projects.</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-
-	<p class="nextprev"><a href="BETTER_PIANO.html">prev</a>|
-<a href="SIMON_1.html">next</a></p>
+you have trouble with your pressure pad):</p>
+<p><img style="width: 520px; height: 372px;" class="schematic" src="img/Pushbuttons-2-to-GPIO.png"></p>
+<p style="margin-left: 40px;"><br>
+</p>
+<p style="font-weight: bold;">Parts Required:&nbsp;</p>
+<ul style="margin-left: 40px;">
+<li>
+<p>(2) 8" cardboard squares</p>
+</li>
+<li>
+<p>(2) 1x8" cardboard strips</p>
+</li>
+<li>
+<p>(2) 8x12" foil rectangles</p>
+</li>
+<li>
+<p>6ft wire pair (stripped)</p>
+</li>
+<li>
+<p>Tape</p>
+</li>
+</ul>
+&nbsp;<br>
+<div style="text-align: center;"><img src="img/pressure-pad-1-parts.jpg"><br>
+</div>
+<br>
+<p style="font-weight: bold; text-align: left;">Step #1:
+&nbsp;Place cardboard centered on tin foil
+&nbsp;</p>
+<p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-2-cardboard-on-foil.jpg"></p>
+<br>
+<p style="font-weight: bold;">Step #2: &nbsp;Fold and
+Tape Foil on One Side:</p>
+<p style="font-weight: bold; text-align: center;">&nbsp;<img src="img/pressure-pad-3-cardboard-on-foil-flap-1.jpg"></p>
+<p style="font-weight: bold; text-align: center;"></p>
+<p style="font-weight: bold; text-align: left;">Step #3:
+&nbsp;Fold and tape foil on other side. Repeat and make another
+foil/cardboard square</p>
+<p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-4-cardboard-on-foil-flap-2.jpg"></p>
+<p style="font-weight: bold; text-align: center;"></p>
+<p style="font-weight: bold; text-align: left;">Step #4:
+&nbsp;Flip one cardboard/foil square over</p>
+<p style="font-weight: bold; text-align: center;">&nbsp;<img src="img/pressure-pad-5-cardboard-on-foil-flipped-over.jpg">
+</p>
+<p><span style="font-weight: bold;"></span></p>
+<p><span style="font-weight: bold;">Step #5:
+&nbsp;Tape cardboard strip on one side&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-weight: bold;"></span><img src="img/pressure-pad-6-cardboard-spacer-1.jpg"></p>
+<p style="text-align: center;"></p>
+<p style="text-align: left; font-weight: bold;">Step #6:
+&nbsp;Tape cardboard strip on other side&nbsp;</p>
+<p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-7-cardboard-spacer-2.jpg"></p>
+<p style="font-weight: bold; text-align: center;"></p>
+<p style="font-weight: bold; text-align: left;">Step #7:
+&nbsp;Attach other cardboard/foil square to top, with
+tape.&nbsp;</p>
+<p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-8-attach-top.jpg"></p>
+<p style="font-weight: bold; text-align: center;"></p>
+<p style="font-weight: bold; text-align: left;">Step #8:
+&nbsp;Tape wire to one side of pressure pad&nbsp;</p>
+<p style="font-weight: bold; text-align: center;"><img src="img/pressure-pad-9-attach-wire-1.jpg"></p>
+<br>
+<p><span style="font-weight: bold;">Step #9:
+&nbsp;Tape other wire to other side of pressure pad</span></p>
+<div style="text-align: center;">&nbsp;<img src="img/pressure-pad-10-attach-wire-2.jpg"><br>
+&nbsp;</div>
+<br>
+<p><span style="font-weight: bold;">Pressure Pad is
+complete</span></p>
+<p style="text-align: center;"><span style="font-weight: bold;"></span><img src="img/pressure-pad-11-complete.jpg"></p>
+<p></p>
+<p style="font-weight: bold;">Step #10: &nbsp;Attach
+pad in parallel with button on breadboard</p>
+<p style="text-align: center;"><img src="img/pressure-pad-12-complete-and-attached.jpg">
+</p>
+<p><span style="font-weight: bold;"></span></p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Your
+homemade piano key should now play a note every time it is
+pressed...just like our buttons did in previous projects.</span></p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
+<p class="nextprev"><a href="BETTER_PIANO.html">prev</a>|
+<a href="SIMON_0.html">next</a></p>
 </body></html>

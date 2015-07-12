@@ -108,61 +108,101 @@ programming project is to start with big ideas and then break those
 ideas down into smaller and smaller pieces, until the pieces are small
 enough that we're comfortable starting to write our code.</p>
 <p>For example, this is what the very high level outline for our
-Simon game would look like:</p><p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize Buttons, LEDs, Speaker and variables that we'll use</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><p><p></p>
-<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Determine
-which random LED to flash next in the sequence</span></p>
+Simon game would look like:</p>
 <p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
+Modules and Initialize Game</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Add
+another random LED to sequence</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Flash
-the LED and play a tone associated with it</span></p>
-<p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Play
+LED sequence&nbsp;</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Wait
-for the user to repeat the sequence using the buttons</span></p>
-<p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Allow
+player to repeat sequence one button at a time&nbsp;</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get the
+user's button press</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If user
+enters incorrect button, end game</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If user
+enters correct button, flash LED and play tone</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the correct sequence, go back to the top and add another
+user enters the entire sequence, go back to top and add another
 LED to the sequence</span></p>
-<p></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the wrong sequence, play an error tone and flash the LEDs</span></p>
-<p></p><p>
-That's
+user enters the wrong sequence, play an error sequence</span></p>
+<p></p>
+<p>That's
 basically all our Simon game needs to do. &nbsp;But, now it's time
 to start thinking about how this outline would actually look when
 written with code. You'll notice that the last two lines indicate that
 -- for as long as the user does something correctly -- we go back to
 the top of the code. &nbsp;Does this sound like a concept we've
-already discussed? &nbsp;A loop, perhaps?</p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Let's rewrite our psedu-code above, but this time, let's add in a loop to make it more clear how the code will work:</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize Buttons, LEDs, Speaker and variables that we'll use</span></p>
-<p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while (user enters the sequence correctly):</span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p><p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; Determine
-which random LED to flash next in the sequence</span></p>
+already discussed? &nbsp;A <span style="font-family: Courier New,Courier,monospace;">while:</span>
+loop, perhaps?</p>
+<p>Also, you'll notice that in the middle of the code, we're
+checking for the sequence of button presses from the user --
+one-by-one. &nbsp;This sequence of getting input and checking it
+would likely be a loop as well -- in this case, probably a <span style="font-family: Courier New,Courier,monospace;">for</span>
+loop.</p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Let's
+rewrite our psedu-code above, but this time, let's add in a couple
+loops to make it more clear how the code will work:</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
+Modules and Initialize Game</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; Flash
-the LED and play a tone associated with it</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;&nbsp;&nbsp; Wait
-for the user to repeat the sequence using the buttons</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while
+(user enters the sequence correctly):</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; Add another random LED to sequence</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; Play LED sequence&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; for (each of the buttons in the sequence):&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; &nbsp; &nbsp; Get the user's button press</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; &nbsp; &nbsp; If user enters incorrect button, end
+game</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; &nbsp; &nbsp; If user enters correct button, flash
+LED and play tone</span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
+&nbsp; If the
+user enters the entire sequence, go back to top and add another
+LED to the sequence</span></p>
+<span style="font-family: &quot;Verdana&quot;,serif;"><br>
+</span>
+<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the wrong sequence, play an error tone and flash the LEDs&nbsp;</span></p>
-<p></p><p>The pseudo-code above is still very simple to follow, but by adding in the loop, we start to see the format for our program.</p><p>We
+user enters the wrong sequence, play an error sequence</span></p>
+<br>
+<p>The pseudo-code above is still very simple to follow, but by
+adding in the two loops, we start to see the format for our program.</p>
+<p>We
 could drill down into each piece of the pseudo-code further -- and in
 some future projects we'll be much more detailed -- but for our
 Simon-like game, we think this is enough detail to get started.
-&nbsp;As we build up the code over the next many projects, we'll use
+&nbsp;As we build up the code over the next many projects, we'll
+use
 the outline above to organize and ensure that we're doing everything
-that needs to be done to get the game working properly.</p><span style="font-family: &quot;Verdana&quot;,serif;">
-</span>
+that needs to be done to get the game working properly.</p>
+<span style="font-family: &quot;Verdana&quot;,serif;"></span>
 <p></p>
-<p class="nextprev"><a href="ACCELEROMETER.html">prev</a>|
-<a href="SPACE_INVADERS_1.html">next</a></p>
+<p class="nextprev"><a href="WALKABLE_PIANO.html">prev</a>|
+<a href="SIMON_1.html">next</a></p>
 </body></html>

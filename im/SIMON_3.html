@@ -64,8 +64,7 @@ sequence of 8 LED flashes hitting each LED twice.</p>
 <p></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Initialize the LED sequence list
+<textarea># Initialize the LED sequence list
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]
 </textarea></div>
 <p></p>
@@ -78,10 +77,8 @@ list, turning the LEDs on one at a time for .4 seconds and then waiting
 should look like:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Play sequence
-for light in lights: 
-light.off()
+<textarea># Play sequence
+for light in lights: light.off()
 for i in play_order:
 lights[i].on()
 time.sleep(0.4)
@@ -91,12 +88,10 @@ time.sleep(0.2)
 <p></p>
 <p>Notice that we leave the LEDs on for .4 seconds and then have
 a .2 second delay between flashes. &nbsp;</p>
-
 <p>Here is our full code at this point:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-# Initialize the LEDs and sequence list
+<textarea># Initialize the LEDs and sequence list
 from rstem.gpio import Output
 import time
 lights = [Output(4), Output(18), Output(14), Output(15)]
@@ -109,6 +104,6 @@ time.sleep(0.4)
 lights[i].off()
 time.sleep(0.2)
 </textarea></div>
-<p class="nextprev"><a href="SIMON_3.html">prev</a>|
-<a href="SIMON_5.html">next</a></p>
+<p class="nextprev"><a href="SIMON_2.html">prev</a>|
+<a href="SIMON_3.html">next</a></p>
 </body></html>
