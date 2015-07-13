@@ -152,7 +152,8 @@ while not failed:
 
     # Play LED sequence 
     for i in play_order: 
-        lights[i].on() 
+        lights[i].on()
+        time.sleep(0.5) 
         lights[i].off()
         time.sleep(0.2) 
 

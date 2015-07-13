@@ -137,6 +137,7 @@ while True:
     # Play LED sequence 
     for i in play_order: 
         lights[i].on() 
+        time.sleep(0.5) 
         lights[i].off()
         time.sleep(0.2) 
 
@@ -144,7 +145,7 @@ while True:
     # for: loop to get player input
     # #############################
 
-    for i in play_order:
+    # for i in play_order:
 
         # Get the user's button press
 
