@@ -113,9 +113,9 @@ import time
 my_leds = [Output(15), Output(18), Output(23), Output(27)]
 
 for led in my_leds: 
-    my_leds[led].on()
+    led.on()
     time.sleep(.6)
-    my_leds[led].off()
+    led.off()
     time.sleep(.2)
 
 </textarea></div>
