@@ -1,6 +1,10 @@
 @page {
     margin: 0.79in
 }
+img {
+    width: 90%;
+    height: auto;
+}
 p {
     margin-bottom: 0.14in;
     color: #00000a;
@@ -184,10 +188,13 @@ th, td
     margin: auto;
     margin-top: 0.25in;
     margin-bottom: 0.25in;
-    width: 80%
+    max-width: 800px;
+    width: 95%;
 }
 
 .schematic {
     display: block; 
     margin: auto;
+    max-width: 600px;
+    width: 95%;
 }
