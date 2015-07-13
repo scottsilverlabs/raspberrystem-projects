@@ -1,64 +1,75 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 4</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SPACE INVADERS 4</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
+
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SPACE INVADERS 4</h1>
+<p>In this project, we're going to add our aliens into the code. &nbsp;</p><p>The
+first thing we'll want to do is keep track of the aliens. &nbsp;We're
+going to have four aliens in our game (you're welcome to change that if
+you'd like), and we'll need to keep track of both what columns they are
+in and what row they are in at any given time.</p><p>We'll do that by
+adding a list to track their columns (they'll each be in their own
+column) and a variable to track their row (they'll all be in the same
+row):</p><p> 
+
+<div class="code" data-firstline="1"> <div></div> <textarea>alien_columns = [0, 1, 2, 3]</p>
+alien_row = fb.height - 1
+</textarea></div>
+
+<br>
+<span style="font-family: &quot;Verdana&quot;,serif;">Next, we need to add code to draw the aliens each time through the loop</span><br>
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+# Draw aliens   
+for column in alien_columns: 
+	fb.point(column, alien_row)
+</textarea></div>
 
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>SPACE INVADERS 4</H1>
-<P>Keep track of a list
-of aliens:</P>
-<P>alien_columns
-= [0, 1, 2, 3]</P>
-<P>alien_row
-= fb.height – 1</P>
-<P>...</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-...</P>
-<P>   
-#
-Draw aliens</P>
-<P>   
-for
-column in alien_columns:</P>
-<P>    
-   fb.point(column,
-alien_row)</P>
-<P>   
-...</P>
-<P><BR>
-</P>
+<br>
+</p>
 <p>Full project:</p>
 <div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.accel import Accel
+# ###############################################################
+#
+# SPACE INVADERS GAME
+#
+# ###############################################################
+
+# ################################
+# Initialize the game environment
+# ################################
+
+# Import required functions/modules
 from rstem.led_matrix import FrameBuffer
+from rstem.accel import Accel
 import time
 
+# Initialize framebuffer
 fb = FrameBuffer()
+
+# Initialize accelerometer
 accel = Accel()
 
+# Initialize spaceship
 spaceship_position = fb.width / 2
-
-alien_columns = [0, 1, 2, 3]
-alien_row = fb.height - 1
-
 TILT_FORCE = 0.1
 SPACESHIP_STEP = 0.1
+
+# Initialize aliens
+alien_columns = [0, 1, 2, 3]</p>
+alien_row = fb.height - 1
+
+# Initialize missiles
 
 while True:
 	# ########################################
@@ -71,9 +82,9 @@ while True:
 	# ########################################
 
 	# Move spaceship
-	if x_force > TILT_FORCE:
+	if x_force &gt; TILT_FORCE:
 		spaceship_position -= SPACESHIP_STEP
-	elif x_force < -TILT_FORCE:
+	elif x_force &lt; -TILT_FORCE:
 		spaceship_position += SPACESHIP_STEP
 	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
@@ -94,7 +105,6 @@ while True:
 	fb.show()
 	time.sleep(0.001)
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_3.html">prev</a>|
+	<p class="nextprev"><a href="SPACE_INVADERS_3.html">prev</a>|
 <a href="SPACE_INVADERS_5.html">next</a></p>
 </body></html>
-	
