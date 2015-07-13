@@ -103,27 +103,60 @@ True:<br>
 &nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.4)<br>
 &nbsp; &nbsp; &nbsp; &nbsp; lights[i].off()<br>
 &nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.2)</p>
-<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
-REMOVE THIS CODE BLOCK<br>
-<span style="font-family: Courier New,Courier,monospace;"><br>
-</span>
+
+<p><br>
+Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.gpio import Output
+<textarea>
+# ##################################
+# Import Modules and Initialize Game
+# ##################################
+
+from rstem.gpio import Output
 from random import randrange
 import time
+
 lights = [Output(4), Output(18), Output(14), Output(15)]
-for light in lights: light.off()
-# Create list to hold sequence of flashes
+
+for light in lights: 
+    light.off()
+
 play_order = []
-# Generate random sequence
-num_flashes = 0
-while num_flashes &lt; 5: play_order += [randrange(4)] num_flashes
-+= 1
-# Play sequence for i in play_order: lights[i].on() time.sleep(0.4)
-lights[i].off()
-time.sleep(0.2) time.sleep(1.0)
+
+
+# ##################################
+# Main while: loop for game
+# ##################################
+
+while not failed:
+    
+    # Add another random LED to sequence
+    play_order += [randrange(4)] 
+
+    # Play LED sequence 
+    for i in play_order: 
+        lights[i].on() 
+        lights[i].off()
+        time.sleep(0.2) 
+
+    # #############################
+    # for: loop to get player input
+    # #############################
+
+    for i in play_order:
+
+        # Get the user's button press
+
+        # If user enters incorrect button, end game
+
+        # If user enters correct button, flash LED and play tone
+
+
+# Game Over -- Play error sequence
 </textarea></div>
+<br>
+
 <p class="nextprev"><a href="SIMON_3.html">prev</a>|
 <a href="SIMON_5.html">next</a></p>
 </body></html>

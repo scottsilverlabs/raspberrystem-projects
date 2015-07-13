@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 6</h1>
 <p>In our last project,&nbsp;added in the use
@@ -41,34 +40,84 @@ we need to insert our sounds into two locations -- where we flash the
 sequence of LEDs for the player and where the player presses a button
 while repeating the sequence. &nbsp;Here are what those two code
 blocks should be updated to:</span></p>
-<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
-<span style="font-family: Courier New,Courier,monospace;"><br>
-</span>
-<h2>Executing Your Code</h2>
-<p>Full project:</p>
+
+
+<p><br>
+Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea># ##################################
+# Import Modules and Initialize Game
+# ##################################
+
+from rstem.button import Button
 from rstem.gpio import Output
 from rstem.sound import Note
 from random import randrange
 import time
+
 buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(4), Output(18), Output(14), Output(15)]
 notes = [Note('A'), Note('B'), Note('C'), Note('D')]
-for light in lights: light.off()
+
+you_failed_note = Note('E2')
+you_failed_note.volume = 1000
+
+for note in notes: 
+    note.volume = 400
+
+for light in lights: 
+    light.off()
+
 play_order = []
+
 failed = False
-while not failed: play_order += [randrange(4)] # Play sequence for i in
-play_order: lights[i].on() notes[i].play(0.4).wait() lights[i].off()
-time.sleep(0.2) # Wait for user to repeat for i in play_order:
-button_pressed = Button.wait_many(buttons, timeout=3) if button_pressed
-!= i: failed = True break # Light and play while button is pressed.
-lights[button_pressed].on() notes[button_pressed].play(duration=None)
-buttons[button_pressed].wait(press=False) time.sleep(0.2)
-lights[button_pressed].off() notes[button_pressed].stop() if not
-failed: time.sleep(1.0)
+
+# ##################################
+# Main while: loop for game
+# ##################################
+
+while not failed:
+    
+    # Add another random LED to sequence
+    play_order += [randrange(4)] 
+
+    # Play LED sequence 
+    for i in play_order: 
+        lights[i].on() 
+        notes[i].play(0.4).wait() 
+        lights[i].off()
+        time.sleep(0.2) 
+
+    # #############################
+    # for: loop to get player input
+    # #############################
+
+    for i in play_order:
+
+        # Get the user's button press
+        button_pressed = Button.wait_many(buttons, timeout=3) 
+
+        # If user enters incorrect button, end game
+        if button_pressed != i: 
+            failed = True 
+            break 
+
+        # If user enters correct button, flash LED and play tone
+        lights[button_pressed].on()     
+        notes[button_pressed].play(duration=None)
+        buttons[button_pressed].wait(press=False) 
+        time.sleep(0.2)
+        lights[button_pressed].off() 
+        notes[button_pressed].stop() 
+
+    if not failed: 
+        time.sleep(1.0)
+
+# Game Over -- Play error sequence
 </textarea></div>
+<br>
+
 <p class="nextprev"><a href="SIMON_5.html">prev</a>|
 <a href="SIMON_6.html">next</a></p>
 </body></html>

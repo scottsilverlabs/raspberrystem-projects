@@ -117,32 +117,72 @@ Initialize the LEDs and sequence list</span><br style="font-family: Courier New,
 ...<br>
 <br>
 while not Failed:<br style="font-family: Courier New,Courier,monospace;">
-</span><br style="font-family: Courier New,Courier,monospace;">
-<span style="font-family: &quot;Verdana&quot;,serif;"><br>
-</span><span style="font-family: Courier New,Courier,monospace;"></span>
-<p><span style="font-family: &quot;Calibri Light&quot;,serif;">H</span>ere
-is what the full code should look like at this point:</p>
-REMOVE (IF NOT FAILED BLOCK BELOW)<br>
+
+<p><br>
+Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea># ##################################
+# Import Modules and Initialize Game
+# ##################################
+
+from rstem.button import Button
 from rstem.gpio import Output
 from random import randrange
 import time
+
 buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(4), Output(18), Output(14), Output(15)]
-for light in lights: light.off()
+
+for light in lights: 
+    light.off()
+
 play_order = []
+
 failed = False
-while not failed: play_order += [randrange(4)] # Play sequence for i in
-play_order: lights[i].on() time.sleep(0.4) lights[i].off()
-time.sleep(0.2) # Wait for user to repeat for i in play_order:
-button_pressed = Button.wait_many(buttons, timeout=3) if button_pressed
-!= i: failed = True break # Light and play while button is pressed.
-lights[button_pressed].on() buttons[button_pressed].wait(press=False)
-time.sleep(0.2) lights[button_pressed].off() if not failed:
-time.sleep(1.0)
+
+# ##################################
+# Main while: loop for game
+# ##################################
+
+while not failed:
+    
+    # Add another random LED to sequence
+    play_order += [randrange(4)] 
+
+    # Play LED sequence 
+    for i in play_order: 
+        lights[i].on() 
+        lights[i].off()
+        time.sleep(0.2) 
+
+    # #############################
+    # for: loop to get player input
+    # #############################
+
+    for i in play_order:
+
+        # Get the user's button press
+        button_pressed = Button.wait_many(buttons, timeout=3) 
+
+        # If user enters incorrect button, end game
+        if button_pressed != i: 
+            failed = True 
+            break 
+
+        # If user enters correct button, flash LED and play tone
+        lights[button_pressed].on()     
+        buttons[button_pressed].wait(press=False) 
+        time.sleep(0.2)
+        lights[button_pressed].off() 
+
+    if not failed: 
+        time.sleep(1.0)
+
+# Game Over -- Play error sequence
 </textarea></div>
+<br>
+
 <p class="nextprev"><a href="SIMON_4.html">prev</a>|
 <a href="SIMON_6.html">next</a></p>
 </body></html>
