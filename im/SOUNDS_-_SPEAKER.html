@@ -20,7 +20,8 @@ assembly, so we can start making noise with just some lines of code...</span></p
 this project, we're just going to use the basic functionality of the
 sound library to play notes in variable durations. &nbsp;Let's start
 with this code:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.sound import Note
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.sound import Note
 note = Note('A')
 note.play() # by default, notes play for one second
 note.wait()
@@ -28,7 +29,8 @@ note.wait()
 <br><p>If you run this code, you'll hear a single tone play for one
 second. &nbsp;If you want to change the duration of the note, you can
 set duration in the <span style="font-family: Courier New,Courier,monospace;">play()</span> function, as you see below:</p><br>
-<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.sound import Note
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.sound import Note
 note = Note('A')
 note.play(duration=0.5)
 note.wait()

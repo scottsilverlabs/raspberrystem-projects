@@ -65,16 +65,17 @@ GPIO as output<o:p></o:p></p>
 this:</p><p class="MsoNormal"><o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea>
+from rstem.button import Button
 from rstem.gpio import Output
 
 my_button = Button(18)
 my_led = Output(14)
 
 if my_button.is_pressed():
-    my_led.on()
+	my_led.on()
 else:
-    my_led.off()
+	my_led.off()
 </textarea></div>
 <p></p><p>Let's to through the code line-by-line and take a look at what
 it's doing:</p>
@@ -115,17 +116,18 @@ code (the lines that test the state of the button and turn the LED on
 or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p class="MsoNormal"><o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea>
+from rstem.button import Button
 from rstem.gpio import Output
 
 my_button = Button(18)
 my_led = Output(14)
 
 while True:
-    if my_button.is_pressed():
-        my_led.on()
-    else:
-        my_led.off()
+	if my_button.is_pressed():
+		my_led.on()
+	else:
+		my_led.off()
 </textarea></div>
 <p>Give it a try…the flashlight will continue to work until you
 manually stop the program.</p>

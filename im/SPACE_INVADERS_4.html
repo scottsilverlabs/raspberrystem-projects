@@ -61,38 +61,38 @@ TILT_FORCE = 0.1
 SPACESHIP_STEP = 0.1
 
 while True:
-    # ########################################
-    # Get inputs
-    # ########################################
-    x_force, y_force, z_force = accel.forces()
+	# ########################################
+	# Get inputs
+	# ########################################
+	x_force, y_force, z_force = accel.forces()
 
-    # ########################################
-    # Change the World
-    # ########################################
+	# ########################################
+	# Change the World
+	# ########################################
 
-    # Move spaceship
-    if x_force > TILT_FORCE:
-        spaceship_position -= SPACESHIP_STEP
-    elif x_force < -TILT_FORCE:
-        spaceship_position += SPACESHIP_STEP
-    spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+	# Move spaceship
+	if x_force > TILT_FORCE:
+		spaceship_position -= SPACESHIP_STEP
+	elif x_force < -TILT_FORCE:
+		spaceship_position += SPACESHIP_STEP
+	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
-    # ########################################
-    # Show world
-    # ########################################
+	# ########################################
+	# Show world
+	# ########################################
 
-    fb.erase()
+	fb.erase()
 
-    # Draw spaceship
-    fb.point(round(spaceship_position), 0)
+	# Draw spaceship
+	fb.point(round(spaceship_position), 0)
 
-    # Draw aliens
-    for column in alien_columns:
-        fb.point(column, alien_row)
+	# Draw aliens
+	for column in alien_columns:
+		fb.point(column, alien_row)
 
-    # Show FrameBuffer on LED Matrix
-    fb.show()
-    time.sleep(0.001)
+	# Show FrameBuffer on LED Matrix
+	fb.show()
+	time.sleep(0.001)
 </textarea></div>
 	<p class=nextprev><a href="SPACE_INVADERS_3.html">prev</a>|
 <a href="SPACE_INVADERS_5.html">next</a></p>

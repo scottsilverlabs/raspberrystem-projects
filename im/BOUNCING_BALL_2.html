@@ -34,20 +34,20 @@ x, y = (1, 1)
 fb.erase()
 
 while True:
-    # Get user input
+	# Get user input
 
-    # Update the game world
-    x += direction
-    if (x <= 7) or (x > 1):
-        direction = -direction
+	# Update the game world
+	x += direction
+	if (x <= 7) or (x > 1):
+		direction = -direction
 
-    # Draw graphics on the screen
-    fb.erase()
-    fb.point(x, y)
-    fb.show()
+	# Draw graphics on the screen
+	fb.erase()
+	fb.point(x, y)
+	fb.show()
 
-    # Wait for some period of time
-    time.sleep(.5)
+	# Wait for some period of time
+	time.sleep(.5)
 </textarea></div>
 <p>Adding the same functionality along the other axis (the
 y-axis) is actually pretty simple. &nbsp;In addition to changing
@@ -67,7 +67,7 @@ through the loop and test whether we've hit the y-axis edge: </p>
 <textarea>
 y += y_direction
 if (y >= 7) or (y < 1):
-    y_direction = -y_direction
+	y_direction = -y_direction
 </textarea></div>
 <p class="MsoNormal"><span style=""></span></p><p class="MsoNormal"><span style="">Lastly,
 you'll probably want to set the initial position of the ball to
@@ -93,24 +93,23 @@ y_direction = 1
 fb.erase()
 fb.point(x, y)
 while True:
-    # Get user input
+	# Get user input
 
-    # Update the game world
-    x += direction
-    y += y_direction
-    if (x >= 7) or (x < 1):
-        direction = -direction
-    if (y >= 7) or (y < 1):
-        y_direction = -y_direction
+	# Update the game world
+	x += direction
+	y += y_direction
+	if (x >= 7) or (x < 1):
+		direction = -direction
+	if (y >= 7) or (y < 1):
+		y_direction = -y_direction
 
-    # Draw graphics on the screen
-    fb.erase()
-    fb.point(x, y)
-    fb.show()
+	# Draw graphics on the screen
+	fb.erase()
+	fb.point(x, y)
+	fb.show()
 
-    # Wait for some period of time
-    time.sleep(.5)
-
+	# Wait for some period of time
+	time.sleep(.5)
 </textarea></div>
 	<p class=nextprev><a href="BOUNCING_BALL_1.html">prev</a>|
 <a href="ACCELEROMETER.html">next</a></p>

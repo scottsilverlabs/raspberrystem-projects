@@ -93,7 +93,8 @@ dot&nbsp;</p>
 <p>Here's what the code will look like:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>from rstem.led_matrix import FrameBuffer
+<textarea>
+from rstem.led_matrix import FrameBuffer
 import time
 
 fb = FrameBuffer()
@@ -118,7 +119,8 @@ of our
 game loop:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>while True:
+<textarea>
+while True:
 </textarea></div>
 <h3><span style="">Check for user input</span></h3>
 <p>In
@@ -154,7 +156,8 @@ the
 framebuffer with the new location.</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>x += 1
+<textarea>
+x += 1
 </textarea></div>
 <h3><span style="">Draw graphics on the screen</span></h3>
 <p>Once
@@ -169,7 +172,8 @@ the
 last project:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>fb.erase()
+<textarea>
+fb.erase()
 fb.point(x, y)
 fb.show()
 </textarea></div>
@@ -205,7 +209,8 @@ want to put
 in a half-second delay at the end of the loop.</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>time.sleep(.5)
+<textarea>
+time.sleep(.5)
 </textarea></div>
 <h3>Finish &amp; Cleanup</h3>
 <p>At
@@ -239,19 +244,18 @@ x, y = (1, 1)
 fb.erase()
 
 while True: 
+	# Get user input 
 
-    # Get user input 
+	# Update the game world 
+	x += 1 
 
-    # Update the game world 
-    x += 1 
+	# Draw graphics on the screen 
+	fb.erase() 
+	fb.point(x, y) 
+	fb.show() 
 
-    # Draw graphics on the screen 
-    fb.erase() 
-    fb.point(x, y) 
-    fb.show() 
-
-    # Wait for some period of time 
-    time.sleep(.5)
+	# Wait for some period of time 
+	time.sleep(.5)
 
 # Finish &amp; Cleanup
 </textarea></div>

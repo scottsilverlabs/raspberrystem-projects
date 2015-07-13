@@ -120,7 +120,8 @@ write the code to get
 the GPIO state (low or high):<o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>from rstem.button import Button
+<textarea>
+from rstem.button import Button
 my_button = Button(14)
 print(my_button.is_pressed())
 </textarea></div>
@@ -151,9 +152,9 @@ import time
 my_button = Button(14)
 
 while True: 
-    my_button = Button(14) 
-    print(my_button.is_pressed())
-    time.sleep(.01)
+	my_button = Button(14) 
+	print(my_button.is_pressed())
+	time.sleep(.01)
 </textarea></div>
 <p class="MsoNormal">Run this program and then alternate
 between pressing and not

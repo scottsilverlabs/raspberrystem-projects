@@ -12,7 +12,10 @@
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
 <h1>SIMPLE PIANO</h1>
-<p>Using the hardware setup from Many Buttons, we can turn our RaspberrySTEM into a very basic sound machine.</p><p>In this project, each time you press one of the four buttons on the RaspberrySTEM, a corresponding note plays for one second:</p><br><div class="code" data-firstline="1"><div></div> <textarea>from rstem.button import Button
+<p>Using the hardware setup from Many Buttons, we can turn our RaspberrySTEM into a very basic sound machine.</p><p>In this project, each time you press one of the four buttons on the RaspberrySTEM, a corresponding note plays for one second:</p><br>
+<div class="code" data-firstline="1"><div></div> 
+<textarea>
+from rstem.button import Button
 from rstem.sound import Note
 import time
 
@@ -20,10 +23,10 @@ buttons = [Button(14), Button(15), Button(25), Button(7)]
 notes = [Note('A'), Note('B'), Note('C'), Note('D')]
 
 while True:
-    for button, note in zip(buttons, notes):
-        if button.is_pressed():
-            note.play()
-    time.sleep(0.01)
+	for button, note in zip(buttons, notes):
+		if button.is_pressed():
+			note.play()
+	time.sleep(0.01)
 </textarea></div>
 
 	<p class=nextprev><a href="MARY_HAD_A_LITTLE_LAMB.html">prev</a>|

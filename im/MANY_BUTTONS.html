@@ -61,10 +61,10 @@ import time
 my_buttons = [Button(14), Button(15), Button(25), Button(7)]
 
 while True: 
-    for button in my_buttons: 
-        if button.is_pressed():
-        print("Button connected to GPIO", button.pin, "is pressed")
-    time.sleep(0.1)
+	for button in my_buttons: 
+		if button.is_pressed():
+			print("Button connected to GPIO", button.pin, "is pressed")
+	time.sleep(0.1)
 </textarea></div>
 <p>Let's look at this code in more detail:</p>
 <ul>
