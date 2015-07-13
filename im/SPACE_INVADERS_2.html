@@ -56,7 +56,7 @@ of the&nbsp;ship would look like:</p>
 <div></div>
 <textarea>
 # Initialize the spaceship
-spaceship_position = fb.width
+spaceship_position = fb.width / 2
 </textarea></div>
 <p></p>
 <p>In our previous project, we just drew the ship at x=3, y=0.
@@ -109,7 +109,7 @@ time.sleep(.001)
 # ################################
 
 # Import required functions/modules
-rstem.led_matrix import FrameBuffer
+from rstem.led_matrix import FrameBuffer
 import time
 
 # Initialize framebuffer
@@ -118,7 +118,7 @@ fb = FrameBuffer()
 # Initialize accelerometer
 
 # Initialize spaceship
-spaceship_position = fb.width
+spaceship_position = fb.width / 2
 
 # Initialize aliens
 # Initialize missiles
