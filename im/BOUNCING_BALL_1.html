@@ -42,18 +42,18 @@ x, y = (1, 1)
 fb.erase()
 
 while True:
-    # Get user input
+	# Get user input
 
-    # Update the game world
-    x += 1
+	# Update the game world
+	x += 1
 
-    # Draw graphics on the screen
-    fb.erase()
-    fb.point(x, y)
-    fb.show()
+	# Draw graphics on the screen
+	fb.erase()
+	fb.point(x, y)
+	fb.show()
 
-    # Wait for some period of time
-    time.sleep(.5)
+	# Wait for some period of time
+	time.sleep(.5)
 
 # Finish & Cleanup
 </textarea></div>
@@ -82,7 +82,8 @@ ball will move left.</p>
 code. &nbsp;First, Line 13 will change to:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>x += direction
+<textarea>
+x += direction
 </textarea></div>
 <p class="MsoNormal">Next,
 because the variable direction hasn't yet been set to anything (which
@@ -92,7 +93,8 @@ first, we can initally set the variable equal to 1. &nbsp;We can do
 that by adding the following line to our initialization code:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>direction = 1
+<textarea>
+direction = 1
 </textarea></div>
 <p class="MsoNormal">If you now run this code, you'll
 see that things work exactly the way they did in the last project --
@@ -125,7 +127,7 @@ the dot by switching direction from 1 to -1:</p>
 <div></div>
 <textarea>
 if (x >= 7):
-    direction = -1
+	direction = -1
 </textarea></div>
 <br>
 <p class="MsoNormal"><span style="">If
@@ -145,7 +147,7 @@ our code...we can just update the IF statement we just wrote as follows:</span><
 <div></div>
 <textarea>
 if (x >= 7) or (x <= 0):
-    direction = -direction
+	direction = -direction
 </textarea></div>
 <p class="MsoNormal"><span style=""> This
 checks whether x is too big (greater than or equal to 8) or whether x
@@ -173,20 +175,20 @@ fb.erase()
 direction = 1
 
 while True:
-    # Get user input
+	# Get user input
 
-    # Update the game world
-    x += direction
-    if (x <= 0) or (x >= 7):
-        direction = -direction
+	# Update the game world
+	x += direction
+	if (x <= 0) or (x >= 7):
+		direction = -direction
 
-    # Draw graphics on the screen
-    fb.erase()
-    fb.point(x, y)
-    fb.show()
+	# Draw graphics on the screen
+	fb.erase()
+	fb.point(x, y)
+	fb.show()
 
-    # Wait for some period of time
-    time.sleep(.5)
+	# Wait for some period of time
+	time.sleep(.5)
 
 # Finish & Cleanup
 </textarea></div>
