@@ -15,32 +15,34 @@ In this project, we're going to add in our final sequence when the user makes a 
 <br>
 </p><div class="code" data-firstline="0">
 <div></div>
-<textarea># Game Over -- Play error sequence
+<textarea>
+# Game Over -- Play error sequence
 if button_pressed == None: 
-    for light in lights: 
-        light.on()
-    else: 
-        lights[button_pressed].on()
+	for light in lights: 
+		light.on()
+	else: 
+		lights[button_pressed].on()
 
 you_failed_note.play(1.5).wait()
 
 for light in lights: 
-    light.off()
+	light.off()
 
 time.sleep(0.5)
 
 # Play correct sequence fast
 for i in play_order: 
-    lights[i].on() 
-    notes[i].play(0.1).wait()
-    lights[i].off() 
-    time.sleep(0.05)
+	lights[i].on() 
+	notes[i].play(0.1).wait()
+	lights[i].off() 
+	time.sleep(0.05)
 </textarea></div>
 <br><p>
 Here is what the final code for this project looks like:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea># ##################################
+<textarea>
+# ##################################
 # Import Modules and Initialize Game
 # ##################################
 
@@ -52,16 +54,12 @@ import time
 
 buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(15), Output(18), Output(23), Output(27)]
-notes = [Note('A'), Note('B'), Note('C'), Note('D')]
+notes = [Note('C'), Note('D'), Note('E'), Note('F')]
 
 you_failed_note = Note('E2')
-you_failed_note.volume = 1000
-
-for note in notes: 
-    note.volume = 400
 
 for light in lights: 
-    light.off()
+	light.off()
 
 play_order = []
 
@@ -72,62 +70,62 @@ failed = False
 # ##################################
 
 while not failed:
-    
-    # Add another random LED to sequence
-    play_order += [randrange(4)] 
+	
+	# Add another random LED to sequence
+	play_order += [randrange(4)] 
 
-    # Play LED sequence 
-    for i in play_order: 
-        lights[i].on() 
-        notes[i].play(0.4).wait() 
-        lights[i].off()
-        time.sleep(0.2) 
+	# Play LED sequence 
+	for i in play_order: 
+		lights[i].on() 
+		notes[i].play(0.4).wait() 
+		lights[i].off()
+		time.sleep(0.2) 
 
-    # #############################
-    # for: loop to get player input
-    # #############################
+	# #############################
+	# for: loop to get player input
+	# #############################
 
-    for i in play_order:
+	for i in play_order:
 
-        # Get the user's button press
-        button_pressed = Button.wait_many(buttons, timeout=3) 
+		# Get the user's button press
+		button_pressed = Button.wait_many(buttons, timeout=3) 
 
-        # If user enters incorrect button, end game
-        if button_pressed != i: 
-            failed = True 
-            break 
+		# If user enters incorrect button, end game
+		if button_pressed != i: 
+			failed = True 
+			break 
 
-        # If user enters correct button, flash LED and play tone
-        lights[button_pressed].on()     
-        notes[button_pressed].play(duration=None)
-        buttons[button_pressed].wait(press=False) 
-        time.sleep(0.2)
-        lights[button_pressed].off() 
-        notes[button_pressed].stop() 
+		# If user enters correct button, flash LED and play tone
+		lights[button_pressed].on()     
+		notes[button_pressed].play(duration=None)
+		buttons[button_pressed].wait(press=False) 
+		time.sleep(0.2)
+		lights[button_pressed].off() 
+		notes[button_pressed].stop() 
 
-    if not failed: 
-        time.sleep(1.0)
+	if not failed: 
+		time.sleep(1.0)
 
 # Game Over -- Play error sequence
 if button_pressed == None: 
-    for light in lights: 
-        light.on()
-    else: 
-        lights[button_pressed].on()
+	for light in lights: 
+		light.on()
+else: 
+    lights[button_pressed].on()
 
 you_failed_note.play(1.5).wait()
 
 for light in lights: 
-    light.off()
+	light.off()
 
 time.sleep(0.5)
 
 # Play correct sequence fast
 for i in play_order: 
-    lights[i].on() 
-    notes[i].play(0.1).wait()
-    lights[i].off() 
-    time.sleep(0.05)
+	lights[i].on() 
+	notes[i].play(0.1).wait()
+	lights[i].off() 
+	time.sleep(0.05)
 </textarea></div>
 <br>
 

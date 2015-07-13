@@ -122,7 +122,8 @@ while not Failed:<br style="font-family: Courier New,Courier,monospace;">
 Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea># ##################################
+<textarea>
+# ##################################
 # Import Modules and Initialize Game
 # ##################################
 
@@ -135,7 +136,7 @@ buttons = [Button(27), Button(23), Button(24), Button(22)]
 lights = [Output(15), Output(18), Output(23), Output(27)]
 
 for light in lights: 
-    light.off()
+	light.off()
 
 play_order = []
 
@@ -146,39 +147,39 @@ failed = False
 # ##################################
 
 while not failed:
-    
-    # Add another random LED to sequence
-    play_order += [randrange(4)] 
+	
+	# Add another random LED to sequence
+	play_order += [randrange(4)] 
 
-    # Play LED sequence 
-    for i in play_order: 
-        lights[i].on()
-        time.sleep(0.5) 
-        lights[i].off()
-        time.sleep(0.2) 
+	# Play LED sequence 
+	for i in play_order: 
+		lights[i].on()
+		time.sleep(0.5) 
+		lights[i].off()
+		time.sleep(0.2) 
 
-    # #############################
-    # for: loop to get player input
-    # #############################
+	# #############################
+	# for: loop to get player input
+	# #############################
 
-    for i in play_order:
+	for i in play_order:
 
-        # Get the user's button press
-        button_pressed = Button.wait_many(buttons, timeout=3) 
+		# Get the user's button press
+		button_pressed = Button.wait_many(buttons, timeout=3) 
 
-        # If user enters incorrect button, end game
-        if button_pressed != i: 
-            failed = True 
-            break 
+		# If user enters incorrect button, end game
+		if button_pressed != i: 
+			failed = True 
+			break 
 
-        # If user enters correct button, flash LED and play tone
-        lights[button_pressed].on()     
-        buttons[button_pressed].wait(press=False) 
-        time.sleep(0.2)
-        lights[button_pressed].off() 
+		# If user enters correct button, flash LED and play tone
+		lights[button_pressed].on()     
+		buttons[button_pressed].wait(press=False) 
+		time.sleep(0.2)
+		lights[button_pressed].off() 
 
-    if not failed: 
-        time.sleep(1.0)
+	if not failed: 
+		time.sleep(1.0)
 
 # Game Over -- Play error sequence
 </textarea></div>
