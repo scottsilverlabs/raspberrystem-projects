@@ -1,0 +1,3 @@
+#!/bin/bash
+mogrify -crop 100x100% -trim +repage "$1"
+

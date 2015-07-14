@@ -1,0 +1,18 @@
+Note on the Text Tool:
+    - The Text Tool (Text with Arrow Leader), sometimes loses the text when the
+      Leader is "View based", when the image is exported.  To fix this, Leave
+      the Leader as "Pushpin".
+    - Whenever you move the text around, or reorient the scene camera, you must:
+        - Move the text
+        - Change the Leader to View based
+        - Change the Leader to Pushpin
+Exporting sketchup images for users guide:
+    - Orient Scene to Main (double click on "Main" just below toolbar)
+    - Open group of interest (if there is one), and make sure Fade Rest of
+      Model is set
+    - File -> Export -> 2D Graphic...   Export as JPG
+Crop final image with:
+    ./crop image.jpg
+
+
+
