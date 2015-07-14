@@ -127,7 +127,7 @@ using the small jumpers as much as possible.</span></p>
 &nbsp;Wire Your Third Button Using a GPIO Input</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">We can now wire the third
 button just like the first two. &nbsp;For this button, we've chosen
-to use GPIO22.</span></p>
+to use GPIO23.</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
 <p style="text-align: center;"></p>
@@ -173,10 +173,14 @@ the top button, button #2 as the right button and so forth. &nbsp;</p>
 <div></div>
 <textarea>from rstem.button import Button
 import time
-my_buttons = [Button(14), Button(15), Button(17), Button(22)]
-while True: for button in my_buttons: if button.is_pressed():
-print("Button connected to GPIO", button.pin, "is pressed")
-time.sleep(0.1)
+
+my_buttons = [Button(14), Button(15), Button(23), Button(17)]
+
+while True: 
+	for button in my_buttons: 
+		if button.is_pressed():
+			print("Button connected to GPIO", button.pin, "is pressed")
+	time.sleep(0.1)
 </textarea></div>
 <br>
 <span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br>

@@ -46,7 +46,7 @@ rstem.gpio import Output<br>
 import time</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">lights
-= [Output(4), Output(18), Output(14), Output(15)]<br>
+= [Output(4), Output(18), Output(24), Output(27)]<br>
 </span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p>The sequence of LED flashes will be contained in a list, and
@@ -100,7 +100,7 @@ a .2 second delay between flashes. &nbsp;</p>
 from rstem.gpio import Output
 import time
 
-lights = [Output(15), Output(18), Output(23), Output(27)]
+lights = [Output(4), Output(18), Output(24), Output(27)]
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]
 
 # Play sequence
@@ -114,5 +114,5 @@ for i in play_order:
     time.sleep(0.2)
 </textarea></div>
 <p class="nextprev"><a href="SIMON_2.html">prev</a>|
-<a href="SIMON_3.html">next</a></p>
+<a href="SIMON_4.html">next</a></p>
 </body></html>

@@ -44,7 +44,7 @@ on that, to
 implement the LED circuit on the breadboard, we wire one side of the
 LED to 3.3V power with a resistor in-between and wire the other side of
 the LED to a GPIO.
-&nbsp;We've chosen GPIO15 for our first LED. &nbsp;As
+&nbsp;We've chosen GPIO4 for our first LED. &nbsp;As
 for LED color, it
 shouldn't matter which LED color goes with which button, so we've
 arbitrarily chosen orange for this one.</p>
@@ -110,7 +110,7 @@ code should look like:</span></p>
 from rstem.gpio import Output
 import time
 
-my_leds = [Output(15), Output(18), Output(23), Output(27)]
+my_leds = [Output(4), Output(18), Output(24), Output(27)]
 
 for led in my_leds: 
 	led.on()

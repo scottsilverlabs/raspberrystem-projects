@@ -63,7 +63,7 @@ CODE BLOCK</p>
 Initialize the LEDs and sequence list<br>
 from rstem.gpio import Output<br>
 import time<br>
-lights = [Output(4), Output(18), Output(14), Output(15)]<br>
+lights = [Output(4), Output(18), Output(24), Output(27)]<br>
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
 </p>
 <p style="font-family: Courier New,Courier,monospace;">#
@@ -90,7 +90,7 @@ CODE BLOCK</p>
 Initialize the LEDs and sequence list<br>
 from rstem.gpio import Output<br>
 import time<br>
-lights = [Output(4), Output(18), Output(14), Output(15)]<br>
+lights = [Output(4), Output(18), Output(24), Output(27)]<br>
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
 </p>
 <p style="font-family: Courier New,Courier,monospace;">#
@@ -118,7 +118,7 @@ from rstem.gpio import Output
 from random import randrange
 import time
 
-lights = [Output(15), Output(18), Output(23), Output(27)]
+lights = [Output(4), Output(18), Output(24), Output(27)]
 
 for light in lights: 
     light.off()
