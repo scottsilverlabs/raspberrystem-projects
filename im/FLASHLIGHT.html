@@ -119,6 +119,7 @@ or off) in a <span style="font-family: Courier New,Courier,monospace;">while Tru
 <textarea>
 from rstem.button import Button
 from rstem.gpio import Output
+import time
 
 my_button = Button(18)
 my_led = Output(14)
@@ -128,6 +129,7 @@ while True:
 		my_led.on()
 	else:
 		my_led.off()
+	time.sleep(.01)
 </textarea></div>
 <p>Give it a try…the flashlight will continue to work until you
 manually stop the program.</p>
