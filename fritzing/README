@@ -44,6 +44,9 @@ IMPORT
     On first exit after import, make sure to choose to save both the imported parts
     and the bin when asked to do so (use the default file name).
 
+    Also, seems can have issue with conflicting parts when reimporting a parts
+    bin.  Deleting the parts in ~/.config/Fritzing/parts/user seems to fix it.
+
 USING BREADBOARD DIAGRAMS
 
     To use diagrams in HTML docs, export the diagram via File -> Export -> As Image
