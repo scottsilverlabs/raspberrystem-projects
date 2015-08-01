@@ -10,11 +10,14 @@ window.onload = function() {
             lineNumberFormatter = function (line) {return ""};
         }
 
-        // Split into lines and delete last line.  Then rejoin.
-        // Rationale: its easier to keep the code blocks in the HTML when the
-        // bottom line is stripped.
+        // Split into lines and delete last line if it is blank.
+        //
+        // Rationale: There is sometimes, but not always, an extra newline at
+        // the end.
         var lines = codeblock.value.split('\n');
-        lines.splice(-1,1);
+        if (lines[lines.length-1] == '') {
+            lines.splice(-1,1);
+        }
         numLines = lines.length;
         codeblock.value = lines.join('\n');
 
