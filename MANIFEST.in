@@ -1,6 +1,5 @@
 graft projects.build
 graft pkg
 include README.md
-include LICENSE
 include NAME
 include VERSION
