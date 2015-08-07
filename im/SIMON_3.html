@@ -36,18 +36,18 @@ sequence random.</p>
 <p>The first thing we're going to need to do is to import the
 modules and functions we'll be using&nbsp;and initialize our list
 of LEDs. &nbsp;Here's what our initialization code should look like:</p>
-<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp; INSERT CODE BOX</p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#Initialize
-LEDs</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">from
-rstem.gpio import Output<br>
-import time</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">lights
-= [Output(4), Output(18), Output(24), Output(27)]<br>
-</span></p>
+<p></p>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Initialize the LEDs and sequence list
+
+from rstem.gpio import Output&lt;br&gt;
+import time
+
+lights = [Output(4), Output(18), Output(24), Output(27)]
+</textarea></div>
+<p></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p>The sequence of LED flashes will be contained in a list, and
 the items in the list will be indexes to the LED list we implemented in
@@ -64,8 +64,8 @@ sequence of 8 LED flashes hitting each LED twice.</p>
 <p></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Initialize the LED sequence list
+<textarea># Initialize the LEDs and sequence list
+
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]
 </textarea></div>
 <p></p>
@@ -78,16 +78,16 @@ list, turning the LEDs on one at a time for .4 seconds and then waiting
 should look like:</p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Play sequence
-for light in lights: 
-    light.off()
+<textarea># Play sequence
 
-for i in play_order:
-    lights[i].on()
-    time.sleep(0.4)
-    lights[i].off()
-    time.sleep(0.2)
+for light in lights: 
+	light.off()
+
+for i in play_order: 
+	lights[i].on() 
+	time.sleep(0.4) 
+	lights[i].off()
+	time.sleep(0.2)
 </textarea></div>
 <p></p>
 <p>Notice that we leave the LEDs on for .4 seconds and then have
@@ -97,21 +97,23 @@ a .2 second delay between flashes. &nbsp;</p>
 <div></div>
 <textarea>
 # Initialize the LEDs and sequence list
+
 from rstem.gpio import Output
 import time
 
 lights = [Output(4), Output(18), Output(24), Output(27)]
+
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]
 
 # Play sequence
 for light in lights: 
-    light.off()
+	light.off()
 
-for i in play_order:
-    lights[i].on()
-    time.sleep(0.4)
-    lights[i].off()
-    time.sleep(0.2)
+for i in play_order: 
+	lights[i].on() 
+	time.sleep(0.4) 
+	lights[i].off()
+	time.sleep(0.2)
 </textarea></div>
 <p class="nextprev"><a href="SIMON_2.html">prev</a>|
 <a href="SIMON_4.html">next</a></p>

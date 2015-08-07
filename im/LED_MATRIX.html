@@ -114,22 +114,26 @@ attached to the breadboard to work. &nbsp;All of the signals going
 between the RaspberrySTEM and the LED Matrix will be going over the LED
 Matrix cable, and not through the breadboard.</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class=bb src="img/LED_Matrix_unconnected_bb.png"></span></p>
+<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class="bb" src="img/LED_Matrix_unconnected_bb.png"></span></p>
 <p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"></span></p>
 <p style="font-weight: bold;">Step #2: &nbsp;Attach
 LED Matrix Cable to the LED Matrix</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Once the LED Matrix is situated
+<p style="font-weight: bold;"><span style="font-weight: normal;">Once
+the LED Matrix is situated
 on the breadboard, you're going to attach the LED Matrix cable.
 &nbsp;This cable has two sides -- on one side is a connector that
-has&nbsp;five wires coming out it (though it is big enough to hold
-six wires). &nbsp;On the other side of the cable are the loose ends
-of each of the five wires. &nbsp;The side of the connector that has
-a six-wire connector will be attached to the side of the LED Matrix,
-with the empty wire hole align with the pin labeled RST.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Here is the correct positioning
+has six holes. On the other side of the cable are the loose ends
+of five wires. &nbsp;The side of the connector that has
+six holes will be attached to the side of the LED Matrix. &nbsp;Note
+that the plastic part of the cable has a top and bottom -- the top of
+the cable is all black, the bottom of the cable has access to the
+silver pins of the wires. &nbsp;You will want to ensure that the cable
+is plugged into the LED Matrix with the top of the cable (all black
+plastic) is facing up.</span></p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Here is the correct positioning and insertion
 of the LED Matrix cable:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class=bb src="img/LED_Matrix_power_only_bb.png">&nbsp;&nbsp;</span></p>
+<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class="bb" src="img/LED_Matrix_power_only_bb.png">&nbsp;&nbsp;</span></p>
 <p style="font-weight: bold; text-align: left;"><span style="font-weight: normal;"></span></p>
 <p style="font-weight: bold; text-align: left;"><span style="font-weight: normal;">Note: &nbsp;The LED Matrix
 cable may not have the same color wires indicated in the picture above.
@@ -146,15 +150,14 @@ to a point where GND is coming into the breadboard. &nbsp;</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like at this point:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"></span><span style="font-weight: normal;"><img class=bb src="img/LED_Matrix_power_only_bb.png"><span style="font-weight: bold;"></span></span></p>
+<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"></span><span style="font-weight: normal;"><img class="bb" src="img/LED_Matrix_power_only_bb.png"><span style="font-weight: bold;"></span></span></p>
 <p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><span style="font-weight: bold;"></span></span></p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Once
 power and ground are correctly attached, you should see&nbsp;</span>vertical
 and horizontal bars sweep across the display a single time<span style="font-family: &quot;Verdana&quot;,serif;">. &nbsp;This is
 indication that the LED Matrix is powered up and working
 correctly.&nbsp;</span></p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">If
-the LED Matrix powered up correctly, let's keep going...</span></p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Once the LED Matrix powered up correctly, let's keep going...</span></p>
 <span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"></span></span>
 <p style="font-weight: bold;"></p>
 <p style="font-weight: bold;">Step #4: &nbsp;Attach
@@ -175,13 +178,13 @@ on the connector board</p>
 <li>
 <p>The wire running through the LED Matrix cable and
 connected
-to MOSI on the LED Matrix should be attached to the SLCK pin on the
+to MOSI on the LED Matrix should be attached to the MOSI pin on the
 connector board</p>
 </li>
 <li>
 <p>The wire running through the LED Matrix cable and
 connected
-to CE on the LED Matrix should be attached to the SLCK pin on the
+to CE on the LED Matrix should be attached to the CE pin on the
 connector board</p>
 </li>
 <li>
@@ -192,7 +195,7 @@ the LED Matrix to the MISO pin on the connector board</p>
 </ol>
 <p>Here is what the breadboard should look like with the LED
 Matrix fully connected:</p>
-<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class=bb src="img/LED_Matrix_bb.png"></span></p>
+<p style="font-weight: bold; text-align: center;"><span style="font-weight: normal;"><img class="bb" src="img/LED_Matrix_bb.png"></span></p>
 <p style="font-weight: bold;"></p>
 <p style="font-weight: bold;">Note: &nbsp;<span style="font-weight: normal;">If you have a wire attached to
 the RST pin on the LED Matrix, you have likely attached the LED Matrix
@@ -229,8 +232,7 @@ provides a simple and efficient way to draw&nbsp;graphics.</p>
 <p>Here is the basic code we'll use to initialize our LED Matrix and draw a single dot to it:</p>
 <div class="code" data-firstline="1"> 
 <div></div> 
-<textarea>
-from rstem.led_matrix import FrameBuffer
+<textarea>from rstem.led_matrix import FrameBuffer
 fb = FrameBuffer()
 
 x, y = (3, 3)

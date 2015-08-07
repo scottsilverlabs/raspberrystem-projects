@@ -15,7 +15,7 @@
 the previous project, we wired up and tested the four buttons we'll be
 using for our pattern-matching game. &nbsp;Now it's time to add
 four
-LEDs to the circuit from our last project and test those.</p><p class="MsoNormal"></p>
+LEDs to the circuit from our last project and test those.</p>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Hardware
 Implementation</span></h2>
 <p>We're going to start with the breadboard setup from the
@@ -71,7 +71,7 @@ should look like:</span></p>
 &nbsp;Wire Your Third LED Using a GPIO Output</p>
 <p>Time to wire our third LED to the bottom button, like just the
 previous two.
-&nbsp;We've chosen GPIO23 for this LED and are using a red LED.</p>
+&nbsp;We've chosen GPIO24 for this LED and are using a red LED.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
@@ -106,8 +106,7 @@ Implementation</span></h2><p><span style="font-family: &quot;Verdana&quot;,serif
 code should look like:</span></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.gpio import Output
+<textarea>from rstem.gpio import Output
 import time
 
 my_leds = [Output(4), Output(18), Output(24), Output(27)]
