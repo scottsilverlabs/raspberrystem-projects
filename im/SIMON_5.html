@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 5</h1>
 <p>In our last project, we created a random sequence of
@@ -28,102 +27,103 @@ initialization code</p>
 buttons -- we'll import the function we need and create the button list
 just like we did in <a href="MANY_BUTTONS.html">Many
 Buttons</a>:</p>
-<p style="font-family: Courier New,Courier,monospace;">INSERT
-CODE BLOCK</p>
-<span style="font-family: Courier New,Courier,monospace;">#
-Initialize the LEDs and sequence list</span><br style="font-family: Courier New,Courier,monospace;">
-<p><span style="font-family: Courier New,Courier,monospace;">from
-rstem.button import Button</span><br style="font-family: Courier New,Courier,monospace;">
-<br style="font-family: Courier New,Courier,monospace;">
-<span style="font-family: Courier New,Courier,monospace;">buttons
-= [Button(14), Button(15), Button(23), Button(17)]</span><br>
-</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Initialize the LEDs and sequence list
+from rstem.button import Button
+
+buttons = [Button(14), Button(15), Button(23), Button(17)]
+</textarea></div>
+
+<br>
+<p></p>
 <p style="font-weight: bold;">Step #2: &nbsp;Check the
 button sequence entered by the player</p>
+
 <p>Next, we need to add code after we play the sequence to check
-for whether the user has entered the correct sequence back.
-&nbsp;We can do this by creating a for loop that runs through the
-entire sequence of buttons -- each time through the loop we check to
-see if the button pressed matches the next button in the sequence.
-&nbsp;If the button pressed is incorrect, we end the game and drop
-through the loop. &nbsp;If the button pressed is correct, we light
-that LED and move on to check the next button press.</p>
-<p>Here is what the beginning of the for loop would look like:</p>
-<p style="font-family: Courier New,Courier,monospace;">INSERT
-CODE BLOCK</p>
-<p style="font-family: Courier New,Courier,monospace;">#Wait
-for user to repeat</p>
-<p style="font-family: Courier New,Courier,monospace;">for
-i in play order:</p>
-<p style="font-family: Courier New,Courier,monospace;">&nbsp;
-&nbsp; button_pressed = Button.wait_many(buttons, timeout=3)</p>
-<p style="font-family: Courier New,Courier,monospace;"></p>
+for whether the user has entered the correct sequence back.  There are several parts to this, and 
+they will all be captured in a <span style="font-family: Courier New,Courier,monospace;">for:</span> loop that runs through the sequence the player is repeating.  Each time through the<span style="font-family: Courier New,Courier,monospace;"> for: </span>loop, we'll need to accomplish the following things:</p><p>1. First, we test to see if the button pressed was the next button in the
+sequence.</p>
+<p>2. If an incorrect button was pressed, we
+set a variable called&nbsp;<span style="font-family: Courier New,Courier,monospace;">failed</span> to True. &nbsp;This will be our
+indication to the <span style="font-family: Courier New,Courier,monospace;">while:</span> loop that the game is over and on our next
+pass, we should drop through the loop. &nbsp;This will also require us
+to change our test in the <span style="font-family: Courier New,Courier,monospace;">while:</span>
+loop that we already created (we'll do that in Step #3). &nbsp;And
+we'll need to stop checking for additional button presses and drop
+through the loop.</p>
+<p>3. &nbsp;Lastly, if the player has entered a correct button in the sequence, we need to flash that LED.</p><p>Here is what the beginning of the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop would look like:</p>
+
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Wait for user to repeat
+for i in play order:
+	button_pressed = Button.wait_many(buttons, timeout=3)
+</textarea></div>
+
+
 <p>Notice we use the function wait_many() for this. &nbsp;</p>
 <p>Talk about wait_many()...</p>
 <p></p>
-<p>Next, we check to see if the button_pressed was incorrect:</p>
-<p style="font-family: Courier New,Courier,monospace;"></p>
-<p style="font-family: Courier New,Courier,monospace;">INSERT
-CODE BLOCK</p>
-<span style="font-family: Courier New,Courier,monospace;">if
-button_pressed != i:<br>
-&nbsp; &nbsp; failed = True<br>
-&nbsp; &nbsp; break</span>
-<p style="font-family: Courier New,Courier,monospace;"></p>
-<p>We do three things in this loop:</p>
-<p>1. &nbsp;First, we use an if statement test the
-button_pressed to see if it was different than the next button in the
-sequence.&nbsp;</p>
-<p>2. &nbsp;If it is (the if statement resolves to True), we
-set a variable called failed to True. &nbsp;This will be our
-indication to the while: loop that the game is over and on our next
-pass, we should drop through the loop. &nbsp;This will require us
-to change our test in the while: loop that we already created -- we'll
-get to that soon.</p>
-<p>3. &nbsp;Lastly, now that the player has entered an
-incorrect button, we don't need to keep checking buttons, so we want to
-abruptly stop the for loop we're in. &nbsp;We do this using the
-break command.</p>
+<p>Next, we check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed </span>was&nbsp;correct. &nbsp;Though, to make the code a bit easier to follow, we're going to check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed</span> was actually incorrect:</p>
+
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>if button_pressed != i:
+	failed = True
+	break
+</textarea></div>
+
+<p>If the button entered by the player was incorrect, we set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True, and then we <span style="font-family: Courier New,Courier,monospace;">break</span> -- the <span style="font-family: Courier New,Courier,monospace;">break</span> command will immediately exit the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop.</p>
+
 <p><span style="font-family: &quot;Verdana&quot;,serif;">If
 the button entered by the player was correct</span>, we need to
 light the LED before moving on to checking the next
 button entered. &nbsp;Here is what that code should look like:</p>
 <p></p>
-<p style="font-family: Courier New,Courier,monospace;">#
-Light and play while button is pressed.<br>
-lights[button_pressed].on()&nbsp;<br>
-buttons[button_pressed].wait(press=False)<br>
-time.sleep(0.2)&nbsp;<br>
-lights[button_pressed].off()</p>
-<br>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Light and play while button is pressed.
+lights[button_pressed].on()
+buttons[button_pressed].wait(press=False)
+time.sleep(0.2)
+lights[button_pressed].off()
+</textarea></div>
+
+
 <p style="font-weight: bold;">Step #3: &nbsp;Update
 the while: loop</p>
-<p>Finally, we have to update our while: loop, as we want it to
+<p>Finally, we have to update our <span style="font-family: Courier New,Courier,monospace;">while:</span> loop, as we want it to
 drop through if we determine that the user made a mistake and the game
-is over. &nbsp;Remember, we set a variable called failed to True
+is over. &nbsp;Remember, we set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True
 when the user made a mistake, so we can simply test to see whether
-failed == True in our while loop.</p>
-<p>To update the while: loop, we need to first initialize our
+<span style="font-family: Courier New,Courier,monospace;">failed == True</span> in our <span style="font-family: Courier New,Courier,monospace;">while:</span> loop.</p>
+<p>To update the <span style="font-family: Courier New,Courier,monospace;">while:</span> loop, we need to first initialize our
 failed variable when we start the program, and then we can update our
-while: loop as follows:</p>
-<p style="font-family: Courier New,Courier,monospace;"></p>
-<p style="font-family: Courier New,Courier,monospace;">NSERT
-CODE BLOCK</p>
-<span style="font-family: Courier New,Courier,monospace;">#
-Initialize the LEDs and sequence list</span><br style="font-family: Courier New,Courier,monospace;">
-<span style="font-family: Courier New,Courier,monospace;">failed
-= False<br>
-<br>
-...<br>
-<br>
-while not Failed:<br style="font-family: Courier New,Courier,monospace;">
+<span style="font-family: Courier New,Courier,monospace;">while:</span> loop as follows:</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Initialize the LEDs and sequence list
+failed = False
+
+...
+
+while not Failed:
+</textarea></div>
+
 
 <p><br>
 Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-# ##################################
+<textarea># ##################################
 # Import Modules and Initialize Game
 # ##################################
 
@@ -187,4 +187,4 @@ while not failed:
 
 <p class="nextprev"><a href="SIMON_4.html">prev</a>|
 <a href="SIMON_6.html">next</a></p>
-</body></html>
+</span></body></html>

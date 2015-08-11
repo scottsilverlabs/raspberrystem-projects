@@ -7,8 +7,7 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
-</head>
+<script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>SIMON 4</h1>
 <p>In our last project, we wrote some code to flash LEDs in a
@@ -29,88 +28,87 @@ of LED flashes:</p>
 <p></p>
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-from random import randrange
+<textarea>from random import randrange
 </textarea></div>
 <p></p>
 <p>Next, instead of filling the list <span style="font-family: Courier New,Courier,monospace;">play_order[]</span>
 with a pre-defined sequence, we're going to make that an empty list
 that we can use to hold our random sequence. &nbsp;To do that,
-we'll replace the list we created previously with a new (empty) list:</p>
-<br>
-INSERT CODE BOX<br>
-<br>
-<span style="font-family: Courier New,Courier,monospace;">play_order
-= []</span><br style="font-family: Courier New,Courier,monospace;">
-<br>
+we'll replace the list we created previously with a new (empty) list:</p><p></p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>play_order = []
+</textarea></div>
+
 <p>Finally, we'll have to create our random sequence of LEDs.
 &nbsp;We can add a random LED to play_order[] with the following
 line of code:</p>
-<br>
-INSERT CODE BOX<br>
-<br>
-<span style="font-family: Courier New,Courier,monospace;">play_order
-+= [randrange(4)]<br>
-<br>
-<br>
-</span>
-<p>If we add this code to our previous code that includes the
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>play_order += [randrange(4)]
+</textarea></div>
+
+<p></p><p>If we add this code to our previous code that includes the
 play sequence, we'll see that we're adding a single random LED flash to
-our sequence list and then flashing it:</p>
-<p style="font-family: Courier New,Courier,monospace;">INSERT
-CODE BLOCK</p>
-<p style="font-family: Courier New,Courier,monospace;">#
-Initialize the LEDs and sequence list<br>
-from rstem.gpio import Output<br>
-import time<br>
-lights = [Output(4), Output(18), Output(24), Output(27)]<br>
-play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
-</p>
-<p style="font-family: Courier New,Courier,monospace;">#
-Play sequence<br>
-for light in lights: light.off()<br>
-</p>
-<p style="font-family: Courier New,Courier,monospace;">for
-i in play_order:<br>
-&nbsp; &nbsp; lights[i].on()<br>
-&nbsp; &nbsp; time.sleep(0.4)<br>
-&nbsp; &nbsp; lights[i].off()<br>
-&nbsp; &nbsp; time.sleep(0.2)</p>
-<p><span style="font-family: Courier New,Courier,monospace;"></span></p>
-<p>If we add a while: loop, we can continue to generate a random
+our sequence list and then flashing it:</p><p></p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Initialize the LEDs and sequence list
+from rstem.gpio import Output
+import time
+
+lights = [Output(4), Output(18), Output(24), Output(27)]
+
+play_order = []
+
+play_order += [randrange(4)]
+
+# Play sequence
+for light in lights: 
+	light.off()
+
+for i in play_order:
+	lights[i].on()
+	time.sleep(0.4)
+	lights[i].off()
+	time.sleep(0.2)
+</textarea></div>
+
+<p></p><p>If we add a while: loop, we can continue to generate a random
 LED and
 add it to the list each time through the loop. &nbsp;This will play
 the entire sequence of random LED flashes, add a new LED to the
-sequence, play the list again with the new LED added, and then repeat:</p>
-<span style="font-family: Courier New,Courier,monospace;"><br>
-</span>
-<p style="font-family: Courier New,Courier,monospace;">INSERT
-CODE BLOCK</p>
-<p style="font-family: Courier New,Courier,monospace;">#
-Initialize the LEDs and sequence list<br>
-from rstem.gpio import Output<br>
-import time<br>
-lights = [Output(4), Output(18), Output(24), Output(27)]<br>
-play_order = [0, 1, 2, 3, 2, 1, 0, 3]<br>
-</p>
-<p style="font-family: Courier New,Courier,monospace;">#
-Play sequence<br>
-for light in lights: light.off()<br>
-</p>
-<p style="font-family: Courier New,Courier,monospace;">while
-True:<br>
-&nbsp; &nbsp; for i in play_order:<br>
-&nbsp; &nbsp; &nbsp; &nbsp; lights[i].on()<br>
-&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.4)<br>
-&nbsp; &nbsp; &nbsp; &nbsp; lights[i].off()<br>
-&nbsp; &nbsp; &nbsp; &nbsp; time.sleep(0.2)</p>
+sequence, play the list again with the new LED added, and then repeat:</p><p></p>
 
-<p><br>
-Here is what the code for this project should look like at this point:</p><br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea># Initialize the LEDs and sequence list
+from rstem.gpio import Output
+import time
+
+lights = [Output(4), Output(18), Output(24), Output(27)]
+
+play_order = []
+
+# Play sequence
+for light in lights: 
+	light.off()
+
+while True:
+	play_order += [randrange(4)]
+	
+	for i in play_order:
+		lights[i].on()
+		time.sleep(0.4)
+		lights[i].off()
+		time.sleep(0.2)
+</textarea></div><br><br><p>Here is what the code for this project should look like at this point:</p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-# ##################################
+<textarea># ##################################
 # Import Modules and Initialize Game
 # ##################################
 

@@ -28,17 +28,9 @@ on the bottom or sides of a computer chip) that give us a connection
 between a physical circuit and the software inside the chip.
 We
 make these connections to the computer chip available on the
-RaspberrySTEM<sup>TM</sup> by plugging wires into the connector board holes.
-&nbsp;While we could get access to this functionality by
-individually
-attaching pins on the Raspberry Pi to the breadboard using wires, we've
-made these connections available through the connector board to make
-the whole process much cleaner and easier. &nbsp;In fact, that's
-why we have the ribbon cable connected from the Raspberry Pi to the
-connector board -- the ribbon cable simply brings the GPIO pins (and
-other pins) from the Raspberry Pi to the RaspberrySTEM<sup>TM</sup> Lid, where there
-are easier for you to attach to.&nbsp;</p>
-<p>The purpose of GPIOs are like the
+RaspberrySTEM<sup>TM</sup> by plugging wires into the
+connector board holes.
+The purpose of GPIOs are like the
 nerve-system of the platform – their job is to relay signals from
 the brain (the Raspberry Pi computer) to the muscles (the components
 of the circuit) and to take signals from the muscles and relay it
@@ -52,6 +44,31 @@ GPIO17), and each pin (hole) on the connector board is labeled with the
 GPIO it is connected to. &nbsp;So, if you want to hook up a
 component to GPIO17, you'll insert a wire from the component to the
 hole on the connector board labled "17".</p>
+<p></p>
+<div class="info">
+<div>GPIOs Come From the Raspberry Pi</div>
+<div>
+<p>We make it easy to get access to the GPIOs by connecting
+directly from the lid connector board to the breadboard. But, if you
+had a Raspberry Pi computer without the RaspberrySTEM<sup>TM</sup>
+kit, you'd still
+be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
+available through the pins on the Raspberry Pi
+(the pins that the ribbon cable is attached to) -- if you were to
+remove the ribbon cable, you could connect wires
+directly to the Raspberry Pi pins and attach them to the breadboard (or
+to your components) directly.
+</p>
+<p>The lid connector board was designed to make connecting to the
+Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
+ribbon cable and the lid connector board is simply to bring the GPIO
+pins (and
+other pins) from the Raspberry Pi to the RaspberrySTEM<sup>TM</sup>
+Lid, where they
+are easier for you to attach your components to.
+</p>
+</div>
+</div>
 <h2>GPIOs as Outputs</h2>
 <p>When a GPIO is
 configured as an output, the software has the ability to set the GPIO
@@ -156,7 +173,8 @@ a GPIO, but it's pretty standard. And it's called "Active
 Low."&nbsp; A GPIO that is Active Low is
 turned
 "on" when the GPIO is set low, and "off" when the GPIO is set
-high.&nbsp;&nbsp;</p><p>The
+high.&nbsp;&nbsp;</p>
+<p>The
 reverse of this is called "Active High" -- a GPIO that is Active High
 is
 turned "on" when the GPIO is high, and "off" when the GPIO is
@@ -180,7 +198,7 @@ on the connector board, though you’re welcome to use any GPIO
 GPIO other than 14 for this project).</p>
 <p>
 This is what your breadboard should now look like:</p>
-<img class=bb src="img/Your_First_Breadboard_Add_GPIO_bb.png">
+<img class="bb" src="img/Your_First_Breadboard_Add_GPIO_bb.png">
 <div class="info">
 <div>&nbsp;Inner Workings of GPIOs</div>
 <div>
@@ -205,22 +223,27 @@ clearer.</p>
 <br>
 <p><b>Step #2: &nbsp;Write the code.</b></p>
 <p>
-The code to control the GPIO (and with it the LED) is pretty short.&nbsp;</p>
+The code to control the GPIO (and with it the LED) is pretty
+short.&nbsp;</p>
 <p>
-Type (or cut-and-paste) the following code into the your IDE’s Code Window:</p>
+Type (or cut-and-paste) the following code into the your IDE’s Code
+Window:</p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.gpio import Output
+<textarea>from rstem.gpio import Output
 my_led = Output(14)
 my_led.on()
 </textarea></div>
-<br><p>Don't feel bad if you don't understanding anything going on in
-this code. &nbsp;Our goal is to get you doing some fun stuff early on,
+<br>
+<p>Don't feel bad if you don't understanding anything going on in
+this code. &nbsp;Our goal is to get you doing some fun stuff early
+on,
 and that means using some programming concepts that we haven't yet
-discussed. &nbsp;The code above will make a lot more sense later, but
+discussed. &nbsp;The code above will make a lot more sense later,
+but
 for now, we just want to give you a taste of how software and hardware
-can work together.</p><p><b>Step #3: Run the code.</b></p>
+can work together.</p>
+<p><b>Step #3: Run the code.</b></p>
 <ol start="3">
 </ol>
 <p>
@@ -245,8 +268,7 @@ the new GPIO). Or try turning off the LED by replacing the <span style="font-fam
 statement with:</p>
 <div class="code" data-firstline="3">
 <div></div>
-<textarea>
-my_led.off()
+<textarea>my_led.off()
 </textarea></div>
 <h2>GPIOs as Inputs</h2>
 <p>In the previous
@@ -261,18 +283,24 @@ or 3.3V, GPIO inputs work by reading the voltage – either 0V or
 3.3V – being sent to the GPIO pin.</p>
 <p>For example, a GPIO
 can be used to get the current&nbsp;state of a button or switch
-(pressed or unpressed). &nbsp;Based on the current state, the software can take appropriate action. &nbsp;</p>
+(pressed or unpressed). &nbsp;Based on the current state, the
+software can take appropriate action. &nbsp;</p>
 <div class="info">
 <div>"State"</div>
-<div><p>
-"State" is a common term using in electronics and just means the current condition or situation of a component or circuit.<br><br>For
+<div>
+<p>"State" is a common term using in electronics and just means
+the current condition or situation of a component or circuit.<br>
+<br>
+For
 example, in the case of a button or switch, state would refer to
-whether the button is currently being pressed or unpressed. &nbsp;For
-an LED, state might refer to whether the LED was illuminated or not.</p></div>
+whether the button is currently being pressed or unpressed.
+&nbsp;For
+an LED, state might refer to whether the LED was illuminated or not.</p>
+</div>
 </div>
 <p>GPIOs as inputs are
-very powerful, and we’ll be using them in many future projects, including some upcoming projects related to buttons/switches.</p>
-	<p class=nextprev><a href="RASPBERRY_PI_POWER.html">prev</a>|
+very powerful, and we’ll be using them in many future projects,
+including some upcoming projects related to buttons/switches.</p>
+<p class="nextprev"><a href="RASPBERRY_PI_POWER.html">prev</a>|
 <a href="INTRODUCING_BUTTONS.html">next</a></p>
 </body></html>
-

@@ -7,7 +7,8 @@
 <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
 <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>YOUR FIRST CIRCUIT</h1>
 <p>In this project,
@@ -16,11 +17,15 @@ do that, some introductory discussion would probably be helpful.
 &nbsp;We highly recommend reading the following: &nbsp;<a href="INTRO_TO_ELECTRONICS.html">Introduction to Electronics</a>.
 &nbsp;Note that in future projects we will be calling out
 introductory
-material in the&nbsp;<span style="font-weight: bold;">New Concepts Required</span> section at the top of the
-projects (see above). &nbsp;We recommend that before jumping into a project,
+material in the&nbsp;<span style="font-weight: bold;">New
+Concepts Required</span> section at the top of the
+projects (see above). &nbsp;We recommend that before jumping into a
+project,
 you
 ensure that you've read and familiarized yourself with any of the
-concepts listed in that section, as they will likely be helpful for that project.</p><p>At
+concepts listed in that section, as they will likely be helpful for
+that project.</p>
+<p>At
 the top of each projects, we'll also be listing the hardware required
 for the project and, if the project is a continuation of a previous
 project, what the hardware setup should look like before you jump in. </p>
@@ -46,39 +51,45 @@ First Circuit RaspberrySTEM Cell</span>):</p>
 <table style="width: 80%; margin-left: 10%; margin-right: 10%;">
 <tbody>
 <tr>
-<td style="text-align: center;"><img style="width:200px; height:auto;" src="img/Your_First_Circuit_battery.png"></td>
+<td style="text-align: center;"><img style="width: 200px; height: auto;" src="img/Your_First_Circuit_battery.png"></td>
 <td style="vertical-align: middle; text-align: center; font-size: 140%;"><b>BATTERY</b>
-</td></tr>
+</td>
+</tr>
 <tr>
-<td style="text-align: center;"><img style="width:auto; height:auto;" src="img/Your_First_Circuit_LED.png"></td>
+<td style="text-align: center;"><img style="width: auto; height: auto;" src="img/Your_First_Circuit_LED.png"></td>
 <td style="vertical-align: middle; text-align: center; font-size: 140%;"><b>LED</b>
-</td></tr>
+</td>
+</tr>
 <tr>
 <td style="text-align: center;"><img src="img/Your_First_Circuit_resistor.png"></td>
 <td style="vertical-align: middle; text-align: center; font-size: 140%;"><b>RESISTOR</b>
-</td></tr>
+</td>
+</tr>
 </tbody>
 </table>
-<p></p><p>By the way, remember
+<p></p>
+<p>By the way, remember
 how we mentioned in <a href="INTRO_TO_ELECTRONICS.html">Introduction
 to Electronics</a> that sometimes we want to provide extra
 resistance to a circuit to get it to work? Notice that we have
 included a resistor in this circuit – its job is to reduce the
 amount of electric current flowing through the circuit so that
-the LED doesn’t break.</p><p>Okay, let’s give
+the LED doesn’t break.</p>
+<p>Okay, let’s give
 this a try, step by step…</p>
-
-
-<p></p><p style="font-weight: bold;">Step #1: &nbsp;Connect the Resistor and LED to the Battery</p><p>Using
+<p></p>
+<p style="font-weight: bold;">Step #1: &nbsp;Connect
+the Resistor and LED to the Battery</p>
+<p>Using
 your fingers, pinch one lead of the resistor (the "leads" are the metal
 wires on either side) to the positive (+) side of the battery and pinch
 the
 shorter lead of the LED (one of the leads is longer than the other) to
 the other side of the battery (we refer to this as the "negative"
 side). &nbsp;</p>
-<p>Like this:&nbsp; </p>
+<p>Like this:</p>
 <p></p>
-<p style="text-align: center;"><img class=bb src="img/Your_First_Circuit_connect_battery_bb.png">
+<p style="text-align: center;"><img class="bb" src="img/Your_First_Circuit_connect_battery_bb.png">
 </p>
 <br>
 <div class="info">
@@ -92,28 +103,46 @@ will not illuminate and the rest of the circuit will stop working as
 well (remember, if electric current isn't flowing at any point in the
 circuit, it's not going to be flowing anywhere in the circuit).
 </p>
-<p>To determine the correct way to orient the LED, you can look
-at it's leads (the metal legs on either side of the LED). &nbsp;One
-is going to be a bit longer than the other. &nbsp;In order for the
-LED to work correctly, the longer lead should be closest to the power
-source and the shorter lead should be closer to ground. &nbsp;If
-you find that you believe an LED circuit should be working, but it's
-not, you might want to verify that the LED is oriented correctly.
-&nbsp;
+<p>There are three ways to determine the correct way to orient
+the LED:
 </p>
+<ol>
+<li>
+<p>Look at the leads (the metal legs on either side of the
+LED). One
+is going to be a bit longer than the other. For the
+LED to work correctly, the longer lead should be closest to the power
+source and the shorter lead should be closest to ground.</p>
+</li><li>
+<p>There is a raised ridge that runs around the base of the LED bulb. That ridge is flattened
+on one side of the bulb. The side of the bulb where the ridge is flattened should be facing closer to the
+ground than to power in the circuit.</p>
+</li>
+<li>
+<p>Just hook it up one way and hope you get lucky! If that doesn't work,
+reverse it. While a lot of engineers actually use this method, keep in mind that if there
+are other issues with your circuit, it's possible that the LED won't illuminate in either
+case, and you still won't know if the LED is oriented correctly. If that happens, we suggest
+reverting back to #1 or #2 to ensure the LED is oriented correctly so you can rule that out
+as a possible problem in your circuit.</p>
+</li>
+</ol>
 <p>By the way, even experienced electronics engineers will
 sometimes
 make this mistake, so don't feel bad if you find that you're constantly
-wiring LED backwards!
+wiring LEDs backwards!
 </p>
 </div>
 </div>
-
-<p style="font-weight: bold;"></p><p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: Touch the Other Leads of the Resistor and LED
-Together<span style="font-weight: normal;"></span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Using your free hand, touch the
+<p style="font-weight: bold;"></p>
+<p style="font-weight: bold;"></p>
+<p style="font-weight: bold;">Step #2: Touch the Other
+Leads of the Resistor and LED
+Together<span style="font-weight: normal;"></span></p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">Using your free hand, touch the
 other leads of the resistor and LED together, as indicated below:</span></p>
 <p></p>
-<p style="text-align: center;"><img class=bb src="img/Your_First_Circuit_complete_bb.png"><br>
+<p style="text-align: center;"><img class="bb" src="img/Your_First_Circuit_complete_bb.png"><br>
 </p>
 <p><br>
 <br>
@@ -123,12 +152,93 @@ LED should be lit, like this:</p>
 <p></p>
 <p style="text-align: center;"><img src="img/LED%20finger%20circuit.jpg" width="80%"></p>
 <br>
-<p style="font-weight: bold;">Congratulations...you just built your first electric circuit!</p><p><span style="font-weight: normal;"></span></p>
+<p style="font-weight: bold;">Congratulations...you just
+built your first electric circuit!</p>
+<p><span style="font-weight: normal;"></span></p>
 <br>
 <div class="info">
-<div>Shorting Wires</div>
-<div><p>
-Sometimes your circuit won't work and you just can't figure out what
+<div>Why the Resistor?</div>
+<div>
+<p>You'll notice that if you remove the resistor from the circuit
+above and attach the LED directly to the battery, the LED still lights.
+Which means you're probably wondering why we need the resistor at all?
+</p>
+<p>Most electronic components are "rated" for maximum voltages
+and/or currents. In other words, the manufacturer of the component does
+a bunch of testing
+to determine how much voltage and/or current the part can get before
+it's at risk of being damaged or working improperly. When a power
+supply puts out
+more voltage/current than the part is rated to handle, it is smart to
+insert a resistor into the circuit to reduce the voltage/current and
+ensure the
+part isn't damaged and works properly.
+</p>
+<p>If you're wondering how we determined the appropriate value
+for our resistor in this circuit, here's some more detailed
+information...
+</p>
+<p>A very common principle in electronics is called Ohm's Law.
+Ohm's Law states that the current through a conductor (generally
+meaning a circuit) is
+proportional to the voltage drop from one side of the circuit to the
+other. The constant that defines that proportion is the resistance of
+the circuit.
+Here is what that looks like in mathematical terms:
+</p>
+<p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V
+= IR</b>, where
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V
+= Voltage drop from one side
+of the circuit to the other (in
+Volts)
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I
+= Current through the circuit
+(in Amps)
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R
+= Resistance of the circuit
+(in Ohms)
+</p>
+<p>To determine the appropriate size of a resistor in an LED
+circuit like ours above, Ohm's Law can be applied as follows: </p>
+<p>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resistance
+= (Vcc - LED Rated Voltage) / (LED Rated
+Current)</b>
+</p>
+<p>In the case of our specific circuit, Vcc (the power
+source voltage) is 3.3V. The LED Rated Voltage is about 2.4V and the
+LED Rated Current is about 10mA (.01 amps),
+both of which can be found by reading the "data sheet" for the LED. The
+data sheet is the information provided by manufacturers that discuss
+all the details about how the component works and how it should be
+used.
+</p>
+<p>
+Plugging our numbers into the formula above:
+</p>
+<p>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resistance
+= (3.3V - 2.4V) / (.01)</b>
+</p>
+<p>Plugging those numbers into a
+calculator, we get Resistance of 90 Ohms. Since 90 Ohm resistors aren't
+very common, we round up to the next common resistor value, which is
+100 Ohms. Which is why we use a 100 Ohm resistor in our circuit above.
+</p>
+</div>
+</div>
+<b><b><b><br>
+</b></b></b>
+<div class="info">
+<div><b><b><b>Shorting Wires</b></b></b></div>
+<div>
+<p>Sometimes your circuit won't work
+and you just can't figure
+out what
 the problem is. When this happens, it's a good idea to verify that
 wires and components aren't touching each other in places where you
 don't intend them to. Electric current flowing through a circuit is
@@ -138,9 +248,9 @@ where you don't expect them to -- you may be inadvertently
 creating a new path for electric current to flow and that electric
 current may be traveling in ways that bypass your components and give
 you unexpected results.
-</p></div>
+</p>
 </div>
-
-	<p class="nextprev"><a href="HELLO,_WORLD.html">prev</a>|
-<a href="BREADBOARD_FIRST_CIRCUIT.html">next</a></p>
+</div>
+<p class="nextprev"><b><b><b><a href="HELLO,_WORLD.html">prev</a>|
+<a href="BREADBOARD_FIRST_CIRCUIT.html">next</a></b></b></b></p>
 </body></html>

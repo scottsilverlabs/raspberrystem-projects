@@ -42,7 +42,32 @@ accelerometer on the breadboard<br>
 &nbsp;It should be inserted into the breadboard such that each pin sits
 in a different connect strip, and you should ensure that at least one
 other hole is usable in each connect strip where the accelerometer sits.</p><p> &nbsp;</p>
-<p style="font-weight: bold;">Step #2: &nbsp;Attach
+
+    <div class="info">
+    <div>WARNING: ACCELEROMETER HOOK-UP</div>
+    <div>
+    <p>It
+is very important to note that the power and the ground of the
+accelerometer must be connected appropriately -- 3.3V power from the
+lid connector must be connected
+to VCC on the accelerometer and GND from the lid connector must be
+attached to GND on the accelerometer. If the accelerometer is turned
+around 180 degrees, you'll notice
+that VCC will be located where GND should be and vice-versa.</p>  
+
+<p>If you hook up GND on the accelerometer to 3.3V on the lid connector
+and you hook up VCC on the accelerometer to GND on the lid connector,
+there is a good chance that you will destroy the accelerometer chip (it
+will likely get warm and start to smoke). So, be very careful that you
+hook
+up the chip as indicated above and below.
+</p>
+    </div>
+    </div>
+
+
+
+<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: &nbsp;Attach
 power and ground</p>
 <p>To wire the accelerometer, the first thing you'll need to do is to
 run a wire from VCC on the accelerometer to 3.3V power somewhere on the
@@ -55,14 +80,15 @@ to the SDA pin on the accelerometer to the SDA pin on the connector
 board.</p><p></p>
 <p style="font-weight: bold;">Step #4: &nbsp;Attach
 SCL pin to the connector board</p>
-<p>Finally, you'll attach&nbsp;a wire from the connect strip attached to the SCL pin on the accelerometer to the SCL pin on the connector board.</p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class=bb src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
+<p>Finally, you'll attach&nbsp;a wire from the connect strip attached
+to the SCL pin on the accelerometer to the SCL pin on the connector
+board.</p>
+<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
 <p>Let's write some code to test your accelerometer and see
 how it works:</p><p></p>
 <div class="code" data-firstline="1">
 <div></div>
-<textarea>
-from rstem.accel import Accel
+<textarea>from rstem.accel import Accel
 import time
 
 accel = Accel()
@@ -120,7 +146,10 @@ movement of the RaspberrySTEM (specifically, the accelerometer we wired
 on the breadboard), as follows:</p><ul><li><p>The
 first number indicates the left/right tilt of the RaspberrySTEM -- if
 you tilt to the left, the number increases towards 1 and if you tilt to
-the right, the number decreases towards -1.</p></li><li><p>The second number indicates the front/back tilt of the accelerometer -- if you tilt backwards, the number increases towards 1 and if you tilt forwards, the number decreases towards -1.</p></li><li><p>The
+the right, the number decreases towards -1.</p></li><li><p>The
+second number indicates the front/back tilt of the accelerometer -- if
+you tilt backwards, the number increases towards 1 and if you tilt
+forwards, the number decreases towards -1.</p></li><li><p>The
 third number indicates the up/down movement of the accelerometer -- if
 you move it upwards, the number increases towards 1 and if you move it
 downwards, the number decreases towards -1.</p></li></ul><p>Play around
@@ -130,6 +159,6 @@ future projects, we'll be using this functionality to turn the
 RaspberrySTEM into a game controller.</p>
 
 <br>
-	<p class=nextprev><a href="BOUNCING_BALL_2.html">prev</a>|
+	<p class="nextprev"><a href="BOUNCING_BALL_2.html">prev</a>|
 <a href="SPACE_INVADERS_PSEUDO.html">next</a></p>
 </body></html>
