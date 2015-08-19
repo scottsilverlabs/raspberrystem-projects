@@ -15,7 +15,29 @@ p {
     font-family: "Verdana", serif;
     font-size: 11pt;
 }
-h1 {
+
+/* 
+ * PG HEADER 
+ */
+header div {
+    color: #00000a;
+    line-height: 200%;
+    text-align: left;
+    vertical-align: middle;
+    widows: 2;
+    orphans: 2;;
+    font-family: "Verdana", serif;
+    font-size: 11pt;
+}
+header {
+	background-color: #E6F3F8;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+header #title, h1 {
     margin-bottom: 0in;
     color: #2e74b5;
     line-height: 150%;
@@ -25,8 +47,107 @@ h1 {
     orphans: 2;
     font-family: "Calibri Light", serif;
     font-size: 20pt;
-    font-weight: normal
+    font-weight: normal;
+	background-color: lightblue;
+    display: block;
+	-webkit-flex: 80%;
+    -webkit-order:1;
+	flex: 1 1 auto;
+    order:1;
 }
+header #difficulty::before {
+    content: "Difficulty: ";
+}
+header #difficulty {
+	background-color: lightblue;
+    display: inline;
+	-webkit-flex: 20%;
+	-webkit-order: 2;
+	flex: 0 1 20%;
+	order: 2;
+}
+header #description {
+    display: block;
+	-webkit-flex: 100%;
+    -webkit-order:10;
+	flex: 0 0 100%;
+    order:10;
+}
+header #hw_required::before {
+    margin-top: 0.2in;
+    content: "HW Required";
+	background-color: lightblue;
+    display: block;
+}
+header #hw_required {
+    display: block;
+	-webkit-flex: 33%;
+    -webkit-order:20;
+	flex: 1 0 33%;
+    order:20;
+}
+header #concepts_required::before {
+    margin-top: 0.2in;
+    content: "Concepts Required";
+	background-color: lightblue;
+    display: block;
+}
+header #concepts_required {
+    display: block;
+	-webkit-flex: 33%;
+	-webkit-order: 24;
+	flex: 1 0 33%;
+	order: 24;
+}
+header #sw_required::before {
+    margin-top: 0.2in;
+    content: "SW Required";
+	background-color: lightblue;
+    display: block;
+}
+header #sw_required {
+    display: block;
+	-webkit-flex: 34%;
+    -webkit-order:22;
+	flex: 1 0 33%;
+    order:22;
+}
+header #troubleshooting_links::before {
+    margin-top: 0.2in;
+    content: "Troubleshooting";
+	background-color: lightblue;
+    display: block;
+}
+header #troubleshooting_links {
+    display: block;
+	-webkit-flex: 49%;
+	-webkit-order: 41;
+	flex: 1 0 33%;
+	order: 41;
+}
+header #more_resources::before {
+    margin-top: 0.2in;
+    content: "More resources";
+	background-color: lightblue;
+    display: block;
+}
+header #more_resources {
+    display: block;
+	-webkit-flex: 49%;
+	-webkit-order: 40;
+	flex: 1 0 33%;
+	order: 40;
+}
+header #tags {
+    display: none;
+}
+header #category {
+    display: none;
+}
+
+/*
+ * body headers
+ */
 h2 {
     margin-top: 0.3in;
     color: #2e74b5;
