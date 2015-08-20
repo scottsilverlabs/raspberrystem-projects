@@ -1,82 +1,54 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 9</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SPACE INVADERS 9</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SPACE INVADERS 9</h1>
+<p>The very last step to completing our Space Invaders game is adding sound/music to our game.</p><p>First, we import our sound functions and initialize variables that hold our notes and music:</p><p></p>
+
+<div class="code" data-firstline="0"> 
+<div></div> 
+<textarea>from rstem.sound import Sound, Note
+from itertools import cycle
+
+fire_sound = Sound("/home/pi/fire.wav")
+
+hit_sound = Sound("/home/pi/hit.wav")
+
+notes = cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])
+</textarea></div>
+
+<p></p><p>Next,
+we insert the sounds at the various points in the program where they
+make sense. &nbsp;Specifically, when we fire a missile, when the aliens
+move and when an alien is hit by a missile.<br>
+<br>
+
+</p><div class="code" data-firstline="0"> 
+<div></div> 
+<textarea>
+# Button was pressed - launch missile
+fire_sound.play()
+
+# Move alien
+next(notes).play(duration=0.20)
+
+# Check for collision
+hit_sound.play()
+</textarea></div>
+
+<br>
 
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
-
-<H1>SPACE INVADERS 9</H1>
-<P>Music:</P>
-<P>...</P>
-<P>from
-rstem.sound import Sound, Note</P>
-<P>from
-itertools import cycle</P>
-<P>...</P>
-<P>fire_sound
-= Sound(&quot;/home/pi/fire.wav&quot;)</P>
-<P>hit_sound
-= Sound(&quot;/home/pi/hit.wav&quot;)</P>
-<P>notes
-= cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])</P>
-<P>...</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-...</P>
-<P>    
-   #
-Button was pressed - launch missile</P>
-<P>    
-   ...</P>
-<P>    
-   fire_sound.play()</P>
-<P>   
-...</P>
-<P>    
-</P>
-<P>   
-#
-Move alien</P>
-<P>   
-if
-...:</P>
-<P>    
-   next(notes).play(duration=0.20)</P>
-<P>    
-   ...</P>
-<P>    
-</P>
-<P>   
-#
-Check for collision</P>
-<P>   
-if
-...:</P>
-<P>    
-   ...</P>
-<P>    
-   hit_sound.play()</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<p>Full project:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.accel import Accel
+<p>Let's insert those code snippets into our full project, and we have a completed Space Invaders game! &nbsp;Great job!!!</p><p></p>
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer, Sprite
 from rstem.sound import Sound, Note
@@ -126,10 +98,10 @@ while True:
 	# Change the World
 	# ########################################
 
-	if missile_x >= 0 and now - missile_start_time > MISSILE_STEP_TIME:
+	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
 		# Missile already launched - move it up
 		missile_y += 1
-		if missile_y >= fb.height:
+		if missile_y &gt;= fb.height:
 			missile_x, missile_y = -1, -1
 		missile_start_time = now
 	elif presses:
@@ -139,17 +111,17 @@ while True:
 		fire_sound.play()
 
 	# Move spaceship
-	if x_force > TILT_FORCE:
+	if x_force &gt; TILT_FORCE:
 		spaceship_position -= SPACESHIP_STEP
-	elif x_force < -TILT_FORCE:
+	elif x_force &lt; -TILT_FORCE:
 		spaceship_position += SPACESHIP_STEP
 	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
 	# Move alien
-	if now - alien_start_time > ALIENS_STEP_TIME / alien_speed:
+	if now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:
 		next(notes).play(duration=0.20)
-		alien_at_right_side = alien_direction > 0 and max(alien_columns) == fb.width - 1
-		alien_at_left_side = alien_direction < 0 and min(alien_columns) == 0
+		alien_at_right_side = alien_direction &gt; 0 and max(alien_columns) == fb.width - 1
+		alien_at_left_side = alien_direction &lt; 0 and min(alien_columns) == 0
 		if alien_at_left_side or alien_at_right_side:
 			alien_row -= 1
 			alien_speed *= 1.3
@@ -175,7 +147,7 @@ while True:
 	fb.erase()
 
 	# Draw missile
-	if missile_x >= 0:
+	if missile_x &gt;= 0:
 		fb.point(missile_x, missile_y, MISSILE_COLOR)
 
 	# Draw spaceship
@@ -195,7 +167,6 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_8.html">prev</a>|
+	<p class="nextprev"><a href="SPACE_INVADERS_8.html">prev</a>|
 <a href="index.html">next</a></p>
 </body></html>
-	
