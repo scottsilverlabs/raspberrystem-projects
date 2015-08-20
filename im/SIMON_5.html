@@ -65,9 +65,7 @@ for i in play order:
 
 
 <p>Notice we use the function wait_many() for this. &nbsp;</p>
-<p>Talk about wait_many()...</p>
-<p></p>
-<p>Next, we check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed </span>was&nbsp;correct. &nbsp;Though, to make the code a bit easier to follow, we're going to check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed</span> was actually incorrect:</p>
+<p></p><p style="font-weight: bold; font-style: italic;">[TO BE DONE -- ADD INFO BOX ABOUT wait_many() FUNCTION]</p><br><p>Next, we check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed </span>was&nbsp;correct. &nbsp;Though, to make the code a bit easier to follow, we're going to check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed</span> was actually incorrect:</p>
 
 
 <div class="code" data-firstline="0">
@@ -87,8 +85,7 @@ button entered. &nbsp;Here is what that code should look like:</p>
 
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Light and play while button is pressed.
+<textarea># Light and play while button is pressed.
 lights[button_pressed].on()
 buttons[button_pressed].wait(press=False)
 time.sleep(0.2)
@@ -96,7 +93,7 @@ lights[button_pressed].off()
 </textarea></div>
 
 
-<p style="font-weight: bold;">Step #3: &nbsp;Update
+<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #3: &nbsp;Update
 the while: loop</p>
 <p>Finally, we have to update our <span style="font-family: Courier New,Courier,monospace;">while:</span> loop, as we want it to
 drop through if we determine that the user made a mistake and the game
@@ -109,8 +106,7 @@ failed variable when we start the program, and then we can update our
 
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>
-# Initialize the LEDs and sequence list
+<textarea># Initialize the LEDs and sequence list
 failed = False
 
 ...
@@ -187,4 +183,4 @@ while not failed:
 
 <p class="nextprev"><a href="SIMON_4.html">prev</a>|
 <a href="SIMON_6.html">next</a></p>
-</span></body></html>
+</body></html>

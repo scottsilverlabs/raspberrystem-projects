@@ -1,142 +1,112 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 5</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SPACE INVADERS 5</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SPACE INVADERS 5</h1>
+<p>In this project, we're going to add the ability to fire missiles. &nbsp;</p><p>The
+first step is to initialize the button that we'll use to fire the
+missiles in our initialization section. &nbsp;We do this by importing
+the function that we will use, creating an Button object associated
+with our firing button and then initializing the position of our missile
+(we'll only allow one missile to be on the screen at a given time so we
+only need one set of X, Y coordinates for the missile). &nbsp;We also
+will want to create two other variables -- one that will define the
+color of the missile (we can make it less bright than the other objects
+on the LED Matrix screen to give it a unique look) and one that will
+define how quickly the missle will move (in terms of number of seconds
+between drawing updates).&nbsp;</p><p>Here is what this piece of code will look like:</p><p></p>
 
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<div class="code" data-firstline="0"> 
+<div></div> 
+<textarea>from rstem.button import Button&lt;/p&gt;
 
-<H1>SPACE INVADERS 5</H1>
-<P>Fire missiles:</P>
-<P>from
-rstem.button import Button</P>
-<P>...</P>
-<P>fire_button
-= Button(25)</P>
-<P>...</P>
-<P>missile_x,
-missile_y = -1, -1</P>
-<P><BR>
-</P>
-<P>MISSILE_COLOR
-= 10</P>
-<P>MISSILE_STEP_TIME
-= 0.1</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-...</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Get inputs</P>
-<P>   
-#
-########################################</P>
-<P>   
-presses
-= fire_button.presses()</P>
-<P>   
-x_force,
-y_force, z_force = accel.forces()</P>
-<P>   
-now
-= time.time()</P>
-<P>   
-...</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Change the World</P>
-<P>   
-#
-########################################</P>
-<P><BR>
-</P>
-<P>   
-if
-missile_x &gt;= 0 and now - missile_start_time &gt;
-MISSILE_STEP_TIME:</P>
-<P>    
-   #
-Missile already launched - move it up</P>
-<P>    
-   missile_y
-+= 1</P>
-<P>    
-   if
-missile_y &gt;= fb.height:</P>
-<P>    
-       missile_x,
-missile_y = -1, -1</P>
-<P>    
-   missile_start_time
-= now</P>
-<P>   
-elif
-presses:</P>
-<P>    
-   #
-Button was pressed - launch missile</P>
-<P>    
-   missile_x,
-missile_y = (round(spaceship_position), 1)</P>
-<P>    
-   missile_start_time
-= now</P>
-<P>   
-...</P>
-<P><BR>
-</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Show world</P>
-<P>   
-#
-########################################</P>
-<P><BR>
-</P>
-<P>   
-...</P>
-<P><BR>
-</P>
-<P>   
-#
-Draw missile</P>
-<P>   
-if
-missile_x &gt;= 0:</P>
-<P>    
-   fb.point(missile_x,
-missile_y, MISSILE_COLOR)</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<p>Full project:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.accel import Accel
+fire_button = Button(25)
+
+missile_x, missile_y = -1, -1
+
+MISSILE_COLOR = 10
+
+MISSILE_STEP_TIME = 0.1
+</textarea></div>
+
+<br>
+
+<p>Next, we need to make changes to our game loop to support the missiles. &nbsp;This involves three parts of the loop:</p><p>1. &nbsp;Getting inputs:</p><p>In
+terms of getting inputs, we'll first want to check the button to
+determine when it's pressed. &nbsp;And we'll then want to get the
+current time to determine if enough time has elapsed that we need to
+move any existing missles on the screen:</p><p></p>
+
+<div class="code" data-firstline="0"> 
+<div></div> 
+<textarea>presses = fire_button.presses()&lt;/p&gt;
+
+now = time.time()
+</textarea></div>
+
+<p></p><p>
+2. &nbsp;Changing the world:</p><p>To
+change the world, we'll first need to check to see if there is an
+existing missile on the screen (we'll know there is if the X coordinate
+is not -1). &nbsp;If there's a missile on the screen, we'll need to
+evaluate if enough time has passed since the last screen update to move
+the missile and update the screen again. &nbsp;If the time has come to
+move the missile, we'll want to update the Y coordinate, check
+to see if the missile has reached the top of the LED Matrix screen (in
+which case, we'll reset the X coordinate to -1 to indicate there is no
+current missile on the screen) and we'll want to reset the timer for
+the next move.&nbsp;</p><p>Now, if there is no current missile
+on the screen, we'll need to evaluate whether the fire button is being
+pressed -- if it is, we need to set the X coordinate location for the
+missle (equal to the current X coordinate location of the ship), set
+the Y coordinate location for the missile to 1 and start tracking the
+time that the missile was launched.</p><p>   
+
+
+</p><div class="code" data-firstline="0"> 
+<div></div> 
+<textarea>if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
+	# Missile already launched - move it up
+	missile_y += 1&lt;/p&gt;
+  
+	if missile_y &gt;= fb.height:
+		missile_x, missile_y = -1, -1
+
+	missile_start_time = now
+
+elif presses:
+	# Button was pressed - launch missile    
+	missile_x, missile_y = (round(spaceship_position), 1)
+	missile_start_time = now
+</textarea></div>
+<p></p><p>
+
+3. &nbsp;Show the world:</p><p>To
+show the world, we'll check to see if there is an existing missile on
+the screen, and if there is, we'll draw it's current location.</p><br>
+
+<div class="code" data-firstline="0"> 
+<div></div> 
+<textarea># Draw missile
+if missile_x &gt;= 0:
+	fb.point(missile_x, missile_y, MISSILE_COLOR)
+</textarea></div>
+
+
+<br>
+<p></p>
+<p>If we integrate those snippets of code into our current code for the project, our full project will currently look like this:<br>
+</p><br>
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer
 import time
@@ -171,10 +141,10 @@ while True:
 	# Change the World
 	# ########################################
 
-	if missile_x >= 0 and now - missile_start_time > MISSILE_STEP_TIME:
+	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
 		# Missile already launched - move it up
 		missile_y += 1
-		if missile_y >= fb.height:
+		if missile_y &gt;= fb.height:
 			missile_x, missile_y = -1, -1
 		missile_start_time = now
 	elif presses:
@@ -183,9 +153,9 @@ while True:
 		missile_start_time = now
 
 	# Move spaceship
-	if x_force > TILT_FORCE:
+	if x_force &gt; TILT_FORCE:
 		spaceship_position -= SPACESHIP_STEP
-	elif x_force < -TILT_FORCE:
+	elif x_force &lt; -TILT_FORCE:
 		spaceship_position += SPACESHIP_STEP
 	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
@@ -196,7 +166,7 @@ while True:
 	fb.erase()
 
 	# Draw missile
-	if missile_x >= 0:
+	if missile_x &gt;= 0:
 		fb.point(missile_x, missile_y, MISSILE_COLOR)
 
 	# Draw spaceship
@@ -210,7 +180,6 @@ while True:
 	fb.show()
 	time.sleep(0.001)
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_4.html">prev</a>|
+	<p class="nextprev"><a href="SPACE_INVADERS_4.html">prev</a>|
 <a href="SPACE_INVADERS_6.html">next</a></p>
 </body></html>
-	

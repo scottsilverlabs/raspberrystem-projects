@@ -1,56 +1,47 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 8</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SPACE INVADERS 8</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
+<h1>SPACE INVADERS 8</h1>
+<p>We now should have a working Space Invaders game, but we can make it
+more visually appealing by custom designing our ship using "Sprite"
+functionality in the API.</p><p style="font-weight: bold; font-style: italic;">[TO BE DONE -- NEED TO ADD A NEW PAGE AND PROJECT THAT TEACHES USING AND CUSTOMIZING SPRITES]</p><p>To
+change the ship to a custom sprite, we need to include some basic
+initialization code, code to design the sprite configuration and code
+to draw the sprite.</p><p>Here is the initialization code:</p><br>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.led_matrix import FrameBuffer, Sprite
+</textarea></div>
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+<p></p><p>Here is the sprite code:&nbsp;</p><div class="code" data-firstline="1">
+<div></div>
+<textarea>spaceship = Sprite('''
+-F-
+FAF
+''')
 
-<H1>SPACE INVADERS 8</H1>
-<P>Making a ship:</P>
-<P>...</P>
-<P>from
-rstem.led_matrix import FrameBuffer, Sprite</P>
-<P>...</P>
-<P>spaceship
-= Sprite('''</P>
-<P>   
--F-</P>
-<P>   
-FAF</P>
-<P>   
-''')</P>
-<P>spaceship_middle
-= 1</P>
-<P>...</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-...</P>
-<P>   
-#
-Draw spaceship</P>
-<P>   
-spaceship_x
-= round(spaceship_position) - spaceship_middle</P>
-<P>   
-fb.draw(spaceship,
-origin=(spaceship_x, 0))</P>
-<P>   
-...</P>
-<p>Full project:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.accel import Accel
+spaceship_middle = 1
+</textarea></div>
+
+<br><p></p><p>Here is the drawing code:</p><div class="code" data-firstline="1">
+<div></div>
+<textarea># Draw spaceship
+spaceship_x = round(spaceship_position) - spaceship_middle
+
+fb.draw(spaceship, origin=(spaceship_x, 0))
+</textarea></div>
+
+<p></p><span style="font-family: &quot;Verdana&quot;,serif;"><br></span><p>And here is what our full project should look like at this point:<span style="font-family: &quot;Verdana&quot;,serif;"></span></p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer, Sprite
 import time
@@ -95,10 +86,10 @@ while True:
 	# Change the World
 	# ########################################
 
-	if missile_x >= 0 and now - missile_start_time > MISSILE_STEP_TIME:
+	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
 		# Missile already launched - move it up
 		missile_y += 1
-		if missile_y >= fb.height:
+		if missile_y &gt;= fb.height:
 			missile_x, missile_y = -1, -1
 		missile_start_time = now
 	elif presses:
@@ -107,16 +98,16 @@ while True:
 		missile_start_time = now
 
 	# Move spaceship
-	if x_force > TILT_FORCE:
+	if x_force &gt; TILT_FORCE:
 		spaceship_position -= SPACESHIP_STEP
-	elif x_force < -TILT_FORCE:
+	elif x_force &lt; -TILT_FORCE:
 		spaceship_position += SPACESHIP_STEP
 	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
 	# Move alien
-	if now - alien_start_time > ALIENS_STEP_TIME / alien_speed:
-		alien_at_right_side = alien_direction > 0 and max(alien_columns) == fb.width - 1
-		alien_at_left_side = alien_direction < 0 and min(alien_columns) == 0
+	if now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:
+		alien_at_right_side = alien_direction &gt; 0 and max(alien_columns) == fb.width - 1
+		alien_at_left_side = alien_direction &lt; 0 and min(alien_columns) == 0
 		if alien_at_left_side or alien_at_right_side:
 			alien_row -= 1
 			alien_speed *= 1.3
@@ -141,7 +132,7 @@ while True:
 	fb.erase()
 
 	# Draw missile
-	if missile_x >= 0:
+	if missile_x &gt;= 0:
 		fb.point(missile_x, missile_y, MISSILE_COLOR)
 
 	# Draw spaceship
@@ -161,7 +152,6 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_7.html">prev</a>|
+	<p class="nextprev"><a href="SPACE_INVADERS_7.html">prev</a>|
 <a href="SPACE_INVADERS_9.html">next</a></p>
 </body></html>
-	

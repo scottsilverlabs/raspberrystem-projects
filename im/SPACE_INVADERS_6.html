@@ -1,99 +1,68 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE>SPACE INVADERS 6</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+	
+    <title>SPACE INVADERS 6</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
+    <script type="text/javascript" src="codeblocks.js"></script></head>
+<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+
+<h1>SPACE INVADERS 6</h1>
+<p>In this project, we're going to move the aliens to the right.
+&nbsp;Moving the aliens is going to look very similiar to how we moved
+the missile in the previous project -- we'll track time to determine
+when to move the aliens, we'll define how quickly to move them, we'll
+move them when the time is right:</p><br><p>Here is our initialization code:</p>
+
+<div class="code" data-firstline=""> 
+<div></div> <textarea>alien_start_time = time.time()
+
+ALIENS_STEP_TIME = 0.8
+</textarea></div>
+
+<br><p>
+
+Here is our code to move the aliens when the time is right:</p><div class="code" data-firstline=""> 
+<div></div> <textarea># Move alien
+if now - alien_start_time &gt; ALIENS_STEP_TIME:
+	alien_columns = [(column + 1) % fb.width for column in alien_columns]
+	alien_start_time = now
+</textarea></div>
+
+<p></p><p>Another thing we're going to want to do in this project is to detect
+whether the aliens have collided with an existing missile, and if one
+of them has, remove it from the screen (and from the array). &nbsp;And
+if we remove an alien, we need to check if that's the last alien (if
+the array is empty), in which case we drop through the loop and end the
+game:</p><div class="code" data-firstline=""> 
+<div></div> <textarea># Check for collision&lt;/p&gt; 
+if missile_y == alien_row and missile_x in alien_columns:
+	alien_columns.remove(missile_x)
+	missile_x, missile_y = -1, -1
+	if not alien_columns:
+		break
+</textarea></div>
+
+<p></p><p>Lastly, once we drop through the loop to end the game, we'll want to
+test if the alien array is empty (in which case the player wins) or the
+array is still populated with one or more aliens (in which case the
+player loses): <br>
 
 
-<BODY LANG="en-US" TEXT="#00000a" LINK="#0563c1" DIR="LTR">
+</p><div class="code" data-firstline=""> 
+<div></div> <textarea>if alien_columns:
+	print("Ouch!")
+else:
+	print("You win!")
+</textarea></div>
 
-<H1>SPACE INVADERS 6</H1>
-<P>Move the aliens –
-to the right only:</P>
-<P>alien_start_time
-= time.time()</P>
-<P><BR>
-</P>
-<P>ALIENS_STEP_TIME
-= 0.8</P>
-<P>...</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P>while
-True:</P>
-<P>   
-...</P>
-<P>   
-#
-########################################</P>
-<P>   
-#
-Change the World</P>
-<P>   
-#
-########################################</P>
-<P><BR>
-</P>
-<P>   
-#
-Move alien</P>
-<P>   
-if
-now - alien_start_time &gt; ALIENS_STEP_TIME:</P>
-<P>    
-   alien_columns
-= [(column + 1) % fb.width for column in alien_columns]</P>
-<P>    
-   alien_start_time
-= now</P>
-<P><BR>
-</P>
-<P>   
-#
-Check for collision</P>
-<P>   
-if
-missile_y == alien_row and missile_x in alien_columns:</P>
-<P>    
-   alien_columns.remove(missile_x)</P>
-<P>    
-   missile_x,
-missile_y = -1, -1</P>
-<P>    
-   if
-not alien_columns:</P>
-<P>    
-       break</P>
-<P>   
-...</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
-<P>if
-alien_columns:</P>
-<P>   
-print(&quot;Ouch!&quot;)</P>
-<P>else:</P>
-<P>   
-print(&quot;You
-win!&quot;)</P>
-<P><BR>
-</P>
-<P><BR>
-</P>
+<br>
+<p></p>
 <p>Full project:</p>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-from rstem.accel import Accel
+<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer
 import time
@@ -131,10 +100,10 @@ while True:
 	# Change the World
 	# ########################################
 
-	if missile_x >= 0 and now - missile_start_time > MISSILE_STEP_TIME:
+	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
 		# Missile already launched - move it up
 		missile_y += 1
-		if missile_y >= fb.height:
+		if missile_y &gt;= fb.height:
 			missile_x, missile_y = -1, -1
 		missile_start_time = now
 	elif presses:
@@ -143,14 +112,14 @@ while True:
 		missile_start_time = now
 
 	# Move spaceship
-	if x_force > TILT_FORCE:
+	if x_force &gt; TILT_FORCE:
 		spaceship_position -= SPACESHIP_STEP
-	elif x_force < -TILT_FORCE:
+	elif x_force &lt; -TILT_FORCE:
 		spaceship_position += SPACESHIP_STEP
 	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
 	# Move alien
-	if now - alien_start_time > ALIENS_STEP_TIME:
+	if now - alien_start_time &gt; ALIENS_STEP_TIME:
 		alien_columns = [(column + 1) % fb.width for column in alien_columns]
 		alien_start_time = now
 
@@ -168,7 +137,7 @@ while True:
 	fb.erase()
 
 	# Draw missile
-	if missile_x >= 0:
+	if missile_x &gt;= 0:
 		fb.point(missile_x, missile_y, MISSILE_COLOR)
 
 	# Draw spaceship
@@ -187,7 +156,6 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
-	<p class=nextprev><a href="SPACE_INVADERS_5.html">prev</a>|
+	<p class="nextprev"><a href="SPACE_INVADERS_5.html">prev</a>|
 <a href="SPACE_INVADERS_7.html">next</a></p>
 </body></html>
-	
