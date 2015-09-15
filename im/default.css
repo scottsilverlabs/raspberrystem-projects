@@ -19,6 +19,9 @@ p {
 /* 
  * PG HEADER 
  */
+header {
+    margin-bottom: 0.5in;
+}
 header div {
     color: #00000a;
     line-height: 200%;
@@ -37,7 +40,7 @@ header {
 	flex-wrap: wrap;
 }
 
-header #title, h1 {
+header #title {
     margin-bottom: 0in;
     color: #2e74b5;
     line-height: 150%;
@@ -75,7 +78,7 @@ header #description {
 }
 header #hw_required::before {
     margin-top: 0.2in;
-    content: "HW Required";
+    content: "Hardware Required";
 	background-color: lightblue;
     display: block;
 }
@@ -88,7 +91,7 @@ header #hw_required {
 }
 header #concepts_required::before {
     margin-top: 0.2in;
-    content: "Concepts Required";
+    content: "New Concepts Required";
 	background-color: lightblue;
     display: block;
 }
@@ -101,7 +104,7 @@ header #concepts_required {
 }
 header #sw_required::before {
     margin-top: 0.2in;
-    content: "SW Required";
+    content: "Software Required";
 	background-color: lightblue;
     display: block;
 }
@@ -127,7 +130,7 @@ header #troubleshooting_links {
 }
 header #more_resources::before {
     margin-top: 0.2in;
-    content: "More resources";
+    content: "More Resources";
 	background-color: lightblue;
     display: block;
 }
@@ -148,6 +151,18 @@ header #category {
 /*
  * body headers
  */
+h1 {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 20pt;
+    font-weight: normal;
+}
 h2 {
     margin-top: 0.3in;
     color: #2e74b5;
