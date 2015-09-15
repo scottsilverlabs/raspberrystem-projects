@@ -20,6 +20,8 @@ p {
  * PG HEADER 
  */
 header {
+    margin: auto;
+    width: 95%;
     margin-bottom: 0.5in;
 }
 header div {
@@ -82,11 +84,11 @@ header #hw_required::before {
 	background-color: lightblue;
     display: block;
 }
-header #hw_required {
+header div#hw_required {
     display: block;
-	-webkit-flex: 33%;
+	-webkit-flex: 50%;
     -webkit-order:20;
-	flex: 1 0 33%;
+	flex: 1 0 50%;
     order:20;
 }
 header #concepts_required::before {
@@ -97,55 +99,20 @@ header #concepts_required::before {
 }
 header #concepts_required {
     display: block;
-	-webkit-flex: 33%;
+	-webkit-flex: 50%;
 	-webkit-order: 24;
-	flex: 1 0 33%;
+	flex: 1 0 50%;
 	order: 24;
 }
-header #sw_required::before {
-    margin-top: 0.2in;
-    content: "Software Required";
-	background-color: lightblue;
-    display: block;
-}
-header #sw_required {
-    display: block;
-	-webkit-flex: 34%;
-    -webkit-order:22;
-	flex: 1 0 33%;
-    order:22;
-}
-header #troubleshooting_links::before {
+header #troubleshooting {
     margin-top: 0.2in;
     content: "Troubleshooting";
 	background-color: lightblue;
     display: block;
-}
-header #troubleshooting_links {
-    display: block;
-	-webkit-flex: 49%;
+	-webkit-flex: 51%;
 	-webkit-order: 41;
-	flex: 1 0 33%;
+	flex: 1 0 51%;
 	order: 41;
-}
-header #more_resources::before {
-    margin-top: 0.2in;
-    content: "More Resources";
-	background-color: lightblue;
-    display: block;
-}
-header #more_resources {
-    display: block;
-	-webkit-flex: 49%;
-	-webkit-order: 40;
-	flex: 1 0 33%;
-	order: 40;
-}
-header #tags {
-    display: none;
-}
-header #category {
-    display: none;
 }
 
 /*
