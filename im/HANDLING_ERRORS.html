@@ -11,31 +11,32 @@
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>HANDLING ERRORS IN YOUR CODE</h1>
-<p>If the output from your "Hello, World!" program isn't what you
-expect and/or
+<p>If the output from one of your programs isn't what you
+expect or
 if you get an error message in the Output Window, this is likely due to
-making a mistake typing in your code.&nbsp;Don’t worry, this
-happens to all of us at some point or another – you may have made a
-little mistake (like misspelling a word) or you may have made a
-bigger mistake. Luckily, with this first program, we should be able
-to figure out pretty easily where the mistake is.</p>
-<p>And even if you didn't make any mistakes, follow along, as
-this information will be important when the code gets more complex and
-errors are inevitable...</p>
-<h2>Common Mistakes in Your First Program<span style="font-family: &quot;Verdana&quot;,serif;"></span></h2>
-<p>Let’s discuss
-where the common mistakes might be in your program, and once you
-think you have them fixed, go ahead and click the Play icon again to
-have the computer run the program another time.</p>
-<p></p>
+a mistake in your code. 
+</p>
+<h2>Common Programming Mistakes</h2>
+<p>
+Let's use our 
+	<a href="HELLO,_WORLD.html">HELLO, WORLD!</a>
+project as an example.  Recall, the program from that example was:</p>
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+print ("Hello, World!")
+</textarea></div>
+<p>If you've received error when running this code, it's likely due to one of the common mistakes
+below.
+</p>
 <p><b>Common Mistake
 #1: Capitalization is Important</b></p>
 <p>The most common
-mistake is not capitalize words in your program correctly. In this
-case, the word&nbsp;<span style="font-family: Courier;">print</span>
+mistake is incorrect capitalization of words in your program. In this
+case, the word <span style="font-family: Courier;">print</span>
 is a command word (it tells the computer
 to do something), and it needs to be all lowercase. Verify that you
-haven’t capitalized any of the letters in the word&nbsp;<span style="font-family: Courier;">print</span>.</p>
+haven’t capitalized any of the letters in the word <span style="font-family: Courier;">print</span>.</p>
 <p> </p>
 <p><b>Common Mistake
 #2: Not Using Parentheses – “(” and “)” – Correctly</b></p>
@@ -46,7 +47,7 @@ World!”</span> part of your
 code.</p>
 <p></p>
 <p><b>Common Mistake
-#3: Not Using Quotation Marks&nbsp;</b><b>–</b><b>
+#3: Not Using Quotation Marks </b><b>–</b><b>
 (") – Correctly</b></p>
 <p>If your
 capitalization is correct and you’ve used the parentheses
@@ -61,13 +62,13 @@ as long as you have the same on both sides.</p>
 Error Messages</span></h2>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Hopefully,
 by now, you've been able to fix any mistakes and the program is running
-as you expect. &nbsp;But, there will be times -- especially as your
+as you expect.  But, there will be times -- especially as your
 code gets more complicated -- that fixing mistakes isn't as easy as
-those above. &nbsp;In fact, for programmers who are writing very
+those above.  In fact, for programmers who are writing very
 complex code, there are lots of tools and other software strictly aimed
-at "debugging" (fixing) code. &nbsp;I don't expect that we'll need
-any fancy tools for the code we'll be writing, but it will be helpful
-to learn a little bit about the error messages that the IDE will spit
+at "debugging" (fixing) code.  
+
+Let's  learn a little bit about the error messages that the RDE will spit
 out when you make a mistake.</span></p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"></span>As
 an example, let's change your original code above to the following:</p>
@@ -79,73 +80,69 @@ frint("Hello, World!")
 <br>
 <p>You'll notice that we "accidentally" changed the word "print"
 to the
-word "frint." &nbsp;Because Python doesn't have a command called
+word "frint."  Because Python doesn't have a command called
 "frint," it
 doesn't know what to do what this instruction (just like if I asked you
 to frint something, you wouldn't know what I was talking about either).
-&nbsp;So, instead of trying to guess what you wanted to do, the
+ So, instead of trying to guess what you wanted to do, the
 computer
 instead stops running your code and gives you an error message, which
-is displayed in your Code Output window.</p>
+is displayed in the Program Output window.</p>
 <p>Here is the error message you will see (or something very
 close to this):</p>
-<p><br>
-</p>
 <div class="output">
 <div></div>
-<pre><span style="color: red;">Traceback (most recent call last):</span><br style="color: red;"><span style="color: red;">   File "</span>/home/pi/projects/Untitled1.py<span style="color: red;">", line 1 in "module"</span><br>      frint('Hello, World!')<br><span style="color: red;">NameError: name 'frint' is not defined</span><br style="color: red;"><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre></div>
+<pre><span style="color: red;">Traceback (most recent call last):</span><br style="color: red;"><span style="color: red;">   File "</span>/home/pi/projects/Untitled.py<span style="color: red;">", line 1 in "module"</span><br>      frint("Hello, World!")<br><span style="color: red;">NameError: name 'frint' is not defined</span><br style="color: red;"><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre></div>
 <p></p>
 <p>There are four lines to this error message -- let's look at
 each individually:</p>
 <ul>
 <li>
 <p>Line
-1: &nbsp;This line can be ignored. &nbsp;It is just indicating
+1:  This line is generally always the same.  It is just indicating
 that the lines
 following it will be providing information on the error.</p>
 </li>
 <li>
 <p>Line
-2: &nbsp;This tells you where the error occured -- both the name of
+2:  This tells you where the error occured -- both the name of
 the file
-and the line number. &nbsp;Note that your code could be written in
+and the line number.  Note that your code could be written in
 multiple
 files, so it's possible that the code you see in your Code Window isn't
 the code that has the specific issue you're being alerted to.</p>
 </li>
 <li>
 <p>Line
-3: &nbsp;This tells you the specific line of code that the computer
+3:  This tells you the specific line of code that the computer
 had an
-issue with. &nbsp;It should be the line that is mentioned in Line
+issue with.  It should be the line that is mentioned in Line
 2, but
 this way you can easily see the bad line of code.</p>
 </li>
 <li>
-<p>Line 4: &nbsp;This is the error (the specific problem
+<p>Line 4:  This is the error (the specific problem
 that the computer had with
-your code). &nbsp;In some cases, the error will be clear enough
+your code).  In some cases, the error will be clear enough
 that you'll
 know exactly what the problem is; in other cases, you'll have to do a
 little more investigation, as the error isn't as simple as the computer
-not recognizing a command.</p></li><li><p>Line 5: &nbsp;This just indicates that the program has completed or was stopped due to the error.</p></li>
+not recognizing a command.</p></li><li><p>Line 5:  This just indicates that the program has completed or was stopped due to the error.</p></li>
 </ul>
 <p>The simplest error messages
-will have four lines, just like this one. &nbsp;Line 1 will always
+will have four lines, just like this one.  Line 1 will always
 be the
 same as above and Line 4 will always contain the specific error that
-the computer is complaining about (Line 5 may change to&nbsp;<span style="font-weight: bold; color: red;">-- PROGRAM STOPPED --</span>). &nbsp;But, sometimes the
+the computer is complaining about (Line 5 may change to <span style="font-weight: bold; color: red;">-- PROGRAM STOPPED --</span>).  But, sometimes the
 computer will
-find errors that stem from multiple locations. &nbsp;If the errors
+find errors that stem from multiple locations.  If the errors
 stem from
 multiple locations, Lines 2 and 3 may be repeated multiple times, each
 time with a different file/line number (on the first line) and line of
-code (on the second line). &nbsp;<br>
+code (on the second line).  <br>
 <br>
-In general, the location line of
-code you're going to need to fix is going to be indicated in the two
-lines right before the final line of the error message.</p>
-<br>
-<br>
+In general, look towards the end of the error message for the location and type of error that
+occured.
+</p>
 </body></html>
 

@@ -14,73 +14,70 @@
 <h1>STRING THEORY</h1>
 <p>Let’s talk
 about "strings." When we talk about strings in programming,
-we’re generally just talking about text. For example, in our very
+we’re generally just talking about text. For example, in the very
 first project, we printed out the text 'Hello, World!' &nbsp;In
 this
 example, 'Hello, World!' is a string.</p>
 <p>In fact, a string is
 any combination of letters, numbers and symbols that is used as text,
 and we typically indicate something is a string by putting quotation
-marks (') around it. Here are some examples of strings:</p>
-<p style="margin-left: 0.5in;">'Hello,
-World!'</p>
-<p style="margin-left: 0.5in;">'What is brown and sticky?
-&nbsp;A stick!'</p>
-<p style="margin-left: 0.5in;">'4
-score and 7 years ago.'</p>
-<p style="margin-left: 0.5in;">'1
-2 3 4 5 6 7 8 9 10'</p>
-<p style="margin-left: 0.5in;">'My
-name is Jason'</p>
-<p style="margin-left: 0.5in;">'1+1'</p>
-<p>While some of those
-strings contain numbers and other symbols, because they are each
-surrounded by quotation marks, we treat them as a single group of
-characters, exactly as they are. </p>
-<p>For example, you
+marks (') around it.  Both single quotes (') and double quotes (") work just as well, as long as
+you are you use the same type of quotes on both ends of your string.
+Here are some examples of strings:</p>
+<p style="margin-left: 0.5in;">
+'What is brown and sticky? A stick!'<br><br>
+"What happens to a frog's car when it breaks down?"<br><br>
+'It gets toad away.'<br><br>
+'4 score and 7 years ago.'<br><br>
+'1+1'
+</p>
+<p>Two important notes about these strings:</p>
+<ol>
+<li>
+<p>
+The second string above is surrounded by double quotes (") instead of single quotes (').
+This wasn't just for fun. Double quotes are <i>required</i> because the string already contains a single quote
+(the apostrophe in “frog's”). To the computer, an  apostrophe and a single quote are exactly the
+same thing!  If single quotes were used instead of double quotes, the program would think the
+string ended after the word “frog”, which obviously is not correct.
+</p>
+</li>
+<li>
+<p>You
 might look at that last string ('1+1') and think to yourself, "That is
 the same as 2." While you’re obviously correct that
 1+1 = 2, when the computer sees the quotation marks around that
 string, it just thinks of it as a series of three characters put
-together. &nbsp;But, if you're wondering how to get the computer to print the value of the calculation, check out <a href="CALCULATIONS.html">Calculations</a>.</p>
-<p>Just to verify this,
-let’s revisit our program from Project #1 and replace the string
-'Hello, World!' with these other strings. While we could just
-replace the 'Hello, World!' string with another one in line 1 and
-re-run the program, we can also just add additional lines below line
-1 with our new commands. Let’s take a look at how this would work…</p>
-<p></p>
+together. If you're wondering how to get the computer to print the value of the calculation, check out <a href="CALCULATIONS.html">Calculations</a>.</p>
+</li>
+</ol>
 <h2>Step #1: Enter Your Code in The Code Window</h2>
-<p>Starting on line 2
-of the Code Window, add the following lines (you can either type them
-in or cut-and-paste as we described in Project #1):</p>
-<div class="code" data-firstline="2">
+<p>Starting with a blank Code Window (you can create a new file, if needed),
+enter the following lines:</p>
+<div class="code" data-firstline="1">
 <div> </div>
 <textarea>
-print('Hello, World!')
 print('What is brown and sticky? A stick!')
+print("What happens to a frog's car when it breaks down?")
+print('It gets toad away.')
 print('4 score and 7 years ago.')
-print('1 2 3 4 5 6 7 8 9 10')
-print('My name is Jason')
 print('1+1')
 </textarea></div>
-<br>
 <h2>Step #2: Run Your Code</h2>
-<p>Now that you’ve
-entered all of your code into the Code Window, let’s see if it
-works. To run the program, click on the Play icon in the Icon menu.</p>
+<p>
+To run the program, click on the Play icon at the top of the Code Window.</p>
 <p></p>
-<h2>Step #3: Verify the "Output" of Your Code</h2>
+<h2>Step #3: Verify the Output of Your Code</h2>
 <p>If you’ve done
 everything correctly, you should see the following in your Output
 Window:</p>
 <div class="output" data-firstline="2">
 <div> </div>
-<pre>Hello, World!
-Four score and seven years ago.
+<pre>
+What is brown and sticky? A stick!
+What happens to a frog's car when it breaks down?
+It gets toad away.
 4 score and 7 years ago.
-1 2 3 4 5 6 7 8 9 10
-My name is Jason
 1+1
 </pre></div>
 </body></html>

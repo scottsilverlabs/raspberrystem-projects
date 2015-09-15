@@ -13,17 +13,31 @@
 <p>In this project,
 you’re going to create your first electric circuit. But, before we
 do that, some introductory discussion would probably be helpful.
-&nbsp;We highly recommend reading the following: &nbsp;<a href="INTRO_TO_ELECTRONICS.html">Introduction to Electronics</a>.
-&nbsp;Note that in future projects we will be calling out
+We highly recommend reading the following: <a href="INTRO_TO_ELECTRONICS.html">Introduction to Electronics</a>.
+Note that in future projects we will be calling out
 introductory
-material in the&nbsp;<span style="font-weight: bold;">New
+material in the <span style="font-weight: bold;">New
 Concepts Required</span> section at the top of the
-projects (see above). &nbsp;We recommend that before jumping into a
+projects (see above). We recommend that before jumping into a
 project,
 you
 ensure that you've read and familiarized yourself with any of the
 concepts listed in that section, as they will likely be helpful for
 that project.</p>
+<div class="info">
+<div>What is Electronics?</div>
+<div>
+<p>Electronics is the study and building of circuits that
+rely on various
+types of components, including wires, computer chips and other common
+electrical devices. Through the study of programming and electronics,
+you can learn where these two areas collide, often referred to as
+"embedded systems" or "consumer devices." By combining programming and
+electronics, we can design and build games, tools and devices that can
+solve real world problems, as well as provide entertainment and
+ultimately make life easier and more convenient. </p>
+</div>
+</div>
 <p>At
 the top of each projects, we'll also be listing the hardware required
 for the project and, if the project is a continuation of a previous
@@ -33,18 +47,18 @@ project, what the hardware setup should look like before you jump in. </p>
 introduction to electricity and circuits,
 let’s jump into a real-life example of building a circuit. We’ve
 provided all parts you will need to build this circuit as part of the
-RaspberrySTEM<sup>TM</sup> CREATOR Kit, in the bag marked <span style="font-weight: bold;">Your First Circuit RaspberrySTEM</span><sup style="font-weight: bold;">TM</sup><span style="font-weight: bold;"> Cell</span>.
-&nbsp;You'll find this bag (along with all the other project parts) in the box marked <span style="font-weight: bold;">OPEN LATER -- Project Parts</span>. &nbsp;Open the box/bag and follow along!</p>
+RaspberrySTEM CREATOR Kit, in the bag marked <span style="font-weight: bold;">Your First Circuit RaspberrySTEM Cell</span>.
+You'll find this bag (along with all the other project parts) in the box marked <span style="font-weight: bold;">OPEN LATER -- Project Parts</span>. Open the box/bag and follow along!</p>
 <p>The purpose of this
 circuit is to power and illuminate a “light emitting diode" (or “LED”
 for short). An LED a light source that looks and works a bit like a
 lightbulb (in that they both light up when you run electric current
 through them), so this circuit will work nearly identically to the
-circuit discussed in&nbsp;<a href="INTRO_TO_ELECTRONICS.html">Introduction
+circuit discussed in <a href="INTRO_TO_ELECTRONICS.html">Introduction
 to Electronics</a> with the battery and the lightbulb. </p>
 <p>To build this
 circuit, you’ll need the following three components (all provided in
-the bag marked&nbsp;<span style="font-weight: bold;">Your
+the bag marked <span style="font-weight: bold;">Your
 First Circuit RaspberrySTEM Cell</span>):</p>
 <p></p>
 <table style="width: 80%; margin-left: 10%; margin-right: 10%;">
@@ -77,7 +91,7 @@ the LED doesn’t break.</p>
 <p>Okay, let’s give
 this a try, step by step…</p>
 <p></p>
-<p style="font-weight: bold;">Step #1: &nbsp;Connect
+<p style="font-weight: bold;">Step #1:  Connect
 the Resistor and LED to the Battery</p>
 <p>Using
 your fingers, pinch one lead of the resistor (the "leads" are the metal
@@ -85,7 +99,7 @@ wires on either side) to the positive (+) side of the battery and pinch
 the
 shorter lead of the LED (one of the leads is longer than the other) to
 the other side of the battery (we refer to this as the "negative"
-side). &nbsp;</p>
+side).  </p>
 <p>Like this:</p>
 <p></p>
 <p style="text-align: center;"><img class="bb" src="img/Your_First_Circuit_connect_battery_bb.png">
@@ -96,7 +110,7 @@ side). &nbsp;</p>
 <div>
 <p>An important concept to understand about LEDs is that they are
 "unidirectional" -- in other words, they only allow electric current to
-flow in one direction. &nbsp;If you hook up the LED backwards -- in
+flow in one direction.  If you hook up the LED backwards -- in
 the way that electric current won't be allowed to flow through it -- it
 will not illuminate and the rest of the circuit will stop working as
 well (remember, if electric current isn't flowing at any point in the
@@ -162,71 +176,16 @@ built your first electric circuit!</p>
 above and attach the LED directly to the battery, the LED still lights.
 Which means you're probably wondering why we need the resistor at all?
 </p>
-<p>Most electronic components are "rated" for maximum voltages
-and/or currents. In other words, the manufacturer of the component does
+<p>Often, electronic components can only handle certain maximum voltages
+and/or currents. In general, the manufacturer of the component does
 a bunch of testing
-to determine how much voltage and/or current the part can get before
+to determine how much voltage and/or current the part can handle before
 it's at risk of being damaged or working improperly. When a power
 supply puts out
-more voltage/current than the part is rated to handle, it is smart to
-insert a resistor into the circuit to reduce the voltage/current and
+more voltage/current than the part can handle, 
+a resistor in the circuit can reduce the voltage/current to
 ensure the
 part isn't damaged and works properly.
-</p>
-<p>If you're wondering how we determined the appropriate value
-for our resistor in this circuit, here's some more detailed
-information...
-</p>
-<p>A very common principle in electronics is called Ohm's Law.
-Ohm's Law states that the current through a conductor (generally
-meaning a circuit) is
-proportional to the voltage drop from one side of the circuit to the
-other. The constant that defines that proportion is the resistance of
-the circuit.
-Here is what that looks like in mathematical terms:
-</p>
-<p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V
-= IR</b>, where
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V
-= Voltage drop from one side
-of the circuit to the other (in
-Volts)
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I
-= Current through the circuit
-(in Amps)
-</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R
-= Resistance of the circuit
-(in Ohms)
-</p>
-<p>To determine the appropriate size of a resistor in an LED
-circuit like ours above, Ohm's Law can be applied as follows: </p>
-<p>
-<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resistance
-= (Vcc - LED Rated Voltage) / (LED Rated
-Current)</b>
-</p>
-<p>In the case of our specific circuit, Vcc (the power
-source voltage) is 3.3V. The LED Rated Voltage is about 2.4V and the
-LED Rated Current is about 10mA (.01 amps),
-both of which can be found by reading the "data sheet" for the LED. The
-data sheet is the information provided by manufacturers that discuss
-all the details about how the component works and how it should be
-used.
-</p>
-<p>
-Plugging our numbers into the formula above:
-</p>
-<p>
-<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resistance
-= (3.3V - 2.4V) / (.01)</b>
-</p>
-<p>Plugging those numbers into a
-calculator, we get Resistance of 90 Ohms. Since 90 Ohm resistors aren't
-very common, we round up to the next common resistor value, which is
-100 Ohms. Which is why we use a 100 Ohm resistor in our circuit above.
 </p>
 </div>
 </div>
