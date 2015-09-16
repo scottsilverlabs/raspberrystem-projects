@@ -9,11 +9,78 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="background: transparent none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>INTRODUCING BUTTONS</h1>
-<p>It’s now time to add a new component to our circuit – a
-pushbutton (or just “button”).&nbsp; A button is just a very
-simple switch – when it’s not pressed, electric current can't
-flow through the button
+<header>
+    <div id=title>INTRODUCING BUTTONS</div>
+    <div id=description>In this project, we're going to introduce an input device -- the pushbutton -- that will allow us to start controlling the functionality of our circuit.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<div class="info">
+<div>Learning About Circuit Input/Output</div>
+<div>
+<p>
+Now that we've built our first circuit on the breadboard and have it being powered by the
+Raspberry Pi, it's time to start controlling that circuit.  We do this through mechanisms
+called "input" and "output".  
+the input and output of a circuit.
+</p>
+
+<p>
+Input is information we receive from the outside world that gives us an idea of what our
+circuit should do next.  For example, when you press a button on a TV remote control, it 
+tells your television to do something (change the channel, increase the volume, etc).  
+The remote control is called an "input device."  There are lots of different types of input
+devices that circuits can use, and button input is one of the most common.
+the input and output of a circuit.
+</p>
+
+<p>
+Output is information that your circuit provides back to you.  Output comes in many different
+forms, and common forms of output are things that can be picked up by your senses --
+for example, lights and displays that you can see or buzzers that you can hear.  
+But, output can also be in the form of motors/movement (for example, a robot or a remote 
+controlled car) or in the form that you can't detect without specialized equipment (infra-red
+light, for example).
+the input and output of a circuit.
+</p>
+
+<p>
+Any interesting circuit is going to take input and provide output, and the circuits we'll be
+building with the RaspberrySTEM CREATOR Kit are no different.  Over the next several projects,
+we're going to work with two very common forms of input and output -- we'll be using 
+pushbuttons for input and our LEDs for output.
+the input and output of a circuit.
+</p>
+
+<p>
+Each of the next several projects will provide more complex and interesting ways in which we
+can control circuits with input and output.  Here is what we plan to do:
+the input and output of a circuit.
+</p>
+
+<ol>
+	<li><p>In this project, we will add a pushbutton input to the circuit that we've 
+       already assembled on our breadboard.  The circuit input (the pushbutton) and 
+       output (the LED) will work strictly using hardware -- there will be no software
+       involved in the control of the circuit.</li>
+       <li><p>In the next project, we'll learn how to use software to control our output
+	device (LED).</li>
+	<li><p>The, in the following project, we'll learn how to get input from our
+	input device (pushbutton) to our software, and ultimately how to use that input
+	into our software to control output.</li>
+</ol>
+
+<p>
+In other words, over the next three projects, we will go from using getting input and
+displaying output strictly through hardware to using software to monitor and control
+the input and output of a circuit.
+</p>
+</div>
+</div>
+<p>As we mentioned above, in this project we'll be adding a new input device -- the 
+pushbutton (or just "button").  A button is just a very simple switch – when it’s 
+not pressed, electric current can't flow through the button
 and when it is pressed, electric current does flow through the button.</p>
 <p>Let’s take a closer look at how a button works.&nbsp; This
 is a
@@ -21,9 +88,10 @@ representation of most basic pushbuttons – they have four “legs”
 that can be attached to your breadboard and wired to the circuit and
 then one button in the center of the device that can be un-pushed
 (“open”) or pushed (“closed”):</p>
-<p class="MsoNormal"><o:p></o:p></p>
+<br>
 <p class="MsoNormal" style="text-align: center;" align="center"><span style=""></span><o:p></o:p><img style="width: 377px; height: 534px;" alt="" src="img/button1%20cropped.jpg"></p>
-<p class="MsoNormal">Internally, the left side of the
+<br>
+<p>Internally, the left side of the
 button (the two legs on the
 left) are connected together, and the right side of the button (the two
 legs on
@@ -32,7 +100,9 @@ the right) are connected together.<span style="">&nbsp;
 left side and the right side are separated by a switch that opens and
 closes as
 the button is pressed or unpressed:<o:p></o:p></p>
+<br>
 <p class="MsoNormal" style="text-align: center;" align="center"><span style=""><img style="height: 637px; width: 402px;" alt="" src="img/button2%20cropped.jpg" v:shapes="Picture_x0020_243"></span><o:p></o:p></p>
+<br>
 <p>When we insert a button into a circuit, it has one of two
 operations:</p>
 <ol>
@@ -54,15 +124,17 @@ a switch that we can then use to control the LED turning on and off (by
 pressing the button).<o:p></o:p></p>
 <p class="MsoNormal">Let’s build that circuit now…<o:p></o:p></p>
 <p class="MsoNormal">Here’s what the schematic will look
-like:<o:p></o:p></p>
+like:
+<br>
+<br>
 <img class="schematic" style="width:200px;" src="img/Battery-LED-Circuit-With-Button.png" width="200">  
-<p class="MsoNormal"></p><p class="MsoNormal">To build the circuit, we can start
-with the circuit we built
-in 
-	<a href="RASPBERRY_PI_POWER.html">Raspberry Pi Power</a>:</p>
-<p class="MsoNormal"></p>
+<br>
+<p>To build the circuit, let's start with the circuit we built in the last project --
+	<a href="RASPBERRY_PI_POWER.html">RASPBERRY PI POWER</a>:</p>
+<br>
 <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
-<p class="MsoNormal"><span style=""></span><o:p></o:p></p>
+<br>
+
 <h2>Step #1:<span style="">&nbsp; </span>Remove
 wire from LED to ground.<b style=""><o:p></o:p></b></h2>
 <p class="MsoNormal">We’re going to be adding the button
@@ -132,10 +204,12 @@ In other words, there is a break in the circuit <i>inside</i> the button (this
 is how a button works) and the way to complete the circuit is to press
 the button.</span></span></p><p class="MsoNormal"><span style=""><span style=""></span>If you press the button,
 you should see the
-LED illuminate.</span></p><p class="MsoNormal"><span style=""></span></p>
+LED illuminate.</p>
+<br>
 <div class="info">
 <div>"Breaking the Circuit"</div>
 <div>
+<p>
 In this project, we controlled the flow of electric current
 through the circuit by inserting a switch (the button) between the LED
 and ground.
@@ -146,8 +220,11 @@ and it would have worked the exact same way. Remember, if the flow of
 electric charge is broken anywhere
 in the circuit, the circuit will fail to
 operate. So, our decision to insert the button where we did was
-completely arbitrary. </div></div>
-<p class="MsoNormal"><span style="">In this
+completely arbitrary. 
+</p>
+</div></div>
+<br>
+<p>In this
 project,
 we’ve manipulated the circuit using a purely physical device.<span style="">&nbsp; </span>By inserting the button
 into the circuit, we
@@ -158,8 +235,9 @@ circuit) by pressing the button.<span style="">&nbsp; </span><o:p></o:p></span><
 <p class="MsoNormal"><span style="">Congratulations!<span style="">&nbsp; </span>You’ve just built the same
 circuit used in
 most simple flashlights…<o:p></o:p></span></p>
-<p><span style="">In the next
-project, we’ll add software into the equation using GPIOs.</span></p>
+<p>
+In the next project, we’ll add software into the equation, and will start using "GPIOs"
+to control our output.</p>
 	<p class="nextprev"><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a>|
 <a href="USING_BUTTONS_WITH_GPIO.html">next</a></p>
 </body></html>
