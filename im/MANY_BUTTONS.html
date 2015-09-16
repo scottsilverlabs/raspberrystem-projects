@@ -9,10 +9,19 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>MANY BUTTONS</h1>
+<header>
+    <div id=title>MANY BUTTONS</div>
+    <div id=description>In this project, we're going to expand on our previous project of
+    wiring a button to a GPIO input by wiring several buttons to several different GPIO
+inputs.  We'll use this setup in future projects to control different outputs.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=concepts_required><a href="LISTS.html">LISTS</a><br><a href="FOR_LOOPS.html">FOR LOOPS</a></div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
 
-<p>In General Purpose Input Output
-and Using Buttons With GPIO, we introduced the concept of controlling
+<p>In our previous projects, <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE 
+INPUT/OUTPUT</a> and <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>,
+we introduced the concept of controlling
 and monitoring the state of a component (LEDs and buttons) using GPIOs
 as inputs/outputs. &nbsp;In the gaming world, this concept gets
 more
@@ -34,8 +43,9 @@ we're going to handle the input from those buttons using a list,
 instead of trying to manage input from each button individually.
 &nbsp;While this project will focus on buttons, the concept of
 monitoring inputs and controlling outputs using lists and loops can be
-applied to pretty much any component.</p><p>For this project, you'll want to read the following two concept lessons before you get started: &nbsp;<a href="LISTS.html">Lists</a> and <a href="FOR_LOOPS.html">For Loops</a>.</p>
-<h2>Hardware Implementation</h2>
+applied to pretty much any component.</p>
+<br>
+<p><b>Step #1: Build the circuit.</b></p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
 four buttons to four different GPIOs is no different than wiring a
 single button </span></span>to
@@ -45,13 +55,15 @@ a try!</p><p>Here are three things to remember as you're wiring your buttons:</p
 breadboard should look like at this point (we've chosen to use GPIO14,
 GPIO15, GPIO25 and GPIO7 for our buttons):</p>
 <img class="bb" src="img/Many_Buttons_bb.png">
-<h2>Programming Implementation</h2>
+<br>
+<p><b>Step #2: Write the code.</b></p>
 <p class="MsoNormal">
 For this project, we're simply going to create a list of buttons and
 then use a <span style="font-family: Courier New,Courier,monospace;">for</span>
 loop to cycle through the list and determine which buttons are current
 being pressed.</p>
 <p class="MsoNormal">Here is what that code will look like:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -66,6 +78,7 @@ while True:
 			print("Button connected to GPIO", button.pin, "is pressed")
 	time.sleep(0.1)
 </textarea></div>
+<br>
 <p>Let's look at this code in more detail:</p>
 <ul>
 <li>
@@ -84,8 +97,8 @@ initialization for each of the four buttons we've created.
 &nbsp;For
 each button in the list, we call the Button() function, which returns a
 "button object" for each item in the my_buttons<span style="font-family: Courier New,Courier,monospace;"> </span>variable.
-&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp;
-Assignments</a>,
+&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES &
+ASSIGNMENTS</a>,
 but the important thing to understand is that we can use these objects
 to access Button() funtions and attributes</p>
 </li>
