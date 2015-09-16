@@ -10,12 +10,48 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>USING BUTTONS WITH GPIO</h1>
-<p class="MsoNormal">In the previous project, we inserted
-a button into the
-circuit to act as a physical switch – when pressed, the circuit was
-completed
-and when left unpressed, the circuit was open.<o:p></o:p></p>
+<header>
+    <div id=title>GPIO INPUT: USING BUTTONS WITH GPIO</div>
+    <div id=description>In this project, we will use GPIOs to get input from a pushbutton
+    into our software, and ultimately use that input to control our LED.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=concepts_required><a href="WHILE_LOOPS.html">WHILE LOOPS</a></div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>In the previous project, we saw how GPIOs can be used as outputs to control
+components attached to the Raspberry Pi (like our LED). GPIOs can also be
+used as inputs to take information from external components; that
+input can then be acted upon by the Raspberry Pi and appropriate
+actions can be taken.</p>
+
+<h2>GPIOs as Inputs</h2>
+<p>Much like GPIO
+outputs work by simply setting a voltage on the GPIO pin to either 0V
+or 3.3V, GPIO inputs work by reading the voltage – either 0V or
+3.3V – being sent to the GPIO pin.</p>
+<p>For example, a GPIO
+can be used to get the current&nbsp;state of a button or switch
+(pressed or unpressed). &nbsp;Based on the current state, the
+software can do what we expect when the button/switch is in that state. &nbsp;</p>
+<br>
+<div class="info">
+<div>"State"</div>
+<div>
+<p>"State" is a common term using in electronics and just means
+the current condition or situation of a component or circuit.<br>
+<br>
+For
+example, in the case of a button or switch, state would refer to
+whether the button is currently being pressed or unpressed.
+&nbsp;For
+an LED, state might refer to whether the LED was illuminated or not.</p>
+</div>
+</div>
+<br>
+<p class="MsoNormal">In the <a href="INTRODUCING_BUTTONS.html">INTRODUCING BUTTONS</a> 
+project, we inserted a button into the circuit to act as a physical switch -- when pressed, 
+the circuit was completed and when left unpressed, the circuit was open.<o:p></o:p></p>
 <p class="MsoNormal">While using a button in this way is
 just fine when there
 isn’t much logic behind the button presses (you just want to flip the
@@ -65,12 +101,18 @@ look like:<o:p></o:p></p>
 style="font-style: italic;"><img class=schematic style="max-width:600px;" src="img/Pushbutton-to-GPIO.png"></span></span><br>
 </div>
 <p class="MsoNormal"></p>
-<h1>Building the Circuit</h1>
-<p class="MsoNormal">To implement this in an actual
-breadboard circuit is easy.<span style="">&nbsp; </span>Here
-is how to build that circuit on the
-breadboard and then use code to get input from the button through the
-GPIO:</p>
+
+<h2>Reading Buttons Using GPIOs</h2>
+<p class="MsoNormal">To implement what we discuss above as an actual breadboard circuit is 
+easy.  First, we start with an empty breadboard, with power and ground wired from the Lid 
+Connector, like this:
+<br>
+<img class="bb" src="img/.png">
+<br>
+
+With our breadboard empty, here is how we build our circuit and then use code to get input 
+from the button through the GPIO:</p>
+<br>
 <p style="font-weight: bold;">Step
 #1: &nbsp;Pl<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span>ace
 button on breadboard.<o:p></o:p></p>
@@ -94,6 +136,7 @@ on different connect strips, as follows:</p>
 </table>
 <br>
 <p style="text-indent: -0.25in;"><b style=""><span style=""><span style="">2.<span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;
+<br>
 </span></span></span></b><b style="">Step
 #2: &nbsp;Wire one side of the button to a GPIO.<o:p></o:p></b></p>
 <p class="MsoNormal">Next, we connect one side of the
@@ -102,7 +145,9 @@ button
 are symmetrical) to a GPIO.<span style="">&nbsp; </span>In
 this
 example, we’ll connect the button to GPIO14.<o:p></o:p></p>
+<br>
 <img class="bb" src="img/Buttons_with_GPIO_1_bb.png">
+<br>
 <p><span style="font-weight: bold;">Step #3:
 &nbsp;Wire the other side of the button to
 ground.</span><o:p></o:p></p>
@@ -112,13 +157,17 @@ this
 example, we are connecting the other side of the button to the
 blue&nbsp;strip,
 which is connected to ground.</p>
+<br>
 <img class="bb" src="img/Buttons_with_GPIO_2_bb.png">
 <p class="MsoNormal">That’s it for the wiring – pretty
 simple, right?</p>
-<h2>Writing the Code</h2>
+<br>
+<p><span style="font-weight: bold;">Step #4: Write the code.
+</span><o:p></o:p></p>
 <p class="MsoNormal">Now that the circuit is wired, we can
 write the code to get
 the GPIO state (low or high):<o:p></o:p></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -126,6 +175,7 @@ from rstem.button import Button
 my_button = Button(14)
 print(my_button.is_pressed())
 </textarea></div>
+<br>
 <p class="MsoNormal">In this most basic example, we are
 reading the GPIO a single
 time (the moment the program is run) and we are outputting the state of
@@ -144,6 +194,7 @@ the GPIO
 for as long as the program is running.<span style="">&nbsp;
 </span><o:p></o:p></p>
 <p class="MsoNormal">Here’s what that code would look like:<o:p></o:p></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -157,6 +208,7 @@ while True:
 	print(my_button.is_pressed())
 	time.sleep(.01)
 </textarea></div>
+<br>
 <p class="MsoNormal">Run this program and then alternate
 between pressing and not
 pressing the button.<span style="">&nbsp; </span>Take
