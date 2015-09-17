@@ -9,7 +9,13 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 4</h1>
+<header>
+    <div id=title>SIMON 4</div>
+    <div id=description>In this project, we continue the development of our Simon-like
+    pattern matching game by adding randomized LED blinking.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In our last project, we wrote some code to flash LEDs in a
 pre-planned sequence. &nbsp;While that's a good start, in our
 Simon-like game, we're going to need to flash LEDs in a random
@@ -19,41 +25,60 @@ modifications to the code from the last project which will give us a
 random sequence of LED flashes. &nbsp;In the next project, we'll
 add in
 the buttons.</p>
-<p style="font-weight: bold; font-style: italic;">[TO BE DONE -- ADD INFO BOX ON randrange()]</p>
+<br>
+<div class="info">
+<div>"randrange() Function"</div>
+<div>
+	<p>
+	The randrange() function simply returns a random number with the range provided
+	when the function is called.  If one parameter is supplied, the random number 
+	generated will fall between 1 and that parameter.  If two parameters are supplied,
+	the random number will fall between the first and second parameter, both included.
+	<p>
+	We use the randrange() function in our Simon-like game to generate a random 
+	sequence of LED flashes for our game.
+</div>
+</div>
+<br>
 <h2>Programming Implementation</h2>
 <p>Starting with the code we left off with in the
 previous project, the first thing we'll need to
 do is import the function randrange() to create our random generation
 of LED flashes:</p>
-<p></p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>from random import randrange
 </textarea></div>
-<p></p>
+<br>
 <p>Next, instead of filling the list <span style="font-family: Courier New,Courier,monospace;">play_order[]</span>
 with a pre-defined sequence, we're going to make that an empty list
 that we can use to hold our random sequence. &nbsp;To do that,
-we'll replace the list we created previously with a new (empty) list:</p><p></p>
+we'll replace the list we created previously with a new (empty) list:</p>
 
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>play_order = []
 </textarea></div>
 
+<br>
 <p>Finally, we'll have to create our random sequence of LEDs.
 &nbsp;We can add a random LED to play_order[] with the following
 line of code:</p>
 
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>play_order += [randrange(4)]
 </textarea></div>
 
-<p></p><p>If we add this code to our previous code that includes the
+<br>
+<p>If we add this code to our previous code that includes the
 play sequence, we'll see that we're adding a single random LED flash to
 our sequence list and then flashing it:</p><p></p>
 
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Initialize the LEDs and sequence list
@@ -76,12 +101,14 @@ for i in play_order:
 	lights[i].off()
 	time.sleep(0.2)
 </textarea></div>
+<br>
 
-<p></p><p>If we add a while: loop, we can continue to generate a random
+<p>If we add a while: loop, we can continue to generate a random
 LED and
 add it to the list each time through the loop. &nbsp;This will play
 the entire sequence of random LED flashes, add a new LED to the
 sequence, play the list again with the new LED added, and then repeat:</p><p></p>
+<br>
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -105,7 +132,10 @@ while True:
 		time.sleep(0.4)
 		lights[i].off()
 		time.sleep(0.2)
-</textarea></div><br><br><p>Here is what the code for this project should look like at this point:</p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
+</textarea></div>
+<br>
+<p>Here is what the code for this project should look like at this point:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea># ##################################
