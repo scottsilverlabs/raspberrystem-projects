@@ -57,6 +57,11 @@ USING BREADBOARD DIAGRAMS
 
         ./bb_crop diagram_bb.png
 
+    Even better (and more common), if useing a 2 breadboard diagram that you
+    only want the top of, then use:
+
+        ./bb_topcrop diagram_bb.png
+
     Move the resultant file to the HTML docs dir where it will be used, and
     incorporate it in the doc.
 
