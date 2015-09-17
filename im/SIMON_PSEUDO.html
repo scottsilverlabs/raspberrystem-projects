@@ -5,8 +5,15 @@
 <link rel="stylesheet" type="text/css" href="default.css">
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 0</h1>
-<p>Over the next many projects, we're going to use buttons, LEDs
+<header>
+    <div id=title>SIMON 0</div>
+    <div id=description>In this project, we kick off the development of our Simon-like
+    pattern matching game.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>Over the next eight projects, we're going to use buttons, LEDs
 and a good bit of code to build and program a pattern-matching game
 much like the popular toy Simon. &nbsp;</p>
 <p>If you're not
@@ -46,6 +53,7 @@ for Simon -- and the way most programmers create their outlines -- is
 through a common
 programming technique called pseudo-code. &nbsp;Here's a quick
 overview of what pseudo-code is and how it works...</p>
+<br>
 <p class="MsoNormal"></p>
 <div class="info">
 <div>Pseudo-Code</div>
@@ -100,7 +108,7 @@ the pseudo-code before you start writing the actual code can make the
 entire process much easier.</p>
 </div>
 </div>
-<p></p>
+<br>
 <p>Now that you hopefully have a general idea of how pseudo-code
 works, let's talk about what the pseudo-code for our Simon game will
 look like. &nbsp;We've found that the best way to outline a
@@ -109,7 +117,7 @@ ideas down into smaller and smaller pieces, until the pieces are small
 enough that we're comfortable starting to write our code.</p>
 <p>For example, this is what the very high level outline for our
 Simon game would look like:</p>
-<p></p>
+<br>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
 Modules and Initialize Game</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"></p>
@@ -137,7 +145,7 @@ LED to the sequence</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
 user enters the wrong sequence, play an error sequence</span></p>
-<p></p>
+<br>
 <p>That's
 basically all our Simon game needs to do. &nbsp;But, now it's time
 to start thinking about how this outline would actually look when
@@ -154,6 +162,7 @@ loop.</p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Let's
 rewrite our psedu-code above, but this time, let's add in a couple
 loops to make it more clear how the code will work:</span></p>
+<br>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
 Modules and Initialize Game</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
