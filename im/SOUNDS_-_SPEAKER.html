@@ -10,9 +10,14 @@
     <script type="text/javascript" src="codeblocks.js"></script></head>
 
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<header>
+    <div id=title>SOUNDS & SPEAKER</div>
+    <div id=description>In this project, we introduce the sound library and use it to play 
+    notes through the speaker.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
 
-<h1>SOUNDS-SPEAKER</h1><p><span style="font-family: &quot;Verdana&quot;,serif;">The
-RaspberrySTEM comes with an attached speaker and audio cable, and also
+<p>RaspberrySTEM comes with an attached speaker and audio cable, and also
 a library of functions that allow you to play notes, music and sound
 effects. &nbsp;</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;">The
 hardware required to use the speaker is assembled as part of the kit
@@ -20,6 +25,7 @@ assembly, so we can start making noise with just some lines of code...</span></p
 this project, we're just going to use the basic functionality of the
 sound library to play notes in variable durations. &nbsp;Let's start
 with this code:</p>
+<br>
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.sound import Note
 note = Note('A')

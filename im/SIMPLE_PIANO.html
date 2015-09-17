@@ -10,9 +10,32 @@
     <script type="text/javascript" src="codeblocks.js"></script></head>
 
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
-<h1>SIMPLE PIANO</h1>
-<p>Using the hardware setup from Many Buttons, we can turn our RaspberrySTEM into a very basic sound machine.</p><p>In this project, each time you press one of the four buttons on the RaspberrySTEM, a corresponding note plays for one second:</p><br>
+<header>
+    <div id=title>SIMPLE PIANO</div>
+    <div id=description>In this project, we integrate the multiple buttons we implemented several projects ago along with the note/sound generation from the sound library and the speaker.</div>
+    <div id=hw_required>Hardware setup from the <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+<p>Using the hardware setup from Many Buttons, we can turn our RaspberrySTEM into a very basic sound machine.  We will start with four buttons each wired to a GPIO as input, and write some code that will generate corresponding note when each button is pressed.  We'll keep it simple in this project, and just play each note for one second.
+<br>
+<br>
+<p><b>Step #1: Build the circuit.</b></p>
+<p>Your breadboard should still have the circuit we wired in the <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project.  As a reminder, here is what it should look like:
+<br>
+<img class="bb" src="img/Many_Buttons_bb.png">
+<br>
+<p><b>Step #2: Write the code.</b></p>
+<p>The code for this project is straightforward:
+<ul>
+	<li><p>First, we import the functions we'll be using.</li>
+	<li><p>Next, we initialize the buttons with their corresponding GPIOs and initialize the
+	notes from our sound library.</li>
+	<li><p>Then, we create a while: loop that will continually test each button for a press,
+	and if a press if received, will play the corresponding note.</li>
+</ul>
+<p>Here is what the code should look like:
+</p>
+<br>
 <div class="code" data-firstline="1"><div></div> 
 <textarea>
 from rstem.button import Button
