@@ -9,7 +9,13 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 5</h1>
+<header>
+    <div id=title>SIMON 5</div>
+    <div id=description>In this project, we continue the development of our Simon-like
+    pattern matching game by adding button input.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In our last project, we created a random sequence of
 LED flashes. &nbsp;We included that code in a loop that will
 continue to add another flash to the end of the sequence and replay the
@@ -27,7 +33,7 @@ initialization code</p>
 buttons -- we'll import the function we need and create the button list
 just like we did in <a href="MANY_BUTTONS.html">Many
 Buttons</a>:</p>
-
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Initialize the LEDs and sequence list
@@ -43,19 +49,24 @@ button sequence entered by the player</p>
 
 <p>Next, we need to add code after we play the sequence to check
 for whether the user has entered the correct sequence back.  There are several parts to this, and 
-they will all be captured in a <span style="font-family: Courier New,Courier,monospace;">for:</span> loop that runs through the sequence the player is repeating.  Each time through the<span style="font-family: Courier New,Courier,monospace;"> for: </span>loop, we'll need to accomplish the following things:</p><p>1. First, we test to see if the button pressed was the next button in the
-sequence.</p>
-<p>2. If an incorrect button was pressed, we
+they will all be captured in a <span style="font-family: Courier New,Courier,monospace;">for:</span> loop that runs through the sequence the player is repeating.  Each time through the<span style="font-family: Courier New,Courier,monospace;"> for: </span>loop, we'll need to accomplish the following things:</p>
+<ol>
+	<li><p>First, we test to see if the button pressed was the next button in the
+sequence.</li>
+	<li><p>If an incorrect button was pressed, we
 set a variable called&nbsp;<span style="font-family: Courier New,Courier,monospace;">failed</span> to True. &nbsp;This will be our
 indication to the <span style="font-family: Courier New,Courier,monospace;">while:</span> loop that the game is over and on our next
 pass, we should drop through the loop. &nbsp;This will also require us
 to change our test in the <span style="font-family: Courier New,Courier,monospace;">while:</span>
 loop that we already created (we'll do that in Step #3). &nbsp;And
 we'll need to stop checking for additional button presses and drop
-through the loop.</p>
-<p>3. &nbsp;Lastly, if the player has entered a correct button in the sequence, we need to flash that LED.</p><p>Here is what the beginning of the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop would look like:</p>
+through the loop.</li>
+	<li><p>Lastly, if the player has entered a correct button in the sequence, we need to flash that LED.</li>
+</ol>
 
+	<p>Here is what the beginning of the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop would look like:</p>
 
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Wait for user to repeat
@@ -63,10 +74,22 @@ for i in play order:
 	button_pressed = Button.wait_many(buttons, timeout=3)
 </textarea></div>
 
+<br>
 
-<p>Notice we use the function wait_many() for this. &nbsp;</p>
-<p></p><p style="font-weight: bold; font-style: italic;">[TO BE DONE -- ADD INFO BOX ABOUT wait_many() FUNCTION]</p><br><p>Next, we check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed </span>was&nbsp;correct. &nbsp;Though, to make the code a bit easier to follow, we're going to check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed</span> was actually incorrect:</p>
+<br>
+<div class="info">
+<div>"wait_many() Function"</div>
+<div>
+	<p>
+	The wait_many() function takes a list of buttons as a parameter, will wait for any of them to be pressed and will then return the index into the buttons list of the button that was pressed. 
+	<p>
+	See the API reference for more details.
+</div>
+</div>
+<br>
+<p>Next, we check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed </span>was&nbsp;correct. &nbsp;Though, to make the code a bit easier to follow, we're going to check to see if the <span style="font-family: Courier New,Courier,monospace;">button_pressed</span> was actually incorrect:</p>
 
+<br>
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -75,13 +98,14 @@ for i in play order:
 	break
 </textarea></div>
 
+<br>
 <p>If the button entered by the player was incorrect, we set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True, and then we <span style="font-family: Courier New,Courier,monospace;">break</span> -- the <span style="font-family: Courier New,Courier,monospace;">break</span> command will immediately exit the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop.</p>
 
 <p><span style="font-family: &quot;Verdana&quot;,serif;">If
 the button entered by the player was correct</span>, we need to
 light the LED before moving on to checking the next
 button entered. &nbsp;Here is what that code should look like:</p>
-<p></p>
+<br>
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -92,6 +116,7 @@ time.sleep(0.2)
 lights[button_pressed].off()
 </textarea></div>
 
+<br>
 
 <p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #3: &nbsp;Update
 the while: loop</p>
@@ -103,6 +128,7 @@ when the user made a mistake, so we can simply test to see whether
 <p>To update the <span style="font-family: Courier New,Courier,monospace;">while:</span> loop, we need to first initialize our
 failed variable when we start the program, and then we can update our
 <span style="font-family: Courier New,Courier,monospace;">while:</span> loop as follows:</p>
+<br>
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -114,8 +140,8 @@ failed = False
 while not Failed:
 </textarea></div>
 
-
-<p><br>
+<br>
+<p>
 Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
