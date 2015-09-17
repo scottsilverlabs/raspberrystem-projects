@@ -9,7 +9,13 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 6</h1>
+<header>
+    <div id=title>SIMON 6</div>
+    <div id=description>In this project, we continue the development of our Simon-like
+    pattern matching game by adding sound to our LED flashes.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In our last project,&nbsp;added in the use
 of the buttons as input and we tested the sequence of button presses to
 determine if they were correct or not. &nbsp;This was much of the
@@ -18,7 +24,8 @@ basis for our game, but now it's time to add some additional features.
 <h2>Programming Implementation</h2>
 <span style="font-family: &quot;Verdana&quot;,serif;">First, we need
 to import the sound function we'll use and initialize a list of four
-sounds -- one for each of the LEDs:<br>
+sounds -- one for each of the LEDs.  We'll also initialize a specific note to play
+when an incorrect button is pressed (this is for later):<br>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
@@ -27,6 +34,7 @@ from rstem.sound import Note
 
 notes = [Note('A'), Note('B'), Note('C'), Note('D')
 
+you_failed_note = Note('E2')
 </textarea></div>
 
 <br></span><p><span style="font-family: &quot;Verdana&quot;,serif;">
@@ -34,9 +42,35 @@ Next,
 we need to insert our sounds into two locations -- where we flash the
 sequence of LEDs for the player and where the player presses a button
 while repeating the sequence. &nbsp;Here are what those two code
-blocks should be updated to:</span></p><p style="font-style: italic;"><span style="font-weight: bold;">[TO BE DONE -- INSERT CODE BLOCKS]</span>
+blocks should be updated to:
 
-</p><p><br>
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# Play LED sequence 
+for i in play_order: 
+	lights[i].on() 
+	notes[i].play(0.4).wait() 
+	lights[i].off()
+	time.sleep(0.2) 
+</textarea></div>
+<br>
+
+<br>
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+# If user enters correct button, flash LED and play tone
+lights[button_pressed].on()     
+notes[button_pressed].play(duration=None)
+buttons[button_pressed].wait(press=False) 
+time.sleep(0.2)
+lights[button_pressed].off() 
+notes[button_pressed].stop() 	
+</textarea></div>
+<br>
+
 Here is what the code for this project should look like at this point:</p><br>
 <div class="code" data-firstline="1">
 <div></div>
