@@ -9,7 +9,14 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 1</h1>
+<header>
+    <div id=title>SIMON 1</div>
+    <div id=description>In this project, we continue the development of our Simon-like
+    pattern matching game by building our circuit.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+ </header>
+
 <p class="MsoNormal">In our previous project, we discussed
 the pseudo-code for our pattern-matching game. &nbsp;But, before we
 start writing the code, we're going to build the electronics for the
@@ -56,6 +63,7 @@ left-hand side of breadboard -- by doing this, you should be able to
 put some upcoming projects on the other side of the breadboard, which
 is nice so that you won't have to tear down this project to make room
 for the other. </span></span></p>
+<br>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware Step #1</span>:
 &nbsp;Provide Power to Both Power Rails</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Because
@@ -73,18 +81,18 @@ one red rail to the other and from one blue rail to the other. </span></p>
 should look like: </span></p>
 <p></p>
 <img class="bb" src="img/simon-0but-0led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #2</span>:
-&nbsp;Wire Your First Button Using a GPIO Input</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">Now
+<br>
+<p><b>Hardware Step #2: Wire Your First Button Using a GPIO Input</b></p>
+<p>
+Now
 that we have power and ground on both sides of the board, we can start
 wiring our components. &nbsp;We'll ultimately want four buttons and
 four LEDs arranged in a diamond pattern, so we start by wiring the
 first button towards the top of the breadboard. &nbsp;If you recall
 from <a href="USING_BUTTONS_WITH_GPIO.html">Using Buttons
 With GPIO</a>, to wire a button to a GPIO, the circuit schematic
-should look as follows:</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
+should look as follows:</p>
+<br>
 <img class="schematic" src="img/Pushbutton-to-GPIO.png" width="600">
 <br>
 <p>To
@@ -95,24 +103,23 @@ welcome to use a different GPIO, but if you do, keep in mind that
 you'll have to modify the code we provide to match your GPIO selection.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like: </span></p>
+<br>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-1but-0led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #3</span>:
-&nbsp;Wire Your Second Button Using a GPIO Input</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">We
-can now wire the second button similarly to the first. &nbsp;Again,
+<br>
+<p><b>Hardware Step #3: Wire Your Second Button Using a GPIO Input</b></p>
+<p>
+We can now wire the second button similarly to the first. &nbsp;Again,
 remember that we're looking to build a diamond pattern, so this button
 should be positioned appropriately. &nbsp;For our circuit, we're
 going
-to attach the second button to GPIO15.</span></p>
+to attach the second button to GPIO15.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
-<p style="text-align: center;"></p>
+<br>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-2but-0led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">You'll
+<p>You'll
 notice that we used two small jumper wires to attache the second button
 to ground. &nbsp;You could certainly use one longer wire to attach
 the
@@ -121,29 +128,29 @@ the larger wires getting in the way while you're trying to use the
 buttons to play your game. &nbsp;Not to mention, the whole circuit
 will look cleaner by
 using the small jumpers as much as possible.</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #4</span>:
-&nbsp;Wire Your Third Button Using a GPIO Input</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">We can now wire the third
+<br>
+<p><b>Hardware Step #4: Wire Your Third Button Using a GPIO Input</b></p>
+<p>
+We can now wire the third
 button just like the first two. &nbsp;For this button, we've chosen
-to use GPIO23.</span></p>
+to use GPIO23.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
-<p style="text-align: center;"></p>
+<br>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-3but-0led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #5</span>:
-&nbsp;Wire Your Fourth Button Using a GPIO Input</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;">It's time to wire our fourth
+<br>
+<p><b>Hardware Step #5: Wire Your Fourth Button Using a GPIO Input</b></p>
+<p>
+It's time to wire our fourth
 and final button in our circuit. &nbsp;For this last button, we've
-chosen to use GPIO17.</span></p>
+chosen to use GPIO17.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like with all the buttons wired:</span></p>
-<p style="text-align: center;"></p>
+<br>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-4but-0led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
+<br>
 <p>Good
 job! &nbsp;You should now have four buttons wired on your
 breadboard.
@@ -157,8 +164,8 @@ expect...</p>
 Implementation</span></h2>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Now that we have our buttons
 wired, we're going to write some test code to verify that they are each
-working correctly. &nbsp;In our <a href="MANY_BUTTONS.html">Many
-Buttons</a> project, we learned
+working correctly. &nbsp;In our <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project, 
+we learned
 how to generate a list of buttons and take input from each of them --
 we're going to do the same in our test code below.</span></p>
 <p class="MsoNormal">The GPIOs we use for our buttons are:
@@ -167,7 +174,7 @@ button), GPIO17 (left button). &nbsp;In our button list, we'll
 initialize the buttons in that order, so that we refer to button #1 as
 the top button, button #2 as the right button and so forth. &nbsp;</p>
 <p class="MsoNormal">Here is what that code will look like:</p>
-<p class="MsoNormal"></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.button import Button

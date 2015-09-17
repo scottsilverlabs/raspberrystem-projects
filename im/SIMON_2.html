@@ -9,7 +9,14 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 2</h1>
+<header>
+    <div id=title>SIMON 2</div>
+    <div id=description>In this project, we continue the development of our Simon-like
+    pattern matching game by adding the LEDs to our circuit.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <span style="font-family: &quot;Verdana&quot;,serif;"></span>
 <p class="MsoNormal">In
 the previous project, we wired up and tested the four buttons we'll be
@@ -20,7 +27,7 @@ LEDs to the circuit from our last project and test those.</p>
 Implementation</span></h2>
 <p>We're going to start with the breadboard setup from the
 previous project, and add the following...</p>
-<p></p>
+<br>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #1</span>:
 &nbsp;Wire Your First LED Using a GPIO Output</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">For
@@ -34,9 +41,10 @@ you're welcome to wire the buttons in any locations you choose, our
 instructions below will put each LED as close as possible to it's
 button.</span></p>
 <p><span style="font-weight: normal;">If you recall
-from <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">General
-Purpose Input/Output</a>, to wire an LED to a GPIO, the circuit
+from <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL
+PURPOSE INPUT/OUTPUT</a>, to wire an LED to a GPIO, the circuit
 schematic should look as follows:</span></p>
+<br>
 <img class="schematic" src="img/Battery-LED-Circuit-to-GPIO.png">
 <br>
 <p>Based
@@ -50,23 +58,26 @@ shouldn't matter which LED color goes with which button, so we've
 arbitrarily chosen orange for this one.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
+<br>
 <img class="bb" src="img/simon-4but-1led_bb.png">
+<br>
 <p>Keep
 in mind that you're going to want to ensure that the neither leg of the
 LED sits in the same connect strip as button or another LED, as the
 components will need to act independently, and we don't want to
 inadvertently send (or receive) signals to a component while trying to
 control another component.&nbsp;</p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
+<br>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #2</span>:
 &nbsp;Wire Your Second LED Using a GPIO Output</p>
 <p>We can now wire our second LED.
 &nbsp;We've chosen GPIO18 for this LED and are using a yellow LED.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
-<p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
+<br>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-4but-2led_bb.png">
+<br>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #3</span>:
 &nbsp;Wire Your Third LED Using a GPIO Output</p>
 <p>Time to wire our third LED to the bottom button, like just the
@@ -74,9 +85,10 @@ previous two.
 &nbsp;We've chosen GPIO24 for this LED and are using a red LED.</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
+<br>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <img class="bb" src="img/simon-4but-3led_bb.png">
-<p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;"></span></p>
+<br>
 <p style="font-weight: bold;"><span style="font-family: &quot;Verdana&quot;,serif;">Hardware </span><span style="font-family: &quot;Verdana&quot;,serif;">Step #4</span>:
 &nbsp;Wire Your Fourth LED Using a GPIO Output</p>
 <p>It's time to wire our final LED.
@@ -84,9 +96,11 @@ should look like:</span></p>
 &nbsp;</p>
 <p style="font-weight: bold;"><span style="font-weight: normal;">Here is what your breadboard
 should look like:</span></p>
+<br>
 <p style="font-weight: bold;"><span style="font-weight: normal;"></span></p>
 <p style="text-align: center;"></p>
 <img class="bb" src="img/simon-4but-4led_bb.png">
+<br>
 <p style="font-weight: bold;"><span style="font-weight: normal;">You'll
 notice that we chose to use an extra jumper to attach the LED to the
 GPIO -- again, we're going to want to be able to press each of the
@@ -103,7 +117,8 @@ sections -- the first will import the functions we're going to need for
 the rest of the code and the second will test each of the LEDs.</span></p>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Programming
 Implementation</span></h2><p><span style="font-family: &quot;Verdana&quot;,serif;">To test our LEDs, we'll create a list of LEDs and cycle through turning each of them on and off.</span></p><p style="font-weight: bold;"><span style="font-weight: normal;">Here's what this import
-code should look like:</span></p>
+code should look like (this probably looks familiar from earlier GPIO projects):</span></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.gpio import Output
