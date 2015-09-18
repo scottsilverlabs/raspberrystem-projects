@@ -9,35 +9,47 @@
     <script type="text/javascript" src="/assets/cmirror/python.js"></script>
     <script type="text/javascript" src="codeblocks.js"></script></head>
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-
-<h1>SPACE INVADERS 6</h1>
+<header>
+    <div id=title>SPACE INVADERS 6</div>
+    <div id=description>In this project, we're going to continue building our Space Invaders
+	    game by starting to animate the aliens and add some collision detection
+	    for the missiles we're firing at them.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
 <p>In this project, we're going to move the aliens to the right.
 &nbsp;Moving the aliens is going to look very similiar to how we moved
 the missile in the previous project -- we'll track time to determine
 when to move the aliens, we'll define how quickly to move them, we'll
-move them when the time is right:</p><br><p>Here is our initialization code:</p>
-
+move them when the time is right:</p>
+<p>Here is our initialization code:</p>
+<br>
 <div class="code" data-firstline=""> 
 <div></div> <textarea>alien_start_time = time.time()
 
 ALIENS_STEP_TIME = 0.8
 </textarea></div>
 
-<br><p>
+<br>
+<p>
 
-Here is our code to move the aliens when the time is right:</p><div class="code" data-firstline=""> 
+Here is our code to move the aliens when the time is right:</p>
+<br>
+<div class="code" data-firstline=""> 
 <div></div> <textarea># Move alien
 if now - alien_start_time &gt; ALIENS_STEP_TIME:
 	alien_columns = [(column + 1) % fb.width for column in alien_columns]
 	alien_start_time = now
 </textarea></div>
-
-<p></p><p>Another thing we're going to want to do in this project is to detect
+<br>
+<p>Another thing we're going to want to do in this project is to detect
 whether the aliens have collided with an existing missile, and if one
 of them has, remove it from the screen (and from the array). &nbsp;And
 if we remove an alien, we need to check if that's the last alien (if
 the array is empty), in which case we drop through the loop and end the
-game:</p><div class="code" data-firstline=""> 
+game:</p>
+<br>
+<div class="code" data-firstline=""> 
 <div></div> <textarea># Check for collision&lt;/p&gt; 
 if missile_y == alien_row and missile_x in alien_columns:
 	alien_columns.remove(missile_x)
@@ -45,14 +57,15 @@ if missile_y == alien_row and missile_x in alien_columns:
 	if not alien_columns:
 		break
 </textarea></div>
-
-<p></p><p>Lastly, once we drop through the loop to end the game, we'll want to
+<br>
+<p>Lastly, once we drop through the loop to end the game, we'll want to
 test if the alien array is empty (in which case the player wins) or the
 array is still populated with one or more aliens (in which case the
-player loses): <br>
+player loses):</p> 
 
+<br>
 
-</p><div class="code" data-firstline=""> 
+<div class="code" data-firstline=""> 
 <div></div> <textarea>if alien_columns:
 	print("Ouch!")
 else:
@@ -60,14 +73,14 @@ else:
 </textarea></div>
 
 <br>
-<p></p>
-<p>Full project:</p>
+<p>Here is the full project code to this point:</p>
+<br>
 <div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer
 import time
 
-fire_button = Button(25)
+fire_button = Button(7)
 
 fb = FrameBuffer()
 accel = Accel()
@@ -156,6 +169,7 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
+<br>
 	<p class="nextprev"><a href="SPACE_INVADERS_5.html">prev</a>|
 <a href="SPACE_INVADERS_7.html">next</a></p>
 </body></html>

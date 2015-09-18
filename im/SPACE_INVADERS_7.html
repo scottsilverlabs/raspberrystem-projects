@@ -11,15 +11,21 @@
 
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
-<h1>SPACE INVADERS 7</h1>
+<header>
+    <div id=title>SPACE INVADERS 7</div>
+    <div id=description>In this project, we'll continue animating the aliens.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In this project, we'll start with our code from the last project
 (where we moved the aliens to the right), and we'll add moving the
 aliens back the left and increasing the speed as they get closer and
 closer to the bottom of the LED Matrix screen.</p><p>To do this, we'll
 need to create two new variables to track the direction of the aliens
 (+1 or -1) and the speed of the aliens (a multiple of the default speed
-we set in the last project).</p><p>Here is our initialization code:</p><p></p>
-
+we set in the last project).</p><p>Here is our initialization code:</p>
+<br>
 <div class="code" data-firstline="1"> 
 <div></div> 
 <textarea>
@@ -29,9 +35,8 @@ alien_speed = 1
 </textarea></div>
 
 <br>
-</p>
-<p>And here is the code we will add to our game loop:<br>
-</p><br>
+<p>And here is the code we will add to our game loop:</p>
+<br>
 
 <div class="code" data-firstline="1"> 
 <div></div> 
@@ -51,14 +56,14 @@ if now - alien_start_time > ALIENS_STEP_TIME / alien_speed:
 </textarea></div>
 
 <br>
-</p>
-<p>Here is what the full project should look like at this point:</p><p></p>
+<p>Here is what the full project code should look like at this point:</p>
+<br>
 <div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer
 import time
 
-fire_button = Button(25)
+fire_button = Button(7)
 
 fb = FrameBuffer()
 accel = Accel()
@@ -158,6 +163,7 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
+<br>
 	<p class="nextprev"><a href="SPACE_INVADERS_6.html">prev</a>|
 <a href="SPACE_INVADERS_8.html">next</a></p>
 </body></html>

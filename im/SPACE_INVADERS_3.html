@@ -10,7 +10,14 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SPACE INVADERS 3</h1>
+<header>
+    <div id=title>SPACE INVADERS 3</div>
+    <div id=description>In this project, we continue the development of our our Space Invaders
+    game by initializing and getting movement input from our accelerometer.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In the last project, we initialized our ship where it's
 supposed to start and we created the loop in our game loop.
 &nbsp;In this project, we're going to add the accelerometer and use
@@ -27,6 +34,7 @@ the Accel() function and then initializing the accelerometer:</p>
 <textarea>rstem.accel import Accel
 accel = Accel()
 </textarea></div>
+<br>
 <p>We also need to create and define two other variables that
 we'll need at this point:</p>
 <ul>
@@ -63,6 +71,7 @@ pixels for now and see how that works for us.</p>
 </ul>
 <p>In our initialization section for the ship, we can set these
 values:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -70,19 +79,20 @@ values:</p>
 TILT_FORCE = 0.1
 SPACESHIP_STEP = 0.1
 </textarea></div>
-<p></p>
+<br>
 <p>Now that the accelerometer is initialized, we can use it to
 get input from the controller. &nbsp;We do this just like we did in
-<a href="ACCELEROMETER.html">Accelerometer</a>:</p>
-<p></p>
+the <a href="ACCELEROMETER.html">ACCELEROMETER</a> project:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 # Check for user input
 x_force, y_force, z_force = accel.forces()
 </textarea></div>
-<p></p>
+<br>
 <p>Next, we can add code to move the ship based on teh input we've received from the accelerometer:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -94,8 +104,9 @@ elif x_force &lt; -TILT_FORCE:
 
 spaceship_position = max(0,min(fb.width - 1, spaceship_position))
 </textarea></div>
-<p></p>
+<br>
 <p>Here is the full code for our game at this point:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>

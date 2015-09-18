@@ -9,7 +9,14 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SPACE INVADERS 2</h1>
+<header>
+    <div id=title>SPACE INVADERS 2</div>
+    <div id=description>In this project, we continue the development of our our Space Invaders
+    game by initializing and drawing our ship at the correct location.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>Now that we have the framebuffer initialized and have verified
 that the LED Matrix is working, let's put our spaceship where it's
 supposed to be located -- in the middle of the LED Matrix horizontally
@@ -48,7 +55,7 @@ where your code will be used, and then try to be as generic as possible
 to accommodate the most common situations and environments.
 </p></div>
 </div>
-<p></p>
+<br>
 <p>Here is what the initialization code for the initial position
 of the&nbsp;ship would look like:</p>
 <br>
@@ -58,7 +65,7 @@ of the&nbsp;ship would look like:</p>
 # Initialize the spaceship
 spaceship_position = fb.width / 2
 </textarea></div>
-<p></p>
+<br>
 <p>In our previous project, we just drew the ship at x=3, y=0.
 &nbsp;But, now we have the actual x-coordinate from our calculation
 above, so we can draw the ship at it's actual starting position.
@@ -79,12 +86,13 @@ is where we will display our ship.</p>
 # Draw the spaceship
 fb.point(round(spaceship_position),0)
 </textarea></div>
-<p></p>
+<br>
 <p>Finally, now is as good a time as any to put our pause at the
 end of the game loop. &nbsp;We had discussed trying a pause of of
 between .001 and .01 seconds. &nbsp;Let's start with the smaller
 number and see if that poses any problems as we're continuing to
 develop the game:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -94,7 +102,9 @@ import time
 # Wait for some period of time
 time.sleep(.001)
 </textarea></div>
+<br>
 <p>Here is the full code for our game at this point:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>

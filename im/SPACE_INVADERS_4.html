@@ -10,7 +10,14 @@
     <script type="text/javascript" src="codeblocks.js"></script></head>
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 
-<h1>SPACE INVADERS 4</h1>
+<header>
+    <div id=title>SPACE INVADERS 4</div>
+    <div id=description>In this project, we continue the development of our our Space Invaders
+	    game by adding in the aliens.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>In this project, we're going to add our aliens into the code. &nbsp;</p><p>The
 first thing we'll want to do is keep track of the aliens. &nbsp;We're
 going to have four aliens in our game (you're welcome to change that if
@@ -18,14 +25,19 @@ you'd like), and we'll need to keep track of both what columns they are
 in and what row they are in at any given time.</p><p>We'll do that by
 adding a list to track their columns (they'll each be in their own
 column) and a variable to track their row (they'll all be in the same
-row):</p><p> 
-
-</p><div class="code" data-firstline="1"> <div></div> <textarea>alien_columns = [0, 1, 2, 3]
-alien_row = fb.height - 1
-</textarea></div>
+row):</p>
 
 <br>
-<span style="font-family: &quot;Verdana&quot;,serif;">Next, we need to add code to draw the aliens each time through the loop<br><br></span>
+<div class="code" data-firstline="1"> 
+<div></div> 
+<textarea>
+alien_columns = [0, 1, 2, 3]
+alien_row = fb.height - 1
+</textarea></div>
+<br>
+<p>Next, we need to add code to draw the aliens each time through the loop:
+<br>
+<br>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 # Draw aliens   
@@ -33,10 +45,9 @@ for column in alien_columns:
 	fb.point(column, alien_row)
 </textarea></div>
 
-
 <br>
-<p></p>
-<p>Full project:</p>
+<p>Here is the full project at this point:</p>
+<br>
 <div class="code" data-firstline="1"> <div></div> <textarea># ###############################################################
 #
 # SPACE INVADERS GAME
