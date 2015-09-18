@@ -40,9 +40,8 @@ things to output using a single programming line.</p>
 addition to hundreds of functions that are provided by the Python
 programming language, you also have access to many dozens of functions
 that we (the RaspberrySTEM team) have written to make building with and
-using the RaspberrySTEM kit easier and more functional. &nbsp;For
-example, in the GPIO project (Project #6), your program included the
-following lines of code:</p>
+using the RaspberrySTEM kit easier and more functional. For
+example, you might see the following in one of our projects:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
@@ -109,11 +108,13 @@ generally easiest to just import an entire module into your code.
 &nbsp;Doing this gives you access to any of the functions in that
 module any time you need them. &nbsp;We do this using the "import"
 command, and a good example that you've already seen is as follows:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 import rstem
 </textarea></div>
+<br>
 <p>The
 module "rstem" contains all of the functions that we provide specially
 for the RaspberrySTEM kit projects. &nbsp;By importing that entire
@@ -128,11 +129,13 @@ this function is used to&nbsp;configure a GPIO as an output.
 <p>Once we import the entire rstem module, we can get access to
 the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
 function by calling:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 rstem.gpio.Output()
 </textarea></div>
+<br>
 <p>And
 because the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
 function takes a single input (the GPIO number we
@@ -140,11 +143,13 @@ are using), we'll call the function using that single function input.
 &nbsp;In our GPIO project, we were using GPIO14, so to set that
 GPIO to
 be used as an output, we used the following:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 rstem.gpio.Output(14)
 </textarea></div>
+<br>
 <p>Because
 we imported the entire rstem module, we could just as easily call any
 of the other functions in that module using a similar approach.</p>
@@ -164,21 +169,25 @@ use the "from...import" command. &nbsp;For example, to import just
 the
 <span style="font-family: Courier New,Courier,monospace;">Output()</span>
 function from the rstem module, we would do the following:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 from rstem.gpio import Output
 </textarea></div>
+<br>
 <p>One
 of the big benefits of importing this specific function (as opposed to
 the entire module) is that we can now call the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
 function using
 the following command:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 Output(14)
 </textarea></div>
+<br>
 <p>You probably noticed
 that calling that function now requires a whole lot less typing than it
 did above when we imported the entire module. &nbsp;That's the
