@@ -105,9 +105,7 @@ elif x_force &lt; -TILT_FORCE:
 spaceship_position = max(0,min(fb.width - 1, spaceship_position))
 </textarea></div>
 <br>
-<p>Here is the full code for our game at this point -- when you run it, try tilting your
-RaspberrySTEM left and right, and you should see your ship move left and right in 
-response:</p>
+<p>Here is the full code for our game at this point:</p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>

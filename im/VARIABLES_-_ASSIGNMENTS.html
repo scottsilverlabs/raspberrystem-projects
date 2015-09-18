@@ -29,15 +29,22 @@ and that's what program variables do&nbsp; throughout a
 program.&nbsp;
 To assign a variable a value, you use the equals sign in what is called
 an assignment statement, which looks like:</p>
+<br>
 <div class="code" data-firstline="0">
 <div> </div>
 <textarea>
 my_variable = 5
 </textarea></div>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">and
-to change it to a different value, you also use an assignment
-statement, <br>
-</span></p>
+<br>
+<p>And to change it to a different value, you also use another assignment
+statement:</p>
+<br>
+<div class="code" data-firstline="0">
+<div> </div>
+<textarea>
+my_variable = 7
+</textarea></div>
+<br>
 <p>The information that
 a variable holds could be a number, a phrase, the results of a
 calculation, a list
@@ -52,11 +59,13 @@ could rewrite that calculation to use variables instead. </p>
 <p>Let’s start by
 creating a variable called “sec_in_minute” that will hold the
 number of seconds in a minute (which is 60):</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 sec_in_minute = 60
 </textarea></div>
+<br>
 <p><b>Note:</b> When
 naming variables, you can use any combination of uppercase letters,
 lowercase letters, numbers and underscore characters (_). The only
@@ -65,12 +74,14 @@ practice to use variable names that make your code easier to
 understand and read.</p>
 <p>Now, let’s create
 two more variables:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="2">
 <div></div>
 <textarea>
 min_in_hour = 60
 hour_in_day = 24
 </textarea></div>
+<br>
 <p>It’s probably
 pretty obvious (that’s the goal!), but min_in_hour
 is the number of minutes there are in an hour and hour_in_day
@@ -78,14 +89,16 @@ is the number of hours in a day.</p>
 <p>We could now change
 the code we did to do our calculation of number of seconds in a day
 to the following:</p>
-<p></p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="4">
 <div> </div>
 <textarea>
 print(sec_in_minute * min_in_hour * hour_in_day)
 </textarea></div>
+<br>
 <p>And here is what the
 output would look like if you ran that code:</p>
+<br>
 <div class="output">
 <div> </div>
 <pre>86400<br></pre>
@@ -97,26 +110,32 @@ includes data from other variables. We can take our program one step
 further by creating a variable called sec_in_day
 and using it to hold our calculation for the number of seconds in a
 day:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="4">
 <div></div>
 <textarea>
 sec_in_day = sec_in_minute * min_in_hour * hour_in_day
 </textarea></div>
+<br>
 <p>Now, if you want to
 output the number of seconds in a day, you can simply print the
 number being held by the sec_in_day
 variable:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
 print(sec_in_day)
 </textarea></div>
+<br>
 <p>This is what the
 code and output would look like:</p>
+<br>
 <div class="output">
 <div> </div>
 <pre>86400<br></pre>
 </div>
+<br>
 <p>You’re probably
 thinking to yourself that using variables took a lot more time and a
 lot more code – in fact, your program went from one line to five
@@ -126,10 +145,12 @@ lines! But, if someone were to look at your original code:</p>
 <textarea>
 print(60 * 60 * 24)
 </textarea></div>
+<br>
 <p>They’d have no
 idea what it meant or what you were calculating. But, if someone saw
 your final piece of code:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 sec_in_minute = 60
@@ -150,30 +171,40 @@ already written, it would be easy to add these calculations. To
 determine the number of seconds in a month (assuming a 30 day month),
 we can just multiply the number of seconds in a day by 30 – and we
 can give the result its own variable:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
 sec_in_month = sec_in_day * 30
 </textarea></div>
+<br>
 <p>To determine the
 number of seconds in a year, we can multiply the number of seconds in
 a day by 365:</p>
-<div class="code" data-firstline="0">
+<br>
+<div class="code" data-firstline="6">
 <div></div>
 <textarea>sec_in_year = sec_in_day * 365
 </textarea></div>
+<br>
 <p>As you can see, but
 using variables to hold our first calculations, we make it easier to
 do additional calculations. And, if we’re working on a team or in
 a group, the entire program is easier for others to follow and
 understand.</p>
-<p>Let’s put this all
-together, and create a program that will calculate the number of
-seconds in a day, month and year, and print out the results:</p>
+<p>If we add a statement at the end to then print the number of seconds in a year:</p>
+<br>
+<div class="code" data-firstline="6">
+<div></div>
+<textarea>print(sec_in_year)
+</textarea></div>
+<br>
+<p>Our results would look like this:</p>
 <div class="output">
 <div> </div>
 <pre>946080000<br></pre>
 </div>
+<br>
 <p>The real benefit is that variables can change throughout a
 program…</p>
 <p>The final benefit of
@@ -204,7 +235,7 @@ example, we could have a variable that holds one of the output
 message we’re using above:</p>
 <p>
 </p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
 message = "Number of seconds in a day: "
@@ -214,7 +245,7 @@ message = "Number of seconds in a day: "
 </p>
 <p>We could then print
 that message to the output, along with our calculation:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="6">
 <div></div>
 <textarea>
 print (message, sec_in_day)

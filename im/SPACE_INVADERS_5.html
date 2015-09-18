@@ -111,29 +111,45 @@ if missile_x &gt;= 0:
 
 
 <br>
-<p>If we integrate those snippets of code into our current code for the project, our full project will currently look like this:<br>
-<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
+<p>If we integrate those snippets of code into our current code for the project, our full project will look like this -- when you run it, try pressing the button and watching the missile fire:<br>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+# ###############################################################
+#
+# SPACE INVADERS GAME
+#
+# ###############################################################
+
+# ################################
+# Initialize the game environment
+# ################################
+		
+# Import required functions/modules
+from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer
 import time
 
-fire_button = Button(7)
-
+# Initialize framebuffer
 fb = FrameBuffer()
+
+# Initialize accelerometer
 accel = Accel()
 
+# Initialize spaceship
 spaceship_position = fb.width / 2
+TILT_FORCE = 0.1
+SPACESHIP_STEP = 0.1
 
+# Initialize aliens
 alien_columns = [0, 1, 2, 3]
 alien_row = fb.height - 1
 
+# Initialize missiles
+fire_button = Button(7)
 missile_x, missile_y = -1, -1
-
 MISSILE_COLOR = 10
 MISSILE_STEP_TIME = 0.1
 
-TILT_FORCE = 0.1
-SPACESHIP_STEP = 0.1
 
 while True:
 	# ########################################

@@ -32,11 +32,11 @@ but, instead of printing the information, we do our age calculation
 and store the resulting value in a new variable called “age”. </p>
 <p>This is what the
 function would look like:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 </textarea></div>
 <p><b>Note: </b>This
 is the reason we decided to keep the “year” parameter as a number
@@ -48,11 +48,11 @@ information we’ve calculated back to the main program, we end the
 function with a return statement that contains the information we’re
 sending back (in this case, we’re sending the information contained
 in the variable, “age”):</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 	return age
 </textarea></div>
 <p>The value of “age”
@@ -63,7 +63,7 @@ is needed.</p>
 could call this function for Bob and Susie like we did in the last
 project, but this time, we could get their age as well, store it in a
 variable and then print it out:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
 bob_age = calculate_age(1992)
@@ -74,11 +74,11 @@ print('This year, Susie will be ', susie_age)
 </textarea></div>
 <p>Here is what the
 entire program would look like:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 	return age
 
 bob_age = calculate_age(1992)
@@ -91,7 +91,7 @@ print('This year, Susie will be ', susie_age)
 </span></span>
 <p>There's only one more function lesson you need to be familiar
 with before jumping back into the project. &nbsp;We promise...just
-one more! &nbsp;Here you go:&nbsp; <a href="BUILT-IN_FUNCTIONS.html">Using Functions &amp;
-Modules.</a></p>
+one more! &nbsp;Here you go:&nbsp; <a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS &
+MODULES</a>.</p>
 <br>
 </body></html>

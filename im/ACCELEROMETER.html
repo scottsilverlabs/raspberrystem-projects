@@ -153,16 +153,28 @@ immediately see is that your Output Window starts filling up with
 numbers. &nbsp;These numbers -- three per line -- indicate the
 relative
 movement of the RaspberrySTEM (specifically, the accelerometer we wired
-on the breadboard), as follows:</p><ul><li><p>The
+on the breadboard), as follows:</p>
+<ul>
+	<li><p>The
 first number indicates the left/right tilt of the RaspberrySTEM -- if
 you tilt to the left, the number increases towards 1 and if you tilt to
-the right, the number decreases towards -1.</p></li><li><p>The
+the right, the number decreases towards -1.</p></li>
+	<li><p>The
 second number indicates the front/back tilt of the accelerometer -- if
 you tilt backwards, the number increases towards 1 and if you tilt
-forwards, the number decreases towards -1.</p></li><li><p>The
+forwards, the number decreases towards -1.</p></li>
+	<li><p>The
 third number indicates the up/down movement of the accelerometer -- if
 you move it upwards, the number increases towards 1 and if you move it
-downwards, the number decreases towards -1.</p></li></ul><p>Play around
+downwards, the number decreases towards -1.</p></li>
+</ul>
+
+<p>Based on that, if you sit your RaspberrySTEM down on a flat surface, you should
+expect the first number to be 0, the second number to be 0 and the third number to be
+1.  In reality, the accelerometer is <b>very</b> sensitive, and it's unlikely that your
+surface is 100% flat, so you'll probably see readings that are very slightly off from 
+those numbers.</p>
+<p>Play around
 with the RaspberrySTEM and try to get a feel for how different
 movements and rotations affect the numbers on the screen. &nbsp;In
 future projects, we'll be using this functionality to turn the

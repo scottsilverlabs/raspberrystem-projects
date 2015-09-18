@@ -65,7 +65,7 @@ the parameter is. </p>
 <p>For example, if we
 wanted to modify our function from the previous project to take a
 name and a birth year parameters, it might look like this:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def print_info(name, birth_year):
@@ -73,7 +73,7 @@ def print_info(name, birth_year):
 <p>“name” and “year” are now variables that we set when we call
 the function,
 and those variables can be used within that function: </p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def print_info(name, birth_year):
@@ -86,7 +86,7 @@ function – a name and a year. </p>
 <p>For example, let’s
 say we have a friend named Bob and he was born in 1992. We can send
 his information to the function like this:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
 print_info('Bob', 1992)
@@ -100,7 +100,7 @@ for reasons that will become clear later on.</p>
 <p>As another example,
 let’s say we have a friend named Susie who was born in 1985, and we
 want to print her information as well:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="6">
 <div></div>
 <textarea>
 print_info('Susie', 1985)
@@ -109,14 +109,15 @@ print_info('Susie', 1985)
 all together, and see what our code would look like if we had this
 new function and we called this function twice – once to print
 Bob’s information and once to print Susie’s information:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def print_info (name, birth_year):
 	print('My name is: ', name)
 	print('I was born in: ', birth_year)
-	print_info('Bob', 1992)
-	print_info('Susie', 1985)
+
+print_info('Bob', 1992)
+print_info('Susie', 1985)
 </textarea></div>
 <p>You may have noticed
 that this example is very similar to our cell phone example above. The
@@ -145,7 +146,7 @@ parameters that likely get sent to the function would include:</p>
 <p>We realize that functions aren't the most exciting topic in
 the world, but there is another function topic that's important to
 understand before getting too far into the projects. &nbsp;If
-you're not familiar with them, you should check out <a href="FUNCTION_OUTPUTS.html">Function Outputs</a>
+you're not familiar with them, you should check out <a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a>
 before getting back to the projects...</p>
 <br>
 </body></html>

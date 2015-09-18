@@ -59,43 +59,59 @@ hit_sound.play()
 
 <p>Let's insert those code snippets into our full project, and we have a completed Space Invaders game! Great job!!!</p>
 <br>
-<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.accel import Accel
+<div class="code" data-firstline="1"> <div></div> <textarea>
+# ###############################################################
+#
+# SPACE INVADERS GAME
+#
+# ###############################################################
+
+# ################################
+# Initialize the game environment
+# ################################
+		
+# Import required functions/modules
+from rstem.accel import Accel
 from rstem.button import Button
 from rstem.led_matrix import FrameBuffer, Sprite
 from rstem.sound import Sound, Note
-import time
 from itertools import cycle
+import time
 
-fire_button = Button(7)
-fire_sound = Sound("fire.wav")
-hit_sound = Sound("hit.wav")
-notes = cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])
-
+# Initialize framebuffer
 fb = FrameBuffer()
+
+# Initialize accelerometer
 accel = Accel()
 
+# Initialize spaceship
 spaceship = Sprite('''
 	-F-
 	FAF
 	''')
 spaceship_middle = 1
 spaceship_position = fb.width / 2
+TILT_FORCE = 0.1
+SPACESHIP_STEP = 0.1
 
+# Initialize aliens
 alien_columns = [0, 1, 2, 3]
 alien_row = fb.height - 1
 alien_start_time = time.time()
 alien_direction = 1
 alien_speed = 1
+ALIENS_STEP_TIME = .8
 
-ALIENS_STEP_TIME = 0.8
-
+# Initialize missiles
+fire_button = Button(7)
 missile_x, missile_y = -1, -1
-
 MISSILE_COLOR = 10
-MISSILE_STEP_TIME = 0.1
-
-TILT_FORCE = 0.1
-SPACESHIP_STEP = 0.1
+MISSILE_STEP_TIME = 0.1		
+		
+# Initialize sounds		
+fire_sound = Sound("fire.wav")
+hit_sound = Sound("hit.wav")
+notes = cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])
 
 while True:
 	# ########################################
