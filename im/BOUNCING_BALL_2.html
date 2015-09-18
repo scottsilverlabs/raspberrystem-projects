@@ -11,7 +11,14 @@
     <script type="text/javascript" src="codeblocks.js"></script>
 </HEAD>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>BOUNCING BALL 2</h1>
+<header>
+	<div id=title>BOUNCING BALL 2</div>
+    <div id=description>In this project, and we will continue to develop the moving dot from 
+	    our previous project and add in a second axis of movement.</div>
+    <div id=hw_required>LED Matrix RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <span style="font-family: &quot;Verdana&quot;,serif;"></span>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">In
 our last project, we learned how to move our dot on a single axis, but
@@ -22,6 +29,7 @@ on two axes (left and right; up and down) and learn how to constrain
 the dot on both axes so that it doesn't fall off the screen.</span></p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
 Here is the code we finished with from our last project:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -51,19 +59,22 @@ while True:
 	# Wait for some period of time
 	time.sleep(.5)
 </textarea></div>
+<br>
 <p>Adding the same functionality along the other axis (the
 y-axis) is actually pretty simple. &nbsp;In addition to changing
 the x location by 1 each time through the loop, we also do the same
 with the y location. &nbsp;This requires another direction variable
 to keep track of the y-axis direction:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 y_direction = 1
 </textarea></div>
-<p></p>
+<br>
 <p>And then we need to increment in the y-direction each time
 through the loop and test whether we've hit the y-axis edge: </p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -71,6 +82,7 @@ y += y_direction
 if (y <= 0) or (y >= 7):
 	y_direction = -y_direction
 </textarea></div>
+<br>
 <p class="MsoNormal"><span style=""></span></p><p class="MsoNormal"><span style="">Lastly,
 you'll probably want to set the initial position of the ball to
 something other than (1, 1) to make the bouncing a little more
@@ -78,8 +90,8 @@ interesting. &nbsp;In fact, you can play around with different initial
 points and see how it affects the bouncing.</span></p><p class="MsoNormal"><span style="">Give it a
 try. &nbsp;You should now see the dot boucing back and forth on the
 display in two directions.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p>
+<br>
 <div class="code" data-firstline="0">
-
 <div></div>
 <textarea>
 # Initialize the game environment
@@ -113,6 +125,7 @@ while True:
 	# Wait for some period of time
 	time.sleep(.5)
 </textarea></div>
+<br>
 	<p class=nextprev><a href="BOUNCING_BALL_1.html">prev</a>|
 <a href="ACCELEROMETER.html">next</a></p>
 </body></html>

@@ -9,7 +9,13 @@
 <script type="text/javascript" src="/assets/cmirror/python.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>ACCELEROMETER</h1>
+<header>
+	<div id=title>ACCELEROMETER</div>
+	<div id=description>In this project, we will add a new component -- an accelerometer.</div> 
+    <div id=hw_required>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>Do you have smart phone or an iPad that switches the screen
 orientation when you rotate it? &nbsp;Ever wonder how that works?
 &nbsp;It's done using a component called an accelerometer, and
@@ -29,12 +35,14 @@ and/or the vector (speed and direction) of movement at a given time.
 and you'll see what we mean.</p>
 <p>Your Accelerometer RaspberrySTEM Cell contains a single part
 -- the accelerometer circuit board -- that looks like this (from the top):</p><p></p>
+<br>
 <div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"><br></div>
 <br>
 
 <h2>Wiring Your Accelerometer</h2>
 <p>Let's wire up your accelerometer and write some code to get it
 working...</p>
+<br>
 <p style="font-weight: bold;">Step #1: &nbsp;Place the
 accelerometer on the breadboard<br>
 </p>
@@ -65,19 +73,20 @@ up the chip as indicated above and below.
     </div>
     </div>
 
-
-
+<br>
 <p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: &nbsp;Attach
 power and ground</p>
 <p>To wire the accelerometer, the first thing you'll need to do is to
 run a wire from VCC on the accelerometer to 3.3V power somewhere on the
 breadboard. &nbsp;Next, run a wire from GND on the accelerometer to GND
-somewhere on the breadboard.</p><p></p>
+somewhere on the breadboard.</p>
+<br>
 <p style="font-weight: bold;">Step #3: &nbsp;Attach
 SDA pin to the connector board</p>
 <p>Next, you'll need to attach a wire from the connect strip attached
 to the SDA pin on the accelerometer to the SDA pin on the connector
-board.</p><p></p>
+board.</p>
+<br>
 <p style="font-weight: bold;">Step #4: &nbsp;Attach
 SCL pin to the connector board</p>
 <p>Finally, you'll attach&nbsp;a wire from the connect strip attached
@@ -85,7 +94,8 @@ to the SCL pin on the accelerometer to the SCL pin on the connector
 board.</p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
 <p>Let's write some code to test your accelerometer and see
-how it works:</p><p></p>
+how it works:</p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.accel import Accel
@@ -114,7 +124,7 @@ repetition of the loop down a bit</p>
 <p>On Line 4, we initialize our accelerometer. &nbsp;We
 call the <span style="font-family: Courier New,Courier,monospace;">Accel()</span>
 function, which returns an "accelerometer object" to our <span style="font-family: Courier New,Courier,monospace;">accel </span>variable.
-&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp; Assignments</a>,
+&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
 but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">accel</span>
 to call other accelerometer functions.</p>
 </li>

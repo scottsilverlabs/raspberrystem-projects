@@ -11,9 +11,16 @@
     <script type="text/javascript" src="codeblocks.js"></script>
 </HEAD>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>BOUNCING BALL 1</h1>
-<p>In our previous project, <a href="GAME_LOOPS.html">Game
-Loops</a>, we discussed the general format of a game
+<header>
+	<div id=title>BOUNCING BALL 1</div>
+    <div id=description>In this project, and we will continue to develop the moving dot from 
+	    our previous project and add in some additional animated features.</div>
+    <div id=hw_required>LED Matrix RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>In our previous project, <a href="GAME_LOOPS.html">GAME LOOPS</a>, 
+we discussed the general format of a game
 loop, and we implemented a game loop that moved a dot across the LED
 Matrix display. &nbsp;For the next few projects, we're going to
 modify
@@ -30,6 +37,7 @@ that it never falls off the screen.</p>
 Direction</span></h2>
 <p class="MsoNormal"><span style="">Here's a
 reminder of what our current code looks like:</span></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -57,7 +65,8 @@ while True:
 
 # Finish & Cleanup
 </textarea></div>
-<p class="MsoNormal">You'll
+<br>
+<p>You'll
 notice that on Line 13, we increment (increase) x by 1 to move the dot
 to the right on the display. &nbsp;This works great...until we get
 to
@@ -80,22 +89,26 @@ is set to 1, the ball will move right; when direction is set to -1, the
 ball will move left.</p>
 <p class="MsoNormal">This will require two changes to our
 code. &nbsp;First, Line 13 will change to:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 x += direction
 </textarea></div>
+<br>
 <p class="MsoNormal">Next,
 because the variable direction hasn't yet been set to anything (which
 would break our program), we need to initialize that variable before we
 jump into our loop. &nbsp;Since we want the ball to move right at
 first, we can initally set the variable equal to 1. &nbsp;We can do
 that by adding the following line to our initialization code:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 direction = 1
 </textarea></div>
+<br>
 <p class="MsoNormal">If you now run this code, you'll
 see that things work exactly the way they did in the last project --
 the dot moves to the right and then disappears from the screen.
@@ -123,6 +136,7 @@ checking
 the position of the dot) using an IF statement, and if we determine
 that we're at the edge of the screen, we can change the direction of
 the dot by switching direction from 1 to -1:</p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -143,12 +157,14 @@ when x got too big (too far right), but we didn't check for when x got
 too small (too far left). &nbsp;Luckily, this is pretty easy to add
 to
 our code...we can just update the IF statement we just wrote as follows:</span></p>
+<br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 if (x >= 7) or (x <= 0):
 	direction = -direction
 </textarea></div>
+<br>
 <p class="MsoNormal"><span style=""> This
 checks whether x is too big (greater than or equal to 8) or whether x
 is too small (less than or equal to 1) -- in either of those cases, we
@@ -161,6 +177,7 @@ whatever it previously was.</span>
 <p class="MsoNormal"><span style="">Give it a
 try. &nbsp;You should now see the dot boucing back and forth on the
 display.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p>
+<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>

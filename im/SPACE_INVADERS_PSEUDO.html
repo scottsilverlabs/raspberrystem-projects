@@ -5,7 +5,13 @@
 <link rel="stylesheet" type="text/css" href="default.css">
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SPACE INVADERS 0</h1>
+<header>
+    <div id=title>SPACE INVADERS 0</div>
+    <div id=description>In this project, we kick off the development of our Space Invaders
+    by writing the pseudo-code.</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>You're probably familiar with the game Space Invaders, which
 was
 originally made popular in the 1970s on the Atari (the first home
@@ -31,7 +37,7 @@ types of digital displays.</p>
 <p>Like most games you'll build, this one
 is going to start with a game loop, and in this first Space Invaders
 project, we'll
-start by writing the pseudo-code for our game loop (see <a href="GAME_LOOPS.html">Game Loops</a> for more
+start by writing the pseudo-code for our game loop (see <a href="GAME_LOOPS.html">GAME LOOPS</a> for more
 information on both pseudo-code and game loops). &nbsp;In our
 experience, the best way to write pseudo-code is in an iterative
 process, meaning that we write the very high level steps out first, and
@@ -42,7 +48,7 @@ we're ready to actually start writing our code.</p>
 <h2>Our Game Loop</h2>
 <p>Let's start with the basic outline for any game loop, much as
 we
-described in <a href="GAME_LOOPS.html">Game Loops</a>:</p>
+described in <a href="GAME_LOOPS.html">GAME LOOPS</a>:</p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
 the game environment</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
@@ -60,8 +66,7 @@ for some period of time</span></span></p>
 <span style=""></span>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
 <p>Now, let's look at each of these areas individually...</p>
-<span style="font-family: &quot;Verdana&quot;,serif;"><br>
-</span>
+<br>
 <h3><span style="">Initialize the game environment</span></h3>
 <p>This
 is where we're going to initialize all of the components and game
@@ -96,7 +101,7 @@ missiles</span></p>
 <p>There
 will be other details that we'll add in there as well, but these are
 the big items we'll need to address in our intialization code.</p>
-<p></p>
+<br>
 <h3><span style="">while (game not finished):</span></h3>
 <p>This will be the start of our game loop. &nbsp;For this
 game, we'll
@@ -123,8 +128,7 @@ for user input</span></p>
 accelerometer input</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get
 button input</span></p>
-<h3><br>
-<span style=""></span></h3>
+<br>
 <h3><span style="">Update the game world</span></h3>
 <p>Each time through the loop, we'll have to update the status of
 all
@@ -167,8 +171,7 @@ the aliens</span></p>
 any missiles</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Show
 the framebuffer</span></p>
-<h3><br>
-</h3>
+<br>
 <h3><span style="">Wait for some period of time</span></h3>
 <p>At the end of our game loop, we need to include a pause before
 continuing our next round through the loop. &nbsp;For this game,
@@ -188,7 +191,7 @@ for some period of time</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Wait
 for between .001 and .01 seconds</span></p>
-<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span><br>
+<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span>
 <br>
 <h3><span style="">Finish &amp; Cleanup</span></h3>
 <p>Finally, we need to handle the case where we fall through the
@@ -205,8 +208,7 @@ Finish &amp; Cleanup</span></p>
 "You won!" if the player wins</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print
 "You lost..." if the player loses</span></p>
-<span style="font-family: &quot;Verdana&quot;,serif;"><br>
-</span>
+<br>
 <h3><span style="">Putting It All Together</span></h3>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Here
 is what the full pseduo-code for this game will look like...we'll spend
