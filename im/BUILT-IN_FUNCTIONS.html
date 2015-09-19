@@ -11,43 +11,43 @@
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>USING FUNCTIONS &amp; MODULES</h1>
-<p>The last couple projects discussed many of the important
-aspects of
-functions and how you can write functions to make your code easier to
-write, easier to read and more reusable. &nbsp;This project is
-going to
-discuss how you can use OTHER PEOPLE'S functions to make your code much
+<p>The other concepts on functions (<a href="INTRO_TO_FUNCTIONS.html">INTRO TO FUNCTIONS</a>,
+	<a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a>, and
+	<a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a>)
+discussed 
+how you can write and use your own functions.  This concept 
+discusses how you can use OTHER PEOPLE'S functions to make your code much
 more powerful.</p>
 <p>While you may not have realized it, you've already
-used several functions that other people have written. &nbsp;Some
+used several functions that other people have written.  Some
 of
 those functions are included in the Python programming language that
 everyone (at least everyone who uses Python) has access to.
-&nbsp;For
+ For
 example, when you use the command <span style="font-family: Courier New,Courier,monospace;">print()</span>,
 you are actually calling a
 function named "print" that comes standard with the Python language.
-&nbsp;You may think that <span style="font-family: Courier New,Courier,monospace;">print()</span>
+ You may think that <span style="font-family: Courier New,Courier,monospace;">print()</span>
 requires just a single line of code,
 but what you don't see behind-the-scenes is that the <span style="font-family: Courier New,Courier,monospace;">print()</span>
 function utilizes <span style="font-style: italic;">thousands</span>
-of lines of code. &nbsp;You read that correctly -- every time you
+of lines of code.  You read that correctly -- every time you
 use <span style="font-family: Courier New,Courier,monospace;">print()</span>,
-Python is running thousands of lines of code. &nbsp;But,
+Python is running thousands of lines of code.  But,
 because Python provides this command as a function, you can print
-things to output using a single programming line.</p>
+output using a single programming line.</p>
 <p>Now, in
-addition to hundreds of functions that are provided by the Python
-programming language, you also have access to many dozens of functions
+addition to thousands of functions that are provided as part of Python
+programming language, you also have access to the RaspberrySTEM API -- a set of functions
 that we (the RaspberrySTEM team) have written to make building with and
-using the RaspberrySTEM kit easier and more functional. For
+using the RaspberrySTEM CREATOR Kit easier and more functional. For
 example, you might see the following in one of our projects:</p>
 <br>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-led = rstem.gpio.Output(14)
-led.on()
+my_led = Output(14)
+my_led.on()
 </textarea></div>
 <br>
 <p>Both
@@ -59,30 +59,30 @@ GPIO and turn on the LED, behind the scenes, there were over 300 lines
 of
 code that the RaspberrySTEM team has written to handle those tasks. Not
 to mention, within those 300+ lines of code, we were calling functions
-that other people had written that accounted for many hundreds more
-lines of code!&nbsp;</p>
+that other people had written that accounted for many thousands more
+lines of code! </p>
 <p>And again, you were able to utilize all that code by writing
 just a single line.</p>
 <h2>Built-In Commands and Importing Functions/Modules</h2>
-<p>In our <a href="INTRO_TO_FUNCTIONS.html">Introduction
-to Functions</a> lesson, you saw how functions
+<p>In our <a href="INTRO_TO_FUNCTIONS.html">INTRODUCTION
+TO FUNCTIONS</a> lesson, you saw how functions
 could be included in the same file as the rest of your program.
-&nbsp;But,
+ But,
 many times, functions are separated into their own files.
-&nbsp;These files
+ These files
 are called modules, and a module will generally contain many functions
-all related to a common task. &nbsp;</p>
+all related to a common task.  </p>
 <p>In Python, there are two specific ways functions are used:</p>
 <ul>
 <li>
 <p><span style="font-weight: bold;">Built-In
-Commands:</span> &nbsp;Some functions can be called anytime,
+Commands:</span>  Some functions can be called anytime,
 anywhere in your code
 without having to do anything other than calling the function.
-&nbsp;These
-are referred to as "built-in" functions or "commands", and the <span style="font-family: Courier New,Courier,monospace;">print()</span>
+ These
+are referred to as "built-in" functions, and the <span style="font-family: Courier New,Courier,monospace;">print()</span>
 function is a
-good example. &nbsp;We can use the print() function anywhere in our
+good example.  We can use the <code>print()</code> function anywhere in our
 code
 without having to do anything other than calling the <span style="font-family: Courier New,Courier,monospace;">print()</span>
 function.</p>
@@ -90,114 +90,64 @@ function.</p>
 <li>
 <p><span style="font-weight: bold;">Importing
 Functions/Modules:</span>
-&nbsp;For non-built-in functions that we want to use (including all
+ For non-built-in functions that we want to use (including all
 the
 RaspberrySTEM functions we provide), we need
 to tell the computer that we are going to want access to the
-function(s) before we can&nbsp;use them. &nbsp;We do this by
+function(s) before we can use them.  We do this by
 "importing" the function or the whole module into our code before we
-can call those functions. &nbsp;There are two common ways of
+can call those functions.  There are two common ways of
 importing
 functions into your code, which we discuss below.</p>
 </li>
 </ul>
-<h3>Importing an Entire Module</h3>
+<h2>Importing an Entire Module</h2>
 <p>If
 you're going to be using several functions within the same module, it's
-generally easiest to just import an entire module into your code.
-&nbsp;Doing this gives you access to any of the functions in that
-module any time you need them. &nbsp;We do this using the "import"
-command, and a good example that you've already seen is as follows:</p>
+generally easiest to just import a module into your code.
+ Doing this gives you access to any of the functions in that
+module any time you need them.  We do this using the "import"
+command, and a good example that you've probably already seen is:</p>
 <br>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-import rstem
+import time
 </textarea></div>
 <br>
 <p>The
-module "rstem" contains all of the functions that we provide specially
-for the RaspberrySTEM kit projects. &nbsp;By importing that entire
-module, we now have access to all the functions within that module.
-&nbsp;As an example, within that module is a set of functions
-called
-"gpio" functions, and within the set of "gpio" functions is a specific
-function called&nbsp;<span style="font-family: Courier New,Courier,monospace;">Output()</span>.
-&nbsp;If you recall from our GPIO project,
-this function is used to&nbsp;configure a GPIO as an output.
-&nbsp;</p>
-<p>Once we import the entire rstem module, we can get access to
-the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
-function by calling:</p>
+module "time" contains functions for telling time, formating time strings, working
+with time zones, etc.  One function from the time module that we frequently use in our projects is
+<code>sleep()</code>.
+By importing that module, we now have access to all the functions within that module.
+<p>We now have access to
+the <code>sleep()</code> function by calling:
 <br>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="2">
 <div></div>
 <textarea>
-rstem.gpio.Output()
+time.sleep(10)
 </textarea></div>
 <br>
-<p>And
-because the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
-function takes a single input (the GPIO number we
-are using), we'll call the function using that single function input.
-&nbsp;In our GPIO project, we were using GPIO14, so to set that
-GPIO to
-be used as an output, we used the following:</p>
-<br>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-rstem.gpio.Output(14)
-</textarea></div>
-<br>
-<p>Because
-we imported the entire rstem module, we could just as easily call any
-of the other functions in that module using a similar approach.</p>
-<h3>Importing Individual Functions From a Module</h3>
+<p>The function call above would sleep (pause) for 10 seconds.
+<h2>Importing Individual Functions From a Module</h2>
 <p>In
 some cases, we don't need access to all the functions within a module
--- we only need access to one or two. &nbsp;While we could still
-import
-the entire module, there are some situations where importing just the
-one or two functions we want access to makes more sense. &nbsp;For
-example, let's say that we only needed access to one function in the
-rstem module (we can stick with the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
-function that we've been
-using).&nbsp;</p>
-<p>To import just a single function from a module, we
-use the "from...import" command. &nbsp;For example, to import just
-the
-<span style="font-family: Courier New,Courier,monospace;">Output()</span>
-function from the rstem module, we would do the following:</p>
-<br>
-<div class="code" data-firstline="0">
+-- we only need access to one or two.  It's often convenient to import only the functions we need,
+directly by name.  When we import in this way, we can directly use the function without prefacing
+it with the module name.
+For
+example, here is equivalent code to sleep for 10 seconds:
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-from rstem.gpio import Output
+from time import sleep
+sleep(10)
 </textarea></div>
 <br>
-<p>One
-of the big benefits of importing this specific function (as opposed to
-the entire module) is that we can now call the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
-function using
-the following command:</p>
-<br>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-Output(14)
-</textarea></div>
-<br>
-<p>You probably noticed
-that calling that function now requires a whole lot less typing than it
-did above when we imported the entire module. &nbsp;That's the
-tradeoff
--- by importing the entire module, you have access to all the functions
-in the module, but by importing a single function, it requires a lot
-less information to call that function in your code.</p>
 <p>Throughout
 the projects, we'll be using a lot of functions.
-&nbsp;We'll make sure to point them out as we're using them, and
+ We'll make sure to point them out as we're using them, and
 hopefully you can begin to get an idea of how powerful functions and
 modules can be when writing complex code.</p>
 <p class=nextprev><a href="index.html">home</a></p>

@@ -16,10 +16,8 @@
 was
 originally made popular in the 1970s on the Atari (the first home
 gaming system). &nbsp;When it first came out, this game was pretty
-revolutionary. &nbsp;In fact, several of us here at RaspberrySTEM
-admit
-to spending many dozens (hundreds?) of hours sitting in front of our TV
-sets playing that game.</p>
+revolutionary.
+</p>
 <p>Over the next 10 projects, we're going to
 build a basic version of Space Invaders using the RaspberrySTEM
 components we've already wired up. &nbsp;The LED Matrix will be
@@ -30,7 +28,7 @@ or right) and the button will be used to fire missiles at the invading
 aliens. &nbsp;As you can imagine, building this on an 8x8 LED
 Matrix
 display isn't going to allow us to create the awesome graphics you
-might be accustomed to in today's video game, but by the time we've
+might be accustomed to in today's video games, but by the time we've
 completed this project, you should have
 all the basic skills necessary to build more complex games on other
 types of digital displays.</p>
@@ -75,7 +73,7 @@ ship that we control ("spaceship"), the alien ships that we try to
 destroy ("aliens") and the missiles that we fire from our spaceship at
 the aliens ("missiles"). &nbsp;We'll need to initialize the design,
 position and other aspects of each of those components, as well as
-general setup stuff, like importing the functions we'll need and
+general setup, like importing the functions we'll need and
 initializing the framebuffer.<br>
 <br>
 Here's a general overview of what this part of the code will look like:</p>
@@ -138,10 +136,10 @@ button input</span></p>
 <p>Each time through the loop, we'll have to update the status of
 all
 the three major components of the game -- the spaceship, the aliens and
-the missiles.&nbsp; In addition, we'll want to test to see any of
+the missiles.&nbsp; In addition, we'll want to test to see if any of
 the
 previously launched missiles has collided with an alien.</p>
-<p>With that in mind this section of the code will look something
+<p>With that in mind, this section of the code will look something
 like:</p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#
 Update the game world</span></p>
@@ -155,14 +153,13 @@ the location of any missiles&nbsp;</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Check
 for any missile collisions</span></p>
 <br>
-<h2><span style="">Draw graphics on the screen</span></h2>
+<p>
 Now that we have updated information for each of the components of our
 game, it's time to update the graphics based on the new information.
 &nbsp;This involves erasing the framebuffer, writing the new
 graphics
 to the framebuffer and then showing the revised framebuffer.
-&nbsp;Here's what that will look like in our code:<br>
-<br>
+&nbsp;Here's what that will look like in our code:</p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"># Draw
 graphics on the screen</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
@@ -216,8 +213,8 @@ Finish &amp; Cleanup</span></p>
 <br>
 <h2><span style="">Putting It All Together</span></h2>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Here
-is what the full pseduo-code for this game will look like...we'll spend
-the next 8 projects building it piece-by-piece:</span></p>
+is what the full pseduo-code for this game will look like... we'll spend
+the next projects building it piece-by-piece:</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">#
 Initialize the game environment</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
