@@ -14,12 +14,17 @@
 <h1>GENERAL PURPOSE INPUT/OUTPUT (GPIO)</h1>
 
 <p>The purpose of this concept is to discuss one of the most important aspects of 
-integrating your electronics hardware and your code.  The concepts we will present here
-should explain how your code can "communicate" with your circuit and how your circuit
-can "communicate" with your code.
+integrating your electronics hardware and your code.  Specifically, we will explain
+how your code can "control" your circuit (GPIOs as Outputs) and how your circuit can 
+"communicate" with your code (GPIOs as Inputs).  
 
 <h2>GPIOs as Outputs</h2>
 
+<p>The first part of our discussion will focus on how your code can control your circuit.  This
+is important because you often want to have your circuit react to things happening in your
+code or decisions that your code has made.  To understand this concept, we'll need to 
+think back to a previous discussion about how and why electric current flows through
+a circuit.</p>
 <p>If you recall from our earlier discussion in 
 <a href="INTRO_TO_ELECTRONICS.html">INTRODUCTION TO ELECTRONICS</a>, electric current will 
 only flow through a circuit when there is a voltage differential between the beginning and 
@@ -97,9 +102,13 @@ software.</p>
 <br>
 
 <p>But remember, what's going on inside that GPIO box is what we represented above -- 
-it is essentially a switch that can be toggled to power or to ground, allowing circuit 
-to either not flow (when toggled to power) or to flow (when toggled to ground).</p>
+it is essentially a switch that can be toggled to power or to ground (through software), 
+allowing circuit to either not flow (when toggled to power) or to flow (when toggled to 
+ground).</p>
 
+<p>And this -- using GPIOs as Outputs -- is how our code can control our circuit.  In the next 
+section, we'll talk about going in the other direction -- specifically, how our circuit can 
+communicate with our code.</p>
 <br>
 <div class="info">
 <div>"Active Low"</div>
@@ -124,6 +133,75 @@ that the GPIO needs to be set low (to ground) for the circuit to be active.
 </div>
 </div>
 <br>
+
+<h2>GPIOs as Inputs</h2>
+
+<p>The first part of our GPIO discussion focused on how we could control our circuit from
+our code (GPIO as Outputs).  The next part of our discussion will focus on how our circuit 
+can communicate with our code.  This is important because we often want to trigger our code 
+to do certain things or take certain actions based on input or changes coming from our 
+circuit.</p>
+
+<p>Remember back to the <a href="INTRODUCING_BUTTONS.html">INTRODUCING BUTTONS</a> project, 
+where we inserted a button into the circuit to act as a physical switch -- when pressed, the 
+circuit was completed and when released, the circuit was open. No software was required.</p>
+
+<p>But when our hardware can communicate directly with our code, we open a world of 
+possiblites.  For example, imagine that instead of wiring the button into our circuit 
+without software, we instead wire our button so that it can communicate with our code.
+This would allow us to do something such as count how many times a button is pressed in a 
+certain time period, and take different actions based on that number?  Or perhaps we want 
+to time how long a button is pressed and take action based on the length of the press?  
+Or maybe a button press needs to trigger an action in another component (or even another 
+circuit!) that the button isn't attached to?</p>
+
+<p>This is all possible when our button can communicate directly with our code.  And this is
+done by using GPIOs in inputs.  Much like GPIO outputs work by simply setting a voltage on 
+the GPIO pin to either ground (0V) or power (3.3V), GPIO inputs work by reading the 
+voltage -- either 0V or 3.3V -- being sent to the GPIO pin.</p>
+
+<p>For example, a GPIO can be used to get the current state of a button or switch
+(pressed or released). Based on the current state, the software can do what we expect 
+when the button/switch is in that state. </p>
+
+<br>
+<div class="info">
+<div>"State"</div>
+<div>
+<p>"State" is a common term using in electronics and just means
+the current condition or situation of a component or circuit.<br>
+<br>
+For
+example, in the case of a button or switch, state would refer to
+whether the button is currently being pressed or released.
+&nbsp;For
+an LED, state might refer to whether the LED was illuminated or not.</p>
+</div>
+</div>
+<br>
+
+<p>For a component to communicate with our code, instead of wiring the component directly 
+into the rest of the circuit, we instead wire the component directly to a GPIO.  Typically,
+a component wired to a GPIO input would either generate 0V or 3.3V and the GPIO input would
+read that voltage and communicate it to our code -- hence the code knows about the "state"
+of the component.
+
+<p>Buttons are a little bit different, as they don't generate a voltage.  But, with a little
+bit of behind-the-scenes configuration, we can wire a circuit so that our button can be used
+as a GPIO input and we can read the state of the button based on the voltages generated.</p>
+
+This is what the schematic would look like for a button wired to a GPIO as an input:</p>
+
+<br>
+<img class=schematic style="max-width:600px;" src="img/Pushbutton-to-GPIO.png">
+<br>
+
+<p>
+This circuit works by defaulting the GPIO voltage to 3.3V.  When the button is unpressed 
+(circuit open), the GPIO reads the default 3.3V.  When the button is pressed, the circuit
+is closed, the GPIO gets pulled low (to ground), and will read 0V.  This way, the code can 
+measure the voltage at the GPIO and know if the button is pressed (0V at GPIO) or unpressed
+(3.3V at GPIO).
 
 <h2>What Do GPIOs Look Like?</h2>
 <p>GPIOs are specific pins (little metal "legs"
