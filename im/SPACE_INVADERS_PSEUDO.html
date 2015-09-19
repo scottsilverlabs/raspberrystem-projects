@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//h2C//DTD HTML 4.0 Transitional//EN">
 <html><head>
 <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 0</title>
 
@@ -49,33 +49,23 @@ we're ready to actually start writing our code.</p>
 <p>Let's start with the basic outline for any game loop, much as
 we
 described in <a href="GAME_LOOPS.html">GAME LOOPS</a>:</p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Initialize
-the game environment</span></p>
-<p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while
-(game not finished):</span></p>
-<p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Check for user input<o:p></o:p></span></p>
-<p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Update the game world<span style=""></span></span></p>
-<p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Draw graphics on the screen<o:p></o:p></span></p>
-<p>
-<span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">&nbsp; </span>Wait<span style="">
-for some period of time</span></span></p>
-<p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style="">Finish &amp; Cleanup</span></span></p>
-<p>
-<span style=""></span>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"><span style=""></span></span></p>
+
+
+<pre>
+Initialize the game environment
+
+while (game not finished):
+	Check for user input
+	Update the game world
+	Draw graphics on the screen
+	Wait for some period of time
+
+Finish & Cleanup
+</pre>
 <br>
 <p>Now, let's look at each of these areas individually...</p>
 <br>
-<h3><span style="">Initialize the game environment</span></h3>
+<h2><span style="">Initialize the game environment</span></h2>
 <p>This
 is where we're going to initialize all of the components and game
 elements that we'll be using throughout our game. &nbsp;In our
@@ -117,7 +107,7 @@ missiles</span></p>
 will be other details that we'll add in there as well, but these are
 the big items we'll need to address in our intialization code.</p>
 <br>
-<h3><span style="">while (game not finished):</span></h3>
+<h2><span style="">while (game not finished):</span></h2>
 <p>This will be the start of our game loop. &nbsp;For this
 game, we'll
 loop continuously until the game is completed (either you destroy all
@@ -128,7 +118,7 @@ which point we can break from our while loop.</p>
 True:</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
 <br>
-<h3><span style="">Check for user input</span></h3>
+<h2><span style="">Check for user input</span></h2>
 <p>Unlike
 our previous game loops, for this game we'll be taking user input.
 &nbsp;Specifically, we'll be reading data from the accelerometer to
@@ -144,7 +134,7 @@ accelerometer input</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get
 button input</span></p>
 <br>
-<h3><span style="">Update the game world</span></h3>
+<h2><span style="">Update the game world</span></h2>
 <p>Each time through the loop, we'll have to update the status of
 all
 the three major components of the game -- the spaceship, the aliens and
@@ -165,7 +155,7 @@ the location of any missiles&nbsp;</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Check
 for any missile collisions</span></p>
 <br>
-<h3><span style="">Draw graphics on the screen</span></h3>
+<h2><span style="">Draw graphics on the screen</span></h2>
 Now that we have updated information for each of the components of our
 game, it's time to update the graphics based on the new information.
 &nbsp;This involves erasing the framebuffer, writing the new
@@ -187,7 +177,7 @@ any missiles</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Show
 the framebuffer</span></p>
 <br>
-<h3><span style="">Wait for some period of time</span></h3>
+<h2><span style="">Wait for some period of time</span></h2>
 <p>At the end of our game loop, we need to include a pause before
 continuing our next round through the loop. &nbsp;For this game,
 our
@@ -208,7 +198,7 @@ for some period of time</span></p>
 for between .001 and .01 seconds</span></p>
 <span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span>
 <br>
-<h3><span style="">Finish &amp; Cleanup</span></h3>
+<h2><span style="">Finish &amp; Cleanup</span></h2>
 <p>Finally, we need to handle the case where we fall through the
 loop,
 either because we've won the game (destroyed all the aliens) or lost
@@ -224,7 +214,7 @@ Finish &amp; Cleanup</span></p>
 <p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Print
 "You lost..." if the player loses</span></p>
 <br>
-<h3><span style="">Putting It All Together</span></h3>
+<h2><span style="">Putting It All Together</span></h2>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Here
 is what the full pseduo-code for this game will look like...we'll spend
 the next 8 projects building it piece-by-piece:</span></p>

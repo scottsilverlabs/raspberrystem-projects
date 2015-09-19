@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GENERAL PURPOSE INPUT/OUTPUT (GPIO)</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+
+<body>
+<h1>GENERAL PURPOSE INPUT/OUTPUT (GPIO)</h1>
+
+<p>The purpose of this concept is to discuss one of the most important aspects of 
+integrating your electronics hardware and your code.  The concepts we will present here
+should explain how your code can "communicate" with your circuit and how your circuit
+can "communicate" with your code.
+
+<h2>GPIOs as Outputs</h2>
+
+<p>If you recall from our earlier discussion in 
+<a href="INTRO_TO_ELECTRONICS.html">INTRODUCTION TO ELECTRONICS</a>, electric current will 
+only flow through a circuit when there is a voltage differential between the beginning and 
+the end of the circuit.</p>
+<p>This is why, for our basic LED circuit, the LED will illuminate when we attach one side 
+of the circuit to 3.3V power and the other side to ground.  Like this:</p>
+
+<br>
+<center>
+<img style="height: 350px; width: 150px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
+</center>
+<br>
+
+<p>Given that, it should also make sense that, if there is no voltage differential between 
+the beginning and the end of a circuit, no current will flow.  For example, imagine our 
+circuit above, but instead of attaching the end of the circuit to ground, we attach it to 
+3.3V power, just like the beginning of the circuit.</p>
+<p>The circuit would look like this:</p>
+
+<br>
+<center>
+<img style="height: 350px; width: 240px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png">
+</center>
+<br>
+
+<p>And as you can probably guess, no current would flow and the LED would not illuminate.</p>
+
+<p>Now, imagine that we wire a circuit where the end of the circuit has a switch.  And that 
+switch can be toggled between connecting to power and connecting to ground.  It might look 
+a little something like this:</p>
+ 
+<br>
+<center>
+<img style="height: 375px; width: 250px;" alt="" src="img/GPIO_Switch1.png">
+</center>
+<br>
+
+<p>Based on what we discussed above, it should be clear that when the switch is toggled 
+to power, no current will flow through the circuit.  And when the switch is toggled to 
+ground, current will flow through the circuit:</p>
+
+<br>
+<table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 250px; height: 375px;" alt="" src="img/GPIO_Switch2.png" align="top"></td>
+<td style="text-align: center;"><img style="width: 250px; height: 375px;" alt="" src="img/GPIO_Switch3.png"></td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">GPIO Attached To Power (LED Off)<br>
+</span></td>
+<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">GPIO Attached to Ground (LED On)<br>
+</span></td>
+</tr>
+</tbody>
+</table>
+<br>
+
+<p>When the circuit is configured like the left-hand circuit above, no current is flowing 
+and the LED does not illuminate.  But, when the circuit is configured like the right-hand 
+circuit above, current will flow and the LED will illuminate.</p>
+
+<p>It turns out that there is a component that does exactly this, and it's part of the 
+Raspberry Pi.  Using software, we can control how the switch is toggled, and we can force 
+a physical connection to either power or ground.  This component is called a General Purpose 
+Input/Output (GPIO).  And this is one way computers allow us to control hardware through 
+software.</p>
+
+<p>Here is a schematic representation of a GPIO:</p>
+ 
+<br>
+<center>
+<img style="height: 355px; width: 260px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
+</center>
+<br>
+
+<p>But remember, what's going on inside that GPIO box is what we represented above -- 
+it is essentially a switch that can be toggled to power or to ground, allowing circuit 
+to either not flow (when toggled to power) or to flow (when toggled to ground).</p>
+
+<br>
+<div class="info">
+<div>"Active Low"</div>
+<div>
+<p>
+In the electronics world, we often use the term "low" to refer to ground.  You might hear 
+an engineer say something like, "Tie that component low," or "Set that pin low."  That 
+simply means to connect whatever is being referred to to ground.
+</p>
+<p>
+It's interesting -- and sometimes confusing -- to think about the fact that when a GPIO 
+is set low (attached to ground), the current is flowing and the circuit is working.  And 
+when a GPIO is set high (attached to power), current stops flowing.  We tend to think of 
+something working when it's attached to power, not ground.  But remember, the other side
+of the circuit is still attached to power, and it's the differential that creates the
+current flow.
+</p>
+<p>
+This is why you'll sometimes hear engineers use the term "Active Low."  It indicates 
+that the GPIO needs to be set low (to ground) for the circuit to be active.
+</p>
+</div>
+</div>
+<br>
+
+<h2>What Do GPIOs Look Like?</h2>
+<p>GPIOs are specific pins (little metal "legs"
+on the bottom or sides of a computer chip) that provide a connection
+between a physical circuit and the software inside the chip.
+We
+make these connections to the computer chip available on the
+RaspberrySTEM CREATOR Kit by plugging wires into the
+Lid Connector Board holes.
+GPIOs are like the
+nerve-system of the platform – their job is to relay signals from
+the brain (the Raspberry Pi computer) to the muscles (the components
+of the circuit) and to take signals from the muscles and relay them
+back to the brain. </p>
+<p>The Raspberry Pi has 26 GPIOs, and each one can be set to act
+as an input (it can take a
+signal from an external device and relay it to the Raspberry Pi) or 
+an output (it can relay a signal from the Raspberry Pi to
+an external device).</p>
+<p>GPIOs are referenced by number (for example,
+GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
+GPIO it is connected to.  So, if you want to hook up a
+component to GPIO17, you'll insert a wire from the component to the
+hole on the Lid Connector Board labled "17".</p>
+<br>
+<div class="info">
+<div>GPIOs Come From the Raspberry Pi</div>
+<div>
+<p>The Lid Connector Board was designed to make connecting to the
+Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
+ribbon cable and the Lid Connector Board is simply to bring the GPIO
+pins (and
+other pins) from the Raspberry Pi to the RaspberrySTEM 
+Lid, where they
+are easier for you to attach your components to.
+</p>
+<p>
+But, if you
+had a Raspberry Pi computer without the RaspberrySTEM CREATOR Kit, you'd still
+be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
+available through the pins on the Raspberry Pi
+(the pins that the ribbon cable is attached to).  If you were to
+remove the ribbon cable, you could connect wires
+directly to the Raspberry Pi GPIO pins and attach them to the breadboard (or
+to your components) directly.
+</p>
+</div>
+</div>
+
+<br>
+<p class=nextprev><a href="index.html">home</a></p>
+</body></html>

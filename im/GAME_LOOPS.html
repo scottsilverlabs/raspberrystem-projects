@@ -46,14 +46,17 @@ we
 mentioned above, nearly all video games use the game loop format to
 design and build their games. &nbsp;The </span>pseudo-code
 for a typical game loop will look something like this:</span></p>
-<p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre>Initialize the game environment</pre></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre>while (game not finished):</pre></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre><span style="">&nbsp; </span>Check for user input<o:p></o:p></pre></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre><span style="">&nbsp; </span>Update the game world<span style=""></pre></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre><span style="">&nbsp; Draw graphics on the screen<o:p></o:p></pre></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre><span style="">&nbsp; </span>Wait for some period of time</pre></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><pre><span style="">Finish &amp; Cleanup</pre></span></p>
+<pre>
+Initialize the game environment
+
+while (game not finished):
+	Check for user input
+	Update the game world
+	Draw graphics on the screen
+	Wait for some period of time
+
+Finish & Cleanup
+</pre>
 <p>We'll examine this loop line-by-line below. &nbsp;And at the same time, let's build our very own (very
 simple) game loop that will move a dot around the LED Matrix...</p>
 
