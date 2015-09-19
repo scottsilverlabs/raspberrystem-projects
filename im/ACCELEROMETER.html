@@ -21,7 +21,7 @@ orientation when you rotate it? &nbsp;Ever wonder how that works?
 &nbsp;It's done using a component called an accelerometer, and
 there are lots of cool applications for them when designing and
 building electronics. &nbsp;</p>
-<p>The RaspberrySTEM kit includes it's own accelerometer -- it's
+<p>The RaspberrySTEM CREATOR Kit includes it's own accelerometer -- it's
 in the bag marked <span style="font-weight: bold;">Accelerometer
 RaspberrySTEM Cell</span>. &nbsp;Feel free to pull it out
 now...</p>
@@ -31,7 +31,7 @@ controller that can detect magnitude of movement (acceleration) along
 all three axes -- left/right, front/back and up/down. &nbsp;From
 this information, we can determine the orientation of the kit&nbsp;
 and/or the vector (speed and direction) of movement at a given time.
-&nbsp;I know that might sound a little confusing, but follow along
+&nbsp;we know that might sound a little confusing, but follow along
 and you'll see what we mean.</p>
 <p>Your Accelerometer RaspberrySTEM Cell contains a single part
 -- the accelerometer circuit board -- that looks like this (from the top):</p><p></p>
@@ -46,11 +46,20 @@ working...</p>
 <p style="font-weight: bold;">Step #1: &nbsp;Place the
 accelerometer on the breadboard<br>
 </p>
-<p>The accelerometer has six pins coming from the bottom of it.
-&nbsp;It should be inserted into the breadboard such that each pin sits
-in a different connect strip, and you should ensure that at least one
-other hole is usable in each connect strip where the accelerometer sits.</p><p> &nbsp;</p>
+<p>The accelerometer has six pins.  It should be inserted into the breadboard such 
+that each pin sits in a different connect strip, and you should ensure that at least one
+other hole is usable in each connect strip where the accelerometer sits.  When inserting
+the accelerometer into the breadboard, don't be afraid to apply some pressure from the
+top -- the bottom of the black plastic connectors should touch the breadboard.</p>
+<br>
 
+<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: &nbsp;Attach
+power and ground</p>
+<p>To wire the accelerometer, the first thing you'll need to do is to
+run a wire from VCC on the accelerometer to 3.3V power somewhere on the
+breadboard. &nbsp;Next, run a wire from GND on the accelerometer to GND
+somewhere on the breadboard. (See diagram below)</p>
+<br>
     <div class="info">
     <div>WARNING: ACCELEROMETER HOOK-UP</div>
     <div>
@@ -74,24 +83,17 @@ up the chip as indicated above and below.
     </div>
 
 <br>
-<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: &nbsp;Attach
-power and ground</p>
-<p>To wire the accelerometer, the first thing you'll need to do is to
-run a wire from VCC on the accelerometer to 3.3V power somewhere on the
-breadboard. &nbsp;Next, run a wire from GND on the accelerometer to GND
-somewhere on the breadboard.</p>
-<br>
 <p style="font-weight: bold;">Step #3: &nbsp;Attach
 SDA pin to the Lid Connector Board</p>
 <p>Next, you'll need to attach a wire from the connect strip attached
 to the SDA pin on the accelerometer to the SDA pin on the 
-Lid Connector Board.</p>
+Lid Connector Board. (See diagram below)</p>
 <br>
 <p style="font-weight: bold;">Step #4: &nbsp;Attach
 SCL pin to the Lid Connector Board</p>
 <p>Finally, you'll attach&nbsp;a wire from the connect strip attached
 to the SCL pin on the accelerometer to the SCL pin on the 
-Lid Connector Board.</p>
+Lid Connector Board. (See diagram below)</p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
 <p>Let's write some code to test your accelerometer and see
 how it works:</p>
@@ -113,12 +115,12 @@ while True:
 <ul>
 <li>
 <p>On Line 1, we import the module we will need to initialize
-and get information from the accelerometer (called <span style="font-family: Courier New,Courier,monospace;">Accel()</span>)</p>
+and get information from the accelerometer (called <span style="font-family: Courier New,Courier,monospace;">Accel()</span>).</p>
 </li>
 <li>
 <p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
 module, as we're going to be using a loop and will want to slow the
-repetition of the loop down a bit</p>
+repetition of the loop down a bit.</p>
 </li>
 <li>
 <p>On Line 4, we initialize our accelerometer. &nbsp;We
@@ -130,21 +132,21 @@ to call other accelerometer functions.</p>
 </li>
 <li>
 <p>On Line 6, we start a loop (this is where we'll spend all
-of our time once we run the program)</p>
+of our time once we run the program).</p>
 </li>
 <li>
 <p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>,
 which returns three values, representing the forces in the x-direction,
-y-direction and z-direction</p>
+y-direction and z-direction.</p>
 </li>
 <li>
-<p>On Line 8, we print those three values to the screen</p>
+<p>On Line 8, we print those three values to the screen.</p>
 </li>
 <li>
 <p>On
 Line 9, we pause briefly (so we don't overwork the processor) and then
 return to the top of the loop where we read the new values from the
-accelerometer</p>
+accelerometer.</p>
 </li>
 </ul>
 <h2>Running Your Code</h2>
