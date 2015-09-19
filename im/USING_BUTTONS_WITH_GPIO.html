@@ -13,7 +13,7 @@
 <header>
     <div id=title>USING BUTTONS WITH GPIO</div>
     <div id=description>In this project, we will use GPIOs to get input from a pushbutton
-    into our software, and ultimately use that input to control our LED.</div>
+    into our software.</div>
     <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
     <div id=concepts_required><a href="STRING_THEORY.html">STRING THEORY</a><br><a href="CALCULATIONS.html">CALCULATIONS</a><br><a href="WHILE_LOOPS.html">WHILE LOOPS</a></div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
@@ -32,7 +32,7 @@ or 3.3V, GPIO inputs work by reading the voltage – either 0V or
 3.3V – being sent to the GPIO pin.</p>
 <p>For example, a GPIO
 can be used to get the current&nbsp;state of a button or switch
-(pressed or unpressed). &nbsp;Based on the current state, the
+(pressed or released). &nbsp;Based on the current state, the
 software can do what we expect when the button/switch is in that state. &nbsp;</p>
 <br>
 <div class="info">
@@ -43,7 +43,7 @@ the current condition or situation of a component or circuit.<br>
 <br>
 For
 example, in the case of a button or switch, state would refer to
-whether the button is currently being pressed or unpressed.
+whether the button is currently being pressed or released.
 &nbsp;For
 an LED, state might refer to whether the LED was illuminated or not.</p>
 </div>
@@ -51,15 +51,10 @@ an LED, state might refer to whether the LED was illuminated or not.</p>
 <br>
 <p class="MsoNormal">In the <a href="INTRODUCING_BUTTONS.html">INTRODUCING BUTTONS</a> 
 project, we inserted a button into the circuit to act as a physical switch -- when pressed, 
-the circuit was completed and when left unpressed, the circuit was open.<o:p></o:p></p>
-<p class="MsoNormal">While using a button in this way is
-just fine when there
-isn’t much logic behind the button presses (you just want to flip the
-circuit
-between two states), if you want to do anything more complicated with
-the
-button, this won’t work.<span style="">&nbsp; </span>For
-example,
+the circuit was completed and when released, the circuit was open. No software was required.<o:p></o:p></p>
+<p class="MsoNormal"> But if we write software that interacts with our hardware
+(by reading the state of the button through a GPIO) we add a world of possiblites. 
+For example,
 perhaps you want to count how many times a button is pressed in a
 certain time
 period, and take different actions based on that number?<span style="">&nbsp; </span>Or perhaps you want to
@@ -67,20 +62,18 @@ time how long a button
 is pressed and take action based on the length of the press?<span style="">&nbsp; </span>Or maybe a button press
 needs to trigger an
 action in another circuit that the button isn’t attached to?<o:p></o:p></p>
-<p class="MsoNormal">To do things more complicated
+<p class="MsoNormal">To perform more complicated
 operations like these, instead
-of wiring the button directly into the circuit, instead we can wire the
+of wiring the button directly into the circuit, we can wire the
 button
 as an input to a GPIO.<span style="">&nbsp; </span>As
 we discussed
 earlier, GPIOs can be used as inputs to take information from external
 components (like buttons); that input can then be acted upon by the
 Raspberry
-Pi and appropriate actions can be taken.<o:p></o:p></p>
+Pi.<o:p></o:p></p>
 <p class="MsoNormal">GPIO inputs work by reading the
-voltage being created by the
-circuit at the GPIO pin – either 0V (“low” or “off”) or 3.3V (“high” or
-“on”).<o:p></o:p></p>
+voltage at the GPIO pin – either 0V (“low”) or 3.3V (“high”).<o:p></o:p></p>
 <p class="MsoNormal">For example, a GPIO can be used to
 get information from a
 button or switch.<span style="">&nbsp; </span>In
@@ -93,7 +86,7 @@ will go
 GPIO will
 register the voltage, and the Raspberry Pi can then take action on
 either a
-pressed or unpressed button.<o:p></o:p></p>
+pressed or released button.<o:p></o:p></p>
 <p class="MsoNormal">To wire a button to a GPIO, this is
 what the circuit schematic would
 look like:<o:p></o:p></p>
@@ -104,8 +97,8 @@ style="font-style: italic;"><img class=schematic style="max-width:600px;" src="i
 
 <h2>Reading Buttons Using GPIOs</h2>
 <p class="MsoNormal">To implement what we discuss above as an actual breadboard circuit is 
-easy.  First, we start with an empty breadboard, with power and ground wired from the Lid 
-Connector, like this:
+easy.  First, we start with an empty breadboard, with power and ground wired from the 
+Lid Connector Board, like this:
 <br>
 <center><img class="bb" src="img/Just_Power_bb.png"></center>
 <br>
@@ -152,11 +145,8 @@ example, we’ll connect the button to GPIO14.<o:p></o:p></p>
 &nbsp;Wire the other side of the button to
 ground.</span><o:p></o:p></p>
 <p class="MsoNormal">Finally, we connect the other side
-of the button to ground.<span style="">&nbsp; </span>In
-this
-example, we are connecting the other side of the button to the
-blue&nbsp;strip,
-which is connected to ground.</p>
+of the button to ground.
+</p>
 <br>
 <img class="bb" src="img/Buttons_with_GPIO_2_bb.png">
 <p class="MsoNormal">That’s it for the wiring – pretty
@@ -178,13 +168,25 @@ print(my_button.is_pressed())
 <br>
 <p class="MsoNormal">In this most basic example, we are
 reading the GPIO a single
-time (the moment the program is run) and we are outputting the state of
+time (the moment the program is run) and we are printing the state of
 the
 button at that moment.<span style="">&nbsp; </span>Try
 running the
 program a couple times, either holding down or not holding down the
 button at
 the moment the program is run.<o:p></o:p></p>
+<p>You may notice that this example is similar to the 
+<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT OUTPUT</a>
+example.  But in this case, we configure the GPIO as a button instead of an
+output:
+</p>
+<ul>
+<li> <p>In Line 2: We're configuring GPIO 14 as a button.</p> </li>
+<li> <p>In Line 3: We're getting the state of the button, and printing it.</p> </li>
+</ul>
+<p>
+We'll look at these concepts again in more detail in upcoming projects.
+</p>
 <p class="MsoNormal">To make the program a little more
 interesting (and
 convenient!), we can insert a loop so that, instead of just reading the
@@ -206,7 +208,7 @@ my_button = Button(14)
 while True: 
 	my_button = Button(14) 
 	print(my_button.is_pressed())
-	time.sleep(.01)
+	time.sleep(0.1)
 </textarea></div>
 <br>
 <p class="MsoNormal">Run this program and then alternate
@@ -215,11 +217,12 @@ pressing the button.<span style="">&nbsp; </span>Take
 a look at the
 output window – you should see an indication of when the button is
 pressed and
-when it is unpressed.</p>
+when it is released.</p>
 <p>When you're done testing your button, you can stop the program by pressing the
-square icon in the upper-left-hand corner of the code window (this icon replaced the PLAY
+square STOP icon in the upper-left-hand corner of the code window (this icon replaced the PLAY
 icon while the program was running).
-<br>
-<p class="nextprev"><a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a>|
+</p>
+<p class=nextprev><a href="index.html">home</a> | 
+<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a> |
 <a href="FLASHLIGHT.html">next</a></p>
 </body></html>

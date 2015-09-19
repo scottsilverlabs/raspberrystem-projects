@@ -13,16 +13,17 @@
     <div id=title>SIMON 6</div>
     <div id=description>In this project, we continue the development of our Simon-like
     pattern matching game by adding sound to our LED flashes.</div>
+    <div id=hw_required>Speaker &amp; Audio Cable<br>I/O (Input/Output) RaspberrySTEM Cell</div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
-<p>In our last project,&nbsp;added in the use
-of the buttons as input and we tested the sequence of button presses to
-determine if they were correct or not. &nbsp;This was much of the
-basis for our game, but now it's time to add some additional features.
-&nbsp;In this project, we'll add sound to our LED flashes.</p>
+<p>In our last project, we added in the use
+of the buttons as inputs and we tested the sequence of button presses to
+determine if they were correct.  
+ In this project, we'll add sound to our LED flashes.</p>
 <h2>Programming Implementation</h2>
-<span style="font-family: &quot;Verdana&quot;,serif;">First, we need
+<p>
+First, we need
 to import the sound function we'll use and initialize a list of four
 sounds -- one for each of the LEDs.  We'll also initialize a specific note to play
 when an incorrect button is pressed (this is for later):<br>
@@ -37,11 +38,11 @@ notes = [Note('A'), Note('B'), Note('C'), Note('D')
 you_failed_note = Note('E2')
 </textarea></div>
 
-<br></span><p><span style="font-family: &quot;Verdana&quot;,serif;">
+<br><p>
 Next,
 we need to insert our sounds into two locations -- where we flash the
 sequence of LEDs for the player and where the player presses a button
-while repeating the sequence. &nbsp;Here are what those two code
+while repeating the sequence.  Here is what those two code
 blocks should be updated to:
 
 <br>
@@ -71,6 +72,7 @@ notes[button_pressed].stop()
 </textarea></div>
 <br>
 
+<p>
 Here is what the code for this project should look like at this point -- it should run
 similarly to the previous project, but with sound added:</p><br>
 <div class="code" data-firstline="1">
@@ -143,6 +145,6 @@ while not failed:
 </textarea></div>
 <br>
 
-<p class="nextprev"><a href="SIMON_5.html">prev</a>|
+<p class=nextprev><a href="index.html">home</a> | <a href="SIMON_5.html">prev</a> |
 <a href="SIMON_7.html">next</a></p>
 </body></html>

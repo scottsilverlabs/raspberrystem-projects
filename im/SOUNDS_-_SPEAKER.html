@@ -2,7 +2,7 @@
 <html><head>
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
 	
-    <title>SOUNDS - SPEAKER</title><link rel="stylesheet" type="text/css" href="default.css">
+    <title>SOUNDS &amp; SPEAKER</title><link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
     <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
@@ -11,19 +11,40 @@
 
 <body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
 <header>
-    <div id=title>SOUNDS & SPEAKER</div>
+    <div id=title>SOUNDS &amp; SPEAKER</div>
     <div id=description>In this project, we introduce the sound library and use it to play 
     notes through the speaker.</div>
+    <div id=hw_required>Speaker &amp; Audio Cable</div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
-<p>RaspberrySTEM comes with an attached speaker and audio cable, and also
+<p>The assembled RaspberrySTEM CREATOR Kit has an attached speaker and audio cable, and also
 a library of functions that allow you to play notes, music and sound
-effects. &nbsp;</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;">The
-hardware required to use the speaker is assembled as part of the kit
-assembly, so we can start making noise with just some lines of code...</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span>In
+effects.  </p>
+<p>
+If your audio cable was removed, reattach it now:
+</p>
+<ol>
+<li>
+<p>
+Insert the Audio Cable into the audio jack on the Raspberry Pi.
+<img style="display: block; margin: auto; width: 70%;" alt="" src="img/Insert audio cable.jpg">
+
+</p>
+</li><li>
+<p>
+Connect the other end of the Audio Cable to the Speaker Cable (the cable
+attached the Speaker Assembly).  Note: It doesn’t matter which way the
+three-pronged Audio Cable is oriented.
+<img style="display: block; margin: auto; width: 80%;" alt="" src="img/Audio to speaker.jpg">
+</p>
+</li>
+</ol>
+
+<p>With the 
+speaker hardware connected, we can start making noise with just some lines of code...</p><p>In
 this project, we're just going to use the basic functionality of the
-sound library to play notes in variable durations. &nbsp;Let's start
+sound library to play notes in variable durations.  Let's start
 with this code:</p>
 <br>
 <div class="code" data-firstline="1"> <div></div> <textarea>
@@ -33,14 +54,15 @@ note.play() # by default, notes play for one second
 note.wait()
 </textarea></div>
 <br><p>If you run this code, you'll hear a single tone play for one
-second. &nbsp;If you want to change the duration of the note, you can
-set duration in the <span style="font-family: Courier New,Courier,monospace;">play()</span> function, as you see below:</p><br>
+second.  If you want to change the duration of the note, you can
+set duration in the <span style="font-family: Courier New,Courier,monospace;">play()</span> 
+function, as you see below:</p><br>
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.sound import Note
 note = Note('A')
 note.play(duration=0.5)
 note.wait()
 </textarea></div>
-	<p class=nextprev><a href="MANY_BUTTONS.html">prev</a>|
+	<p class=nextprev><a href="index.html">home</a> | <a href="MANY_BUTTONS.html">prev</a> |
 <a href="MARY_HAD_A_LITTLE_LAMB.html">next</a></p>
 </body></html>

@@ -13,7 +13,7 @@
 <header>
     <div id=title>SIMPLE PIANO</div>
     <div id=description>In this project, we integrate the multiple buttons we implemented several projects ago along with the note/sound generation from the sound library and the speaker.</div>
-    <div id=hw_required>Hardware setup from the <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project.</div>
+    <div id=hw_required>Speaker &amp; Audio Cable<br>Hardware setup from the <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project.</div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 <p>Using the hardware setup from Many Buttons, we can turn our RaspberrySTEM into a very basic sound machine.  We will start with four buttons each wired to a GPIO as input, and write some code that will generate corresponding note when each button is pressed.  We'll keep it simple in this project, and just play each note for one second.
@@ -30,7 +30,7 @@
 	<li><p>First, we import the functions we'll be using.</li>
 	<li><p>Next, we initialize the buttons with their corresponding GPIOs and initialize the
 	notes from our sound library.</li>
-	<li><p>Then, we create a while: loop that will continually test each button for a press,
+	<li><p>Then, we create a while loop that will continually test each button for a press,
 	and if a press if received, will play the corresponding note.</li>
 </ul>
 <p>Here is what the code should look like:
@@ -52,6 +52,6 @@ while True:
 	time.sleep(0.01)
 </textarea></div>
 
-	<p class=nextprev><a href="MARY_HAD_A_LITTLE_LAMB.html">prev</a>|
+	<p class=nextprev><a href="index.html">home</a> | <a href="MARY_HAD_A_LITTLE_LAMB.html">prev</a> |
 <a href="BETTER_PIANO.html">next</a></p>
 </body></html>

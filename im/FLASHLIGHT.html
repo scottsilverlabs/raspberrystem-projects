@@ -23,8 +23,8 @@ flashlight will rely on software for both input and output.</div>
 
 <p class="MsoNormal">In the <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a> project,
 we were able to get button input from a
-GPIO.  In the <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT/OUTPUT</a> project, we were able to control an LED using GPIO.  In this project, we're going to put those concepts together to create a circuit and write code that will allow us to read 
-the button input using a GPIO and use that information toggle the LED using another GPIO.
+GPIO.  In the <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT/OUTPUT</a> project, we were able to control an LED using GPIO.  In this project, we're going to put those concepts together to read 
+a button input using one GPIO and use that information toggle an LED using another GPIO.
 
 <p><b>Step #1: Wire the button and LED to GPIOs</b></p>
 <p>For the hardware in this project, we’re going to wire
@@ -45,7 +45,7 @@ INPUT/OUTPUT</a>)<o:p></o:p></p>
 </ol>
 <p class="MsoNormal">Here is what the breadboard should
 look like with the two
-circuits wired.<span style="">&nbsp; </span>If
+circuits wired.<span style="">  </span>If
 you have any
 questions about how to wire either of these two circuits, refer back to
 the projects referenced above.<o:p></o:p></p>
@@ -54,22 +54,22 @@ the projects referenced above.<o:p></o:p></p>
 <br>
 <p class="MsoNormal">You’ll notice that our button is
 wired to GPIO18 and our LED
-is wired to GPIO14.<span style="">&nbsp; </span><o:p></o:p></p>
+is wired to GPIO14.<span style="">  </span><o:p></o:p></p>
 <br>
 <p><b>Step #2: Write the code.</b></p>
 <p class="MsoNormal">Now that we have the circuits built
 and ready to go, it’s
-time to write our software.<span style="">&nbsp; </span>For
+time to write our software.<span style="">  </span>For
 this
 project, our software is going to do two things:<o:p></o:p></p>
 <ol>
 <li>
-<p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;</span></span></span>Read
+<p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"> </span></span></span>Read
 the state of the button (pressed or
-unpressed) using a GPIO as input<o:p></o:p></p>
+released) using a GPIO as input<o:p></o:p></p>
 </li>
 <li>
-<p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;</span></span></span>If
+<p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">  </span></span></span>If
 the button is pressed, turn on the LED using
 a GPIO as output, and if the button is not pressed, turn off the LED
 using the
@@ -101,28 +101,30 @@ it's doing:</p>
 <p>On Line 1, we import the module we will need to initialize
 the button (called <span style="font-family: Courier New,Courier,monospace;">Button()</span>)</p></li><li>
 <p>On Line 2, we import the module we will need to initialize
-the LED (called <span style="font-family: Courier New,Courier,monospace;">Output()</span>)</p></li><li><p>On Line 4, we initialize our button. &nbsp;We
+the LED (called <span style="font-family: Courier New,Courier,monospace;">Output()</span>)</p></li><li><p>On Line 4, we initialize our button.  We
 call the <span style="font-family: Courier New,Courier,monospace;">Button()</span>
 function, which returns a "Button object" to our <span style="font-family: Courier New,Courier,monospace;">my_button </span>variable.
-&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
+ We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
 but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">my_button</span>
-to call other GPIO functions that can control our button</p></li><li><p>On Line 5, we initialize our LED. &nbsp;We
+to call other GPIO functions that can control our button</p></li><li><p>On Line 5, we initialize our LED.  We
 call the <span style="font-family: Courier New,Courier,monospace;">Output()</span>
 function, which returns a "GPIO Output object" to our <span style="font-family: Courier New,Courier,monospace;">my_led </span>variable.
-&nbsp;Again, we talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
+ Again, we talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
 but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">my_led</span>
 to call other GPIO functions that can control our LED</p></li>
 <li>
 <p>On Line 7, we check the state of the button using the <span style="font-family: Courier New,Courier,monospace;">is_pressed()</span>
-function. &nbsp;This function will return True if the button is pressed
-(this is done by reading the voltage at the GPIO, like we discussed in <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>), and will return False if the button is unpressed</p></li><li><p>On Line 8, if the return from our if statement is True (the button is pressed), we light the LED using the on() function</p></li><li><p>On
+function.  This function will return True if the button is pressed
+(this is done by reading the voltage at the GPIO, like we discussed in <a
+href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>), and will return False if the
+button is released</p></li><li><p>On Line 8, if the return from our if statement is True (the button is pressed), we light the LED using the on() function</p></li><li><p>On
 Lines 9 and 10, if the return from our if statement is False (the
-button is unpressed), we turn off the LED using the off() function</p></li></ul><p class="MsoNormal"></p><p class="MsoNormal">Notice
+button is released), we turn off the LED using the off() function</p></li></ul><p class="MsoNormal"></p><p class="MsoNormal">Notice
 that with this code, the button status is only read one time when the
-program is run. &nbsp;So, if you want the LED to illuminate, you need
-to be holding the button when you run the code. &nbsp;If you’re not
+program is run.  So, if you want the LED to illuminate, you need
+to be holding the button when you run the code.  If you’re not
 holding down the button at the
-time the program is run, the code will see that the button is unpressed
+time the program is run, the code will see that the button is released
 and the LED will not illuminate.<o:p></o:p></p>
 <br>
 <p><b>Step #3: Improve the code.</b></p>
@@ -130,7 +132,7 @@ and the LED will not illuminate.<o:p></o:p></p>
 code that reads the button into a loop
 so that it will
 continually read the button state and update the LED every time it
-changes. &nbsp;To do this, we simply put the last four lines of the
+changes.  To do this, we simply put the last four lines of the
 code (the lines that test the state of the button and turn the LED on
 or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p class="MsoNormal"><o:p></o:p></p>
 <br>
@@ -152,8 +154,8 @@ while True:
 	time.sleep(.01)
 </textarea></div>
 <br>
-<p>Give it a try…the flashlight will continue to work until you
+<p>Give it a try.  The flashlight will continue to work until you
 manually stop the program.</p>
-	<p class="nextprev"><a href="USING_BUTTONS_WITH_GPIO.html">prev</a>|
+	<p class=nextprev><a href="index.html">home</a> | <a href="USING_BUTTONS_WITH_GPIO.html">prev</a> |
 <a href="MANY_BUTTONS.html">next</a></p>
 </body></html>

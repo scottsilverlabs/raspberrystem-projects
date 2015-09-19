@@ -16,6 +16,20 @@ p {
     font-size: 11pt;
 }
 
+/*
+ * Generic code blocks
+ */
+pre {
+    margin-left: 0.5in;
+    line-height: 150%;
+    font-family: Courier New,Courier,monospace;
+    font-size: 12pt;
+}
+
+code {
+    font-family: Courier New,Courier,monospace;
+}
+
 /* 
  * PG HEADER 
  */
@@ -72,6 +86,7 @@ header #difficulty {
 	order: 2;
 }
 header #description {
+    line-height: 150%;
     display: block;
 	-webkit-flex: 100%;
     -webkit-order:10;
@@ -244,6 +259,8 @@ div.output > pre {
     color: #657777;
     background-color: #002B36;
     top-margin: 0;
+    margin-left: 0in;
+    line-height: 100%;
 }
 
 /*
@@ -302,3 +319,4 @@ th, td
     max-width: 600px;
     width: 95%;
 }
+
