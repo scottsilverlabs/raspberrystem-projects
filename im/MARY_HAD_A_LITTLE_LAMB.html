@@ -60,7 +60,40 @@ the one big issue with this code is that each note is of a fixed
 duration. &nbsp;But, in most songs, you have notes of varying length
 (some longer and some shorter). &nbsp;We can modify this code so that
 we can specify the length of each note independently. &nbsp;We do that
-by creating a second list that contains the note durations, and in our <span style="font-family: Courier New,Courier,monospace;">for</span> loop, we use both the note and the duration in our <span style="font-family: Courier New,Courier,monospace;">play()</span> function.<br><br>Here is what the code would look like:</p>
+by creating a second list that contains the note durations, and in our <span style="font-family: Courier New,Courier,monospace;">for</span> loop, we use both the note and the duration in our <span style="font-family: Courier New,Courier,monospace;">play()</span> function.
+
+<br>
+<div class="info">
+<div>"zip() Function"</div>
+<div>
+<p>
+The zip() function provides a convenient way to combine two (or more) lists into one.  Just
+like a zipper on jacket meshes together two rows of metal pins, the zip() function does the 
+same things with lists.  zip() will take the first element of each list and combine them 
+together.  It
+will then take the second element of each list and combine those together.  And so on, until
+the shortest list runs out of elements.</p>
+
+<p>For example, imagine that you have two lists, one containing the name of all the people in a household
+and one containing the age of all those people.  The lists might look like this:</p>
+
+<span style="font-family: Courier New,Courier,monospace;">name = [Bob, Susie, Brian, Carol]</span>
+<span style="font-family: Courier New,Courier,monospace;">age = [31, 29, 7, 4]</span>
+
+<p>If we were to zip() those two lists together:</p>
+
+<span style="font-family: Courier New,Courier,monospace;">zipped = zip(name, age)</span>
+
+<p>Our resulting list ("zipped") would contain the following:</p>
+
+<span style="font-family: Courier New,Courier,monospace;">[(Bob, 31), (Susie, 29), (Brian, 7), (Carol, 4)]</span>
+
+<p>The zip() function is often helpful when traversing two related lists through a 
+for loop, as we will do below.</p>
+</div>
+</div>
+
+<br><br>Here is what the code would look like:</p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
