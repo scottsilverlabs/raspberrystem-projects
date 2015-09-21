@@ -12,22 +12,22 @@
 
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>FOR LOOPS</h1>
-<p>We've already discussed how <span style="font-family: Courier New,Courier,monospace;">while</span>
+<p>In 
+	<a href="WHILE_LOOPS.html">WHILE LOOPS</a>, we discussed how <code>while</code>
 loops can be used to cycle through code an indefinite (or even an
-infinite) number of times. &nbsp;But, what about when you only want
-to cycle though a piece of code a specific number of times?
-&nbsp;For that, we can use another type of loop called <span style="font-family: Courier New,Courier,monospace;">for</span>
+infinite) number of times.  But, what about when you only want
+to cycle through a piece of code a specific number of times?
+ For that, we can use another type of loop called <code>for</code>
 loop.</p>
-<p><span style="font-family: Courier New,Courier,monospace;">for
-</span>loops allow you to cycle through a range of numbers, a
-list of items or even through a string. &nbsp;As an example, a <span style="font-family: Courier New,Courier,monospace;">for</span>
+<p><code>for</code> loops allow you to cycle through a range of numbers, a
+list of items or even through a string.  As an example, a <span style="font-family: Courier New,Courier,monospace;">for</span>
 loop can be used to simply iterate through a range of numbers, and
 execute a statement (or set of statements) on each iteration:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-for x in range(1, 6):
+for x in range(5):
 	print("This is time #", x, "through the loop.")
 </textarea></div>
 <br>
@@ -35,20 +35,21 @@ for x in range(1, 6):
 <p></p>
 <div class="output">
 <div></div>
-<pre>This is time # 1 through the loop.<br>This is time # 2 through the loop.<br>This is time # 3 through the loop.<br>This is time # 4 through the loop.<br>This is time # 5 through the loop.<br></pre>
+<pre>
+This is time # 0 through the loop.
+This is time # 1 through the loop.
+This is time # 2 through the loop.
+This is time # 3 through the loop.
+This is time # 4 through the loop.
+</pre>
 </div>
 <br>
 <p>Essentially, the code ran through the code block 5 times, and
 with each time through the loop, the loop variable (x) was set to the
-current range value (1, 2, 3...). Note that the way for loops work in Python, the loop
-is cycled through until the second parameter is reached (6, in this case), but doesn't include
-that 
-final loop.  So, for this for loop with a range of (1, 6), it is only cycled through five 
-times.</p>
-<p>There is no reason the
-range needed to run from 1 to 6; it could have just as easily run from
-10 to 20, or even from 20 to 10!<br>
-<br>
+current range value (0, 1, 2...).  You'll notice that the list starts counting at 0 not 1, and
+this is a common convention in most all programming languages.
+</p>
+<p>
 Here is another example:</p>
 <br>
 <div class="code" data-firstline="0">
@@ -69,15 +70,41 @@ print("BLAST OFF!!!")
 <br>
 <div class="output">
 <div></div>
-<pre>The countdown has begun...<br>5<br>4<br>3<br>2<br>1<br>BLAST OFF!!!<br><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre>
+<pre>
+The countdown has begun...
+5
+4
+3
+2
+1
+BLAST OFF!!!
+<span style="color: red;">-- PROGRAM FINISHED --</span><br></pre>
 </div>
 <br>
-<p>Notice that for this loop, we added a third parameter (-1) -- this tells the loop in what 
-increment to count.  When this third parameter isn't included, it defaults to "1" and the 
-loop count increments by 1 each time through.</p>
+<p>Notice that for this loop, we using the range function in a different way.  If the range function
+is passed 3 parameters, they should have the values 
+<code>start</code>, 
+<code>stop</code>, and
+<code>step</code>: 
+<ul>
+<li><p>
+<code>start</code> is the first value in the list.
+</p></li><li><p>
+<code>stop</code> is the value that ends the list (but it isn't included).
+</p></li><li><p>
+<code>step</code> is the value to add between one value and the next. 
+When this third parameter isn't included, it defaults to "1" and the 
+loop count increments by 1 each time through.
+</p></li>
+</ul>
+<p>In other words, <code>range(5, 0, -1)</code> could be read as "starting at 5, count down (step
+-1) to 0 (but don't include the final 0)".
+</p>
 
 <p>We can also use for loops to iterate through the items in a
-list. &nbsp;Here's the example list we saw earlier -- a list of the
+list.  Here's the example from
+	the <a href="LISTS.html">LISTS</a> concept
+-- a list of the
 first five months of the year:</p>
 <br>
 <div class="code" data-firstline="0">
@@ -87,7 +114,7 @@ months = ["January", "February", "March", "April", "May"]
 </textarea></div>
 <br>
 <p>We can use a for loop to iterate through each item in that
-list and do what we want with it. &nbsp;As a simple example, we can
+list and do what we want with it.  As a simple example, we can
 print each item and also the number of letters it has:</p>
 <br>
 <div class="code" data-firstline="1">
@@ -103,7 +130,13 @@ for month in months:
 <br>
 <div class="output">
 <div></div>
-<pre>January 7<br>February 8<br>March 5<br>April 5<br>May 3<br><span style="color: red;">-- PROGRAM FINISHED --</span><br></pre>
+<pre>January 7
+February 8
+March 5
+April 5
+May 3
+<span style="color: red;">-- PROGRAM FINISHED --</span>
+</pre>
 </div>
 <br>
 <p class=nextprev><a href="index.html">home</a></p>

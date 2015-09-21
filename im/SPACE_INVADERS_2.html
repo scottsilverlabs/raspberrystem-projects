@@ -11,7 +11,7 @@
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <header>
     <div id=title>SPACE INVADERS 2</div>
-    <div id=description>In this project, we continue the development of our our Space Invaders
+    <div id=description>In this project, we continue the development of our Space Invaders
     game by initializing and drawing our ship at the correct location.</div>
     <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
@@ -23,41 +23,20 @@ supposed to be located -- in the middle of the LED Matrix horizontally
 (along the x-axis) and at the bottom of the LED Matrix vertically (y=0).</p>
 <p>To determine the middle of the LED Matrix, we could take the
 known length of it (8 pixels) and divide that by two -- that would give
-us our middle dot (x=4). &nbsp;But, what if you later want to use
-this code on a smaller or larger LED Matrix display? &nbsp;For
+us our middle dot (x=4). But, what if you later want to use
+this code on a smaller or larger LED Matrix display?  For
 example, let's say you put four LED Matrices together to build a 16x16
-display. &nbsp;If you put x=4 right into your code, when you run
+display.  If you put x=4 right into your code, when you run
 the program on your new 16x16 display, your spaceship will no longer be
 in the middle of the display.</p>
-<p>Luckily, we have a way to handle this. &nbsp;There is a <span style="font-family: Courier New,Courier,monospace;">FrameBuffer</span> attribute called <span style="font-family: Courier New,Courier,monospace;">width</span>
+<p>Luckily, we have a way to handle this.  There is a <span style="font-family: Courier New,Courier,monospace;">FrameBuffer</span> attribute called <span style="font-family: Courier New,Courier,monospace;">width</span>
 that will determine how many LED Matrices you have chained together and
-will tell you the width of your LED Matrix display. &nbsp;We can
+will tell you the width of your LED Matrix display.  We can
 use that attribute to determine the actual width of the display, and
 then divide that actual width by 2 to get the starting position of our
 spaceship.</p>
-<br>
-<div class="info">
-<div>Hard-Coding</div>
-<div><p>
-This is actually a very common situation when programming for
-a potentially changing environment -- you have to decide between
-putting definitive numbers into your code&nbsp;(called
-"hard-coding") based on the most common usage scenario, or by using
-variables and inputs that will allow your code to adapt to different
-scenarios. &nbsp;&nbsp;</p><p>Hard-coding typically makes your code easier to write -- since
-you don't have to test for lots of different situations and change the
-functionality of your code for each possible situation. &nbsp;But,
-hard-coding also means that your code will break (or at very least be
-less useful) when exposed to a situation where the assumptions you made
-about the environment are no longer true. &nbsp;In general, it's
-best to try to figure out who will&nbsp;be using your software and the specific situations
-where your code will be used, and then try to be as generic as possible
-to accommodate the most common situations and environments.
-</p></div>
-</div>
-<br>
 <p>Here is what the initialization code for the initial position
-of the&nbsp;ship would look like:</p>
+of the ship would look like:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
@@ -67,18 +46,18 @@ spaceship_position = fb.width / 2
 </textarea></div>
 <br>
 <p>In our previous project, we just drew the ship at x=3, y=0.
-&nbsp;But, now we have the actual x-coordinate from our calculation
-above, so we can draw the ship at it's actual starting position.
-&nbsp;</p>
+ But, now we have the actual x-coordinate from our calculation
+above, so we can draw the ship at its actual starting position.
+ </p>
 <p>But, there's one thing we need to keep in mind -- now that
 we're using a calculation to determine the position of the ship, it's
 possible that the result of our calculation won't be a whole number
 (for example, if we were using an LED Matrix that was 7 pixels wide,
-our initial position would be x=3.5). &nbsp;To accomodate for that,
+our initial position would be x=3.5).  To accomodate for that,
 we need to round our calcuation to the nearest whole number, and that
 is where we will display our ship.</p>
 <p>We do that using the built-in math function called <span style="font-family: Courier New,Courier,monospace;">round()</span>.
-&nbsp;Here is what the code will look like:</p>
+ Here is what the code will look like:</p>
 <br>
 <div class="code" data-firstline="0">
 <div></div>
@@ -88,8 +67,8 @@ fb.point(round(spaceship_position),0)
 </textarea></div>
 <br>
 <p>Finally, now is as good a time as any to put our pause at the
-end of the game loop. &nbsp;We had discussed trying a pause of of
-between .001 and .01 seconds. &nbsp;Let's start with the smaller
+end of the game loop.  We had discussed trying a pause of of
+between .001 and .01 seconds.  Let's start with the smaller
 number and see if that poses any problems as we're continuing to
 develop the game:</p>
 <br>

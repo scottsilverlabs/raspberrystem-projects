@@ -13,49 +13,49 @@
 <h1>IF/ELSE STATEMENTS</h1>
 <p class="MsoNormal">Much of our lives are spent asking
 questions in order to
-figure out what we should be saying or doing at any given time.<span style="">&nbsp; </span>For example, we may ask
-our mom, “Is it time
-for lunch?”<span style="">&nbsp; </span>If the
+figure out what we should be saying or doing at any given time.<span style="">  </span>For example, we may ask
+our friend, “Is it time
+for lunch?”<span style="">  </span>If the
 answer is “Yes,”
-we’ll eat lunch…if the answer is “No,” we’ll probably do something else.<o:p></o:p></p>
+we’ll eat lunch… if the answer is “No,” we’ll probably do something else.<o:p></o:p></p>
 <p class="MsoNormal">As another example, you may ask a
 friend, “What would you
-like to do today?”<span style="">&nbsp; </span>If
+like to do today?”<span style="">  </span>If
 he says, “I’d like
 to go to a movie,” perhaps you’ll spend some time figuring out what
 movie to
-see.<span style="">&nbsp; </span>But, if he
+see.<span style="">  </span>But, if he
 says, “I’d like to play
 in the park,” you probably won’t be eating popcorn in a dark theater
 that day.<o:p></o:p></p>
 <p class="MsoNormal">Programming is very similar – we
 often ask a lot of
-questions in our software to determine what to do next.<span style="">&nbsp;
+questions in our software to determine what to do next.<span style=""> 
 </span>For example, when you push a button on your
 television remote control, it sends a signal to your TV telling the TV
 to
-change the station or adjust the volume.<span style="">&nbsp;
+change the station or adjust the volume.<span style=""> 
 </span>But, what you probably don’t realize is that this works
 because several
 times per second, the software in your TV is asking, “Did I receive a
 signal
-from the remote control?”<span style="">&nbsp; </span><o:p></o:p></p>
+from the remote control?”<span style="">  </span><o:p></o:p></p>
 <p class="MsoNormal">Most of the time the answer is “No,”
 so the TV software
-moves onto something else for short period of time.<span style="">&nbsp;
+moves onto something else for short period of time.<span style=""> 
 </span>But, if the answer is “Yes” (in other words,
 if you were pressing a button on the remote), the TV will then take
 action to
 determine what button was pressed and then carry out the request.<o:p></o:p></p>
 <p class="MsoNormal">The most basic way for software to
 ask and respond to a
-question is by using what is known as an&nbsp;<span style="font-family: Courier New,Courier,monospace;">if</span>
-statement.<span style="">&nbsp; </span>An <span style="font-family: Courier New,Courier,monospace;">if</span>
+question is by using what is known as an <span style="font-family: Courier New,Courier,monospace;">if</span>
+statement.<span style="">  </span>An <span style="font-family: Courier New,Courier,monospace;">if</span>
 statement asks a True or False
 question, and based on the answer, takes appropriate action.<o:p></o:p></p>
 <p class="MsoNormal">Let’s say we have a circuit that
 contains a thermometer and
-sends the current temperature back to computer.<span style="">&nbsp;
+sends the current temperature back to computer.<span style=""> 
 </span>And let’s pretend that the current temperature is 95
 degrees and that
 value is stored in a variable named <span style="font-family: &quot;Courier New&quot;;">temperature</span>:<o:p></o:p></p>
@@ -92,7 +92,7 @@ if temperature > 90:
 <br>
 <p class="MsoNormal">If you run the program, you’ll see
 that the computer prints,
-“Wow, it’s hot out there!” in your output window.<span style="">&nbsp;
+“Wow, it’s hot out there!” in your output window.<span style=""> 
 </span>In this case, the computer evaluated the
 statement (<span style="font-family: &quot;Courier New&quot;;">temperature
 &gt; 90</span>),
@@ -100,30 +100,30 @@ determined that the statement was True (the temperature is 95, which is
 over
 90) and then took the specified action based on the fact that the
 statement was True.</p>
-<p class="MsoNormal">What if the statement were False?<span style="">&nbsp; </span>For example, like this:</p>
+<p class="MsoNormal">What if the statement were False?<span style="">  </span>For example, like this:</p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
 temperature = 95
 
-if temperature > 90:
+if temperature < 90:
 	print("Okay, it's not too hot out there.")
 </textarea></div>
 <br>
 <p class="MsoNormal">In this case, the temperature is
 still defined as 95
-degrees, but this time, we’re asking if the temperature is LESS THAN 90.<span style="">&nbsp; </span>The answer to that
+degrees, but this time, we’re asking if the temperature is LESS THAN 90.<span style="">  </span>The answer to that
 question is obviously
-False (the temperature is not less than 90).<span style="">&nbsp;
+False (the temperature is not less than 90).<span style=""> 
 </span>And because the statement is False, the action following
 the <span style="font-family: Courier New,Courier,monospace;">if</span>
 statement is not executed, and nothing is printed to the screen.<o:p></o:p></p>
-<p class="MsoNormal">We typically call the evaluation the
+<p class="MsoNormal">We typically call the evaluation a
 “conditional statement”
 and we typically call the action commands after the conditional
 statement the
-“code block.”<span style="">&nbsp; </span>We’ll
+“code block.”<span style="">  </span>We’ll
 be using those terms
 from here on out.<o:p></o:p></p>
 <p class="MsoNormal">Now, let’s discuss some additional
@@ -132,15 +132,15 @@ and code blocks…<o:p></o:p></p>
 <h2>Comparison Operators<o:p></o:p></h2>
 <p class="MsoNormal">In the above examples, we used the
 symbols &gt; and &lt; in
-our condition statements.<span style="">&nbsp; </span>We
+our condition statements.<span style="">  </span>We
 used &gt; to
-ask the question, “Is the first value greater than the second value?”<span style="">&nbsp; </span>And, we used the symbol
+ask the question, “Is the first value greater than the second value?”<span style="">  </span>And, we used the symbol
 &lt; to ask the
 question “Is the first value less than the second value?”<o:p></o:p></p>
 <p class="MsoNormal">These are just two of several symbols
-(we called them
+(we call them
 “operators”) that can be used to compare values in a conditional
-statement.<span style="">&nbsp; </span>Here is
+statement.<span style="">  </span>Here is
 the list of the most common comparison operators:</p>
 <br>
 <div align="center">
@@ -172,7 +172,7 @@ the list of the most common comparison operators:</p>
 </tr>
 <tr style="height: 0.3in;">
 <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;<o:p>&nbsp;</o:p></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;<o:p> </o:p></b></p>
 </td>
 <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
 <p class="MsoNormal" style="text-align: center;" align="center">Is Greater Than?<o:p></o:p></p>
@@ -180,7 +180,7 @@ the list of the most common comparison operators:</p>
 </tr>
 <tr style="height: 0.3in;">
 <td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;<o:p>&nbsp;</o:p></b></p>
+<p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;<o:p> </o:p></b></p>
 </td>
 <td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
 <p class="MsoNormal" style="text-align: center;" align="center">Is Less Than?<o:p></o:p></p>
@@ -230,13 +230,13 @@ my_age = 43
 &gt;= 4</span> would evaluate as True<o:p></o:p></p>
 <p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
 &lt;= 35</span> would evaluate as False<o:p></o:p></p>
-<p class="MsoNormal"><b style="">Note:</b><span style="">&nbsp; </span>Keep in mind that = and ==
+<p class="MsoNormal"><b style="">Note:</b><span style="">  </span>Keep in mind that = and ==
 are very different
-in programming.<span style="">&nbsp; </span>The
+in programming.<span style="">  </span>The
 = sign tells the
 computer that we’re assigning the value of one thing (whatever is on
 the right side of the = sign) to another
-thing (the variable on the left side of the = sign).<span style="">&nbsp;
+thing (the variable on the left side of the = sign).<span style=""> 
 </span>But, the == asks the computer
 whether two things are equal, and returns a True (if they are equal) or
 a False
@@ -244,7 +244,7 @@ a False
 <h2>Code Blocks<o:p></o:p></h2>
 <p class="MsoNormal">In all the examples so far in this
 chapter, our code blocks
-have consisted of a single line of code.<span style="">&nbsp;
+have consisted of a single line of code.<span style=""> 
 </span>For example, in this piece of code:</p>
 <br>
 <div class="code" data-firstline="1">
@@ -260,10 +260,10 @@ if temperature < 90:
 statement.<o:p></o:p></p>
 <p class="MsoNormal">But, in many situations, after
 evaluating a conditional,
-we’re going to want to take action that require many commands, not just
-one.<span style="">&nbsp; </span>For this
+we’re going to want to take action that requires many commands, not just
+one.<span style="">  </span>For this
 reason, code blocks can be
-any number of commands following a conditional statement.<span style="">&nbsp; </span>Our example above could be
+any number of commands following a conditional statement.<span style="">  </span>Our example above could be
 changed to:</p>
 <br>
 <div class="code" data-firstline="1">
@@ -278,11 +278,11 @@ if temperature < 90:
 <br>
 <p class="MsoNormal">In this example, we have two print
 statements in our code
-block.<span style="">&nbsp; </span>Notice that
+block.<span style="">  </span>Notice that
 both commands are
 indented the exact same amount – this is how the computer knows that
 all the
-lines are part of the same code block.<span style="">&nbsp;
+lines are part of the same code block.<span style=""> 
 </span>It’s very important that you use the same number of spaces
 or indents
 for every line of the code block, or your code will not function as you
@@ -292,7 +292,7 @@ expect
 <p class="MsoNormal">In some situations, you may find that
 you need to have more
 complex conditional statements in your code than just a single
-comparison.<span style="">&nbsp; </span>When
+comparison.<span style="">  </span>When
 that need arises, we can use compound
 conditional statements, which is really just a fancy way of saying that
 we can chain multiple comparisons together into a single conditional
@@ -308,11 +308,11 @@ temperature < 90
 <br>
 <p class="MsoNormal">to determine if it was less than 90
 degrees outside.<o:p></o:p></p>
-<p class="MsoNormal">But, what if didn’t just want to know
+<p class="MsoNormal">But, what if we didn’t just want to know
 if the temperature was
 less than 90 degrees – we wanted to know whether the temperature was
 between 80
-and 90 degrees?<span style="">&nbsp; </span>That
+and 90 degrees?<span style="">  </span>That
 would actually
 require two different conditions:</p>
 <br>
@@ -340,7 +340,7 @@ for the
 entire compound conditional statement to be True.<o:p></o:p></p>
 <p class="MsoNormal">What if we only cared about the
 situation where the
-temperature was less than 80 degrees or more than 90 degrees?<span style="">&nbsp; </span>We can create a compound
+temperature was less than 80 degrees or more than 90 degrees?<span style="">  </span>We can create a compound
 conditional
 statement to do this as well:</p>
 <br>
@@ -362,7 +362,7 @@ combine conditional statements.<o:p></o:p></p>
 <h2>IF/ELSE Statements</h2>
 <p class="MsoNormal">In our previous examples, we
 evaluated a conditional, and
-took action if the result of the evaluation was True.<span style="">&nbsp;
+took action if the result of the evaluation was True.<span style=""> 
 </span>But, in many cases, we also want to take
 action when the result of the evaluation is False, in addition to when
 it’s
@@ -384,29 +384,29 @@ else:
 <br>
 <p class="MsoNormal">We use the else: keyword to indicate
 what action should be
-taken if the conditional statement evaluates to False.<span style="">&nbsp;
-</span>We are basically telling the computer:<span style="">&nbsp;
+taken if the conditional statement evaluates to False.<span style=""> 
+</span>We are basically telling the computer:<span style=""> 
 </span><o:p></o:p></p>
 <p class="MsoNormal"><i style="">If the
 conditional
-statement is True, do this.<span style="">&nbsp; </span>Otherwise
+statement is True, do this.<span style="">  </span>Otherwise
 (</i><i style=""><span style="font-family: &quot;Courier New&quot;;">else:</span>),
 do that.<o:p></o:p></i></p>
 <h2>ELIF Statements<o:p></o:p></h2>
 <p class="MsoNormal">There are going to be some cases
 where, “If True, do
-this.<span style="">&nbsp; </span>If False, do
+this.<span style="">  </span>If False, do
 that,” just isn’t
-enough to provide the functionality you need.<span style="">&nbsp;
+enough to provide the functionality you need.<span style=""> 
 </span><o:p></o:p></p>
 <p class="MsoNormal">For example, perhaps we want to know
 more than whether the
-temperature is above or below 90 degrees?<span style="">&nbsp;
-</span>Perhaps we want to know if it’s below 60 degrees?<span style="">&nbsp; </span>Or in the 60s?<span style="">&nbsp; </span>Or in the 70s?<span style="">&nbsp; </span>Or in the 80s?<span style="">&nbsp; </span>Or in the 90s?<span style="">&nbsp; </span>Or above 90 degrees?<o:p></o:p></p>
+temperature is above or below 90 degrees?<span style=""> 
+</span>Perhaps we want to know if it’s below 60 degrees?<span style="">  </span>Or in the 60s?<span style="">  </span>Or in the 70s?<span style="">  </span>Or in the 80s?<span style="">  </span>Or in the 90s?<span style="">  </span>Or above 90 degrees?<o:p></o:p></p>
 <p class="MsoNormal">In the case where you want to test
 for many different conditions,
 you can use the <span style="font-family: Courier New,Courier,monospace;">elif</span>
-(“else if”) statement.<span style="">&nbsp;
+(“else if”) statement.<span style=""> 
 </span>Like this:</p>
 <br>
 <div class="code" data-firstline="0">

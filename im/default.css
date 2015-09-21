@@ -69,7 +69,7 @@ header #title {
     font-weight: normal;
 	background-color: lightblue;
     display: block;
-	-webkit-flex: 80%;
+	-webkit-flex: 100%;
     -webkit-order:1;
 	flex: 1 1 auto;
     order:1;
@@ -124,9 +124,9 @@ header #troubleshooting {
     content: "Troubleshooting";
 	background-color: lightblue;
     display: block;
-	-webkit-flex: 51%;
+	-webkit-flex: 100%;
 	-webkit-order: 41;
-	flex: 1 0 51%;
+	flex: 1 0 100%;
 	order: 41;
 }
 
@@ -166,7 +166,7 @@ h3 {
     widows: 2;
     orphans: 2;
     font-family: "Calibri Light", serif;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: normal
 }
 h4 {

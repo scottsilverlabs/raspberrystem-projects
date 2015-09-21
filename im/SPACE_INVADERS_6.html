@@ -21,7 +21,7 @@
 &nbsp;Moving the aliens is going to look very similiar to how we moved
 the missile in the previous project -- we'll track time to determine
 when to move the aliens, we'll define how quickly to move them, we'll
-move them when the time is right:</p>
+move them when the time is right.</p>
 <p>Here is our initialization code:</p>
 <br>
 <div class="code" data-firstline=""> 
@@ -50,7 +50,7 @@ the array is empty), in which case we drop through the loop and end the
 game:</p>
 <br>
 <div class="code" data-firstline=""> 
-<div></div> <textarea># Check for collision&lt;/p&gt; 
+<div></div> <textarea># Check for collision
 if missile_y == alien_row and missile_x in alien_columns:
 	alien_columns.remove(missile_x)
 	missile_x, missile_y = -1, -1
@@ -59,7 +59,7 @@ if missile_y == alien_row and missile_x in alien_columns:
 </textarea></div>
 <br>
 <p>Lastly, once we drop through the loop to end the game, we'll want to
-test if the alien array is empty (in which case the player wins) or the
+test if the alien array is empty (in which case the player wins) or if the
 array is still populated with one or more aliens (in which case the
 player loses):</p> 
 

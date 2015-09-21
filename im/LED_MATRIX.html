@@ -222,36 +222,20 @@ display and erase a framebuffer.</p>
 <div class="info">
 <div>Framebuffers</div>
 <div><p>You can think of a framebuffer as a temporary "canvas" that sits inside of a computer 
-(specifically inside the computer's memory).  This canvas is configured just like the
-display on your monitor, TV set, cell phone or whatever display device you're using
-(same width and height). We can modify that canvas pixel-by-pixel (pixels are the individual
-dots that make up the display).  We can 
-turn a pixel on or off, set it to a particular color or intensity, etc.</p>
-
-<p>Once you've drawn what you want on your canvas (your framebuffer), you can replace what is 
-seen on your device by displaying that framebuffer.  The canvas that was stored in the 
-computer's memory instantly becomes visible on the screen.</p>
-
-<p>At the same time, your code may be creating a new framebuffer, which is the next canvas that
-will be displayed.  Framebuffers are often used to create animation on the screen, specifically
-for games.</p>
-
-<p>The typical sequence in which framebuffers are used is as
-follows:</p>
-<ol>
-<li>
-<p>Erase the framebuffer so it is ready to be used</p>
-</li>
-<li>
-<p>Draw your graphics on the framebuffer behind the
-scenes (while it isn't being shown)</p>
-</li>
-<li>
-<p>Display your framebuffer with the drawn graphics</p></li><li><p>Repeat</p></li>
-</ol>
+(specifically inside the computer's memory).
+</p>
 <p>
-Even for tiny little displays like our 8x8 LED Matrix, a framebuffer
-provides a simple and efficient way to draw&nbsp;graphics.</p>
+We use a framebuffer with the LED Matrix.  The RapsberrySTEM API provides a set of functions to
+use the framebuffer:
+<ul>
+<li><p><code>FrameBuffer()</code> initializes the framebuffer</p></li>
+<li><p>A number of functions (<code>point()</code>, <code>line()</code>, <code>rect()</code>, etc)
+can be used to draw on the framebuffer.  Drawing on the framebuffer does NOT appear immediately on
+the LED Matrix.</p></li>
+<li><p>The <code>show()</code> function causes the canvas that was stored in the computer's 
+memory to instantly become visible LED Matrix. </p></li>
+</ul>
+
 </div></div>
 <br>
 <p>Here is the basic code we'll use to initialize our LED Matrix and draw a single dot to it:</p>

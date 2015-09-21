@@ -12,8 +12,8 @@
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <header>
     <div id=title>SPACE INVADERS 1</div>
-    <div id=description>In this project, we continue the development of our our Space Invaders
-    game by building the complete circuit, writing our initialization code and the writing
+    <div id=description>In this project, we continue the development of our Space Invaders
+    game by building the complete circuit, writing our initialization code and writing
     the code to do some basic LED Matrix drawing.</div>
     <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
@@ -21,7 +21,7 @@
 
 
 <p class="MsoNormal">In our previous project, we discussed
-the pseudo-code for our Space Invaders game. &nbsp;But, before we
+the pseudo-code for our Space Invaders game. Before we
 start writing the code, we need to complete the circuit for the
 game.
 
@@ -29,7 +29,7 @@ game.
 <p>For our Space Invaders game, we'll be using the LED Matrix for our display, the 
 Accelerometer to control the left/right movement of the ship and a button to fire missiles.
 <p>If you completed the previous projects with the LED Matrix and the Accelerometer, your 
-breadboard is likely already configured mostly how it needs to be.  Though, at very least,
+breadboard is already configured mostly how it needs to be.  Though, at very least,
 you'll probably need to add a button to the configuration (we're going to assume that the
 button is wired to GPIO7 for this project).
 
@@ -41,10 +41,10 @@ button is wired to GPIO7 for this project).
 
 <h2>Software Implementation</h2>
 
-<p>For the coding part of this first project, we will keep things very simple. 
-Building on the pseudo-code we wrote in the last project, we will simply initialize the
+<p>
+Building on the pseudo-code we wrote in the last project, let's initialize the
 framebuffer and write a single dot to the LED Matrix (we'll consider
-this our spaceship for now). &nbsp;While
+this our spaceship for now). While
 none of this is new, it will allow us to verify that the LED Matrix is
 working properly and will get some of our initialization code out of
 the way.</p>
