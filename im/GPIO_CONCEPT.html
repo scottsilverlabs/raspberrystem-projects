@@ -18,7 +18,132 @@ integrating your electronics hardware and your code.  Specifically, we will expl
 how your code can "control" your circuit (GPIOs as Outputs) and how your circuit can 
 "communicate" with your code (GPIOs as Inputs).  
 
-<h2>GPIOs as Outputs</h2>
+<h2>Introduction to GPIOs</h2>
+
+<p>In the previous projects, we've written some basic code to send messages to our output box
+and we've built some simple circuits to light up an LED.  While doing these types of projects
+is important to learn the basics of programming and electronics, the purpose of this kit -- and
+the part of programming and electronics that's really fun and interesting -- is getting the code 
+and the electronics work together.</p>
+
+<p>In general, there are two ways that your code and your circuits can work together:</p>
+
+<ol>
+	<li><p>Your software (code) can control your hardware (circuits);</li>
+	<li><p>Your hardware (circuits) can communicate with your software (code).
+</ol>
+
+<br>
+<center>
+<img style="width: 450px;" alt="" src="img/GPIO1.jpg">
+<br>
+
+<p>The most common use for having your software control your hardware is to turn components 
+on and off (like  and LED or any other device that can turn on or off).  And the most common
+use for having your hardware communicate with your software is indicate that an event has 
+occured (like a button being pressed) or to relay the status of something external (for example, 
+if it's getting hot outside and a thermometer needs to tell the software that we've reached a 
+certain temperature).</p>
+
+<p>Understanding how this communication and control works is the key to being able to develop 
+software and hardware that works together to build valuable and interesting devices.  As it turns
+out, there is a relatively simple mechanism for how to get these two things to work together, and it's
+called General Purpose Input/Output, or GPIO for short.  GPIOs are physically located between
+your circuit (on your breadboard) and your software (running on the Raspberry Pi):</p>
+
+<br>
+<center>
+<img style="width: 450px;" alt="" src="img/GPIO2.jpg">
+<br>
+
+<p>In the next section, we'll give a brief overview of what GPIOs physically are, and then after that,
+we'll talk about how they work and how you can use them in your projects.  Then, we'll use these 
+concepts in most of our future projects in order to create some awesome stuff.</p>
+
+<h2>What Are GPIOs?</h2>
+<p>GPIOs are specific pins (little metal "legs"
+on the bottom or sides of a computer chip) that provide a connection
+between a physical circuit and the software inside the chip.
+We
+make these connections to the computer chip available on the
+RaspberrySTEM CREATOR Kit by plugging wires into the
+Lid Connector Board holes.
+GPIOs are like the
+nerve-system of the platform – their job is to relay signals from
+the brain (the Raspberry Pi computer) to the muscles (the components
+of the circuit) and to take signals from the muscles and relay them
+back to the brain. </p>
+<p>The Raspberry Pi has 26 GPIOs, each of which are referenced by number (for example,
+GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
+GPIO it is connected to.  So, if you want to hook up a
+component to GPIO17, you'll insert a wire from the component to the
+hole on the Lid Connector Board labled "17".<p>
+<br>
+<div class="info">
+<div>GPIOs Come From the Raspberry Pi</div>
+<div>
+<p>The Lid Connector Board was designed to make connecting to the
+Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
+ribbon cable and the Lid Connector Board is simply to bring the GPIO
+pins (and
+other pins) from the Raspberry Pi to the RaspberrySTEM 
+Lid, where they
+are easier for you to attach your components to.
+</p>
+<p>
+But, if you
+had a Raspberry Pi computer without the RaspberrySTEM CREATOR Kit, you'd still
+be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
+available through the pins on the Raspberry Pi
+(the pins that the ribbon cable is attached to).  If you were to
+remove the ribbon cable, you could connect wires
+directly to the Raspberry Pi GPIO pins and attach them to the breadboard (or
+to your components) directly.
+</p>
+</div>
+</div>
+
+<h2>How Do GPIOs Work</h2>
+
+<p>While GPIOs all look the same, there are actually two different ways that they can be used
+in your electronic projects.  You may remember from above that there are two important uses for
+GPIOs -- allowing your software to control your hardware and allowing your hardware to 
+communicate with your software:</p>
+
+<br>
+<center>
+<img style="width: 450px;" alt="" src="img/GPIO2.jpg">
+<br>
+
+<p>A GPIO can do either of these two things, but not at the same time.  You must decide beforehand
+whether a GPIO is going to be used to allow software to control hardware or whether it will be 
+used to allow hardware to communicate with software.  Once you make that decision, you will
+"configure" the GPIO to perform that task.  By configure, we just mean that you will write a tiny
+bit of code that tells the GPIO which of the two functions it will perform.</p>
+
+<p>When we configure a GPIO to allow software to control hardware, we say that we're "using the GPIO
+as an output":</p>
+
+<br>
+<center>
+<img style="width: 450px;" alt="" src="img/GPIO3.jpg">
+<br> 
+
+<p>And when we configure a GPIO to allow hardware to communicate with software, we say that we're
+"using the GPIO as an input":</p>
+
+
+<br>
+<center>
+<img style="width: 450px;" alt="" src="img/GPIO4.jpg">
+<br> 
+
+<p>Now that we have a basic definition of GPIOs and how they can be used as either outputs (to
+allow your software to control your hardware) or as inputs (to allow your hardware to 
+communicate with your software), let's talk in more detail about how GPIOs work in each of
+these situations.</p>
+
+<h3>GPIOs as Outputs</h3>
 
 <p>The first part of our discussion will focus on how your code can control your circuit.  This
 is important because you often want to have your circuit react to things happening in your
@@ -134,7 +259,7 @@ that the GPIO needs to be set low (to ground) for the circuit to be active.
 </div>
 <br>
 
-<h2>GPIOs as Inputs</h2>
+<h3>GPIOs as Inputs</h3>
 
 <p>The first part of our GPIO discussion focused on how we could control our circuit from
 our code (GPIO as Outputs).  The next part of our discussion will focus on how our circuit 
@@ -203,53 +328,7 @@ is closed, the GPIO gets pulled low (to ground), and will read 0V.  This way, th
 measure the voltage at the GPIO and know if the button is pressed (0V at GPIO) or unpressed
 (3.3V at GPIO).
 
-<h2>What Do GPIOs Look Like?</h2>
-<p>GPIOs are specific pins (little metal "legs"
-on the bottom or sides of a computer chip) that provide a connection
-between a physical circuit and the software inside the chip.
-We
-make these connections to the computer chip available on the
-RaspberrySTEM CREATOR Kit by plugging wires into the
-Lid Connector Board holes.
-GPIOs are like the
-nerve-system of the platform – their job is to relay signals from
-the brain (the Raspberry Pi computer) to the muscles (the components
-of the circuit) and to take signals from the muscles and relay them
-back to the brain. </p>
-<p>The Raspberry Pi has 26 GPIOs, and each one can be set to act
-as an input (it can take a
-signal from an external device and relay it to the Raspberry Pi) or 
-an output (it can relay a signal from the Raspberry Pi to
-an external device).</p>
-<p>GPIOs are referenced by number (for example,
-GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
-GPIO it is connected to.  So, if you want to hook up a
-component to GPIO17, you'll insert a wire from the component to the
-hole on the Lid Connector Board labled "17".</p>
-<br>
-<div class="info">
-<div>GPIOs Come From the Raspberry Pi</div>
-<div>
-<p>The Lid Connector Board was designed to make connecting to the
-Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
-ribbon cable and the Lid Connector Board is simply to bring the GPIO
-pins (and
-other pins) from the Raspberry Pi to the RaspberrySTEM 
-Lid, where they
-are easier for you to attach your components to.
-</p>
-<p>
-But, if you
-had a Raspberry Pi computer without the RaspberrySTEM CREATOR Kit, you'd still
-be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
-available through the pins on the Raspberry Pi
-(the pins that the ribbon cable is attached to).  If you were to
-remove the ribbon cable, you could connect wires
-directly to the Raspberry Pi GPIO pins and attach them to the breadboard (or
-to your components) directly.
-</p>
-</div>
-</div>
+
 
 <br>
 <p class=nextprev><a href="index.html">home</a></p>
