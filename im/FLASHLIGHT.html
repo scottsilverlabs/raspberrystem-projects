@@ -28,19 +28,19 @@ a button input using one GPIO and use that information toggle an LED using anoth
 
 <p><b>Step #1: Wire the button and LED to GPIOs</b></p>
 <p>For the hardware in this project, we’re going to wire
-two completely independent circuits:<o:p></o:p></p>
+two completely independent circuits:</p>
 <ol>
 <li>
 <p><span style=""><span style=""></span></span>The
 first circuit will consist of a button wired
 to a GPIO (like we did in <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO
-</a>);<o:p></o:p></p>
+</a>);</p>
 </li>
 <li>
 <p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"></span></span></span>The
 second circuit will consist of an LED wired
 to a separate GPIO (like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE
-INPUT/OUTPUT</a>)<o:p></o:p></p>
+INPUT/OUTPUT</a>)</p>
 </li>
 </ol>
 <p class="MsoNormal">Here is what the breadboard should
@@ -48,36 +48,36 @@ look like with the two
 circuits wired.<span style="">  </span>If
 you have any
 questions about how to wire either of these two circuits, refer back to
-the projects referenced above.<o:p></o:p></p>
+the projects referenced above.</p>
 <br>
 <img class="bb" src="img/Flashlight_bb.png">
 <br>
 <p class="MsoNormal">You’ll notice that our button is
 wired to GPIO18 and our LED
-is wired to GPIO14.<span style="">  </span><o:p></o:p></p>
+is wired to GPIO14.<span style="">  </span></p>
 <br>
 <p><b>Step #2: Write the code.</b></p>
 <p class="MsoNormal">Now that we have the circuits built
 and ready to go, it’s
 time to write our software.<span style="">  </span>For
 this
-project, our software is going to do two things:<o:p></o:p></p>
+project, our software is going to do two things:</p>
 <ol>
 <li>
 <p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;"> </span></span></span>Read
 the state of the button (pressed or
-released) using a GPIO as input<o:p></o:p></p>
+released) using a GPIO as input</p>
 </li>
 <li>
 <p><span style=""><span style=""><span style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">  </span></span></span>If
 the button is pressed, turn on the LED using
 a GPIO as output, and if the button is not pressed, turn off the LED
 using the
-GPIO as output<o:p></o:p></p>
+GPIO as output</p>
 </li>
 </ol>
 <p class="MsoNormal">Here is the code that will accomplish
-this:</p><p class="MsoNormal"><o:p></o:p></p>
+this:</p><p class="MsoNormal"></p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
@@ -125,7 +125,7 @@ program is run.  So, if you want the LED to illuminate, you need
 to be holding the button when you run the code.  If you’re not
 holding down the button at the
 time the program is run, the code will see that the button is released
-and the LED will not illuminate.<o:p></o:p></p>
+and the LED will not illuminate.</p>
 <br>
 <p><b>Step #3: Improve the code.</b></p>
 <p class="MsoNormal">To make this program more useful, we can put the
@@ -134,7 +134,7 @@ so that it will
 continually read the button state and update the LED every time it
 changes.  To do this, we simply put the last four lines of the
 code (the lines that test the state of the button and turn the LED on
-or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p class="MsoNormal"><o:p></o:p></p>
+or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p class="MsoNormal"></p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
