@@ -25,7 +25,7 @@ closer to the bottom of the LED Matrix screen.</p><p>To do this, we'll
 need to create two new variables to track the direction of the aliens
 (+1 or -1) and the speed of the aliens (a multiple of the default speed
 we set in the last project).</p><p>Here is our initialization code:</p>
-<br>
+
 <div class="code" data-firstline="1"> 
 <div></div> 
 <textarea>
@@ -34,9 +34,9 @@ alien_direction = 1
 alien_speed = 1
 </textarea></div>
 
-<br>
+
 <p>And here is the code we will add to our game loop:</p>
-<br>
+
 
 <div class="code" data-firstline="1"> 
 <div></div> 
@@ -55,10 +55,10 @@ if now - alien_start_time > ALIENS_STEP_TIME / alien_speed:
 		alien_columns = [column + alien_direction for column in alien_columns]
 </textarea></div>
 
-<br>
+
 <p>Here is what the full project code should look like at this point -- give it a try, and
 you should now see the aliens going back and forth:</p>
-<br>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 # ###############################################################
 #
@@ -178,7 +178,7 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_6.html">prev</a> |
 <a href="SPACE_INVADERS_8.html">next</a></p>
 </body></html>

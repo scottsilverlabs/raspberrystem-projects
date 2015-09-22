@@ -34,9 +34,9 @@ you'll probably need to add a button to the configuration (we're going to assume
 button is wired to GPIO7 for this project).
 
 <p>Here is what the breadboard should look like once it's correctly wired:
-<br>
+
 <img class="bb" src="img/LED_Matrix_Accel_Buttons_bb.png">
-<br>
+
 
 
 <h2>Software Implementation</h2>
@@ -50,7 +50,7 @@ working properly and will get some of our initialization code out of
 the way.</p>
 <p>Here's what our initialization code should look like for the
 framebuffer:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -60,10 +60,10 @@ from rstem.led_matrix import FrameBuffer
 # Initialize the framebuffer
 fb = FrameBuffer()
 </textarea></div>
-<br>
+
 <p>Next, we'll write some code to place a single dot (our current spaceship) on 
 the LED Matrix:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -76,12 +76,12 @@ fb.point(3,0)
 #Show the framebuffer
 fb.show()
 </textarea></div>
-<br>
+
 <p>If you run the program at this point, you should see a dot on
 the LED
 Matrix at x = 3 and y = 0. </p>
 <p>Here is the full code for our game at this point:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -153,7 +153,7 @@ while True:
 # Print "You won!" if the player wins
 # Print "You lost..." if the player loses
 </textarea></div>
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_PSEUDO.html">prev</a> |
 <a href="SPACE_INVADERS_2.html">next</a></p>
 </body></html>

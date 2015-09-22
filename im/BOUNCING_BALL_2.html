@@ -19,17 +19,17 @@
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
-<span style="font-family: &quot;Verdana&quot;,serif;"></span>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">In
+
+<p>In
 our last project, we learned how to move our dot on a single axis, but
 keep it from falling off the edge of the screen by setting and testing
 boundaries.  In this project, we're going to start moving the
 dot
 on two axes (left and right; up and down) and learn how to constrain
-the dot on both axes so that it doesn't fall off the screen.</span></p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;"></span>
+the dot on both axes so that it doesn't fall off the screen.</p>
+<p>
 Here is the code we finished with from our last project:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -59,22 +59,22 @@ while True:
 	# Wait for some period of time
 	time.sleep(.5)
 </textarea></div>
-<br>
+
 <p>Adding the same functionality along the other axis (the
 y-axis) is actually pretty simple.  In addition to changing
 the x location by 1 each time through the loop, we also do the same
 with the y location.  This requires another direction variable
 to keep track of the y-axis direction:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 y_direction = 1
 </textarea></div>
-<br>
+
 <p>And then we need to increment in the y-direction each time
 through the loop and test whether we've hit the y-axis edge: </p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -82,15 +82,15 @@ y += y_direction
 if (y <= 0) or (y >= 7):
 	y_direction = -y_direction
 </textarea></div>
-<br>
-<p><span style=""></span></p><p><span style="">Lastly,
+
+<p></p><p>Lastly,
 you'll probably want to set the initial position of the ball to
 something other than (1, 1) to make the bouncing a little more
 interesting.  In fact, you can play around with different initial
-points and see how it affects the bouncing.</span></p><p><span style="">Give it a
+points and see how it affects the bouncing.</p><p>Give it a
 try.  You should now see the dot bouncing back and forth on the
-display in two directions.</span></p><p><span style="">Here is the final code:</span></p>
-<br>
+display in two directions.</p><p>Here is the final code:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -125,7 +125,7 @@ while True:
 	# Wait for some period of time
 	time.sleep(.5)
 </textarea></div>
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="BOUNCING_BALL_1.html">prev</a> |
 <a href="ACCELEROMETER.html">next</a></p>
 </body></html>

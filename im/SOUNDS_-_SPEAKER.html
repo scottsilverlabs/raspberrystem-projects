@@ -29,9 +29,9 @@ If your audio cable was removed, reattach it now:
 <p>
 Insert the Audio Cable into the audio jack on the Raspberry Pi.
 </p>
-<br>
+
 <img style="display: block; margin: auto; width: 70%;" alt="" src="img/Insert audio cable.jpg">
-<br>
+
 
 </li><li>
 <p>
@@ -39,9 +39,9 @@ Connect the other end of the Audio Cable to the Speaker Cable (the cable
 attached the Speaker Assembly).  Note: It doesn’t matter which way the
 three-pronged Audio Cable is oriented.
 </p>
-<br>
+
 <img style="display: block; margin: auto; width: 80%;" alt="" src="img/Audio to speaker.jpg">
-<br>
+
 </li>
 </ol>
 
@@ -50,17 +50,17 @@ speaker hardware connected, we can start making noise with just a few lines of c
 this project, we're just going to use the basic functionality of the
 sound library to play notes in variable durations.  Let's start
 with this code:</p>
-<br>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.sound import Note
 note = Note('A')
 note.play() # by default, notes play for one second
 note.wait()
 </textarea></div>
-<br><p>If you run this code, you'll hear a single tone play for one
+<p>If you run this code, you'll hear a single tone play for one
 second.  If you want to change the duration of the note, you can
-set duration in the <span style="font-family: Courier New,Courier,monospace;">play()</span> 
-function, as you see below:</p><br>
+set duration in the <code>play()</code> 
+function, as you see below:</p>
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.sound import Note
 note = Note('A')

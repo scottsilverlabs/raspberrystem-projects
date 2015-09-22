@@ -21,7 +21,7 @@
 <p>The very last step to completing our Space Invaders game is adding sound/music to our game.
 </p>
 <p>First, we import our sound functions and initialize variables that hold our notes and music:</p>
-<br>
+
 
 <div class="code" data-firstline="0"> 
 <div></div> 
@@ -34,12 +34,12 @@ hit_sound = Sound("/home/pi/hit.wav")
 
 notes = cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])
 </textarea></div>
-<br>
+
 <p>Next,
 we insert the sounds at the various points in the program where they
 make sense.  Specifically, when we fire a missile, when the aliens
-move and when an alien is hit by a missile.<br>
-<br>
+move and when an alien is hit by a missile.
+
 
 <div class="code" data-firstline="0"> 
 <div></div> 
@@ -54,11 +54,11 @@ next(notes).play(duration=0.20)
 hit_sound.play()
 </textarea></div>
 
-<br>
+
 
 
 <p>Let's insert those code snippets into our full project, and we have a completed Space Invaders game!</p>
-<br>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 # ###############################################################
 #
@@ -194,7 +194,7 @@ if alien_columns:
 else:
 	print("You win!")
 </textarea></div>
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_8.html">prev</a> |
 <a href="index.html">next</a></p>
 </body></html>

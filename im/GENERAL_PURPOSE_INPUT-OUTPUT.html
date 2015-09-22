@@ -53,7 +53,6 @@ GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
 GPIO it is connected to.  So, if you want to hook up a
 component to GPIO17, you'll insert a wire from the component to the
 hole on the Lid Connector Board labeled "17".</p>
-<br>
 <div class="info">
 <div>GPIOs Come From the Raspberry Pi</div>
 <div>
@@ -103,15 +102,11 @@ modify it to use a GPIO so that we can control that LED through
 software…</p>
 <p>Here is the
 schematic from our original circuit:</p>
-<br>
-<p style="text-align: center;"><img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png"><br>
+<img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
 </p>
-<br>
 <p>To attach the LED to
 a GPIO, we’re going to modify our circuit as follows:</p>
-<br>
-<p style="text-align: center;"><img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br>
-<br>
+<img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
 <p>You’ve probably
 noticed that all we did was replace the connection from the LED to
 ground with a connection from the LED to a GPIO. Let’s see how
@@ -146,23 +141,20 @@ the circuit, and no electricity will flow (i.e., the LED won’t
 light up).</p>
 <p>Here is an overview of how the GPIO will work in
 this circuit:</p>
-<br>
 <table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="text-align: center;"><img style="width: 285px; height: 346px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png" align="top"></td>
-<td style="text-align: center;"><img style="width: 260px; height: 378px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Ground.png"></td>
+<td><img style="width: 285px; height: 346px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png" align="top"></td>
+<td><img style="width: 260px; height: 378px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Ground.png"></td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">Schematic: GPIO set high (LED off)<br>
-</span></td>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">Schematic: GPIO set low (LED on)<br>
-</span></td>
+<td><strong>Schematic: GPIO set high (LED off)
+</strong></td>
+<td><strong>Schematic: GPIO set low (LED on)
+</strong></td>
 </tr>
 </tbody>
 </table>
-<br>
-<br>
 <div class="info">
 <div>"Active Low"</div>
 <div>
@@ -189,28 +181,23 @@ low.
 </p>
 </div>
 </div>
-<br>
 <p>Before we start the new wiring for this project, let's wire up our original circuit 
 from the <a href="RASPBERRY_PI_POWER.html">RASPBERRY PI POWER</a> project -- 
 this will give us some context so we can understand how we're going from that circuit (which
 uses strictly hardware to control the LED) to our new circuit (which uses a GPIO to control
 the LED).  As a reminder here is what that circuit looks like, and how you'll want to wire
 your breadboard right now:</p>
-<br>
 <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
-<br>
 <p>The LED should now be lit.</p>
 <p>Now that we have some background on how GPIOs work and how we can control our LED with 
 a GPIO, and now that we've wired up a circuit that
 we're familiar with, let's jump in and start using GPIOs...</p>
-<br>
-<p><b>Step #1:  Disconnect the circuit from ground.</b></p>
+<h4>Step #1:  Disconnect the circuit from ground.</h4>
 <p>The LED is currently connected to ground via the green wire.  To disconnect it,
 remove the green wire:
 <img class="bb" src="img/Introducing_Buttons_1_bb.png">
-<br>
 <p>The LED should no longer be lit.</p>
-<p><b>Step #2:  Connect the circuit to a GPIO.</b></p>
+<h4>Step #2:  Connect the circuit to a GPIO.</h4>
 <p>
 Now, connect a wire from the LED to a GPIO as shown in the diagram.
 <p>For this project, we will assume that you’re using GPIO14
@@ -220,7 +207,6 @@ GPIO other than 14 for this project.</p>
 <p>
 This is what your breadboard should now look like:</p>
 <img class="bb" src="img/Your_First_Breadboard_Add_GPIO_bb.png">
-<br>
 <div class="info">
 <div> Inner Workings of GPIOs</div>
 <div>
@@ -242,8 +228,7 @@ clearer.</p>
 </div>
 <p></p>
 <p>Now that our circuit is complete, let’s write the software.</p>
-<br>
-<p><b>Step #3:  Write the code.</b></p>
+<h4>Step #3:  Write the code.</h4>
 <p>
 The code to control the GPIO (and with it the LED) is pretty
 short.  It uses a function called Output() to configure a GPIO as an output.
@@ -251,14 +236,12 @@ short.  It uses a function called Output() to configure a GPIO as an output.
 <p>
 Type (or cut-and-paste) the following code into the your RDE’s Code
 Window:</p>
-<br>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.gpio import Output
 my_led = Output(14)
 my_led.on()
 </textarea></div>
-<br>
 <p>At this point, we don't expect you'll fully understand the code above.  However, there are a couple important ideas to notice in the code:
 </p>
 <ul>
@@ -271,8 +254,7 @@ new concepts introduced in this section (see the header at the top of the
 page).  We'll look at this code again in more detail in upcoming projects.
 </p>
 
-<br>
-<p><b>Step #4: Run the code.</b></p>
+<h4>Step #4: Run the code.</h4>
 <p>
 Run the code the same way you did in the <a href="HELLO,_WORLD.html">HELLO,
 WORLD!</a> project – press the Play
@@ -281,17 +263,14 @@ the LED should now be lit.</p>
 <p>
 Congratulations! You just controlled some hardware you built using
 software that you wrote.  
-<br>
 </p>
-<br>
-<p><b>Step #5:  Play around with it.</b></p>
+<h4>Step #5:  Play around with it.</h4>
 <p>
 Assuming everything worked properly in the previous step, feel free
 to play around with the circuit and the code. Try changing from
 GPIO14 to a different GPIO (make sure you change the code to reflect
-the new GPIO). Or try turning off the LED by replacing the <span style="font-family: Courier New,Courier,monospace;">my_led.on()</span>
+the new GPIO). Or try turning off the LED by replacing the <code>my_led.on()</code>
 statement with:</p>
-<br>
 <div class="code" data-firstline="3">
 <div></div>
 <textarea>my_led.off()

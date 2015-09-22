@@ -33,10 +33,10 @@ and the electronics work together.</p>
 	<li><p>Your hardware (circuits) can communicate with your software (code).
 </ol>
 
-<br>
+
 <center>
 <img style="width: 450px;" alt="" src="img/GPIO1.jpg">
-<br>
+
 
 <p>The most common use for having your software control your hardware is to turn components 
 on and off (like  and LED or any other device that can turn on or off).  And the most common
@@ -51,10 +51,10 @@ out, there is a relatively simple mechanism for how to get these two things to w
 called General Purpose Input/Output, or GPIO for short.  GPIOs are physically located between
 your circuit (on your breadboard) and your software (running on the Raspberry Pi):</p>
 
-<br>
+
 <center>
 <img style="width: 450px;" alt="" src="img/GPIO2.jpg">
-<br>
+
 
 <p>In the next section, we'll give a brief overview of what GPIOs physically are, and then after that,
 we'll talk about how they work and how you can use them in your projects.  Then, we'll use these 
@@ -78,7 +78,7 @@ GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
 GPIO it is connected to.  So, if you want to hook up a
 component to GPIO17, you'll insert a wire from the component to the
 hole on the Lid Connector Board labeled "17".<p>
-<br>
+
 <div class="info">
 <div>GPIOs Come From the Raspberry Pi</div>
 <div>
@@ -110,10 +110,10 @@ in your electronic projects.  You may remember from above that there are two imp
 GPIOs -- allowing your software to control your hardware and allowing your hardware to 
 communicate with your software:</p>
 
-<br>
+
 <center>
 <img style="width: 450px;" alt="" src="img/GPIO2.jpg">
-<br>
+
 
 <p>A GPIO can do either of these two things, but not at the same time.  You must decide beforehand
 whether a GPIO is going to be used to allow software to control hardware or whether it will be 
@@ -124,19 +124,19 @@ bit of code that tells the GPIO which of the two functions it will perform.</p>
 <p>When we configure a GPIO to allow software to control hardware, we say that we're "using the GPIO
 as an output":</p>
 
-<br>
+
 <center>
 <img style="width: 450px;" alt="" src="img/GPIO3.jpg">
-<br> 
+ 
 
 <p>And when we configure a GPIO to allow hardware to communicate with software, we say that we're
 "using the GPIO as an input":</p>
 
 
-<br>
+
 <center>
 <img style="width: 450px;" alt="" src="img/GPIO4.jpg">
-<br> 
+ 
 
 <p>Now that we have a basic definition of GPIOs and how they can be used as either outputs (to
 allow your software to control your hardware) or as inputs (to allow your hardware to 
@@ -157,11 +157,11 @@ the end of the circuit.</p>
 <p>This is why, for our basic LED circuit, the LED will illuminate when we attach one side 
 of the circuit to 3.3V power and the other side to ground.  Like this:</p>
 
-<br>
+
 <center>
 <img style="height: 350px; width: 150px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
 </center>
-<br>
+
 
 <p>Given that, it should also make sense that, if there is no voltage differential between 
 the beginning and the end of a circuit, no current will flow.  For example, imagine our 
@@ -169,11 +169,11 @@ circuit above, but instead of attaching the end of the circuit to ground, we att
 3.3V power, just like the beginning of the circuit.</p>
 <p>The circuit would look like this:</p>
 
-<br>
+
 <center>
 <img style="height: 350px; width: 240px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png">
 </center>
-<br>
+
 
 <p>And as you can probably guess, no current would flow and the LED would not illuminate.</p>
 
@@ -181,17 +181,17 @@ circuit above, but instead of attaching the end of the circuit to ground, we att
 switch can be toggled between connecting to power and connecting to ground.  It might look 
 a little something like this:</p>
  
-<br>
+
 <center>
 <img style="height: 375px; width: 250px;" alt="" src="img/GPIO_Switch1.png">
 </center>
-<br>
+
 
 <p>Based on what we discussed above, it should be clear that when the switch is toggled 
 to power, no current will flow through the circuit.  And when the switch is toggled to 
 ground, current will flow through the circuit:</p>
 
-<br>
+
 <table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
@@ -199,14 +199,14 @@ ground, current will flow through the circuit:</p>
 <td style="text-align: center;"><img style="width: 250px; height: 375px;" alt="" src="img/GPIO_Switch3.png"></td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">GPIO Attached To Power (LED Off)<br>
-</span></td>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">GPIO Attached to Ground (LED On)<br>
-</span></td>
+<td style="vertical-align: top; text-align: center;"><strong>GPIO Attached To Power (LED Off)
+</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>GPIO Attached to Ground (LED On)
+</strong></td>
 </tr>
 </tbody>
 </table>
-<br>
+
 
 <p>When the circuit is configured like the left-hand circuit above, no current is flowing 
 and the LED does not illuminate.  But, when the circuit is configured like the right-hand 
@@ -220,11 +220,11 @@ software.</p>
 
 <p>Here is a schematic representation of a GPIO:</p>
  
-<br>
+
 <center>
 <img style="height: 355px; width: 260px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
 </center>
-<br>
+
 
 <p>But remember, what's going on inside that GPIO box is what we represented above -- 
 it is essentially a switch that can be toggled to power or to ground (through software), 
@@ -234,7 +234,7 @@ ground).</p>
 <p>And this -- using GPIOs as Outputs -- is how our code can control our circuit.  In the next 
 section, we'll talk about going in the other direction -- specifically, how our circuit can 
 communicate with our code.</p>
-<br>
+
 <div class="info">
 <div>"Active Low"</div>
 <div>
@@ -257,7 +257,7 @@ that the GPIO needs to be set low (to ground) for the circuit to be active.
 </p>
 </div>
 </div>
-<br>
+
 
 <h3>GPIOs as Inputs</h3>
 
@@ -289,13 +289,13 @@ voltage -- either 0V or 3.3V -- being sent to the GPIO pin.</p>
 (pressed or released). Based on the current state, the software can do what we expect 
 when the button/switch is in that state. </p>
 
-<br>
+
 <div class="info">
 <div>"State"</div>
 <div>
 <p>"State" is a common term using in electronics and just means
-the current condition or situation of a component or circuit.<br>
-<br>
+the current condition or situation of a component or circuit.
+
 For
 example, in the case of a button or switch, state would refer to
 whether the button is currently being pressed or released.
@@ -303,7 +303,7 @@ whether the button is currently being pressed or released.
 an LED, state might refer to whether the LED was illuminated or not.</p>
 </div>
 </div>
-<br>
+
 
 <p>For a component to communicate with our code, instead of wiring the component directly 
 into the rest of the circuit, we instead wire the component directly to a GPIO.  Typically,
@@ -317,9 +317,9 @@ as a GPIO input and we can read the state of the button based on the voltages ge
 
 This is what the schematic would look like for a button wired to a GPIO as an input:</p>
 
-<br>
+
 <img class=schematic style="max-width:600px;" src="img/Pushbutton-to-GPIO.png">
-<br>
+
 
 <p>
 This circuit works by defaulting the GPIO voltage to 3.3V.  When the button is unpressed 
@@ -328,6 +328,6 @@ is closed, the GPIO gets pulled low (to ground), and will read 0V.  This way, th
 measure the voltage at the GPIO and know if the button is pressed (0V at GPIO) or unpressed
 (3.3V at GPIO).
 
-<br>
+
 <p class=nextprev><a href="index.html">home</a></p>
 </body></html>

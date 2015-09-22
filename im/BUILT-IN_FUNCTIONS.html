@@ -24,15 +24,15 @@ of
 those functions are included in the Python programming language that
 everyone (at least everyone who uses Python) has access to.
  For
-example, when you use the command <span style="font-family: Courier New,Courier,monospace;">print()</span>,
+example, when you use the command <code>print()</code>,
 you are actually calling a
 function named "print" that comes standard with the Python language.
- You may think that <span style="font-family: Courier New,Courier,monospace;">print()</span>
+ You may think that <code>print()</code>
 requires just a single line of code,
-but what you don't see behind-the-scenes is that the <span style="font-family: Courier New,Courier,monospace;">print()</span>
-function utilizes <span style="font-style: italic;">thousands</span>
+but what you don't see behind-the-scenes is that the <code>print()</code>
+function utilizes <code>thousands</code>
 of lines of code.  You read that correctly -- every time you
-use <span style="font-family: Courier New,Courier,monospace;">print()</span>,
+use <code>print()</code>,
 Python is running thousands of lines of code.  But,
 because Python provides this command as a function, you can print
 output using a single programming line.</p>
@@ -42,14 +42,14 @@ programming language, you also have access to the RaspberrySTEM API -- a set of 
 that we (the RaspberrySTEM team) have written to make building with and
 using the RaspberrySTEM CREATOR Kit easier and more functional. For
 example, you might see the following in one of our projects:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
 my_led = Output(14)
 my_led.on()
 </textarea></div>
-<br>
+
 <p>Both
 of
 those lines of code are calling RaspberrySTEM functions that we have
@@ -75,21 +75,21 @@ all related to a common task.  </p>
 <p>In Python, there are two specific ways functions are used:</p>
 <ul>
 <li>
-<p><span style="font-weight: bold;">Built-In
-Commands:</span>  Some functions can be called anytime,
+<p><strong>Built-In
+Commands:</strong>  Some functions can be called anytime,
 anywhere in your code
 without having to do anything other than calling the function.
  These
-are referred to as "built-in" functions, and the <span style="font-family: Courier New,Courier,monospace;">print()</span>
+are referred to as "built-in" functions, and the <code>print()</code>
 function is a
 good example.  We can use the <code>print()</code> function anywhere in our
 code
-without having to do anything other than calling the <span style="font-family: Courier New,Courier,monospace;">print()</span>
+without having to do anything other than calling the <code>print()</code>
 function.</p>
 </li>
 <li>
-<p><span style="font-weight: bold;">Importing
-Functions/Modules:</span>
+<p><strong>Importing
+Functions/Modules:</strong>
  For non-built-in functions that we want to use (including all
 the
 RaspberrySTEM functions we provide), we need
@@ -108,13 +108,13 @@ generally easiest to just import a module into your code.
  Doing this gives you access to any of the functions in that
 module any time you need them.  We do this using the "import"
 command, and a good example that you've probably already seen is:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
 import time
 </textarea></div>
-<br>
+
 <p>The
 module "time" contains functions for telling time, formatting time strings, working
 with time zones, etc.  One function from the time module that we frequently use in our projects is
@@ -122,13 +122,13 @@ with time zones, etc.  One function from the time module that we frequently use 
 By importing that module, we now have access to all the functions within that module.
 <p>We now have access to
 the <code>sleep()</code> function by calling:
-<br>
+
 <div class="code" data-firstline="2">
 <div></div>
 <textarea>
 time.sleep(10)
 </textarea></div>
-<br>
+
 <p>The function call above would sleep (pause) for 10 seconds.
 <h2>Importing Individual Functions From a Module</h2>
 <p>In
@@ -144,7 +144,7 @@ example, here is equivalent code to sleep for 10 seconds:
 from time import sleep
 sleep(10)
 </textarea></div>
-<br>
+
 <p>Throughout
 the projects, we'll be using a lot of functions.
  We'll make sure to point them out as we're using them, and

@@ -56,7 +56,7 @@ say we wanted to print out the third item in the list (which is,
 <textarea>
 print(months[2])
 </textarea></div>
-<br>
+
 <p>
 Wait! We said we were going
 to print out
@@ -69,60 +69,29 @@ reference it as [2].</p>
 <p>Here
 is how the computer sees our list:</p>
 <p></p>
-<center>
-<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
-<col width="96"> <col width="209"> <tbody>
+<table style="display: block; margin: auto;" border="1">
+<tbody>
 <tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><b>ITEM #</b></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p align="center"><b>ITEM NAME</b></p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">0</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>January</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">1</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>February</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">2</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>March</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">3</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>April</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><span style="font-weight: normal;">4</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>May</p>
-</td>
+<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
+<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
+</tr><tr>
+<td><p>0</p></td>
+<td><p>January</p></td>
+</tr><tr>
+<td><p>1</p></td>
+<td><p>February</p></td>
+</tr><tr>
+<td><p>2</p></td>
+<td><p>March</p></td>
+</tr><tr>
+<td><p>3</p></td>
+<td><p>April</p></td>
+</tr><tr>
+<td><p>4</p></td>
+<td><p>May</p></td>
 </tr>
 </tbody>
 </table>
-</center>
 <p>So,
 the third item on our list of months is months[2].</p>
 </li>
@@ -151,7 +120,7 @@ we
 wanted to change “February” to “Feb” to make it shorter (and then print
 it out to verify that it has been changed):</p>
 <div class="code" data-firstline="0">
-<div><br></div>
+<div></div>
 <textarea>
 months[1] = 'Feb'
 </textarea></div>
@@ -162,7 +131,7 @@ months[1] = 'Feb'
 that
 we want to include June at the end of the list, we can do the following:</p>
 <div class="code" data-firstline="0">
-<div><br></div>
+<div></div>
 <textarea>
 months.append('June')
 </textarea></div>
@@ -192,60 +161,29 @@ months.remove('April')
 <li>
 <p>After making all of these changes, here is how the
 computer would now see this list:</p><p></p>
-<center>
-<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
-<col width="96"> <col width="209"> <tbody>
+<table style="display: block; margin: auto;" border="1">
+<tbody>
 <tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><b>ITEM #</b></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p align="center"><b>ITEM NAME</b></p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">0</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>January</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">1</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>Feb</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">2</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>March</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">3</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>May</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><span style="font-weight: normal;">4</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>June</p>
-</td>
+<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
+<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
+</tr><tr>
+<td><p>0</p></td>
+<td><p>January</p></td>
+</tr><tr>
+<td><p>1</p></td>
+<td><p>Feb</p></td>
+</tr><tr>
+<td><p>2</p></td>
+<td><p>March</p></td>
+</tr><tr>
+<td><p>3</p></td>
+<td><p>May</p></td>
+</tr><tr>
+<td><p>4</p></td>
+<td><p>June</p></td>
 </tr>
 </tbody>
 </table>
-</center>
 </li>
 </ul>
 <p class=nextprev><a href="index.html">home</a></p>

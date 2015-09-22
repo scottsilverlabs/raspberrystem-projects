@@ -22,8 +22,8 @@ orientation when you rotate it?  Ever wonder how that works?
 there are lots of cool applications for them when designing and
 building electronics.  </p>
 <p>The RaspberrySTEM CREATOR Kit includes its own accelerometer -- it's
-in the bag marked <span style="font-weight: bold;">Accelerometer
-RaspberrySTEM Cell</span>.  Feel free to pull it out
+in the bag marked <strong>Accelerometer
+RaspberrySTEM Cell</strong>.  Feel free to pull it out
 now...</p>
 <p>By plugging in the accelerometer to the RaspberrySTEM and then
 writing code to get input from it, we can turn our RaspberrySTEM into a
@@ -35,27 +35,28 @@ and/or the vector (speed and direction) of movement at a given time.
 and you'll see what we mean.</p>
 <p>Your Accelerometer RaspberrySTEM Cell contains a single part
 -- the accelerometer circuit board -- that looks like this (from the top):</p><p></p>
-<br>
-<div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"><br></div>
-<br>
+
+<div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"></div>
+
 
 <h2>Wiring Your Accelerometer</h2>
 <p>Let's wire up your accelerometer and write some code to get it
 working...</p>
-<br>
-<p style="font-weight: bold;">Step #1:  Place the
+
+<p><strong>Step #1:  Place the
 accelerometer on the breadboard
-</p>
+</strong></p>
 
 <p>The accelerometer has six pins.  It should be inserted into the breadboard such 
 that each pin sits in a different connect strip, and you should ensure that at least one
 other hole is usable in each connect strip where the accelerometer sits.  When inserting
 the accelerometer into the breadboard, don't be afraid to apply some pressure from the
 top -- the bottom of the black plastic connectors should touch the breadboard.</p>
-<br>
 
-<p style="font-weight: bold;"></p><p style="font-weight: bold;">
+
+<p><strong>
 Step #2:  Connect the accelerometer
+</strong></p>
     <div class="info">
     <div>WARNING: ACCELEROMETER HOOK-UP</div>
     <div>
@@ -70,7 +71,7 @@ up the chip as shown below.
     </div>
     </div>
 
-<br>
+
 <p>
 With four wires, wire up the accelerometer as show below.  Specifically:
 <ul>
@@ -87,12 +88,12 @@ Wire SCL on the accelerometer to SCL on the Lid Connector Board.
 Wire SDA on the accelerometer to SDA on the Lid Connector Board.
 </p></li>
 </ul>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look
+<p>Here is what your breadboard should look
 like once the accelerometer is properly wired (the LED Matrix in this picture can be ignored):
-</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
+</p><p></p><div style="text-align: center;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></div><h2>Testing Your Accelerometer</h2>
 <p>Let's write some code to test your accelerometer and see
 how it works:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.accel import Accel
@@ -105,24 +106,24 @@ while True:
 	print(x_force, y_force, z_force)
 	time.sleep(.1)
 </textarea></div>
-<br>
+
 <p>Now, let's take a look at what our code is doing:</p>
 <ul>
 <li>
 <p>On Line 1, we import the module we will need to initialize
-and get information from the accelerometer (called <span style="font-family: Courier New,Courier,monospace;">Accel()</span>)</p>
+and get information from the accelerometer (called <code>Accel()</code>)</p>
 </li>
 <li>
-<p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
+<p>On Line 2, we import the <code>time</code>
 module, as we're going to be using a loop and will want to slow the
 repetition of the loop down a bit</p>
 </li>
 <li>
 <p>On Line 4, we initialize our accelerometer.  We
-call the <span style="font-family: Courier New,Courier,monospace;">Accel()</span>
-function, which returns an "accelerometer object" to our <span style="font-family: Courier New,Courier,monospace;">accel </span>variable.
+call the <code>Accel()</code>
+function, which returns an "accelerometer object" to our <code>accel </code>variable.
  We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
-but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">accel</span>
+but the important thing to understand is that we can now use <code>accel</code>
 to call other accelerometer functions</p>
 </li>
 <li>
@@ -130,7 +131,7 @@ to call other accelerometer functions</p>
 of our time once we run the program)</p>
 </li>
 <li>
-<p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>,
+<p>On Line 7, we call the accelerometer function <code>forces()</code>,
 which returns three values, representing the forces in the x-direction,
 y-direction and z-direction</p>
 </li>
@@ -168,7 +169,7 @@ downwards, the number decreases towards -1</p></li>
 
 <p>Based on that, if you sit your RaspberrySTEM down on a flat surface, you should
 expect the first number to be 0, the second number to be 0 and the third number to be
-1.  In reality, the accelerometer is <b>very</b> sensitive, and it's unlikely that your
+1.  In reality, the accelerometer is <strong>very</strong> sensitive, and it's unlikely that your
 surface is 100% flat, so you'll probably see readings that are very slightly off from 
 those numbers.</p>
 <p>Play around
@@ -177,7 +178,7 @@ movements and rotations affect the numbers on the screen.  In
 future projects, we'll be using this functionality to turn the
 RaspberrySTEM into a game controller.</p>
 
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="BOUNCING_BALL_2.html">prev</a> |
 <a href="SPACE_INVADERS_PSEUDO.html">next</a></p>
 </body></html>

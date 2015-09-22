@@ -29,7 +29,7 @@ color of the missile (we can make it less bright than the other objects
 on the LED Matrix screen to give it a unique look) and one that will
 define how quickly the missile will move (in terms of number of seconds
 between drawing updates). </p><p>Here is what this piece of code will look like:</p>
-<br>
+
 <div class="code" data-firstline="0"> 
 <div></div> 
 <textarea>
@@ -40,14 +40,16 @@ MISSILE_COLOR = 10
 MISSILE_STEP_TIME = 0.1
 </textarea></div>
 
-<br>
 
-<p>Next, we need to make changes to our game loop to support the missiles.  This involves three parts of the loop:</p><p>1.  Getting inputs:</p><p>In
+
+<p>Next, we need to make changes to our game loop to support the missiles.  This involves three parts of the loop:</p>
+<h4>1.  Getting inputs:</h4>
+<p>In
 terms of getting inputs, we'll first want to check the button to
 determine when it's pressed.  And we'll then want to get the
 current time to determine if enough time has elapsed that we need to
 move any existing missiles on the screen:</p>
-<br>
+
 
 <div class="code" data-firstline="0"> 
 <div></div> 
@@ -56,9 +58,9 @@ presses = fire_button.presses()
 now = time.time()
 </textarea></div>
 
-<br>
-<p>
-2.  Changing the world:</p><p>To
+
+<h4> 2.  Changing the world:</h4>
+<p>To
 change the world, we'll first need to check to see if there is an
 existing missile on the screen (we'll know there is if the X coordinate
 is not -1).  If there's a missile on the screen, we'll need to
@@ -75,7 +77,7 @@ missile (equal to the current X coordinate location of the ship), set
 the Y coordinate location for the missile to 1 and start tracking the
 time that the missile was launched.</p>
 
-<br>
+
 <div class="code" data-firstline="0"> 
 <div></div> 
 <textarea>if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
@@ -92,12 +94,11 @@ elif presses:
 	missile_x, missile_y = (round(spaceship_position), 1)
 	missile_start_time = now
 </textarea></div>
-<br>
-<p>
 
-3.  Show the world:</p><p>To
+<h4> 3.  Show the world:</h4>
+<p>To
 show the world, we'll check to see if there is an existing missile on
-the screen, and if there is, we'll draw its current location.</p><br>
+the screen, and if there is, we'll draw its current location.</p>
 
 <div class="code" data-firstline="0"> 
 <div></div> 
@@ -107,8 +108,8 @@ if missile_x &gt;= 0:
 </textarea></div>
 
 
-<br>
-<p>If we integrate those snippets of code into our current code for the project, our full project will look like this -- when you run it, try pressing the button and watching the missile fire:<br>
+
+<p>If we integrate those snippets of code into our current code for the project, our full project will look like this -- when you run it, try pressing the button and watching the missile fire:
 <div class="code" data-firstline="1"> <div></div> <textarea>
 # ###############################################################
 #
@@ -199,7 +200,7 @@ while True:
 	fb.show()
 	time.sleep(0.001)
 </textarea></div>
-<br>
+
 	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_4.html">prev</a> |
 <a href="SPACE_INVADERS_6.html">next</a></p>
 </body></html>

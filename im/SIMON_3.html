@@ -40,7 +40,7 @@ sequence random.</p>
 <p>The first thing we're going to need to do is to import the
 modules and functions we'll be using and initialize our list
 of LEDs.  Here's what our initialization code should look like:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -51,8 +51,7 @@ import time
 
 lights = [Output(4), Output(18), Output(24), Output(27)]
 </textarea></div>
-<br>
-<p style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
+
 <p>The sequence of LED flashes will be contained in a list, and
 the items in the list will be indexes to the LED list we implemented in
 the previous project.  In other words, we'll create a list of
@@ -61,18 +60,18 @@ lists start counting at 0, so the first LED is actually represented as
 the 0th element of the list.  The fourth LED is represented as
 the 3rd element of the list.</p>
 <p>We'll
-call our list of LEDs <span style="font-family: Courier New,Courier,monospace;">play_order</span>
+call our list of LEDs <code>play_order</code>
 and we'll have it run through a quick
 sequence of 8 LED flashes hitting each LED twice.</p>
 <p>Here's what our LED sequence list should look like:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Initialize the LEDs and sequence list
 
 play_order = [0, 1, 2, 3, 2, 1, 0, 3]
 </textarea></div>
-<br>
+
 <p>Finally, we want to actually play that sequence of flashes on
 our LED.  First, we'll ensure that all the LEDs are turned off
 when we start, since we can't be sure of the previous state of the
@@ -80,7 +79,7 @@ GPIOs.  Then, we'll use a for loop to run through our sequence
 list, turning the LEDs on one at a time for .4 seconds and then waiting
 .2 seconds between each flash.  Here's what the play sequence
 should look like:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Play sequence
@@ -94,12 +93,12 @@ for i in play_order:
 	lights[i].off()
 	time.sleep(0.2)
 </textarea></div>
-<br>
+
 <p>Notice that we leave the LEDs on for .4 seconds and then have
 a .2 second delay between flashes.  </p>
 <p>Here is our full code at this point -- when you run it, you will see the four LEDs
 flash in the hard-coded pattern that we've added to the code:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -122,8 +121,7 @@ for i in play_order:
 	lights[i].off()
 	time.sleep(0.2)
 </textarea></div>
-<br>
-<div class="code" data-firstline="1">
+
 <p class=nextprev><a href="index.html">home</a> | <a href="SIMON_2.html">prev</a> |
 <a href="SIMON_4.html">next</a></p>
 </body></html>

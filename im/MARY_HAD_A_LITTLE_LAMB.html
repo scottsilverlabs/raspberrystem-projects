@@ -56,14 +56,16 @@ for note in notes:
 	note.play(duration=0.5) 
 	note.wait()
 </textarea></div>
-<br><p>The code above is pretty simple -- we create a list of notes, and then we use a <span style="font-family: Courier New,Courier,monospace;">for</span> loop to loop through them, play each in turn.  <br><br>Now,
+<p>The code above is pretty simple -- we create a list of notes, and then we
+use a <code>for</code> loop to loop through them, play each in turn.  Now,
 the one big issue with this code is that each note is of a fixed
 duration.  But, in most songs, you have notes of varying length
 (some longer and some shorter).  We can modify this code so that
 we can specify the length of each note independently.  We do that
-by creating a second list that contains the note durations, and in our <span style="font-family: Courier New,Courier,monospace;">for</span> loop, we use both the note and the duration in our <span style="font-family: Courier New,Courier,monospace;">play()</span> function.
+by creating a second list that contains the note durations, and in our <code>for</code> loop, we
+use both the note and the duration in our <code>play()</code> function.
 
-<br>
+
 <div class="info">
 <div>zip() Function</div>
 <div>
@@ -94,8 +96,8 @@ for loop, as we will do below.</p>
 </div>
 </div>
 
-<br><br><p>Here is what the code would look like:</p>
-<br>
+<p>Here is what the code would look like:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>

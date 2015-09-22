@@ -44,26 +44,26 @@ instead of trying to manage input from each button individually.
  While this project will focus on buttons, the concept of
 monitoring inputs and controlling outputs using lists and loops can be
 applied to pretty much any component.</p>
-<br>
-<p><b>Step #1: Build the circuit.</b></p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
+
+<h4>Step #1: Build the circuit.</h4>
+<p>Wiring
 four buttons to four different GPIOs is no different than wiring a
-single button </span></span>to
+single button to
 a GPIO and then replicating that circuit four times.  Give it
 a try!</p><p>Here are three things to remember as you're wiring your buttons:</p><ol><li><p>The un-connected sides of each button should sit on different connect strips</p></li><li><p>One side of each button should be wired to ground</p></li><li><p>One side of each button should be wired to your chosen GPIO</p></li></ol>
 <p>Here is what your
 breadboard should look like at this point (we've chosen to use GPIO14,
 GPIO15, GPIO25 and GPIO7 for our buttons):</p>
 <img class="bb" src="img/Many_Buttons_bb.png">
-<br>
-<p><b>Step #2: Write the code.</b></p>
+
+<h4>Step #2: Write the code.</h4>
 <p>
 For this project, we're simply going to create a list of buttons and
-then use a <span style="font-family: Courier New,Courier,monospace;">for</span>
+then use a <code>for</code>
 loop to cycle through the list and determine which buttons are current
 being pressed.</p>
 <p>Here is what that code will look like:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -78,7 +78,7 @@ while True:
 			print("Button connected to GPIO", button.pin, "is pressed")
 	time.sleep(0.1)
 </textarea></div>
-<br>
+
 <p>Let's look at this code in more detail:</p>
 <ul>
 <li>
@@ -86,7 +86,7 @@ while True:
 our buttons</p>
 </li>
 <li>
-<p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
+<p>On Line 2, we import the <code>time</code>
 module, as we're going to be using a loop and will want to slow the
 repetition of the loop down a bit</p>
 </li>
@@ -96,7 +96,7 @@ contains the
 initialization for each of the four buttons we've created.
  For
 each button in the list, we call the Button() function, which returns a
-"button object" for each item in the my_buttons<span style="font-family: Courier New,Courier,monospace;"> </span>variable.
+"button object" for each item in the my_buttons<code> </code>variable.
  We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES &
 ASSIGNMENTS</a>,
 but the important thing to understand is that we can use these objects
@@ -107,8 +107,8 @@ to access Button() functions and attributes</p>
 of our time once we run the program)</p>
 </li>
 <li>
-<p>On Line 7, we create a <span style="font-family: Courier New,Courier,monospace;">for</span>
-loop that we use to cycle through the items in the <span style="font-family: Courier New,Courier,monospace;">my_buttons</span>
+<p>On Line 7, we create a <code>for</code>
+loop that we use to cycle through the items in the <code>my_buttons</code>
 list</p>
 </li>
 <li>
@@ -120,12 +120,12 @@ is currently being pressed</p>
 pressed, we send that information to the Output Window</p>
 </li>
 <li>
-<p>Lines 7-9 will loop for each of the buttons in the list <span style="font-family: Courier New,Courier,monospace;">my_buttons</span></p>
+<p>Lines 7-9 will loop for each of the buttons in the list <code>my_buttons</code></p>
 </li>
 <li>
 <p>On
 Line 10, we pause briefly (so we don't hog the processor) and then
-return to the top of the <span style="font-family: Courier New,Courier,monospace;">while</span>
+return to the top of the <code>while</code>
 loop to check our buttons again</p>
 </li>
 </ul>
@@ -137,11 +137,11 @@ imagine
 if you were creating something with dozens or hundreds of buttons (like
 a piano keyboard that has 88 keys)?  The code to monitor the
 88
-keys on a piano keyboard would be no longer than the code you see above.<br>
-<br>
+keys on a piano keyboard would be no longer than the code you see above.
+
 When you run this code, you'll see that every time you press a button,
-that information is sent to the Output Window.<br>
-<br>
+that information is sent to the Output Window.
+
 If
 you want to try a variation of this project, why not try replacing the
 buttons with LEDs, and then rewrite the code to flash the LEDs instead

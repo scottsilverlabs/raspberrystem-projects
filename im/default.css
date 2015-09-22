@@ -4,6 +4,16 @@
 img {
     width: 90%;
     height: auto;
+    margin: auto;
+    margin-top: 0.2in;
+    margin-bottom: 0.1in;
+    display: block;
+}
+img.inline_icon {
+    width: 25px;
+    margin: initial;
+    display: initial;
+    vertical-align: middle;
 }
 p {
     margin-bottom: 0.14in;
@@ -171,12 +181,12 @@ h3 {
 }
 h4 {
     margin: 0in;
-    margin-top: 0.2in;
+    margin-top: 0.3in;
     margin-bottom: 0.1in;
     color: black;
     text-align: left;
     font-family: "Calibri Light", serif;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: bold
 }
 h5 {
@@ -210,7 +220,9 @@ p.nextprev {
  * Code blocks
  */
 div.code {
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.code > div:first-child::before {
     content: "Code";
@@ -238,7 +250,9 @@ div.code > textarea {
  * Output blocks
  */
 div.output {
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.output > div:first-child::before {
     content: "Program Output";
@@ -268,7 +282,9 @@ div.output > pre {
  */
 div.info {
     border: 2px solid black;
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.info > div:first-child {
     background: url('img/infobulb.png');
@@ -316,6 +332,8 @@ th, td
 .schematic {
     display: block; 
     margin: auto;
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
     max-width: 600px;
     width: 95%;
 }

@@ -44,7 +44,7 @@ code would start at a specified number of seconds (let's say 60), and then count
 gets to 0 and we jump to Step #6. The easiest way to implement that repeating code is to use
 a while loop, as follows:</p>
 
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -56,7 +56,7 @@ while (time_left > 0):
 
 sound_the_alarm()
 </textarea></div>
-<br>
+
 
 <p>In our code above, the first line sets our variable <code>time_left</code> to 60.</p>
 <p>Next, we use a while loop to test whether <code>time_left</code> equals 0 or not.  If the
@@ -69,14 +69,14 @@ at which point we drop through the loop and start executing the code below it.</
 In fact, that's the point of it -- it will keep going until
 someone explicitly stops the program. </p>
 <p>It is written as follows:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 while True:
 	CODE BLOCK HERE
 </textarea></div>
-<br>
+
 <p>Because the expression "True" always evaluates to True, this
 code block will loop over and over forever until the program is stopped
 by the user.</p>

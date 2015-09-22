@@ -18,9 +18,16 @@
 </header>
 
 <p>
-In this project, we're going to add in our final sequence when the user makes a mistake and we drop through the <span style="font-family: Courier New,Courier,monospace;">while</span> loop. </p><p>When this happens, we want to do the following: </p><ol><li><p>If the user has lost due to a time-out (he didn't hit a button in time), we light up all the LEDs </p></li><li><p>If the user has lost due to hitting a wrong button in the sequence, we light up the LED that was incorrectly pressed </p></li><li><p>We then play an error tone </p></li><li><p>Finally, we play the correct sequence one last time (quickly)</p></li></ol><p>Here is what that code will look like:
-<br>
-<br>
+In this project, we're going to add in our final sequence when the user makes a mistake and we
+drop through the <code>while</code> loop. </p>
+<p>When this happens, we want to do the following: </p><ol><li>
+<p>If the user has lost due to a time-out (he didn't hit a button in time), we light up all the LEDs </p></li><li>
+<p>If the user has lost due to hitting a wrong button in the sequence, we light up the LED that was incorrectly pressed </p></li><li>
+<p>We then play an error tone </p></li><li>
+<p>Finally, we play the correct sequence one last time (quickly)</p></li></ol>
+<p>Here is what that code will look like:
+
+
 </p><div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -45,9 +52,9 @@ for i in play_order:
 	lights[i].off() 
 	time.sleep(0.05)
 </textarea></div>
-<br><p>
+<p>
 Here is what the final code for this project looks like -- go have some fun playing
-and feel free to add more features to customize the game how you'd like:</p><br>
+and feel free to add more features to customize the game how you'd like:</p>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -136,7 +143,7 @@ for i in play_order:
 	lights[i].off() 
 	time.sleep(0.2)
 </textarea></div>
-<br>
+
 
 <p class=nextprev><a href="index.html">home</a> | <a href="SIMON_6.html">prev</a> |
 <a href="LED_MATRIX.html">next</a></p>

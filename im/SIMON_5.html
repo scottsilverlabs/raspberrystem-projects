@@ -28,13 +28,12 @@ is over.</p>
 <p>In this project, we'll add the buttons as input, and add the
 code that will verify the button sequence that the player enters.</p>
 <h2>Programming Implementation</h2>
-<p style="font-weight: bold;">Step #1:  Add the
-initialization code</p>
+<h4>Step #1:  Add the initialization code</h4>
 <p>The first thing we're going to need to do is initialize the
 buttons -- we'll import the function we need and create the button list
 just like we did in <a href="MANY_BUTTONS.html">MANY
 BUTTONS</a>:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Initialize the LEDs and sequence list
@@ -43,31 +42,29 @@ from rstem.button import Button
 buttons = [Button(14), Button(15), Button(23), Button(17)]
 </textarea></div>
 
-<br>
-<p></p>
-<p style="font-weight: bold;">Step #2:  Check the
-button sequence entered by the player</p>
+<h4>Step #2:  Check the button sequence entered by the player</h4>
 
 <p>Next, we need to add code after we play the sequence to check
 for whether the user has entered the correct sequence back.  There are several parts to this, and 
-they will all be captured in a <span style="font-family: Courier New,Courier,monospace;">for:</span> loop that runs through the sequence the player is repeating.  Each time through the<span style="font-family: Courier New,Courier,monospace;"> for: </span>loop, we'll need to accomplish the following things:</p>
+they will all be captured in a <code>for</code> loop that runs through the sequence the player is
+repeating.  Each time through the <code>for</code> loop, we'll need to accomplish the following things:</p>
 <ol>
 	<li><p>First, we test to see if the button pressed was the next button in the
 sequence.</li>
 	<li><p>If an incorrect button was pressed, we
-set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True.  This will be our
-indication to the <span style="font-family: Courier New,Courier,monospace;">while</span> loop that the game is over and on our next
+set a variable called <code>failed</code> to True.  This will be our
+indication to the <code>while</code> loop that the game is over and on our next
 pass, we should drop through the loop.  This will also require us
-to change our test in the <span style="font-family: Courier New,Courier,monospace;">while</span>
+to change our test in the <code>while</code>
 loop that we already created (we'll do that in Step #3).  And
 we'll need to stop checking for additional button presses and drop
 through the loop.</li>
 	<li><p>Lastly, if the player has entered a correct button in the sequence, we need to flash that LED.</li>
 </ol>
 
-	<p>Here is what the beginning of the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop would look like:</p>
+	<p>Here is what the beginning of the <code>for</code> loop would look like:</p>
 
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Wait for user to repeat
@@ -75,9 +72,9 @@ for i in play order:
 	button_pressed = Button.wait_many(buttons, timeout=3)
 </textarea></div>
 
-<br>
 
-<br>
+
+
 <div class="info">
 <div>wait_many() Function</div>
 <div>
@@ -87,10 +84,10 @@ for i in play order:
 	See the API reference for more details.
 </div>
 </div>
-<br>
+
 <p>Next, we check to see if player pressed the WRONG button:</p>
 
-<br>
+
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -99,14 +96,16 @@ for i in play order:
 	break
 </textarea></div>
 
-<br>
-<p>If the button entered by the player was incorrect, we set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True, and then we <span style="font-family: Courier New,Courier,monospace;">break</span> -- the <span style="font-family: Courier New,Courier,monospace;">break</span> command will immediately exit the <span style="font-family: Courier New,Courier,monospace;">for:</span> loop.</p>
 
-<p><span style="font-family: &quot;Verdana&quot;,serif;">If
-the button entered by the player was correct</span>, we need to
+<p>If the button entered by the player was incorrect, we set a variable called <code>failed</code>
+to True, and then we <code>break</code> -- the <code>break</code> command will immediately exit
+the <code>for</code> loop.</p>
+
+<p>If
+the button entered by the player was correct, we need to
 light the LED before moving on to checking the next
 button entered.  Here is what that code should look like:</p>
-<br>
+
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -123,19 +122,18 @@ very short period.  This extends the time the LED is on to give a better
 appearance when a player presses and releases a button very quickly. 
 </p>
 
-<br>
 
-<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #3:  Update
-the while loop</p>
-<p>Finally, we have to update our <span style="font-family: Courier New,Courier,monospace;">while</span> loop, as we want it to
+
+<h4>Step #3:  Update the while loop</h4>
+<p>Finally, we have to update our <code>while</code> loop, as we want it to
 drop through if we determine that the user made a mistake and the game
-is over.  Remember, we set a variable called <span style="font-family: Courier New,Courier,monospace;">failed</span> to True
+is over.  Remember, we set a variable called <code>failed</code> to True
 when the user made a mistake, so we can simply test to see whether
-<code>failed</code> is <code>True</code> in our <span style="font-family: Courier New,Courier,monospace;">while</span> loop.</p>
-<p>To update the <span style="font-family: Courier New,Courier,monospace;">while</span> loop, we need to first initialize our
+<code>failed</code> is <code>True</code> in our <code>while</code> loop.</p>
+<p>To update the <code>while</code> loop, we need to first initialize our
 failed variable when we start the program, and then we can update our
-<span style="font-family: Courier New,Courier,monospace;">while</span> loop as follows:</p>
-<br>
+<code>while</code> loop as follows:</p>
+
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -147,13 +145,13 @@ failed = False
 while not failed:
 </textarea></div>
 
-<br>
+
 <p>
 Here is what the code for this project should look like at this point -- when you run it,
 you will see a single LED flash, and you can press the button associated with that LED; then
 the pattern will repeat, adding a new LED light and you can enter the 2-light sequence; the
 sequence will continue to add a new LED for as long as you correctly enter the sequence:</p>
-<br>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea># ##################################
@@ -216,7 +214,7 @@ while not failed:
 
 # Game Over -- Play error sequence
 </textarea></div>
-<br>
+
 
 <p class=nextprev><a href="index.html">home</a> | <a href="SIMON_4.html">prev</a> |
 <a href="SIMON_6.html">next</a></p>

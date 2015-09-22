@@ -20,25 +20,19 @@
 pushbutton (or just "button").  A button is just a very simple switch – electric current can flow
 through it only when it is pressed.  </p>
 <p>Take one of the buttons out of your 
-<b>I/O (Input/Output) RaspberrySTEM Cell</b> so we can take a closer look at how a button works.  
+<strong>I/O (Input/Output) RaspberrySTEM Cell</strong> so we can take a closer look at how a button works.  
 This is a representation of most basic pushbuttons – they have four “legs”
 that can be attached to your breadboard and wired to the circuit and
 then one button in the center of the device that can be pushed
 (“closed”) or released (“open”):</p>
-<br>
-<p>
 <img style="display: block; margin: auto; width: 200px;" alt="" src="img/button1%20cropped.jpg">
-</p>
-<br>
 <p>Internally, the left side of the
 button (the two legs on the
 left) are connected together, and the right side of the button (the two
 legs on
 the right) are connected together:
 </p>
-<br>
-<p style="text-align: center;" align="center"><span style=""><img style="width: 402px;" alt="" src="img/button2%20cropped.jpg" v:shapes="Picture_x0020_243"></span></p>
-<br>
+<img style="width: 402px;" alt="" src="img/button2%20cropped.jpg" v:shapes="Picture_x0020_243">
 <p>When we insert a button into a circuit, it has one of two
 operations:</p>
 <ol>
@@ -61,17 +55,12 @@ pressing the button).</p>
 <p>Let’s build that circuit now…</p>
 <p>Here’s what the schematic will look
 like:
-<br>
-<br>
-<img class="schematic" style="width:200px;" src="img/Battery-LED-Circuit-With-Button.png" width="200">  
-<br>
+<img class="schematic" style="width:200px;" src="img/Battery-LED-Circuit-With-Button.png">  
 <p>To build the circuit, let's start with the circuit we built in the last project --
 	<a href="RASPBERRY_PI_POWER.html">RASPBERRY PI POWER</a>:</p>
-<br>
 <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
-<br>
 
-<p><b>Step #1: Remove wire from LED to ground.</b></p>
+<h4>Step #1: Remove wire from LED to ground.</h4>
 <p>We’re going to be adding the button
 into the circuit between
 the LED and ground, so the first step will be to remove the wire that
@@ -80,9 +69,8 @@ the LED to ground.  </p>
 <p>This is what the breadboard should
 look like at this point:</p>
 <img class="bb" src="img/Introducing_Buttons_1_bb.png">
-<br>
 
-<p><b>Step #2: Provide connectivity from the LED to the button.</b></p>
+<h4>Step #2: Provide connectivity from the LED to the button.</h4>
 <p>The next step is to provide connectivity between the second lead of
 the LED and the button.  You can wire the button directly to the LED, but to space the parts out a
 little more, we're going to first add an additional wire (one of the the half-inch green
@@ -90,30 +78,28 @@ wires).
 </p><p>This is what the breadboard should
 look like at this point:</p>
 <img class="bb" src="img/Introducing_Buttons_2_bb.png">
-<br>
-<p><b>Step #3: Place button on the breadboard.</b></p>
+<h4>Step #3: Place button on the breadboard.</h4>
 <p>Next, we’ll place the button on the
 breadboard.    Note
 that the button should be oriented so
 that the two sides of the button sit on different connect strips, as follows:    </p>
-<br>
 <table style="margin: auto; width: 70%;">
 <tbody>
 <tr>
-<td><img src="img/Button_orientation_correct.png" width="285"></td>
-<td><img src="img/Button_orientation_wrong.png" width="285"></td>
+<td><img src="img/Button_orientation_correct.png"></td>
+<td><img src="img/Button_orientation_wrong.png"></td>
 </tr>
 <tr>
-<td><b>CORRECT</b></td>
-<td><b><span style="color: red;">WRONG!!!</span></b></td>
+<td><strong>CORRECT</strong></td>
+<td><strong><span style="color: red;">WRONG!!!</span></strong></td>
 </tr>
 </tbody>
 </table>
-<br><br><p>One side of the button should sit in the same connect strip as
+<p>One side of the button should sit in the same connect strip as
 the green wire from the LED.  This will provide connectivity from
 the LED through the green wire and to the button, as follows:</p><p>   </p>
 <img class="bb" src="img/Introducing_Buttons_3_bb.png">
-<p><span style="font-weight: bold;">Note:</span>  In our diagram
+<p><strong>Note:</strong>  In our diagram
 above, you'll notice that the button sits across a notch in the
 breadboard.  This isn't absolutely necessary -- the button could
 sit with both left legs in the same connect strip and both right legs
@@ -121,9 +107,7 @@ in the same connect strip.  But, because buttons take up a lot of
 space on the breadboard, we find it easier to position them across a
 notch in many cases.  You can decide how you want to wire your
 buttons, but keep in mind that either way will work.
-<br>
-<br>
-<p><b>Step #4: Connect the other side of the button to ground.</b></p>
+<h4>Step #4: Connect the other side of the button to ground.</h4>
 <p> Finally,
 we can
 complete the circuit by connecting the other side of the button to
@@ -132,7 +116,7 @@ this:  </p>
 <img class="bb" src="img/Introducing_Buttons_4_bb.png">
 <p> At this
 point, your
-LED should <b>not</b> be lit.   Remember,
+LED should <strong>not</strong> be lit.   Remember,
 while
 we have a <span style="font-style: italic;">potentially</span>
 complete circuit, there is still a lack of physical
@@ -142,7 +126,6 @@ is how a button works) and the way to complete the circuit is to press
 the button.</p><p> If you press the button,
 you should see the
 LED illuminate.</p>
-<br>
 <div class="info">
 <div>"Breaking the Circuit"</div>
 <div>
@@ -160,7 +143,6 @@ operate. So, our decision to insert the button where we did was
 completely arbitrary. 
 </p>
 </div></div>
-<br>
 <p>Congratulations - you’ve just built the same circuit used in most simple flashlights!</p>
 <p>
 In the next project, we’ll add software into the equation, and will start using "GPIOs"

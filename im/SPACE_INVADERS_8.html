@@ -22,7 +22,7 @@
 more visually appealing by custom designing our ship using "Sprite"
 functionality in the API.</p>
 
-<br>
+
 
 <div class="info">
 <div>What Are Sprites?</div>
@@ -46,14 +46,14 @@ project below.
 change the ship to a custom sprite, we need to include some basic
 initialization code, code to design the sprite configuration and code
 to draw the sprite.</p><p>Here is the initialization code:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>from rstem.led_matrix import FrameBuffer, Sprite
 </textarea></div>
-<br>
+
 <p>Here is the sprite code:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -65,9 +65,9 @@ FAF
 spaceship_middle = 1
 </textarea></div>
 
-<br>
+
 <p>Here is the drawing code:</p>
-<br>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea># Draw spaceship
@@ -75,11 +75,11 @@ spaceship_x = round(spaceship_position) - spaceship_middle
 
 fb.draw(spaceship, origin=(spaceship_x, 0))
 </textarea></div>
-<br>
+
 
 <p>And here is what our full project should look like at this point -- when you run the 
 code, you should now see our spaceship dot replaced with a nicer spaceship design:</p>
-<br>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 # ###############################################################
 #
