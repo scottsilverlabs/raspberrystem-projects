@@ -23,25 +23,25 @@ inputs.  We'll use this setup in future projects to control different outputs.</
 INPUT/OUTPUT</a> and <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>,
 we introduced the concept of controlling
 and monitoring the state of a component (LEDs and buttons) using GPIOs
-as inputs/outputs. &nbsp;In the gaming world, this concept gets
+as inputs/outputs.  In the gaming world, this concept gets
 more
 useful -- and interesting -- as we add more components.
-&nbsp;Unfortunately, it can also get tricky to manage inputs from,
+ Unfortunately, it can also get tricky to manage inputs from,
 and
-outputs to, lots of different components. &nbsp;Which is why it's
+outputs to, lots of different components.  Which is why it's
 important to learn how to use lists to manage sets of similar
-components. &nbsp;We also will often use loops along with those
+components.  We also will often use loops along with those
 lists
 to efficiently handle the information flowing to and from those
 components.</p>
 <p>In this project, we're going to wire four buttons to
-four different GPIOs. &nbsp;Based on the projects we've already
+four different GPIOs.  Based on the projects we've already
 done,
-it shouldn't be too difficult to create the circuit. &nbsp;But,
+it shouldn't be too difficult to create the circuit.  But,
 then
 we're going to handle the input from those buttons using a list,
 instead of trying to manage input from each button individually.
-&nbsp;While this project will focus on buttons, the concept of
+ While this project will focus on buttons, the concept of
 monitoring inputs and controlling outputs using lists and loops can be
 applied to pretty much any component.</p>
 <br>
@@ -49,7 +49,7 @@ applied to pretty much any component.</p>
 <p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: normal;">Wiring
 four buttons to four different GPIOs is no different than wiring a
 single button </span></span>to
-a GPIO and then replicating that circuit four times. &nbsp;Give it
+a GPIO and then replicating that circuit four times.  Give it
 a try!</p><p>Here are three things to remember as you're wiring your buttons:</p><ol><li><p>The un-connected sides of each button should sit on different connect strips</p></li><li><p>One side of each button should be wired to ground</p></li><li><p>One side of each button should be wired to your chosen GPIO</p></li></ol>
 <p>Here is what your
 breadboard should look like at this point (we've chosen to use GPIO14,
@@ -91,13 +91,13 @@ module, as we're going to be using a loop and will want to slow the
 repetition of the loop down a bit</p>
 </li>
 <li>
-<p>On Line 4, we create a list&nbsp;called buttons that
+<p>On Line 4, we create a list called buttons that
 contains the
 initialization for each of the four buttons we've created.
-&nbsp;For
+ For
 each button in the list, we call the Button() function, which returns a
 "button object" for each item in the my_buttons<span style="font-family: Courier New,Courier,monospace;"> </span>variable.
-&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES &
+ We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES &
 ASSIGNMENTS</a>,
 but the important thing to understand is that we can use these objects
 to access Button() functions and attributes</p>
@@ -132,10 +132,10 @@ loop to check our buttons again</p>
 <p>By
 using lists and loops, we've reduced the amount of code required to
 create and test four buttons from about 20 lines of code down to about
-6 lines of code. &nbsp;While that might not seem significant,
+6 lines of code.  While that might not seem significant,
 imagine
 if you were creating something with dozens or hundreds of buttons (like
-a piano keyboard that has 88 keys)? &nbsp;The code to monitor the
+a piano keyboard that has 88 keys)?  The code to monitor the
 88
 keys on a piano keyboard would be no longer than the code you see above.<br>
 <br>

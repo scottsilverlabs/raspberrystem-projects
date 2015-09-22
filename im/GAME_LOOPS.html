@@ -22,18 +22,18 @@
 <p><span style="">Now that
 we have the LED Matrix as
 a display and can take input with buttons, there's no reason we can't
-start creating some simple games. &nbsp;But, before we do that,
+start creating some simple games.  But, before we do that,
 there
 are some basics of computer game programming that are helpful to
 understand; in fact, once you get through this project, we'd be willing
 to bet that you have a new appreciation for how video games
-work.&nbsp;&nbsp;</span></p>
+work.  </span></p>
 <p><span style="">Most
 computer games (and especially those that most kids would consider to
 be video
 games) share a common method of programming called the “game loop.”
-&nbsp;A game
-loop is a simple concept, but is the heart of most video games.<span style="">&nbsp; </span>The game loop essentially
+ A game
+loop is a simple concept, but is the heart of most video games.<span style="">  </span>The game loop essentially
 works by doing the
 same things over and over the entire time the game is running.</span></p>
 
@@ -44,7 +44,7 @@ in more detail in our Simon 0 project.</span></p>
 <p><span style=""><span style="font-family: &quot;Verdana&quot;,serif;">As
 we
 mentioned above, nearly all video games use the game loop format to
-design and build their games. &nbsp;The </span>pseudo-code
+design and build their games.  The </span>pseudo-code
 for a typical game loop will look something like this:</span></p>
 <pre>
 Initialize the game environment
@@ -57,13 +57,13 @@ while (game not finished):
 
 Finish & Cleanup
 </pre>
-<p>We'll examine this loop line-by-line below. &nbsp;And at the same time, let's build our very own (very
+<p>We'll examine this loop line-by-line below.  And at the same time, let's build our very own (very
 simple) game loop that will move a dot around the LED Matrix...</p>
 
 <h2><span style="">Initialize the game environment</span></h2>
 <p>The
 very first step in any game is to initialize anything that will be used
-in the game loop. &nbsp;If you're not familiar with the term
+in the game loop.  If you're not familiar with the term
 "initialize," it basically means setting up all the aspects of the game
 so that when the user starts playing, the game code is ready to be executed. For example,
 this might include importing
@@ -71,7 +71,7 @@ libraries and functions we'll need later in the code, creating a
 framebuffer (or perhaps
 many framebuffers) that will hold the graphics during the game,
 defining the start location and speed of various game characters, etc.
-&nbsp;</p>
+ </p>
 <p>In our case, we're going to want to do three things to get
 ready for our game loop:</p>
 <ol>
@@ -81,7 +81,7 @@ ready for our game loop:</p>
 <li>
 <p>Create a framebuffer that we'll use to draw and display
 the
-dot&nbsp;</p>
+dot </p>
 </li>
 <li>
 <p>Initialize the location of a dot when the loop starts
@@ -106,12 +106,12 @@ fb.point(x, y)
 <p>We
 call it a game loop because it's an actual loop in the code that
 continues until the game is finished or until the user says chooses to exit.
-&nbsp;For this project, we're going to take the easy way out and
+ For this project, we're going to take the easy way out and
 just
-let the program run forever (until we stop the program). &nbsp;We
+let the program run forever (until we stop the program).  We
 can
 do this using a <span style="font-family: Courier New,Courier,monospace;">while
-True:</span> loop. &nbsp;</p>
+True:</span> loop.  </p>
 <p>So, this will be the very first
 line
 of our
@@ -126,32 +126,32 @@ while True:
 <p>In
 a typical game loop, this is where we would check for user input --
 check for button presses, check for joystick movement, check for
-controller movement, etc. &nbsp;And we'll do that in some
+controller movement, etc.  And we'll do that in some
 subsequent
-projects. &nbsp;But, for this particular project, we're keeping
+projects.  But, for this particular project, we're keeping
 things
-simple and we're not taking any input from the user. &nbsp;So,
+simple and we're not taking any input from the user.  So,
 there's no code to add for this part of the loop.</p>
 <h2><span style="">Update the game world</span></h2>
 <p>Updating
 the game world means taking the new information we have -- either from
 the user input we've received or just because we are further along in
 time -- and to use this new information to update any parts of our game
-that now need to change. &nbsp;For example, in a character-based
+that now need to change.  For example, in a character-based
 game,
 if a user has indicated that they want their character to move to the
 right of the screen, the game world update might involve changing the
 location of the character, shifting the background, changing the
-location of other characters in the game, etc. &nbsp;This part of
+location of other characters in the game, etc.  This part of
 the
-game loop will figure out&nbsp;what
+game loop will figure out what
 the next set of graphics to display looks like in preparation to draw
 the new graphics.</p>
 <p>In our example, we're just going to
 automatically move the dot to the right one space, regardless of what
-the user does. &nbsp;To do that, we need to increment the
+the user does.  To do that, we need to increment the
 x-coordinate
-by 1. &nbsp;We then erase the current framebuffer data and update
+by 1.  We then erase the current framebuffer data and update
 the
 framebuffer with the new location.</p>
 <br>
@@ -164,10 +164,10 @@ x += 1
 <p>Once
 we have updated all the aspects of the game world and have the
 information about what will get displayed next, it's time to actually
-display the the new graphics. &nbsp;This&nbsp;typically
+display the the new graphics.  This typically
 involves
 erasing and drawing the new graphics to the framebuffer and then
-displaying that framebuffer. &nbsp;We can do that just like we did
+displaying that framebuffer.  We can do that just like we did
 in
 the
 last project:</p>
@@ -182,23 +182,23 @@ fb.show()
 <h2><span style="">Wait for some period of time</span></h2>
 <p>The
 very last thing we sometimes do in a game loop is to wait for some
-period of time. &nbsp;Remember, computers are VERY fast, and if we
+period of time.  Remember, computers are VERY fast, and if we
 let
 them do things as fast as they can, we may occasionally get results
 that
-we don't want. &nbsp;For example, in some programs, the graphics
+we don't want.  For example, in some programs, the graphics
 will
 update each time through the loop -- if we loop this project too
 quickly, the dot will scroll off the screen so quickly that we won't
-even see it. &nbsp;But, even in programs where the graphics aren't
+even see it.  But, even in programs where the graphics aren't
 updating each time through the loop, if we let the
 computer run at full speed, the processor may get bogged down and not
-react the way we would like. &nbsp;</p>
+react the way we would like.  </p>
 <p>For
 those reasons, we will typically put a pause at the end of a game loop.
-&nbsp;If your graphics will be updating each time through the loop,
+ If your graphics will be updating each time through the loop,
 you'll want to choose a wait time that makes sense for your graphics
-updates. &nbsp;If not, you'll probably want to play around with
+updates.  If not, you'll probably want to play around with
 various
 pause times and see which work the best -- too slow, and you might find
 that your program is not responsive; too fast, and you might find that
@@ -206,7 +206,7 @@ the processor wastes power and causes poor performance of other
 programs running on the computer at the same time.</p>
 <p>In this case, our graphics rely on the loop speed, and we'd
 probably be happy moving
-the location of the dot every half-second. &nbsp;Which means we'll
+the location of the dot every half-second.  Which means we'll
 want to put
 in a half-second delay at the end of the loop.</p>
 <br>
@@ -218,13 +218,13 @@ time.sleep(.5)
 <h2>Finish &amp; Cleanup</h2>
 <p>At
 some point, the game will probably end and we'll drop out of the loop.
-&nbsp;This is most common when the player wins or loses a game, or
+ This is most common when the player wins or loses a game, or
 when
-a player purposefully exits a game for some reason. &nbsp;When that
+a player purposefully exits a game for some reason.  When that
 happens, you may want to indicate to the user the final outcome of the
 game, play a separate set of graphics (for example, something special
 if the player beats the game) or you may want to go back to another
-menu screen.&nbsp;&nbsp;</p>
+menu screen.  </p>
 <p>In this project, we never drop out of
 the loop (remember, we used a while True: loop), so there doesn't need
 to be any code at this point in the program.</p>
@@ -232,7 +232,7 @@ to be any code at this point in the program.</p>
 <p>We
 now have all of the code necessary for a game loop that will place a
 dot at one corner of the LED Matrix display and then move that dot to
-the right every half-second. &nbsp;Here's what the entire snippet
+the right every half-second.  Here's what the entire snippet
 of
 code should look like:</p>
 <br>
@@ -266,10 +266,10 @@ while True:
 <br>
 <p>When you run this code, you should see
 the dot start at one corner of the LED Matrix and move in one direction
-until it is off the screen. &nbsp;Because we're not checking to see
+until it is off the screen.  Because we're not checking to see
 if
 the dot is still on the screen or not, the code will just continue to
-run even after you can no longer see the dot. &nbsp;So, once the
+run even after you can no longer see the dot.  So, once the
 dot
 has disappeared, you can stop the program.</p>
 <br>
