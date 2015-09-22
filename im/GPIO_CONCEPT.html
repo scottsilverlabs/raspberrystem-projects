@@ -41,7 +41,7 @@ and the electronics work together.</p>
 <p>The most common use for having your software control your hardware is to turn components 
 on and off (like  and LED or any other device that can turn on or off).  And the most common
 use for having your hardware communicate with your software is indicate that an event has 
-occured (like a button being pressed) or to relay the status of something external (for example, 
+occurred (like a button being pressed) or to relay the status of something external (for example, 
 if it's getting hot outside and a thermometer needs to tell the software that we've reached a 
 certain temperature).</p>
 
@@ -77,7 +77,7 @@ back to the brain. </p>
 GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
 GPIO it is connected to.  So, if you want to hook up a
 component to GPIO17, you'll insert a wire from the component to the
-hole on the Lid Connector Board labled "17".<p>
+hole on the Lid Connector Board labeled "17".<p>
 <br>
 <div class="info">
 <div>GPIOs Come From the Raspberry Pi</div>
@@ -272,7 +272,7 @@ where we inserted a button into the circuit to act as a physical switch -- when 
 circuit was completed and when released, the circuit was open. No software was required.</p>
 
 <p>But when our hardware can communicate directly with our code, we open a world of 
-possiblites.  For example, imagine that instead of wiring the button into our circuit 
+possibilities.  For example, imagine that instead of wiring the button into our circuit 
 without software, we instead wire our button so that it can communicate with our code.
 This would allow us to do something such as count how many times a button is pressed in a 
 certain time period, and take different actions based on that number?  Or perhaps we want 
@@ -327,8 +327,6 @@ This circuit works by defaulting the GPIO voltage to 3.3V.  When the button is u
 is closed, the GPIO gets pulled low (to ground), and will read 0V.  This way, the code can 
 measure the voltage at the GPIO and know if the button is pressed (0V at GPIO) or unpressed
 (3.3V at GPIO).
-
-
 
 <br>
 <p class=nextprev><a href="index.html">home</a></p>

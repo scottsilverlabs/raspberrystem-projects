@@ -27,7 +27,7 @@ only need one set of X, Y coordinates for the missile).  We also
 will want to create two other variables -- one that will define the
 color of the missile (we can make it less bright than the other objects
 on the LED Matrix screen to give it a unique look) and one that will
-define how quickly the missle will move (in terms of number of seconds
+define how quickly the missile will move (in terms of number of seconds
 between drawing updates). </p><p>Here is what this piece of code will look like:</p>
 <br>
 <div class="code" data-firstline="0"> 
@@ -46,7 +46,7 @@ MISSILE_STEP_TIME = 0.1
 terms of getting inputs, we'll first want to check the button to
 determine when it's pressed.  And we'll then want to get the
 current time to determine if enough time has elapsed that we need to
-move any existing missles on the screen:</p>
+move any existing missiles on the screen:</p>
 <br>
 
 <div class="code" data-firstline="0"> 
@@ -71,7 +71,7 @@ current missile on the screen) and we'll want to reset the timer for
 the next move. </p><p>Now, if there is no current missile
 on the screen, we'll need to evaluate whether the fire button is being
 pressed -- if it is, we need to set the X coordinate location for the
-missle (equal to the current X coordinate location of the ship), set
+missile (equal to the current X coordinate location of the ship), set
 the Y coordinate location for the missile to 1 and start tracking the
 time that the missile was launched.</p>
 
