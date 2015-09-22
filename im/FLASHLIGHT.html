@@ -21,7 +21,7 @@ flashlight will rely on software for both input and output.</div>
 </header>
 
 
-<p class="MsoNormal">In the <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a> project,
+<p>In the <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a> project,
 we were able to get button input from a
 GPIO.  In the <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT/OUTPUT</a> project, we were able to control an LED using GPIO.  In this project, we're going to put those concepts together to read 
 a button input using one GPIO and use that information toggle an LED using another GPIO.
@@ -43,7 +43,7 @@ to a separate GPIO (like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">G
 INPUT/OUTPUT</a>)</p>
 </li>
 </ol>
-<p class="MsoNormal">Here is what the breadboard should
+<p>Here is what the breadboard should
 look like with the two
 circuits wired.<span style="">  </span>If
 you have any
@@ -52,12 +52,12 @@ the projects referenced above.</p>
 <br>
 <img class="bb" src="img/Flashlight_bb.png">
 <br>
-<p class="MsoNormal">You’ll notice that our button is
+<p>You’ll notice that our button is
 wired to GPIO18 and our LED
 is wired to GPIO14.<span style="">  </span></p>
 <br>
 <p><b>Step #2: Write the code.</b></p>
-<p class="MsoNormal">Now that we have the circuits built
+<p>Now that we have the circuits built
 and ready to go, it’s
 time to write our software.<span style="">  </span>For
 this
@@ -76,8 +76,8 @@ using the
 GPIO as output</p>
 </li>
 </ol>
-<p class="MsoNormal">Here is the code that will accomplish
-this:</p><p class="MsoNormal"></p>
+<p>Here is the code that will accomplish
+this:</p><p></p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
@@ -119,7 +119,7 @@ function.  This function will return True if the button is pressed
 href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>), and will return False if the
 button is released</p></li><li><p>On Line 8, if the return from our if statement is True (the button is pressed), we light the LED using the on() function</p></li><li><p>On
 Lines 9 and 10, if the return from our if statement is False (the
-button is released), we turn off the LED using the off() function</p></li></ul><p class="MsoNormal"></p><p class="MsoNormal">Notice
+button is released), we turn off the LED using the off() function</p></li></ul><p></p><p>Notice
 that with this code, the button status is only read one time when the
 program is run.  So, if you want the LED to illuminate, you need
 to be holding the button when you run the code.  If you’re not
@@ -128,13 +128,13 @@ time the program is run, the code will see that the button is released
 and the LED will not illuminate.</p>
 <br>
 <p><b>Step #3: Improve the code.</b></p>
-<p class="MsoNormal">To make this program more useful, we can put the
+<p>To make this program more useful, we can put the
 code that reads the button into a loop
 so that it will
 continually read the button state and update the LED every time it
 changes.  To do this, we simply put the last four lines of the
 code (the lines that test the state of the button and turn the LED on
-or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p class="MsoNormal"></p>
+or off) in a <span style="font-family: Courier New,Courier,monospace;">while True:</span> loop, like this:</p><p></p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>

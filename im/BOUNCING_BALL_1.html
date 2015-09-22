@@ -35,7 +35,7 @@ so
 that it never doesn't fall off the screen.</p>
 <h2><span style="font-family: &quot;Verdana&quot;,serif;">Tracking
 Direction</span></h2>
-<p class="MsoNormal"><span style="">Here's a
+<p><span style="">Here's a
 reminder of what our current code looks like:</span></p>
 <br>
 <div class="code" data-firstline="1">
@@ -76,18 +76,18 @@ that point, we're going to want the dot to move in the OPPOSITE
 direction (in this case, to the left). &nbsp;To do that, instead of
 incrementing x by 1, we're going to want to decrement (decrease) x by
 1. &nbsp;</p>
-<p class="MsoNormal">In other words, to go to the right,
+<p>In other words, to go to the right,
 we increase x by 1. &nbsp;And to go to the left, we decrease x by 1
 --
 which is the same as increasing x by -1. &nbsp;</p>
-<p class="MsoNormal">We
+<p>We
 can do this by creating a variable (let's call it "direction"), setting
 that variable to either 1 or -1 (depending on the direction we want the
 dot to go) and then increasing x by that variable. &nbsp;When
 direction
 is set to 1, the ball will move right; when direction is set to -1, the
 ball will move left.</p>
-<p class="MsoNormal">This will require two changes to our
+<p>This will require two changes to our
 code. &nbsp;First, Line 13 will change to:</p>
 <br>
 <div class="code" data-firstline="0">
@@ -96,7 +96,7 @@ code. &nbsp;First, Line 13 will change to:</p>
 x += direction
 </textarea></div>
 <br>
-<p class="MsoNormal">Next,
+<p>Next,
 because the variable direction hasn't yet been set to anything (which
 would break our program), we need to initialize that variable before we
 jump into our loop. &nbsp;Since we want the ball to move right at
@@ -109,7 +109,7 @@ that by adding the following line to our initialization code:</p>
 direction = 1
 </textarea></div>
 <br>
-<p class="MsoNormal">If you now run this code, you'll
+<p>If you now run this code, you'll
 see that things work exactly the way they did in the last project --
 the dot moves to the right and then disappears from the screen.
 &nbsp;We're now tracking the dot's direction, but we haven't done
@@ -144,14 +144,14 @@ if (x >= 7):
 	direction = -1
 </textarea></div>
 <br>
-<p class="MsoNormal"><span style="">If
+<p><span style="">If
 you insert this code at any point after&nbsp;</span><span style="font-family: Courier New,Courier,monospace;">x += direction</span><span style=""> and run the program, you'll see that the
 ball reaches the right edge of the display and then -- before disappearing off the display
 -- reverses direction.</span></p>
-<p class="MsoNormal"><span style="">But,
+<p><span style="">But,
 you'll probably notice that, after heading back to where it started, it
 falls off the other side of the screen!&nbsp;</span></p>
-<p class="MsoNormal"><span style="">Whoops.
+<p><span style="">Whoops.
 &nbsp;We checked to ensure that the ball didn't fall off the screen
 when x got too big (too far right), but we didn't check for when x got
 too small (too far left). &nbsp;Luckily, this is pretty easy to add
@@ -165,7 +165,7 @@ if (x >= 7) or (x <= 0):
 	direction = -direction
 </textarea></div>
 <br>
-<p class="MsoNormal"><span style=""> This
+<p><span style=""> This
 checks whether x is too big (greater than or equal to 8) or whether x
 is too small (less than or equal to 1) -- in either of those cases, we
 need to change direction. Notice that we also changed the
@@ -174,9 +174,9 @@ handling the direction -- this reverses the direction
 from&nbsp;</span><span style="">
 whatever it previously was.</span>
 </p>
-<p class="MsoNormal"><span style="">Give it a
+<p><span style="">Give it a
 try. &nbsp;You should now see the dot bouncing back and forth on the
-display.</span></p><p class="MsoNormal"><span style="">Here is the final code:</span></p>
+display.</span></p><p><span style="">Here is the final code:</span></p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>

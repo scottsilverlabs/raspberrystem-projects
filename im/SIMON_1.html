@@ -17,19 +17,19 @@
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
  </header>
 
-<p class="MsoNormal">In our previous project, we discussed
+<p>In our previous project, we discussed
 the pseudo-code for our pattern-matching game.  Before we
 start writing the code, we're going to build the electronics for the
 game, and write some test code to ensure that what we've built works as
 we expect it to. </p>
-<p class="MsoNormal">The game will require four different
+<p>The game will require four different
 colored buttons (wired as GPIO
 inputs (Buttons)) and four LEDs (wired as GPIO Outputs).  We'll also
 need
 four resistors -- one for each LED we'll be wiring.  We will
 essentially be replicating the circuit designs that we learned in
 previous projects, but on a larger scale.  </p>
-<p class="MsoNormal"><span style="font-weight: bold;">Note:
+<p><span style="font-weight: bold;">Note:
  </span>Because the fully-built circuit will
 use up a lot of
 breadboard space
@@ -40,7 +40,7 @@ we wire
 the buttons, LEDs and other components in a specific pattern (a square
 or diamond shape) -- this will help make our game more playable when
 it's complete.</p>
-<p class="MsoNormal">In
+<p>In
 this project, we'll wire up the four buttons and write some code to
 verify they are working.  In the next project, we'll wire up
 the
@@ -165,12 +165,12 @@ working correctly.  In our <a href="MANY_BUTTONS.html">MANY BUTTONS</a> project,
 we learned
 how to generate a list of buttons and take input from each of them --
 we're going to do the same in our test code below.</span></p>
-<p class="MsoNormal">The GPIOs we use for our buttons are:
+<p>The GPIOs we use for our buttons are:
  GPIO14 (top button), GPIO15 (right button), GPIO23 (bottom
 button), GPIO17 (left button).  In our button list, we'll
 initialize the buttons in that order, so that we refer to button #1 as
 the top button, button #2 as the right button and so forth.  </p>
-<p class="MsoNormal">Here is what that code will look like:</p>
+<p>Here is what that code will look like:</p>
 <br>
 <div class="code" data-firstline="1">
 <div></div>
