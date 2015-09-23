@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GENERAL PURPOSE INPUT-OUTPUT</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GPIO AS OUTPUTS</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -12,14 +12,20 @@
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 
 <header>
-    <div id=title>GENERAL PURPOSE INPUT/OUTPUT</div>
-    <div id=description>In this project, for the first time, we'll use
-    software to control the hardware -- specifically, we'll wire an LED and then control 
+    <div id=title>GPIO AS OUTPUTS (CONTROLLING LEDS)</div>
+    <div id=description>In this project, we'll learn about General Purpose 
+	    Input/Outputs (GPIOs) and for the first time, we'll use
+    software to control the hardware.  Specifically, we'll wire an LED and then control 
     the LED output using code that we'll write.</div>
     <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=concepts_required><a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES/ASSIGNMENTS</a><br><a href="INTRO_TO_FUNCTIONS.html">INTRODUCTION TO FUNCTIONS</a><br><a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a><br><a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a><br><a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS & MODULES</a></div>
+    <div id=concepts_required><a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br><a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES/ASSIGNMENTS</a><br><a href="INTRO_TO_FUNCTIONS.html">INTRODUCTION TO FUNCTIONS</a><br><a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a><br><a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a><br><a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS & MODULES</a></div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
+
+<p>Before jumping into this project, we very strongly recommend that you 
+read <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
+concepts will the basis for this project and nearly all future RaspberrySTEM
+projects.</p>
 
 <p>In the previous project, we created a circuit that allowed us to control an LED using a
 pushbutton -- solely using hardware.  But, the most fun and exciting part 
@@ -28,159 +34,11 @@ and more specifically, using software to control the hardware to make it do
 interesting and useful things.</p>
 <p>In this project, we'll rebuild a version of our original circuit (with just the power 
 source, LED and resistor), but we'll the wire up LED a little differently and then write
-some code to control it -- our goal will be to harness a feature of the Raspberry Pi called 
+some code to control it -- our goal will be to harness the feature of the Raspberry Pi called 
 General Purpose Input/Outputs (GPIOs).  
-<h2>What Are GPIOs?</h2>
-<p>GPIOs are specific pins (little metal "legs"
-on the bottom or sides of a computer chip) that provide a connection
-between a physical circuit and the software inside the chip.
-We
-make these connections to the computer chip available on the
-RaspberrySTEM CREATOR Kit by plugging wires into the
-Lid Connector Board holes.
-GPIOs are like the
-nerve-system of the platform – their job is to relay signals from
-the brain (the Raspberry Pi computer) to the muscles (the components
-of the circuit) and to take signals from the muscles and relay them
-back to the brain. </p>
-<p>The Raspberry Pi has 26 GPIOs, and each one can be set to act
-as an input (it can take a
-signal from an external device and relay it to the Raspberry Pi) or 
-an output (it can relay a signal from the Raspberry Pi to
-an external device).</p>
-<p>GPIOs are referenced by number (for example,
-GPIO17), and each pin (hole) on the Lid Connector Board is labeled with the
-GPIO it is connected to.  So, if you want to hook up a
-component to GPIO17, you'll insert a wire from the component to the
-hole on the Lid Connector Board labeled "17".</p>
-<div class="info">
-<div>GPIOs Come From the Raspberry Pi</div>
-<div>
-<p>The Lid Connector Board was designed to make connecting to the
-Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
-ribbon cable and the Lid Connector Board is simply to bring the GPIO
-pins (and
-other pins) from the Raspberry Pi to the RaspberrySTEM 
-Lid, where they
-are easier for you to attach your components to.
-</p>
-<p>
-But, if you
-had a Raspberry Pi computer without the RaspberrySTEM CREATOR Kit, you'd still
-be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
-available through the pins on the Raspberry Pi
-(the pins that the ribbon cable is attached to).  If you were to
-remove the ribbon cable, you could connect wires
-directly to the Raspberry Pi GPIO pins and attach them to the breadboard (or
-to your components) directly.
-</p>
-</div>
-</div>
-<h2>GPIOs as Outputs</h2>
-<p>When a GPIO is
-configured as an output, the software has the ability to set the GPIO
-to do one of two things:</p>
-<ol>
-<li>
-<p>Set the voltage to 0V (so that it acts just like a ground)</p>
-</li>
-<li>
-<p>Set the voltage to 3.3V (so that it acts just like a
-battery or some
-other
-power source)</p>
-</li>
-</ol>
-<p>By switching the
-GPIO “on” or “off,” it can be used to control components on
-the breadboard or elsewhere.</p>
-<p>As a very simple
-example, you could hook a GPIO to an LED, and then control whether
-the LED was turned on or off by turning the GPIO on or off. In fact,
-since we’ve already built a circuit with an LED, why don’t we
-modify it to use a GPIO so that we can control that LED through
-software…</p>
-<p>Here is the
-schematic from our original circuit:</p>
-<img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
-</p>
-<p>To attach the LED to
-a GPIO, we’re going to modify our circuit as follows:</p>
-<img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
-<p>You’ve probably
-noticed that all we did was replace the connection from the LED to
-ground with a connection from the LED to a GPIO. Let’s see how
-this will work…</p>
-<p>We’ve already
-discussed that the software can force the GPIO into one of two
-states:</p>
-<ol>
-<li>
-<p>Set the voltage to 0V (so that it acts just like a ground)</p>
-</li>
-<li>
-<p>Set the voltage to 3.3V (so that it acts just like a
-battery or some
-other
-power source)</p>
-</li>
-</ol>
-<p>If the software sets
-the GPIO to 0V (we call this setting the GPIO “low”),
-the GPIO acts just like a ground, and the LED will light up just like
-it currently does. But, if the software sets the GPIO to 3.3V (we call
-this setting the GPIO “high”), the LED will not
-light up.</p>
-<p>If that’s
-confusing, think back to our earlier discussion – electricity will
-only flow between two points where there is a voltage difference. If
-there is 3.3V on one side of the circuit coming from the power source
-and there is 3.3V on the other side of the circuit coming from the
-GPIO, there is no voltage difference between the beginning and end of
-the circuit, and no electricity will flow (i.e., the LED won’t
-light up).</p>
-<p>Here is an overview of how the GPIO will work in
-this circuit:</p>
-<table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
-<tbody>
-<tr>
-<td><img style="width: 285px; height: 346px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png" align="top"></td>
-<td><img style="width: 260px; height: 378px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Ground.png"></td>
-</tr>
-<tr>
-<td><strong>Schematic: GPIO set high (LED off)
-</strong></td>
-<td><strong>Schematic: GPIO set low (LED on)
-</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="info">
-<div>"Active Low"</div>
-<div>
-<p>You may have
-noticed in the images above that, to turn the LED on, you need to set
-the GPIO low
-(0V, Ground).  And, to
-turn the LED off, you need to set the GPIO high (3.3V,
-Power).  Clearly, this
-sounds a
-little reversed, but you can see from the images above that this is how
-it works.   It is a reversed way of
-using
-a GPIO, but it's pretty common. And it's called "Active
-Low."  A GPIO that is Active Low is
-turned
-"on" when the GPIO is set low, and "off" when the GPIO is set
-high.  </p>
-<p>The
-reverse of this is called "Active High" -- a GPIO that is Active High
-is
-turned "on" when the GPIO is high, and "off" when the GPIO is
-low.
-</p>
-</div>
-</div>
+
+<h2>Controlling an LED with a GPIO</p>
+
 <p>Before we start the new wiring for this project, let's wire up our original circuit 
 from the <a href="RASPBERRY_PI_POWER.html">RASPBERRY PI POWER</a> project -- 
 this will give us some context so we can understand how we're going from that circuit (which
