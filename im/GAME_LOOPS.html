@@ -41,10 +41,8 @@ same things over and over the entire time the game is running.</p>
 <p>We're
 going to explain game loops below using pseudo-code, which we discussed
 in more detail in our Simon 0 project.</p>
-<p>As
-we
-mentioned above, nearly all video games use the game loop format to
-design and build their games.  The pseudo-code
+<p>
+The pseudo-code
 for a typical game loop will look something like this:</p>
 <pre>
 Initialize the game environment
@@ -76,7 +74,7 @@ defining the start location and speed of various game characters, etc.
 ready for our game loop:</p>
 <ol>
 <li>
-<p>Import the Framebuffer() function and the time library</p>
+<p>Import the <code>Framebuffer()</code> function and the time library</p>
 </li>
 <li>
 <p>Create a framebuffer that we'll use to draw and display
@@ -98,7 +96,7 @@ import time
 
 fb = FrameBuffer()
 
-x, y = (1, 1)
+x, y = (0, 0)
 fb.erase()
 fb.point(x, y)
 </textarea></div>
@@ -180,30 +178,20 @@ fb.point(x, y)
 fb.show()
 </textarea></div>
 <h2>Wait for some period of time</h2>
-<p>The
-very last thing we sometimes do in a game loop is to wait for some
-period of time.  Remember, computers are VERY fast, and if we
-let
-them do things as fast as they can, we may occasionally get results
-that
-we don't want.  For example, in some programs, the graphics
-will
-update each time through the loop -- if we loop this project too
-quickly, the dot will scroll off the screen so quickly that we won't
-even see it.  But, even in programs where the graphics aren't
-updating each time through the loop, if we let the
-computer run at full speed, the processor may get bogged down and not
-react the way we would like.  </p>
-<p>For
-those reasons, we will typically put a pause at the end of a game loop.
- If your graphics will be updating each time through the loop,
-you'll want to choose a wait time that makes sense for your graphics
-updates.  If not, you'll probably want to play around with
-various
-pause times and see which work the best -- too slow, and you might find
-that your program is not responsive; too fast, and you might find that
-the processor wastes power and causes poor performance of other
-programs running on the computer at the same time.</p>
+<p>
+The very last thing we often do in a game loop is to wait for some period
+of time.  This (roughly) sets the rate at which the display gets updated.  By
+setting the frame rate, we can know exactly how much to move graphics around the
+display from one frame to the next.  
+</p>
+<p>
+Because your graphics will be updating each time through the loop, you'll want
+to choose a wait time that makes sense for your graphics updates.  If not,
+you'll probably want to play around with various pause times and see which work
+the best -- too slow, and you might find that your program is not responsive;
+too fast, and you might find that the processor wastes power and causes poor
+performance of other programs running on the computer at the same time.
+</p>
 <p>In this case, our graphics rely on the loop speed, and we'd
 probably be happy moving
 the location of the dot every half-second.  Which means we'll
@@ -244,7 +232,7 @@ from rstem.led_matrix import FrameBuffer
 import time
 
 fb = FrameBuffer()
-x, y = (1, 1)
+x, y = (0, 0)
 fb.erase()
 
 while True: 

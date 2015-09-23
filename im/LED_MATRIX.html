@@ -23,7 +23,8 @@ be used for a variety of purposes, including building games.
  It's
 called an LED Matrix, and like the name implies, it is basically a
 small device that contains lots of little LEDs (64 of them, to be
-exact).  This is what an LED Matrix looks like (though yours won't have the smiley face just yet and the writing you see on the image above is actually on the circuit board, not the 
+exact).  This is what an LED Matrix looks like (though yours won't have the smiley face just yet
+and the writing you see on the image below is actually on the circuit board, not the 
 display):</p>
 
 <img style="width: 276px; height: 275px;" alt="" src="img/led.jpg">
@@ -32,7 +33,7 @@ display):</p>
 with the RaspberrySTEM CREATOR Kit is a bag labeled, <strong>LED Matrix RaspberrySTEM
 Cell</strong>.  This bag contains all the parts that
 you'll need to build
-and program with an LED Matrix.  In that bag you should find
+and program the LED Matrix.  In that bag you should find
 the
 following:</p>
 <ul>
@@ -40,13 +41,13 @@ following:</p>
 <p><strong>LED Matrix:</strong>
  This actually consists of two parts that we've assembled for
 you
--- the circuit board on the bottom and the LED display on the top.
+-- the green circuit board on the bottom and the LED display on the top.
  You can pull the display from the circuit board, but do so
 carefully so that none of the pins bend or break.</p>
 </li>
 <li>
 <p><strong>LED Matrix Cable:</strong>
- This cable consists of six wires, with connectors on each
+ This cable consists of five wires, with connectors on each
 end.
  This is the cable that will be used to connect the LED Matrix
 to
@@ -62,16 +63,16 @@ guitar pick that can be used as a mini-screwdriver when attaching the mounting p
 
 <h2>Installing the Mounting Posts</h2>
 <p>The LED Matrix comes with two small mounting posts and screws that
-are used to allow the LED Matrix display to attach to the breadboard.
+are used to attach the LED Matrix to the breadboard.
  The mounting posts should be installed prior to using the LED
 Matrix.  To install the mounting posts, follow these steps:</p>
 
 <h4>Step #1:  Remove the LED Display from the Circuit Board</h4>
-<p>The LED Matrix display is
-actually two parts, connected together by 16 pins (8 on each side).
+<p>The LED Matrix consists of
+two parts, connected together by 16 pins (8 on each side).
  To install the mounting posts, you will need to pull the top
-part (the LED Display) from the bottom part (the circuit board).
- This is done by gripping the edges of the LED Display gently in
+part (the LED display) from the bottom part (the circuit board).
+ This is done by gripping the edges of the LED display gently in
 one hand, gripping the edges of the circuit board gently in the other
 hand and carefully separating the display from the board.  Try to
 apply equal pressure all around the display to avoid bending or
@@ -91,19 +92,16 @@ in "B").  Attach the mounting posts, as shown below:</p>
 
 <h4>Step #3:  Re-Attach the LED Display to the Circuit Board</h4>
 <p>Once the mounting posts
-are secured and tightened, you'll need to re-attach the LED Display to
+are secured and tightened, you'll need to re-attach the LED display to
 the circuit board.  Holding the circuit board in one hand and the
-LED Display in the other, carefully align the 16 pins on the LED
-Display with the 16 holes on the circuit board.  Once the pins and
-holes are aligned, gently press the LED Display into the circuit board,
-applying equal pressure around the display to avoid damaging it.</p>
+LED display in the other, carefully align the 16 pins on the LED
+display with the 16 holes on the circuit board.  Once the pins and
+holes are aligned, gently press the LED display into the circuit board,
+applying equal pressure around the display to avoid breaking pins.</p>
 <p><strong>Note:</strong> There is a specific orientation for the LED display to be mounted
-on the LED Matrix circuit board.  You will want to ensure that the
-serial number on the LED display is facing up when the metal pins on
-the LED Matrix circuit board are facing to the left.  As another
-check to ensure the display is oriented correctly, the circuit board
-says "Matrix Top" on one side -- the serial number of the LED display
-should be facing this direction, as shown below: </p>
+on the circuit board.
+The serial number of the LED display
+should be be on the same side as the words "MATRIX TOP" on the circuit board, as shown in the picture below: </p>
 
 <img style="width: 275px;" src="img/Matrix_bb.png">
 
@@ -128,10 +126,10 @@ Lid Connector Board.</p>
 <p>Once the binding posts are
 attached to the LED Matrix, attaching it to the breadboard is as simple
 as inserting the binding posts into the breadboard anywhere you'd like.
- You'll want to keep in mind that the LED Matrix doesn't
-connect to the breadboard electrically -- meaning it doesn't need to be
+ Keep in mind that the LED Matrix doesn't
+connect to the breadboard electrically -- meaning, it doesn't need to be
 attached to the breadboard to work.  All of the signals going
-between the RaspberrySTEM kit and the LED Matrix will be going over the LED
+between the RaspberrySTEM CREATOR Kit and the LED Matrix will be going over the LED
 Matrix cable, and not through the breadboard.</p>
 <img class="bb" src="img/LED_Matrix_unconnected_bb.png">
 
@@ -159,7 +157,6 @@ power and ground are correctly attached, you should see vertical
 and horizontal bars sweep across the display a single time.  This is
 indication that the LED Matrix is powered up and working
 correctly. </p>
-<p>Once the LED Matrix powered up correctly, let's keep going...</p>
 
 <h4>Step #4:  Attach SCLK, MOSI, CE &amp; MISO Pins to Lid Connector Board</h4>
 
@@ -168,30 +165,31 @@ that we've verified that the LED Matrix can be powered up and is
 working properly, we can finish wiring it so that we can start
 controlling it with our software.  To finish wiring the LED
 Matrix
-we need to make four other connections, as follows:</p>
+we need to make the following connections:</p>
 <ol>
 <li>
-<p>Connect the SCLK wire on the LED Matrix to the SCLK pin
-on the Lid Connector Board (see orange wire in the picture below).</p>
+<p>Connect SCLK on the LED Matrix to SCLK on the Lid Connector Board.</p>
 </li>
 <li>
-<p>Connect the MOSI wire on the LED Matrix to the MOSI pin 
-on the Lid Connector Board (see the yellow wire in the picture below).</p>
+<p>Connect MOSI on the LED Matrix to MOSI on the Lid Connector Board.</p>
 </li>
 <li>
-<p>Connect the CE wire on the LED Matrix to the CE0 pin 
-on the Lid Connector Board (see the green wire in the picture below).  Note
-that there is both CE0 and CE1 on the Lid Connector -- ensure that you're connected to CE0.  
-</p>
+<p>Connect CE on the LED Matrix to CE0 on the Lid Connector Board.</p>
 </li>
 <li>
-<p>Finally, a separate jumper wire (this is not included in the LED
-Matrix bag, but you can use any of the provided colored wires) should be connected 
-from the MISO pin on the other side of
-the LED Matrix to the MISO pin on the Lid Connector Board (see the blue wire in the
-picture below).</p>
+<p>Connect MISO on the LED Matrix to MISO on the Lid Connector Board.</p>
 </li>
 </ol>
+<p>
+<strong>Note:</strong> Both CE0 and CE1 are on the Lid Connector Board -- ensure that you're connected to CE0.  
+</p>
+<p>
+<strong>Note:</strong> 
+Use a separate jumper wire (this is not included in the LED
+Matrix bag, but you can use any of the provided colored wires) to connect
+MISO from the right side of
+the LED Matrix to the MISO pin on the Lid Connector Board (see the blue wire in the
+picture below).</p>
 <p>Here is what the breadboard should look like with the LED
 Matrix fully wired:</p>
 
@@ -245,7 +243,7 @@ and use a framebuffer (called <code>Framebuffer()</code>)</p>
 </li><li>
 <p>On Line 2, we initialize our framebuffer. We
 call the <code>Framebuffer()</code>
-function, which returns a "framebuffer object" to our <code>accel </code>variable
+function, which returns a "framebuffer object" to our <code>fb</code> variable.
  We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
 but the important thing to understand is that we can now use the<code> fb</code>
 variable to call other framebuffer functions</p>

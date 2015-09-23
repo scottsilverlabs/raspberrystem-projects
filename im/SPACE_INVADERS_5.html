@@ -61,22 +61,17 @@ now = time.time()
 
 <h4> 2.  Changing the world:</h4>
 <p>To
-change the world, we'll first need to check to see if there is an
-existing missile on the screen (we'll know there is if the X coordinate
-is not -1).  If there's a missile on the screen, we'll need to
-evaluate if enough time has passed since the last screen update to move
-the missile and update the screen again.  If the time has come to
-move the missile, we'll want to update the Y coordinate, check
-to see if the missile has reached the top of the LED Matrix screen (in
-which case, we'll reset the X coordinate to -1 to indicate there is no
-current missile on the screen) and we'll want to reset the timer for
-the next move. </p><p>Now, if there is no current missile
-on the screen, we'll need to evaluate whether the fire button is being
-pressed -- if it is, we need to set the X coordinate location for the
-missile (equal to the current X coordinate location of the ship), set
-the Y coordinate location for the missile to 1 and start tracking the
-time that the missile was launched.</p>
-
+change the world, we'll first need to check if either:
+<ol>
+<li><p><strong>A missile was already launched and it's time to move
+it</strong>:  We'll know this if <code>missile_x >= 0</code>, and
+<code>MISSILE_STEP_TIME</code> time has passed since the missile last moved.  If so, we'll move the missile
+up, but if it goes past the top of the LED Matrix display, we'll remove it.
+</p></li>
+<li><p><strong>The fire button was pressed</strong>:  
+If so, we'll create a new missile, just above the ship.
+</p></li>
+</ol>
 
 <div class="code" data-firstline="0"> 
 <div></div> 

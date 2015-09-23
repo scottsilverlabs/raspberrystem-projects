@@ -28,10 +28,8 @@
 <textarea>from rstem.sound import Sound, Note
 from itertools import cycle
 
-fire_sound = Sound("/home/pi/fire.wav")
-
-hit_sound = Sound("/home/pi/hit.wav")
-
+fire_sound = Sound("fire.wav")
+hit_sound = Sound("hit.wav")
 notes = cycle([Note('B3'), Note('G3'), Note('E3'), Note('C3')])
 </textarea></div>
 
@@ -47,8 +45,12 @@ move and when an alien is hit by a missile.
 # Button was pressed - launch missile
 fire_sound.play()
 
+# ...
+
 # Move alien
 next(notes).play(duration=0.20)
+
+# ...
 
 # Check for collision
 hit_sound.play()

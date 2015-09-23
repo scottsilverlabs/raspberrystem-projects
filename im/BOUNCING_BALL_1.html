@@ -46,7 +46,7 @@ from rstem.led_matrix import FrameBuffer
 import time
 
 fb = FrameBuffer()
-x, y = (1, 1)
+x, y = (0, 0)
 fb.erase()
 
 while True:
@@ -117,23 +117,22 @@ anything to test
 for when it reaches the edge of the display or to change direction when
 that happens.</p>
 <h2>Testing Location</h2>
-<p>When
-the program starts, the first position of the dot is x = 1.
- Each
-time through the loop, we increment x by 1.  So, after the
+<p>When the program starts, the first x position of the dot is 0.
+ Each time through the loop, we increment x by 1.  So, after the
 first
 loop, the position of the dot moves to x = 2.  After the next
 loop, the dot moves to x = 3.  And so on...
-
+</p><p>
 We know that
-the LED Matrix display is 8 dots wide, so when x = 9, it will disappear
+the LED Matrix display is 8 dots wide, so when x = 7, the dot will be at the right side of the LED
+Matrix.
 from the screen.  In order to keep the dot from disappearing
 from
-the screen, we need to know when x = 8 (or more than 8) and we need to
+the screen, we need to know when x = 7 (or more than 7) and we need to
 reverse the direction of movement before the next time through the
 loop. We can check the value of x (which is the same as
 checking
-the position of the dot) using an IF statement, and if we determine
+the position of the dot) using an <code>if</code> statement, and if we determine
 that we're at the edge of the screen, we can change the direction of
 the dot by switching direction from 1 to -1:</p>
 
@@ -156,7 +155,7 @@ falls off the other side of the screen! </p>
 when x got too big (too far right), but we didn't check for when x got
 too small (too far left).  Luckily, this is pretty easy to add
 to
-our code...we can just update the IF statement we just wrote as follows:</p>
+our code.  We can just update the <code>if</code> statement we just wrote as follows:</p>
 
 <div class="code" data-firstline="0">
 <div></div>
@@ -166,8 +165,8 @@ if (x >= 7) or (x <= 0):
 </textarea></div>
 
 <p> This
-checks whether x is too big (greater than or equal to 8) or whether x
-is too small (less than or equal to 1) -- in either of those cases, we
+checks whether x is too big (greater than or equal to 7) or whether x
+is too small (less than or equal to 0) -- in either of those cases, we
 need to change direction. Notice that we also changed the
 line
 handling the direction -- this reverses the direction
@@ -185,7 +184,7 @@ from rstem.led_matrix import FrameBuffer
 import time
 
 fb = FrameBuffer()
-x, y = (1, 1)
+x, y = (0, 0)
 fb.erase()
 
 direction = 1

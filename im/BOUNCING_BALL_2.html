@@ -38,7 +38,7 @@ from rstem.led_matrix import FrameBuffer
 import time
 
 fb = FrameBuffer()
-x, y = (1, 1)
+x, y = (0, 0)
 fb.erase()
 
 direction = 1
@@ -63,7 +63,7 @@ while True:
 <p>Adding the same functionality along the other axis (the
 y-axis) is actually pretty simple.  In addition to changing
 the x location by 1 each time through the loop, we also do the same
-with the y location.  This requires another direction variable
+with the y location.  This requires another <code>direction</code> variable
 to keep track of the y-axis direction:</p>
 
 <div class="code" data-firstline="0">
@@ -83,9 +83,11 @@ if (y <= 0) or (y >= 7):
 	y_direction = -y_direction
 </textarea></div>
 
-<p></p><p>Lastly,
+<p>To avoid confusion with the variable names, we'll also change the previous
+variable <code>direction</code> to <code>x_direction</code></p>
+<p>Lastly,
 you'll probably want to set the initial position of the ball to
-something other than (1, 1) to make the bouncing a little more
+something other than (0, 0) to make the bouncing a little more
 interesting.  In fact, you can play around with different initial
 points and see how it affects the bouncing.</p><p>Give it a
 try.  You should now see the dot bouncing back and forth on the
@@ -101,7 +103,7 @@ import time
 fb = FrameBuffer()
 
 x, y = (3, 1)
-direction = 1
+x_direction = 1
 y_direction = 1
 
 fb.erase()
@@ -110,10 +112,10 @@ while True:
 	# Get user input
 
 	# Update the game world
-	x += direction
+	x += x_direction
 	y += y_direction
 	if (x <= 0) or (x >= 7):
-		direction = -direction
+		x_direction = -x_direction
 	if (y <= 0) or (y >= 7):
 		y_direction = -y_direction
 

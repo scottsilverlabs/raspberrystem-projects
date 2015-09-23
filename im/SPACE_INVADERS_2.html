@@ -22,7 +22,7 @@ that the LED Matrix is working, let's put our spaceship where it's
 supposed to be located -- in the middle of the LED Matrix horizontally
 (along the x-axis) and at the bottom of the LED Matrix vertically (y=0).</p>
 <p>To determine the middle of the LED Matrix, we could take the
-known length of it (8 pixels) and divide that by two -- that would give
+known width (8 dots) and divide that by two -- that would give
 us our middle dot (x=4). But, what if you later want to use
 this code on a smaller or larger LED Matrix display?  For
 example, let's say you put four LED Matrices together to build a 16x16
@@ -53,7 +53,7 @@ above, so we can draw the ship at its actual starting position.
 <p>But, there's one thing we need to keep in mind -- now that
 we're using a calculation to determine the position of the ship, it's
 possible that the result of our calculation won't be a whole number
-(for example, if we were using an LED Matrix that was 7 pixels wide,
+(for example, if we were using an LED Matrix that was 7 dots wide,
 our initial position would be x=3.5).  To accommodate for that,
 we need to round our calculation to the nearest whole number, and that
 is where we will display our ship.</p>

@@ -31,7 +31,8 @@ the Accel() function and then initializing the accelerometer:</p>
 
 <div class="code" data-firstline="0">
 <div></div>
-<textarea>rstem.accel import Accel
+<textarea>
+rstem.accel import Accel
 accel = Accel()
 </textarea></div>
 
@@ -41,7 +42,7 @@ we'll need at this point:</p>
 <li>
 <p><strong>TILT_FORCE:</strong>
  If we tilt the accelerometer right or
-left, it will register a value greater than 0 (if we tilt left) or less
+left, it will register an X force greater than 0 (if we tilt left) or less
 than 0 (if we tilt right).  In theory, any value greater than
 0 is a left tilt and any value less than 0 is a right tilt.
  But, because the accelerometer is very sensitive, even if we
@@ -59,14 +60,14 @@ how that works for us.</p>
 <p><strong>SPACESHIP_STEP:</strong>
  As we register tilt in one
 direction or the other, we need to have the ship move in that
-direction.  And we need to tell it how far to move each time
-we register a tilt.  If we move it too far each time we
-register a tilt, the ship will appear to move very fast and we'll feel
+direction.  And we need to tell it how far to move during one pass through the game loop if a tilt
+is registered.  If we move it too far each time, the ship will appear to move
+very fast and we'll feel
 like we have no control over it; if we move it too small of a distance
 each time, the game will feel sluggish and non-responsive.
  Most likely, we'll just want the ship to move a fraction of a
-pixel each time a tilt is registered.  We'll start with .1
-pixels for now and see how that works for us.</p>
+dot each time a tilt is registered.  We'll start with .1
+dots for now and see how that works for us.</p>
 </li>
 </ul>
 <p>In our initialization section for the ship, we can set these

@@ -25,7 +25,8 @@ you'd like), and we'll need to keep track of both what columns they are
 in and what row they are in at any given time.</p><p>We'll do that by
 adding a list to track their columns (they'll each be in their own
 column) and a variable to track their row (they'll all be in the same
-row):</p>
+row).  We'll start the aliens at the top of the display (the height of the
+display minus 1):</p>
 
 
 <div class="code" data-firstline="1"> 
@@ -35,7 +36,7 @@ alien_columns = [0, 1, 2, 3]
 alien_row = fb.height - 1
 </textarea></div>
 
-<p>Next, we need to add code to draw the aliens each time through the loop:
+<p>Next, we need to add code to draw the aliens each time through the loop:</p>
 
 
 
@@ -45,6 +46,7 @@ for column in alien_columns:
 	fb.point(column, alien_row)
 </textarea></div>
 
+<p>The aliens are moving yet, but at least they are displayed!</p>
 
 <p>Here is the full project at this point:</p>
 
