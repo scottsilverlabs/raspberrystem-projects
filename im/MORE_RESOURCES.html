@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>MORE RESOURCES</title>
+
+<link rel="stylesheet" type="text/css" href="default.css">
+<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+<script type="text/javascript" src="/assets/cmirror/python.js"></script>
+<script type="text/javascript" src="codeblocks.js"></script>
+</head>
+
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<h1>MORE RESOURCES</h1>
+
+
+<h2>Connecting to a Network</h2>
+
+<p>There are likely going to be times when you're going to want to connect your
+RaspberrySTEM CREATOR Kit to the Internet.  For example, you may want to 
+download a new version of the RaspberrySTEM software or you may be interested
+in getting additional Raspberry Pi projects that you want to implement on the 
+RaspberrySTEM.</p>
+
+<p>There are two ways to connect your RaspberrySTEM CREATOR Kit to the Internet:</p>
+
+<h4>Wired Connectivity</h4>
+
+<p>Of the two connectivity options, Wired Connectivity is typically going to
+be the easiest, assuming you have access to a router that is connected to the
+Internet.  Internet routers are standard if you have a home or business
+Internet connection through your phone company or cable company, and will 
+likely be located at the point where the cable or phone lines come into your
+house.</p>
+
+<p>Getting Internet connectivity on your RaspberrySTEM CREATOR Kit is 
+typically as simple as plugging one side of an Ethernet cable (not included
+with the kit) into the Ethernet port on the back of the Raspberry Pi (the
+connector is located next to the USB connectors where your keyboard and 
+mouse are plugged in) and then plugging the other side of the Ethernet cable 
+into your Internet-connected router.</p>
+
+<p>See the picture below for reference:</p>
+
+Pic of Pi connected to router
+
+
+<h4>Wireless Connectivity</h4>
+
+
+<h2>Other Raspberry Pi Features</h2>
+
+<p>The Raspberry Pi is a actual computer -- not much different than what's in 
+a laptop computer or a cellphone -- and runs a full-featured Operating System.
+When you're using the RaspberrySTEM Development Environment (RDE), you're simply
+running an application on the Raspberry Pi.</p>
+
+<p>But, you can leave the RDE and use other features of the Raspberry Pi as 
+well.  In this section, we'll talk about how to leave the RDE (and how to get 
+back to it), as well as some of the things you can do outside the RDE.</p>
+
+<h4>How to Get Out of the RDE</h4>
+
+<p>When you exit from the RDE, you will be taken to a "desktop" environment
+that looks similar to what you'd find on a typical desktop or laptop computer.
+From here, you will see some clickable icons and pull-down menus.  This is 
+the Raspian desktop, and it provides an interface to many of the other features
+of the Raspberry Pi.</p>
+
+<p>To get to the Raspian desktop from the RDE, simply press the following
+three buttons all at the same time:</p>
+<p>&lt;CRTL&gt;&lt;ALT&gt;&lt;D&gt;</p> 
+
+<h4>How to Get Back to the RDE</h4>
+
+<p>Once your on the Raspian desktop, you'll see an icon labeled, 
+"RaspberrySTEM (RDE)".  If you double-click on that icon, it will bring you 
+back to the RDE right where you left off.
+
+
+
+<h4>Raspberry Pi Games</h4>
+
+<h4>Mathematica</p>
+
+
+<h2>More Resources to Check Out</h2>
+
+<p>In 
+	<a href="WHILE_LOOPS.html">WHILE LOOPS</a>, we discussed how <code>while</code>
+loops can be used to cycle through code an indefinite (or even an
+infinite) number of times.  But, what about when you only want
+to cycle through a piece of code a specific number of times?
+ For that, we can use another type of loop called <code>for</code>
+loop.</p>
+<p><code>for</code> loops allow you to cycle through a range of numbers, a
+list of items or even through a string.  As an example, a <code>for</code>
+loop can be used to simply iterate through a range of numbers, and
+execute a statement (or set of statements) on each iteration:</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+for x in range(5):
+	print("This is time #", x, "through the loop.")
+</textarea></div>
+
+<p>If you ran that code, the output would be:</p>
+<p></p>
+<div class="output">
+<div></div>
+<pre>
+This is time # 0 through the loop.
+This is time # 1 through the loop.
+This is time # 2 through the loop.
+This is time # 3 through the loop.
+This is time # 4 through the loop.
+</pre>
+</div>
+
+<p>Essentially, the code ran through the code block 5 times, and
+with each time through the loop, the loop variable (x) was set to the
+current range value (0, 1, 2...).  You'll notice that the list starts counting at 0 not 1, and
+this is a common convention in most all programming languages.
+</p>
+<p>
+Here is another example:</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+import time
+
+print("The countdown has begun...")
+
+for x in range(5, 0, -1):
+	print(x)
+	time.sleep(1)
+
+print("BLAST OFF!!!")
+</textarea></div>
+
+<p>The output from this code would be:</p>
+
+<div class="output">
+<div></div>
+<pre>
+The countdown has begun...
+5
+4
+3
+2
+1
+BLAST OFF!!!
+<span style="color: red;">-- PROGRAM FINISHED --</span></pre>
+</div>
+
+<p>Notice that for this loop, we using the range function in a different way.  If the range function
+is passed 3 parameters, they should have the values 
+<code>start</code>, 
+<code>stop</code>, and
+<code>step</code>: 
+<ul>
+<li><p>
+<code>start</code> is the first value in the list.
+</p></li><li><p>
+<code>stop</code> is the value that ends the list (but it isn't included).
+</p></li><li><p>
+<code>step</code> is the value to add between one value and the next. 
+When this third parameter isn't included, it defaults to "1" and the 
+loop count increments by 1 each time through.
+</p></li>
+</ul>
+<p>In other words, <code>range(5, 0, -1)</code> could be read as "starting at 5, count down (step
+-1) to 0 (but don't include the final 0)".
+</p>
+
+<p>We can also use for loops to iterate through the items in a
+list.  Here's the example from
+	the <a href="LISTS.html">LISTS</a> concept
+-- a list of the
+first five months of the year:</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+months = ["January", "February", "March", "April", "May"]
+</textarea></div>
+
+<p>We can use a for loop to iterate through each item in that
+list and do what we want with it.  As a simple example, we can
+print each item and also the number of letters it has:</p>
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+months = ["January", "February", "March", "April", "May"]
+
+for month in months:
+	print(month, len(month))
+</textarea></div>
+
+<p>Here's the output from that code:</p>
+
+<div class="output">
+<div></div>
+<pre>January 7
+February 8
+March 5
+April 5
+May 3
+<span style="color: red;">-- PROGRAM FINISHED --</span>
+</pre>
+</div>
+
+<p class=nextprev><a href="index.html">home</a></p>
+</body></html>
