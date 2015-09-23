@@ -14,14 +14,14 @@
 <h1>GENERAL PURPOSE INPUT/OUTPUT (GPIO)</h1>
 
 <p>The purpose of this concept is to discuss one of the most important aspects of 
-integrating your electronics hardware and your code.  Specifically, we will explain
+integrating your electronics hardware with your code.  Specifically, we will explain
 how your code can "control" your circuit (GPIOs as Outputs) and how your circuit can 
 "communicate" with your code (GPIOs as Inputs).  
 
 <h2>Introduction to GPIOs</h2>
 
-<p>In the previous projects, we've written some basic code to send messages to our output box
-and we've built some simple circuits to light up an LED.  While doing these types of projects
+<p>In the early RaspberrySTEM projects, we wrote some basic code to send text to our output window
+and we built some simple circuits to light up an LED.  While doing these types of projects
 is important to learn the basics of programming and electronics, the purpose of this kit -- and
 the part of programming and electronics that's really fun and interesting -- is getting the code 
 and the electronics work together.</p>
@@ -33,28 +33,21 @@ and the electronics work together.</p>
 	<li><p>Your hardware (circuits) can communicate with your software (code).
 </ol>
 
-
-<center>
 <img style="width: 450px;" alt="" src="img/GPIO1.jpg">
-
 
 <p>The most common use for having your software control your hardware is to turn components 
 on and off (like  and LED or any other device that can turn on or off).  And the most common
-use for having your hardware communicate with your software is indicate that an event has 
-occurred (like a button being pressed) or to relay the status of something external (for example, 
-if it's getting hot outside and a thermometer needs to tell the software that we've reached a 
-certain temperature).</p>
+use for having your hardware communicate with your software is to indicate that an event has 
+occurred (like a button being pressed) or to relay the status of an external component (for example, 
+wiring a thermometer to tell the software when we reach a certain temperature).</p>
 
 <p>Understanding how this communication and control works is the key to being able to develop 
 software and hardware that works together to build valuable and interesting devices.  As it turns
-out, there is a relatively simple mechanism for how to get these two things to work together, and it's
-called General Purpose Input/Output, or GPIO for short.  GPIOs are physically located between
-your circuit (on your breadboard) and your software (running on the Raspberry Pi):</p>
+out, there is a relatively simple mechanism for how to get our circuit and our code to work together, and it's
+called General Purpose Input/Output, or GPIO for short.  GPIOs sit between your 
+circuit and your software, and allow the two to interact:</p>
 
-
-<center>
 <img style="width: 450px;" alt="" src="img/GPIO2.jpg">
-
 
 <p>In the next section, we'll give a brief overview of what GPIOs physically are, and then after that,
 we'll talk about how they work and how you can use them in your projects.  Then, we'll use these 
@@ -110,10 +103,7 @@ in your electronic projects.  You may remember from above that there are two imp
 GPIOs -- allowing your software to control your hardware and allowing your hardware to 
 communicate with your software:</p>
 
-
-<center>
 <img style="width: 450px;" alt="" src="img/GPIO2.jpg">
-
 
 <p>A GPIO can do either of these two things, but not at the same time.  You must decide beforehand
 whether a GPIO is going to be used to allow software to control hardware or whether it will be 
@@ -124,19 +114,12 @@ bit of code that tells the GPIO which of the two functions it will perform.</p>
 <p>When we configure a GPIO to allow software to control hardware, we say that we're "using the GPIO
 as an output":</p>
 
-
-<center>
 <img style="width: 450px;" alt="" src="img/GPIO3.jpg">
- 
 
 <p>And when we configure a GPIO to allow hardware to communicate with software, we say that we're
 "using the GPIO as an input":</p>
 
-
-
-<center>
 <img style="width: 450px;" alt="" src="img/GPIO4.jpg">
- 
 
 <p>Now that we have a basic definition of GPIOs and how they can be used as either outputs (to
 allow your software to control your hardware) or as inputs (to allow your hardware to 
@@ -157,11 +140,7 @@ the end of the circuit.</p>
 <p>This is why, for our basic LED circuit, the LED will illuminate when we attach one side 
 of the circuit to 3.3V power and the other side to ground.  Like this:</p>
 
-
-<center>
 <img style="height: 350px; width: 150px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
-</center>
-
 
 <p>Given that, it should also make sense that, if there is no voltage differential between 
 the beginning and the end of a circuit, no current will flow.  For example, imagine our 
@@ -169,11 +148,7 @@ circuit above, but instead of attaching the end of the circuit to ground, we att
 3.3V power, just like the beginning of the circuit.</p>
 <p>The circuit would look like this:</p>
 
-
-<center>
 <img style="height: 350px; width: 240px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png">
-</center>
-
 
 <p>And as you can probably guess, no current would flow and the LED would not illuminate.</p>
 
@@ -181,11 +156,7 @@ circuit above, but instead of attaching the end of the circuit to ground, we att
 switch can be toggled between connecting to power and connecting to ground.  It might look 
 a little something like this:</p>
  
-
-<center>
 <img style="height: 375px; width: 250px;" alt="" src="img/GPIO_Switch1.png">
-</center>
-
 
 <p>Based on what we discussed above, it should be clear that when the switch is toggled 
 to power, no current will flow through the circuit.  And when the switch is toggled to 
@@ -220,11 +191,7 @@ software.</p>
 
 <p>Here is a schematic representation of a GPIO:</p>
  
-
-<center>
 <img style="height: 355px; width: 260px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
-</center>
-
 
 <p>But remember, what's going on inside that GPIO box is what we represented above -- 
 it is essentially a switch that can be toggled to power or to ground (through software), 
