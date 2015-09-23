@@ -21,9 +21,9 @@ flashlight will rely on software for both input and output.</div>
 </header>
 
 
-<p>In the <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a> project,
+<p>In the <a href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS (READING BUTTONS)</a> project,
 we were able to get button input from a
-GPIO.  In the <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT/OUTPUT</a> project, we were able to control an LED using GPIO.  In this project, we're going to put those concepts together to read 
+GPIO.  In the <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING LEDS)</a> project, we were able to control an LED using GPIO.  In this project, we're going to put those concepts together to read 
 a button input using one GPIO and use that information toggle an LED using another GPIO.
 
 <h4>Step #1: Wire the button and LED to GPIOs</h4>
@@ -33,14 +33,13 @@ two completely independent circuits:</p>
 <li>
 <p>The
 first circuit will consist of a button wired
-to a GPIO (like we did in <a href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO
-</a>);</p>
+to a GPIO (like we did in <a href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS (READING BUTTONS)</a>);</p>
 </li>
 <li>
 <p>The
 second circuit will consist of an LED wired
-to a separate GPIO (like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE
-INPUT/OUTPUT</a>)</p>
+to a separate GPIO (like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS
+(CONTROLLING LEDS)</a>)</p>
 </li>
 </ol>
 <p>Here is what the breadboard should
@@ -111,7 +110,7 @@ to call other GPIO functions that can control our LED</p></li>
 <p>On Line 7, we check the state of the button using the <code>is_pressed()</code>
 function.  This function will return True if the button is pressed
 (this is done by reading the voltage at the GPIO, like we discussed in <a
-href="USING_BUTTONS_WITH_GPIO.html">USING BUTTONS WITH GPIO</a>), and will return False if the
+href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS (READING BUTTONS)</a>), and will return False if the
 button is released</p></li><li><p>On Line 8, if the return from our if statement is True (the button is pressed), we light the LED using the on() function</p></li><li><p>On
 Lines 9 and 10, if the return from our if statement is False (the
 button is released), we turn off the LED using the off() function</p></li></ul><p></p><p>Notice
