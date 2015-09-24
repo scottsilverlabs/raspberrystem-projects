@@ -131,7 +131,7 @@ the end of the circuit.</p>
 <p>This is why, for our basic LED circuit, the LED will illuminate when we attach one side 
 of the circuit to 3.3V power and the other side to ground.  Like this:</p>
 
-<img style="height: 350px; width: 150px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
+<img style="width: 150px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png">
 
 <p>Given that, it should also make sense that, if there is no voltage difference between 
 the beginning and the end of a circuit, no current will flow.  For example, imagine our 
@@ -139,7 +139,7 @@ circuit above, but instead of attaching the end of the circuit to ground, we att
 3.3V power, just like the beginning of the circuit.</p>
 <p>The circuit would look like this:</p>
 
-<img style="height: 350px; width: 240px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png">
+<img style="width: 150px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png">
 
 <p><strong>Note:</strong>  The symbol at the bottom of the image above is just another way to indicate power in a schematic -- this is how power is typically represented when it's at the bottom
 of a circuit.</p>
@@ -152,8 +152,12 @@ switch can be toggled between connecting to power and connecting to ground:</p>
 <table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="text-align: center;"><img style="width: 250px; height: 375px;" alt="" src="img/GPIO_Switch2.png" align="top"></td>
-<td style="text-align: center;"><img style="width: 250px; height: 375px;" alt="" src="img/GPIO_Switch3.png"></td>
+<td style="text-align: center;">
+<img style="width: 180px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Switch-to-Power.png">
+</td>
+<td style="text-align: center;">
+<img style="width: 180px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Switch-to-Ground.png">
+</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: center;"><strong>GPIO Attached To Power (LED Off)
@@ -175,7 +179,7 @@ to either power or ground.</p>
 
 <p>Here is a schematic representation of a GPIO within a circuit:</p>
  
-<img style="height: 355px; width: 260px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
+<img style="width: 300px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png">
 
 <div class="info">
 <div>"Active Low"</div>
@@ -254,7 +258,7 @@ as a GPIO input and we can read the state of the button based on the voltages ge
 
 <p>This is what the schematic would look like for a button wired to a GPIO as an input:</p>
 
-<img class=schematic style="max-width:600px;" src="img/Pushbutton-to-GPIO.png">
+<img class=schematic style="width:350px;" src="img/Pushbutton-to-GPIO.png">
 
 <p>
 This circuit works by defaulting the GPIO voltage to 3.3V (that's the behind-the-scenes configuration we mentioned above, but not shown in the schematic).  When the button is unpressed 
