@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>USING BUTTONS WITH GPIO</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GPIO AS INPUTS</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -11,13 +11,18 @@
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <header>
-    <div id=title>USING BUTTONS WITH GPIO</div>
+    <div id=title>GPIO AS INPUTS (READING BUTTONS)</div>
     <div id=description>In this project, we will use GPIOs to get input from a pushbutton
     into our software.</div>
     <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=concepts_required><a href="STRING_THEORY.html">STRING THEORY</a><br><a href="CALCULATIONS.html">CALCULATIONS</a></div>
+    <div id=concepts_required><a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br><a href="STRING_THEORY.html">STRING THEORY</a><br><a href="CALCULATIONS.html">CALCULATIONS</a></div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
+
+<p>Before jumping into this project, we very strongly recommend that you 
+read <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
+concepts will be the basis for this project and nearly all future RaspberrySTEM
+projects.</p>
 
 <p>In the previous project, we saw how GPIOs can be used as outputs to control
 components attached to the Raspberry Pi (like our LED). GPIOs can also be
@@ -25,77 +30,15 @@ used as inputs to take information from external components; that
 input can then be acted upon by the Raspberry Pi and appropriate
 actions can be taken.</p>
 
-<h2>GPIOs as Inputs</h2>
-<p>Much like GPIO
-outputs work by simply setting a voltage on the GPIO pin to either 0V
-or 3.3V, GPIO inputs work by reading the voltage – either 0V or
-3.3V – being sent to the GPIO pin.</p>
-<p>For example, a GPIO
-can be used to get the current state of a button or switch
-(pressed or released).  Based on the current state, the
-software can do what we expect when the button/switch is in that state.  </p>
-
-<div class="info">
-<div>"State"</div>
-<div>
-<p>"State" is a common term using in electronics and just means
-the current condition or situation of a component or circuit.
-
-For
-example, in the case of a button or switch, state would refer to
-whether the button is currently being pressed or released.
- For
-an LED, state might refer to whether the LED was illuminated or not.</p>
-</div>
-</div>
-
-<p>In the <a href="INTRODUCING_BUTTONS.html">WORKING WITH BUTTONS</a> 
-project, we inserted a button into the circuit to act as a physical switch -- when pressed, 
-the circuit was completed and when released, the circuit was open. No software was required.</p>
-<p> But if we write software that interacts with our hardware
-(by reading the state of the button through a GPIO) we add a world of possibilities. 
-For example,
-perhaps you want to count how many times a button is pressed in a
-certain time
-period, and take different actions based on that number?  Or perhaps you want to
-time how long a button
-is pressed and take action based on the length of the press?  Or maybe a button press
-needs to trigger an
-action in another circuit that the button isn’t attached to?</p>
-<p>To perform more complicated
-operations like these, instead
-of wiring the button directly into the circuit, we can wire the
-button
-as an input to a GPIO.  As
-we discussed
-earlier, GPIOs can be used as inputs to take information from external
-components (like buttons); that input can then be acted upon by the
-Raspberry
-Pi.</p>
-<p>GPIO inputs work by reading the
-voltage at the GPIO pin – either 0V (“low”) or 3.3V (“high”).</p>
-<p>For example, a GPIO can be used to
-get information from a
-button or switch.  In
-the circuit design we use and will explain below, when a button is left
-unpressed, the voltage at the
-GPIO pin is
-“high” (3.3V); when the button is pressed, the voltage at the GPIO pin
-will go
-“low” (switch to 0V).  The
-GPIO will
-register the voltage, and the Raspberry Pi can then take action on
-either a
-pressed or released button.</p>
-<p>To wire a button to a GPIO, this is
-what the circuit schematic would
-look like:</p>
-<img class=schematic style="max-width:600px;" src="img/Pushbutton-to-GPIO.png">
-
 <h2>Reading Buttons Using GPIOs</h2>
-<p>To implement what we discuss above as an actual breadboard circuit is 
-easy.  First, we start with an empty breadboard, with power and ground wired from the 
-Lid Connector Board, like this:
+<p>In <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, we 
+introduced the idea of reading button state based using GPIOs as inputs and 
+then provided a schematic for the circuit we'd need to accomplish this.  It
+turns out that implementing that circuit on our breadboard is easy.  Let's 
+give it a try...</p>  
+
+<p>First, we start with an empty breadboard, with power and ground wired from 
+the Lid Connector Board, like this:</p>
 
 <center><img class="bb" src="img/Just_Power_bb.png"></center>
 
@@ -165,7 +108,7 @@ program a couple times, either holding down or not holding down the
 button at
 the moment the program is run.</p>
 <p>You may notice that this example is similar to the 
-<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING LEDS)</a>
+<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GENERAL PURPOSE INPUT OUTPUT</a>
 example.  But in this case, we configure the GPIO as a button instead of an
 output:
 </p>
