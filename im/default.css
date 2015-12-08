@@ -231,7 +231,7 @@ div.code > div:first-child {
     font-size: 14pt;
     color: #ffffff;
     background-color: #657777;
-    padding: 10
+    padding: 10px;
 }
 
 div.code > textarea {
@@ -240,10 +240,10 @@ div.code > textarea {
 }
 
 .CodeMirror-cursor { visibility: hidden; }
-.CodeMirror {
-    padding-top: 10px;
-    font-size: 12pt;
-}
+.CodeMirror-code { padding-left: 40px; }
+.CodeMirror-gutter-elt { margin-left: -10px; }
+.CodeMirror-linemarker { margin-left: -20px; color: red }
+.CodeMirror { padding-top: 10px; font-size: 12pt; }
 
 
 /*
@@ -272,7 +272,6 @@ div.output > pre {
     margin-bottom: 0;
     color: #657777;
     background-color: #002B36;
-    top-margin: 0;
     margin-left: 0in;
     line-height: 100%;
 }
