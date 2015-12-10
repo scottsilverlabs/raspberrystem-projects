@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>RASPBERRY PI POWER</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GETTING POWER FROM
+THE RASPBERRY PI</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -10,37 +11,39 @@
 <script type="text/javascript" src="onload.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>RASPBERRY PI POWER</h1>
+<header>
+    <div id=title>GETTING POWER FROM THE RASPBERRY PI</div>
+    <div id=description>In this project, we'll replace the battery power source we used in the previous project with power from the Raspberry Pi.
+	    <div id=hw_required>Hardware setup from previous project<br>Various length wires</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
 <p>We’ve built our
 first circuit – both on and off the breadboard – using our 3V
 battery as our power source. But, there’s no reason we couldn’t
-power our circuits with another power source. For example, some
+power our circuits with another power source instead. For example, some
 breadboards come with special built-in power supplies so that you
 don’t have to use a battery or another external power source.</p>
 <p>One of the features
-of the RaspberrySTEM<sup>TM</sup> is that it can use the
+of the RaspberrySTEM CREATOR Kit is that it can use the
 power and
-ground from the RaspberrySTEM base to power the breadboard on the
-lid. The power is actually coming from the Raspberry Pi computer,
-and is made available to the breadboard through the connector board
-at the top of the lid.</p>
+ground from the Raspberry Pi to power the breadboard. The power is 
+made available to the breadboard through the Lid Connector Board
+(the green board on the top of the lid - see diagrams below).</p>
 <p>In this project,
 we’re going to replace the 3V battery we’ve been using as our
-power supply with the internal power provided by the RaspberrySTEM<sup>TM</sup>
-and the Raspberry Pi. &nbsp;Other than replacing the battery with a
+power supply with the internal power provided by the 
+Raspberry Pi.  Other than replacing the battery with a
 different power source, our circuit will remain exactly the same.
-&nbsp;In fact, our schematic won't change, other than to replace
+ In fact, our schematic won't change, other than to replace
 the
 power source with 3.3V (the voltage of the Raspberry Pi power source)
-from the 3V provided by the battery. &nbsp;</p>
+from the 3V provided by the battery.  </p>
 <p>Here is a reminder of that schematic:</p>
 <img class="schematic" style="width: 200px;" src="img/Battery-LED-Circuit-Unlooped.png">
-<p></p>
 <p>And here are step-by-step instructions for how we make the
-change to the circuit:<br>
+change to the circuit:
 </p>
-<p style="font-weight: bold;">Step #1:
-&nbsp;Disconnect the 3V battery</p>
+<h4>Step #1: Disconnect the 3V battery</h4>
 <p>First,
 we need to disconnect our existing power source. From the
 breadboard, remove the power and ground wires leading from the
@@ -48,29 +51,25 @@ battery.</p>
 <p>Your
 breadboard should now look like this:</p>
 <img class="bb" src="img/Your_First_Breadboard_Remove_Battery_bb.png">
-<p style="text-align: center;"><b>Lighting an LED
-(Battery removed) Diagram</b></p>
-<p></p>
-<p style="font-weight: bold;">Step #2: &nbsp;Add power
-and ground from the connector board</p>
+<h4>Step #2:  Add power and ground from the Lid Connector Board</h4>
 <p>We
 can now add power from the connect board to the breadboard. This is
 accomplished by running a wire from one of the pins labeled “3.3V”
-on the lid connector to the red (power) row, thus providing power to
+on the Lid Connector Board to the red (power) row, thus providing power to
 the entire row. And then running a wire from the blue (ground) row
-to one of the pins labeled “GND” on the lid connector.</p>
+to one of the pins labeled “GND” on the Lid Connector Board.</p>
 <p>At
 this point, our LED should once again be lit, and here’s what our
 breadboard should now look like:</p>
 <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
-<p></p><p>We have successfully replaced the battery (our previous power
+<p>We have successfully replaced the battery (our previous power
 and ground source) with power and ground coming directly from the
-Raspberry Pi. &nbsp;For all future projects, we'll be using the
-power/ground from the Raspberry Pi to power our circuits. &nbsp;<br></p><p style="text-align: center;"></p><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"></span></span><span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br></span></span>
+Raspberry Pi.  For all future projects, we'll be using the
+power/ground from the Raspberry Pi to power our circuits.  </p>
 <div class="info">
 <div>A Note About Wires</div>
 <div>
-<p>Your RaspberrySTEM kit comes with a bag of 65 wires in
+<p>Your RaspberrySTEM CREATOR Kit comes with a bag of 65 wires in
 assorted colors and lengths, as well as a smaller bag of 20 half-inch
 green wires. All the wires
 provided in the kit (regardless of color and length) work exactly the
@@ -112,9 +111,7 @@ your circuits. This will make troubleshooting much easier.</p>
 <p></p>
 </div>
 </div>
-<span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;">
-<br>
-</span></span>
-<p class="nextprev"><a href="BREADBOARD_FIRST_CIRCUIT.html">prev</a>|
-<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">next</a></p>
+<p class=nextprev><a href="index.html">home</a> | 
+<a href="BREADBOARD_FIRST_CIRCUIT.html">prev</a> |
+<a href="INTRODUCING_BUTTONS.html">next</a></p>
 </body></html>

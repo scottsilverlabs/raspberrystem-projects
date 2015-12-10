@@ -5,204 +5,141 @@
 <link rel="stylesheet" type="text/css" href="default.css">
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SIMON 0</h1>
-<p>Over the next many projects, we're going to use buttons, LEDs
+<header>
+    <div id=title>SIMON 0</div>
+    <div id=description>In this project, we kick off the development of our Simon-like
+    pattern matching game by writing the pseudo-code for our game.</div>
+    <div id=concepts_required><a href="WHILE_LOOPS.html">WHILE LOOPS</a></div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>Over the next eight projects, we're going to use buttons, LEDs
 and a good bit of code to build and program a pattern-matching game
-much like the popular toy Simon. &nbsp;</p>
+much like the popular toy Simon.  </p>
 <p>If you're not
 familiar with Simon, let me describe how our pattern-matching game will
-work. &nbsp;The game will start by flashing one of four LEDs at
+work.  The game will start by flashing one of four LEDs at
 random (and
 will
-play a tone speciific to that LED).&nbsp; You (the player) will
+play a tone specific to that LED).  You (the player) will
 then have a short
 amount of time to press the button associated with the LED that
 flashed.
-&nbsp;If
+ If
 you do that successfully, the game will repeat the first LED flash and
-then add a second LED flash at random. &nbsp;Again, you'll need to
+then add a second LED flash at random.  Again, you'll need to
 remember the pattern and press the correct buttons to replicate the
-pattern. &nbsp;Each time you successfully enter the correct
+pattern.  Each time you successfully enter the correct
 sequence,
-the game will&nbsp;replay the previous pattern and add a random new
+the game will replay the previous pattern and add a random new
 LED
-flash at the end. &nbsp;This will continue until you incorrectly
+flash at the end.  This will continue until you incorrectly
 repeat the sequence --
 of if
 you take too long between button presses -- at which point the game
 ends and the entire sequence is repeated back to you one last time.</p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Since
+<p>
+Since
 this is a bit longer and more complex project than we've done so far,
 it's important to spend some time planning what the code will do and in
-what order. &nbsp;In fact, before undertaking a big programming
-project, most programmers will create an "outline" for the code they
-are planning to write. &nbsp;Just like an outline helps keep you
-organized when writing an essay or a paper, writing an outline for your
-program will help keep you organized and allow you to create a logical
-flow for your program before you start coding.</span></p>
-<p class="MsoNormal">The way we're going to create
-an&nbsp;outline
-for Simon -- and the way most programmers create their outlines -- is
-through a common
-programming technique called pseudo-code. &nbsp;Here's a quick
-overview of what pseudo-code is and how it works...</p>
-<p class="MsoNormal"></p>
+what order.  
+To do this, we'll create an outline for Simon is through a common
+programming technique called pseudo-code.
+</p>
+<p></p>
 <div class="info">
 <div>Pseudo-Code</div>
 <div>
-<p class="MsoNormal">It's common for software developers
-(people who program and write code) to plan to use something called
-"pseudo-code" when they are preparing to write their software.
-&nbsp;Writing pseudo-code before you write software is similar to
+<p>
+ Writing pseudo-code before you write software is similar to
 writing an outline before you write a paper or an article.
-&nbsp;Basically, you create an outline for your code using a
+ Basically, you create an outline for your code using a
 combination of regular English mixed with some bits of programming
-code. &nbsp;This allows you (or others) to read the order of the
+code.  This allows you (or others) to read the order of the
 code and determine if what you're getting ready to write is logical and
-will accomplish what you expect your code to accomplish.</p>
-<p class="MsoNormal">Let's look at an example of
-pseudo-code...</p>
-<p class="MsoNormal">Imagine you are planning to write
-some code that will add two numbers together. &nbsp;Here is what
-our pseudo-code might look like:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user to enter the first
-number and store that number in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user to enter the second
-number and store that number in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Add the two
-numbers together and
-store the result in a variable</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Display the
-result on the screen for
-the user to see</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; Ask the
-user if they want to run the
-program again</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; If they
-want to run the program again:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; Run
-the program again</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp; else:</p>
-<p style="font-family: Courier New,Courier,monospace;" class="MsoNormal">&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; Stop
-running the program and exit</p>
-<p class="MsoNormal">You notice that each line is easily
-readable as English -- with some code formatting for the<span style="font-family: Courier New,Courier,monospace;"> if/else</span>
-statement -- and overall, you now have a detailed outline that you can
-use as a template for your new code. &nbsp;</p>
-<p class="MsoNormal">Now, in reality, you probably
-wouldn't need this much detail to write a simple program like adding
-two numbers together. &nbsp;But, for more complex software, writing
+will accomplish what you'd expect.</p>
+<p>Let's use the 
+    <a href="MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a> project to show an example of
+    how we'd write pseudo-code.  In that project, we had a bunch of buttons, and we wanted to print
+    when the buttons were pressed.</p>
+<p>Here is what our pseudo-code might look like:</p>
+<pre>
+Create a list of Buttons
+Repeat:
+    For each button in the list of buttons:
+        If the button is pressed:
+            Print which button was pressed
+    Pause
+</pre>
+<p>You notice that each line is easily
+readable as English -- with some indenting to help the readability
+-- and overall, you now have a outline that you can
+use as a template to create your code.  </p>
+<p>Now, in reality, you might not need to use pseudo-code for such a simple program.
+But, for more complex software, writing
 the pseudo-code before you start writing the actual code can make the
 entire process much easier.</p>
 </div>
 </div>
-<p></p>
-<p>Now that you hopefully have a general idea of how pseudo-code
-works, let's talk about what the pseudo-code for our Simon game will
-look like. &nbsp;We've found that the best way to outline a
-programming project is to start with big ideas and then break those
-ideas down into smaller and smaller pieces, until the pieces are small
-enough that we're comfortable starting to write our code.</p>
+
+<p>
+Let's talk about what the pseudo-code for our Simon game will
+look like.  An effective way to outline a programming project is to start with big
+ideas and then break those ideas down into smaller and smaller pieces, until
+the pieces are small enough that we're comfortable starting to write our
+code.</p>
 <p>For example, this is what the very high level outline for our
-Simon game would look like:</p>
-<p></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
-Modules and Initialize Game</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Add
-another random LED to sequence</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Play
-LED sequence&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Allow
-player to repeat sequence one button at a time&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Get the
-user's button press</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If user
-enters incorrect button, end game</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If user
-enters correct button, flash LED and play tone</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the entire sequence, go back to top and add another
-LED to the sequence</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the wrong sequence, play an error sequence</span></p>
-<p></p>
+Simon game might look like:</p>
+<pre>
+Import Modules and Initialize Game
+Add another random LED to sequence
+Play LED sequence 
+Allow player to repeat sequence one button at a time 
+Get the user's button press
+If user enters incorrect button, end game
+If user enters correct button, flash LED and play tone
+If the user enters the entire sequence, go back to top and add another LED to the sequence 
+If the user enters the wrong sequence, play an error sequence
+</pre>
 <p>That's
-basically all our Simon game needs to do. &nbsp;But, now it's time
+basically all our Simon game needs to do.  But, now it's time
 to start thinking about how this outline would actually look when
 written with code. You'll notice that the last two lines indicate that
 -- for as long as the user does something correctly -- we go back to
-the top of the code. &nbsp;Does this sound like a concept we've
-already discussed? &nbsp;A <span style="font-family: Courier New,Courier,monospace;">while:</span>
+the top of the code.  Does this sound like a concept we've
+already discussed?  A <code>while</code>
 loop, perhaps?</p>
 <p>Also, you'll notice that in the middle of the code, we're
 checking for the sequence of button presses from the user --
-one-by-one. &nbsp;This sequence of getting input and checking it
-would likely be a loop as well -- in this case, probably a <span style="font-family: Courier New,Courier,monospace;">for</span>
+one-by-one.  This sequence of getting input and checking it
+would likely be a loop as well -- in this case, probably a <code>for</code>
 loop.</p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Let's
-rewrite our psedu-code above, but this time, let's add in a couple
-loops to make it more clear how the code will work:</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">Import
-Modules and Initialize Game</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">while
-(user enters the sequence correctly):</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; Add another random LED to sequence</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; Play LED sequence&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; for (each of the buttons in the sequence):&nbsp;</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; &nbsp; &nbsp; Get the user's button press</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; &nbsp; &nbsp; If user enters incorrect button, end
-game</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; &nbsp; &nbsp; If user enters correct button, flash
-LED and play tone</span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">&nbsp;
-&nbsp; If the
-user enters the entire sequence, go back to top and add another
-LED to the sequence</span></p>
-<span style="font-family: &quot;Verdana&quot;,serif;"><br>
-</span>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;"></span></p>
-<p class="MsoNormal" style="margin: 0in 0in 0.0001pt 0.5in; line-height: normal;"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">If the
-user enters the wrong sequence, play an error sequence</span></p>
-<br>
+<p>Let's
+rewrite our pseudo-code above, but this time, let's add in a couple
+loops to make it more clear how the code will work:</p>
+
+<pre>
+Import Modules and Initialize Game
+while (user enters the sequence correctly):
+    Add another random LED to sequence
+    Play LED sequence 
+    for (each of the buttons in the sequence): 
+        Get the user's button press
+        If user enters incorrect button:
+            End game
+        Otherwise (user entered correct button), so flash LED and play tone
+If the user enters the wrong sequence, play an error sequence
+</pre>
 <p>The pseudo-code above is still very simple to follow, but by
 adding in the two loops, we start to see the format for our program.</p>
 <p>We
 could drill down into each piece of the pseudo-code further -- and in
 some future projects we'll be much more detailed -- but for our
 Simon-like game, we think this is enough detail to get started.
-&nbsp;As we build up the code over the next many projects, we'll
+ As we build up the code over the next many projects, we'll
 use
 the outline above to organize and ensure that we're doing everything
 that needs to be done to get the game working properly.</p>
-<span style="font-family: &quot;Verdana&quot;,serif;"></span>
-<p></p>
-<p class="nextprev"><a href="WALKABLE_PIANO.html">prev</a>|
+<p class=nextprev><a href="index.html">home</a> | <a href="WALKABLE_PIANO.html">prev</a> |
 <a href="SIMON_1.html">next</a></p>
 </body></html>

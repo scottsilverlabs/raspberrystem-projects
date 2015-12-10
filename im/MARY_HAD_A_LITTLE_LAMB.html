@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>MARY HAD A LITTLE LAMB</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>PLAYING A SONG</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -11,7 +11,14 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>MARY HAD A LITTLE LAMB</h1>
+<header>
+    <div id=title>PLAYING A SONG</div>
+    <div id=description>In this project, we continue using the sound library to play a version
+	    of Mary Had a Little Lamb.</div>
+    <div id=hw_required>Speaker &amp; Audio Cable</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
 <p>Below is an example of how you can play a musical tune using
 the RaspberrySTEM:</p>
 <div class="code" data-firstline="1">
@@ -50,13 +57,48 @@ for note in notes:
 	note.play(duration=0.5) 
 	note.wait()
 </textarea></div>
-<br><p>The code above is pretty simple -- we create a list of notes, and then we use a <span style="font-family: Courier New,Courier,monospace;">for</span> loop to loop through them, play each in turn. &nbsp;<br><br>Now,
+<p>The code above is pretty simple -- we create a list of notes, and then we
+use a <code>for</code> loop to loop through them, play each in turn.  Now,
 the one big issue with this code is that each note is of a fixed
-duration. &nbsp;But, in most songs, you have notes of varying length
-(some longer and some shorter). &nbsp;We can modify this code so that
-we can specify the length of each note independently. &nbsp;We do that
-by creating a second list that contains the note durations, and in our <span style="font-family: Courier New,Courier,monospace;">for</span> loop, we use both the note and the duration in our <span style="font-family: Courier New,Courier,monospace;">play()</span> function.<br><br>Here is what the code would look like:</p>
-<br>
+duration.  But, in most songs, you have notes of varying length
+(some longer and some shorter).  We can modify this code so that
+we can specify the length of each note independently.  We do that
+by creating a second list that contains the note durations, and in our <code>for</code> loop, we
+use both the note and the duration in our <code>play()</code> function.
+
+
+<div class="info">
+<div>zip() Function</div>
+<div>
+<p>
+The zip() function provides a convenient way to combine two (or more) lists into one.  Just
+like a zipper on jacket meshes together two rows of metal pins, the zip() function does the 
+same things with lists.  zip() will take the first element of each list and combine them 
+together.  It
+will then take the second element of each list and combine those together.  And so on, until
+the shortest list runs out of elements.</p>
+
+<p>For example, imagine that you have two lists, one containing the name of all the people in a household
+and one containing the age of all those people.  The lists might look like this:</p>
+
+<pre>name = [Bob, Susie, Brian, Carol]</pre>
+<pre>age = [31, 29, 7, 4]</pre>
+
+<p>If we were to zip() those two lists together:</p>
+
+<pre>zipped = zip(name, age)</pre>
+
+<p>Our resulting list ("zipped") would contain the following:</p>
+
+<pre>[(Bob, 31), (Susie, 29), (Brian, 7), (Carol, 4)]</pre>
+
+<p>The zip() function is often helpful when traversing two related lists through a 
+for loop, as we will do below.</p>
+</div>
+</div>
+
+<p>Here is what the code would look like:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -73,8 +115,8 @@ notes = [ Note('E'),
 	Note('D'), 
 	Note('D'), 
 	Note('E'),
-	Note('E'), 
-	Note('E'), 
+	Note('G'), 
+	Note('G'), 
 	Note('E'), 
 	Note('D'), 
 	Note('C'), 
@@ -101,7 +143,7 @@ durations = [ .5,
 	1,
 	.5,
 	.5,
-	1.5,
+	1,
 	.5,
 	.5,
 	.5,
@@ -114,13 +156,13 @@ durations = [ .5,
 	.5,
 	.5,
 	.5,
-	1.5 ]
+	1 ]
 
 for note, duration in zip(notes, durations): 
 	note.play(duration=duration) 
 	note.wait()
 </textarea></div>
 
-<p class="nextprev"><a href="SOUNDS_-_SPEAKER.html">prev</a>|
+<p class=nextprev><a href="index.html">home</a> | <a href="SOUNDS_-_SPEAKER.html">prev</a> |
 <a href="SIMPLE_PIANO.html">next</a></p>
 </body></html>

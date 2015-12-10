@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GENERAL PURPOSE INPUT-OUTPUT</title>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GPIO AS OUTPUTS</title>
 
 <link rel="stylesheet" type="text/css" href="default.css">
 <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
@@ -11,223 +11,88 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>GENERAL PURPOSE INPUT/OUTPUT</h1>
-<p>So far, we’ve
-discussed some basics of software programming, we’ve discussed
-electricity and circuits and we’ve even written our first program
-and built our first circuit. But, the point of the RaspberrySTEM<sup>TM</sup>
-platform is the integration of the software and hardware, and more
-specifically, using software to control the hardware to make it do
+
+<header>
+    <div id=title>GPIO AS OUTPUTS (CONTROLLING LEDS)</div>
+    <div id=description>In this project, we'll learn about General Purpose 
+	    Input/Outputs (GPIOs) and for the first time, we'll use
+    software to control the hardware.  Specifically, we'll wire an LED and then control 
+    the LED output using code that we'll write.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
+    <div id=concepts_required><a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br><a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES/ASSIGNMENTS</a><br><a href="INTRO_TO_FUNCTIONS.html">INTRODUCTION TO FUNCTIONS</a><br><a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a><br><a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a><br><a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS & MODULES</a></div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>Before jumping into this project, we very strongly recommend that you 
+read <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
+concepts will be the basis for this project and nearly all future RaspberrySTEM
+projects.</p>
+
+<p>In the previous project, we created a circuit that allowed us to control an LED using a
+pushbutton -- solely using hardware.  But, the most fun and exciting part 
+of the RaspberrySTEM CREATOR Kit is the integration of the software and hardware, 
+and more specifically, using software to control the hardware to make it do
 interesting and useful things.</p>
-<p>In this project, for
-the first time, we’ll use the software to control the hardware. And,
-that’s where General Purpose Input/Outputs (GPIOs) come into
-play.</p>
-<h2>What Are GPIOs?</h2>
-<p>GPIOs are specific pins (little metal "legs"
-on the bottom or sides of a computer chip) that give us a connection
-between a physical circuit and the software inside the chip.
-We
-make these connections to the computer chip available on the
-RaspberrySTEM<sup>TM</sup> by plugging wires into the
-connector board holes.
-The purpose of GPIOs are like the
-nerve-system of the platform – their job is to relay signals from
-the brain (the Raspberry Pi computer) to the muscles (the components
-of the circuit) and to take signals from the muscles and relay it
-back to the brain. </p>
-<p>The Raspberry Pi has 26 GPIOs, and each one can be set to act
-as an input (it can take a
-signal from somewhere else and relay it to the Raspberry Pi) or set
-to act as an output (it can relay a signal from the Raspberry Pi to
-somewhere else). &nbsp;GPIOs are referenced as number (for example,
-GPIO17), and each pin (hole) on the connector board is labeled with the
-GPIO it is connected to. &nbsp;So, if you want to hook up a
-component to GPIO17, you'll insert a wire from the component to the
-hole on the connector board labled "17".</p>
-<p></p>
-<div class="info">
-<div>GPIOs Come From the Raspberry Pi</div>
-<div>
-<p>We make it easy to get access to the GPIOs by connecting
-directly from the lid connector board to the breadboard. But, if you
-had a Raspberry Pi computer without the RaspberrySTEM<sup>TM</sup>
-kit, you'd still
-be able to get access to the Raspberry Pi GPIOs. The GPIOs are made
-available through the pins on the Raspberry Pi
-(the pins that the ribbon cable is attached to) -- if you were to
-remove the ribbon cable, you could connect wires
-directly to the Raspberry Pi pins and attach them to the breadboard (or
-to your components) directly.
-</p>
-<p>The lid connector board was designed to make connecting to the
-Raspberry Pi pins cleaner and easier. In fact, the whole purpose of the
-ribbon cable and the lid connector board is simply to bring the GPIO
-pins (and
-other pins) from the Raspberry Pi to the RaspberrySTEM<sup>TM</sup>
-Lid, where they
-are easier for you to attach your components to.
-</p>
-</div>
-</div>
-<h2>GPIOs as Outputs</h2>
-<p>When a GPIO is
-configured as an output, the software has the ability to set the GPIO
-to do one of two things:</p>
-<ol>
-<li>
-<p>Set the voltage to 0V (so that it acts just like a ground)</p>
-</li>
-<li>
-<p>Set the voltage to 3.3V (so that it acts just like a
-battery or some
-other
-power source)</p>
-</li>
-</ol>
-<p>By switching the
-GPIO “on” or “off,” it can be used to control components on
-the breadboard or elsewhere.</p>
-<p>As a very simple
-example, you could hook a GPIO to an LED, and then control whether
-the LED was turned on or off by turning the GPIO on or off. In fact,
-since we’ve already built a circuit with an LED, why don’t we
-modify it to use a GPIO so that we can control that LED through
-software…</p>
-<p>Here is the
-schematic from our original circuit:</p>
-<p style="text-align: center;"><img style="width: 174px; height: 393px;" alt="" src="img/Battery-LED-Circuit-Unlooped.png"><br>
-</p>
-<p></p>
-<p>To attach the LED to
-a GPIO, we’re going to modify our circuit as follows:</p>
-<p style="text-align: center;"><img style="width: 345px; height: 351px;" alt="" src="img/Battery-LED-Circuit-to-GPIO.png"><br>
-</p>
-<p style="text-align: center;"><span style="font-weight: bold;">Schematic: Lighting
-an LED with a GPIO</span></p>
-<p>You’ve probably
-noticed that all we did was replaced the connection from the LED to
-ground with a connection from the LED to a GPIO. Let’s see how
-this will work…</p>
-<p>We’ve already
-discussed that the software can force the GPIO into one of two
-states:</p>
-<ol>
-<li>
-<p>Set the voltage to 0V (so that it acts just like a ground)</p>
-</li>
-<li>
-<p>Set the voltage to 3.3V (so that it acts just like a
-battery or some
-other
-power source)</p>
-</li>
-</ol>
-<p>If the software sets
-the GPIO to 0V (we call this setting the GPIO “low”),
-the GPIO acts just like a ground, and the LED will light up just like
-it currently does. But, if the software sets the GPIO to 3.3V (we call
-this setting the GPIO “high”), the LED will not
-light up.</p>
-<p>If that’s
-confusing, think back to our earlier discussion – electricity will
-only flow between two points where there is a voltage difference. If
-there is 3.3V on one side of the circuit coming from the power source
-and there is 3.3V on the other side of the circuit coming from the
-GPIO, there is no voltage difference between the beginning and end of
-the circuit, and no electricity will flow (i.e., the LED won’t
-light up).</p>
-<p>This can be a
-confusing concept at first, but stick with us and it will
-become more clear. Here is a overview of how the GPIO will work in
-this circuit:</p>
-<table style="width: 100%;" border="0" cellpadding="2" cellspacing="2">
-<tbody>
-<tr>
-<td style="text-align: center;"><img style="width: 285px; height: 346px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Power.png" align="top"></td>
-<td style="text-align: center;"><img style="width: 260px; height: 378px;" alt="" src="img/Battery-LED-Circuit-to-GPIO-as-Ground.png"></td>
-</tr>
-<tr>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">Schematic: GPIO set high (LED off)<br>
-</span></td>
-<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">Schematic: GPIO set low (LED on)<br>
-</span></td>
-</tr>
-</tbody>
-</table>
-<br>
-<br>
-<div class="info">
-<div>"Active Low"</div>
-<div>
-<p>You may have
-noticed in the images above that, to turn the LED on, you need to set
-the GPIO low
-(0, Ground).&nbsp; And, to
-turn the LED off, you need to set the GPIO needs to be set to high (1,
-Power).&nbsp; Clearly, this
-sounds a
-little reversed, but you can see from the images above that this is how
-it works. &nbsp; It is a reversed way of
-using
-a GPIO, but it's pretty standard. And it's called "Active
-Low."&nbsp; A GPIO that is Active Low is
-turned
-"on" when the GPIO is set low, and "off" when the GPIO is set
-high.&nbsp;&nbsp;</p>
-<p>The
-reverse of this is called "Active High" -- a GPIO that is Active High
-is
-turned "on" when the GPIO is high, and "off" when the GPIO is
-low.
-</p>
-</div>
-</div>
-<p>Now that we have the
-basic concept of how we can control our LED with a GPIO, let’s give
-it a try…<br>
-</p>
-<p><b>Step #1: &nbsp;Connect the circuit to a GPIO
-instead of ground.</b></p>
+<p>In this project, we'll rebuild a version of our original circuit (with just the power 
+source, LED and resistor), but we'll the wire up LED a little differently and then write
+some code to control it -- harnessing the Raspberry Pi GPIOs.  
+
+<h2>Controlling an LED with a GPIO</h2>
+
+<p>Before we start the new wiring for this project, let's wire up our original circuit 
+from the <a href="RASPBERRY_PI_POWER.html">GETTING POWER FROM THE RASPBERRY PI</a> project -- 
+this will give us some context so we can understand how we're going from that circuit (which
+uses strictly hardware to control the LED) to our new circuit (which uses a GPIO to control
+the LED).  As a reminder here is what that circuit looks like, and how you'll want to wire
+your breadboard right now:</p>
+<img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
+<p>The LED should now be lit.</p>
+<p>Now that we have some background on how GPIOs work and how we can control our LED with 
+a GPIO, and now that we've wired up a circuit that
+we're familiar with, let's jump in and start using GPIOs...</p>
+<h4>Step #1:  Disconnect the circuit from ground.</h4>
+<p>The LED is currently connected to ground via the green wire.  To disconnect it,
+remove the green wire:
+<img class="bb" src="img/Introducing_Buttons_1_bb.png">
+<p>The LED should no longer be lit.</p>
+<h4>Step #2:  Connect the circuit to a GPIO.</h4>
 <p>
-Find the wire that attaches the blue ground row to the 3.3V on the
-connector board. Remove the wire from the 3.3V hole and insert it
-into any of the numbered holes on the connector board (these are the
-GPIOs). For this project, I will assume that you’re using GPIO14
-on the connector board, though you’re welcome to use any GPIO
-(you’ll just need to modify the code appropriately if you choose a
-GPIO other than 14 for this project).</p>
+Now, connect a wire from the LED to a GPIO as shown in the diagram.
+<p>For this project, we will assume that you’re using GPIO14
+on the Lid Connector Board, though you’re welcome to use any GPIO -- just remember that 
+you’ll just need to modify the code appropriately if you choose a
+GPIO other than 14 for this project.</p>
 <p>
 This is what your breadboard should now look like:</p>
 <img class="bb" src="img/Your_First_Breadboard_Add_GPIO_bb.png">
 <div class="info">
-<div>&nbsp;Inner Workings of GPIOs</div>
+<div> Inner Workings of GPIOs</div>
 <div>
 <p>You will probably notice that the LED is not lit at this
-point, even though we've hooked it up to the GPIO. &nbsp;The reason
-for this is that the GPIO is designed internally so that, by default
-(if it's unconnected to anything), it reads a high voltage.
-&nbsp;As we discussed above, if the GPIO voltage is high, there is
-no voltage difference between the start and end of the circuit, and no
+point, even though we've hooked it up to the GPIO.  The reason
+for this is that the GPIO, by default, reads a high voltage.
+ As we discussed above, if the GPIO voltage is high, there is
+no voltage difference across the LED, and as a result no
 electric current will flow -- the LED will not light up.</p>
-<p>When the button is pressed, the internal components of the
-GPIO get connected
-(physically) to ground, which makes it read a low voltage. &nbsp;At
-that point, electric current will flow and the LED will illuminate.</p>
-<p>Again, this can be a bit confusing at first, but as you use
+<p>The code we're about to write will set the GPIO voltage low (ground, 0V).
+When the GPIO is low, current can flow through the LED, because
+there is now a voltage difference
+across the LED.
+</p>
+<p>These concepts can be a bit confusing at first, but as you use
 GPIOs more and more, the concepts and the conventions should become
 clearer.</p>
 </div>
 </div>
 <p></p>
-<p>Now that our circuit is complete, let’s write the software…</p>
-<br>
-<p><b>Step #2: &nbsp;Write the code.</b></p>
+<p>Now that our circuit is complete, let’s write the software.</p>
+<h4>Step #3:  Write the code.</h4>
 <p>
 The code to control the GPIO (and with it the LED) is pretty
-short.&nbsp;</p>
+short.  It uses a function called Output() to configure a GPIO as an output.
+</p>
 <p>
-Type (or cut-and-paste) the following code into the your IDE’s Code
+Type (or cut-and-paste) the following code into the your RDE’s Code
 Window:</p>
 <div class="code" data-firstline="1">
 <div></div>
@@ -235,73 +100,40 @@ Window:</p>
 my_led = Output(14)
 my_led.on()
 </textarea></div>
-<br>
-<p>Don't feel bad if you don't understanding anything going on in
-this code. &nbsp;Our goal is to get you doing some fun stuff early
-on,
-and that means using some programming concepts that we haven't yet
-discussed. &nbsp;The code above will make a lot more sense later,
-but
-for now, we just want to give you a taste of how software and hardware
-can work together.</p>
-<p><b>Step #3: Run the code.</b></p>
-<ol start="3">
-</ol>
+<p>At this point, we don't expect you'll fully understand the code above.  However, there are a couple important ideas to notice in the code:
+</p>
+<ul>
+<li> <p>In Line 2: We're configuring GPIO 14 as an output.</p> </li>
+<li> <p>In Line 3: We're turning the LED on.</p> </li>
+</ul>
 <p>
-Run the code the same way you did in the <a href="HELLO,_WORLD.html">Hello,
-World!</a> project – press the Play
+To help you understand how we wrote this code, take some time to refer to the
+new concepts introduced in this section (see the header at the top of the
+page).  We'll look at this code again in more detail in upcoming projects.
+</p>
+
+<h4>Step #4: Run the code.</h4>
+<p>
+Run the code the same way you did in the <a href="HELLO,_WORLD.html">HELLO,
+WORLD!</a> project – press the Play
 icon above the code window. Assuming you did everything correctly,
 the LED should now be lit.</p>
 <p>
 Congratulations! You just controlled some hardware you built using
-software that you wrote. &nbsp;This is the foundation for how
-many&nbsp;electronic devices and toys are made these days, and have
-accomplished something that even many experienced engineers don't
-understand.<br>
+software that you wrote.  
 </p>
-<p></p>
-<p><b>Step #4: &nbsp;Play around with it.</b></p>
+<h4>Step #5:  Play around with it.</h4>
 <p>
 Assuming everything worked properly in the previous step, feel free
 to play around with the circuit and the code. Try changing from
 GPIO14 to a different GPIO (make sure you change the code to reflect
-the new GPIO). Or try turning off the LED by replacing the <span style="font-family: Courier New,Courier,monospace;">my_led.on()</span>
+the new GPIO). Or try turning off the LED by replacing the <code>my_led.on()</code>
 statement with:</p>
 <div class="code" data-firstline="3">
 <div></div>
 <textarea>my_led.off()
 </textarea></div>
-<h2>GPIOs as Inputs</h2>
-<p>In the previous
-section, we saw how GPIOs can be used as outputs to control
-components attached to the Raspberry Pi. In addition, GPIOs can be
-used as inputs to take information from external components; that
-input can then be acted upon by the Raspberry Pi and appropriate
-actions can be taken.</p>
-<p>Much like GPIO
-outputs work by simply setting a voltage on the GPIO pin to either 0V
-or 3.3V, GPIO inputs work by reading the voltage – either 0V or
-3.3V – being sent to the GPIO pin.</p>
-<p>For example, a GPIO
-can be used to get the current&nbsp;state of a button or switch
-(pressed or unpressed). &nbsp;Based on the current state, the
-software can take appropriate action. &nbsp;</p>
-<div class="info">
-<div>"State"</div>
-<div>
-<p>"State" is a common term using in electronics and just means
-the current condition or situation of a component or circuit.<br>
-<br>
-For
-example, in the case of a button or switch, state would refer to
-whether the button is currently being pressed or unpressed.
-&nbsp;For
-an LED, state might refer to whether the LED was illuminated or not.</p>
-</div>
-</div>
-<p>GPIOs as inputs are
-very powerful, and we’ll be using them in many future projects,
-including some upcoming projects related to buttons/switches.</p>
-<p class="nextprev"><a href="RASPBERRY_PI_POWER.html">prev</a>|
-<a href="INTRODUCING_BUTTONS.html">next</a></p>
+<p class=nextprev><a href="index.html">home</a> | 
+<a href="INTRODUCING_BUTTONS.html">prev</a> | 
+<a href="USING_BUTTONS_WITH_GPIO.html">next</a></p>
 </body></html>

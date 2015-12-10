@@ -14,11 +14,18 @@ chainedOnload(function() {
         //
         // Rationale: There is sometimes, but not always, an extra newline at
         // the end.
+        var lineHighlight = [];
         var lines = codeblock.value.split('\n');
         if (lines[lines.length-1] == '') {
             lines.splice(-1,1);
         }
-        numLines = lines.length;
+        for (var j = 0; j < lines.length; j++) {
+            highlight = lines[j][0] == "*";
+            if (highlight) {
+                lines[j] = lines[j].substring(1);
+            }
+            lineHighlight.push(highlight);
+        }
         codeblock.value = lines.join('\n');
 
         var cm = CodeMirror.fromTextArea(codeblock, {
@@ -33,10 +40,24 @@ chainedOnload(function() {
             theme: "solarized-dark",
             readOnly: true,
             textWrapping: true,
+            gutters: ["breakpoints", "CodeMirror-linenumbers"],
         });
+        for (var j = 0; j < lineHighlight.length; j++) {
+            if (lineHighlight[j]) {
+                cm.setGutterMarker(j, "breakpoints", makeMarker());
+            }
+        }
+
+        function makeMarker() {
+          var marker = document.createElement("div");
+          marker.className = "CodeMirror-linemarker";
+          marker.innerHTML = "&#10148;";
+          return marker;
+        }
 
         // Auto height computation...  CodeMirror seems like it supports
         // auto-height via CSS, but it wasn't working.
-        cm.setSize(null, cm.defaultTextHeight() * (numLines+1));
+        // Note: not-workingness is related to HTML 4 DOCTYPE
+        cm.setSize(null, cm.defaultTextHeight() * (lines.length+1));
     }
 });

@@ -10,121 +10,358 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>TROUBLESHOOTING</h1>
-<p>Wiring circuits, using electronic components and writing
-software isn't easy -- even professionals spend a lot of time
-"debugging" their hardware and software designs. &nbsp;So, if
-you're having issues, don't feel bad, it's a typical part of an
-programming and electronics work you'll ever do. &nbsp;Below, we
+<h1>TROUBLESHOOTING CIRCUITS</h1>
+<p>Wiring circuits, using electronic components and writing software isn't
+always trouble free -- "debugging" (fixing) hardware and software is a typical
+part of any programming and electronics work you'll ever do. 
+<p>Below, we
 offer some suggestions on how to work through the issues you might be
-having with your projects. &nbsp;If you're having issues that
+having with your projects. If you're having issues that
 aren't addressed in any of the sections below, feel free to visit our
-support page at: <a href="http://www.raspberrystem.com/support">http://www.raspberrystem.com/support</a>.</p>
+support page at raspberrystem.com.</p>
 <h2>CIRCUIT ISSUES</h2>
-<p>If&nbsp;your circuit isn't working, there are lots of
-potential issues you could be encountering.&nbsp; When this
+<p>If your circuit isn't working, there are lots of
+potential issues you could be encountering.  When this
 happens, the best approach is one that tests each part of the circuit
 piece-by-piece until the problem is identified and fixed.
-&nbsp;Here are some suggestions on how to do this in an efficient
-fashion:<br>
-<br>
-1. &nbsp;Verify that the circuit is being powered and grounded
-correctly</p>
-<p>The first thing you'll want to verify is that your circuit is
-receiving power and ground. &nbsp;Most likely, you're providing
-power and ground to the breadboard from the lid connector, and you're
-using the red and blue power/ground strips to provide power and ground
-to the rest of the breadboard. &nbsp;Assuming this is the case,
-testing to ensure power and ground are working should be pretty simple.</p>
-<p>Take a working LED, and place the longer lead of the LED
-somewhere along the power strip. &nbsp;Next, take the shorter lead
-of the LED and place it somewhere along the ground strip.
-&nbsp;You've now created a simple circuit using power, ground and
-an LED -- if the power and ground are working correctly, and if the LED
-is placed in this fashion, the LED should illuminate. &nbsp;Here is
-an example:</p>
-<p>INSERT FRITZING OF LED ACROSS POWER/GROUND</p>
-<p><span style="font-weight: bold;">Note:</span>
-&nbsp;Don't leave the LED like that for very long, as without a
-resistor, the LED can be damaged.</p>
-<p>2. &nbsp;Verify that power and ground are not reversed</p>
-<p>By convention, the red power strip is typically used for power
-and the blue power strip is typically used for ground. &nbsp;Like
-this:</p>
-<p>INSERT FRITZING OF TYPICAL POWER/GROUND</p>
-<p>But, there is nothing stopping you from (purposefully or
-accidentally) wiring it backwards, with red being used for ground and
-blue being used for power. &nbsp;Like this:</p>
-<p>INSERT FRITZING OF BACKWARDS POWER/GROUND</p>
-<p>The previous wiring would still work, but would require that
-you&nbsp;provide power to your circuit from the blue rail and
-ground from the red rail (opposite of typical convention).</p>
-<p>If your circuit isn't working, verify that your circuit is
-getting power from the powered rail and ground from the grounded rail,
-and that you haven't accidentally switched power and ground coming onto
-your breadboard.</p>
-<p></p>
-<p>3. &nbsp;Check that each component is being wired and
-programmed correctly.</p>
-<p>Once you are confident that your circuit is getting working
-power and ground, the next step is to verify that each of your
-components is wired correctly and functioning properly. &nbsp;We
-have included sections below to troubleshoot each of the components
-provided with the RaspberrySTEM kit. &nbsp;Here are links to
-troubleshoot each of the individual components:</p>
-<p>- &nbsp;LED</p>
-<p>- &nbsp;Button</p>
-<p>- &nbsp;Accelerometer</p>
-<p>- &nbsp;LED Matrix<br>
+<p>The process involves starting at the very beginning (the
+Raspberry Pi computer), working our way up to the breadboard, examining
+each of the components to ensure they've been placed/wired correctly
+and then testing for continuity around the entire circuit.</p>
+<p>Here is a step-by-step checklist that you can use to efficiently test your
+circuit to resolve issues.  After following these
+troubleshooting steps a few times, you'll start to get the hang of how to
+resolve issues even more quickly on your own:
 </p>
-<p></p>
-<p>4. &nbsp;Test continuity between various points in the
-circuit</p>
-<p>If you've verified power and ground are working correctly, and
-you've verified that each of your components are wire correctly and
-functioning correctly, but your circuit still isn't working, it time to
-do some investigation into whether the wiring between components was
-done correctly.</p>
-<p></p>
-<p>5. &nbsp;Verify your code is working as expected</p>
-<p></p>
-<h2>LED ISSUES</h2>
+
+<h4>1.  Verify that the Raspberry Pi computer is receiving power</h4>
+<p>The first step is to ensure that the Raspberry
+Pi computer is powered on. This is easy to verify --
+the red light on the front of the Raspberry Pi
+should be illuminated, as shown below:</p>
+
+<center><img class="bb" alt="" src="img/pi_led.jpg"></center></p>
+
+<p>If the light on the Raspberry Pi is not illuminated, you'll
+want to check the following:</p>
+<ul>
+<li>
+<p>Verify that the Raspberry Pi power supply is plugged into
+a working wall outlet</p>
+</li>
+<li>
+<p>Verify that the Raspberry Pi power supply is correctly
+plugged into the Raspberry Pi computer</p>
+</li>
+</ul>
+
+<h4>2.  Verify that the Lid Connector Board is being powered correctly</h4>
+<p>Now that we're confident that the Raspberry Pi is powered on,
+we want to ensure that it is correctly connected to the Lid Connector
+Board with the Ribbon Cable.  To verify this, do the following:
+</p>
+<ol>
+<li>
+<p>Take a working LED and place the longer metal lead in one
+of the holes marked "3.3V" on the Lid Connector Board</p>
+</li>
+<li>
+<p>Take the shorter metal lead of that LED and place it in
+one of the holes marked "GND" on the Lid Connector Board</p>
+</li>
+</ol>
+<p>At this point, the LED should be illuminated, as follows:</p>
+
+
+<center><img class="bb" src="img/Connector_Power_bb.png"></center>
+
+
+<p><strong>Note:</strong>
+ Don't leave the LED like that for very long, as without a
+resistor, the LED can be damaged and will also likely start to get very warm.</p>
+<p>If the LED is not illuminated, you'll want to check the
+following:</p>
+<ul>
+<li>
+<p>Verify that the Ribbon Cable is fully inserted onto the
+Raspberry Pi, with the connector nearly flush with the bottom of the
+pins</p>
+</li>
+<li>
+<p>Verify that the Ribbon Cable is fully inserted into the
+back of the Lid Connector Board, with the connector nearly flush with
+the lid</p>
+</li>
+</ul>
+
+<h4>3. Verify that the breadboard is being powered and grounded correctly</h4>
+<p>Assuming the Lid Connector Board is receiving power, the next
+thing you'll want to verify is that your breadboard is
+receiving power and ground correctly. 
+Connect power and ground wires to the breadboard as shown:
+</p>
+
+<center><img class="bb" src="img/Just_Power_bb.png"></center>
+
+<p>To verify that the breadboard is correctly receiving power, do
+the following:</p>
+<ol>
+<li>
+<p>Take a working LED, and place the longer metal lead of the
+LED
+somewhere along the red (power) strip</p>
+</li>
+<li>
+<p>Take the shorter metal lead
+of the LED and place it somewhere along the blue (ground) strip.
+ </p>
+</li>
+</ol>
+<p>If the power and ground strips on the breadboard are working
+correctly, the LED should illuminate.  </p>
+<p>Here is
+an example:</p>
+
+
+<center><img class="bb" src="img/Power_Strip_bb.png"></center>
+
+
+<p><strong>Note:</strong>
+ Don't leave the LED like that for very long, as without a
+resistor, the LED can be damaged and will also likely start to get very warm.</p>
+
+<h4>4. Check that each component is being wired and programmed correctly</h4>
+<p>Once you are confident that your breadboard is being powered
+and grounded correctly, the next step is to verify that each of your
+components is wired correctly and functioning properly.
+At the bottom of this guide are troubleshooting sections for each of the components
+provided with the RaspberrySTEM CREATOR Kit:
+<ul>
+	<li><p>LED Troubleshooting</p></li>
+	<li><p>Button Troubleshooting</p></li>
+	<li><p>Accelerometer Troubleshooting</p></li>
+	<li><p>LED Matrix Troubleshooting</li>
+</ul>
+
+<h4>5. Verify your code is working as expected</h4>
+<p>If you've gotten this far, and it appears that your circuit is wired correctly, but
+your project still isn't working, we recommend going back to review the code you've written.
+In some cases, what appear to be hardware issues are really just mistakes in the code.  
+Remember, not all coding mistakes will generate an error, so you may not realize that you
+have a problem with your code until you inspect things in more detail.</p>
+<p>For example, a common issue with wiring LED and buttons to GPIOs is that the component
+is wired to a specific GPIO, but the code is referring to a different GPIO.  While that 
+wouldn't generate an error in the code, it would keep your circuit from operating the way
+you are expecting it to.</p>
+
+<h2>LED TROUBLESHOOTING</h2>
 <p>LEDs are relatively simple devices, but there are still some
 challenges you'll face when using them in your circuits.
-&nbsp;Luckily, fixing LED issues should be pretty quick and easy
-once you get used to working with them. &nbsp;Here are some tips on
-how to solve issues with LEDs:<br>
-<br>
-1. &nbsp;Verify that the LED is working properly<br>
-<br>
-2. &nbsp;Verify that the LED is oriented correctly<br>
-<br>
-3. &nbsp;If attached to a GPIO, verify that the LED is wired
-correctly<br>
-<br>
-4. &nbsp;If attached to a GPIO, verify that the code reflects the
-correct GPIO being used</p>
-<h2>BUTTON ISSUES</h2>
-<p>1. &nbsp;Verify that the button is oriented correctly on
-the breadboard</p>
-<p>2. &nbsp;Ensure the button is fully inserted into the
-breadboard</p>
-<p>3. &nbsp;If attached to a GPIO, verify that the button is
-wired correctly</p>
-<p>4. &nbsp;If attached to a GPIO, verify that the code
-reflects the correct GPIO being used</p>
-<p>5. &nbsp;If still not working, you might want to verify
-that the button works correctly (unlikely issue)</p>
-<h2>ACCELEROMETER ISSUES</h2>
-<p>1. &nbsp;If you see or smell smoke, verify that the
-accelerometer is oriented correctly</p>
-<p>2. &nbsp;Ensure that the accelerometer is wired correctly</p>
-<p>3. &nbsp;Test the accelerometer with some simple code</p>
-<h2>LED MATRIX ISSUES</h2>
-<p>1. &nbsp;Verify that your display is oriented correctly on
-the circuit board</p>
-<p>2. &nbsp;Ensure that the LED Matrix is wired correctly</p>
-<p>3. &nbsp;Test the LED Matrix with some simple code</p>
-<p></p>
-<span style="font-family: &quot;Verdana&quot;,serif;"></span>
+<p>Here are some tips on how to solve issues with LEDs:
+
+<h4>1.  Verify that the LED is working properly</h4>
+<p>Assuming you have verified the breadboard is powered,
+you can place the LED with the long lead attached to power and the
+short lead attached to ground, and verify that it illuminates.</p>
+<p><strong>Note:</strong>
+ Don't leave the LED like that for very long, as without a
+resistor, the LED can be damaged, and will also likely start to get very warm.</p>
+
+<h4>2.  Verify that the LED is oriented correctly</h4>
+</p>
+<p>If the LED isn't working on the breadboard, you
+should ensure that the LED is oriented correctly, with the longer lead
+attached to the power and the shorter lead attached to ground.
+ To be certain that the LED is oriented correctly, you can
+always try turning it so that the leads attach the other way and see if
+it works.  If the LED doesn't work in either
+direction, there is a good chance that your LED isn't functional.</p>
+
+<h4>3.  If attached to a GPIO, verify that the LED is wired correctly</h4>
+<p>If you are attempting to attach an LED to a GPIO, you'll want to
+ensure that the longer lead is connected to power and that the shorter
+lead is connected to the GPIO, as follows (in this example, we're using
+GPIO14):</p>
+<p><img class="bb" src="img/Your_First_Breadboard_Add_GPIO_bb.png"></p>
+<h4>4.  If attached to a GPIO, verify that the code reflects the correct GPIO being used</h4>
+<p>Once you have verified that the LED is working correctly and
+that it is correctly wired, you can use the following short piece of
+code to verify that the LED is wired correctly (note that the code reflects using GPIO14 for the LED):</p>
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>from rstem.gpio import Output
+my_led = Output(14)
+my_led.on()
+</textarea></div>
+<p>If you run the code, the LED should illuminate.</p>
+<h2>BUTTON TROUBLESHOOTING</h2>
+<h4>1.  Verify that the button is oriented correctly on the breadboard</h4>
+<p>There is a correct way and an incorrect way to place buttons on the breadboard, as 
+follows:</p>
+
+<table style="margin: auto; width: 70%;">
+<tbody>
+<tr>
+<td><img src="img/Button_orientation_correct.png" width="285"></td>
+<td><img src="img/Button_orientation_wrong.png" width="285"></td>
+</tr>
+<tr>
+<td><strong>CORRECT</strong></td>
+<td><strong><span style="color: red;">WRONG!!!</span></strong></td>
+</tr>
+</tbody>
+</table>
+
+<p>You will want to ensure that your button is oriented correctly before
+continuing.  Note that the button can also be placed across the notch in the
+breadboard, as long as it is oriented correctly.</p>
+
+<h4>2. Ensure the button is fully inserted into the breadboard</h4>
+<p>One of the most common issues with buttons is that they are not fully inserted into the
+breadboard.  When this happens, the buttons don't have good connections to the power source
+or to other components, and they won't operate correctly.  Firmly press the button into the
+breadboard until there is no space between the bottom of the button and the surface of
+the breadboard.</p>
+
+<h4>3. If attached to a GPIO, verify that the button is wired correctly</h4>
+<p>If you are attempting to attach a button to a GPIO, you'll want to ensure that 
+one side of the button is connected to ground (NOT POWER) and that the other side of
+the button is connected to the GPIO, as follows (in this example, we're using GPIO14):<p>
+
+
+<img class="bb" src="img/Buttons_with_GPIO_2_bb.png">
+
+
+<h4>4. If attached to a GPIO, verify that the code reflects the correct GPIO being used</h4>
+<p>Once you have verified that the button is oriented correctly and fully inserted into the
+breadboard, you can use the following short piece of code 
+to verify that the button is wired correctly (note that the code reflects using 
+GPIO14 for the button):
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+from rstem.button import Button
+import time
+
+my_button = Button(14)
+
+while True: 
+	my_button = Button(14) 
+	print(my_button.is_pressed())
+	time.sleep(.01)
+</textarea></div>
+
+<p>
+Running the code and pressing the button should result in an indication of the button 
+press in the Output Window.</p>
+
+<h4>5. If your circuit is still not working, you might want to verify that the button works
+correctly. </h4>
+<p>Note: This is an unlikely issue, but worth trying when you've exhausted other attempts to resolve the
+issue.</p>
+<p>To verify that the button is working correctly, you will want to wire a basic circuit
+using the Lid Connector Board as a power source, an LED for output and the button you are testing.
+Here is what that circuit would look like:<p>
+
+<img class="bb" src="img/Introducing_Buttons_4_bb.png">
+
+<p>If wired correctly, pressing the button should illuminate the LED.</p>
+
+<h2>ACCELEROMETER TROUBLESHOOTING</h2>
+<h4>1. Ensure that the accelerometer is wired correctly</h4>
+<p>If the accelerometer doesn't seem to be working, or if you're receiving an error
+when running your code, ensure that the SCL and SDA pins on the accelerometer are 
+correctly wired to the SCL and SDA holes on the Lid Connector Board.  Also verify that power and
+ground are connected as shown.</p>
+<p>Here is the correct wiring (the LED Matrix shown in this diagram is not required):</p>
+
+<img class="bb" src="img/LED_Matrix_Accel_bb.png">
+
+<h4>2.  Test the accelerometer with some simple code</h4>
+<p>If a larger block of code is being used and the accelerometer doesn't appear to be
+working, you can check to verify that the accelerometer is wired correctly and working
+properly by running a very short test program:</p>
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+from rstem.accel import Accel
+import time
+
+accel = Accel()
+
+while True:
+	x_force, y_force, z_force = accel.forces()
+	print(x_force, y_force, z_force)
+	time.sleep(.1)
+</textarea></div>
+
+<h4>3. If you see or smell smoke, you've likely wired the power and ground backwards </h4>
+<p>If you have wired your accelerometer and you see (or smell) smoke, unplug it 
+immediately by removing power to the RaspberrySTEM CREATOR Kit.
+An incorrectly wired accelerometer may get very hot to the touch. If power and ground are wired
+backwards, the accelerometer will very likely no longer work.<p>
+
+<h2>LED MATRIX TROUBLESHOOTING</h2>
+<h4>1.  Verify that your LED Matrix display is oriented correctly on the LED Matrix circuit
+board</h4>
+<p>If the LED Matrix isn't working properly, the first thing you'll want to verify is that
+the LED Matrix display is correctly oriented on the circuit board.  The display portion of
+the LED Matrix (the piece with the 8x8 dot display) can be separated from the
+circuit board underneath
+by carefully pulling the pieces apart.  The display can be reattached to the circuit board
+in two ways -- one is correct and one is incorrect.</p>
+<p>The correct way to attach the LED Matrix display is to ensure that the side of the 
+display that contains the serial number (a string of letter and numbers imprinted in black)
+is oriented to face the top of the LED Matrix circuit board.  The top of the circuit 
+board can be identified by the words "MATRIX TOP" written on the board.</p>
+<p>Here is an example of a correctly assembled LED Matrix display:</p>
+
+<img class="bb" src="img/Matrix_bb.png">
+
+<h4>2.  Verify that your LED Matrix cable is installed correctly</h4>
+<p>If the LED Matrix still isn't working properly, the next thing you'll want to verify is that
+the LED Matrix cable is installed correctly.  With the LED Matrix display facing up and the
+pins of the LED Matrix facing to the left, the LED matrix cable should be inserted as 
+follows:</p>
+
+<img class="bb" src="img/Matrix_Cable_bb.png">
+
+
+<h4>3.  Ensure that the LED Matrix is powered and functional</h4>
+<p>See the section in the <a href="LED_MATRIX.html">USING THE LED MATRIX DISPLAY</a> project on how to correctly
+attach power and ground.  Disconnect and reattach power and ground now to verify that the LED
+Matrix is functional.  Once power and ground are correctly attached, you should see vertical and
+horizontal bars sweep across the display a single time.  This is indication
+that the LED Matrix is powered up and working correctly. 
+
+</p>
+
+
+<h4>4.  Ensure that the LED Matrix is wired correctly and run a test program</h4>
+<p>
+Next, we'll test the connection between the Raspberry Pi and the LED Matrix.
+See the section in the <a href="LED_MATRIX.html">USING THE LED MATRIX DISPLAY</a> project on how
+to correctly
+wire SCLK, MOSI, CE &amp; MISO pins.  
+<p>Open a new file and run a the short test program below to
+verify the LED Matrix is wired correctly and working properly.</p>
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+from rstem.led_matrix import FrameBuffer
+fb = FrameBuffer()
+
+x, y = (3, 3)
+
+fb.erase()
+fb.point(x,y)
+fb.show()
+</textarea></div>
+
+<p>This should display a dot towards the middle of the display.</p>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>

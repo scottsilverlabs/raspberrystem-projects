@@ -14,21 +14,16 @@
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>LISTS</h1>
 <p>Oftentimes when programming, you're going to need a way to
-organize and manage sets of data. &nbsp;This is no different than
-in real life. &nbsp;If you're putting together an invite list for a
+organize and manage sets of data.  This is no different than
+in real life.  If you're putting together an invite list for a
 party; or creating a shopping list; or even just a basic To Do list.
-&nbsp;In each of these situations, organizing data in a list format
+ In each of these situations, organizing data in a list format
 makes the creating, sorting, managing and finding of the information
-easier and faster.&nbsp;</p>
+easier and faster. </p>
 <p>Most programming languages have concepts of lists as well, and
-Python is no exception. &nbsp;Using the Python programming
-language, you can create many types of lists, though the two most
-common types are lists of strings and list of numbers. &nbsp;In
-general, a list is initially assigned to a variable and that variable
-can then be used to add to, sort, modify or recall one or more items
-from the list.</p>
-<p>An example of a list
-of strings would be a list containing the names of the months of the
+Python is no exception.  
+As an example, let's consider a list
+of strings containing the names of the months of the
 year. To keep things simple, let’s just create a list containing
 the first five months; we’ll use a variable called “months”:</p>
 <div class="code" data-firstline="0">
@@ -37,10 +32,10 @@ the first five months; we’ll use a variable called “months”:</p>
 months = ['January', 'February', 'March', 'April', 'May']
 </textarea></div>
 <p>Notice how the
-entire list has brackets [ ] around it and how each of the items in
-the list are strings with quotation marks around them.</p>
+entire list has brackets [] around it.   Each of the items in
+the list are strings and they are separated by commas.</p>
 <p>Now let’s look at
-some of the things we can do with that list…</p>
+some of the things we can do with that list:</p>
 <ul>
 <li>
 <p>We can reference the entire list. For example, let’s say we wanted to print the whole thing out:</p>
@@ -62,12 +57,12 @@ say we wanted to print out the third item in the list (which is,
 <textarea>
 print(months[2])
 </textarea></div>
-<br>
+
 <p>
-Wait! I said we were going
+Wait! We said we were going
 to print out
 the third item on the list, and
-then I had it print months[2]
+then we had it print months[2]
 – that’s not a typo. Computers always start counting lists at 0,
 not 1. So, the first item on a list is [0], the second item on a
 list is [1] and so on. To get the third item on the item, we
@@ -75,60 +70,29 @@ reference it as [2].</p>
 <p>Here
 is how the computer sees our list:</p>
 <p></p>
-<center>
-<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
-<col width="96"> <col width="209"> <tbody>
+<table style="display: block; margin: auto;" border="1">
+<tbody>
 <tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><b>ITEM #</b></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p align="center"><b>ITEM NAME</b></p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">0</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>January</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">1</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>February</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">2</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>March</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">3</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>April</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><span style="font-weight: normal;">4</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>May</p>
-</td>
+<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
+<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
+</tr><tr>
+<td><p>0</p></td>
+<td><p>January</p></td>
+</tr><tr>
+<td><p>1</p></td>
+<td><p>February</p></td>
+</tr><tr>
+<td><p>2</p></td>
+<td><p>March</p></td>
+</tr><tr>
+<td><p>3</p></td>
+<td><p>April</p></td>
+</tr><tr>
+<td><p>4</p></td>
+<td><p>May</p></td>
 </tr>
 </tbody>
 </table>
-</center>
 <p>So,
 the third item on our list of months is months[2].</p>
 </li>
@@ -157,7 +121,7 @@ we
 wanted to change “February” to “Feb” to make it shorter (and then print
 it out to verify that it has been changed):</p>
 <div class="code" data-firstline="0">
-<div><br></div>
+<div></div>
 <textarea>
 months[1] = 'Feb'
 </textarea></div>
@@ -168,7 +132,7 @@ months[1] = 'Feb'
 that
 we want to include June at the end of the list, we can do the following:</p>
 <div class="code" data-firstline="0">
-<div><br></div>
+<div></div>
 <textarea>
 months.append('June')
 </textarea></div>
@@ -176,10 +140,9 @@ months.append('June')
 
 <p>The
 .append() that we used above
-is called a function. We’ll discuss later how and why this works. For
-now, just be aware that there are bunch of ways you can act on a
-list (or any variable, for that matter) using what are known as
-functions.</p>
+is called a function -- see 
+	<a href="INTRO_TO_FUNCTIONS.html">INTRO TO FUNCTIONS</a> for more information.  
+</p>
 </li>
 </ul>
 <ul>
@@ -199,60 +162,30 @@ months.remove('April')
 <li>
 <p>After making all of these changes, here is how the
 computer would now see this list:</p><p></p>
-<center>
-<table border="1" bordercolor="#999999" cellpadding="8" cellspacing="0" width="339">
-<col width="96"> <col width="209"> <tbody>
+<table style="display: block; margin: auto;" border="1">
+<tbody>
 <tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><b>ITEM #</b></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p align="center"><b>ITEM NAME</b></p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">0</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>January</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">1</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>Feb</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">2</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>March</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="18" width="96">
-<p align="center"><span style="font-weight: normal;">3</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>May</p>
-</td>
-</tr>
-<tr>
-<td bgcolor="#ffffff" height="17" width="96">
-<p align="center"><span style="font-weight: normal;">4</span></p>
-</td>
-<td bgcolor="#ffffff" width="209">
-<p>June</p>
-</td>
+<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
+<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
+</tr><tr>
+<td><p>0</p></td>
+<td><p>January</p></td>
+</tr><tr>
+<td><p>1</p></td>
+<td><p>Feb</p></td>
+</tr><tr>
+<td><p>2</p></td>
+<td><p>March</p></td>
+</tr><tr>
+<td><p>3</p></td>
+<td><p>May</p></td>
+</tr><tr>
+<td><p>4</p></td>
+<td><p>June</p></td>
 </tr>
 </tbody>
 </table>
-</center>
 </li>
 </ul>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>

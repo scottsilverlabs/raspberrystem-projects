@@ -12,71 +12,76 @@
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>IF/ELSE STATEMENTS</h1>
-<p class="MsoNormal">Much of our lives are spent asking
+<p>Much of our lives are spent asking
 questions in order to
-figure out what we should be saying or doing at any given time.<span style="">&nbsp; </span>For example, we may ask
-our mom, “Is it time
-for lunch?”<span style="">&nbsp; </span>If the
+figure out what we should be saying or doing at any given time.  For example, we may ask
+our friend, “Is it time
+for lunch?”  If the
 answer is “Yes,”
-we’ll eat lunch…if the answer is “No,” we’ll probably do something else.<o:p></o:p></p>
-<p class="MsoNormal">As another example, you may ask a
+we’ll eat lunch… if the answer is “No,” we’ll probably do something else.</p>
+<p>As another example, you may ask a
 friend, “What would you
-like to do today?”<span style="">&nbsp; </span>If
+like to do today?”  If
 he says, “I’d like
 to go to a movie,” perhaps you’ll spend some time figuring out what
 movie to
-see.<span style="">&nbsp; </span>But, if he
+see.  But, if he
 says, “I’d like to play
 in the park,” you probably won’t be eating popcorn in a dark theater
-that day.<o:p></o:p></p>
-<p class="MsoNormal">Programming is very similar – we
+that day.</p>
+<p>Programming is very similar – we
 often ask a lot of
-questions in our software to determine what to do next.<span style="">&nbsp;
-</span>For example, when you push a button on your
+questions in our software to determine what to do next. 
+For example, when you push a button on your
 television remote control, it sends a signal to your TV telling the TV
 to
-change the station or adjust the volume.<span style="">&nbsp;
-</span>But, what you probably don’t realize is that this works
+change the station or adjust the volume. 
+But, what you probably don’t realize is that this works
 because several
 times per second, the software in your TV is asking, “Did I receive a
 signal
-from the remote control?”<span style="">&nbsp; </span><o:p></o:p></p>
-<p class="MsoNormal">Most of the time the answer is “No,”
+from the remote control?”  </p>
+<p>Most of the time the answer is “No,”
 so the TV software
-moves onto something else for short period of time.<span style="">&nbsp;
-</span>But, if the answer is “Yes” (in other words,
+moves onto something else for short period of time. 
+But, if the answer is “Yes” (in other words,
 if you were pressing a button on the remote), the TV will then take
 action to
-determine what button was pressed and then carry out the request.<o:p></o:p></p>
-<p class="MsoNormal">The most basic way for software to
+determine what button was pressed and then carry out the request.</p>
+<p>The most basic way for software to
 ask and respond to a
-question is by using what is known as an&nbsp;<span style="font-family: Courier New,Courier,monospace;">if</span>
-statement.<span style="">&nbsp; </span>An <span style="font-family: Courier New,Courier,monospace;">if</span>
+question is by using what is known as an <code>if</code>
+statement.  An <code>if</code>
 statement asks a True or False
-question, and based on the answer, takes appropriate action.<o:p></o:p></p>
-<p class="MsoNormal">Let’s say we have a circuit that
+question, and based on the answer, takes appropriate action.</p>
+<p>Let’s say we have a circuit that
 contains a thermometer and
-sends the current temperature back to computer.<span style="">&nbsp;
-</span>And let’s pretend that the current temperature is 95
+sends the current temperature back to computer. 
+And let’s pretend that the current temperature is 95
 degrees and that
-value is stored in a variable named <span style="font-family: &quot;Courier New&quot;;">temperature</span>:<o:p></o:p></p>
+value is stored in a variable named <code>temperature</code>:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 temperature = 95
 </textarea></div>
-<p class="MsoNormal">The software might then use an <span style="font-family: Courier New,Courier,monospace;">if</span>
+
+<p>The software might then use an <code>if</code>
 statement to evaluate the
-temperature and comment on it if it’s over 90 degrees:<o:p></o:p></p>
+temperature and comment on it if it’s over 90 degrees:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 if temperature > 90:
 	print ("Wow, it's hot out there!")
 </textarea></div>
-<p class="MsoNormal">Type those three lines into your code
+
+<p>Type those three lines into your code
 window and see what
-happens:<o:p></o:p></p>
+happens:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -85,159 +90,18 @@ temperature = 95
 if temperature > 90:
 	print ("Wow, it's hot out there!")
 </textarea></div>
-<p class="MsoNormal">If you run the program, you’ll see
+
+<p>If you run the program, you’ll see
 that the computer prints,
-“Wow, it’s hot out there!” in your output window.<span style="">&nbsp;
-</span>In this case, the computer evaluated the
-statement (<span style="font-family: &quot;Courier New&quot;;">temperature
-&gt; 90</span>),
+“Wow, it’s hot out there!” in your output window. 
+In this case, the computer evaluated the
+statement (<code>temperature &gt; 90</code>),
 determined that the statement was True (the temperature is 95, which is
 over
 90) and then took the specified action based on the fact that the
-statement was
-True.<o:p></o:p></p>
-<p class="MsoNormal">What if the statement were False?<span style="">&nbsp; </span>For example, like this:<o:p></o:p></p>
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
-temperature = 95
+statement was True.</p>
+<p>What if the statement were False?  For example, like this:</p>
 
-if temperature > 90:
-	print("Okay, it's not too hot out there.")
-</textarea></div>
-<p class="MsoNormal">In this case, the temperature is
-still defined as 95
-degrees, but this time, we’re asking if the temperature is LESS THAN 90.<span style="">&nbsp; </span>The answer to that
-question is obviously
-False (the temperature is not less than 90).<span style="">&nbsp;
-</span>And because the statement is False, the action following
-the <span style="font-family: Courier New,Courier,monospace;">if</span>
-statement is not executed, and nothing is printed to the screen.<o:p></o:p></p>
-<p class="MsoNormal">We typically call the evaluation the
-“conditional statement”
-and we typically call the action commands after the conditional
-statement the
-“code block.”<span style="">&nbsp; </span>We’ll
-be using those terms
-from here on out.<o:p></o:p></p>
-<p class="MsoNormal">Now, let’s discuss some additional
-features of conditional statements
-and code blocks…<o:p></o:p></p>
-<h2>Comparison Operators<o:p></o:p></h2>
-<p class="MsoNormal">In the above examples, we used the
-symbols &gt; and &lt; in
-our condition statements.<span style="">&nbsp; </span>We
-used &gt; to
-ask the question, “Is the first value greater than the second value?”<span style="">&nbsp; </span>And, we used the symbol
-&lt; to ask the
-question “Is the first value less than the second value?”<o:p></o:p></p>
-<p class="MsoNormal">These are just two of several symbols
-(we called them
-“operators”) that can be used to compare values in a conditional
-statement.<span style="">&nbsp; </span>Here is
-the list of the most common comparison operators:</p>
-<p class="MsoNormal"><o:p></o:p></p>
-<div align="center">
-<table class="MsoTable15Grid1Light" style="border: medium none ; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
-<tbody>
-<tr style="height: 0.3in;">
-<td style="border-style: solid; border-color: rgb(153, 153, 153) rgb(153, 153, 153) rgb(102, 102, 102); border-width: 1pt 1pt 1.5pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>OPERATOR<o:p></o:p></b></p>
-</td>
-<td style="border-style: solid solid solid none; border-color: rgb(153, 153, 153) rgb(153, 153, 153) rgb(102, 102, 102) -moz-use-text-color; border-width: 1pt 1pt 1.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>DEFINITION<o:p></o:p></b></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>==<o:p></o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Equal To?<o:p></o:p></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>!=<o:p></o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Not Equal To?<o:p></o:p></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;<o:p>&nbsp;</o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Greater Than?<o:p></o:p></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;<o:p>&nbsp;</o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Less Than?<o:p></o:p></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&gt;=<o:p></o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Greater Than or Equal To?<o:p></o:p></p>
-</td>
-</tr>
-<tr style="height: 0.3in;">
-<td style="border-style: none solid solid; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153); border-width: medium 1pt 1pt; padding: 0in 5.4pt; width: 135pt; height: 0.3in;" width="180">
-<p class="MsoNormal" style="text-align: center;" align="center"><b>&lt;=<o:p></o:p></b></p>
-</td>
-<td style="border-style: none solid solid none; border-color: -moz-use-text-color rgb(153, 153, 153) rgb(153, 153, 153) -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0in 5.4pt; width: 207pt; height: 0.3in;" width="276">
-<p class="MsoNormal" style="text-align: center;" align="center">Is Less Than or Equal To?<o:p></o:p></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
-<p class="MsoNormal">Let’s look at some examples…but
-first, let’s define a couple
-variables to use in our examples:<o:p></o:p></p>
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
-my_dogs_age = 4
-my_age = 43
-</textarea></div>
-<p class="MsoNormal">Now for our examples:<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_dogs_age
-== 4</span> would evaluate as True <o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
-!= 43</span> would evaluate as False<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
-&gt; my_dogs_age</span> would evaluate as True<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
-&lt; my_dogs_age</span> would evaluate as False<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_dogs_age
-&gt;= 4</span> would evaluate as True<o:p></o:p></p>
-<p class="MsoNormal" style="margin-left: 0.5in;"><span style="font-family: &quot;Courier New&quot;;">my_age
-&lt;= 35</span> would evaluate as False<o:p></o:p></p>
-<p class="MsoNormal"><b style="">Note:</b><span style="">&nbsp; </span>Keep in mind that = and ==
-are very different
-in programming.<span style="">&nbsp; </span>The
-= sign tells the
-computer that we’re assigning the value of one thing (whatever is on
-the right side of the = sign) to another
-thing (the variable on the left side of the = sign).<span style="">&nbsp;
-</span>But, the == asks the computer
-whether two things are equal, and returns a True (if they are equal) or
-a False
-(if they are not equal).<o:p></o:p></p>
-<h2>Code Blocks<o:p></o:p></h2>
-<p class="MsoNormal">In all the examples so far in this
-chapter, our code blocks
-have consisted of a single line of code.<span style="">&nbsp;
-</span>For example, in this piece of code:<o:p></o:p></p>
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -246,15 +110,122 @@ temperature = 95
 if temperature < 90:
 	print("Okay, it's not too hot out there.")
 </textarea></div>
-<p class="MsoNormal">our code block was a single print
-statement.<o:p></o:p></p>
-<p class="MsoNormal">But, in many situations, after
+
+<p>In this case, the temperature is
+still defined as 95
+degrees, but this time, we’re asking if the temperature is LESS THAN 90.  The answer to that
+question is obviously
+False (the temperature is not less than 90). 
+And because the statement is False, the action following
+the <code>if</code>
+statement is not executed, and nothing is printed to the screen.</p>
+<p>We typically call the evaluation a
+“conditional statement”
+and we typically call the action commands after the conditional
+statement the
+“code block.”  We’ll
+be using those terms
+from here on out.</p>
+<p>Now, let’s discuss some additional
+features of conditional statements
+and code blocks…</p>
+<h2>Comparison Operators</h2>
+<p>In the above examples, we used the
+symbols &gt; and &lt; in
+our condition statements.  We
+used &gt; to
+ask the question, “Is the first value greater than the second value?”  And, we used the symbol
+&lt; to ask the
+question “Is the first value less than the second value?”</p>
+<p>These are just two of several symbols
+(we call them
+“operators”) that can be used to compare values in a conditional
+statement.  Here is
+the list of the most common comparison operators:</p>
+
+<div align="center">
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><p><strong>OPERATOR</strong></p> </td>
+<td><p><strong>DEFINITION</strong></p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>==</strong></p> </td>
+<td><p>Is Equal To?</p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>!=</strong></p> </td>
+<td><p>Is Not Equal To?</p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>&gt; </strong></p> </td>
+<td><p>Is Greater Than?</p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>&lt; </strong></p> </td>
+<td><p>Is Less Than?</p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>&gt;=</strong></p> </td>
+<td><p>Is Greater Than or Equal To?</p> </td>
+</tr> <tr>
+<td><p style="text-align: center"><strong>&lt;=</strong></p> </td>
+<td><p>Is Less Than or Equal To?</p> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>Let’s look at some examples…but
+first, let’s define a couple
+variables to use in our examples:</p>
+
+<div class="code" data-firstline="0">
+<div></div>
+<textarea>
+my_dogs_age = 4
+my_age = 43
+</textarea></div>
+
+<p>Now for our examples:</p>
+<p style="margin-left: 0.5in;"><code>my_dogs_age == 4</code> would evaluate as True </p>
+<p style="margin-left: 0.5in;"><code>my_age != 43</code> would evaluate as False</p>
+<p style="margin-left: 0.5in;"><code>my_age &gt; my_dogs_age</code> would evaluate as True</p>
+<p style="margin-left: 0.5in;"><code>my_age &lt; my_dogs_age</code> would evaluate as False</p>
+<p style="margin-left: 0.5in;"><code>my_dogs_age &gt;= 4</code> would evaluate as True</p>
+<p style="margin-left: 0.5in;"><code>my_age &lt;= 35</code> would evaluate as False</p>
+<p><strong>Note:</strong>  Keep in mind that = and ==
+are very different
+in programming.  The
+= sign tells the
+computer that we’re assigning the value of one thing (whatever is on
+the right side of the = sign) to another
+thing (the variable on the left side of the = sign). 
+But, the == asks the computer
+whether two things are equal, and returns a True (if they are equal) or
+a False
+(if they are not equal).</p>
+<h2>Code Blocks</h2>
+<p>In all the examples so far in this
+chapter, our code blocks
+have consisted of a single line of code. 
+For example, in this piece of code:</p>
+
+<div class="code" data-firstline="1">
+<div></div>
+<textarea>
+temperature = 95
+
+if temperature < 90:
+	print("Okay, it's not too hot out there.")
+</textarea></div>
+
+<p>our code block was a single print
+statement.</p>
+<p>But, in many situations, after
 evaluating a conditional,
-we’re going to want to take action that require many commands, not just
-one.<span style="">&nbsp; </span>For this
+we’re going to want to take action that requires many commands, not just
+one.  For this
 reason, code blocks can be
-any number of commands following a conditional statement.<span style="">&nbsp; </span>Our example above could be
-changed to:<o:p></o:p></p>
+any number of commands following a conditional statement.  Our example above could be
+changed to:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -264,94 +235,104 @@ if temperature < 90:
 	print("Okay, it's not too hot out there.")
 	print("It's only", temperature, "degrees.")
 </textarea></div>
-<p class="MsoNormal">In this example, we have two print
+
+<p>In this example, we have two print
 statements in our code
-block.<span style="">&nbsp; </span>Notice that
+block.  Notice that
 both commands are
 indented the exact same amount – this is how the computer knows that
 all the
-lines are part of the same code block.<span style="">&nbsp;
-</span>It’s very important that you use the same number of spaces
+lines are part of the same code block. 
+It’s very important that you use the same number of spaces
 or indents
 for every line of the code block, or your code will not function as you
 expect
-(and may not function at all).<o:p></o:p></p>
-<h2>Compound Conditional Statements<o:p></o:p></h2>
-<p class="MsoNormal">In some situations, you may find that
+(and may not function at all).</p>
+<h2>Compound Conditional Statements</h2>
+<p>In some situations, you may find that
 you need to have more
 complex conditional statements in your code than just a single
-comparison.<span style="">&nbsp; </span>When
+comparison.  When
 that need arises, we can use compound
 conditional statements, which is really just a fancy way of saying that
 we can chain multiple comparisons together into a single conditional
-statement.<o:p></o:p></p>
-<p class="MsoNormal">For example, in the previous section,
-we used the condition:<o:p></o:p></p>
+statement.</p>
+<p>For example, in the previous section,
+we used the condition:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 temperature < 90
 </textarea></div>
-<p class="MsoNormal">to determine if it was less than 90
-degrees outside.<o:p></o:p></p>
-<p class="MsoNormal">But, what if didn’t just want to know
+
+<p>to determine if it was less than 90
+degrees outside.</p>
+<p>But, what if we didn’t just want to know
 if the temperature was
 less than 90 degrees – we wanted to know whether the temperature was
 between 80
-and 90 degrees?<span style="">&nbsp; </span>That
+and 90 degrees?  That
 would actually
-require two different conditions:<o:p></o:p></p>
+require two different conditions:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 temperature > 80
 temperature < 90
 </textarea></div>
-<p class="MsoNormal">We can create a compound conditional
+
+<p>We can create a compound conditional
 statement that will
-check both of those comparisons before taking any action, as follows:<o:p></o:p></p>
+check both of those comparisons before taking any action, as follows:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 if (temperature > 80) and (temperature < 90):
 	print("The temperature is between 80 and 90 degrees.")
 </textarea></div>
-<p class="MsoNormal">The <span style="font-family: &quot;Courier New&quot;;">and</span>
+
+<p>The <code>and</code>
 keyword tells the computer that both statements must be True in order
 for the
-entire compound conditional statement to be True.<o:p></o:p></p>
-<p class="MsoNormal">What if we only cared about the
+entire compound conditional statement to be True.</p>
+<p>What if we only cared about the
 situation where the
-temperature was less than 80 degrees or more than 90 degrees?<span style="">&nbsp; </span>We can create a compound
+temperature was less than 80 degrees or more than 90 degrees?  We can create a compound
 conditional
-statement to do this as well:<o:p></o:p></p>
+statement to do this as well:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
 if (temperature < 80) or (temperature > 90):
 	print("The temperature is not between 80 and 90 degrees.")
 </textarea></div>
-<p class="MsoNormal">In this case, the <span style="font-family: &quot;Courier New&quot;;">or</span>
+
+<p>In this case, the <code>or</code>
 keyword tells the computer that either one or both of the statements
 must be
-True in order for the entire compound conditional statement to be True.<o:p></o:p></p>
-<p class="MsoNormal">Any number or combination of <span style="font-family: &quot;Courier New&quot;;">and</span>
-and <span style="font-family: &quot;Courier New&quot;;">or</span>
+True in order for the entire compound conditional statement to be True.</p>
+<p>Any number or combination of <code>and</code>
+and <code>or</code>
 keywords can be used to
-combine conditional statements.<o:p></o:p></p>
-<h2>IF/ELSE Statements<o:p></o:p></h2>
-<p class="MsoNormal">In our previous examples, we
+combine conditional statements.</p>
+<h2>IF/ELSE Statements</h2>
+<p>In our previous examples, we
 evaluated a conditional, and
-took action if the result of the evaluation was True.<span style="">&nbsp;
-</span>But, in many cases, we also want to take
+took action if the result of the evaluation was True. 
+But, in many cases, we also want to take
 action when the result of the evaluation is False, in addition to when
 it’s
-True.<o:p></o:p></p>
-<p class="MsoNormal">For example, perhaps we don’t just
+True.</p>
+<p>For example, perhaps we don’t just
 want to let the user know
 if the temperature is over 90 degrees, but we also want to let the user
 know if
-the temperature is under 90 degrees:<o:p></o:p></p>
+the temperature is under 90 degrees:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -360,32 +341,34 @@ if temperature > 90:
 else:
 	print("Under 90 degrees today – keep warm!")
 </textarea></div>
-<p class="MsoNormal">We use the else: keyword to indicate
+
+<p>We use the else: keyword to indicate
 what action should be
-taken if the conditional statement evaluates to False.<span style="">&nbsp;
-</span>We are basically telling the computer:<span style="">&nbsp;
-</span><o:p></o:p></p>
-<p class="MsoNormal"><i style="">If the
+taken if the conditional statement evaluates to False. 
+We are basically telling the computer: 
+</p>
+<p><i>If the
 conditional
-statement is True, do this.<span style="">&nbsp; </span>Otherwise
-(</i><i style=""><span style="font-family: &quot;Courier New&quot;;">else:</span>),
-do that.<o:p></o:p></i></p>
-<h2>ELIF Statements<o:p></o:p></h2>
-<p class="MsoNormal">There are going to be some cases
+statement is True, do this.  Otherwise
+(<code>else:</code>),
+do that.</i></p>
+<h2>ELIF Statements</h2>
+<p>There are going to be some cases
 where, “If True, do
-this.<span style="">&nbsp; </span>If False, do
+this.  If False, do
 that,” just isn’t
-enough to provide the functionality you need.<span style="">&nbsp;
-</span><o:p></o:p></p>
-<p class="MsoNormal">For example, perhaps we want to know
+enough to provide the functionality you need. 
+</p>
+<p>For example, perhaps we want to know
 more than whether the
-temperature is above or below 90 degrees?<span style="">&nbsp;
-</span>Perhaps we want to know if it’s below 60 degrees?<span style="">&nbsp; </span>Or in the 60s?<span style="">&nbsp; </span>Or in the 70s?<span style="">&nbsp; </span>Or in the 80s?<span style="">&nbsp; </span>Or in the 90s?<span style="">&nbsp; </span>Or above 90 degrees?<o:p></o:p></p>
-<p class="MsoNormal">In the case where you want to test
+temperature is above or below 90 degrees? 
+Perhaps we want to know if it’s below 60 degrees?  Or in the 60s?  Or in the 70s?  Or in the 80s?  Or in the 90s?  Or above 90 degrees?</p>
+<p>In the case where you want to test
 for many different conditions,
-you can use the <span style="font-family: Courier New,Courier,monospace;">elif</span>
-(“else if”) statement.<span style="">&nbsp;
-</span>Like this:<o:p></o:p></p>
+you can use the <code>elif</code>
+(“else if”) statement. 
+Like this:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -400,6 +383,6 @@ elif temperature < 90:
 else:
 	print("It is over 90 degrees")
 </textarea></div>
-<br>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>
 

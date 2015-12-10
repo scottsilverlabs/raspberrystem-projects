@@ -26,7 +26,7 @@ very efficient, does it? </p>
 why instead of writing the same code many times, we have the ability to
 just write the
 code once in a special format, and then we can use that code over and
-over again, as many times as we want. That special format that
+over again, as many times as we want. The special format that
 allows us to re-use the code over and over again is called a
 function.</p>
 <p>Here’s an example…</p>
@@ -35,92 +35,92 @@ wanted to write some code that would print my name and the year I was
 born. We could do this exactly like we did with the “Hello,
 World!” code we wrote in Project #1, and our code might look like
 the following:</p>
-<div class="code" data-firstline="0">
+
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-print(‘My name is: Jason’)
-print(‘I was born in: 1971’)
+print('My name is: Jason')
+print('I was born in: 1971')
 </textarea></div>
+
 <p>Now let’s say we
-expected to print those same lines many times within our code. While
-we could type those lines over and over again in the code, that would
-…</p>
-<p>The simpler way
+expected to print those same lines many times within our code.
+While we could type those lines over and over again in the code, 
+a simpler way
 would be to create a function that prints those two lines, and then
-“call” the function every time we want those lines printed. Let’s turn
+“call” that function every time we want those lines printed. Let’s turn
 the above two lines into a function that we can call
 from other places in our code.</p>
-<p>The first step in
-creating a function is giving it a name. In this case, let’s say
-we wanted to call this function, “print_info”. This is done by
-using the “def” keyword on the first line of the function,
-followed by the function name, a set of parentheses and a colon:</p>
-<div class="code" data-firstline="0">
+<p>The first step in creating a function is giving it a name. In this case, let’s say
+we wanted to call this function, “show_my_info”. Here's how we'd create it:
+
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-def print_info():
+def show_my_info():
+	print('My name is: Jason')
+	print('I was born in: 1971')
 </textarea></div>
+
 <p>The keyword "def" stands for "define," as that's what we're doing --
-defining a new function. &nbsp;But, as we'll explain down at the bottom
+defining a new function.  But, as we'll explain down at the bottom
 of this lesson, the computer isn't going to run this code until the
 function is "called."</p><p>After the first line
 that names the function comes the code that we want our function to
 run every time it is called. In this case, it’s the two print
-lines we discussed earlier.&nbsp;</p><p>So, this is what our function would look
-like:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-def print_info():
-	print(‘My name is: Jason’)
-	print(‘I was born in: 1971’)
-</textarea></div>
+lines we discussed earlier. </p>
 <p>Notice that all the
 code lines of the function are indented. This is required, and is
 how the code knows which lines are associated with which function.</p>
 <p>To now use that
 function, we can "call it" (have the computer execute those lines of code) elsewhere in our program...like this:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print_info()
+show_my_info()
 </textarea></div>
+
 <p>To call the function, all we have to do is to provide the function name followed by a set
 of parentheses.</p>
 <p>Let’s put it all
 together and write a program that defines this function and then
 calls this function to actually have it print out those two lines:</p>
-<div class="code" data-firstline="0">
+
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-def print_info():
-	print(‘My name is: Jason’)
-	print (‘I was born in: 1971’)
+def show_my_info():
+	print('My name is: Jason')
+	print('I was born in: 1971')
 
-print_info()
+show_my_info()
 </textarea></div>
-<p>One big value in
-functions is that it allows us to reuse the same code over and over.
+
+<p>One advantage of
+functions is that they allow us to reuse the same code over and over.
 So, let’s see what happens when we call that function several times
 in a row:</p>
-<div class="code" data-firstline="0">
+
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-def print_info():
-	print(‘My name is: Jason’)
-	print(‘I was born in: 1971’)
+def show_my_info():
+	print('My name is: Jason')
+	print('I was born in: 1971')
 
-print_info()
-print_info()
-print_info()
+show_my_info()
+show_my_info()
+show_my_info()
 </textarea></div>
+
 <p>If you run this
 program, you’ll see that each of the three times the function is
 called, it prints the two lines. Imagine if we were going to need
 those two lines printed a hundred times throughout our program –
 you can see how using a function is a lot simpler and also makes our
 code much less complicated.</p>
-<p><b>Note: </b> We
+<p><strong>Note: </strong> We
 mentioned earlier that when you run a program, the computer will
 execute each line of code, starting at the top and moving down
 through the code, line-by-line. But, when the computer sees a
@@ -129,6 +129,7 @@ called. So, for our code above, the first three lines (the function
 definition and the two lines of code in the function) are ignored and
 the computer will start by executing the first line below the
 function. To make things simpler, functions are often stored in
-separate files, so that the code is easier to read and follow.</p><p>There's more to functions than what we've covered here...we highly recommend reading <a href="FUNCTION_INPUTS.html">Function Inputs</a> before moving on...</p>
-<span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br></span></span>
+separate files, so that the code is easier to read and follow.</p><p>There's more to functions
+than what we've covered here - we highly recommend reading <a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a> before moving on.</p>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>

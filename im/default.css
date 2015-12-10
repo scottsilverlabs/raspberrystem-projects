@@ -4,6 +4,16 @@
 img {
     width: 90%;
     height: auto;
+    margin: auto;
+    margin-top: 0.2in;
+    margin-bottom: 0.1in;
+    display: block;
+}
+img.inline_icon {
+    width: 25px;
+    margin: initial;
+    display: initial;
+    vertical-align: middle;
 }
 p {
     margin-bottom: 0.14in;
@@ -14,6 +24,20 @@ p {
     orphans: 2;;
     font-family: "Verdana", serif;
     font-size: 11pt;
+}
+
+/*
+ * Generic code blocks
+ */
+pre {
+    margin-left: 0.5in;
+    line-height: 150%;
+    font-family: Courier New,Courier,monospace;
+    font-size: 12pt;
+}
+
+code {
+    font-family: Courier New,Courier,monospace;
 }
 
 /* 
@@ -30,8 +54,9 @@ header div {
     font-size: 11pt;
 }
 header {
-    width: 90%;
     margin: auto;
+    margin-bottom: 0.5in;
+    width: 95%;
 	background-color: #E6F3F8;
 	display: -webkit-flex;
 	-webkit-flex-wrap: wrap;
@@ -39,7 +64,7 @@ header {
 	flex-wrap: wrap;
 }
 
-header #title, h1 {
+header #title {
     margin-bottom: 0in;
     color: #2e74b5;
     line-height: 150%;
@@ -52,7 +77,7 @@ header #title, h1 {
     font-weight: normal;
 	background-color: lightblue;
     display: block;
-	-webkit-flex: 80%;
+	-webkit-flex: 100%;
     -webkit-order:1;
 	flex: 1 1 auto;
     order:1;
@@ -69,6 +94,7 @@ header #difficulty {
 	order: 2;
 }
 header #description {
+    line-height: 150%;
     display: block;
 	-webkit-flex: 100%;
     -webkit-order:10;
@@ -77,28 +103,28 @@ header #description {
 }
 header #hw_required::before {
     margin-top: 0.2in;
-    content: "HW Required";
+    content: "Hardware Required";
 	background-color: lightblue;
     display: block;
 }
-header #hw_required {
+header div#hw_required {
     display: block;
-	-webkit-flex: 33%;
+	-webkit-flex: 50%;
     -webkit-order:20;
-	flex: 1 0 33%;
+	flex: 1 0 50%;
     order:20;
 }
 header #concepts_required::before {
     margin-top: 0.2in;
-    content: "Concepts Required";
+    content: "New Concepts Required";
 	background-color: lightblue;
     display: block;
 }
 header #concepts_required {
     display: block;
-	-webkit-flex: 33%;
+	-webkit-flex: 50%;
 	-webkit-order: 24;
-	flex: 1 0 33%;
+	flex: 1 0 50%;
 	order: 24;
 }
 header #sw_required::before {
@@ -120,36 +146,29 @@ header #troubleshooting::before {
 	background-color: lightblue;
     display: block;
 }
-header #troubleshooting{
+header #troubleshooting {
     display: block;
-	-webkit-flex: 49%;
+	-webkit-flex: 100%;
 	-webkit-order: 41;
-	flex: 1 0 33%;
+	flex: 1 0 100%;
 	order: 41;
-}
-header #more_resources::before {
-    margin-top: 0.2in;
-    content: "More resources";
-	background-color: lightblue;
-    display: block;
-}
-header #more_resources {
-    display: block;
-	-webkit-flex: 49%;
-	-webkit-order: 40;
-	flex: 1 0 33%;
-	order: 40;
-}
-header #tags {
-    display: none;
-}
-header #category {
-    display: none;
 }
 
 /*
  * body headers
  */
+h1 {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 20pt;
+    font-weight: normal;
+}
 h2 {
     margin-top: 0.3in;
     color: #2e74b5;
@@ -171,17 +190,17 @@ h3 {
     widows: 2;
     orphans: 2;
     font-family: "Calibri Light", serif;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: normal
 }
 h4 {
     margin: 0in;
-    margin-top: 0.2in;
+    margin-top: 0.3in;
     margin-bottom: 0.1in;
     color: black;
     text-align: left;
     font-family: "Calibri Light", serif;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: bold
 }
 h5 {
@@ -222,7 +241,9 @@ p.nextprev {
  * Code blocks
  */
 div.code {
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.code > div:first-child::before {
     content: "Code";
@@ -231,7 +252,7 @@ div.code > div:first-child {
     font-size: 14pt;
     color: #ffffff;
     background-color: #657777;
-    padding: 10
+    padding: 10px;
 }
 
 div.code > textarea {
@@ -240,17 +261,19 @@ div.code > textarea {
 }
 
 .CodeMirror-cursor { visibility: hidden; }
-.CodeMirror {
-    padding-top: 10px;
-    font-size: 12pt;
-}
+.CodeMirror-code { padding-left: 40px; }
+.CodeMirror-gutter-elt { margin-left: -10px; }
+.CodeMirror-linemarker { margin-left: -20px; color: red }
+.CodeMirror { padding-top: 10px; font-size: 12pt; }
 
 
 /*
  * Output blocks
  */
 div.output {
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.output > div:first-child::before {
     content: "Program Output";
@@ -270,7 +293,8 @@ div.output > pre {
     margin-bottom: 0;
     color: #657777;
     background-color: #002B36;
-    top-margin: 0;
+    margin-left: 0in;
+    line-height: 100%;
 }
 
 /*
@@ -278,7 +302,9 @@ div.output > pre {
  */
 div.info {
     border: 2px solid black;
-    margin-left: 25px;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
 }
 div.info > div:first-child {
     background: url('img/infobulb.png');
@@ -326,6 +352,9 @@ th, td
 .schematic {
     display: block; 
     margin: auto;
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
     max-width: 600px;
     width: 95%;
 }
+

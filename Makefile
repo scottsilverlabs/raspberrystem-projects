@@ -40,6 +40,13 @@ all: $(TARGETS)
 # Targets
 #
 
+pushpg:
+	ssh swolski@raspberrystem.com mkdir -p raspberrystem.com/projectsguide
+	scp -r im/* swolski@raspberrystem.com:raspberrystem.com/projectsguide
+	@echo "####################################################################"
+	@echo "### NOTE: you may want to also 'make pushpg' from raspberrystem-ide"
+	@echo "####################################################################"
+
 upload:
 	$(SETUP) sdist upload
 

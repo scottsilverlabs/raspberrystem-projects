@@ -12,8 +12,10 @@
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 <h1>FUNCTION OUTPUTS</h1>
-<p>In the previous lesson, we talked about how functions can take
-inputs to allow them
+<p>In the 
+	<a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a>
+concept, we talked about how functions can take
+inputs (called parameters) to allow them
 to do customized tasks. But, not only can functions take inputs,
 they can also send information back (return output) to other parts of
 the code. A good example of this is when we have a function that
@@ -27,33 +29,31 @@ calculation is pretty simple – we just subtract the birth year from
 the current year (2015 as of this writing) and we’ll get the age
 they will be turning this year.</p>
 <p>To create a new
-function to do this, we can still pass in the “year” parameter
+function to do this, we can still pass in the “birth_year” parameter
 for the person’s birth year (like we did in the previous project)
 but, instead of printing the information, we do our age calculation
 and store the resulting value in a new variable called “age”. </p>
 <p>This is what the
 function would look like:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 </textarea></div>
-<p><b>Note: </b>This
-is the reason we decided to keep the “year” parameter as a number
-instead of a string in the previous lesson -- so that we could use it
-to perform this
-calculation.</p>
+<p><strong>Note: </strong>When calling this function, it is required that the
+“birth_year” parameter is a number and not a string so that we can use it to
+perform this calculation.</p>
 <p>Now, to send the
 information we’ve calculated back to the main program, we end the
 function with a return statement that contains the information we’re
 sending back (in this case, we’re sending the information contained
 in the variable, “age”):</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 	return age
 </textarea></div>
 <p>The value of “age”
@@ -64,35 +64,33 @@ is needed.</p>
 could call this function for Bob and Susie like we did in the last
 project, but this time, we could get their age as well, store it in a
 variable and then print it out:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="5">
 <div></div>
 <textarea>
-bob_age = calculate_age(1992)
-susie_age = calculate_age(1985)
+bob_age = calculate_age(2005)
+susie_age = calculate_age(1999)
 
 print('This year, Bob will be ', bob_age)
 print('This year, Susie will be ', susie_age)
 </textarea></div>
 <p>Here is what the
 entire program would look like:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
 def calculate_age(birth_year):
-	age = 2015 - year
+	age = 2015 - birth_year
 	return age
 
-bob_age = calculate_age(1992)
-susie_age = calculate_age(1985)
+bob_age = calculate_age(2005)
+susie_age = calculate_age(1999)
 
 print('This year, Bob will be ', bob_age)
 print('This year, Susie will be ', susie_age)
 </textarea></div>
-<span style="font-family: &quot;Verdana&quot;,serif;"><span style="font-weight: bold;"><br>
-</span></span>
-<p>There's only one more function lesson you need to be familiar
-with before jumping back into the project. &nbsp;We promise...just
-one more! &nbsp;Here you go:&nbsp; <a href="BUILT-IN_FUNCTIONS.html">Using Functions &amp;
-Modules.</a></p>
-<br>
+<p>There's only one more function concept you need to be familiar
+with before jumping back into the projects:  
+<a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS &amp;
+MODULES</a>.</p>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>

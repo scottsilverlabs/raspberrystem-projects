@@ -11,16 +11,47 @@
 <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>SPACE INVADERS 1</h1>
-<p>For our first Space Invaders project, we're going to keep
-things very simple. &nbsp;This project will simply initialize the
+<header>
+    <div id=title>SPACE INVADERS 1</div>
+    <div id=description>In this project, we continue the development of our Space Invaders
+    game by building the complete circuit, writing our initialization code and writing
+    the code to do some basic LED Matrix drawing.</div>
+    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+
+<p>In our previous project, we discussed
+the pseudo-code for our Space Invaders game. Before we
+start writing the code, we need to complete the circuit for the
+game.
+
+<h2>Hardware Implementation</h2>
+<p>For our Space Invaders game, we'll be using the LED Matrix for our display, the 
+Accelerometer to control the left/right movement of the ship and a button to fire missiles.
+<p>If you completed the previous projects with the LED Matrix and the Accelerometer, your 
+breadboard is already configured mostly how it needs to be.  Though, at very least,
+you'll probably need to add a button to the configuration (we're going to assume that the
+button is wired to GPIO7 for this project).
+
+<p>Here is what the breadboard should look like once it's correctly wired:
+
+<img class="bb" src="img/LED_Matrix_Accel_Buttons_bb.png">
+
+
+
+<h2>Software Implementation</h2>
+
+<p>
+Building on the pseudo-code we wrote in the last project, let's initialize the
 framebuffer and write a single dot to the LED Matrix (we'll consider
-this our spaceship for now). &nbsp;While
+this our spaceship for now). While
 none of this is new, it will allow us to verify that the LED Matrix is
 working properly and will get some of our initialization code out of
 the way.</p>
 <p>Here's what our initialization code should look like for the
 framebuffer:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -30,10 +61,10 @@ from rstem.led_matrix import FrameBuffer
 # Initialize the framebuffer
 fb = FrameBuffer()
 </textarea></div>
-<p></p>
-<p>And here's what our code to write a single dot spaceship to
-the LED
-Matrix should look like:</p>
+
+<p>Next, we'll write some code to place a single dot (our current spaceship) on 
+the LED Matrix:</p>
+
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
@@ -46,11 +77,12 @@ fb.point(3,0)
 #Show the framebuffer
 fb.show()
 </textarea></div>
-<br>
+
 <p>If you run the program at this point, you should see a dot on
 the LED
-Matrix at x = 3 and y = 0.&nbsp;</p>
+Matrix at x = 3 and y = 0. </p>
 <p>Here is the full code for our game at this point:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>
@@ -65,7 +97,7 @@ Matrix at x = 3 and y = 0.&nbsp;</p>
 # ################################
 
 # Import required functions/modules
-rstem.led_matrix import FrameBuffer
+from rstem.led_matrix import FrameBuffer
 
 # Initialize framebuffer
 fb = FrameBuffer()
@@ -122,8 +154,8 @@ while True:
 # Print "You won!" if the player wins
 # Print "You lost..." if the player loses
 </textarea></div>
-<br>
-	<p class=nextprev><a href="SPACE_INVADERS_PSEUDO.html">prev</a>|
+
+	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_PSEUDO.html">prev</a> |
 <a href="SPACE_INVADERS_2.html">next</a></p>
 </body></html>
 

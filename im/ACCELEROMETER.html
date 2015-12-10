@@ -10,83 +10,123 @@
 <script type="text/javascript" src="onload.js"></script>
 <script type="text/javascript" src="codeblocks.js"></script></head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>ACCELEROMETER</h1>
-<p>Do you have smart phone or an iPad that switches the screen
-orientation when you rotate it? &nbsp;Ever wonder how that works?
-&nbsp;It's done using a component called an accelerometer, and
+<header>
+	<div id=title>ACCELEROMETER</div>
+	<div id=description>In this project, we will add a new component -- an accelerometer.</div> 
+    <div id=hw_required>Accelerometer RaspberrySTEM Cell</div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>Do you have a smart phone or an iPad that switches the screen
+orientation when you rotate it?  Ever wonder how that works?
+ It's done using a component called an accelerometer, and
 there are lots of cool applications for them when designing and
-building electronics. &nbsp;</p>
-<p>The RaspberrySTEM kit includes it's own accelerometer -- it's
-in the bag marked <span style="font-weight: bold;">Accelerometer
-RaspberrySTEM Cell</span>. &nbsp;Feel free to pull it out
-now...</p>
-<p>By plugging in the accelerometer to the RaspberrySTEM and then
-writing code to get input from it, we can turn our RaspberrySTEM into a
-controller that can detect magnitude of movement (acceleration) along
-all three axes -- left/right, front/back and up/down. &nbsp;From
-this information, we can determine the orientation of the kit&nbsp;
+building electronics.  </p>
+<p>The RaspberrySTEM CREATOR Kit includes its own accelerometer -- it's
+in the bag marked <strong>Accelerometer
+RaspberrySTEM Cell</strong>.  Feel free to pull it out
+now.</p>
+<p>By plugging in the accelerometer to the RaspberrySTEM CREATOR Kit and then
+writing code to get input from it, we can turn our RaspberrySTEM CREATOR Kit into a
+controller that can detect changes in movement (acceleration) along
+all three axes -- left/right, front/back and up/down.  From
+this information, we can determine the orientation of the kit 
 and/or the vector (speed and direction) of movement at a given time.
-&nbsp;I know that might sound a little confusing, but follow along
-and you'll see what we mean.</p>
+</p>
 <p>Your Accelerometer RaspberrySTEM Cell contains a single part
 -- the accelerometer circuit board -- that looks like this (from the top):</p><p></p>
-<div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"><br></div>
-<br>
+
+<div style="text-align: center;"><img style="width: 110px; height: 256px;" alt="" src="img/accel.jpg"></div>
+
+<p>On the circuit board above, you'll see a diagram
+with 3 arrows, labeled X, Y and Z.  Note that it <i>looks</i> like only two
+arrows, X and Y.  The third arrow, the Z arrow, is somewhat hidden -- it is
+a circle with a dot.  The Z arrow is actually pointing
+up perpendicularly from the circuit board, and it shows the front tip of the arrow.
+</p>
+<p>
+The accelerometer measures forces -- this can be the forces it feels when you move it around, or
+simply the force of gravity.  When the RaspberrySTEM CREATOR Kit is sitting on
+a table and not
+moving, it reports just the force of gravity, in the X, Y, and Z directions:</p>
+<ul>
+<li><p>
+When an arrow points up, the force will be 1.  
+</p></li>
+<li><p>
+When an arrow points down, the force will be -1.  
+</p></li>
+<li><p>
+When an arrow points neither up nor down (perpendicular to the force of gravity), the force will
+be 0.  
+</p></li>
+<li><p>
+When an arrow is tilted somewhere in between directly down and directly up,
+then the force will be somewhere in between -1 and 1.
+</p></li>
+</ul>
+</p>
+<p>
+For example, when the RaspberrySTEM CREATOR Kit is sitting flat on a table, the
+Z arrow points up, and the X and Y arrow are parallel with the table.  In that
+case, the accelerometer will report an X, Y and Z of approximately 0, 0, and 1.
+If you flip the RaspberrySTEM CREATOR Kit over, so the Z arrow points down
+towards the earth, the accelerometer will report an X, Y and Z of approximately
+0, 0, and -1.
+
+</p>
 
 <h2>Wiring Your Accelerometer</h2>
 <p>Let's wire up your accelerometer and write some code to get it
-working...</p>
-<p style="font-weight: bold;">Step #1: &nbsp;Place the
-accelerometer on the breadboard<br>
-</p>
-<p>The accelerometer has six pins coming from the bottom of it.
-&nbsp;It should be inserted into the breadboard such that each pin sits
-in a different connect strip, and you should ensure that at least one
-other hole is usable in each connect strip where the accelerometer sits.</p><p> &nbsp;</p>
+working.</p>
 
+<h4>Step #1:  Place the accelerometer on the breadboard </h4>
+
+<p>The accelerometer has six pins.  It should be inserted into the breadboard such 
+that each pin sits in a different connect strip, and you should ensure that at least one
+other hole is usable in each connect strip where the accelerometer sits.  When inserting
+the accelerometer into the breadboard, don't be afraid to apply some pressure from the
+top -- the bottom of the black plastic connectors should touch the breadboard.</p>
+
+
+ <h4>Step #2:  Connect the accelerometer </h4>
     <div class="info">
     <div>WARNING: ACCELEROMETER HOOK-UP</div>
     <div>
     <p>It
 is very important to note that the power and the ground of the
-accelerometer must be connected appropriately -- 3.3V power from the
-lid connector must be connected
-to VCC on the accelerometer and GND from the lid connector must be
-attached to GND on the accelerometer. If the accelerometer is turned
-around 180 degrees, you'll notice
-that VCC will be located where GND should be and vice-versa.</p>  
-
-<p>If you hook up GND on the accelerometer to 3.3V on the lid connector
-and you hook up VCC on the accelerometer to GND on the lid connector,
+accelerometer must be connected appropriately, otherwise
 there is a good chance that you will destroy the accelerometer chip (it
 will likely get warm and start to smoke). So, be very careful that you
 hook
-up the chip as indicated above and below.
-</p>
+up the chip as shown below.
+
     </div>
     </div>
 
 
-
-<p style="font-weight: bold;"></p><p style="font-weight: bold;">Step #2: &nbsp;Attach
-power and ground</p>
-<p>To wire the accelerometer, the first thing you'll need to do is to
-run a wire from VCC on the accelerometer to 3.3V power somewhere on the
-breadboard. &nbsp;Next, run a wire from GND on the accelerometer to GND
-somewhere on the breadboard.</p><p></p>
-<p style="font-weight: bold;">Step #3: &nbsp;Attach
-SDA pin to the connector board</p>
-<p>Next, you'll need to attach a wire from the connect strip attached
-to the SDA pin on the accelerometer to the SDA pin on the connector
-board.</p><p></p>
-<p style="font-weight: bold;">Step #4: &nbsp;Attach
-SCL pin to the connector board</p>
-<p>Finally, you'll attach&nbsp;a wire from the connect strip attached
-to the SCL pin on the accelerometer to the SCL pin on the connector
-board.</p>
-<p><span style="font-family: &quot;Verdana&quot;,serif;">Here is what your breadboard should look like once the accelerometer is properly wired:</span></p><p><span style="font-family: &quot;Verdana&quot;,serif;"></span></p><div style="text-align: center;"><span style="font-family: &quot;Verdana&quot;,serif;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></span><span style="font-family: &quot;Verdana&quot;,serif;"></span></div><h2>Testing Your Accelerometer</h2>
+<p>
+With four wires, wire up the accelerometer as show below.  Specifically:
+<ul>
+<li><p>
+Wire GND on the accelerometer to GND on the breadboard.
+</p></li>
+<li><p>
+Wire VCC on the accelerometer to 3.3V power on the breadboard.
+</p></li>
+<li><p>
+Wire SCL on the accelerometer to SCL on the Lid Connector Board.
+</p></li>
+<li><p>
+Wire SDA on the accelerometer to SDA on the Lid Connector Board.
+</p></li>
+</ul>
+<p>Here is what your breadboard should look
+like once the accelerometer is properly wired (the LED Matrix in this picture can be ignored):
+</p><p></p><div style="text-align: center;"><img class="bb" src="img/LED_Matrix_Accel_bb.png"></div><h2>Testing Your Accelerometer</h2>
 <p>Let's write some code to test your accelerometer and see
-how it works:</p><p></p>
+how it works:</p>
+
 <div class="code" data-firstline="1">
 <div></div>
 <textarea>from rstem.accel import Accel
@@ -99,32 +139,32 @@ while True:
 	print(x_force, y_force, z_force)
 	time.sleep(.1)
 </textarea></div>
-<br>
+
 <p>Now, let's take a look at what our code is doing:</p>
 <ul>
 <li>
 <p>On Line 1, we import the module we will need to initialize
-and get information from the accelerometer (called <span style="font-family: Courier New,Courier,monospace;">Accel()</span>)</p>
+and get information from the accelerometer (called <code>Accel()</code>)</p>
 </li>
 <li>
-<p>On Line 2, we import the <span style="font-family: Courier New,Courier,monospace;">time</span>
+<p>On Line 2, we import the <code>time</code>
 module, as we're going to be using a loop and will want to slow the
 repetition of the loop down a bit</p>
 </li>
 <li>
-<p>On Line 4, we initialize our accelerometer. &nbsp;We
-call the <span style="font-family: Courier New,Courier,monospace;">Accel()</span>
-function, which returns an "accelerometer object" to our <span style="font-family: Courier New,Courier,monospace;">accel </span>variable.
-&nbsp;We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">Variables &amp; Assignments</a>,
-but the important thing to understand is that we can now use <span style="font-family: Courier New,Courier,monospace;">accel</span>
-to call other accelerometer functions.</p>
+<p>On Line 4, we initialize our accelerometer.  We
+call the <code>Accel()</code>
+function, which returns an "accelerometer object" to our <code>accel</code> variable.
+ We talked about that a bit in <a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES & ASSIGNMENTS</a>,
+but the important thing to understand is that we can now use <code>accel</code>
+to call other accelerometer functions</p>
 </li>
 <li>
 <p>On Line 6, we start a loop (this is where we'll spend all
 of our time once we run the program)</p>
 </li>
 <li>
-<p>On Line 7, we call the accelerometer function <span style="font-family: Courier New,Courier,monospace;">forces()</span>,
+<p>On Line 7, we call the accelerometer function <code>forces()</code>,
 which returns three values, representing the forces in the x-direction,
 y-direction and z-direction</p>
 </li>
@@ -141,25 +181,21 @@ accelerometer</p>
 <h2>Running Your Code</h2>
 <p>If you run your test code, what you should
 immediately see is that your Output Window starts filling up with
-numbers. &nbsp;These numbers -- three per line -- indicate the
-relative
-movement of the RaspberrySTEM (specifically, the accelerometer we wired
-on the breadboard), as follows:</p><ul><li><p>The
-first number indicates the left/right tilt of the RaspberrySTEM -- if
-you tilt to the left, the number increases towards 1 and if you tilt to
-the right, the number decreases towards -1.</p></li><li><p>The
-second number indicates the front/back tilt of the accelerometer -- if
-you tilt backwards, the number increases towards 1 and if you tilt
-forwards, the number decreases towards -1.</p></li><li><p>The
-third number indicates the up/down movement of the accelerometer -- if
-you move it upwards, the number increases towards 1 and if you move it
-downwards, the number decreases towards -1.</p></li></ul><p>Play around
-with the RaspberrySTEM and try to get a feel for how different
-movements and rotations affect the numbers on the screen. &nbsp;In
-future projects, we'll be using this functionality to turn the
-RaspberrySTEM into a game controller.</p>
+numbers.  These three numbers on each line are the 
+X, Y and Z forces.
 
-<br>
-	<p class="nextprev"><a href="BOUNCING_BALL_2.html">prev</a>|
+<p>If you sit your RaspberrySTEM CREATOR Kit down on a flat surface, you should
+expect the first number to be 0, the second number to be 0 and the third number to be
+1.  In reality, the accelerometer is <strong>very</strong> sensitive, and it's unlikely that your
+surface is 100% flat, so you'll probably see readings that are very slightly off from 
+those numbers.</p>
+<p>Play around
+with the RaspberrySTEM CREATOR Kit and try to get a feel for how different
+movements and rotations affect the numbers on the screen.  In
+future projects, we'll be using this functionality to turn the
+RaspberrySTEM CREATOR Kit into a game controller.</p>
+
+
+	<p class=nextprev><a href="index.html">home</a> | <a href="BOUNCING_BALL_2.html">prev</a> |
 <a href="SPACE_INVADERS_PSEUDO.html">next</a></p>
 </body></html>

@@ -14,15 +14,15 @@
 <h1>FUNCTION INPUTS</h1>
 <p>Now that we have a basic idea of what a function is and how it
 works, let's talk about one of the more powerful aspects of using
-functions. &nbsp;Oftentimes,
+functions.  Oftentimes,
 functions will contain code that we want to use over and over again,
-but we’re going to want the code to do slightly different things
-based on other things going on in our software. </p>
+but we’re going to want the code to do work slightly differently each time we use it.
+</p>
 <p>For example, when
 your cell phone rings, the software inside your phone is doing a lot
 of complicated stuff to generate the ring. Your phone has to “wake
 up,” turn on the back light, print information on the display,
-check to see if you’re pushing any buttons, play ringtone, etc. In
+check to see if you’re pushing any buttons, play a ringtone, etc. In
 fact, the code that makes your cell phone ring may contain a hundred
 or more lines of code. </p>
 <p>When different
@@ -35,14 +35,14 @@ lines of code for Allison (as well as a different hundred lines of
 code every other person in your contact list)? </p>
 <p>Luckily, no…</p>
 <p>With functions, we
-have the ability to do generic tasks (like generate a ring), while
+have the ability to write generic tasks (like generate a ring), while
 also changing based on specific information (like putting different
 information on the screen for different callers). This is done by
 sending “inputs” (also called “parameters”) to the function. Parameters
 are just pieces of information that the function uses to
 customize the task it is performing.</p>
 <p>Let’s go back to
-our previous project where we printed two pieces of information on
+our previous concept where we printed two pieces of information on
 the screen – my name (Jason) and the year I was born (1971). What
 if we wanted to print a name and birth year for other people as well
 – people with a different name and birth year than mine? To do
@@ -65,67 +65,63 @@ parameter has its own name, which should be descriptive of what
 the parameter is. </p>
 <p>For example, if we
 wanted to modify our function from the previous project to take a
-name and a birth year parameters, it might look like this:</p>
-<div class="code" data-firstline="0">
+name and birth year parameters, it might look like this:</p>
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-def print_info(name, birth_year):
-</textarea></div>
-<p>“name” and “year” are now variables that we set when we call
-the function,
-and those variables can be used within that function: </p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-def print_info(name, birth_year):
+def show_my_info(name, birth_year):
 	print('My name is: ', name)
 	print('I was born in: ', birth_year)
 </textarea></div>
+<p>“name” and “birth_year” are now variables that we set when we call
+the function,
+and those variables can be used within that function: </p>
 <p>Now, when we call
-the print_info function, we will always supply two parameters to the
+the show_my_info function, we will always supply two parameters to the
 function – a name and a year. </p>
 <p>For example, let’s
-say we have a friend named Bob and he was born in 1992. We can send
+say we have a friend named Bob and he was born in 2005. We can send
 his information to the function like this:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print_info('Bob', 1992)
+show_my_info('Bob', 2005)
 </textarea></div>
 <p>Notice that we put
 quotation marks around “Bob” to make it a string (as you would
-expect), but we left the quotation marks off of 1992, making it a
+expect), but we left the quotation marks off of 2005, making it a
 number instead of a string. While we could have put quotation marks
-around 1992 to make it a string, I’ve decided to make it a number
+around 2005 to make it a string, we’ve decided to make it a number
 for reasons that will become clear later on.</p>
 <p>As another example,
-let’s say we have a friend named Susie who was born in 1985, and we
+let’s say we have a friend named Susie who was born in 1999, and we
 want to print her information as well:</p>
 <div class="code" data-firstline="0">
 <div></div>
 <textarea>
-print_info('Susie', 1985)
+show_my_info('Susie', 1999)
 </textarea></div>
 <p>Now, let’s put it
 all together, and see what our code would look like if we had this
 new function and we called this function twice – once to print
 Bob’s information and once to print Susie’s information:</p>
-<div class="code" data-firstline="0">
+<div class="code" data-firstline="1">
 <div></div>
 <textarea>
-def print_info (name, birth_year):
+def show_my_info(name, birth_year):
 	print('My name is: ', name)
 	print('I was born in: ', birth_year)
-	print_info('Bob', 1992)
-	print_info('Susie', 1985)
+
+show_my_info('Bob', 2005)
+show_my_info('Susie', 1999)
 </textarea></div>
 <p>You may have noticed
 that this example is very similar to our cell phone example above. The
 software in a cell phone likely handles a ring by calling a
-function – the parameters to this function would be all the
+function – the parameters of this function would be all the
 information that the function needs to correctly display the caller’s
 information on the screen and make the phone ring. So, the
-parameters that likely get sent to the function would include:</p>
+parameters that are likely passed to the function would include:</p>
 <ul>
 <li>
 <p>Name of caller</p>
@@ -143,10 +139,7 @@ parameters that likely get sent to the function would include:</p>
 <p>Etc.</p>
 </li>
 </ul>
-<p>We realize that functions aren't the most exciting topic in
-the world, but there is another function topic that's important to
-understand before getting too far into the projects. &nbsp;If
-you're not familiar with them, you should check out <a href="FUNCTION_OUTPUTS.html">Function Outputs</a>
-before getting back to the projects...</p>
-<br>
+<p>
+Before returning to the projects you may want to check out <a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a>.</p>
+<p class=nextprev><a href="index.html">home</a></p>
 </body></html>
