@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>This is a minecraft project</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+<h2>The Introduction</h2>
+<h2>The Hardware</h2>
+<p>None required.</p>
+<h2>The Software</h2>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.mcpi import minecraft, control, block
+from rstem.mcpi.vec3 import Vec3
+from rstem.led_matrix import FrameBuffer, Sprite
+from itertools import cycle
+import time
+
+fb = FrameBuffer()
+
+control.show(hide_at_exit=True)
+mc = minecraft.Minecraft.create()
+
+animation = [
+    Sprite("""
+        00000000
+        0000FF00
+        000FF000
+        000FFF00
+        00FFFF00
+        000FFF00
+        0FF00F00
+        0F0000FF
+        """),
+    Sprite("""
+        00000000
+        0000FF00
+        0000F000
+        00FFFF00
+        0F0FF0F0
+        000FFF00
+        0FF00F00
+        00000FF0
+        """),
+    Sprite("""
+        00000000
+        0000FF00
+        000FF000
+        000FF000
+        000FF000
+        000FF000
+        00FFF000
+        000FF000
+        """),
+    Sprite("""
+        0000FF00
+        000FF000
+        000FFF00
+        00FFFF00
+        000FFF00
+        00F00F00
+        00F0F000
+        00F00000
+        """),
+    ]
+
+
+def sprite_in_minecraft(mc, sprite, pos):
+    char_sprite = reversed(str(sprite).splitlines())
+    for height, row in enumerate(char_sprite):
+        for width, char in enumerate(row):
+                if char == '0':
+                    blk = block.AIR
+                else:
+                    blk = block.WOOD
+                mc.setBlock(player_pos + Vec3(width, height, 0), blk)
+    
+player_pos = mc.player.getTilePos()
+animation = cycle(animation)
+while True:
+    sprite = next(animation)
+
+    fb.erase()
+    fb.draw(sprite)
+    fb.show()
+
+    sprite_in_minecraft(mc, sprite, player_pos)
+
+    time.sleep(0.1)
+
+</textarea></div>
+<h2>The Challenge</h2>
+<div id=footer></div>
+</body></html>

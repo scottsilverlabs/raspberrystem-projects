@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>This is a minecraft project</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+<h2>The Introduction</h2>
+<h2>The Hardware</h2>
+<p>None required.</p>
+<h2>The Software</h2>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.mcpi import minecraft, control, block
+import time
+from random import randint
+
+control.show(hide_at_exit=True)
+mc = minecraft.Minecraft.create()
+
+ARENA_WIDTH = 3
+GOLD_DEPTH = 0
+gold_pos = mc.player.getTilePos()
+gold_pos.x +=  randint(-ARENA_WIDTH, ARENA_WIDTH)
+gold_pos.z +=  randint(-ARENA_WIDTH, ARENA_WIDTH)
+gold_pos.y = mc.getHeight(gold_pos.x, gold_pos.z) - GOLD_DEPTH
+mc.setBlock(gold_pos, block.GOLD_BLOCK)
+gold_exists = True
+
+while gold_exists:
+    player_pos = mc.player.getTilePos()
+    gold_exists = block.Block(mc.getBlock(gold_pos)) == block.GOLD_BLOCK
+    time.sleep(0.01)
+
+mc.postToChat("You found the gold!")
+time.sleep(3)
+
+
+</textarea></div>
+<h2>The Challenge</h2>
+<div id=footer></div>
+</body></html>

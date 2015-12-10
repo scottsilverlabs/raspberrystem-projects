@@ -1,4 +1,4 @@
-window.onload = function() {
+chainedOnload(function() {
     var codeblocks = document.getElementsByClassName("code");
     for (i = 0; i < codeblocks.length; i++) { 
         codeblock = codeblocks[i].children[1];
@@ -39,4 +39,4 @@ window.onload = function() {
         // auto-height via CSS, but it wasn't working.
         cm.setSize(null, cm.defaultTextHeight() * (numLines+1));
     }
-}
+});

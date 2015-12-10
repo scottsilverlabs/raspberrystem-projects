@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>This is a minecraft project</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+<h2>The Introduction</h2>
+<h2>The Hardware</h2>
+<p>None required.</p>
+<h2>The Software</h2>
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.button import Button
+from rstem.mcpi import minecraft, control, block
+from rstem.mcpi.vec3 import Vec3
+import time
+
+control.show(hide_at_exit=True)
+mc = minecraft.Minecraft.create()
+button = Button(7)
+
+def dig(mc, pos, radius=1):
+    r_vector = Vec3(radius,radius,radius)
+    mc.setBlocks(hit.pos - r_vector, hit.pos + r_vector, block.AIR)
+
+while True:
+    if button.presses():
+        control.hit()
+
+    hits = mc.events.pollBlockHits()
+    for hit in hits:
+        dig(mc, hit)
+
+    time.sleep(0.01)
+
+</textarea></div>
+<h2>The Challenge</h2>
+<div id=footer></div>
+</body></html>

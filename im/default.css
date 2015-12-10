@@ -30,6 +30,8 @@ header div {
     font-size: 11pt;
 }
 header {
+    width: 90%;
+    margin: auto;
 	background-color: #E6F3F8;
 	display: -webkit-flex;
 	-webkit-flex-wrap: wrap;
@@ -112,13 +114,13 @@ header #sw_required {
 	flex: 1 0 33%;
     order:22;
 }
-header #troubleshooting_links::before {
+header #troubleshooting::before {
     margin-top: 0.2in;
     content: "Troubleshooting";
 	background-color: lightblue;
     display: block;
 }
-header #troubleshooting_links {
+header #troubleshooting{
     display: block;
 	-webkit-flex: 49%;
 	-webkit-order: 41;
@@ -198,8 +200,15 @@ p.toc {
     margin-bottom: 0.05in;
     font-weight: bold;
     font-size: 110%;
+}
+p.project {
     margin-left: 0.5in;
-    
+}
+p.concept a::before {
+    content: "CONCEPT: ";
+}
+p.concept {
+    margin-left: 1.5in;
 }
 p.nextprev {
     font-weight: bold;
