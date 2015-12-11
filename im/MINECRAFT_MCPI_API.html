@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
@@ -28,35 +29,55 @@
 <h2>The Hardware</h2>
 <p>None required.</p>
 <h2>The Software</h2>
-MCPI stands for Minecraft Pi.  The mcpi API is a set of functions to query and control the player in Minecraft.  Note that there is an mcpi API downloadable online, which is slightly different from the one available on the RaspberrySTEM.  The RaspberrySTEM has an enhanced version that includes functions for controlling the movement of the Minecraft player, determining the direction the player is looking, and showing/hiding the Minecraft window.
+<p>
+MCPI stands for Minecraft Pi.  The mcpi API is a set of functions to query and
+control the player in Minecraft.  Note that there is an mcpi API downloadable
+online, which is slightly different from the one available on the
+RaspberrySTEM.  The RaspberrySTEM has an enhanced version that includes
+functions for controlling the movement of the Minecraft player, determining the
+direction the player is looking, and showing/hiding the Minecraft window.
+</p>
 
-To get started, you’re generally going to want to import the APIs you need, show the minecraft window and create a connection to the minecraft server - we did this in the first Minecraft project:
-
-	import …
-control.show()
-	mc = minecraft.Minecraft.create()
-
-After that, we can start playing with the minecraft functions.
-
-INFO box vectors:
-
-getPos
-setPos
-INFO box: blocks
-
-getBlock
-setBlock
-postToChat
-
-More details in the API docs
+<p>
+As we've seen before, to get started you’re generally going to want to import the APIs you need,
+show the minecraft window and create a connection to the minecraft server - we
+did this in the first Minecraft project:
+</p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-test
-*if foo
-*	print("Ouch!")
-else:
-	print("You win!")
+import ...
+control.show()
+	mc = minecraft.Minecraft.create()
 </textarea></div>
+
+<p>
+After that, we can start playing with the minecraft functions.
+</p>
+
+<p>
+INFO box vectors:
+</p>
+
+<p>
+getPos
+setPos
+</p>
+<p>
+INFO box: blocks
+</p>
+
+<p>
+getBlock
+setBlock
+</p>
+<p>
+postToChat
+</p>
+
+<p>
+More details in the API docs
+</p>
+
 <h2>The Challenge</h2>
 <div id=footer></div>
 </body></html>

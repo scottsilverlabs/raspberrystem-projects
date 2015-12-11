@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="default.css">
     <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
     <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
@@ -28,13 +29,27 @@
 <h2>The Hardware</h2>
 <p>None required.</p>
 <h2>The Software</h2>
-The RaspberrySTEM has an enhanced mcpi API that adds functions to move Steve around, exactly as if you would have pressed the W, S, A or D keys on the keyboard.  All of these new functions are accessed from the “control” module, which you can import with:
+<p>
+The RaspberrySTEM has an enhanced mcpi API that adds functions to move Steve
+around, exactly as if you would have pressed the W, S, A or D keys on the
+keyboard.  All of these new functions are accessed from the "control" module,
+which you can import with:
+</p>
 
-	from rstem.mcpi import control
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.mcpi import control
+</textarea></div>
 
-From there, you can control Steve with the functions forward(), backward(), left() and right().  Calling those functions without arguments is just like pressing the corresponding key (W, S, A, or D) on the keyboard.  The key is not released until you call the function with the argument “release=True”.  For example, to have Steve walk forward for 2 seconds:
+<p>
+From there, you can control Steve with the functions forward(), backward(),
+left() and right().  Calling those functions without arguments is just like
+pressing the corresponding key (W, S, A, or D) on the keyboard.  The key is not
+released until you call the function with the argument "release=True".  For
+example, to have Steve walk forward for 2 seconds:
+</p>
 
-	import …
+<div class="code" data-firstline="1"> <div></div> <textarea>
+import ...
 import time
 control.show()
 control.forward()
@@ -42,19 +57,30 @@ time.sleep(2)
 control.forward(release=True)
 while True:
 	time.sleep(1)
+</textarea></div>
 
-In addition, if you simply want to have a key pressed for a certain amount of time and be released automatically, you can use the “duration” argument.  The following code will also have Steve walk forward for 2 seconds
+<p>
+In addition, if you simply want to have a key pressed for a certain amount of
+time and be released automatically, you can use the "duration" argument.  The
+following code will also have Steve walk forward for 2 seconds
+</p>
 
-	import …
+<div class="code" data-firstline="1"> <div></div> <textarea>
+import ...
 import time
 control.show()
 control.forward(duration=2)
 while True:
 	time.sleep(1)
+</textarea></div>
 
-Finally, to stop all keys from being pressed, you can use control.stop().  For example, to walk both forward and right for a second, and then stop:
+<p>
+Finally, to stop all keys from being pressed, you can use control.stop().  For
+example, to walk both forward and right for a second, and then stop:
+</p>
 
-import …
+<div class="code" data-firstline="1"> <div></div> <textarea>
+import ...
 import time
 control.show()
 control.forward()
@@ -63,14 +89,10 @@ time.sleep(2)
 control.stop()
 while True:
 	time.sleep(1)
+</textarea></div>
 
-control.look()
 <div class="code" data-firstline="1"> <div></div> <textarea>
-test
-*if foo
-*	print("Ouch!")
-else:
-	print("You win!")
+control.look()
 </textarea></div>
 <h2>The Challenge</h2>
 <div id=footer></div>
