@@ -89,7 +89,7 @@ def create_house(mc, house_slices, offset, base=block.STONE):
                 block_type = block_types[int(block_index)]
                 mc.setBlock(corner + Vec3(delta_x, delta_y, delta_z), block_type)
                 
-control.show(hide_at_exit=True)
+control.show()
 mc = minecraft.Minecraft.create()
 button = Button(7)
 
