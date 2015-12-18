@@ -27,27 +27,18 @@
 <p>None required.</p>
 <h2>The Software</h2>
 <div class="code" data-firstline="1"> <div></div> <textarea>
-        if button.is_pressed():
-            action(release=False)
-        else:
-            action(release=True)
-</textarea></div>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-        action(release=(not button.is_pressed()))
-</textarea></div>
-<div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.accel import Accel
 from rstem.button import Button
-from rstem.mcpi import minecraft, control
+from rstem.mcpi import control
 import time
 
 control.show()
 
 keymap = {
-    Button(23) : control.left,
+    Button(18) : control.left,
     Button(14) : control.right,
-    Button(18) : control.forward,
-    Button(15) : control.backward,
+    Button(15) : control.forward,
+    Button(23) : control.backward,
     Button(7)  : control.smash,
     Button(24) : control.jump,
     }
@@ -59,7 +50,8 @@ while True:
         action(release=(not button.is_pressed()))
 
     x, y, z = accel.forces()
-    control.look(up=50*y, left=50*x)
+*    y -= 0.3
+*    control.look(up=150*y*abs(y), left=150*x*abs(x))
     
     time.sleep(0.01)
 
