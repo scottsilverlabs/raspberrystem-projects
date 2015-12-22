@@ -87,7 +87,7 @@ USING "DOUBLE-WIDE" BREADBOARD DIAGRAMS
 
     To stich the two images together, do:
 
-        ./bb_stich mydiagram
+        ./bb_stitch mydiagram
         
     Move the resultant file (mydiagram_bb.png) to the HTML docs dir where it
     will be used, and incorporate it in the doc.
