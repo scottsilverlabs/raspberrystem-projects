@@ -60,7 +60,7 @@ while True:
         control.backward(release=True)
 
     x, y, z = accel.forces()
-    control.look(up=120*y*abs(y), left=120*x*abs(x))
+    control.look(up=50*y, left=50*x)
     
     time.sleep(0.01)
 
