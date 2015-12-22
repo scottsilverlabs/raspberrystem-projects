@@ -3,6 +3,7 @@ var pg_index = [
     {filename: "MINECRAFT_KEYSTROKES.html",         title: "MINECRAFT - KEYSTROKES",          concept: true},
     {filename: "MINECRAFT_CONTROLLER1.html",        title: "MINECRAFT - CONTROLLER 1",        concept: false},
     {filename: "MINECRAFT_CONTROLLER2.html",        title: "MINECRAFT - CONTROLLER 2",        concept: false},
+    {filename: "MINECRAFT_CONTROLLER3.html",        title: "MINECRAFT - CONTROLLER 3",        concept: false},
     {filename: "MINECRAFT_MCPI_API.html",           title: "MINECRAFT - MCPI API",            concept: true},
     {filename: "MINECRAFT_SHOVEL1.html",            title: "MINECRAFT - SHOVEL 1",            concept: false},
     {filename: "MINECRAFT_VECTORS.html",            title: "MINECRAFT - VECTORS",             concept: true},
