@@ -214,20 +214,30 @@ h5 {
 A:link {
     color: #0563c1;
 }
-p.toc {
+div.autotoc p {
     margin-top: 0.05in;
     margin-bottom: 0.05in;
     font-weight: bold;
     font-size: 110%;
 }
-p.project {
-    margin-left: 0.5in;
+table {
+    width: 100%;
 }
-p.concept a::before {
-    content: "CONCEPT: ";
+td.project p {
 }
-p.concept {
-    margin-left: 1.5in;
+td.concept p {
+}
+td.section {
+    max-width: 60px;
+}
+td.section p {
+    width: 500px;
+    white-space: nowrap;
+    transform: rotate(-90deg) translate(0px, -250px); 
+    text-align: center;
+    margin-left: 0px;
+    padding: 30px;
+    font-size: 120%;
 }
 p.nextprev {
     font-weight: bold;
