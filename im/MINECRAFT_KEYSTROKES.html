@@ -15,24 +15,19 @@
 <body>
 <header>
     <div id=title></div>
-    <div id=description>This is a minecraft project</div>
+    <div id=description>Minecraft Keystrokes</div>
     <div id=hw_required>
     Accelerometer Cell<br>
     LED Matrix Cell
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<p>
-</p>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
 <p>
-The RaspberrySTEM has an enhanced mcpi API that adds functions to move Steve
-around, exactly as if you would have pressed the W, S, A or D keys on the
-keyboard.  All of these new functions are accessed from the "control" module,
+The RaspberrySTEM has an enhanced <code>mcpi</code> API that adds functions to move 
+your character (Steve) around, exactly as if you would have pressed the W, S, A or D keys 
+on the keyboard (these are the keys that move Steve Forward, Backward, Left & Right).  
+All of these new functions are accessed from the <code>control</code> module,
 which you can import with:
 </p>
 
@@ -41,59 +36,49 @@ from rstem.mcpi import control
 </textarea></div>
 
 <p>
-From there, you can control Steve with the functions forward(), backward(),
-left() and right().  Calling those functions without arguments is just like
-pressing the corresponding key (W, S, A, or D) on the keyboard.  The key is not
-released until you call the function with the argument "release=True".  For
-example, to have Steve walk forward for 2 seconds:
+Once <code>control</code> is imported, you can control Steve with the functions 
+<code>forward()</code>, <code>backward()</code>, <code>left()</code> and <code>right()</code>.  
+Calling those functions without arguments is just like
+pressing and holding the corresponding key (W, S, A, or D) on the keyboard.  The key is not
+released until you call the function with the argument <code>release=True</code>.  
+</p>
+<p>For example, to have Steve walk forward for 2 seconds and then stop, this is what the code 
+would look like:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward()
 time.sleep(2)
 control.forward(release=True)
-while True:
-	time.sleep(1)
 </textarea></div>
 
 <p>
-In addition, if you simply want to have a key pressed for a certain amount of
-time and be released automatically, you can use the "duration" argument.  The
-following code will also have Steve walk forward for 2 seconds
+Another way to implement this same functionality (having a key pressed for a specific amount
+of time) is by using the <code>duration=</code> argument.  The
+following code will also have Steve walk forward for 2 seconds and then stop:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward(duration=2)
-while True:
-	time.sleep(1)
 </textarea></div>
 
 <p>
-Finally, to stop all keys from being pressed, you can use control.stop().  For
+Finally, to stop all keys from being pressed, you can use <code>control.stop()</code>.  For
 example, to walk both forward and right for a second, and then stop:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward()
 control.right()
 time.sleep(2)
 control.stop()
-while True:
-	time.sleep(1)
 </textarea></div>
+
+?????
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 control.look()
 </textarea></div>
-<h2>The Challenge</h2>
+
 <div id=footer></div>
 </body></html>
