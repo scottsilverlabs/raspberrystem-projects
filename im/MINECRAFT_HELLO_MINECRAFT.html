@@ -23,14 +23,24 @@
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
+<h2>Overview</h2>
 <p>
-
-Now, you can write you first Minecraft program - this one is a sort-of "hello,
-world" for Minecraft.
+In this project, we're going to write our first Minecraft program.  This program will simply open the Minecraft 
+window and print "Hello, Minecraft!" to the Minecraft window.  This project will provide the basic components 
+of starting Minecraft from code and do the most basic manipulation of the Minecraft environment.  Future projects
+will build on these concepts. 
 </p>
+
+<h2>Hardware Setup</h2>
+<p>No hardware required.</p>
+
+<h2>Writing Your Code</h2>
+
+<p>
+Here is the code that will open the Minecraft window and write your own custom text.  Below, we will discuss
+the code line-by-line.
+</p>
+
 <div class="code" data-firstline="1">
 <div> </div>
 <textarea>
@@ -45,36 +55,45 @@ while True:
 </textarea></div>
 
 <p>
-How it works:
+Here's how the code works:
 </p>
 <ul>
 <li><p>
-control.show(): this will be used in every Minecraft you write.  It opens up
-the Minecraft window.  When the program completes, the Minecraft window will be
+On Line 1, we import two functions we'll later need from the <code>mcpi</code>module
+</p></li>
+<li><p>
+On Line 2, we import the <code>time</code> module, as we're going to be using a loop and will want to slow the
+repetition of the loop down a bit
+</p></li>
+<li><p>
+On Line 4, we use <code>control.show()</code> to open up the Minecraft window.  
+This function and method will be used in every Minecraft projects, and when the program completes, the Minecraft window will be
 automatically hidden
 </p></li>
 <li><p>
-mc = ...: this will be used at the start of many programs - it intializes a
-connection to the minecraft server to allows you to interact with the minecraft
-world (to add or destroy blocks, for example)
+On Line 5, we initalize a connection to the Minecraft server and store that in an object <code>mc</code>.  We can
+later use this object to interact with the minecraft world (to add or destroy blocks, for example)
 </p></li>
 <li><p>
-...postToChat...: this write hello world on the screen
+On Line 6, we use the <code>mc</code> object with the <code>postToChat</code> method to write "Hello, Minecraft!"
+in the Minecraft window
 </p></li>
 <li><p>
-...sleep...:  This is our game loop.  Right now, in this simple example, we’re
-not doing anything, but in most of our projects, this will be where the magic
-happens.
+On Line 7 and 8, we implement our Game Loop -- this is the loop that will allow us to do more complex interactions with the
+Minecraft environment.  For now, we'll leave our loop empty except for a <code>sleep</code> which will slow the loop
+down and keep it from running too fast and hogging the processor
 </p></li>
 </ul>
 
 <p>
 When minecraft runs, you’ll have to click in the Minecraft window to use the
 mouse.  You can then move around the Minecraft world as long as you want.  When
-you’re done, hit TAB (to free up the mouse) and then click stop STOP in the
+you’re done, hit "TAB" key on the keyboard (to free up the mouse) and then click the stop icon in the
 RDE.  The Minecraft window will close automatically.
 </p>
 
-<h2>The Challenge</h2>
+<h2>Additional Challenges</h2>
+
+
 <div id=footer></div>
 </body></html>
