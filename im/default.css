@@ -214,29 +214,45 @@ h5 {
 A:link {
     color: #0563c1;
 }
-div.autotoc p {
-    margin-top: 0.05in;
-    margin-bottom: 0.05in;
-    font-weight: bold;
-    font-size: 110%;
-}
-table {
+div.autotoc table {
     width: 100%;
+    border: 0px solid black;
+    border-spacing: 0;
+}
+div.autotoc td, th {
+    border: 0px solid black;
+    border-spacing: 0;
 }
 td.project p {
 }
 td.concept p {
 }
+tr.arrow_row td {
+    padding: 6px;
+    border-bottom: 1px solid black;
+}
+tr.arrow_row td p {
+    line-height: 0px;
+    margin-top: -0.1in;
+    margin-bottom: -0.1in;
+}
+tr.content_row td p {
+    margin-top: -0.1in;
+    margin-bottom: -0.1in;
+    font-weight: bold;
+    font-size: 110%;
+}
 td.section {
     max-width: 60px;
+    border: 1px solid black !important;
 }
 td.section p {
-    width: 500px;
+    width: 500px; // 2x the translate transform
     white-space: nowrap;
     transform: rotate(-90deg) translate(0px, -250px); 
     text-align: center;
     margin-left: 0px;
-    padding: 30px;
+    padding: 30px; // half of td max-width
     font-size: 120%;
 }
 p.nextprev {

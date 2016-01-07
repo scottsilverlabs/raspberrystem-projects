@@ -22,9 +22,9 @@ chainedOnload(function() {
     html += "<table>";
     for (var i = 0; i < pg_index.length; i++) {
         row = pg_index[i];
-        html += "<tr>";
+        html += "<tr class=content_row>";
         if ("section" in row) {
-            html += '<td class="section" rowspan=' + row.section_size + '><p>' 
+            html += '<td class=section rowspan=' + 2 * row.section_size + '><p>'
                     + row.section + "</p></td>";
         }
         toc_type = row.concept ? 'concept' : 'project';
@@ -39,6 +39,7 @@ chainedOnload(function() {
             html += blank_cell + title_cell;
         }
         html += "</tr>";
+        html += "<tr class=arrow_row><td colspan=2><p></p></td></tr>";
     }
     html += "</table>";
     autotoc.innerHTML = html;
