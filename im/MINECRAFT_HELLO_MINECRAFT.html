@@ -15,10 +15,8 @@
 <body>
 <header>
     <div id=title></div>
-    <div id=description>This is a minecraft project</div>
+    <div id=description>Hello, Minecraft!</div>
     <div id=hw_required>
-    Accelerometer Cell<br>
-    LED Matrix Cell
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
@@ -26,8 +24,8 @@
 <h2>Overview</h2>
 <p>
 In this project, we're going to write our first Minecraft program.  This program will simply open the Minecraft 
-window and print "Hello, Minecraft!" to the Minecraft window.  This project will provide the basic components 
-of starting Minecraft from code and do the most basic manipulation of the Minecraft environment.  Future projects
+window and print "Hello, Minecraft!" to the Minecraft window (similar to our very first "Hello, World!" program).  
+This project will implement the programming concepts discussed in the previous concept. Future projects
 will build on these concepts. 
 </p>
 
@@ -48,8 +46,10 @@ from rstem.mcpi import minecraft, control
 import time
 
 control.show()
+
 mc = minecraft.Minecraft.create()
 mc.postToChat("Hello, world!")
+
 while True:
 	time.sleep(1)
 </textarea></div>
@@ -67,19 +67,19 @@ repetition of the loop down a bit
 </p></li>
 <li><p>
 On Line 4, we use <code>control.show()</code> to open up the Minecraft window.  
-This function will be used in every Minecraft projects, and when the program completes, the Minecraft window will be
+This function will be used in every Minecraft project, and when the program completes, the Minecraft window will be
 automatically hidden
 </p></li>
 <li><p>
-On Line 5, we initalize a connection to the Minecraft server and store that in an object <code>mc</code>.  We can
+On Line 6, we initalize a connection to the Minecraft server and store that in an object <code>mc</code>.  We can
 later use this object to interact with the minecraft world (to add or destroy blocks, for example)
 </p></li>
 <li><p>
-On Line 6, we use the <code>mc</code> object with the <code>postToChat</code> function to write "Hello, Minecraft!"
+On Line 7, we use the <code>mc</code> object with the <code>postToChat</code> function to write "Hello, Minecraft!"
 in the Minecraft window
 </p></li>
 <li><p>
-On Line 7 and 8, we implement our Game Loop -- this is the loop that will allow us to do more complex interactions with the
+On Line 8 and 9, we implement our Game Loop -- this is the loop that will allow us to do more complex interactions with the
 Minecraft environment.  For now, we'll leave our loop empty except for a <code>sleep</code> which will slow the loop
 down and keep it from running too fast and hogging the processor
 </p></li>

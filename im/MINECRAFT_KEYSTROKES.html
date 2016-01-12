@@ -23,16 +23,24 @@
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
+<h2>Controlling Our Character</h2>
 <p>
-The RaspberrySTEM has an enhanced Minecraft API (<code>mcpi</code>) that we'll discuss in
-an upcoming tutorial.  In the meantime, let's jump in and use that API to see the types of
-things it allows us to do in the Minecraft world.  One of the features of the API is that
-you can implement the functionality to move your character (Steve) around, exactly as if you 
-would have pressed the W, S, A or D keys on the keyboard (these are the keys that move Steve 
-Forward, Backward, Left & Right).  
+As mentioned earlier, the RaspberrySTEM has an enhanced Minecraft API (<code>mcpi</code>) 
+that allows us to control our Minecraft character (Steve) and manipulate the Minecraft world.  
+One of the things the API allows us to do is to remap the keyboard presses in other ways.  
+For example, normally when we press the "W" key on the keyboard, Steve moves forward.
+But, using the API, we could change this -- we could make the "P" key on the keyboard move
+Steve forward instead.  Or, better yet, we could control the forward movement of Steve 
+using something else entirely...like a button on our RaspberrySTEM kit!
+
 <p>
-All of these new functions are accessed from the <code>control</code> module,
-which you can import with:
+Below, we'll discuss the 6 major actions our character can perform in the game, and how we
+can remap those actions to things other than the standard keyboard presses.
+
+<h2>Control API</h2>
+<p>
+All of the character control functions are accessed from the <code>control</code> module,
+which we can import with:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
@@ -40,11 +48,11 @@ from rstem.mcpi import control
 </textarea></div>
 
 <p>
-Once <code>control</code> is imported, you can control Steve with the functions 
+Once <code>control</code> is imported, we can control Steve's movements with the functions 
 <code>forward()</code>, <code>backward()</code>, <code>left()</code> and <code>right()</code>.  
 Calling those functions without arguments is just like
-pressing and holding the corresponding key (W, S, A, or D) on the keyboard.  The key is not
-released until you call the function with the argument <code>release=True</code>.  
+pressing and holding the keyboard key that normally invokes this movement.  
+The key is not released until you call the function with the argument <code>release=True</code>.  
 </p>
 <p>For example, to have Steve walk forward for 2 seconds and then stop, this is what the code 
 would look like:
@@ -56,9 +64,17 @@ time.sleep(2)
 control.forward(release=True)
 </textarea></div>
 
+<p>This is what our code snippet does:
+
+<ul>
+<li><p>Line 1 of the program starts moving Steve forward</li>
+<li><p>Line 2 of the program waits for two seconds (while Steve is continuously moving)</li>
+<li><p>Line 3 of the program stops Steve's movement</li>
+</ul>
+
 <p>
 Another way to implement this same functionality (having a key pressed for a specific amount
-of time) is by using the <code>duration=</code> argument.  The
+of time) is by using the <code>duration=</code> argument inside the function.  The
 following code will also have Steve walk forward for 2 seconds and then stop:
 </p>
 
@@ -66,9 +82,12 @@ following code will also have Steve walk forward for 2 seconds and then stop:
 control.forward(duration=2)
 </textarea></div>
 
+<p>This one line of code achieves the same thing as the three lines of code above.
+
 <p>
 Finally, to stop all keys from being pressed, you can use <code>control.stop()</code>.  For
-example, to walk both forward and right for a second, and then stop:
+example, to walk both forward and right for a second, and then stop, our code might look
+like this:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
@@ -78,7 +97,23 @@ time.sleep(2)
 control.stop()
 </textarea></div>
 
-?????
+<p>In addition to controlling Steve's movements forward, backwards, left and right, we also
+have the ability to control his other actions...
+
+<p>One of the main things that Steve does in Minecraft is breaking (smashing) blocks.  Using 
+this same <code>control</code> module, we can have Steve smash whatever is in front of him:
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+control.smash()
+</textarea></div>
+
+<p>Additionally, Steve has the ability to jump, which is implemented like this:
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+control.jump()
+</textarea></div>
+
+<p>Steve also has the ability to look....???....
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 control.look()

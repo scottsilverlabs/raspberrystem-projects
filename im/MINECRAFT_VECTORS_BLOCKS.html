@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>Minecraft API</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<p>
+As we mentioned (and saw) in the "Hello, Minecraft!" project, Minecraft has its own API that can be
+used to control and manipulate the Minecraft world.  The API is called <code>mcpi</code>, which stands 
+for Minecraft Pi.  The mcpi API is a set of functions to query and
+control the player in Minecraft.  
+
+<p>Note:  There is an mcpi API downloadable
+online, which is slightly different from the one available on the
+RaspberrySTEM.  The RaspberrySTEM has an enhanced version that includes
+functions for controlling the movement of the Minecraft player, determining the
+direction the player is looking, and showing/hiding the Minecraft window.  When
+using the mcpi API on the RaspberrySTEM, we highly recommend using our API, as
+opposed to the standard mcpi API.
+</p>
+
+<p>
+As we saw earlier, in a typical Minecraft program, we will start by 
+importing the APIs we need, displaying the minecraft window and then creating 
+a connection to the minecraft server.  We did this in the first Minecraft project
+with the following code:
+</p>
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+from rstem.mcpi import minecraft, control
+
+control.show()
+	mc = minecraft.Minecraft.create()
+</textarea></div>
+
+<p>
+Once we've done this basic initialization, we can start playing with the Minecraft-specific 
+functions.  Here are the most common functions we'll be using in upcoming projects:
+</p>
+
+<h3>postToChat</h3>
+<p>
+...
+</p>
+
+    <div class="info">
+    <div>VECTORS</div>
+    <div>
+    <p>
+    </div>
+    </div>
+
+
+<h3>getPos</h3>
+<p>
+...
+</p>
+
+<h3>setPos</h3>
+<p>
+...
+</p>
+
+    <div class="info">
+    <div>BLOCKS</div>
+    <div>
+    <p>
+    </div>
+    </div>
+
+
+
+<h3>getBlock</h3>
+<p>
+...
+</p>
+
+<h3>setBlock</h3>
+<p>
+...
+</p>
+
+<p>
+For more detailed information about these -- and all -- Minecraft APIs, check out the
+API documentation linked from the RDE above.
+</p>
+
+<div id=footer></div>
+</body></html>
