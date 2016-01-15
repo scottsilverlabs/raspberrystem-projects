@@ -214,37 +214,56 @@ h5 {
 A:link {
     color: #0563c1;
 }
+
+/*
+ * index
+ */
 div.autotoc table {
     width: 100%;
     border: 0px solid black;
-    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 10px;
 }
-div.autotoc td, th {
+div.autotoc td, div.autotoc th {
     border: 0px solid black;
-    border-spacing: 0;
+}
+td.concept, td.project {
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+}
+td.concept {
+    background: linear-gradient(to left, lightgray, white);
+}
+td.project {
+    background: linear-gradient(to right, lightgray, white);
 }
 td.project p {
+    text-align: right;
 }
 td.concept p {
+    text-align: left;
 }
-tr.arrow_row td {
-    padding: 6px;
-    border-bottom: 1px solid black;
+div.autotoc table tbody {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    display: block;
 }
-tr.arrow_row td p {
-    line-height: 0px;
-    margin-top: -0.1in;
-    margin-bottom: -0.1in;
+div.autotoc table tbody:nth-child(odd) { 
+    background-color:rgba(50,50,255,0.5); 
+}
+div.autotoc table tbody:nth-child(even) { 
+    background-color:rgba(0,0,255,1.0); 
 }
 tr.content_row td p {
-    margin-top: -0.1in;
-    margin-bottom: -0.1in;
+    margin-top: 0.0in;
+    margin-bottom: 0.0in;
     font-weight: bold;
-    font-size: 110%;
+    font-size: 150%;
 }
 td.section {
     max-width: 60px;
-    border: 1px solid black !important;
 }
 td.section p {
     width: 500px; // 2x the translate transform

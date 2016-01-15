@@ -19,29 +19,28 @@ chainedOnload(function() {
     pg_index[section_index].section_size = section_size;
 
     var html = "";
-    html += "<table>";
+    html += "<table><tbody>";
     for (var i = 0; i < pg_index.length; i++) {
         row = pg_index[i];
-        html += "<tr class=content_row>";
         if ("section" in row) {
-            html += '<td class=section rowspan=' + 2 * row.section_size + '><p>'
+            if (i > 0) {
+                html += "</tbody><tbody>";
+            }
+            html += "<tr class=content_row>";
+            html += '<td class=section rowspan=' + row.section_size + '><p>'
                     + row.section + "</p></td>";
+        } else {
+            html += "<tr class=content_row>";
         }
         toc_type = row.concept ? 'concept' : 'project';
         title_cell = 
             '<td class="' + toc_type + '"><p>'
             + '<a href="' + row.filename + '">' + row.title + '</a>'
             + '</p></td>';
-        blank_cell = "<td></td>";
-        if (row.concept) {
-            html += title_cell + blank_cell;
-        } else {
-            html += blank_cell + title_cell;
-        }
+        html += title_cell;
         html += "</tr>";
-        html += "<tr class=arrow_row><td colspan=2><p></p></td></tr>";
     }
-    html += "</table>";
+    html += "</tbody></table>";
     autotoc.innerHTML = html;
     alert
 });
