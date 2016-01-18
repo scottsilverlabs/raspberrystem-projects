@@ -19,7 +19,9 @@ chainedOnload(function() {
     pg_index[section_index].section_size = section_size;
 
     var html = "";
-    html += "<table><tbody>";
+    html += "<table>";
+    html += "<thead><tr class=content_row><th class=section><p>A</p></th><th><p>lsjkvnewklvjn</p></th></tr></thead>";
+    html += "<tbody>";
     for (var i = 0; i < pg_index.length; i++) {
         row = pg_index[i];
         if ("section" in row) {

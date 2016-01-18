@@ -224,10 +224,13 @@ div.autotoc table {
     border-collapse: separate;
     border-spacing: 10px;
 }
-div.autotoc td, div.autotoc th {
+div.autotoc td, thead th {
     border: 0px solid black;
 }
-td.concept, td.project {
+thead {
+    background: green;
+}
+td.concept, td.project, th:nth-child(2) {
     border-radius: 12px;
     padding: 10px;
     width: 100%;
@@ -244,11 +247,13 @@ td.project p {
 td.concept p {
     text-align: left;
 }
-div.autotoc table tbody {
+div.autotoc table tbody,
+div.autotoc table thead 
+{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 12px;
-    display: block;
+    display: table;
 }
 div.autotoc table tbody:nth-child(odd) { 
     background-color:rgba(50,50,255,0.5); 
@@ -256,16 +261,16 @@ div.autotoc table tbody:nth-child(odd) {
 div.autotoc table tbody:nth-child(even) { 
     background-color:rgba(0,0,255,1.0); 
 }
-tr.content_row td p {
+tr.content_row p {
     margin-top: 0.0in;
     margin-bottom: 0.0in;
     font-weight: bold;
     font-size: 150%;
 }
-td.section {
+.section {
     max-width: 60px;
 }
-td.section p {
+.section p {
     width: 500px; // 2x the translate transform
     white-space: nowrap;
     transform: rotate(-90deg) translate(0px, -250px); 
@@ -372,14 +377,12 @@ div.info div:last-child {
 /*
  * default tables
  */
-table
-{
+table {
     border: 1px solid black;
     border-spacing: 0;
 }
 
-th, td
-{
+th, td {
     text-align: center;
     border: 1px solid black;
     padding: 8px;
