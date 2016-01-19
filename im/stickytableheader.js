@@ -52,7 +52,7 @@ chainedOnload(function() {
 
                 var originalHeaderRow = $('.tableFloatingHeaderOriginal', this);
                 var floatingHeaderRow = $('.tableFloatingHeader', this);
-                var offset = $this.offset();
+                var offset = originalHeaderRow.offset();
                 var scrollTop = $window.scrollTop() + fixedHeaderHeight;
                 var scrollLeft = $window.scrollLeft();
 
