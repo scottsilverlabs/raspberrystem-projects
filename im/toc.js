@@ -19,8 +19,16 @@ chainedOnload(function() {
     pg_index[section_index].section_size = section_size;
 
     var html = "";
+    var inner = autotoc.innerHTML;
     html += "<table>";
-    html += "<thead><tr class=content_row><th class=section><p></p></th><th><p>lsjkvnewklvjn</p></th></tr></thead>";
+        html += "<thead>";
+            html += "<tr class=content_row>";
+                html += "<th class=section><p></p></th>";
+                html += "<th>";
+                    html += inner;
+                html += "</th>";
+            html += "</tr>";
+        html += "</thead>";
     html += "<tbody>";
     for (var i = 0; i < pg_index.length; i++) {
         row = pg_index[i];
@@ -44,6 +52,5 @@ chainedOnload(function() {
     }
     html += "</tbody></table>";
     autotoc.innerHTML = html;
-    alert
 });
 

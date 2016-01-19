@@ -60,6 +60,8 @@ chainedOnload(function() {
                     floatingHeaderRow.css('top', fixedHeaderHeight + 'px');
                     floatingHeaderRow.css('margin-top', 0);
                     floatingHeaderRow.css('left', (offset.left - scrollLeft) + 'px');
+                    floatingHeaderRow.css('border-top-left-radius', '0px');
+                    floatingHeaderRow.css('border-top-right-radius', '0px');
                     floatingHeaderRow.css('display', 'block');
 
                     base.updateCloneFromOriginal(originalHeaderRow, floatingHeaderRow);

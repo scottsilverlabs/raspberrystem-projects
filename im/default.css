@@ -220,18 +220,24 @@ A:link {
  */
 div.autotoc table {
     width: 100%;
-    border: 0px solid black;
+    border: 0px;
     border-collapse: separate;
     border-spacing: 10px;
 }
 div.autotoc td, thead th {
-    border: 0px solid black;
+    border: 0px;
 }
 thead {
     background: green;
-    z-index: 999;
+    z-index: 999; // keeps thead above rest of table when stickyheader
 }
-td.concept, td.project, th:nth-child(2) {
+th:nth-child(2) {
+    background: blue;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+}
+td.concept, td.project {
     border-radius: 12px;
     padding: 10px;
     width: 100%;
@@ -242,17 +248,27 @@ td.concept {
 td.project {
     background: linear-gradient(to right, lightgray, white);
 }
-td.project p {
+div.project, div.concept {
+    width: 50%;
+    font-size: 150%;
+}
+div.project {
+    float: right;
+}
+div.concept {
+    float: left;
+}
+.project p {
     text-align: right;
 }
-td.concept p {
+.concept p {
     text-align: left;
 }
 div.autotoc table tbody,
 div.autotoc table thead 
 {
-    margin-top: 10px;
     margin-bottom: 10px;
+    border-top-left-radius: 0px;
     border-radius: 12px;
     display: table;
 }
