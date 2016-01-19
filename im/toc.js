@@ -20,7 +20,7 @@ chainedOnload(function() {
 
     var html = "";
     html += "<table>";
-    html += "<thead><tr class=content_row><th class=section><p>A</p></th><th><p>lsjkvnewklvjn</p></th></tr></thead>";
+    html += "<thead><tr class=content_row><th class=section><p></p></th><th><p>lsjkvnewklvjn</p></th></tr></thead>";
     html += "<tbody>";
     for (var i = 0; i < pg_index.length; i++) {
         row = pg_index[i];
