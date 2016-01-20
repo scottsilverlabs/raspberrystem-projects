@@ -1,0 +1,305 @@
+/* 
+ * PG HEADER 
+ */
+header div {
+    color: #00000a;
+    line-height: 200%;
+    text-align: left;
+    vertical-align: middle;
+    widows: 2;
+    orphans: 2;;
+    font-size: 11pt;
+}
+header {
+    margin: auto;
+    margin-bottom: 0.5in;
+    width: 95%;
+	background-color: #E6F3F8;
+	display: -webkit-flex;
+	-webkit-flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+header #title {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 20pt;
+    font-weight: normal;
+	background-color: lightblue;
+    display: block;
+	-webkit-flex: 100%;
+    -webkit-order:1;
+	flex: 1 1 auto;
+    order:1;
+}
+header #difficulty::before {
+    content: "Difficulty: ";
+}
+header #difficulty {
+	background-color: lightblue;
+    display: inline;
+	-webkit-flex: 20%;
+	-webkit-order: 2;
+	flex: 0 1 20%;
+	order: 2;
+}
+header #description {
+    line-height: 150%;
+    display: block;
+	-webkit-flex: 100%;
+    -webkit-order:10;
+	flex: 0 0 100%;
+    order:10;
+}
+header #hw_required::before {
+    margin-top: 0.2in;
+    content: "Hardware Required";
+	background-color: lightblue;
+    display: block;
+}
+header div#hw_required {
+    display: block;
+	-webkit-flex: 50%;
+    -webkit-order:20;
+	flex: 1 0 50%;
+    order:20;
+}
+header #concepts_required::before {
+    margin-top: 0.2in;
+    content: "New Concepts Required";
+	background-color: lightblue;
+    display: block;
+}
+header #concepts_required {
+    display: block;
+	-webkit-flex: 50%;
+	-webkit-order: 24;
+	flex: 1 0 50%;
+	order: 24;
+}
+header #sw_required::before {
+    margin-top: 0.2in;
+    content: "SW Required";
+	background-color: lightblue;
+    display: block;
+}
+header #sw_required {
+    display: block;
+	-webkit-flex: 34%;
+    -webkit-order:22;
+	flex: 1 0 33%;
+    order:22;
+}
+header #troubleshooting::before {
+    margin-top: 0.2in;
+    content: "Troubleshooting";
+	background-color: lightblue;
+    display: block;
+}
+header #troubleshooting {
+    display: block;
+	-webkit-flex: 100%;
+	-webkit-order: 41;
+	flex: 1 0 100%;
+	order: 41;
+}
+
+/*
+ * body headers
+ */
+h1 {
+    margin-bottom: 0in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 20pt;
+    font-weight: normal;
+}
+h2 {
+    margin-top: 0.3in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 16pt;
+    font-weight: normal
+}
+h3 {
+    margin-top: 0.3in;
+    color: #2e74b5;
+    line-height: 150%;
+    text-align: left;
+    page-break-inside: avoid;
+    widows: 2;
+    orphans: 2;
+    font-family: "Calibri Light", serif;
+    font-size: 14pt;
+    font-weight: normal
+}
+h4 {
+    margin: 0in;
+    margin-top: 0.3in;
+    margin-bottom: 0.1in;
+    color: black;
+    text-align: left;
+    font-family: "Calibri Light", serif;
+    font-size: 14pt;
+    font-weight: bold
+}
+h5 {
+    margin: 0.0in;
+    color: black;
+    text-align: left;
+    font-family: "Calibri Light", serif;
+    font-size: 12pt;
+    font-weight: bold
+}
+A:link {
+    color: #0563c1;
+}
+
+
+/* 
+ * Project
+ */
+p.nextprev {
+    font-weight: bold;
+    font-size: 120%;
+    margin-top: 0.5in;
+    margin-bottom: 0.5in;
+}
+
+
+/*
+ * Code blocks
+ */
+div.code {
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
+}
+div.code > div:first-child::before {
+    content: "Code";
+}
+div.code > div:first-child {
+    font-size: 14pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10px;
+}
+
+div.code > textarea {
+    width: 100%;
+    height: 20em;
+}
+
+.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-code { padding-left: 40px; }
+.CodeMirror-gutter-elt { margin-left: -10px; }
+.CodeMirror-linemarker { margin-left: -20px; color: red }
+.CodeMirror { padding-top: 10px; font-size: 12pt; }
+
+
+/*
+ * Output blocks
+ */
+div.output {
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
+}
+div.output > div:first-child::before {
+    content: "Program Output";
+}
+div.output > div:first-child {
+    font-size: 14pt;
+    color: #ffffff;
+    background-color: #657777;
+    padding: 10
+}
+div.output > pre {
+    font-family: Courier;
+    font-size: 12pt;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #657777;
+    background-color: #002B36;
+    margin-left: 0in;
+    line-height: 100%;
+}
+
+/*
+ * Info blocks
+ */
+div.info {
+    border: 2px solid black;
+    margin-left: 0.5in;
+    margin-top: 0.3in;
+    margin-bottom: 0.3in;
+}
+div.info > div:first-child {
+    background: url('img/infobulb.png');
+    background-repeat: no-repeat;
+    background-position: 20px 10px;
+    background-size: 50px;
+    background-color: #657777;
+    height: 60px;
+    line-height: 60px;
+    padding: 10;
+    padding-left: 90px;
+    font-size: 18pt;
+    color: #ffffff;
+}
+div.info div:last-child {
+    padding: 10;
+    font-size: 14pt;
+}
+
+/*
+ * default tables
+ */
+table {
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+th, td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.bb {
+    display: block; 
+    margin: auto;
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
+    max-width: 800px;
+    width: 95%;
+}
+
+.schematic {
+    display: block; 
+    margin: auto;
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
+    max-width: 600px;
+    width: 95%;
+}
+
