@@ -65,9 +65,10 @@ chainedOnload(function() {
                     floatingHeaderRow.css('display', 'block');
 
                     base.updateCloneFromOriginal(originalHeaderRow, floatingHeaderRow);
-                }
-                else {
+                    originalHeaderRow.css('visibility', 'hidden');
+                } else {
                     floatingHeaderRow.css('display', 'none');
+                    originalHeaderRow.css('visibility', 'visible');
                 }
             });
         };
