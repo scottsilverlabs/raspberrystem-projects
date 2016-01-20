@@ -5,27 +5,27 @@ div.autotoc table {
     width: 100%;
     border: 0px;
     border-collapse: separate;
-    border-spacing: 8px; // Space between project/concept link boxes
+    border-spacing: 8px; /* Space between project/concept link boxes */
 }
 div.autotoc td, thead th {
     border: 0px;
 }
 thead {
-    background: rgb(140, 197, 64); // Header green
-    z-index: 999; // keeps thead above rest of table when stickyheader
+    background: rgb(140, 197, 64); /* Header green */
+    z-index: 999; /* keeps thead above rest of table when stickyheader */
     -webkit-box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
     box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
-    margin-bottom: 30px !important;  // Space below main table header
+    margin-bottom: 30px !important;  /* Space below main table header */
 }
 th:nth-child(2) {
-    background: rgb(196, 225, 157); // Header subblock green
+    background: rgb(196, 225, 157); /* Header subblock green */
     border-radius: 12px;
     width: 100%;
 }
 div.autotoc table#index_table > tbody,
 div.autotoc table#index_table > thead
 {
-    margin-bottom: 20px; //Space between sections
+    margin-bottom: 20px; /*Space between sections */
     border-top-left-radius: 0px;
     border-radius: 12px;
     display: table;
@@ -64,7 +64,7 @@ td.concept, td.project {
     border-radius: 12px;
     padding: 5px 15px 5px 15px;
     width: 100%;
-    position: relative; // Required to make cotainer clickable.  See below.
+    position: relative; /* Required to make cotainer clickable.  See below. */
 }
 td.concept {
     background: linear-gradient(to left, lightgray, white);
@@ -91,7 +91,6 @@ td.concept a span, td.project a span {
     height:100%;
     top:0;
     left: 0;
-    z-index: 1;
 }
 table#index_table a {
     text-decoration:none;
