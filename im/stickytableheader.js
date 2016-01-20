@@ -1,5 +1,5 @@
 chainedOnload(function() {
-    $("table").stickyTableHeaders();
+    $("#index_table").stickyTableHeaders();
 });
 
 (function ($) {
