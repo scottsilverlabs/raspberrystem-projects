@@ -54,6 +54,7 @@ tr.content_row p {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
     transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
 }
 
@@ -67,9 +68,11 @@ td.concept, td.project {
     position: relative; /* Required to make cotainer clickable.  See below. */
 }
 td.concept {
+    background: -webkit-linear-gradient(left, lightgray, white);
     background: linear-gradient(to left, lightgray, white);
 }
 td.project {
+    background: -webkit-linear-gradient(right, lightgray, white);
     background: linear-gradient(to right, lightgray, white);
 }
 td.project p {
@@ -122,6 +125,7 @@ table#index_header td div { /* tootip question mark <div> */
 table#index_header td div p { /* tootip question mark <p> */
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     margin: 0;
     line-height: auto;
