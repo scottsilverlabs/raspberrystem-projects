@@ -90,6 +90,8 @@ left = Button(18)
 right = Button(14)
 up = Button(15)
 down = Button(23)
+smash = Button(7)
+jump = Button(24)
 
 accel = Accel()
 </textarea></div>
@@ -151,6 +153,14 @@ if down.is_pressed():
     control.backward()
 else:
     control.backward(release=True)
+if smash.is_pressed():
+    control.smash()
+else:
+    control.smash(release=True)
+if jump.is_pressed():
+    control.jump()
+else:
+    control.jump(release=True)
 </textarea></div>
 
 <p>
@@ -224,7 +234,15 @@ while True:
         control.backward()
     else:
         control.backward(release=True)
-
+    if smash.is_pressed():
+        control.smash()
+    else:
+        control.smash(release=True)
+    if jump.is_pressed():
+        control.jump()
+    else:
+        control.jump(release=True)
+	
     x, y, z = accel.forces()
     control.look(up=50*y, left=50*x)
     
@@ -243,7 +261,8 @@ Here are some additional challenges you can attempt on your own:
 only moves a small amount each time a button is pressed</li>
 <li><p>Modify the code so that Steve's movements are based on the accelerometer
 and where he looks are controlled by the buttons.</li>
-<li><p></li>
+<li><p>Add another button (or remap an existing button) to allow Steve to
+crouch at the press of the button.</li>
 <ol>
 
 <div id=footer></div>

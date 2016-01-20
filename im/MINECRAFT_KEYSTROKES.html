@@ -34,7 +34,7 @@ Steve forward instead.  Or, better yet, we could control the forward movement of
 using something else entirely...like a button on our RaspberrySTEM kit!
 
 <p>
-Below, we'll discuss the 6 major actions our character can perform in the game, and how we
+Below, we'll discuss the major actions our character can perform in the game, and how we
 can remap those actions to things other than the standard keyboard presses.
 
 <h2>Control API</h2>
@@ -100,24 +100,33 @@ control.stop()
 <p>In addition to controlling Steve's movements forward, backwards, left and right, we also
 have the ability to control his other actions...
 
-<p>One of the main things that Steve does in Minecraft is breaking (smashing) blocks.  Using 
-this same <code>control</code> module, we can have Steve smash whatever is in front of him:
+<p>One of the main things that Steve does in Minecraft is breaking (smashing) blocks.  This
+is typically accomplished using the left mouse button.  Using the same <code>control</code> 
+module we've been using, we can have Steve smash whatever is in front of him like this:
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 control.smash()
 </textarea></div>
 
-<p>Additionally, Steve has the ability to jump, which is implemented like this:
+<p>Additionally, Steve has the ability to jump, which is typically accomplished using the
+spacebar on the keyboard, and can be implemented in our code like this:
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 control.jump()
 </textarea></div>
 
-<p>Steve also has the ability to look....???....
+<h2>Current Keyboard/Mouse Mappings</h2>
 
-<div class="code" data-firstline="1"> <div></div> <textarea>
-control.look()
-</textarea></div>
+<p>
+Because the <code>control</code> functions simply poll the keyboard and mouse presses,
+there are many additional <code>control</code> commands that we can implement in
+our code -- in fact, there is one for every keypress supported by Minecraft.  
+
+<p>
+For reference, here is the full list of functions accessible by the <code>control</code>
+code:
+ 
+
 
 <div id=footer></div>
 </body></html>

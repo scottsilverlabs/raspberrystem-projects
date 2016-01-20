@@ -74,6 +74,14 @@ while True:
         control.backward()
     else:
         control.backward(release=True)
+    if smash.is_pressed():
+        control.smash()
+    else:
+        control.smash(release=True)
+    if jump.is_pressed():
+        control.jump()
+    else:
+        control.jump(release=True)
 </textarea></div>
 
 <p>Specifically, in this project, we're going to make two major
