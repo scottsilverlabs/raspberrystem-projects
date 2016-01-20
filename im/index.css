@@ -132,6 +132,9 @@ table#index_header td div p { /* tootip question mark <p> */
     text-align: center;
     font-size: 14pt;
 }
+.tooltip{
+    z-index: 999;
+}
 .tooltip:hover:after{
     background: rgba(0,0,0,.8);
     border-radius: 5px;
@@ -143,7 +146,6 @@ table#index_header td div p { /* tootip question mark <p> */
     font-size: 16px;
     line-height: 24px;
     padding: 5px 15px;
-    z-index: 98;
     width: 400px;
     box-shadow: 10px 10px 5px #888888;
 }
@@ -155,7 +157,6 @@ table#index_header td div p { /* tootip question mark <p> */
     content: "";
     left: -2px;
     position: absolute;
-    z-index: 99;
 }
 
 
