@@ -43,9 +43,12 @@ chainedOnload(function() {
             html += "<tr class=content_row>";
         }
         toc_type = row.concept ? 'concept' : 'project';
-        title_cell = 
+        title_cell =
             '<td class="' + toc_type + '"><p>'
-            + '<a href="' + row.filename + '">' + row.title + '</a>'
+            + '<a href="' + row.filename + '">'
+                + row.title
+                + '<span></span>' // Required to make container clickable - see CSS
+                + '</a>'
             + '</p></td>';
         html += title_cell;
         html += "</tr>";
