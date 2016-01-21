@@ -63,7 +63,7 @@ tr.content_row p {
  */
 td.concept, td.project {
     border-radius: 12px;
-    padding: 5px 15px 5px 15px;
+    padding: 2px 15px 2px 15px;
     width: 100%;
     position: relative; /* Required to make cotainer clickable.  See below. */
 }
