@@ -1,0 +1,11 @@
+Directory for creating HW diagrams: square images used in the header of project
+in the projects guide.
+
+To create new diagrams using fritzing, if appilcable:
+    - Create diagram in fritzing and export as svg.  SVG becomes original source.
+    - Edit SVG if needed.
+    - Add SVG to mkpngs,
+    - Run "sh mkpngs" to rebuild and move all,
+
+Diagrams can be created without fritzing as well.
+

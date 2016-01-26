@@ -1,0 +1,42 @@
+#
+# Convert SVG to square transparent PNG.
+#
+SVG=$1
+PNG=${SVG%.*}.png
+PADDING="$2"
+OUTER_SIZE="$3"
+
+USAGE="Usage: $0 <filename_without_extension> [ <padding_percent> [ <square_width> ]]"
+
+if [ ! -f "$SVG" ]; then
+    echo "ERROR: File '$SVG' not found"
+    echo "$USAGE"
+    exit 1
+fi
+
+if [ -z "$PADDING" ]; then
+    PADDING=0
+fi
+if [ -z "$OUTER_SIZE" ]; then
+    OUTER_SIZE=100
+fi
+INNER_SIZE=$((OUTER_SIZE*(100-PADDING)/100))
+
+#
+# Convert in two passes, as imagemagick has issue converting an SVG at a good
+# resolution.
+#
+# First pass: Use rsg-convert to create quality SVG, but not square.
+#
+rsvg-convert -a -w 1000 -h 1000 ${SVG} > ${PNG}
+
+#
+# Second pass: Use imagemagick convert to extend background of PNG to full square.
+#
+mogrify \
+    -background transparent \
+    -resize ${INNER_SIZE}x${INNER_SIZE} \
+    -gravity center \
+    -extent x${OUTER_SIZE} \
+    ${PNG} 
+

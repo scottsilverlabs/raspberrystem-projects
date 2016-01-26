@@ -1,0 +1,26 @@
+PNGDIR=../../im/img
+SIZE=100
+PADDING=0
+SVG2PNG_ARGS=(
+    "hw_led.svg             $PADDING    $SIZE"
+    "hw_resistor.svg        $PADDING    $SIZE"
+    "hw_button.svg          20          $SIZE"
+    "hw_accelerometer.svg   $PADDING    $SIZE"
+    )
+for args in "${SVG2PNG_ARGS[@]}"; do
+    SVG="${args%% *}"
+    PNG=${SVG%.*}.png
+
+    if ! ./svg2png $args; then
+        echo "ERROR: svg2png failed for $PNG"
+    else
+        if [ -f $PNGDIR/$PNG ]; then
+            echo "WARNING: $PNG already exists in $PNGDIR.  Must move manually."
+        else
+            mv $* $PNG $PNGDIR
+            echo "INFO: Created and moved $PNG"
+        fi
+    fi
+done
+
+

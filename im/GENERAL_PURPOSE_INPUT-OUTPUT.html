@@ -1,31 +1,35 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GPIO AS OUTPUTS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link rel="stylesheet" type="text/css" href="project.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
 </head>
 <body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
 
 <header>
-    <div id=title>GPIO AS OUTPUTS (CONTROLLING LEDS)</div>
-    <div id=description>In this project, we'll learn about General Purpose 
-	    Input/Outputs (GPIOs) and for the first time, we'll use
-    software to control the hardware.  Specifically, we'll wire an LED and then control 
-    the LED output using code that we'll write.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=concepts_required><a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br><a href="VARIABLES_-_ASSIGNMENTS.html">VARIABLES/ASSIGNMENTS</a><br><a href="INTRO_TO_FUNCTIONS.html">INTRODUCTION TO FUNCTIONS</a><br><a href="FUNCTION_INPUTS.html">FUNCTION INPUTS</a><br><a href="FUNCTION_OUTPUTS.html">FUNCTION OUTPUTS</a><br><a href="BUILT-IN_FUNCTIONS.html">USING FUNCTIONS & MODULES</a></div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+    <div class=hw data-count=1 data-name=resistor></div>
+    <div class=hw data-count=2 data-name=led></div>
 </header>
 
+    Having issues?  Check out the Troubleshooting Guide.
+    <p>
+    In this project, we'll learn about General Purpose 
+	    Input/Outputs (GPIOs) and for the first time, we'll use
+    software to control the hardware.  Specifically, we'll wire an LED and then control 
+    the LED output using code that we'll write.</p>
 <p>Before jumping into this project, we very strongly recommend that you 
-read <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
+read 
+<a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
 concepts will be the basis for this project and nearly all future RaspberrySTEM
 projects.</p>
 
@@ -134,7 +138,5 @@ statement with:</p>
 <div></div>
 <textarea>my_led.off()
 </textarea></div>
-<p class=nextprev><a href="index.html">home</a> | 
-<a href="INTRODUCING_BUTTONS.html">prev</a> | 
-<a href="USING_BUTTONS_WITH_GPIO.html">next</a></p>
+<div id=footer></div>
 </body></html>

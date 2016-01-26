@@ -11,14 +11,14 @@ div.autotoc td, thead th {
     border: 0px;
 }
 thead {
-    background: rgb(140, 197, 64); /* Header green */
+    background: hsl(84, 53%, 50%); /* Header green */
     z-index: 999; /* keeps thead above rest of table when stickyheader */
     -webkit-box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
     box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
     margin-bottom: 30px !important;  /* Space below main table header */
 }
 th:nth-child(2) {
-    background: rgb(196, 225, 157); /* Header subblock green */
+    background: hsl(84, 53%, 75%); /* Header subblock green */
     border-radius: 12px;
     width: 100%;
 }
@@ -31,10 +31,10 @@ div.autotoc table#index_table > thead
     display: table;
 }
 div.autotoc table#index_table > tbody:nth-child(odd) {
-    background: rgb(236, 31, 38);
+    background: hsl(358, 84%, 50%);
 }
 div.autotoc table#index_table > tbody:nth-child(even) {
-    background: rgb(245, 138, 140);
+    background: hsl(358, 84%, 75%);
 }
 tr.content_row p {
     margin-top: 0.0in;
@@ -114,7 +114,7 @@ table#index_header {
     font-weight: bold;
 }
 table#index_header td div { /* tootip question mark <div> */
-    background: rgb(236, 31, 38);
+    background: hsl(84, 53%, 50%); /* Header green */
     height: 25px;
     width: 25px;
     border-radius: 50%;
