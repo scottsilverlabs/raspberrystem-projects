@@ -18,8 +18,9 @@ chainedOnload(function() {
         + '</p>';
 
     var header = document.getElementsByTagName("header")[0];
-    html = '<div id=title class=outer><div class=inner>' + pg_index[pos].title + '</div></div>';
-    html += '<div id=hw_outer class="outer">';
+    html = '';
+    html += '<div id=title class="outer sticky"><div class=inner>' + pg_index[pos].title + '</div></div>';
+    html += '<div id=hw_header class="outer">';
     html += header.innerHTML;
     html += '</div>';
     header.innerHTML = html;
