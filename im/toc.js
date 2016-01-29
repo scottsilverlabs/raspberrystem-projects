@@ -21,7 +21,7 @@ chainedOnload(function() {
     var html = "";
     var inner = autotoc.innerHTML;
     html += "<table id=index_table>";
-        html += "<thead>";
+        html += "<thead class=sticky>";
             html += "<tr class=content_row>";
                 html += "<th class=section><p></p></th>";
                 html += "<th>";

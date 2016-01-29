@@ -30,6 +30,10 @@ div.autotoc table#index_table > thead
     border-radius: 12px;
     display: table;
 }
+div.autotoc table#index_table > thead.sticky.stuck {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
 div.autotoc table#index_table > tbody:nth-child(odd) {
     background: hsl(358, 84%, 50%);
 }

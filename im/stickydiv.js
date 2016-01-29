@@ -1,29 +1,39 @@
 chainedOnload(function() {
-    scrolling_title_div = document.getElementsByClassName('sticky')[0];
-    clone = scrolling_title_div.cloneNode(true); // true means clone all childNodes and all event handlers
-    clone.className += " stuck";
-    clone.style.position = 'fixed';
-    clone.style.top = 0;
-    clone.style.marginTop = 0;
-    clone.style.zIndex += 10000;
-    clone.style.visibility = 'hidden';
-
-    var header = document.getElementsByTagName("header")[0];
-    fixed_title_div = header.appendChild(clone);
+    scrolling_title = document.getElementsByClassName('sticky')[0];
+    sticky_title = scrolling_title.cloneNode(true); // true means clone all childNodes and all event handlers
+    sticky_title.style.visibility = 'hidden';
+    sticky_title.style.position = 'fixed';
+    sticky_title.className += " stuck";
+    sticky_title.style.top = 0;
+    sticky_title.style.marginTop = '0px';
+    sticky_title.style.zIndex += 10000;
+    scrolling_title.parentNode.appendChild(sticky_title);
 
     updateSticky();
-    window.addEventListener("resize", updateSticky);
     window.addEventListener("scroll", updateSticky);
+
+    resizer();
+    window.addEventListener("resize", resizer);
 });
 
+function resizer() {
+    updateWidth();
+    updateSticky();
+}
+
+function updateWidth() {
+    sticky_title.style.width = window.getComputedStyle(scrolling_title).getPropertyValue('width');
+}
+
 function updateSticky() {
-    fixed_title_div.style.width = 
-        window.getComputedStyle(scrolling_title_div).getPropertyValue('width');
-    if (window.scrollY > scrolling_title_div.offsetTop) {
-        fixed_title_div.style.visibility = 'visible';
-        scrolling_title_div.style.visibility = 'hidden';
+    if (scrolling_title.getBoundingClientRect().top < 0) {
+        // HACK: we must set the position:fixed here, not at intialization
+        // time, because I've seen it not take.  Unknown why.
+        sticky_title.style.position = 'fixed';
+        sticky_title.style.visibility = 'visible';
+        scrolling_title.style.visibility = 'hidden';
     } else {
-        fixed_title_div.style.visibility = 'hidden';
-        scrolling_title_div.style.visibility = 'visible';
+        sticky_title.style.visibility = 'hidden';
+        scrolling_title.style.visibility = 'visible';
     }
 }
