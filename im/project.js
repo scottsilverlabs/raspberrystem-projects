@@ -3,6 +3,9 @@ var hw_types = {
     "led" :         { file : "hw_led.png",          item : "LED",               cell : "(I/O Cell)" },
 }
 
+TROUBLESHOOTING_STRING = 
+    'Having issues? Check out the <a href="TROUBLESHOOTING.html">Troubleshooting Guide</a>.'
+
 chainedOnload(function() {
     var filename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
     pos = pg_filename_to_pos[filename];
@@ -21,8 +24,10 @@ chainedOnload(function() {
     html = '';
     html += '<div id=title class="outer sticky"><div class=inner>' + pg_index[pos].title + '</div></div>';
     html += '<div id=hw_header class="outer">';
-    html += header.innerHTML;
+        html += header.innerHTML;
     html += '</div>';
+    html += '<div id=troubleshooting class=outer><div class=inner><p>' 
+        + TROUBLESHOOTING_STRING +  '</p></div></div>';
     header.innerHTML = html;
 
     var title = document.getElementsByTagName("title")[0];
