@@ -142,9 +142,17 @@ header div.outer#troubleshooting p {
 /*
  * Heading
  */
+.section {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.section:nth-child(odd)     { background: hsl(0, 0%, 80%); }
+.section:nth-child(even)    { background: hsl(0, 0%, 80%); }
 .section_heading {
     overflow: hidden;
     font-size: 24pt;
+    font-weight: bold;
 }
 .section_heading div {
     padding: 0.4em 0.0em 0.4em 1em;
@@ -242,9 +250,7 @@ p.nextprev {
  * Code blocks
  */
 div.code {
-    margin-left: 0.5in;
-    margin-top: 0.3in;
-    margin-bottom: 0.3in;
+    margin: 0.25in;
 }
 div.code > div:first-child::before {
     content: "Code";
@@ -303,11 +309,11 @@ div.output > pre {
  */
 div.info {
     border: 2px solid black;
-    margin-left: 0.5in;
-    margin-top: 0.3in;
-    margin-bottom: 0.3in;
+    margin: 0.25in;
+    border-radius: 10px;
 }
 div.info > div:first-child {
+    border-radius: 8px 8px 0 0;
     background: url('img/infobulb.png');
     background-repeat: no-repeat;
     background-position: 20px 10px;
@@ -321,6 +327,8 @@ div.info > div:first-child {
     color: #ffffff;
 }
 div.info div:last-child {
+    border-radius: 0 0 8px 8px;
+    background-color: white;
     padding: 10;
     font-size: 14pt;
 }
@@ -339,16 +347,19 @@ th, td {
     padding: 8px;
 }
 
-.bb {
+img.bb {
     display: block;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
     margin: auto;
     margin-top: 0.25in;
     margin-bottom: 0.25in;
+    width: calc(100% - 0.75in);
     max-width: 800px;
-    width: 95%;
 }
 
-.schematic {
+img.schematic {
     display: block;
     margin: auto;
     margin-top: 0.25in;

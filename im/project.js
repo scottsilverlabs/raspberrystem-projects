@@ -4,6 +4,9 @@ var hw_types = {
 }
 var section_titles = {
     "intro" : "Introduction",
+    "hw" : "Hardware",
+    "sw" : "Software",
+    "challenge" : "Challenges",
 }
 
 TROUBLESHOOTING_STRING = 
