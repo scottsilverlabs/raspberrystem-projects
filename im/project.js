@@ -2,6 +2,9 @@ var hw_types = {
     "resistor" :    { file : "hw_resistor.png",     item : "Resistor",          cell : "(I/O Cell)" },
     "led" :         { file : "hw_led.png",          item : "LED",               cell : "(I/O Cell)" },
 }
+var section_titles = {
+    "intro" : "Introduction",
+}
 
 TROUBLESHOOTING_STRING = 
     'Having issues? Check out the <a href="TROUBLESHOOTING.html">Troubleshooting Guide</a>.'
@@ -50,6 +53,14 @@ chainedOnload(function() {
         html += '<tr><td colspan=3><p>' + hw_types[name].cell + '</p></td></tr>';
         html += '</table>';
         hw[i].innerHTML = html;
+    }
+
+    var sections = document.getElementsByClassName("section");
+    console.log(sections);
+    for (i = 0; i < sections.length; i++) {
+        var title = section_titles[sections[i].title];
+        html = '<div class=section_heading><div>' + title + '</div></div>';
+        sections[i].innerHTML = html + sections[i].innerHTML;
     }
 });
 

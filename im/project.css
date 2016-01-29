@@ -140,6 +140,39 @@ header div.outer#troubleshooting p {
 }
 
 /*
+ * Heading
+ */
+.section_heading {
+    overflow: hidden;
+    font-size: 24pt;
+}
+.section_heading div {
+    padding: 0.4em 0.0em 0.4em 1em;
+    float: left;
+    background: hsl(358, 84%, 70%);
+    position: relative;
+    z-index: 1;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;  
+}
+
+.section_heading div::after{
+    background: hsl(358, 84%, 70%);
+    content: "";
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: -1.25em;
+    position: absolute;
+    right: -1em;
+    top: 50%;
+    z-index: -1;  
+    -webkit-transform: rotate(45deg); 
+    transform: rotate(45deg);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*
  * body headers
  */
 h1 {
