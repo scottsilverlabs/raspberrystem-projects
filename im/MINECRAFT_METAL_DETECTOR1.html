@@ -22,10 +22,122 @@
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
+
+<h2>Overview</h2>
+<p>In this project, we will write code to place a piece of gold in a random location around the Minecraft world.   
+
+<h2>Hardware Setup</h2>
+<p>There is no specific hardware setup for this project.  You will need to be able to move throughout the Minecraft 
+world to use the code you'll be writing, and to do that, you are welcome to either use a keyboard/mouse or to use
+the Minecraft controller you built earlier with your RaspberrySTEM kit.
+
+<h2>Writing Our Code</h2>
+
+<p>Our code for this project will be pretty simple; in our next project, we'll expand on it and make it more 
+robust.  But, for this project, the code will do the following:
+
+<ol>
+<li><p>Perform some initialization and create our game loop</li>
+<li><p>Hide gold in a random location</li>
+<li><p>Test the player position to determine if he's found the gold</li>
+<li><p>When the gold is found, indicate the status to the user</li>
+</ol>
+
+<h3>Step #1:  Perform some initialization and create our game loop</h3>
+<p>First, we'll do our basic initialization of the Minecraft code, including 
+creating our game loop:
+
+<div class="code" data-firstline="0"> <div></div> <textarea>
+from rstem.mcpi import minecraft, control, block
+import time
+from random import randint
+
+control.show()
+mc = minecraft.Minecraft.create()
+
+ARENA_WIDTH = 3
+
+while True:
+    time.sleep(0.01)
+</textarea></div>
+
+<p>Note that we have created a variable called <code>ARENA_WIDTH</code> and set it
+equal to 3.  This will be used to determine the maximum distance the gold will 
+be hidden from our character.  In this project, we don't have any way of indicating
+where the gold is, so we don't want to place it too far from us; we'll fix that
+issue in the next project.
+
+<h3>Step #2:  Hide gold in a random location</h3>
+<p>Next, we will pick a random block within the game world -- and within the 
+distance from our character that we defined above -- and change it to gold:
+
+<div class="code" data-firstline="0"> <div></div> <textarea>
+GOLD_DEPTH = 0
+gold_pos = mc.player.getTilePos()
+gold_pos.x +=  randint(-ARENA_WIDTH, ARENA_WIDTH)
+gold_pos.z +=  randint(-ARENA_WIDTH, ARENA_WIDTH)
+gold_pos.y = mc.getHeight(gold_pos.x, gold_pos.z) - GOLD_DEPTH
+mc.setBlock(gold_pos, block.GOLD_BLOCK)
+gold_exists = True
+</textarea></div>
+
+<p>This code first sets the position of the gold to be at the player's current
+position, and then modifies the location coordinate-by-coordinate (x, y, z).  For the 
+x and y coordinates, the new position is a random distance between -3 and 3 
+(our <code>ARENA_WIDTH</code>) from the current player position.  
+
+<p>For the z position (the height of the gold), we place the gold at surface
+level -- our code must determine the elevation of the particular block, since the 
+elevation of the gold may be different than the elevation of the block where our
+character currently is.  We use the <code>getHeight()</code> function for this.  Note
+that we can change increase the depth of the buried gold by increasing our
+<code>GOLD_DEPTH</code> variable.
+
+<p>Once we've chosen a location for the gold block, we use the <code>setBlock()</code>
+function to change the block at that location from whatever it current is to gold.
+
+<p>Finally, we create a variable called <code>gold_exists</code> that will be used
+to track when the gold is found or not found.  We set it to <code>True</code> to 
+indicate that the gold has not yet been found.  This variable will be needed later
+for our loop to determine when the gold has been found.
+
+<h3>Step #3:  Test the player position to determine if he's found the gold</h3>
+<p>Next, we need to write the code in our game loop.  This purpose of this code
+is to continually test the location of the player against the location of the gold,
+and if the player's position is the same as the gold's position (i.e., the player 
+has found the gold), to exit the loop.
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+while gold_exists:
+    player_pos = mc.player.getTilePos()
+    gold_exists = block.Block(mc.getBlock(gold_pos)) == block.GOLD_BLOCK
+    time.sleep(0.01)
+</textarea></div>
+
+<p>The first line of the loop gets the player's position and the second line of the
+loop compares the location of the player to the location of the gold -- if it's
+the same, ?????
+
+<p>Note that we've changed the loop from continuing forever <code>while True</code>
+to continuing until we've indicated that the gold has been found (which we do by
+setting <code>gold_exists</code> to False.
+
+
+<h3>Step #4:  When the gold is found, indicate the status to the user</h3>
+<p>Once the gold has been found and we've exited the loop, we need to let
+the user know that he found the gold:
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+mc.postToChat("You found the gold!")
+time.sleep(3)
+</textarea></div>
+
+
+<h3>Full Code</h3>
+<p>
+Here is what the full code for this project should look like:
+</p>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.mcpi import minecraft, control, block
 import time
@@ -50,9 +162,10 @@ while gold_exists:
 
 mc.postToChat("You found the gold!")
 time.sleep(3)
-
-
 </textarea></div>
-<h2>The Challenge</h2>
+
+<h2>Additional Challenges</h2>
+
+
 <div id=footer></div>
 </body></html>
