@@ -25,7 +25,7 @@ body {
 header {
     margin-bottom: 0.5in;
 }
-header div.outer {
+div.outer {
     background: hsl(84, 53%, 50%); /* Header green */
     border-radius: 10px;
     text-align: left;
@@ -34,7 +34,7 @@ header div.outer {
     margin: 10px 0 10px 0;
     padding: 10px;
 }
-header div.inner {
+div.inner {
     font-size: 36px;
     text-align: center;
     background: hsl(84, 53%, 75%); /* Header subblock green */
@@ -44,40 +44,40 @@ header div.inner {
 /*
  * Header title
  */
-header div.outer#title {
+div.outer#title {
     -webkit-box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
     box-shadow: 0px 20px 10px rgba(0,0,0,0.5);
     margin-bottom: 30px;
 }
-header div.outer#title.stuck {
+div.outer#title.stuck {
     border-radius: 0 0 10px 10px;
 }
 
 /*
  * Header hardware
  */
-header div.outer#hw_header {
+div.outer#hw_header {
     padding-bottom: 0;
 }
-header div.inner.hw {
+div.inner.hw {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 10px;
 }
-header div.hw table {
+div.hw table {
     border: 0;
     border-spacing: 0;
     min-width: 200px;
 }
-header div.hw td {
+div.hw td {
     padding: 0px;
     border: 0;
 }
-header div.hw_count {
+div.hw_count {
     display: inline-block;
     vertical-align: middle;
 }
-header div.hw_count p {
+div.hw_count p {
     letter-spacing: -2px;
     margin: 0;
     font-style: italic;
@@ -90,14 +90,14 @@ header div.hw_count p {
 }
 
 /* hw_count digit specific letter spacings */
-header div.hw_count_1 p { letter-spacing: -9px; }
-header div.hw_count_7 p { letter-spacing: -9px; }
+div.hw_count_1 p { letter-spacing: -9px; }
+div.hw_count_7 p { letter-spacing: -9px; }
 
-header div.hw_count_separator {
+div.hw_count_separator {
     display: inline-block;
     vertical-align: middle;
 }
-header div.hw_count_separator p {
+div.hw_count_separator p {
     margin: 0;
     font-family: Arial;
     font-size: 30px;
@@ -105,19 +105,19 @@ header div.hw_count_separator p {
     text-align: right;
     font-weight: bold;
 }
-header div.hw_img {
+div.hw_img {
     padding: 10px;
     display: inline-block;
     vertical-align: middle;
 }
-header div.hw img {
+div.hw img {
     margin: 0;
     padding: 0;
     height: 100px;
     width: auto;
 }
 
-header div.hw tr:nth-child(n+2) p {
+div.hw tr:nth-child(n+2) p {
     margin: 0;
     line-height: 120%;
     font-size: 20px;
@@ -125,13 +125,13 @@ header div.hw tr:nth-child(n+2) p {
     font-weight: bold;
 }
 
-header div.hw tr:nth-child(2) p { margin-top: -10px; }
-header div.hw tr:nth-child(3) p { margin-bottom: 10px; }
+div.hw tr:nth-child(2) p { margin-top: -10px; }
+div.hw tr:nth-child(3) p { margin-bottom: 10px; }
 
 /*
  * Header troubleshooting
  */
-header div.outer#troubleshooting p {
+div.outer#troubleshooting p {
     padding: 0;
     margin: 0;
     text-align: center;
@@ -178,6 +178,17 @@ header div.outer#troubleshooting p {
     transform: rotate(45deg);
     -webkit-border-radius: 10px;
     border-radius: 10px;
+}
+
+/*
+ * Footer
+ */
+footer p.nextprev {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20pt;
+    margin: 0;
 }
 
 /*
@@ -234,17 +245,6 @@ h5 {
 A:link {
     color: #0563c1;
 }
-
-/*
- * Project
- */
-p.nextprev {
-    font-weight: bold;
-    font-size: 120%;
-    margin-top: 0.5in;
-    margin-bottom: 0.5in;
-}
-
 
 /*
  * Code blocks
