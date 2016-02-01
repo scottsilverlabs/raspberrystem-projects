@@ -10,7 +10,7 @@ var section_titles = {
 }
 
 TROUBLESHOOTING_STRING = 
-    'Having issues? Check out the <a href="TROUBLESHOOTING.html">Troubleshooting Guide</a>.'
+    'Having issues? Check out the <a href="TROUBLESHOOTING.html">Troubleshooting Guide</a>.';
 
 chainedOnload(function() {
     var filename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
@@ -64,11 +64,24 @@ chainedOnload(function() {
     }
 
     var sections = document.getElementsByClassName("section");
-    console.log(sections);
     for (i = 0; i < sections.length; i++) {
         var title = section_titles[sections[i].title];
         html = '<div class=section_heading><div>' + title + '</div></div>';
         sections[i].innerHTML = html + sections[i].innerHTML;
+    }
+
+    var links = document.getElementsByTagName("a");
+    for (i = 0; i < links.length; i++) {
+        uid = links[i].getAttribute("data-uid");
+        if (uid) {
+            for (j = 0; j < pg_index.length; j++) {
+                if (uid == pg_index[j].uid) break;
+            }
+            if (j < pg_index.length) {
+                links[i].href = pg_index[j].filename;
+                links[i].innerHTML = pg_index[j].title;
+            }
+        }
     }
 });
 
