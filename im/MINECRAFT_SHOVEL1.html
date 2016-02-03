@@ -67,7 +67,7 @@ while True:
     hits = mc.events.pollBlockHits()
  
     for hit in hits:
-        print "The X, Y, Z coordinates of the block you hit is:", blockHit.pos
+        print "The X, Y, Z coordinates of the block you hit is:", hit.pos
 
     time.sleep(0.01)
 
@@ -99,6 +99,7 @@ the equivalent of a right mouse click when holding the sword.
 <li><p>
 On Line 14, we get a list of all hit events that have taken place since the last time
 we ran this function.  We store that list of hits in a variable called <code>hits</code>.
+We talk about this function in more detail below.
 </p></li>
 <li><p>
 On Lines 16-17, we implement a <code>for</code> that cycles through each hit event in our
@@ -109,6 +110,34 @@ that was hit since the last time we cycled through this function.
 On Line 19, we implement a <code>sleep</code> to slow our game loop down, so as not to
 over-burden the processor.
 </p></li></ul>
+
+    <div class="info">
+    <div>mc.event.pollBlockHits()</div>
+    <div>
+    <p>In our code above, we used the function <code>mc.event.pollBlockHits()</code>
+	to gather information about all the "events" that have taken place with all of
+	the Minecraft blocks.  Currently, the Minecraft API only supports one "event" 
+	type, which is a block being hit, so this function will simply return a list of
+	all blocks that have been hit since the last time this function was called.
+	
+	<p>We can store that list of blocks that were hit in an object/variable (we use
+	<code>hits</code> in our code above), and can then use that variable to gather 
+	information about those blocks or to act on them.  The most common piece of 
+	information we will want to know about a block that was hit is the block's
+	position, in X, Y and Z coordinates.  This can be gathered using the 
+	<code>.pos</code> property of the object, as we saw in this line of code above:
+
+    <code>print "The X, Y, Z coordinates of the block you hit is:", hit.pos</code>
+
+	<p>Specific coordinate positions can be determined as well.  For example, we 
+	could replace the previous line of code with:
+	
+    <code>print "The X coordinate of the block you hit is:", hit.pos.x</code>
+    <code>print "The Y coordinate of the block you hit is:", hit.pos.y</code>
+    <code>print "The Z coordinate of the block you hit is:", hit.pos.z</code>
+	
+    </div>
+    </div>
 
 <h2>Additional Challenges</h2>
 
