@@ -22,72 +22,35 @@
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-
-<h2>Overview</h2>
-<p>In the last project, we learned how to read the list of 
-previous hit events and then to cycle through them and take 
-some action (printing out the coordinates of the block that
-was hit).  In this project, we're going to continue with the
-same idea, but instead of just printing out information about
-the block that was hit, we're going to create an effect on
-that block.
-
-<h2>Hardware Setup</h2>
-<p>The hardware configuration for this project is exactly the
-same as the previous project -- a single button mapped to GPIO7:
- 
+<h2>The Introduction</h2>
+<h2>The Hardware</h2>
 <img class="bb" src="img/Minecraft_1button_bb.png">
-
-<h2>Writing Our Code</h2>
-<p>
-The code for this project is going to look identical to the code
-in our last project, with one exception.  In our last project,
-we used the following to print out the coordinates of each block 
-that we hit:
-
-<div class="code" data-firstline="0"> <div></div> <textarea>
-        print "The X, Y, Z coordinates of the block you hit is:", blockHit.pos
-</textarea></div>
-
-<p>
-In this project, we're going to use the <code>mc.setBlock()</code>
-function to actually modify the block we hit, instead of just 
-printing information about it.  Like this:
-
-<div class="code" data-firstline="0"> <div></div> <textarea>
-        mc.setBlock(hit.pos, block.AIR)
-</textarea></div>
-
-<p>
-In the example above, the block gets turned into Air, making the block
-disappear.  The full code is as follows:
-
+<h2>The Software</h2>
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
 from rstem.mcpi import minecraft, control, block
+from rstem.mcpi.vec3 import Vec3
 import time
 
 control.show()
-
 mc = minecraft.Minecraft.create()
-
 button = Button(7)
+
+def dig(mc, pos, radius=1):
+    r_vector = Vec3(radius,radius,radius)
+    mc.setBlocks(hit.pos - r_vector, hit.pos + r_vector, block.AIR)
 
 while True:
     if button.presses():
         control.hit()
 
     hits = mc.events.pollBlockHits()
-
     for hit in hits:
-        mc.setBlock(hit.pos, block.AIR)
+        dig(mc, hit)
 
     time.sleep(0.01)
+
 </textarea></div>
-
-
-<h2>Additional Challenges</h2>
-
-
+<h2>The Challenge</h2>
 <div id=footer></div>
 </body></html>

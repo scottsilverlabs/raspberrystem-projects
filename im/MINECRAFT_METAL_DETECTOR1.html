@@ -24,7 +24,9 @@
 </header>
 
 <h2>Overview</h2>
-<p>In this project, we will write code to place a piece of gold in a random location around the Minecraft world.   
+<p>In this project, we will write code to place a block of gold in a random location around the Minecraft world. 
+We will then allow our character to move about the world and when he smashes the block, we'll end the game and
+let the user know that the gold has been found.
 
 <h2>Hardware Setup</h2>
 <p>There is no specific hardware setup for this project.  You will need to be able to move throughout the Minecraft 
@@ -38,9 +40,9 @@ robust.  But, for this project, the code will do the following:
 
 <ol>
 <li><p>Perform some initialization and create our game loop</li>
-<li><p>Hide gold in a random location</li>
-<li><p>Test the player position to determine if he's found the gold</li>
-<li><p>When the gold is found, indicate the status to the user</li>
+<li><p>Place a gold block in a random location</li>
+<li><p>Test whether the player has smashed the gold block we placed</li>
+<li><p>When the gold is found/smashed, indicate the status to the user</li>
 </ol>
 
 <h3>Step #1:  Perform some initialization and create our game loop</h3>
@@ -67,7 +69,7 @@ be hidden from our character.  In this project, we don't have any way of indicat
 where the gold is, so we don't want to place it too far from us; we'll fix that
 issue in the next project.
 
-<h3>Step #2:  Hide gold in a random location</h3>
+<h3>Step #2:  Place gold in a random location</h3>
 <p>Next, we will pick a random block within the game world -- and within the 
 distance from our character that we defined above -- and change it to gold:
 
@@ -86,7 +88,7 @@ position, and then modifies the location coordinate-by-coordinate (x, y, z).  Fo
 x and y coordinates, the new position is a random distance between -3 and 3 
 (our <code>ARENA_WIDTH</code>) from the current player position.  
 
-<p>For the z position (the height of the gold), we place the gold at surface
+<p>For the z position (the height of the gold), we place the gold at ground
 level -- our code must determine the elevation of the particular block, since the 
 elevation of the gold may be different than the elevation of the block where our
 character currently is.  We use the <code>getHeight()</code> function for this.  Note
@@ -94,18 +96,18 @@ that we can change increase the depth of the buried gold by increasing our
 <code>GOLD_DEPTH</code> variable.
 
 <p>Once we've chosen a location for the gold block, we use the <code>setBlock()</code>
-function to change the block at that location from whatever it current is to gold.
+function to change the block at that location from whatever material 
+it currently is to gold.
 
 <p>Finally, we create a variable called <code>gold_exists</code> that will be used
-to track when the gold is found or not found.  We set it to <code>True</code> to 
+to track when the gold is found/smashed or not found.  We set it to <code>True</code> to 
 indicate that the gold has not yet been found.  This variable will be needed later
-for our loop to determine when the gold has been found.
+for our loop to determine when the gold has been found/smashed.
 
-<h3>Step #3:  Test the player position to determine if he's found the gold</h3>
+<h3>Step #3:  Test whether the player has smashed the gold block we placed</h3>
 <p>Next, we need to write the code in our game loop.  This purpose of this code
-is to continually test the location of the player against the location of the gold,
-and if the player's position is the same as the gold's position (i.e., the player 
-has found the gold), to exit the loop.
+is to continually test whether the gold block has been smashed (whether it still
+exists) and when it has been smashed (it ceases to exist), to exit the loop.
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 while gold_exists:
@@ -115,8 +117,10 @@ while gold_exists:
 </textarea></div>
 
 <p>The first line of the loop gets the player's position and the second line of the
-loop compares the location of the player to the location of the gold -- if it's
-the same, ?????
+loop tests to see if the location where we originally placed the gold block is still
+a gold block.  If it is still a gold block, <code>gold_exists<code> continues 
+to be <code>True</code> and the gold block is gone, <code>gold_exists<code> switches 
+to <code>False</code>
 
 <p>Note that we've changed the loop from continuing forever <code>while True</code>
 to continuing until we've indicated that the gold has been found (which we do by

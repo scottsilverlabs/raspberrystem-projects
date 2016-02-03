@@ -32,9 +32,8 @@ to the Minecraft server.  This will allow us to add new logic to our
 game, in addition to just remapping the various control functions.  
 
 <p>In this specific project, we will learn how to monitor when 
-Minecraft blocks have been hit and then use
-that information to add logic and functionality to the game that
-transforms what happens when the blocks are hit.
+Minecraft blocks have been hit and then gather and use that
+information in our code.
 
 <h2>Hardware Setup</h2>
 <p>For this project, we need just a single button mapped to GPIO7.  
@@ -47,8 +46,9 @@ hardware to the following:
 <h2>Writing Our Code</h2>
 
 <p>Here is the code that will allow us to get information about a
-block that was hit and then modify the block based on it being hit.  
-Below the code, we will discuss the line-by-line details:
+block that was hit and then print out information about the block
+that was hit. Below the code, we will discuss the line-by-line 
+details:
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
@@ -67,7 +67,7 @@ while True:
     hits = mc.events.pollBlockHits()
  
     for hit in hits:
-        mc.setBlock(hit.pos, block.AIR)
+        print "The X, Y, Z coordinates of the block you hit is:", blockHit.pos
 
     time.sleep(0.01)
 
@@ -102,9 +102,8 @@ we ran this function.  We store that list of hits in a variable called <code>hit
 </p></li>
 <li><p>
 On Lines 16-17, we implement a <code>for</code> that cycles through each hit event in our
-<code>hits</code> variable, and then transforms any blocks that have been hit into air.  In
-the next concept we'll discuss the <code>setBlock()</code> function and give me information
-about how it works and how you can use it.
+<code>hits</code> variable, and then prints out the coordinates (X, Y, Z) of each block
+that was hit since the last time we cycled through this function.
 </p></li>
 <li><p>
 On Line 19, we implement a <code>sleep</code> to slow our game loop down, so as not to
