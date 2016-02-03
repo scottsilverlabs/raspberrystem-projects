@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>This is a minecraft project</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<h2>Minecraft Block APIs</h2>
+
+<p>Minecraft and RaspberrySTEM provide a number of APIs that allow us
+to manipulate blocks in various ways.  We'll be using many of these
+APIs in upcoming projects, but in the meantime, we wanted to provide
+a general overview of the block functions, how they work and what
+arguments are required to make use of the functions.
+
+<h3>.getBlock()</h3>
+
+.getBlock(x,y,z)
+"Get block (x,y,z) => id:int"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#retrieves the block type for the block at 0,0,0
+blockType = mc.getBlock(0,0,0)
+
+<h3>.getBlocks()</h3>
+
+.getBlocks(x0,y0,z0,x1,y1,z1)
+"Get a cuboid of blocks (x0,y0,z0,x1,y1,z1) => [id:int]"
+Available on RaspberryJuice
+#get the block id's in a cuboid
+blocks = mc.getBlocks(-1,-1,-1,1,1,1)
+for block in blocks:
+    print block
+
+<h3>.getBlockWithData()</h3>
+
+.getBlockWithData(x,y,z)
+"Get block with data (x,y,z) => Block"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#retrieves a block object for the block at 0,0,0
+blockObj = mc.getBlockWithData(0,0,0)
+
+<h3>.setBlock()</h3>
+
+.setBlock(x,y,z)
+"Set block (x,y,z,id,[data])"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#sets a block at an x, y, z co-ordinate to a particular type
+mc.setBlock(0,0,0,block.DIRT.id)
+#sets a block to a particular type and 'subtype'
+mc.setblock(0,0,0,block.WOOD.id, 1)
+
+<h3>.setBlocks()</h3>
+
+.setBlocks(x0,y0,z0,x1,y1,z1,blockType, blockData)
+"Set a cuboid of blocks (x0,y0,z0,x1,y1,z1,id,[data])"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#sets many blocks at a time, filling the gap between 2 sets of x, y, z co-ordinates
+mc.setBlocks(-1, -1, -1, 1, 1, 1, block.STONE.id)
+
+<h3>.getHeight()</h3>
+
+.getHeight(x,z)
+"Get the height of the world (x,z) => int"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#find the y (vertical) of an x, z co-ordinate which represents the 'highest' (non-air) block
+y = mc.getHeight(0,0)
+
+
+<div id=footer></div>
+</body></html>

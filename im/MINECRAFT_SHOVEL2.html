@@ -85,6 +85,15 @@ while True:
     time.sleep(0.01)
 </textarea></div>
 
+The <code>mc.setBlock()</code> function takes two arguments:
+
+<ol>
+<li>The location of the block that was hit.  This was gathered by
+the <code>mc.events.pollBlockHits()</code> function; and </li>
+<li>The type of block that should be created in this location.  In
+this case, we're create a block type of "AIR" which simply removes
+the block entirely.</li>
+</ol>
 
 <h2>Additional Challenges</h2>
 
