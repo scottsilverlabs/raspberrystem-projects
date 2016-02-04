@@ -22,10 +22,71 @@
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<h2>The Hardware</h2>
+
+<h2>Overview</h2>
+<p>In this project, we're going to expand on our previous two 
+shovel projects.  Instead of just smashing the single block
+that we hit, when we hit a block, we'll actually smash that 
+block plus all the other blocks within a defined radius of that
+block.  This will demonstrate how the Minecraft API can be used
+to start doing more interesting types of modifications to the
+game.
+
+
+<h2>Hardware Setup</h2>
+<p>For this project, we need just a single button mapped to GPIO24.  
+You are welcome to keep the hardware setup from a previous project 
+that has a button attached to that GPIO, or you can simplify your
+hardware to the following:
+ 
 <img class="bb" src="img/Minecraft_1button_bb.png">
-<h2>The Software</h2>
+
+<h2>Writing Our Code</h2>
+
+<p>In this project, we're going to use an external function that 
+will control what happens every time we attempt to smash a block
+(or dig).  This function will take three arguments:
+
+<ol>
+<li>The first will be the Minecraft object (<code>mc</code>) that
+we use to interact with the Minecraft server;</li>
+<li>The second will be the position of the block that was hit; and</li>
+<li>The radius we want to smash around the block we hit.</li>
+</ol>
+
+<p>Here is what that function will look like:
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+def dig(mc, pos, radius):
+    r_vector = Vec3(radius,radius,radius)
+    mc.setBlocks(pos - r_vector, pos + r_vector, block.AIR)
+</textarea></div>
+
+<p>
+Here's how the code works:
+</p>
+<ul>
+<li><p>
+On Line 1, we define our function, called "dig" with the three 
+arguments we discuss above.
+</p></li>
+<li><p>
+On Line 2, we create a variable called "r_vector" (for "radius
+vector), which defines a 3-dimensional space using our pre-defined
+radius value.
+</p></li>
+<li><p>
+On Line 3, we use the <code>.setBlocks()</code> function to 
+modify all the blocks in the r_vector radius around the location
+of the hit block.
+</p></li>
+</ul>
+
+<h3>Full Code</h3>
+<p>
+Here is what the full code for this project should look like:
+</p>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
 from rstem.mcpi import minecraft, control, block
@@ -34,11 +95,13 @@ import time
 
 control.show()
 mc = minecraft.Minecraft.create()
-button = Button(7)
+button = Button(24)
 
-def dig(mc, pos, radius=1):
+radius = 1
+
+def dig(mc, pos, radius):
     r_vector = Vec3(radius,radius,radius)
-    mc.setBlocks(hit.pos - r_vector, hit.pos + r_vector, block.AIR)
+    mc.setBlocks(pos - r_vector, pos + r_vector, block.AIR)
 
 while True:
     if button.presses():
@@ -46,11 +109,25 @@ while True:
 
     hits = mc.events.pollBlockHits()
     for hit in hits:
-        dig(mc, hit)
+        dig(mc, hit, radius)
 
     time.sleep(0.01)
 
 </textarea></div>
-<h2>The Challenge</h2>
+
+
+<h2>Additional Challenges</h2>
+<p>
+Here are some additional challenges you can attempt on your own:
+</p>
+
+<ol>
+<li><p>Modify the code so that all the bricks within a larger radius (radius of 3)
+are smashed when a brick is hit.</li>
+<li><p>Modify the code so that the bricks aren't smashed in a circular radius.
+Instead, smash a rectangle of blocks that is four blocks long and two blocks
+wide.  (Hint: The <code>Vec3()</code> function can take more than three arguments.</li>
+<ol>
+
 <div id=footer></div>
 </body></html>
