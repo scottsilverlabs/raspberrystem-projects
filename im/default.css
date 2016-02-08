@@ -260,11 +260,26 @@ div.code > textarea {
     height: 20em;
 }
 
-.CodeMirror-cursor { visibility: hidden; }
-.CodeMirror-code { padding-left: 40px; }
-.CodeMirror-gutter-elt { margin-left: -10px; }
-.CodeMirror-linemarker { margin-left: -20px; color: red }
-.CodeMirror { padding-top: 10px; font-size: 12pt; }
+.CodeMirror-cursor {
+    visibility: hidden;
+}
+.CodeMirror-arrow {
+    width: 1em;
+    margin-right: 10px;
+}
+.CodeMirror-lines {
+    margin-left: 10px;
+}
+.CodeMirror-linenumbers {
+    margin-right: 15px;
+}
+.CodeMirror-linemarker {
+    color: red;
+}
+.CodeMirror {
+    padding-top: 10px;
+    font-size: 12pt;
+}
 
 
 /*
