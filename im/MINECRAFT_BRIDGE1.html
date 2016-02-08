@@ -24,7 +24,7 @@
 </header>
 
 <h2>Overview</h2>
-<p>In this project, we'll create the ability to build a bridge
+<p>In this project, we create the ability to build a bridge
 from our current position to a far point in the distance,
 allowing us to bridge a gap in the Minecraft world.
 
@@ -53,23 +53,13 @@ while True:
         x_delta = sin(radians(heading))
         z_delta = cos(radians(heading))
         pos = mc.player.getPos() - Vec3(0, 1, 0)
-        for i in range(100):
+        for i in range(30):
             pos += Vec3(x_delta, 0, z_delta)
             mc.setBlock(pos, block.STONE)
 
     time.sleep(0.01)
 
 </textarea></div>
-
-<h2>Additional Challenges</h2>
-<p>
-Here are some additional challenges you can attempt on your own:
-</p>
-
-<ol>
-<li><p></li>
-<li><p></li>
-</ol>
 
 <div id=footer></div>
 </body></html>
