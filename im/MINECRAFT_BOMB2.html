@@ -30,13 +30,32 @@ display that radius on the LED Matrix).  We also add sound to the explosion.
 
 
 <h2>Hardware Setup</h2>
+
+<h1>Hardware pic contains extra button</h1>
 <img class="bb" src="img/Minecraft_Matrix_updown_1button_bb.png">
 
 <h2>Writing Our Code</h2>
 
-<p>xxx
+<p>This code is similar to the code from the previous project,
+except that we a few things:
 
-<h2>The Software</h2>
+<ul>
+<li><p>A variable called <code>radius</code> that is increased
+or decreased using two new buttons that we've added to the hardware.</li>
+<li><p>The LED Matrix display that updates with the currently
+selected radius.</li>
+<li><p>A sound file that plays when the bomb is detonated.</li>
+</ul>
+
+<p>The code for this project should be easy to understand once all the 
+previous concepts have been studied.
+
+<h3>Full Code</h3>
+
+<p>
+Here is what the full code for this project should look like:
+</p>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
 from rstem.mcpi import minecraft, control, block

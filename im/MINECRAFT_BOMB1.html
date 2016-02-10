@@ -34,7 +34,18 @@ and then detonate that bomb with another press of the button.
 
 <h2>Writing Our Code</h2>
 
-<p>xxx
+<p>The code for this project should be pretty self-explanatory.
+In our game loop, if there is currently no bomb set, we check
+for a button press, and when we get one, we place a bomb at that
+location.  If a bomb has been set, the next button press will
+detonate the bomb (using a separate <code>detonate()</code>
+function.
+
+<h3>Full Code</h3>
+
+<p>
+Here is what the full code for this project should look like:
+</p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
