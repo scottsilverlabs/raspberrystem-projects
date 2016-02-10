@@ -33,7 +33,25 @@ world at the touch of a button.
 
 <h2>Writing Our Code</h2>
 
-<p>xxx
+<p>The code for this project should look very familiar.  It is
+very similar to our Minecraft Animation project, where we drew
+an animation of our character using blocks.  In that project,
+we were also drawing the sprite on our LED Matrix, so we used
+0 to denote LED off and 1-8 and A-F to denote intensity of the
+LED display.  
+
+<p>Because we're not using the LED Matrix in this project, 
+we don't need to include the LED intensity in our sprite design.
+Instead, we will use 0 and 1 to simply denote block types --
+0 will indicate no block (block type AIR) and 1 will indicate
+a stone block.  We implement this using a list, and the 0 and 1
+are simply indexes in that list. 
+
+<h3>Full Code</h3>
+
+<p>
+Here is what the full code for this project should look like:
+</p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.button import Button
