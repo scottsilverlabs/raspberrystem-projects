@@ -40,9 +40,10 @@ all: $(TARGETS)
 # Targets
 #
 
+PG=projectsguide
 pushpg:
-	ssh swolski@raspberrystem.com mkdir -p raspberrystem.com/projectsguide
-	scp -r im/* swolski@raspberrystem.com:raspberrystem.com/projectsguide
+	ssh swolski@raspberrystem.com mkdir -p raspberrystem.com/$(PG)
+	scp -r im/* swolski@raspberrystem.com:raspberrystem.com/$(PG)
 	@echo "####################################################################"
 	@echo "### NOTE: you may want to also 'make pushpg' from raspberrystem-ide"
 	@echo "####################################################################"
