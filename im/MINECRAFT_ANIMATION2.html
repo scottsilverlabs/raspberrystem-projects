@@ -36,7 +36,17 @@ in the Minecraft world.
 
 <h2>Writing Our Code</h2>
 
-<p>xxx
+<p>Our code for this project will be identical to the previous 
+project, with one addition -- a function that will be used to
+replicate the animation we're doing on the LED Matrix in the
+Minecraft world as well.
+
+<h3>Full Code</h3>
+
+<p>
+Here is what the full code for this project should look like.  We'll
+dig further into the highlighted pieces of code below:
+</p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.mcpi import minecraft, control, block
@@ -118,6 +128,82 @@ while True:
     time.sleep(0.1)
 
 </textarea></div>
+
+<h3><code>sprite_in_minecraft()</code> Function</h3>
+
+<p>We've created a function that will animate our character
+as we define in the Minecraft world.  Unlike the LED Matrix,
+where we can use a simple API to pass in an 8x8 design with 
+a single function call, to create a design in the Minecraft 
+world, we need to draw block by block.  For that reason, a
+major purpose of our function is to turn our 8x8 list of 0's
+and non-0's into blocks (for the non-0's) and air (for the 0's).
+
+<p>Let's discuss what our function does, line-by-line:
+
+<ul>
+<li><p>On Line #x, we define our function, and take three
+arguments as inputs: our Minecraft object, the current
+8x8 design that we want to draw and the location of our
+character (where we want to draw).</li>
+<li><p>On Line #x, we take our 8x8 design that we used
+to draw on our LED Matrix and we rearrange it in an order
+that will allow us to draw it in the Minecraft world.
+Specifically, we break up the design into the eight lines
+we defined in our list (using the <code>splitlines()</code>
+function and reverse the lines to go from bottom to 
+top, since we will draw starting from the ground (using
+the <code>reversed()</code> function.</li>
+<li><p>On Lines #x and #x, we "nest" (put one inside the
+other) two <code>for</code> loops.  This will allow us
+to run through each of the eight horizontal characters
+and each of the eight rows and execute the code that 
+follows the nested loops.</li>
+<li><p>On Lines #x-y, we have the code that will be 
+executed for each of the 64 (8x8) character positions.
+The code checks the character and if it's a 0 (which is
+equivalent to an off LED), it sets the block type to air, 
+which is the same as not drawing a block.  If the 
+character is a non-0 (which is equivalent to the LED
+being on in that position), it sets the block type to wood,
+so you'll see the block at that location.  The final line
+(Line #x) actually draws the specified type of block at the
+location.
+</li>
+</ul>
+
+    <div class="info">
+    <div><code>enumerate()</code> Function</div>
+    <div>
+<p>In the two <code>for</code> loops above, we use the
+<code>enumerate</code> function.  This function allows
+us to track the count of how many times we've gone through
+the <code>for</code> loop -- we call this the "index", it
+starts at 0 and it is stored in the first variable of the 
+loop.
+
+<p>Here's an example:
+
+<p><code>
+animals = ['dog', 'cat', 'bird']
+<p>for index, animal in (enumerate(animals)):
+<p>	   print index, animal
+</code>
+
+<p>This code would output:
+
+<p>0, dog
+<p>1, cat
+<p>2, bird
+
+<p>To start our index on a different value than 0, we
+can pass another argument to <code>enumerate()</code>, 
+like this:
+
+<p><code>for index, animal in (enumerate(animals, start = 1):</code>
+ 
+    </div>
+    </div>
 
 <div id=footer></div>
 </body></html>

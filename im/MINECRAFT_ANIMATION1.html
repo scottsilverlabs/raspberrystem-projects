@@ -24,8 +24,8 @@
 </header>
 
 <h2>Overview</h2>
-<p>In this project, we'll use the LED Matrix to display an animation of 
-Steve, our Minecraft character.  While there is no Minecraft integration
+<p>In this project, we'll use the LED Matrix to display an animation (a "sprite") 
+of Steve, our Minecraft character.  While there is no Minecraft integration
 in this project, it will provide the basis for our next project, where we
 integrate LED Matrix animation with action in the Minecraft world.
 
@@ -35,7 +35,77 @@ integrate LED Matrix animation with action in the Minecraft world.
 
 <h2>Writing Our Code</h2>
 
-<p>xxx
+<p>We talked about sprites very briefly back in our Space Invaders project,
+and in this project and the next, we're going to build on this.  Sprites
+are essentially pixel-by-pixel graphics that can be moved or changed.  Using
+the LED Matrix and the RaspberrySTEM API, it's easy to create and animate
+spites on the LED Matrix.
+
+<p>Sprites can be built to run on the LED Matrix display using a list of 
+8x8 pixelated designs.  Each design consists of 0's -- which indicate that
+an LED is off -- and non-0's -- which indicate that an LED is on and the 
+brightness of the LED.  The non-0's range from 1-8 and A-F -- the higher
+the value (letters are higher than numbers), the brighter the LED will 
+appear.
+
+<p>As an example, we could define a single sprite design as the following:
+
+<p>
+<code>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+00000000</br>
+</code>
+
+
+<p>If we were to display that design on the LED Matrix using our sprite API,
+all the LEDs on the matrix would be turned off.  Likewise, if we were to 
+define our sprit design as follows:
+
+<p>
+<code>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+FFFFFFFF</br>
+</code>
+
+<p>all LEDs on the matrix would be turned on at full intensity. As another
+example, if we wanted to display a smiley face on our LED Matrix, we could
+use the following design:
+
+<p>
+<code>
+00F00F00</br>
+00F00F00</br>
+00F00F00</br>
+00000000</br>
+F000000F</br>
+0F0000F0</br>
+00FFFF00</br>
+00000000</br>
+</code>
+
+
+<p>This would result in the following being displayed on the LED Matrix:
+
+<div style="text-align: center;"><img style="width: 300px" alt="" src="img/led_smiley.jpg"></div>
+
+<h3>Full Code</h3>
+
+<p>
+Here is what the full code for this project should look like:
+</p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.led_matrix import FrameBuffer, Sprite
@@ -98,6 +168,30 @@ while True:
     time.sleep(0.1)
 
 </textarea></div>
+
+    <div class="info">
+    <div><code>cycle()</code> Function</div>
+    <div>
+<p>You'll notice that we use a new function in our code above --
+<code>cycle()</code>.  This function takes any type of list
+(list, dictionary, set, etc) and creates an infinitely
+repeating series of values using the items in the list.
+
+<p>Using the <code>next()</code> function, we can iterate
+through the cycle we've created.  When we reach the end 
+of the list in the cycle, it will simply repeat; this will
+continue for as long as we continue to request the next
+item in the list.
+
+<p>For this project, we're creating a sprite that has four
+separate designs.  We use <code>cycle()</code> and 
+<code>next()</code> to cycle through these four designs, 
+which makes it appear that our character is running on the 
+LED Matrix.
+
+    </div>
+    </div>
+
 
 <div id=footer></div>
 </body></html>
