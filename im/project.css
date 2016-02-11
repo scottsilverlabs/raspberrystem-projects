@@ -199,28 +199,22 @@ h1 {
     color: #2e74b5;
     line-height: 150%;
     text-align: left;
-    page-break-inside: avoid;
-    font-family: "Calibri Light", serif;
     font-size: 20pt;
     font-weight: normal;
 }
 h2 {
     margin-top: 0.3in;
-    color: #2e74b5;
+    color: black;
     line-height: 150%;
     text-align: left;
-    page-break-inside: avoid;
-    font-family: "Calibri Light", serif;
     font-size: 16pt;
     font-weight: normal
 }
 h3 {
     margin-top: 0.3in;
-    color: #2e74b5;
+    color: black;
     line-height: 150%;
     text-align: left;
-    page-break-inside: avoid;
-    font-family: "Calibri Light", serif;
     font-size: 14pt;
     font-weight: normal
 }
@@ -230,7 +224,6 @@ h4 {
     margin-bottom: 0.1in;
     color: black;
     text-align: left;
-    font-family: "Calibri Light", serif;
     font-size: 14pt;
     font-weight: bold
 }
@@ -238,7 +231,6 @@ h5 {
     margin: 0.0in;
     color: black;
     text-align: left;
-    font-family: "Calibri Light", serif;
     font-size: 12pt;
     font-weight: bold
 }
