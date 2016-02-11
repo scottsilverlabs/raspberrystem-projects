@@ -23,10 +23,17 @@
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<h2>The Hardware</h2>
-<p>Speaker only.</p>
-<h2>The Software</h2>
+
+<h2>Overview</h2>
+<p>In this project, we will write code to place a piece of gold in a random location around the Minecraft world.   
+
+<h2>Hardware Setup</h2>
+<p>There is no specific hardware setup for this project.  You will need to be able to move throughout the Minecraft 
+world to use the code you'll be writing, and to do that, you are welcome to either use a keyboard/mouse or to use
+the Minecraft controller you built earlier with your RaspberrySTEM kit.
+
+<h2>Writing Our Code</h2>
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.mcpi import minecraft, control, block
 from rstem.sound import Note
@@ -68,9 +75,9 @@ while block.Block(mc.getBlock(gold_pos)) == block.GOLD_BLOCK:
 beep.stop()
 mc.postToChat("You found the gold!")
 time.sleep(3)
-
-
 </textarea></div>
-<h2>The Challenge</h2>
+
+<h2>Additional Challenges</h2>
+
 <div id=footer></div>
 </body></html>

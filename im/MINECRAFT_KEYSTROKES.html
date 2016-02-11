@@ -16,25 +16,32 @@
 <body>
 <header>
     <div id=title></div>
-    <div id=description>This is a minecraft project</div>
+    <div id=description>Minecraft Keystrokes</div>
     <div id=hw_required>
     Accelerometer Cell<br>
     LED Matrix Cell
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<p>
-</p>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
+<h2>Controlling Our Character</h2>
 <p>
-The RaspberrySTEM has an enhanced mcpi API that adds functions to move Steve
-around, exactly as if you would have pressed the W, S, A or D keys on the
-keyboard.  All of these new functions are accessed from the "control" module,
-which you can import with:
+As mentioned earlier, the RaspberrySTEM has an enhanced Minecraft API (<code>mcpi</code>) 
+that allows us to control our Minecraft character (Steve) and manipulate the Minecraft world.  
+One of the things the API allows us to do is to remap the keyboard presses in other ways.  
+For example, normally when we press the "W" key on the keyboard, Steve moves forward.
+But, using the API, we could change this -- we could make the "P" key on the keyboard move
+Steve forward instead.  Or, better yet, we could control the forward movement of Steve 
+using something else entirely...like a button on our RaspberrySTEM kit!
+
+<p>
+Below, we'll discuss the major actions our character can perform in the game, and how we
+can remap those actions to things other than the standard keyboard presses.
+
+<h2>Control API</h2>
+<p>
+All of the character control functions are accessed from the <code>control</code> module,
+which we can import with:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
@@ -42,59 +49,85 @@ from rstem.mcpi import control
 </textarea></div>
 
 <p>
-From there, you can control Steve with the functions forward(), backward(),
-left() and right().  Calling those functions without arguments is just like
-pressing the corresponding key (W, S, A, or D) on the keyboard.  The key is not
-released until you call the function with the argument "release=True".  For
-example, to have Steve walk forward for 2 seconds:
+Once <code>control</code> is imported, we can control Steve's movements with the functions 
+<code>forward()</code>, <code>backward()</code>, <code>left()</code> and <code>right()</code>.  
+Calling those functions without arguments is just like
+pressing and holding the keyboard key that normally invokes this movement.  
+The key is not released until you call the function with the argument <code>release=True</code>.  
+</p>
+<p>For example, to have Steve walk forward for 2 seconds and then stop, this is what the code 
+would look like:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward()
 time.sleep(2)
 control.forward(release=True)
-while True:
-	time.sleep(1)
 </textarea></div>
 
+<p>This is what our code snippet does:
+
+<ul>
+<li><p>Line 1 of the program starts moving Steve forward</li>
+<li><p>Line 2 of the program waits for two seconds (while Steve is continuously moving)</li>
+<li><p>Line 3 of the program stops Steve's movement</li>
+</ul>
+
 <p>
-In addition, if you simply want to have a key pressed for a certain amount of
-time and be released automatically, you can use the "duration" argument.  The
-following code will also have Steve walk forward for 2 seconds
+Another way to implement this same functionality (having a key pressed for a specific amount
+of time) is by using the <code>duration=</code> argument inside the function.  The
+following code will also have Steve walk forward for 2 seconds and then stop:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward(duration=2)
-while True:
-	time.sleep(1)
 </textarea></div>
 
+<p>This one line of code achieves the same thing as the three lines of code above.
+
 <p>
-Finally, to stop all keys from being pressed, you can use control.stop().  For
-example, to walk both forward and right for a second, and then stop:
+Finally, to stop all keys from being pressed, you can use <code>control.stop()</code>.  For
+example, to walk both forward and right for a second, and then stop, our code might look
+like this:
 </p>
 
 <div class="code" data-firstline="1"> <div></div> <textarea>
-import ...
-import time
-control.show()
 control.forward()
 control.right()
 time.sleep(2)
 control.stop()
-while True:
-	time.sleep(1)
 </textarea></div>
 
+<p>In addition to controlling Steve's movements forward, backwards, left and right, we also
+have the ability to control his other actions...
+
+<p>One of the main things that Steve does in Minecraft is breaking (smashing) blocks.  This
+is typically accomplished using the left mouse button.  Using the same <code>control</code> 
+module we've been using, we can have Steve smash whatever is in front of him like this:
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
-control.look()
+control.smash()
 </textarea></div>
-<h2>The Challenge</h2>
+
+<p>Additionally, Steve has the ability to jump, which is typically accomplished using the
+spacebar on the keyboard, and can be implemented in our code like this:
+
+<div class="code" data-firstline="1"> <div></div> <textarea>
+control.jump()
+</textarea></div>
+
+<h2>Current Keyboard/Mouse Mappings</h2>
+
+<p>
+Because the <code>control</code> functions simply poll the keyboard and mouse presses,
+there are many additional <code>control</code> commands that we can implement in
+our code -- in fact, there is one for every keypress supported by Minecraft.  
+
+<p>
+For reference, here is the full list of functions accessible by the <code>control</code>
+code:
+ 
+
+
 <div id=footer></div>
 </body></html>

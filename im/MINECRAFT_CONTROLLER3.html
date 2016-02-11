@@ -23,23 +23,45 @@
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
-<h2>The Hardware</h2>
+
+<h2>Overview</h2>
+<p>In our last project, we improved our Minecraft controller code to make it
+simpler and more readible (and also more extensible).  But, with the current
+code, our controller is awkward because it requires us to rotate it away from
+us (which is difficult to do) in order for our character to look down.
+
+<p>In this project, we're going to improve that -- we're going to modify
+the tilt functionality so that our character looking down while the controller 
+is in the default position -- horizontal or "flat on a table" -- and have then 
+we only need to rotate the controller towards us (which is easy) to have him 
+start to look upwards. 
+
+
+<h2>Hardware Setup</h2>
 <img class="bb" src="img/Minecraft_Accel_4way_1button_bb.png">
-<h2>The Software</h2>
+
+<h2>Writing Our Code</h2>
+
+<p>For this project, the changes to the code will be in the <code>while</code>
+loop, specifically around the <code>control.look()</code> function, which
+defines where the character is looking.
+
+<p>
+Here is what the full code for this project should look like:
+
 <div class="code" data-firstline="1"> <div></div> <textarea>
 from rstem.accel import Accel
 from rstem.button import Button
-from rstem.mcpi import control
+from rstem.mcpi import minecraft, control
 import time
 
 control.show()
 
 keymap = {
-    Button(18) : control.left,
+    Button(23) : control.left,
     Button(14) : control.right,
-    Button(15) : control.forward,
-    Button(23) : control.backward,
+    Button(18) : control.forward,
+    Button(15) : control.backward,
     Button(7)  : control.smash,
     Button(24) : control.jump,
     }
@@ -57,6 +79,6 @@ while True:
     time.sleep(0.01)
 
 </textarea></div>
-<h2>The Challenge</h2>
+
 <div id=footer></div>
 </body></html>

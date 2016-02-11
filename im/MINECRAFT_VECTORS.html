@@ -16,27 +16,39 @@
 <body>
 <header>
     <div id=title></div>
-    <div id=description>This is a minecraft project</div>
+    <div id=description>Minecraft API</div>
     <div id=hw_required>
     Accelerometer Cell<br>
     LED Matrix Cell
     </div>
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
-<h2>The Introduction</h2>
+
+<h3>getPos()</h3>
 <p>
+entityPos = mc.entity.getPos(entityId)
 </p>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
-<div class="code" data-firstline="1"> <div></div> <textarea>
-test
-*if foo
-*	print("Ouch!")
-else:
-	print("You win!")
-</textarea></div>
-<h2>The Challenge</h2>
+<h3>setPos()</h3>
+<p>
+mc.player.setPos(entityId,0.0,0.0,0.0)
+</p>
+
+<h3>getTilePos()</h3>
+<p>
+entityTile = mc.entity.getTilePos(entityId)
+</p>
+
+<h3>setTilePos()</h3>
+<p>
+mc.player.setTilePos(entityId,0,0,0)
+</p>
+
+
+<p>
+For more detailed information about these -- and all -- Minecraft APIs, check out the
+API documentation linked from the RDE above.
+</p>
+
 <div id=footer></div>
 </body></html>

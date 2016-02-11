@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>This is a minecraft project</div>
+    <div id=hw_required>
+    Accelerometer Cell<br>
+    LED Matrix Cell
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<h2>Minecraft Block APIs</h2>
+
+<p>Minecraft and RaspberrySTEM provide a number of APIs that allow us
+to manipulate blocks in various ways.  We'll be using many of these
+APIs in upcoming projects, but in the meantime, we wanted to provide
+a general overview of the block functions, how they work and what
+arguments are required to make use of the functions.
+
+<h3>.getBlock()</h3>
+
+.getBlock(x,y,z)
+"Get block (x,y,z) => id:int"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#retrieves the block type for the block at 0,0,0
+blockType = mc.getBlock(0,0,0)
+
+<h3>.getBlocks()</h3>
+
+.getBlocks(x0,y0,z0,x1,y1,z1)
+"Get a cuboid of blocks (x0,y0,z0,x1,y1,z1) => [id:int]"
+Available on RaspberryJuice
+#get the block id's in a cuboid
+blocks = mc.getBlocks(-1,-1,-1,1,1,1)
+for block in blocks:
+    print block
+
+<h3>.getBlockWithData()</h3>
+
+.getBlockWithData(x,y,z)
+"Get block with data (x,y,z) => Block"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#retrieves a block object for the block at 0,0,0
+blockObj = mc.getBlockWithData(0,0,0)
+
+<h3>.setBlock()</h3>
+
+.setBlock(x,y,z)
+"Set block (x,y,z,id,[data])"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#sets a block at an x, y, z co-ordinate to a particular type
+mc.setBlock(0,0,0,block.DIRT.id)
+#sets a block to a particular type and 'subtype'
+mc.setblock(0,0,0,block.WOOD.id, 1)
+
+<h3>.setBlocks()</h3>
+
+.setBlocks(x0,y0,z0,x1,y1,z1,blockType, blockData)
+"Set a cuboid of blocks (x0,y0,z0,x1,y1,z1,id,[data])"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#sets many blocks at a time, filling the gap between 2 sets of x, y, z co-ordinates
+mc.setBlocks(-1, -1, -1, 1, 1, 1, block.STONE.id)
+
+<h3>.getHeight()</h3>
+
+.getHeight(x,z)
+"Get the height of the world (x,z) => int"
+Available on Minecraft: Pi EditionAvailable on RaspberryJuice
+#find the y (vertical) of an x, z co-ordinate which represents the 'highest' (non-air) block
+y = mc.getHeight(0,0)
+
+<h3>Block Types</h3>
+
+.id
+"The id (or type) of block"
+
+AIR                 = Block(0)
+STONE               = Block(1)
+GRASS               = Block(2)
+DIRT                = Block(3)
+COBBLESTONE         = Block(4)
+WOOD_PLANKS         = Block(5)
+SAPLING             = Block(6)
+BEDROCK             = Block(7)
+WATER_FLOWING       = Block(8)
+WATER               = WATER_FLOWING
+WATER_STATIONARY    = Block(9)
+LAVA_FLOWING        = Block(10)
+LAVA                = LAVA_FLOWING
+LAVA_STATIONARY     = Block(11)
+SAND                = Block(12)
+GRAVEL              = Block(13)
+GOLD_ORE            = Block(14)
+IRON_ORE            = Block(15)
+COAL_ORE            = Block(16)
+WOOD                = Block(17)
+LEAVES              = Block(18)
+GLASS               = Block(20)
+LAPIS_LAZULI_ORE    = Block(21)
+LAPIS_LAZULI_BLOCK  = Block(22)
+SANDSTONE           = Block(24)
+BED                 = Block(26)
+COBWEB              = Block(30)
+GRASS_TALL          = Block(31)
+WOOL                = Block(35)
+FLOWER_YELLOW       = Block(37)
+FLOWER_CYAN         = Block(38)
+MUSHROOM_BROWN      = Block(39)
+MUSHROOM_RED        = Block(40)
+GOLD_BLOCK          = Block(41)
+IRON_BLOCK          = Block(42)
+STONE_SLAB_DOUBLE   = Block(43)
+STONE_SLAB          = Block(44)
+BRICK_BLOCK         = Block(45)
+TNT                 = Block(46)
+BOOKSHELF           = Block(47)
+MOSS_STONE          = Block(48)
+OBSIDIAN            = Block(49)
+TORCH               = Block(50)
+FIRE                = Block(51)
+STAIRS_WOOD         = Block(53)
+CHEST               = Block(54)
+DIAMOND_ORE         = Block(56)
+DIAMOND_BLOCK       = Block(57)
+CRAFTING_TABLE      = Block(58)
+FARMLAND            = Block(60)
+FURNACE_INACTIVE    = Block(61)
+FURNACE_ACTIVE      = Block(62)
+DOOR_WOOD           = Block(64)
+LADDER              = Block(65)
+STAIRS_COBBLESTONE  = Block(67)
+DOOR_IRON           = Block(71)
+REDSTONE_ORE        = Block(73)
+SNOW                = Block(78)
+ICE                 = Block(79)
+SNOW_BLOCK          = Block(80)
+CACTUS              = Block(81)
+CLAY                = Block(82)
+SUGAR_CANE          = Block(83)
+FENCE               = Block(85)
+GLOWSTONE_BLOCK     = Block(89)
+BEDROCK_INVISIBLE   = Block(95)
+STONE_BRICK         = Block(98)
+GLASS_PANE          = Block(102)
+MELON               = Block(103)
+FENCE_GATE          = Block(107)
+GLOWING_OBSIDIAN    = Block(246)
+NETHER_REACTOR_CORE = Block(247)
+
+
+<h3>Other Block Data</h3>
+
+.data
+"The data (or sub-type) of a block"
+
+Data Values of blocks:
+WOOL:
+0: White
+1: Orange
+2: Magenta
+3: Light Blue
+4: Yellow
+5: Lime
+6: Pink
+7: Grey
+8: Light grey
+9: Cyan
+10: Purple
+11: Blue
+12: Brown
+13: Green
+14: Red
+15:Black
+
+WOOD:
+0: Oak (up/down)
+1: Spruce (up/down)
+2: Birch (up/down)
+(below not on Pi)
+3: Jungle (up/down)
+4: Oak (east/west)
+5: Spruce (east/west)
+6: Birch (east/west)
+7: Jungle (east/west)
+8: Oak (north/south)
+9: Spruce (north/south)
+10: Birch (north/south)
+11: Jungle (north/south)
+12: Oak (only bark)
+13: Spruce (only bark)
+14: Birch (only bark)
+15: Jungle (only bark)
+
+WOOD_PLANKS (Not on Pi):
+0: Oak
+1: Spruce
+2: Birch
+3: Jungle
+
+SAPLING:
+0: Oak
+1: Spruce
+2: Birch
+3: Jungle (Not on Pi)
+
+GRASS_TALL:
+0: Shrub
+1: Grass
+2: Fern
+3: Grass (color affected by biome) (Not on Pi)
+
+TORCH:
+1: Pointing east
+2: Pointing west
+3: Pointing south
+4: Pointing north
+5: Facing up
+
+STONE_BRICK:
+0: Stone brick
+1: Mossy stone brick
+2: Cracked stone brick
+3: Chiseled stone brick
+
+STONE_SLAB / STONE_SLAB_DOUBLE:
+0: Stone
+1: Sandstone
+2: Wooden
+3: Cobblestone
+4: Brick
+5: Stone Brick
+Below - not on Pi
+6: Nether Brick
+7: Quartz
+
+Not on Pi
+SNOW_BLOCK:
+0-7: Height of snow, 0 being the lowest, 7 being the highest.
+
+TNT:
+0: Inactive
+1: Ready to explode
+
+LEAVES:
+1: Oak leaves
+2: Spruce leaves
+3: Birch leaves
+
+SANDSTONE:
+0: Sandstone
+1: Chiseled sandstone
+2: Smooth sandstone
+
+STAIRS_[COBBLESTONE, WOOD]:
+0: Ascending east
+1: Ascending west
+2: Ascending south
+3: Ascending north
+4: Ascending east (upside down)
+5: Ascending west (upside down)
+6: Ascending south (upside down)
+7: Ascending north (upside down)
+
+LADDERS, CHESTS, FURNACES, FENCE_GATE:
+2: Facing north
+3: Facing south
+4: Facing west
+5: Facing east
+
+[WATER, LAVA]_STATIONARY:
+0-7: Level of the water, 0 being the highest, 7 the lowest
+
+NETHER_REACTOR_CORE:
+0: Unused
+1: Active
+2: Stopped / used up
+
+<div id=footer></div>
+</body></html>

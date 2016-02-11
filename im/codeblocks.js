@@ -1,13 +1,17 @@
 chainedOnload(function() {
     var codeblocks = document.getElementsByClassName("code");
     for (i = 0; i < codeblocks.length; i++) { 
-        codeblock = codeblocks[i].children[1];
-        firstLineNumber = codeblocks[i].getAttribute("data-firstline");
-        lineNumberFormatter = function (line) {return String(line)};
+        var codeblock = codeblocks[i].children[1];
+        var firstLineNumber = codeblocks[i].getAttribute("data-firstline");
+        var lineNumberFormatter = function (line) {return String(line)};
+        var gutters = [];
         if (firstLineNumber == null) {
             firstLineNumber = 1;
         } else if (firstLineNumber == 0) {
             lineNumberFormatter = function (line) {return ""};
+        }
+        if (firstLineNumber > 0) {
+            gutters.push("CodeMirror-linenumbers");
         }
 
         // Split into lines and delete last line if it is blank.
@@ -19,13 +23,23 @@ chainedOnload(function() {
         if (lines[lines.length-1] == '') {
             lines.splice(-1,1);
         }
+
+        // Lines marked with '*' are to be highlighted in the gutter with an
+        // arrow.  Find all lines to remember them, and remove the asterisk.
+        var needHighlightGutter = false;
         for (var j = 0; j < lines.length; j++) {
             highlight = lines[j][0] == "*";
             if (highlight) {
                 lines[j] = lines[j].substring(1);
+                needHighlightGutter = true;
             }
             lineHighlight.push(highlight);
         }
+        if (needHighlightGutter) {
+            gutters.unshift("CodeMirror-arrow");
+        }
+
+        // Reaasmble codeblock from lines.
         codeblock.value = lines.join('\n');
 
         var cm = CodeMirror.fromTextArea(codeblock, {
@@ -35,16 +49,16 @@ chainedOnload(function() {
                 singleLineStringErrors: false
             },
             firstLineNumber: Number(firstLineNumber),
-            lineNumbers: true,
+            lineNumbers: firstLineNumber > 0,
             lineNumberFormatter: lineNumberFormatter,
             theme: "solarized-dark",
             readOnly: true,
             textWrapping: true,
-            gutters: ["breakpoints", "CodeMirror-linenumbers"],
+            gutters: gutters,
         });
         for (var j = 0; j < lineHighlight.length; j++) {
             if (lineHighlight[j]) {
-                cm.setGutterMarker(j, "breakpoints", makeMarker());
+                cm.setGutterMarker(j, "CodeMirror-arrow", makeMarker());
             }
         }
 

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
+    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
+    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
+    <script type="text/javascript" src="onload.js"></script>
+    <script type="text/javascript" src="codeblocks.js"></script>
+    <script type="text/javascript" src="toc_order.js"></script>
+    <script type="text/javascript" src="project.js"></script>
+</head>
+<body>
+<header>
+    <div id=title></div>
+    <div id=description>Hello, Minecraft!</div>
+    <div id=hw_required>
+    </div>
+    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
+</header>
+
+<h2>Overview</h2>
+<p>
+In this project, we're going to write our first Minecraft program.  This program will simply open the Minecraft 
+window and print "Hello, Minecraft!" to the Minecraft window (similar to our very first "Hello, World!" program).  
+This project will implement the programming concepts discussed in the previous concept. Future projects
+will build on these concepts. 
+</p>
+
+<h2>Hardware Setup</h2>
+<p>No hardware required.</p>
+
+<h2>Writing Our Code</h2>
+
+<p>
+Here is the code that will open the Minecraft window and write your own custom text.  Below, we will discuss
+the code line-by-line.
+</p>
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft, control
+import time
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+mc.postToChat("Hello, world!")
+
+while True:
+	time.sleep(1)
+</textarea></div>
+
+<p>
+Here's how the code works:
+</p>
+<ul>
+<li><p>
+On Line 1, we import two functions we'll later need from the <code>mcpi</code>module
+</p></li>
+<li><p>
+On Line 2, we import the <code>time</code> module, as we're going to be using a loop and will want to slow the
+repetition of the loop down a bit
+</p></li>
+<li><p>
+On Line 4, we use <code>control.show()</code> to open up the Minecraft window.  
+This function will be used in every Minecraft project, and when the program completes, the Minecraft window will be
+automatically hidden
+</p></li>
+<li><p>
+On Line 6, we initalize a connection to the Minecraft server and store that in an object <code>mc</code>.  We can
+later use this object to interact with the minecraft world (to add or destroy blocks, for example)
+</p></li>
+<li><p>
+On Line 7, we use the <code>mc</code> object with the <code>postToChat</code> function to write "Hello, Minecraft!"
+in the Minecraft window
+</p></li>
+<li><p>
+On Line 8 and 9, we implement our Game Loop -- this is the loop that will allow us to do more complex interactions with the
+Minecraft environment.  For now, we'll leave our loop empty except for a <code>sleep</code> which will slow the loop
+down and keep it from running too fast and hogging the processor
+</p></li>
+</ul>
+
+<p>
+When minecraft runs, you’ll have to click in the Minecraft window to use the
+mouse.  You can then move around the Minecraft world as long as you want.  When
+you’re done, hit "TAB" key on the keyboard (to free up the mouse) and then click the stop icon in the
+RDE.  The Minecraft window will close automatically.
+</p>
+
+<h2>Additional Challenges</h2>
+
+
+<div id=footer></div>
+</body></html>
