@@ -54,7 +54,11 @@ TIDY_TARGETS= im/GENERAL_PURPOSE_INPUT-OUTPUT.html
 .PHONY: $(TIDY_TARGETS)
 tidy: $(TIDY_TARGETS)
 $(TIDY_TARGETS):
-	tidy5 -w 80 --quiet --indent auto -m $@
+	@# First run of tidy will insert 'alt=""' text on images.  We run is
+	@# separately so we can ignore its error.
+	tidy5 -quiet --alt-text "" -m $@ >/dev/null 2>&1; exit 0
+	tidy5 -w 80 -quiet --indent auto -m $@
+	@# Add extra line spacing before paragraphs
 	gawk -i inplace '/<p>/{print ""}1' $@
 
 upload:
