@@ -33,7 +33,9 @@ chainedOnload(function() {
 
     var header = document.getElementsByTagName("header")[0];
     html = '';
-    html += '<div id=title class="outer sticky"><div class=inner>' + pg_index[pos].title + '</div></div>';
+    html += '<div id=title class="outer sticky">';
+        html += '<div class=inner>' + pg_index[pos].title + '</div>';
+    html += '</div>';
     html += '<div id=hw_header class="outer">';
         html += header.innerHTML;
     html += '</div>';
@@ -65,7 +67,7 @@ chainedOnload(function() {
 
     var sections = document.getElementsByClassName("section");
     for (i = 0; i < sections.length; i++) {
-        var title = section_titles[sections[i].title];
+        var title = section_titles[sections[i].id];
         html = '<div class=section_heading><div>' + title + '</div></div>';
         sections[i].innerHTML = html + sections[i].innerHTML;
     }
