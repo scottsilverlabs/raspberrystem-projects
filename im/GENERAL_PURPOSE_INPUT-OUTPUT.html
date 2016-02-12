@@ -1,149 +1,174 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
-    <script type="text/javascript" src="stickydiv.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <script type="text/javascript" src="stickydiv.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
 <body>
+  <header>
+    <div class="hw" data-count="1" data-name="resistor"></div>
+    <div class="hw" data-count="3" data-name="led"></div>
+    <div class="hw" data-count="2" data-name="led"></div>
+  </header>
+  <div class="section" title="intro">
 
-<header>
-    <div class=hw data-count=1 data-name=resistor></div>
-    <div class=hw data-count=3 data-name=led></div>
-    <div class=hw data-count=2 data-name=led></div>
-</header>
+    <p>In this project, we'll learn about General Purpose Input/Outputs (GPIOs)
+    and for the first time, we'll use software to control the hardware.
+    Specifically, we'll wire an LED and then control the LED output using code
+    that we'll write.</p>
 
-<div class=section title=intro>
+    <p>Before jumping into this project, we very strongly recommend that you
+    read <a data-uid="gpoutp"></a>, as these concepts will be the basis for
+    this project and nearly all future RaspberrySTEM projects.</p>
 
-<p>
-In this project, we'll learn about General Purpose Input/Outputs (GPIOs) and
-for the first time, we'll use software to control the hardware.  Specifically,
-we'll wire an LED and then control 
-the LED output using code that we'll write.</p>
-<p>Before jumping into this project, we very strongly recommend that you 
-read 
-<a data-uid=gpoutp></a>, as these
-concepts will be the basis for this project and nearly all future RaspberrySTEM
-projects.</p>
+    <p>In the previous project, we created a circuit that allowed us to control
+    an LED using a pushbutton -- solely using hardware. But, the most fun and
+    exciting part of the RaspberrySTEM CREATOR Kit is the integration of the
+    software and hardware, and more specifically, using software to control the
+    hardware to make it do interesting and useful things.</p>
 
-<p>In the previous project, we created a circuit that allowed us to control an LED using a
-pushbutton -- solely using hardware.  But, the most fun and exciting part 
-of the RaspberrySTEM CREATOR Kit is the integration of the software and hardware, 
-and more specifically, using software to control the hardware to make it do
-interesting and useful things.</p>
-<p>In this project, we'll rebuild a version of our original circuit (with just the power 
-source, LED and resistor), but we'll the wire up LED a little differently and then write
-some code to control it -- harnessing the Raspberry Pi GPIOs.  
-</div>
+    <p>In this project, we'll rebuild a version of our original circuit (with
+    just the power source, LED and resistor), but we'll the wire up LED a
+    little differently and then write some code to control it -- harnessing the
+    Raspberry Pi GPIOs.</p>
+  </div>
+  <div class="section" title="hw">
+    <h2>Controlling an LED with a GPIO</h2>
 
-<div class=section title=hw>
-<h2>Controlling an LED with a GPIO</h2>
+    <p>Before we start the new wiring for this project, let's wire up our
+    original circuit from the <a data-uid="rpipower"></a> project -- this will
+    give us some context so we can understand how we're going from that circuit
+    (which uses strictly hardware to control the LED) to our new circuit (which
+    uses a GPIO to control the LED). As a reminder here is what that circuit
+    looks like, and how you'll want to wire your breadboard right
+    now:</p><img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+    alt="">
 
-<p>Before we start the new wiring for this project, let's wire up our original circuit 
-from the <a data-uid=rpipower></a> project -- 
-this will give us some context so we can understand how we're going from that circuit (which
-uses strictly hardware to control the LED) to our new circuit (which uses a GPIO to control
-the LED).  As a reminder here is what that circuit looks like, and how you'll want to wire
-your breadboard right now:</p>
-<img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
-<p>The LED should now be lit.</p>
-<p>Now that we have some background on how GPIOs work and how we can control our LED with 
-a GPIO, and now that we've wired up a circuit that
-we're familiar with, let's jump in and start using GPIOs...</p>
-<h4>Step #1:  Disconnect the circuit from ground.</h4>
-<p>The LED is currently connected to ground via the green wire.  To disconnect it,
-remove the green wire:
-<img class="bb" src="img/Introducing_Buttons_1_bb.png">
-<p>The LED should no longer be lit.</p>
-<h4>Step #2:  Connect the circuit to a GPIO.</h4>
-<p>
-Now, connect a wire from the LED to a GPIO as shown in the diagram.
-<p>For this project, we will assume that you’re using GPIO14
-on the Lid Connector Board, though you’re welcome to use any GPIO -- just remember that 
-you’ll just need to modify the code appropriately if you choose a
-GPIO other than 14 for this project.</p>
-<p>
-This is what your breadboard should now look like:</p>
-<img class="bb" src="img/Your_First_Breadboard_Add_GPIO_bb.png">
-<div class="info">
-<div> Inner Workings of GPIOs</div>
-<div>
-<p>You will probably notice that the LED is not lit at this
-point, even though we've hooked it up to the GPIO.  The reason
-for this is that the GPIO, by default, reads a high voltage.
- As we discussed above, if the GPIO voltage is high, there is
-no voltage difference across the LED, and as a result no
-electric current will flow -- the LED will not light up.</p>
-<p>The code we're about to write will set the GPIO voltage low (ground, 0V).
-When the GPIO is low, current can flow through the LED, because
-there is now a voltage difference
-across the LED.
-</p>
-<p>These concepts can be a bit confusing at first, but as you use
-GPIOs more and more, the concepts and the conventions should become
-clearer.</p>
-</div>
-</div>
-<p></p>
-<p>Now that our circuit is complete, let’s write the software.</p>
-</div>
-<div class=section title=sw>
-<h4>Step #1:  Write the code.</h4>
-<p>
-The code to control the GPIO (and with it the LED) is pretty
-short.  It uses a function called Output() to configure a GPIO as an output.
-</p>
-<p>
-Type (or cut-and-paste) the following code into the your RDE’s Code
-Window:</p>
-<div class="code" data-firstline="1">
-<div class=keepme></div>
-<textarea>from rstem.gpio import Output
+    <p>The LED should now be lit.</p>
+
+    <p>Now that we have some background on how GPIOs work and how we can
+    control our LED with a GPIO, and now that we've wired up a circuit that
+    we're familiar with, let's jump in and start using GPIOs...</p>
+    <h4>Step #1: Disconnect the circuit from ground.</h4>
+
+    <p>The LED is currently connected to ground via the green wire. To
+    disconnect it, remove the green wire: <img class="bb" src=
+    "img/Introducing_Buttons_1_bb.png" alt=""></p>
+
+    <p>The LED should no longer be lit.</p>
+    <h4>Step #2: Connect the circuit to a GPIO.</h4>
+
+    <p>Now, connect a wire from the LED to a GPIO as shown in the diagram.</p>
+
+    <p>For this project, we will assume that you’re using GPIO14 on the Lid
+    Connector Board, though you’re welcome to use any GPIO -- just remember
+    that you’ll just need to modify the code appropriately if you choose a GPIO
+    other than 14 for this project.</p>
+
+    <p>This is what your breadboard should now look like:</p><img class="bb"
+    src="img/Your_First_Breadboard_Add_GPIO_bb.png" alt="">
+    <div class="info">
+      <div>
+        Inner Workings of GPIOs
+      </div>
+      <div>
+
+        <p>You will probably notice that the LED is not lit at this point, even
+        though we've hooked it up to the GPIO. The reason for this is that the
+        GPIO, by default, reads a high voltage. As we discussed above, if the
+        GPIO voltage is high, there is no voltage difference across the LED,
+        and as a result no electric current will flow -- the LED will not light
+        up.</p>
+
+        <p>The code we're about to write will set the GPIO voltage low (ground,
+        0V). When the GPIO is low, current can flow through the LED, because
+        there is now a voltage difference across the LED.</p>
+
+        <p>These concepts can be a bit confusing at first, but as you use GPIOs
+        more and more, the concepts and the conventions should become
+        clearer.</p>
+      </div>
+    </div>
+
+    <p>Now that our circuit is complete, let’s write the software.</p>
+  </div>
+  <div class="section" title="sw">
+    <h4>Step #1: Write the code.</h4>
+
+    <p>The code to control the GPIO (and with it the LED) is pretty short. It
+    uses a function called Output() to configure a GPIO as an output.</p>
+
+    <p>Type (or cut-and-paste) the following code into the your RDE’s Code
+    Window:</p>
+    <div class="code" data-firstline="1">
+      <div class="keepme"></div>
+      <textarea>
+from rstem.gpio import Output
 my_led = Output(14)
 my_led.on()
-</textarea></div>
-<p>At this point, we don't expect you'll fully understand the code above.  However, there are a couple important ideas to notice in the code:
-</p>
-<ul>
-<li> <p>In Line 2: We're configuring GPIO 14 as an output.</p> </li>
-<li> <p>In Line 3: We're turning the LED on.</p> </li>
-</ul>
-<p>
-To help you understand how we wrote this code, take some time to refer to the
-new concepts introduced in this section (see the header at the top of the
-page).  We'll look at this code again in more detail in upcoming projects.
-</p>
+</textarea>
+    </div>
 
-<h4>Step #2: Run the code.</h4>
-<p>
-Run the code the same way you did in the <a data-uid=hello></a> project – press
-the Play icon above the code window. Assuming you did everything correctly, the
-LED should now be lit.</p>
-<p>
-Congratulations! You just controlled some hardware you built using
-software that you wrote.  
-</p>
-<h4>Step #3:  Play around with it.</h4>
-<p>
-Assuming everything worked properly in the previous step, feel free
-to play around with the circuit and the code. Try changing from
-GPIO14 to a different GPIO (make sure you change the code to reflect
-the new GPIO). Or try turning off the LED by replacing the <code>my_led.on()</code>
-statement with:</p>
-<div class="code" data-firstline="3">
-<div class=keepme></div>
-<textarea>my_led.off()
-</textarea></div>
-</div>
-<footer class=keepme></footer>
-</body></html>
+    <p>At this point, we don't expect you'll fully understand the code above.
+    However, there are a couple important ideas to notice in the code:</p>
+    <ul>
+      <li>
+
+        <p>In Line 2: We're configuring GPIO 14 as an output.</p>
+      </li>
+      <li>
+
+        <p>In Line 3: We're turning the LED on.</p>
+      </li>
+    </ul>
+
+    <p>To help you understand how we wrote this code, take some time to refer
+    to the new concepts introduced in this section (see the header at the top
+    of the page). We'll look at this code again in more detail in upcoming
+    projects.</p>
+    <h4>Step #2: Run the code.</h4>
+
+    <p>Run the code the same way you did in the <a data-uid="hello"></a>
+    project – press the Play icon above the code window. Assuming you did
+    everything correctly, the LED should now be lit.</p>
+
+    <p>Congratulations! You just controlled some hardware you built using
+    software that you wrote.</p>
+    <h4>Step #3: Play around with it.</h4>
+
+    <p>Assuming everything worked properly in the previous step, feel free to
+    play around with the circuit and the code. Try changing from GPIO14 to a
+    different GPIO (make sure you change the code to reflect the new GPIO). Or
+    try turning off the LED by replacing the <code>my_led.on()</code> statement
+    with:</p>
+    <div class="code" data-firstline="3">
+      <div class="keepme"></div>
+      <textarea>
+my_led.off()
+</textarea>
+    </div>
+  </div>
+  <footer class="keepme"></footer>
+</body>
+</html>
