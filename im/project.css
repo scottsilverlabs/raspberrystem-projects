@@ -181,6 +181,20 @@ div.outer#troubleshooting p {
 }
 
 /*
+ * Steps
+ */
+.section {
+  counter-reset: step;                    /* Set the section counter to 0 */
+}
+.step::before {
+  counter-increment: step;                /* Increment the section counter*/
+  content: "Step #" counter(step) ": "; /* Display the counter */
+}
+.step {
+    font-weight: bold;
+}
+
+/*
  * Footer
  */
 footer p.nextprev {
@@ -194,48 +208,23 @@ footer p.nextprev {
 /*
  * body headers
  */
-h1 {
-    margin-bottom: 0in;
-    color: #2e74b5;
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0.3in;
+    color: black;
     line-height: 150%;
     text-align: left;
-    font-size: 20pt;
     font-weight: normal;
 }
+h1 {
+    font-size: 20pt;
+}
 h2 {
-    margin-top: 0.3in;
-    color: black;
-    line-height: 150%;
-    text-align: left;
     font-size: 16pt;
-    font-weight: normal
 }
 h3 {
-    margin-top: 0.3in;
-    color: black;
-    line-height: 150%;
-    text-align: left;
-    font-size: 14pt;
-    font-weight: normal
-}
-h4 {
-    margin: 0in;
-    margin-top: 0.3in;
-    margin-bottom: 0.1in;
-    color: black;
-    text-align: left;
-    font-size: 14pt;
-    font-weight: bold
-}
-h5 {
-    margin: 0.0in;
-    color: black;
-    text-align: left;
     font-size: 12pt;
-    font-weight: bold
 }
-A:link {
-    color: #0563c1;
+a:link {
 }
 
 /*
