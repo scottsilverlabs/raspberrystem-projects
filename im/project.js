@@ -4,6 +4,7 @@ var hw_types = {
     "button" :          { file : "hw_button.png",       item : "Button",        cell : "(I/O Cell)" },
     "accelerometer" :   { file : "hw_accelerometer.png",item : "Accelerometer", cell : "(Accel. Cell)" },
     "battery" :         { file : "hw_battery.png",      item : "Battery",       cell : "(YFC Cell)" },
+    "led_matrix" :      { file : "hw_led_matrix.png",      item : "Battery",       cell : "(YFC Cell)" },
 }
 var section_titles = {
     "intro" : "Introduction",
