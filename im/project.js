@@ -1,6 +1,9 @@
 var hw_types = {
-    "resistor" :    { file : "hw_resistor.png",     item : "Resistor",          cell : "(I/O Cell)" },
-    "led" :         { file : "hw_led.png",          item : "LED",               cell : "(I/O Cell)" },
+    "resistor" :        { file : "hw_resistor.png",     item : "Resistor",      cell : "(I/O Cell)" },
+    "led" :             { file : "hw_led.png",          item : "LED",           cell : "(I/O Cell)" },
+    "button" :          { file : "hw_button.png",       item : "Button",        cell : "(I/O Cell)" },
+    "accelerometer" :   { file : "hw_accelerometer.png",item : "Accelerometer", cell : "(Accel. Cell)" },
+    "battery" :         { file : "hw_battery.png",      item : "Battery",       cell : "(YFC Cell)" },
 }
 var section_titles = {
     "intro" : "Introduction",
@@ -51,6 +54,14 @@ chainedOnload(function() {
         hw[i].className += " inner";
         count = hw[i].getAttribute("data-count");
         name = hw[i].getAttribute("data-name");
+        item = hw[i].getAttribute("data-item");
+        if (! item) {
+            item = hw_types[name].item;
+        }
+        cell = hw[i].getAttribute("data-cell");
+        if (! cell) {
+            cell = hw_types[name].cell;
+        }
         html = '<table>';
         html += '<tr><td>';
         if (count > 0) {
@@ -59,8 +70,8 @@ chainedOnload(function() {
         }
         html += '<div class=hw_img><img src="img/' + hw_types[name].file + '"></div>';
         html += '</td></tr>';
-        html += '<tr><td colspan=3><p>' + hw_types[name].item + '</p></td></tr>';
-        html += '<tr><td colspan=3><p>' + hw_types[name].cell + '</p></td></tr>';
+        html += '<tr><td colspan=3><p>' + item + '</p></td></tr>';
+        html += '<tr><td colspan=3><p>' + cell + '</p></td></tr>';
         html += '</table>';
         hw[i].innerHTML = html;
     }

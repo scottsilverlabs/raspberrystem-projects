@@ -6,6 +6,7 @@ SVG2PNG_ARGS=(
     "hw_resistor.svg        $PADDING    $SIZE"
     "hw_button.svg          20          $SIZE"
     "hw_accelerometer.svg   $PADDING    $SIZE"
+    "hw_battery.svg         $PADDING    $SIZE"
     )
 for args in "${SVG2PNG_ARGS[@]}"; do
     SVG="${args%% *}"
