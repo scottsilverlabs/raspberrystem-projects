@@ -33,10 +33,14 @@ rsvg-convert -a -w 1000 -h 1000 ${SVG} > ${PNG}
 #
 # Second pass: Use imagemagick convert to extend background of PNG to full square.
 #
+# The "date" part of the command removes timestamps, so that this command
+# regenerates identical files when rerun.
+#
 mogrify \
     -background transparent \
     -resize ${INNER_SIZE}x${INNER_SIZE} \
     -gravity center \
     -extent x${OUTER_SIZE} \
+    +set date:create +set date:modify \
     ${PNG} 
 

@@ -15,12 +15,8 @@ for args in "${SVG2PNG_ARGS[@]}"; do
     if ! ./svg2png $args; then
         echo "ERROR: svg2png failed for $PNG"
     else
-        if [ -f $PNGDIR/$PNG ]; then
-            echo "WARNING: $PNG already exists in $PNGDIR.  Must move manually."
-        else
-            mv $* $PNG $PNGDIR
-            echo "INFO: Created and moved $PNG"
-        fi
+        mv $* $PNG $PNGDIR
+        echo "INFO: Created and moved $PNG"
     fi
 done
 
