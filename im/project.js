@@ -1,10 +1,18 @@
 var hw_types = {
-    "resistor" :        { file : "hw_resistor.png",     item : "Resistor",      cell : "(I/O Cell)" },
-    "led" :             { file : "hw_led.png",          item : "LED",           cell : "(I/O Cell)" },
-    "button" :          { file : "hw_button.png",       item : "Button",        cell : "(I/O Cell)" },
-    "accelerometer" :   { file : "hw_accelerometer.png",item : "Accelerometer", cell : "(Accel. Cell)" },
-    "battery" :         { file : "hw_battery.png",      item : "Battery",       cell : "(YFC Cell)" },
-    "led_matrix" :      { file : "hw_led_matrix.png",      item : "Battery",       cell : "(YFC Cell)" },
+    "resistor" :        
+        { file : "hw_resistor.png",     item : "Resistor",      cell : "(I/O Cell)" },
+    "led" :             
+        { file : "hw_led.png",          item : "LED",           cell : "(I/O Cell)" },
+    "button" :          
+        { file : "hw_button.png",       item : "Button",        cell : "(I/O Cell)" },
+    "accelerometer" :   
+        { file : "hw_accelerometer.png",item : "Accelerometer", cell : "(Accel. Cell)" },
+    "battery" :         
+        { file : "hw_battery.png",      item : "Battery",       cell : "(YFC Cell)" },
+    "led_matrix" :      
+        { file : "hw_led_matrix.png",   item : "LED Matrix",    cell : "(LED Matrix Cell)" },
+    "led_matrix_cable" :
+        { file : "hw_led_matrix_cable.png", item : "LED Matrix Cable", cell : "(LED Matrix Cell)" },
 }
 var section_titles = {
     "intro" : "Introduction",
