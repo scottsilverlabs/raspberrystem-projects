@@ -32,7 +32,7 @@ chainedOnload(function() {
     var filename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
     pos = pg_filename_to_pos[filename];
 
-    var footer = document.getElementsByTagName("footer")[0];
+    var body = document.getElementsByTagName("body")[0];
     prev = pos > 0 ? pg_index[pos-1].filename : pg_index_html;
     next = pos < pg_index.length - 1 ? pg_index[pos+1].filename : pg_index_html;
     var html = '';
@@ -45,7 +45,7 @@ chainedOnload(function() {
             html += '</p>';
         html += '</div>';
     html += '</div>';
-    footer.innerHTML = html;
+    body.innerHTML += html;
 
     var header = document.getElementsByTagName("header")[0];
     html = '';

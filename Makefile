@@ -49,7 +49,9 @@ pushpg:
 	@echo "####################################################################"
 
 #TIDY_TARGETS=$(wildcard im/*.html)
-TIDY_TARGETS= im/GENERAL_PURPOSE_INPUT-OUTPUT.html
+TIDY_TARGETS=
+TIDY_TARGETS+=im/GENERAL_PURPOSE_INPUT-OUTPUT.html
+TIDY_TARGETS+=im/INTRODUCTION_TO_THE_IDE.html
 
 .PHONY: $(TIDY_TARGETS)
 tidy: $(TIDY_TARGETS)

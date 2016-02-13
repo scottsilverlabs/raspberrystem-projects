@@ -197,7 +197,7 @@ div.outer#troubleshooting p {
 /*
  * Footer
  */
-footer p.nextprev {
+p.nextprev {
     text-align: center;
     padding: 10px;
     font-weight: bold;
