@@ -109,9 +109,11 @@ chainedOnload(function() {
 
     var sections = document.getElementsByClassName("section");
     for (i = 0; i < sections.length; i++) {
-        var title = section_titles[sections[i].id];
-        html = '<div class=section_heading><div>' + title + '</div></div>';
-        sections[i].innerHTML = html + sections[i].innerHTML;
+        var section_title = section_titles[sections[i].id];
+        if (section_title != undefined) {
+            var html = '<div class=section_heading><div>' + section_title + '</div></div>';
+            sections[i].innerHTML = html + sections[i].innerHTML;
+        }
     }
 
     var links = document.getElementsByTagName("a");

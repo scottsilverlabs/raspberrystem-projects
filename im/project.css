@@ -209,7 +209,8 @@ p.nextprev {
  * body headers
  */
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 0.3in;
+    margin-top: 0.2in;
+    margin-bottom: 0.2in;
     color: black;
     line-height: 150%;
     text-align: left;
