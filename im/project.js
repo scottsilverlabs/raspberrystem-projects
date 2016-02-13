@@ -33,35 +33,10 @@ chainedOnload(function() {
     pos = pg_filename_to_pos[filename];
 
     var body = document.getElementsByTagName("body")[0];
-    prev = pos > 0 ? pg_index[pos-1].filename : pg_index_html;
-    next = pos < pg_index.length - 1 ? pg_index[pos+1].filename : pg_index_html;
-    var html = '';
-    html += '<div class=outer>';
-        html += '<div class=inner>';
-            html += '<p class=nextprev>';
-                html += '<a href="' + pg_index_html + '">home</a> | '
-                html += '<a href="' + prev + '">prev</a> | '
-                html += '<a href="' + next + '">next</a>'
-            html += '</p>';
-        html += '</div>';
-    html += '</div>';
-    body.innerHTML += html;
 
-    var header = document.getElementsByTagName("header")[0];
-    html = '';
-    html += '<div id=title class="outer sticky">';
-        html += '<div class=inner>' + pg_index[pos].title + '</div>';
-    html += '</div>';
-    html += '<div id=hw_header class="outer">';
-        html += header.innerHTML;
-    html += '</div>';
-    html += '<div id=troubleshooting class=outer><div class=inner><p>' 
-        + TROUBLESHOOTING_STRING +  '</p></div></div>';
-    header.innerHTML = html;
-
-    var title = document.getElementsByTagName("title")[0];
-    title.innerHTML = pg_index[pos].title;
-
+    /*
+     * Assemble HW portion of header, if exists
+     */
     var hw = document.getElementsByClassName("hw");
     for (i = 0; i < hw.length; i++) {
         hw[i].className += " inner";
@@ -88,6 +63,49 @@ chainedOnload(function() {
         html += '</table>';
         hw[i].innerHTML = html;
     }
+
+    /*
+     * Create header
+     */
+    var header_html = '';
+    header_html += '<header>';
+    header_html += '<div id=title class="outer sticky">';
+        header_html += '<div class=inner>' + pg_index[pos].title + '</div>';
+    header_html += '</div>';
+    /* Only add HW/Troubleshooting portion of header if HW is given */
+    if (hw.length > 0) {
+        header_html += '<div id=hw_header class="outer">';
+        for (i = 0; i < hw.length; i++) {
+            header_html += hw[i].outerHTML;
+        }
+        header_html += '</div>';
+        header_html += '<div id=troubleshooting class=outer><div class=inner><p>' 
+            + TROUBLESHOOTING_STRING +  '</p></div></div>';
+    }
+    header_html += '</header>';
+
+    /*
+     * Create footer
+     */
+    prev = pos > 0 ? pg_index[pos-1].filename : pg_index_html;
+    next = pos < pg_index.length - 1 ? pg_index[pos+1].filename : pg_index_html;
+    var footer_html = '';
+    footer_html += '<div class=outer>';
+        footer_html += '<div class=inner>';
+            footer_html += '<p class=nextprev>';
+                footer_html += '<a href="' + pg_index_html + '">home</a> | '
+                footer_html += '<a href="' + prev + '">prev</a> | '
+                footer_html += '<a href="' + next + '">next</a>'
+            footer_html += '</p>';
+        footer_html += '</div>';
+    footer_html += '</div>';
+
+    /* Add header/footer */
+    body.innerHTML = header_html + body.innerHTML + footer_html;
+
+
+    var title = document.getElementsByTagName("title")[0];
+    title.innerHTML = pg_index[pos].title;
 
     var sections = document.getElementsByClassName("section");
     for (i = 0; i < sections.length; i++) {
