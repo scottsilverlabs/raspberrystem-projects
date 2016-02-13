@@ -2,13 +2,14 @@ PNGDIR=../../im/img
 SIZE=100
 PADDING=0
 SVG2PNG_ARGS=(
-    "hw_led.svg             $PADDING    $SIZE"
-    "hw_resistor.svg        $PADDING    $SIZE"
-    "hw_button.svg          20          $SIZE"
-    "hw_accelerometer.svg   $PADDING    $SIZE"
-    "hw_battery.svg         10          $SIZE"
-    "hw_led_matrix.svg      $PADDING    $SIZE"
-    "hw_led_matrix_cable.svg      $PADDING    $SIZE"
+    "hw_led.svg                 $PADDING    $SIZE"
+    "hw_resistor.svg            $PADDING    $SIZE"
+    "hw_button.svg              20          $SIZE"
+    "hw_accelerometer.svg       $PADDING    $SIZE"
+    "hw_battery.svg             10          $SIZE"
+    "hw_led_matrix.svg          $PADDING    $SIZE"
+    "hw_led_matrix_cable.svg    $PADDING    $SIZE"
+    "hw_audio_cable.svg         $PADDING    $SIZE"
     )
 for args in "${SVG2PNG_ARGS[@]}"; do
     SVG="${args%% *}"
