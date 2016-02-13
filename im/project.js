@@ -15,6 +15,8 @@ var hw_types = {
         { file : "hw_led_matrix_cable.png", item : "LED Matrix Cable", cell : "(LED Matrix Cell)" },
     "audio_cable" :
         { file : "hw_audio_cable.png",  item : "Audio Cable",   cell : "(Speaker Cell)" },
+    "speaker" :
+        { file : "hw_speaker.png",      item : "Speaker",       cell : "(Speaker Cell)" },
 }
 var section_titles = {
     "intro" : "Introduction",
