@@ -1,0 +1,88 @@
+#wizard_wrapper {
+    display: none;
+    background: transparent;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.wizard {
+    display: none;
+    position: absolute;
+}
+.wizard .block {
+    position: absolute;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 0px 15px 15px 15px;
+    min-width: 400px;
+}
+.wizard .arrow {
+    position: absolute;
+    background: transparent !important;
+    border: solid;
+    border-width: 16px;
+    border-color: transparent;
+}
+.wizard .block.left_edge {
+    border-top-left-radius: 0px;
+}
+.wizard .lightbg {
+    color: black;
+    background: rgb(200,200,200);
+    box-shadow: 10px 10px 5px rgba(200,200,200,0.5);
+}
+.wizard .arrow.lightbg.top {
+    border-bottom-color: rgb(200,200,200);
+    box-shadow: none;
+}
+.wizard .arrow.lightbg.left {
+    border-right-color: rgb(200,200,200);
+    box-shadow: none;
+}
+.wizard .darkbg {
+    color: white;
+    background: rgb(100,100,100);
+    box-shadow: 10px 10px 5px rgba(100,100,100,0.5);
+}
+.wizard .arrow.darkbg.top {
+    border-bottom-color: rgb(100,100,100);
+    box-shadow: none;
+}
+.wizard .arrow.darkbg.left {
+    border-right-color: rgb(100,100,100);
+    box-shadow: none;
+}
+
+/*
+ * QUIT/NEXT buttons
+ */
+.wizard button:hover {
+    background: hsl(84, 53%, 75%); /* Header subblock green */
+}
+.wizard button {
+    background: hsl(84, 53%, 50%); /* Header green */
+    font-size: 16pt;
+    border-radius: 5px;
+    padding: 10px;
+}
+.wizard button:focus {
+    outline:0;
+}
+.wizard button#quit {
+    float: left;
+}
+.wizard button#next {
+    float: right;
+}
+
+/*
+ * Take the tour button
+ */
+button#tour {
+    display: block;
+    font-size: 30pt;
+    margin: 30px auto;
+}

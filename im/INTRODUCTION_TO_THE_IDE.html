@@ -22,10 +22,127 @@
   </script>
   <script type="text/javascript" src="stickydiv.js">
   </script>
-  <script type="text/javascript" src="codeblocks.js">
+  <link rel="stylesheet" type="text/css" href="wizard.css">
+  <script type="text/javascript" src="wizard.js">
   </script>
 </head>
-<body>
+<body onresize="onresize()">
+    <div id=wizard_wrapper>
+    <div class=wizard>
+        <div class="block left lightbg" data-ref="codewrapper topleft 80 20">
+        <div style="min-width:500px;">
+        <p>This is the Code Window, where you'll write the programs (the "code")
+        that brings your projects to life!
+        <p>On the left side, you'll see line numbers - these are a handy if you
+        need to refer to a specific line of code.
+        </div>
+        </div>
+        <div class="arrow left lightbg" data-ref="left 10"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg left_edge" data-ref="play bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The PLAY button runs your code.  While your code is running, the
+        PLAY button will change from a triangle to a square - and you can press
+        the square to stop your code.
+        </div>
+        </div>
+        <div class="arrow top lightbg" data-ref="top 0 play"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg" data-ref="play bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The OPEN button allows you to another program you previously wrote, or to create a
+        brand new one.
+        <p>It also allows you to change the name of your programs, or to delete
+        programs you don't want anymore.
+        </div>
+        </div>
+        <div class="arrow top lightbg" data-ref="top 0 open"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg" data-ref="play bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The SAVE button saves your current program.
+        <p>Don't worry, though.  Programs are saved automatically every now and
+        then, just in case you forget.
+        </div>
+        </div>
+        <div class="arrow top lightbg" data-ref="top 0 save"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg" data-ref="play bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The SETTINGS button allows you to change the look of the RDE, update
+        the software, and more...
+        </div>
+        </div>
+        <div class="arrow top lightbg" data-ref="top 0 themeb"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg" data-ref="webbutton bottomleft -450 12">
+        <div style="min-height:200px;">
+        <p>This is name of the current program being edited.  
+        <p>To the left of the name is the RaspberrySTEM logo - it will spin
+        when a program is running.  On the right, you'll see a double arrow,
+        which allows you to expand the Code Window to the full screen.
+        </div>
+        </div>
+        <div class="arrow top lightbg" data-ref="top 360 webbutton"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom lightbg" data-ref="output left 150 -200">
+        <div style="min-width:600px">
+        <p>This is the Program Output window.
+        <p>When you run your program, sometimes it will "print" some information,
+        for example, the result of a calculation.  Whatever the program prints
+        will be displayed here.
+        <p>Also, if there's an error in the program, the error will be
+        displayed here.
+        </div>
+        </div>
+        <div class="arrow left lightbg" data-ref="left 160 output"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom darkbg left_edge" data-ref="back bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The BACK button works just like a back button in a web browser - it
+        allows you to go to the previous page in the Projects Guide.
+        </div>
+        </div>
+        <div class="arrow top darkbg" data-ref="top 0 back"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom darkbg" data-ref="back bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>Similarly, the FORWARD button works just like a forward button in a
+        web browser - it allows you to return to a page after you've gone back.
+        </div>
+        </div>
+        <div class="arrow top darkbg" data-ref="top 0 forward"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom darkbg" data-ref="back bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>The HOME button brings you to the Projects Guide index.
+        </div>
+        </div>
+        <div class="arrow top darkbg" data-ref="top 0 home"></div>
+    </div>
+    <div class=wizard>
+        <div class="block bottom darkbg" data-ref="back bottomleft 0 12">
+        <div style="min-height:200px;">
+        <p>For advanced users: 
+        <p style="margin-left:20px;">The API button brings you to the API (Application Programming
+        Interface) documentation.  The API provides functions for accessing the
+        hardware on the RaspberrySTEM.
+        <p style="margin-left:20px;">In addition, all further buttons bring you to other documentation -
+        like the Python programming language documentation.
+        </div>
+        </div>
+        <div class="arrow top darkbg" data-ref="top 0 api"></div>
+    </div>
+    </div>
   <div class="section">
   <h1>INTRODUCTION TO THE RDE</h1>
 
@@ -33,179 +150,23 @@
   CREATOR Kit, connected it to the monitor and loaded your RaspberrySTEM
   Development Environment (RDE). You’re now ready to get started with the
   projects!</p>
-  </div>
-
-  <p>Here is (generally) what your RDE should look like:</p>
-
-  <p><img style="border: 1px solid ; width: 100%;" alt="" src=
-  "img/IDE.jpg"></p>
-
   <p>The first thing you’ll likely notice is that the screen is split down the
   middle, with the left side in blue and the right side in white (you’re
-  probably reading this on the right-hand side of the screen right now). The
-  left (blue) side is also split into two pieces.</p>
+  probably reading this on the right-hand side of the screen right now).
+  You'll write and run your own code on the left side, while following the
+  Projects Guide on the right side.
+  <p>
+  But, the easiest way to get an idea of how this works, is to take the tour:
+    <button id=tour onclick="wizard()">Take The Tour!</button>
 
-  <p>Below, we’ll discuss each of these sections of the RDE and how they
-  work.</p>
-  <h2><strong>Code Window</strong></h2>
+    
 
-  <p>The Code Window is the area in the upper-left portion of the screen:</p>
-
-  <p><img style="width: 75%;" src="img/Code%20Window.png" alt=""></p>
-
-  <p>At the top left side of the window are four clickable icons. To the right
-  of those icons is the name of the file you're editing. Below the icons is the
-  area where you write and edit your code.</p>
-
-  <p>The four clickable icons are:</p>
-  <table style="margin-left: 0.5in;">
-    <tbody>
-      <tr>
-        <td><img style="width: 40px;" src="img/play.png" alt=""></td>
-        <td>
-
-          <p>This is the “Play” icon. When you click this icon, your code will
-          execute (also called "running your code").</p>
-        </td>
-      </tr>
-      <tr>
-        <td><img style="width: 40px;" src="img/folder.png" alt=""></td>
-        <td>
-          <p align="center">This is the “File” icon. When you click this icon,
-          a list of files will pop up so that you can get back to code you have
-          previously saved. The popup will look like this:</p>
-          <p style="text-align: center;"><img style=
-          "border: 1px solid; width: 300px;" alt="" src=
-          "img/file_open.png"></p>
-
-          <p>From this menu you can do three things:</p>
-          <ul>
-            <li>
-
-              <p>To create a new file, click on the “New File” bar</p>
-            </li>
-            <li>
-
-              <p>To open a previously saved file, click on the file name of the
-              file you’d like to open</p>
-            </li>
-            <li>
-
-              <p>To change the name or to duplicate an existing file, click on
-              the “Edit” icon to the right of the file you’d like to change</p>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td><img style="width: 40px;" src="img/save.png" alt=""></td>
-        <td>
-
-          <p>This is the “Save” icon. When you click this icon, your code will
-          be saved under the current file name. If you’d like to change the
-          name of the file, use the “File” icon mentioned above.</p>
-        </td>
-      </tr>
-      <tr>
-        <td><img style="width: 40px;" src="img/theme.png" alt=""></td>
-        <td>
-
-          <p>This is the “Settings” icon. When you click this icon, you will be
-          prompted to change various settings or to shut down the RDE.</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>Note that by clicking the two arrows to the right of the filename, you can
-  expand or collapse this window.</p>
-  <h2><strong>Output Window</strong></h2>
-
-  <p>Here is the window you should see in the lower-left portion of the
-  screen:</p>
-
-  <p><img style="width: 75%;" src="img/Program%20Output.png" alt=""></p>
-
-  <p>This is called the Output Window. It is where your program will display
-  information about the program status.</p>
-
-  <p>For example, you may tell your program to print something to this area.
-  Or, if your program has an error, the error would be displayed in this area.
-  This area will also indicate if your program has finished running or you have
-  stopped it.</p>
-  <h2><strong>Projects &amp; Documentation Window</strong></h2>
-
-  <p>On the right-hand side of the screen, you should see a window that
-  resembles this:</p>
-
-  <p><img style="border: 1px solid; width: 60%;" src="img/PG%20Window.jpg" alt=
-  ""></p>
-
-  <p>This is the Projects &amp; Documentation Window, and it consists of two
-  parts:</p>
-  <ol>
-    <li>
-
-      <p><strong>Navigation Menu</strong></p>
-
-      <p>The Icon Menu consists of four clickable navigation icons, each of
-      which serves a specific function. Let’s look at the four icons
-      individually:</p>
-      <table>
-        <tbody>
-          <tr>
-            <td><img style="width: 40px;" src="img/back.png" alt=""></td>
-            <td>
-
-              <p>Clicking the “Back” arrow will step you back through your
-              viewing history.</p>
-            </td>
-          </tr>
-          <tr>
-            <td><img style="width: 40px;" src="img/forward.png" alt=""></td>
-            <td>
-
-              <p>Clicking the “Forward” arrow will step you forward through
-              your viewing history (if you had previously stepped
-              backwards).</p>
-            </td>
-          </tr>
-          <tr>
-            <td><img style="width: 40px;" src="img/home.png" alt=""></td>
-            <td>
-
-              <p>The “Home” icon will take you to the home page list of all the
-              projects (as seen in the example).</p>
-            </td>
-          </tr>
-          <tr>
-            <td><img style="width: 40px;" src="img/api.png" alt=""></td>
-            <td>
-
-              <p>The “API” icon will take you to the list of custom APIs (we'll
-              discuss what that is later) available as part of the
-              RaspberrySTEM.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-
-      <p><strong>Projects &amp; Documentation</strong></p>
-
-      <p>Below the Navigation Menu is the view of the projects and
-      documentation available as part of the RaspberrySTEM platform. Any parts
-      of the documentation that are underlined in blue are clickable hyperlinks
-      that will take you to other parts of the documentation or projects.</p>
-    </li>
-  </ol>
-
-  <p>Now that you have a basic overview of the RDE, it’s time to write and run
+    <p>Now that you have a basic overview of the RDE, it’s time to write and run
   your first program. We call this Project #1, and like all the RaspberrySTEM
   Projects, it’s available in the Projects &amp; Documentation Window.</p>
 
   <p>To start working on Project #1, click the <strong><span style=
   "text-decoration: underline;">next</span></strong> link below...</p>
+  </div>
 </body>
 </html>
