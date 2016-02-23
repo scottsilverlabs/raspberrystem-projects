@@ -26,38 +26,65 @@
 <p>
 </p>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
-The Minecraft Pi does not have any direct way to determine which direction Steve is facing.  That’s a bummer, because if you did know which way you were facing, you could change the world directly in front of you.
-However, the RaspberrySTEM adds a couple new APIs to get the direction.  They use some tricks to determine your direction.  Because they use tricks, they have do briefly blank the screen - you’ll see the world turn black for about a half second when you call these functions.
+<p>The Minecraft API on the Raspberry Pi does not have any direct way to determine which direction Steve is facing.
+This makes it essentially impossible to create code that allows you to modify the Minecraft world relative to what
+you are seeing in front of you on the screen.  For example, without being able to programmatically tell what 
+direction you're facing, you can't write a program that will do something directly in front of (or next to or behind)
+your character.
 
-The first function is called get_heading().  It returns the angle you are pointing relative to the Z axis.
+<p>However, the RaspberrySTEM adds a couple new APIs that allows us to get the direction Steve is facing, and
+therefore allows us to implement additional features that you couldn't get with the Minecraft API by itself.
+Note that to use the functions below, we are doing some behind-the-scenes trickery with Minecraft, and because of
+that, you are likely to see the screen briefly go blank (up to a half second) when you call these functions -- 
+unfortunately, that's the result of what we have to do to get these APIs to work.
 
-	import
-    control.show()
-	mc = minecraft.Minecraft.create()
-	white True:
-		print(control.get_heading(mc))
-time.sleep(1)
+<h3>get_heading()</h3>
 
-When run, you’ll see the screen go black briefly, once a second.  In the Program Output window, you see the angle printed.  Try turning Steve around to watch the angle change.
+<p>The <code>get_heading()</code> function returns the angle you are pointing relative to the Z axis:
 
-INFO Box: How get_heading works
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
 
-The second function, get_direction(), provides two angles - the first angle is your heading, similar to the angle provided by get_heading().  The second angle is the angle Steve is looking up or down.  This function uses a different method to determine the angle, which is not as precise as get_heading().  So, if you want a more precise heading, use get_heading().
+control.show()
 
-You can test get_direction() the same way as get_heading - just replace get_heading with get_direction in the code above.
+mc = minecraft.Minecraft.create()
 
-INFO Box: How get_direction works
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
-test
-*if foo
-*	print("Ouch!")
-else:
-	print("You win!")
+while True:
+	  print(control.get_heading(mc))
+	  time.sleep(1)
 </textarea></div>
-<h2>The Challenge</h2>
+
+<p>When we run this program, we'll see the screen go black briefly, about once a second.  This is because
+we're continually calling the <code>get_heading()</code> function (in a real application, you likely won't
+be calling the function very often, so this won't be a major issue).  In the Program Output window, we will
+see the angle printed each time through the loop.  
+
+<p>Try turning Steve around to face in different directions and watch the angle change.
+
+<h3>get_direction()</h3>
+
+<p>The <code>get_direction()</code> function returns provides two angles - the first angle is your heading, 
+similar to the angle provided by <code>get_heading()</code>.  The second angle is the angle Steve is looking 
+in the Y-axis (up or down).  This function uses a different method to determine the angle, which is not as 
+precise as get_heading().  So, if you want a more precise heading (relative to just the Z-axis), use 
+the <code>get_heading()</code> function:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+while True:
+	  print(control.get_direction(mc))
+	  time.sleep(1)
+</textarea></div>
+
+
 <div id=footer></div>
 </body></html>
