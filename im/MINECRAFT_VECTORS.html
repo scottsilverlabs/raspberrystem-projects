@@ -23,25 +23,101 @@
     <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
 </header>
 
+<p>Minecraft has a number of APIs geared towards managing the position
+of your character and the blocks within the game.  Location within the
+Minecraft world is typically defined using an X, Y, Z coordinate system.
+There are important points to note with this:
+
+<p>First, the coordinate system is oriented as follows:
+
+<div style="text-align: center;"><img style="width: 700px" alt="" src="img/minecraft_coord.jpg"></div>
+
+<p>And second, the point (0, 0, 0) will correspond approximately to the
+center of the Minecraft world, as follows:
+
+<div style="text-align: center;"><img style="width: 700px" alt="" src="img/minecraft_center.jpg"></div>
+
+<p>This means that the X axis will be used to denote north/south, with positive X values denoting north
+of the center of the world and negative X values denoting south of the center of the world.  Likewise, the
+Z axis will denote east/west, with +Z indicating east and -Z indicating west.  The Y axis denotes distance
+from ground-level -- +Y is above ground and -Y is below ground.
+
+<p>Here are the most commonly used position-related functions provided in
+the RaspberrySTEM API:
+
 <h3>getPos()</h3>
-<p>
-entityPos = mc.entity.getPos(entityId)
-</p>
+
+<p>The <code>getPos()</code> function returns the location of the
+character in X, Y, Z coordinates:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+player_position = mc.getPos()
+print(player_position)
+</textarea></div>
 
 <h3>setPos()</h3>
-<p>
-mc.player.setPos(entityId,0.0,0.0,0.0)
-</p>
+
+<p>The <code>setPos()</code> function sets the location of the
+character in X, Y, Z coordinates:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+mc.setPos(0,0,0)
+</textarea></div>
+
 
 <h3>getTilePos()</h3>
-<p>
-entityTile = mc.entity.getTilePos(entityId)
-</p>
+
+<p>Similar to <code>getPos()</code>, the <code>getTilePos()</code> function 
+returns the location of the block that the character is standing on 
+in X, Y, Z coordinates:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+player_position = mc.getTilePos()
+print(player_position)
+</textarea></div>
+
 
 <h3>setTilePos()</h3>
-<p>
-mc.player.setTilePos(entityId,0,0,0)
-</p>
+
+<p>Similar to <code>setPos()</code>, the <code>setTilePos()</code> function 
+sets the location of the block that the character is standing on 
+in X, Y, Z coordinates:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+mc.setPos(0,0,0)
+</textarea></div>
 
 
 <p>

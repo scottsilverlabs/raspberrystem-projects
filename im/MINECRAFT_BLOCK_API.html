@@ -31,62 +31,143 @@ APIs in upcoming projects, but in the meantime, we wanted to provide
 a general overview of the block functions, how they work and what
 arguments are required to make use of the functions.
 
+<p>Each block in the Minecraft world has a "type" (what the block is made out of) 
+and each type of block can have additional characteristics associated with it 
+(the block "data").  For example, blocks with the type "WOOD" can also have
+data associated with them that indicate the wood block is made from "Oak," or
+"Birch" or "Spruce."  
+
+<p>Note that in Minecraft, everything is made of blocks, including the 
+air.  The blocks that make up the air in Minecraft function exactly
+the same as all other blocks, but have the specific type of "AIR."  If you
+want to "remove" a block from Minecraft, you can change it's type to AIR. 
+
+<p>Here are the most commonly used block-related functions provided in
+the RaspberrySTEM API:
+
 <h3>.getBlock()</h3>
 
-.getBlock(x,y,z)
-"Get block (x,y,z) => id:int"
-Available on Minecraft: Pi EditionAvailable on RaspberryJuice
-#retrieves the block type for the block at 0,0,0
-blockType = mc.getBlock(0,0,0)
+<p>The <code>getBlock()</code> function takes the location of a block
+(in X, Y, Z coordinates) and returns the type of block at that 
+location.
 
-<h3>.getBlocks()</h3>
+<p>For example, to get the block type for the block at the location
+0, 0, 0:
 
-.getBlocks(x0,y0,z0,x1,y1,z1)
-"Get a cuboid of blocks (x0,y0,z0,x1,y1,z1) => [id:int]"
-Available on RaspberryJuice
-#get the block id's in a cuboid
-blocks = mc.getBlocks(-1,-1,-1,1,1,1)
-for block in blocks:
-    print block
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+block_type = mc.getBlock(0,0,0)
+print(block_type)
+</textarea></div>
+
+<p>See below for the different types of blocks supported in the Minecraft
+Pi edition.
 
 <h3>.getBlockWithData()</h3>
 
-.getBlockWithData(x,y,z)
-"Get block with data (x,y,z) => Block"
-Available on Minecraft: Pi EditionAvailable on RaspberryJuice
-#retrieves a block object for the block at 0,0,0
-blockObj = mc.getBlockWithData(0,0,0)
+<p>The <code>getBlockWithData()</code> function takes the location of a block
+(in X, Y, Z coordinates) and returns the type of block at that 
+location, along with other characteristics of the block.
+
+<p>For example, to get the block type and data for the block at the 
+location 0, 0, 0:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+block = mc.getBlockWithData(0,0,0)
+block_type = block.id
+block_data = block.data
+
+print(block_type, block_data)
+</textarea></div>
+
+<p>See below for the different types of block data supported in the Minecraft
+Pi edition.
+
 
 <h3>.setBlock()</h3>
 
-.setBlock(x,y,z)
-"Set block (x,y,z,id,[data])"
-Available on Minecraft: Pi EditionAvailable on RaspberryJuice
-#sets a block at an x, y, z co-ordinate to a particular type
-mc.setBlock(0,0,0,block.DIRT.id)
-#sets a block to a particular type and 'subtype'
+<p>The <code>setBlock()</code> function takes a location (and optionally a
+set of data) and places a block with that data type at the location.
+
+<p>For example, to place a wood block made of Oak at location 0, 0, 0:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
 mc.setblock(0,0,0,block.WOOD.id, 1)
+</textarea></div>
+
 
 <h3>.setBlocks()</h3>
 
-.setBlocks(x0,y0,z0,x1,y1,z1,blockType, blockData)
-"Set a cuboid of blocks (x0,y0,z0,x1,y1,z1,id,[data])"
-Available on Minecraft: Pi EditionAvailable on RaspberryJuice
-#sets many blocks at a time, filling the gap between 2 sets of x, y, z co-ordinates
-mc.setBlocks(-1, -1, -1, 1, 1, 1, block.STONE.id)
+<p>The <code>setBlocks()</code> function takes two locations (and optionally a
+set of data) and places a cuboid (three dimensional rectangular) set of blocks 
+with that data type at all the points between those locations.
+
+<p>For example, to place a set of 125 wood blocks made of Oak in a cuboid with one
+corner located at 0, 0, 0 and the farthest corner located at 5, 5, 5:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+mc.setblocks(0,0,0,5,5,5,block.WOOD.id)
+</textarea></div>
+
 
 <h3>.getHeight()</h3>
 
-.getHeight(x,z)
-"Get the height of the world (x,z) => int"
-Available on Minecraft: Pi EditionAvailable on RaspberryJuice
-#find the y (vertical) of an x, z co-ordinate which represents the 'highest' (non-air) block
-y = mc.getHeight(0,0)
+<p>The <code>getHeight()</code> function takes a two-dimensional x, z location and 
+returns the height of the highest block at that location.
+
+<p>For example, to find the height of the highest non-air block at the location
+0, 0:
+
+<div class="code" data-firstline="1">
+<div> </div>
+<textarea>
+from rstem.mcpi import minecraft
+
+control.show()
+
+mc = minecraft.Minecraft.create()
+
+height = mc.getHeight(0,0)
+
+print(height)
+</textarea></div>
+
 
 <h3>Block Types</h3>
 
-.id
-"The id (or type) of block"
+<p>Here is a list of all block types available in the Minecraft
+Pi Edition:
 
 AIR                 = Block(0)
 STONE               = Block(1)
@@ -162,12 +243,11 @@ GLOWING_OBSIDIAN    = Block(246)
 NETHER_REACTOR_CORE = Block(247)
 
 
-<h3>Other Block Data</h3>
+<h3>Block Data</h3>
 
-.data
-"The data (or sub-type) of a block"
+<p>Here is a list of all block data types available in the Minecraft
+Pi Edition:
 
-Data Values of blocks:
 WOOL:
 0: White
 1: Orange
@@ -190,38 +270,16 @@ WOOD:
 0: Oak (up/down)
 1: Spruce (up/down)
 2: Birch (up/down)
-(below not on Pi)
-3: Jungle (up/down)
-4: Oak (east/west)
-5: Spruce (east/west)
-6: Birch (east/west)
-7: Jungle (east/west)
-8: Oak (north/south)
-9: Spruce (north/south)
-10: Birch (north/south)
-11: Jungle (north/south)
-12: Oak (only bark)
-13: Spruce (only bark)
-14: Birch (only bark)
-15: Jungle (only bark)
-
-WOOD_PLANKS (Not on Pi):
-0: Oak
-1: Spruce
-2: Birch
-3: Jungle
 
 SAPLING:
 0: Oak
 1: Spruce
 2: Birch
-3: Jungle (Not on Pi)
 
 GRASS_TALL:
 0: Shrub
 1: Grass
 2: Fern
-3: Grass (color affected by biome) (Not on Pi)
 
 TORCH:
 1: Pointing east
@@ -243,13 +301,6 @@ STONE_SLAB / STONE_SLAB_DOUBLE:
 3: Cobblestone
 4: Brick
 5: Stone Brick
-Below - not on Pi
-6: Nether Brick
-7: Quartz
-
-Not on Pi
-SNOW_BLOCK:
-0-7: Height of snow, 0 being the lowest, 7 being the highest.
 
 TNT:
 0: Inactive
