@@ -26,32 +26,23 @@
   </script>
 </head>
 <body>
-  <header>
-    <div id="title">
-      SIMON 2
-    </div>
-    <div id="description">
-      In this project, we continue the development of our Simon-like pattern
+  <div class="hw" data-count="1" data-name="resistor"></div>
+  <div class="hw" data-count="1" data-name="led"></div>
+  <div class="hw" data-count="1" data-name="audio_cable"></div>
+  <div class="hw" data-count="1" data-name="speaker"></div>
+  <div class="section" id="intro">
+      <p>In this project, we continue the development of our Simon-like pattern
       matching game by adding the LEDs to our circuit.
-    </div>
-    <div id="hw_required">
-      Speaker &amp; Audio Cable<br>
-      I/O (Input/Output) RaspberrySTEM Cell
-    </div>
-    <div id="troubleshooting">
-      <a href="TROUBLESHOOTING.html">Having issues? Check out the
-      Troubleshooting Guide.</a>
-    </div>
-  </header>
 
   <p>In the previous project, we wired up and tested the four buttons we'll be
   using for our pattern-matching game. Now it's time to add four LEDs to the
   circuit from our last project and test those.</p>
-  <h2>Hardware Implementation</h2>
+  </div>
+  <div class="section" id="hw">
 
   <p>We're going to start with the breadboard setup from the previous
   project.</p>
-  <h4>Hardware Step #1: Wire Your First LED Using a GPIO Output</h4>
+  <h2>Hardware Step #1: Wire Your First LED Using a GPIO Output</h2>
 
   <p>For this game that we're building, we'll have four different colored LEDs,
   and each LED will be associated with a particular button. For that reason,
@@ -74,21 +65,21 @@
 
   <p>Keep in mind that you're going to want to ensure that neither leg of the
   LED sits in the same connect strip as a button or another LED.</p>
-  <h4>Hardware Step #2: Wire Your Second LED Using a GPIO Output</h4>
+  <h2>Hardware Step #2: Wire Your Second LED Using a GPIO Output</h2>
 
   <p>We can now wire our second LED. We've chosen GPIO18 for this LED and are
   using a yellow LED.</p>
 
   <p>Here is what your breadboard should look like:</p><img class="bb" src=
   "img/simon-4but-2led_bb.png" alt="">
-  <h4>Hardware Step #3: Wire Your Third LED Using a GPIO Output</h4>
+  <h2>Hardware Step #3: Wire Your Third LED Using a GPIO Output</h2>
 
   <p>Time to wire our third LED to the bottom button, like just the previous
   two. We've chosen GPIO24 for this LED and are using a red LED.</p>
 
   <p>Here is what your breadboard should look like:</p><img class="bb" src=
   "img/simon-4but-3led_bb.png" alt="">
-  <h4>Hardware Step #4: Wire Your Fourth LED Using a GPIO Output</h4>
+  <h2>Hardware Step #4: Wire Your Fourth LED Using a GPIO Output</h2>
 
   <p>It's time to wire our final LED. We've chosen GPIO27 for this LED and are
   using a green LED.</p>
@@ -116,6 +107,7 @@
   <p>Here's what this import code should look like (this probably looks
   familiar from earlier GPIO projects):</p>
   <div class="code" data-firstline="1">
+      <div class="keepme"></div>
     <textarea>
 from rstem.gpio import Output
 import time
