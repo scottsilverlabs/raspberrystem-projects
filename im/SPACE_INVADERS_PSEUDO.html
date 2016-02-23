@@ -1,83 +1,83 @@
-<!DOCTYPE HTML PUBLIC "-//h2C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 0</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SPACE INVADERS 0</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>SPACE INVADERS 0</div>
-    <div id=description>In this project, we kick off the development of our Space Invaders
-    by writing the pseudo-code.</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      SPACE INVADERS 0
+    </div>
+    <div id="description">
+      In this project, we kick off the development of our Space Invaders by
+      writing the pseudo-code.
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<p>You're probably familiar with the game Space Invaders, which
-was
-originally made popular in the 1970s in arcades and on the Atari (one of the
-first home
-gaming systems).  When it first came out, this game was pretty
-revolutionary.
-</p>
-<p>Over the next 10 projects, we're going to
-build a basic version of Space Invaders using the RaspberrySTEM CREATOR Kit
-components we've already wired up.  The LED Matrix will be
-used to
-display the graphics, the accelerometer will be used to control the
-left and right movement of the ship (by tilting the RaspberrySTEM CREATOR Kit left
-or right) and the button will be used to fire missiles at the invading
-aliens.  
-By the time we've
-completed this project, you should have
-the basic skills necessary to build more complex games.
-</p>
-<p>Like most games you'll build, this one
-is going to start with a game loop, and in this first Space Invaders
-project, we'll
-start by writing the pseudo-code for our game loop (see <a href="GAME_LOOPS.html">PROGRAMMING GAME
-LOOPS</a> for more
-information on both pseudo-code and game loops).  In our
-experience, the best way to write pseudo-code is in an iterative
-process, meaning that we write the very high level steps out first, and
-then we break each of those steps into smaller chunks with more
-details.  We continue doing this until we have enough detail
-that
-we're ready to actually start writing our code.</p>
-<h2>Our Game Loop</h2>
-<p>Let's start with the basic outline for any game loop, much as
-we
-described in <a href="GAME_LOOPS.html">PROGRAMMING GAME LOOPS</a>:</p>
+  <p>You're probably familiar with the game Space Invaders, which was
+  originally made popular in the 1970s in arcades and on the Atari (one of the
+  first home gaming systems). When it first came out, this game was pretty
+  revolutionary.</p>
 
+  <p>Over the next 10 projects, we're going to build a basic version of Space
+  Invaders using the RaspberrySTEM CREATOR Kit components we've already wired
+  up. The LED Matrix will be used to display the graphics, the accelerometer
+  will be used to control the left and right movement of the ship (by tilting
+  the RaspberrySTEM CREATOR Kit left or right) and the button will be used to
+  fire missiles at the invading aliens. By the time we've completed this
+  project, you should have the basic skills necessary to build more complex
+  games.</p>
 
-<pre>
+  <p>Like most games you'll build, this one is going to start with a game loop,
+  and in this first Space Invaders project, we'll start by writing the
+  pseudo-code for our game loop (see <a href="GAME_LOOPS.html">PROGRAMMING GAME
+  LOOPS</a> for more information on both pseudo-code and game loops). In our
+  experience, the best way to write pseudo-code is in an iterative process,
+  meaning that we write the very high level steps out first, and then we break
+  each of those steps into smaller chunks with more details. We continue doing
+  this until we have enough detail that we're ready to actually start writing
+  our code.</p>
+  <h2>Our Game Loop</h2>
+
+  <p>Let's start with the basic outline for any game loop, much as we described
+  in <a href="GAME_LOOPS.html">PROGRAMMING GAME LOOPS</a>:</p>
+  <pre>
 Initialize the game environment
 
 while (game not finished):
-	Check for user input
-	Update the game world
-	Draw graphics on the screen
-	Wait for some period of time
+        Check for user input
+        Update the game world
+        Draw graphics on the screen
+        Wait for some period of time
 
-Finish & Cleanup
+Finish &amp; Cleanup
 </pre>
-<p>Now, let's look at each of these areas individually...</p>
 
-<h2>Initialize the game environment</h2>
-<p>This
-is where we're going to initialize all of the components and game
-elements that we'll be using throughout our game.  In our
-Space
-Invaders implementation, the three major components we'll have are the
-ship that we control ("spaceship"), the alien ships that we try to
-destroy ("aliens") and the missiles that we fire from our spaceship at
-the aliens ("missiles").  We'll need to initialize the design,
-position and other aspects of each of those components, as well as
-general setup, like importing the functions we'll need and
-initializing the framebuffer.</p>
-<p>
-Here's a general overview of what this part of the code will look like:</p>
-<pre>
+  <p>Now, let's look at each of these areas individually...</p>
+  <h2>Initialize the game environment</h2>
+
+  <p>This is where we're going to initialize all of the components and game
+  elements that we'll be using throughout our game. In our Space Invaders
+  implementation, the three major components we'll have are the ship that we
+  control ("spaceship"), the alien ships that we try to destroy ("aliens") and
+  the missiles that we fire from our spaceship at the aliens ("missiles").
+  We'll need to initialize the design, position and other aspects of each of
+  those components, as well as general setup, like importing the functions
+  we'll need and initializing the framebuffer.</p>
+
+  <p>Here's a general overview of what this part of the code will look
+  like:</p>
+  <pre>
 # Initialize the game environment
 Import required functions/modules
 Initialize framebuffer
@@ -87,58 +87,53 @@ Initialize aliens
 Initialize missiles
 </pre>
 
+  <p>There will be other details that we'll add in there as well, but these are
+  the big items we'll need to address in our initialization code.</p>
+  <h2>while (game not finished):</h2>
 
-<p>There
-will be other details that we'll add in there as well, but these are
-the big items we'll need to address in our initialization code.</p>
+  <p>This will be the start of our game loop. For this game, we'll loop
+  continuously until the game is completed (either you destroy all the aliens
+  or they get to the bottom of the screen and destroy you), at which point we
+  can break from our while loop.</p>
 
-<h2>while (game not finished):</h2>
-<p>This will be the start of our game loop.  For this
-game, we'll
-loop continuously until the game is completed (either you destroy all
-the aliens or they get to the bottom of the screen and destroy you), at
-which point we can break from our while loop.</p>
-<p>So, our loop will just be:</p>
-<pre>
+  <p>So, our loop will just be:</p>
+  <pre>
 while True:
 </pre>
-<h2>Check for user input</h2>
-<p>Unlike
-our previous game loops, for this game we'll be taking user input.
- Specifically, we'll be reading data from the accelerometer to
-know which direction the game is being tilted and we'll be checking the
-button to determine if a missile was fired.   This part of the
-code will look something like:</p>
-<pre>
+  <h2>Check for user input</h2>
+
+  <p>Unlike our previous game loops, for this game we'll be taking user input.
+  Specifically, we'll be reading data from the accelerometer to know which
+  direction the game is being tilted and we'll be checking the button to
+  determine if a missile was fired. This part of the code will look something
+  like:</p>
+  <pre>
 # Check for user input
 Get accelerometer input
 Get button input
 </pre>
+  <h2>Update the game world</h2>
 
-<h2>Update the game world</h2>
-<p>Each time through the loop, we'll have to update the status of
-all
-the three major components of the game -- the spaceship, the aliens and
-the missiles.  In addition, we'll want to test to see if any of
-the
-previously launched missiles has collided with an alien.</p>
-<p>With that in mind, this section of the code will look something
-like:</p>
-<pre>
+  <p>Each time through the loop, we'll have to update the status of all the
+  three major components of the game -- the spaceship, the aliens and the
+  missiles. In addition, we'll want to test to see if any of the previously
+  launched missiles has collided with an alien.</p>
+
+  <p>With that in mind, this section of the code will look something like:</p>
+  <pre>
 # Update the game world
 Update the location of the spaceship
 Update the location of the aliens
 Update the location of any missiles
 Check for any missile collisions
 </pre>
-<p>
-Now that we have updated information for each of the components of our
-game, it's time to update the graphics based on the new information.
- This involves erasing the framebuffer, writing the new
-graphics
-to the framebuffer and then showing the revised framebuffer.
- Here's what that will look like in our code:</p>
-<pre>
+
+  <p>Now that we have updated information for each of the components of our
+  game, it's time to update the graphics based on the new information. This
+  involves erasing the framebuffer, writing the new graphics to the framebuffer
+  and then showing the revised framebuffer. Here's what that will look like in
+  our code:</p>
+  <pre>
 # Draw graphics on the screen
 Erase the framebuffer
 Draw the spaceship
@@ -146,43 +141,38 @@ Draw the aliens
 Draw any missiles
 Show the framebuffer
 </pre>
-<h2>Wait for some period of time</h2>
-<p>At the end of our game loop, we need to include a pause before
-continuing our next round through the loop.  For this game,
-our
-graphics aren't going to (necessarily) update each time through the
-loop, so our wait time doesn't need to be correlated to our graphics
-updates.  That said, we need to pick a time that is not too
-long
--- otherwise the graphics will be as responsive as we'd like -- and
-also not too short -- or we'll needlessly overwork the processor.</p>
-<p>We'll
-play around with various wait times and see what works, but typically,
-we'd expect something in the .001 to .1 seconds time frame...</p>
-<pre>
+  <h2>Wait for some period of time</h2>
+
+  <p>At the end of our game loop, we need to include a pause before continuing
+  our next round through the loop. For this game, our graphics aren't going to
+  (necessarily) update each time through the loop, so our wait time doesn't
+  need to be correlated to our graphics updates. That said, we need to pick a
+  time that is not too long -- otherwise the graphics will be as responsive as
+  we'd like -- and also not too short -- or we'll needlessly overwork the
+  processor.</p>
+
+  <p>We'll play around with various wait times and see what works, but
+  typically, we'd expect something in the .001 to .1 seconds time frame...</p>
+  <pre>
 # Wait for some period of time
 Wait for between .001 and .01 seconds
 </pre>
-<h2>Finish &amp; Cleanup</h2>
-<p>Finally, we need to handle the case where we fall through the
-loop,
-either because we've won the game (destroyed all the aliens) or lost
-the game (the aliens got to the bottom of the screen).  In
-either
-case, we'll at least print the final game status (win or lose) to the
-output window.
-</p>
-<pre>
+  <h2>Finish &amp; Cleanup</h2>
+
+  <p>Finally, we need to handle the case where we fall through the loop, either
+  because we've won the game (destroyed all the aliens) or lost the game (the
+  aliens got to the bottom of the screen). In either case, we'll at least print
+  the final game status (win or lose) to the output window.</p>
+  <pre>
 # Finish &amp; Cleanup
 Print "You won!" if the player wins
 Print "You lost..." if the player loses
 </pre>
+  <h2>Putting It All Together</h2>
 
-<h2>Putting It All Together</h2>
-<p>Here
-is what the full pseudo-code for this game will look like... we'll spend
-the next projects building it piece-by-piece:</p>
-<pre>
+  <p>Here is what the full pseudo-code for this game will look like... we'll
+  spend the next projects building it piece-by-piece:</p>
+  <pre>
 # Initialize the game environment
 Import required functions/modules
 Initialize framebuffer
@@ -217,8 +207,7 @@ Print "You won!" if the player wins
 Print "You lost..." if the player loses
 
 </pre>
-
-
-<p class=nextprev><a href="index.html">home</a> | <a href="ACCELEROMETER.html">prev</a> |
-<a href="SPACE_INVADERS_1.html">next</a></p>
-</body></html>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "ACCELEROMETER.html">prev</a> | <a href="SPACE_INVADERS_1.html">next</a></p>
+</body>
+</html>

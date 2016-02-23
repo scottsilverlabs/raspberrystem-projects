@@ -1,64 +1,78 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <title></title>
 </head>
 <body>
-<header>
-    <div id=title></div>
-    <div id=description>This is a minecraft project</div>
-    <div id=hw_required>
-    Accelerometer Cell<br>
-    LED Matrix Cell
+  <header>
+    <div id="title"></div>
+    <div id="description">
+      This is a minecraft project
     </div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
-<h2>The Introduction</h2>
-<p>
-</p>
+    <div id="hw_required">
+      Accelerometer Cell<br>
+      LED Matrix Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
+  <h2>The Introduction</h2>
+  <h2>The Hardware</h2>
 
-<h2>The Hardware</h2>
-<p>None required.</p>
-<h2>The Software</h2>
-The Minecraft Pi does not have any direct way to determine which direction Steve is facing.  That’s a bummer, because if you did know which way you were facing, you could change the world directly in front of you.
-However, the RaspberrySTEM adds a couple new APIs to get the direction.  They use some tricks to determine your direction.  Because they use tricks, they have do briefly blank the screen - you’ll see the world turn black for about a half second when you call these functions.
-
-The first function is called get_heading().  It returns the angle you are pointing relative to the Z axis.
-
-	import
-    control.show()
-	mc = minecraft.Minecraft.create()
-	white True:
-		print(control.get_heading(mc))
-time.sleep(1)
-
-When run, you’ll see the screen go black briefly, once a second.  In the Program Output window, you see the angle printed.  Try turning Steve around to watch the angle change.
-
-INFO Box: How get_heading works
-
-The second function, get_direction(), provides two angles - the first angle is your heading, similar to the angle provided by get_heading().  The second angle is the angle Steve is looking up or down.  This function uses a different method to determine the angle, which is not as precise as get_heading().  So, if you want a more precise heading, use get_heading().
-
-You can test get_direction() the same way as get_heading - just replace get_heading with get_direction in the code above.
-
-INFO Box: How get_direction works
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>None required.</p>
+  <h2>The Software</h2>The Minecraft Pi does not have any direct way to
+  determine which direction Steve is facing. That’s a bummer, because if you
+  did know which way you were facing, you could change the world directly in
+  front of you. However, the RaspberrySTEM adds a couple new APIs to get the
+  direction. They use some tricks to determine your direction. Because they use
+  tricks, they have do briefly blank the screen - you’ll see the world turn
+  black for about a half second when you call these functions. The first
+  function is called get_heading(). It returns the angle you are pointing
+  relative to the Z axis. import control.show() mc =
+  minecraft.Minecraft.create() white True: print(control.get_heading(mc))
+  time.sleep(1) When run, you’ll see the screen go black briefly, once a
+  second. In the Program Output window, you see the angle printed. Try turning
+  Steve around to watch the angle change. INFO Box: How get_heading works The
+  second function, get_direction(), provides two angles - the first angle is
+  your heading, similar to the angle provided by get_heading(). The second
+  angle is the angle Steve is looking up or down. This function uses a
+  different method to determine the angle, which is not as precise as
+  get_heading(). So, if you want a more precise heading, use get_heading(). You
+  can test get_direction() the same way as get_heading - just replace
+  get_heading with get_direction in the code above. INFO Box: How get_direction
+  works
+  <div class="code" data-firstline="1">
+    <textarea>
 test
 *if foo
-*	print("Ouch!")
+*       print("Ouch!")
 else:
-	print("You win!")
-</textarea></div>
-<h2>The Challenge</h2>
-<div id=footer></div>
-</body></html>
+        print("You win!")
+</textarea>
+  </div>
+  <h2>The Challenge</h2>
+  <div id="footer"></div>
+</body>
+</html>

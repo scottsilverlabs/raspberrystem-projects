@@ -1,74 +1,87 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SPACE INVADERS 1</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SPACE INVADERS 1</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>SPACE INVADERS 1</div>
-    <div id=description>In this project, we continue the development of our Space Invaders
-    game by building the complete circuit, writing our initialization code and writing
-    the code to do some basic LED Matrix drawing.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      SPACE INVADERS 1
+    </div>
+    <div id="description">
+      In this project, we continue the development of our Space Invaders game
+      by building the complete circuit, writing our initialization code and
+      writing the code to do some basic LED Matrix drawing.
+    </div>
+    <div id="hw_required">
+      I/O (Input/Output) RaspberrySTEM Cell<br>
+      LED Matrix RaspberrySTEM Cell<br>
+      Accelerometer RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
+  <p>In our previous project, we discussed the pseudo-code for our Space
+  Invaders game. Before we start writing the code, we need to complete the
+  circuit for the game.</p>
+  <h2>Hardware Implementation</h2>
 
-<p>In our previous project, we discussed
-the pseudo-code for our Space Invaders game. Before we
-start writing the code, we need to complete the circuit for the
-game.
+  <p>For our Space Invaders game, we'll be using the LED Matrix for our
+  display, the Accelerometer to control the left/right movement of the ship and
+  a button to fire missiles.</p>
 
-<h2>Hardware Implementation</h2>
-<p>For our Space Invaders game, we'll be using the LED Matrix for our display, the 
-Accelerometer to control the left/right movement of the ship and a button to fire missiles.
-<p>If you completed the previous projects with the LED Matrix and the Accelerometer, your 
-breadboard is already configured mostly how it needs to be.  Though, at very least,
-you'll probably need to add a button to the configuration (we're going to assume that the
-button is wired to GPIO7 for this project).
+  <p>If you completed the previous projects with the LED Matrix and the
+  Accelerometer, your breadboard is already configured mostly how it needs to
+  be. Though, at very least, you'll probably need to add a button to the
+  configuration (we're going to assume that the button is wired to GPIO7 for
+  this project).</p>
 
-<p>Here is what the breadboard should look like once it's correctly wired:
+  <p>Here is what the breadboard should look like once it's correctly wired:
+  <img class="bb" src="img/LED_Matrix_Accel_Buttons_bb.png" alt=""></p>
+  <h2>Software Implementation</h2>
 
-<img class="bb" src="img/LED_Matrix_Accel_Buttons_bb.png">
+  <p>Building on the pseudo-code we wrote in the last project, let's initialize
+  the framebuffer and write a single dot to the LED Matrix (we'll consider this
+  our spaceship for now). While none of this is new, it will allow us to verify
+  that the LED Matrix is working properly and will get some of our
+  initialization code out of the way.</p>
 
-
-
-<h2>Software Implementation</h2>
-
-<p>
-Building on the pseudo-code we wrote in the last project, let's initialize the
-framebuffer and write a single dot to the LED Matrix (we'll consider
-this our spaceship for now). While
-none of this is new, it will allow us to verify that the LED Matrix is
-working properly and will get some of our initialization code out of
-the way.</p>
-<p>Here's what our initialization code should look like for the
-framebuffer:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Here's what our initialization code should look like for the
+  framebuffer:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 #Import required functions/modules
 from rstem.led_matrix import FrameBuffer
 
 # Initialize the framebuffer
 fb = FrameBuffer()
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Next, we'll write some code to place a single dot (our current spaceship) on 
-the LED Matrix:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Next, we'll write some code to place a single dot (our current spaceship)
+  on the LED Matrix:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 #Erase the framebuffer
 fb.erase()
 
@@ -77,16 +90,15 @@ fb.point(3,0)
 
 #Show the framebuffer
 fb.show()
-</textarea></div>
+</textarea>
+  </div>
 
-<p>If you run the program at this point, you should see a dot on
-the LED
-Matrix at x = 3 and y = 0. </p>
-<p>Here is the full code for our game at this point:</p>
+  <p>If you run the program at this point, you should see a dot on the LED
+  Matrix at x = 3 and y = 0.</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>Here is the full code for our game at this point:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # ###############################################################
 #
 # SPACE INVADERS GAME
@@ -110,43 +122,43 @@ fb = FrameBuffer()
 
 while True:
 
-	# ################################
-	# Check for user input
-	# ################################
+        # ################################
+        # Check for user input
+        # ################################
 
-	# Get accelerometer input
-	# Get button input
+        # Get accelerometer input
+        # Get button input
 
-	# ################################
-	# Update the game world
-	# ################################
+        # ################################
+        # Update the game world
+        # ################################
 
-	# Update the location of the spaceship
-	# Update the location of the aliens
-	# Update the location of any missiles
-	# Check for any missile collisions
+        # Update the location of the spaceship
+        # Update the location of the aliens
+        # Update the location of any missiles
+        # Check for any missile collisions
 
-	# ################################
-	# Draw graphics on the screen
-	# ################################
+        # ################################
+        # Draw graphics on the screen
+        # ################################
 
-	# Erase the framebuffer
-	fb.erase()
+        # Erase the framebuffer
+        fb.erase()
 
-	# Draw the spaceship
-	fb.point(3,0)
+        # Draw the spaceship
+        fb.point(3,0)
 
-	# Draw the aliens
-	# Draw any missiles
+        # Draw the aliens
+        # Draw any missiles
 
-	# Show the framebuffer
-	fb.show()
+        # Show the framebuffer
+        fb.show()
 
-	# ################################
-	# Wait for some period of time
-	# ################################
+        # ################################
+        # Wait for some period of time
+        # ################################
 
-	# Wait for between .001 and .01 seconds
+        # Wait for between .001 and .01 seconds
 
 # ################################
 # Finish and cleanup
@@ -154,9 +166,10 @@ while True:
 
 # Print "You won!" if the player wins
 # Print "You lost..." if the player loses
-</textarea></div>
-
-	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_PSEUDO.html">prev</a> |
-<a href="SPACE_INVADERS_2.html">next</a></p>
-</body></html>
-
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SPACE_INVADERS_PSEUDO.html">prev</a> | <a href=
+  "SPACE_INVADERS_2.html">next</a></p>
+</body>
+</html>

@@ -1,98 +1,108 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>PROGRAMMING GAME LOOPS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>PROGRAMMING GAME LOOPS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      PROGRAMMING GAME LOOPS
+    </div>
+    <div id="description">
+      In this project, we introduce the concept of Game Loops, and we use a
+      game loop to create a very basic game for the LED Matrix display.
+    </div>
+    <div id="hw_required">
+      LED Matrix RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-	<div id=title>PROGRAMMING GAME LOOPS</div>
-    <div id=description>In this project, we introduce the concept of Game Loops, and we use a 
-	    game loop to create a very basic game for the LED Matrix display.</div>
-    <div id=hw_required>LED Matrix RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>Now that we have the LED Matrix as a display and can take input with
+  buttons, there's no reason we can't start creating some simple games. But,
+  before we do that, there are some basics of computer game programming that
+  are helpful to understand; in fact, once you get through this project, we'd
+  be willing to bet that you have a new appreciation for how video games
+  work.</p>
 
-<p>Now that
-we have the LED Matrix as
-a display and can take input with buttons, there's no reason we can't
-start creating some simple games.  But, before we do that,
-there
-are some basics of computer game programming that are helpful to
-understand; in fact, once you get through this project, we'd be willing
-to bet that you have a new appreciation for how video games
-work.  </p>
-<p>Most
-computer games (and especially those that most kids would consider to
-be video
-games) share a common method of programming called the “game loop.”
- A game
-loop is a simple concept, but is the heart of most video games.  </code>The game loop essentially
-works by doing the
-same things over and over the entire time the game is running.</p>
+  <p>Most computer games (and especially those that most kids would consider to
+  be video games) share a common method of programming called the “game loop.”
+  A game loop is a simple concept, but is the heart of most video games. The
+  game loop essentially works by doing the same things over and over the entire
+  time the game is running.</p>
 
+  <p>We're going to explain game loops below using pseudo-code, which we
+  discussed in more detail in our Simon 0 project.</p>
 
-<p>We're
-going to explain game loops below using pseudo-code, which we discussed
-in more detail in our Simon 0 project.</p>
-<p>
-The pseudo-code
-for a typical game loop will look something like this:</p>
-<pre>
+  <p>The pseudo-code for a typical game loop will look something like this:</p>
+  <pre>
 Initialize the game environment
 
 while (game not finished):
-	Check for user input
-	Update the game world
-	Draw graphics on the screen
-	Wait for some period of time
+        Check for user input
+        Update the game world
+        Draw graphics on the screen
+        Wait for some period of time
 
-Finish & Cleanup
+Finish &amp; Cleanup
 </pre>
-<p>We'll examine this loop line-by-line below.  And at the same time, let's build our very own (very
-simple) game loop that will move a dot around the LED Matrix...</p>
 
-<h2>Initialize the game environment</h2>
-<p>The
-very first step in any game is to initialize anything that will be used
-in the game loop.  If you're not familiar with the term
-"initialize," it basically means setting up all the aspects of the game
-so that when the user starts playing, the game code is ready to be executed. For example,
-this might include importing
-libraries and functions we'll need later in the code, creating a
-framebuffer (or perhaps
-many framebuffers) that will hold the graphics during the game,
-defining the start location and speed of various game characters, etc.
- </p>
-<p>In our case, we're going to want to do three things to get
-ready for our game loop:</p>
-<ol>
-<li>
-<p>Import the <code>Framebuffer()</code> function and the time library</p>
-</li>
-<li>
-<p>Create a framebuffer that we'll use to draw and display
-the
-dot </p>
-</li>
-<li>
-<p>Initialize the location of a dot when the loop starts
-(in this case, let's put the dot in the corner of the LED Matrix)</p>
-</li>
-</ol>
-<p>Here's what the code will look like:</p>
+  <p>We'll examine this loop line-by-line below. And at the same time, let's
+  build our very own (very simple) game loop that will move a dot around the
+  LED Matrix...</p>
+  <h2>Initialize the game environment</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>The very first step in any game is to initialize anything that will be
+  used in the game loop. If you're not familiar with the term "initialize," it
+  basically means setting up all the aspects of the game so that when the user
+  starts playing, the game code is ready to be executed. For example, this
+  might include importing libraries and functions we'll need later in the code,
+  creating a framebuffer (or perhaps many framebuffers) that will hold the
+  graphics during the game, defining the start location and speed of various
+  game characters, etc.</p>
+
+  <p>In our case, we're going to want to do three things to get ready for our
+  game loop:</p>
+  <ol>
+    <li>
+
+      <p>Import the <code>Framebuffer()</code> function and the time
+      library</p>
+    </li>
+    <li>
+
+      <p>Create a framebuffer that we'll use to draw and display the dot</p>
+    </li>
+    <li>
+
+      <p>Initialize the location of a dot when the loop starts (in this case,
+      let's put the dot in the corner of the LED Matrix)</p>
+    </li>
+  </ol>
+
+  <p>Here's what the code will look like:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 from rstem.led_matrix import FrameBuffer
 import time
 
@@ -101,134 +111,108 @@ fb = FrameBuffer()
 x, y = (0, 0)
 fb.erase()
 fb.point(x, y)
-</textarea></div>
-<h2>while (game not finished):</h2>
-<p>We
-call it a game loop because it's an actual loop in the code that
-continues until the game is finished or until the user says chooses to exit.
- For this project, we're going to take the easy way out and
-just
-let the program run forever (until we stop the program).  We
-can
-do this using a <code>while
-True:</code> loop.  </p>
-<p>So, this will be the very first
-line
-of our
-game loop:</p>
+</textarea>
+  </div>
+  <h2>while (game not finished):</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We call it a game loop because it's an actual loop in the code that
+  continues until the game is finished or until the user says chooses to exit.
+  For this project, we're going to take the easy way out and just let the
+  program run forever (until we stop the program). We can do this using a
+  <code>while True:</code> loop.</p>
+
+  <p>So, this will be the very first line of our game loop:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 while True:
-</textarea></div>
-<h2>Check for user input</h2>
-<p>In
-a typical game loop, this is where we would check for user input --
-check for button presses, check for joystick movement, check for
-controller movement, etc.  And we'll do that in some
-subsequent
-projects.  But, for this particular project, we're keeping
-things
-simple and we're not taking any input from the user.  So,
-there's no code to add for this part of the loop.</p>
-<h2>Update the game world</h2>
-<p>Updating
-the game world means taking the new information we have -- either from
-the user input we've received or just because we are further along in
-time -- and to use this new information to update any parts of our game
-that now need to change.  For example, in a character-based
-game,
-if a user has indicated that they want their character to move to the
-right of the screen, the game world update might involve changing the
-location of the character, shifting the background, changing the
-location of other characters in the game, etc.  This part of
-the
-game loop will figure out what
-the next set of graphics to display looks like in preparation to draw
-the new graphics.</p>
-<p>In our example, we're just going to
-automatically move the dot to the right one space, regardless of what
-the user does.  To do that, we need to increment the
-x-coordinate
-by 1.  We then erase the current framebuffer data and update
-the
-framebuffer with the new location.</p>
+</textarea>
+  </div>
+  <h2>Check for user input</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>In a typical game loop, this is where we would check for user input --
+  check for button presses, check for joystick movement, check for controller
+  movement, etc. And we'll do that in some subsequent projects. But, for this
+  particular project, we're keeping things simple and we're not taking any
+  input from the user. So, there's no code to add for this part of the
+  loop.</p>
+  <h2>Update the game world</h2>
+
+  <p>Updating the game world means taking the new information we have -- either
+  from the user input we've received or just because we are further along in
+  time -- and to use this new information to update any parts of our game that
+  now need to change. For example, in a character-based game, if a user has
+  indicated that they want their character to move to the right of the screen,
+  the game world update might involve changing the location of the character,
+  shifting the background, changing the location of other characters in the
+  game, etc. This part of the game loop will figure out what the next set of
+  graphics to display looks like in preparation to draw the new graphics.</p>
+
+  <p>In our example, we're just going to automatically move the dot to the
+  right one space, regardless of what the user does. To do that, we need to
+  increment the x-coordinate by 1. We then erase the current framebuffer data
+  and update the framebuffer with the new location.</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 x += 1
-</textarea></div>
-<h2>Draw graphics on the screen</h2>
-<p>Once
-we have updated all the aspects of the game world and have the
-information about what will get displayed next, it's time to actually
-display the the new graphics.  This typically
-involves
-erasing and drawing the new graphics to the framebuffer and then
-displaying that framebuffer.  We can do that just like we did
-in
-the
-last project:</p>
+</textarea>
+  </div>
+  <h2>Draw graphics on the screen</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Once we have updated all the aspects of the game world and have the
+  information about what will get displayed next, it's time to actually display
+  the the new graphics. This typically involves erasing and drawing the new
+  graphics to the framebuffer and then displaying that framebuffer. We can do
+  that just like we did in the last project:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 fb.erase()
 fb.point(x, y)
 fb.show()
-</textarea></div>
-<h2>Wait for some period of time</h2>
-<p>
-The very last thing we often do in a game loop is to wait for some period
-of time.  This (roughly) sets the rate at which the display gets updated.  By
-setting the frame rate, we can know exactly how much to move graphics around the
-display from one frame to the next.  
-</p>
-<p>
-Because your graphics will be updating each time through the loop, you'll want
-to choose a wait time that makes sense for your graphics updates.  If not,
-you'll probably want to play around with various pause times and see which work
-the best -- too slow, and you might find that your program is not responsive;
-too fast, and you might find that the processor wastes power and causes poor
-performance of other programs running on the computer at the same time.
-</p>
-<p>In this case, our graphics rely on the loop speed, and we'd
-probably be happy moving
-the location of the dot every half-second.  Which means we'll
-want to put
-in a half-second delay at the end of the loop.</p>
+</textarea>
+  </div>
+  <h2>Wait for some period of time</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>The very last thing we often do in a game loop is to wait for some period
+  of time. This (roughly) sets the rate at which the display gets updated. By
+  setting the frame rate, we can know exactly how much to move graphics around
+  the display from one frame to the next.</p>
+
+  <p>Because your graphics will be updating each time through the loop, you'll
+  want to choose a wait time that makes sense for your graphics updates. If
+  not, you'll probably want to play around with various pause times and see
+  which work the best -- too slow, and you might find that your program is not
+  responsive; too fast, and you might find that the processor wastes power and
+  causes poor performance of other programs running on the computer at the same
+  time.</p>
+
+  <p>In this case, our graphics rely on the loop speed, and we'd probably be
+  happy moving the location of the dot every half-second. Which means we'll
+  want to put in a half-second delay at the end of the loop.</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 time.sleep(.5)
-</textarea></div>
-<h2>Finish &amp; Cleanup</h2>
-<p>At
-some point, the game will probably end and we'll drop out of the loop.
- This is most common when the player wins or loses a game, or
-when
-a player purposefully exits a game for some reason.  When that
-happens, you may want to indicate to the user the final outcome of the
-game, play a separate set of graphics (for example, something special
-if the player beats the game) or you may want to go back to another
-menu screen.  </p>
-<p>In this project, we never drop out of
-the loop (remember, we used a while True: loop), so there doesn't need
-to be any code at this point in the program.</p>
-<h2>Putting It All Together</h2>
-<p>We
-now have all of the code necessary for a game loop that will place a
-dot at one corner of the LED Matrix display and then move that dot to
-the right every half-second.  Here's what the entire snippet
-of
-code should look like:</p>
+</textarea>
+  </div>
+  <h2>Finish &amp; Cleanup</h2>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>At some point, the game will probably end and we'll drop out of the loop.
+  This is most common when the player wins or loses a game, or when a player
+  purposefully exits a game for some reason. When that happens, you may want to
+  indicate to the user the final outcome of the game, play a separate set of
+  graphics (for example, something special if the player beats the game) or you
+  may want to go back to another menu screen.</p>
+
+  <p>In this project, we never drop out of the loop (remember, we used a while
+  True: loop), so there doesn't need to be any code at this point in the
+  program.</p>
+  <h2>Putting It All Together</h2>
+
+  <p>We now have all of the code necessary for a game loop that will place a
+  dot at one corner of the LED Matrix display and then move that dot to the
+  right every half-second. Here's what the entire snippet of code should look
+  like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
@@ -238,31 +222,29 @@ x, y = (0, 0)
 fb.erase()
 
 while True: 
-	# Get user input 
+        # Get user input 
 
-	# Update the game world 
-	x += 1 
+        # Update the game world 
+        x += 1 
 
-	# Draw graphics on the screen 
-	fb.erase() 
-	fb.point(x, y) 
-	fb.show() 
+        # Draw graphics on the screen 
+        fb.erase() 
+        fb.point(x, y) 
+        fb.show() 
 
-	# Wait for some period of time 
-	time.sleep(.5)
+        # Wait for some period of time 
+        time.sleep(.5)
 
 # Finish &amp; Cleanup
-</textarea></div>
+</textarea>
+  </div>
 
-<p>When you run this code, you should see
-the dot start at one corner of the LED Matrix and move in one direction
-until it is off the screen.  Because we're not checking to see
-if
-the dot is still on the screen or not, the code will just continue to
-run even after you can no longer see the dot.  So, once the
-dot
-has disappeared, you can stop the program.</p>
-
-<p class=nextprev><a href="index.html">home</a> | <a href="LED_MATRIX.html">prev</a> |
-<a href="BOUNCING_BALL_1.html">next</a></p>
-</body></html>
+  <p>When you run this code, you should see the dot start at one corner of the
+  LED Matrix and move in one direction until it is off the screen. Because
+  we're not checking to see if the dot is still on the screen or not, the code
+  will just continue to run even after you can no longer see the dot. So, once
+  the dot has disappeared, you can stop the program.</p>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "LED_MATRIX.html">prev</a> | <a href="BOUNCING_BALL_1.html">next</a></p>
+</body>
+</html>

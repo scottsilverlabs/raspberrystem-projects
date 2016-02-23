@@ -1,59 +1,78 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>SPACE INVADERS 4</title>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SPACE INVADERS 4</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body dir="ltr" lang="en-US" link="#0563C1" text="#00000A">
+  <header>
+    <div id="title">
+      SPACE INVADERS 4
+    </div>
+    <div id="description">
+      In this project, we continue the development of our Space Invaders game
+      by adding in the aliens.
+    </div>
+    <div id="hw_required">
+      I/O (Input/Output) RaspberrySTEM Cell<br>
+      LED Matrix RaspberrySTEM Cell<br>
+      Accelerometer RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<header>
-    <div id=title>SPACE INVADERS 4</div>
-    <div id=description>In this project, we continue the development of our Space Invaders
-	    game by adding in the aliens.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>In this project, we're going to add our aliens into the code.</p>
 
-<p>In this project, we're going to add our aliens into the code.  </p><p>The
-first thing we'll want to do is keep track of the aliens.  We're
-going to have four aliens in our game (you're welcome to change that if
-you'd like), and we'll need to keep track of both what columns they are
-in and what row they are in at any given time.</p><p>We'll do that by
-adding a list to track their columns (they'll each be in their own
-column) and a variable to track their row (they'll all be in the same
-row).  We'll start the aliens at the top of the display (the height of the
-display minus 1):</p>
+  <p>The first thing we'll want to do is keep track of the aliens. We're going
+  to have four aliens in our game (you're welcome to change that if you'd
+  like), and we'll need to keep track of both what columns they are in and what
+  row they are in at any given time.</p>
 
-
-<div class="code" data-firstline="1"> 
-<div></div> 
-<textarea>
+  <p>We'll do that by adding a list to track their columns (they'll each be in
+  their own column) and a variable to track their row (they'll all be in the
+  same row). We'll start the aliens at the top of the display (the height of
+  the display minus 1):</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 alien_columns = [0, 1, 2, 3]
 alien_row = fb.height - 1
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Next, we need to add code to draw the aliens each time through the loop:</p>
-
-
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>Next, we need to add code to draw the aliens each time through the
+  loop:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # Draw aliens   
 for column in alien_columns: 
-	fb.point(column, alien_row)
-</textarea></div>
+        fb.point(column, alien_row)
+</textarea>
+  </div>
 
-<p>The aliens are moving yet, but at least they are displayed!</p>
+  <p>The aliens are moving yet, but at least they are displayed!</p>
 
-<p>Here is the full project at this point:</p>
-
-<div class="code" data-firstline="1"> <div></div> <textarea># ###############################################################
+  <p>Here is the full project at this point:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
+# ###############################################################
 #
 # SPACE INVADERS GAME
 #
@@ -86,39 +105,42 @@ alien_row = fb.height - 1
 # Initialize missiles
 
 while True:
-	# ########################################
-	# Get inputs
-	# ########################################
-	x_force, y_force, z_force = accel.forces()
+        # ########################################
+        # Get inputs
+        # ########################################
+        x_force, y_force, z_force = accel.forces()
 
-	# ########################################
-	# Change the World
-	# ########################################
+        # ########################################
+        # Change the World
+        # ########################################
 
-	# Move spaceship
-	if x_force &gt; TILT_FORCE:
-		spaceship_position -= SPACESHIP_STEP
-	elif x_force &lt; -TILT_FORCE:
-		spaceship_position += SPACESHIP_STEP
-	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+        # Move spaceship
+        if x_force &gt; TILT_FORCE:
+                spaceship_position -= SPACESHIP_STEP
+        elif x_force &lt; -TILT_FORCE:
+                spaceship_position += SPACESHIP_STEP
+        spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
-	# ########################################
-	# Show world
-	# ########################################
+        # ########################################
+        # Show world
+        # ########################################
 
-	fb.erase()
+        fb.erase()
 
-	# Draw spaceship
-	fb.point(round(spaceship_position), 0)
+        # Draw spaceship
+        fb.point(round(spaceship_position), 0)
 
-	# Draw aliens
-	for column in alien_columns:
-		fb.point(column, alien_row)
+        # Draw aliens
+        for column in alien_columns:
+                fb.point(column, alien_row)
 
-	# Show FrameBuffer on LED Matrix
-	fb.show()
-	time.sleep(0.001)
-</textarea></div>
-	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_3.html">prev</a> |
-<a href="SPACE_INVADERS_5.html">next</a></p>
-</body></html>
+        # Show FrameBuffer on LED Matrix
+        fb.show()
+        time.sleep(0.001)
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SPACE_INVADERS_3.html">prev</a> | <a href=
+  "SPACE_INVADERS_5.html">next</a></p>
+</body>
+</html>

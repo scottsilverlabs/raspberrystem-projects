@@ -1,40 +1,52 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<HEAD>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-    <TITLE>BOUNCING_BALL_2</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-	<div id=title>BOUNCING BALL 2</div>
-    <div id=description>In this project, and we will continue to develop the moving dot from 
-	    our previous project and add in a second axis of movement.</div>
-    <div id=hw_required>LED Matrix RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>BOUNCING_BALL_2</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      BOUNCING BALL 2
+    </div>
+    <div id="description">
+      In this project, and we will continue to develop the moving dot from our
+      previous project and add in a second axis of movement.
+    </div>
+    <div id="hw_required">
+      LED Matrix RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
+  <p>In our last project, we learned how to move our dot on a single axis, but
+  keep it from falling off the edge of the screen by setting and testing
+  boundaries. In this project, we're going to start moving the dot on two axes
+  (left and right; up and down) and learn how to constrain the dot on both axes
+  so that it doesn't fall off the screen.</p>
 
-<p>In
-our last project, we learned how to move our dot on a single axis, but
-keep it from falling off the edge of the screen by setting and testing
-boundaries.  In this project, we're going to start moving the
-dot
-on two axes (left and right; up and down) and learn how to constrain
-the dot on both axes so that it doesn't fall off the screen.</p>
-<p>
-Here is the code we finished with from our last project:</p>
-
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>Here is the code we finished with from our last project:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
@@ -46,58 +58,58 @@ fb.erase()
 direction = 1
 
 while True:
-	# Get user input
+        # Get user input
 
-	# Update the game world
-	x += direction
-	if (x <= 0) or (x >= 7):
-		direction = -direction
+        # Update the game world
+        x += direction
+        if (x &lt;= 0) or (x &gt;= 7):
+                direction = -direction
 
-	# Draw graphics on the screen
-	fb.erase()
-	fb.point(x, y)
-	fb.show()
+        # Draw graphics on the screen
+        fb.erase()
+        fb.point(x, y)
+        fb.show()
 
-	# Wait for some period of time
-	time.sleep(.5)
-</textarea></div>
+        # Wait for some period of time
+        time.sleep(.5)
+</textarea>
+  </div>
 
-<p>Adding the same functionality along the other axis (the
-y-axis) is actually pretty simple.  In addition to changing
-the x location by 1 each time through the loop, we also do the same
-with the y location.  This requires another <code>direction</code> variable
-to keep track of the y-axis direction:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Adding the same functionality along the other axis (the y-axis) is
+  actually pretty simple. In addition to changing the x location by 1 each time
+  through the loop, we also do the same with the y location. This requires
+  another <code>direction</code> variable to keep track of the y-axis
+  direction:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 y_direction = 1
-</textarea></div>
+</textarea>
+  </div>
 
-<p>And then we need to increment in the y-direction each time
-through the loop and test whether we've hit the y-axis edge: </p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>And then we need to increment in the y-direction each time through the
+  loop and test whether we've hit the y-axis edge:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 y += y_direction
-if (y <= 0) or (y >= 7):
-	y_direction = -y_direction
-</textarea></div>
+if (y &lt;= 0) or (y &gt;= 7):
+        y_direction = -y_direction
+</textarea>
+  </div>
 
-<p>To avoid confusion with the variable names, we'll also change the previous
-variable <code>direction</code> to <code>x_direction</code></p>
-<p>Lastly,
-you'll probably want to set the initial position of the ball to
-something other than (0, 0) to make the bouncing a little more
-interesting.  In fact, you can play around with different initial
-points and see how it affects the bouncing.</p><p>Give it a
-try.  You should now see the dot bouncing back and forth on the
-display in two directions.</p><p>Here is the final code:</p>
+  <p>To avoid confusion with the variable names, we'll also change the previous
+  variable <code>direction</code> to <code>x_direction</code></p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Lastly, you'll probably want to set the initial position of the ball to
+  something other than (0, 0) to make the bouncing a little more interesting.
+  In fact, you can play around with different initial points and see how it
+  affects the bouncing.</p>
+
+  <p>Give it a try. You should now see the dot bouncing back and forth on the
+  display in two directions.</p>
+
+  <p>Here is the final code:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
@@ -111,25 +123,26 @@ y_direction = 1
 fb.erase()
 fb.point(x, y)
 while True:
-	# Get user input
+        # Get user input
 
-	# Update the game world
-	x += x_direction
-	y += y_direction
-	if (x <= 0) or (x >= 7):
-		x_direction = -x_direction
-	if (y <= 0) or (y >= 7):
-		y_direction = -y_direction
+        # Update the game world
+        x += x_direction
+        y += y_direction
+        if (x &lt;= 0) or (x &gt;= 7):
+                x_direction = -x_direction
+        if (y &lt;= 0) or (y &gt;= 7):
+                y_direction = -y_direction
 
-	# Draw graphics on the screen
-	fb.erase()
-	fb.point(x, y)
-	fb.show()
+        # Draw graphics on the screen
+        fb.erase()
+        fb.point(x, y)
+        fb.show()
 
-	# Wait for some period of time
-	time.sleep(.5)
-</textarea></div>
-
-	<p class=nextprev><a href="index.html">home</a> | <a href="BOUNCING_BALL_1.html">prev</a> |
-<a href="ACCELEROMETER.html">next</a></p>
-</body></html>
+        # Wait for some period of time
+        time.sleep(.5)
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "BOUNCING_BALL_1.html">prev</a> | <a href="ACCELEROMETER.html">next</a></p>
+</body>
+</html>

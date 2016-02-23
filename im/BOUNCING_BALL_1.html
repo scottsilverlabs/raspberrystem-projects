@@ -1,48 +1,59 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-<HEAD>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-    <TITLE>BOUNCING_BALL_1</TITLE>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-</HEAD>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-	<div id=title>BOUNCING BALL 1</div>
-    <div id=description>In this project, and we will continue to develop the moving dot from 
-	    our previous project and add in some additional animated features.</div>
-    <div id=hw_required>LED Matrix RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>BOUNCING_BALL_1</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      BOUNCING BALL 1
+    </div>
+    <div id="description">
+      In this project, and we will continue to develop the moving dot from our
+      previous project and add in some additional animated features.
+    </div>
+    <div id="hw_required">
+      LED Matrix RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<p>In our previous project, <a href="GAME_LOOPS.html">PROGRAMMING GAME LOOPS</a>, 
-we discussed the general format of a game
-loop, and we implemented a game loop that moved a dot across the LED
-Matrix display.  For the next few projects, we're going to
-modify
-that game loop to incorporate some more features; these will help
-explain how we can use the LED Matrix display for some more interesting
-games that we'll introduce in a bit. </p>
-<p>For this project,
-we're going to modify the game loop to provide some testing of the
-location of the dot to determine when it reaches the edge of the
-display.  When it does, we will reverse direction of the dot
-so
-that it never doesn't fall off the screen.</p>
-<h2>Tracking
-Direction</h2>
-<p>Here's a
-reminder of what our current code looks like:</p>
+  <p>In our previous project, <a href="GAME_LOOPS.html">PROGRAMMING GAME
+  LOOPS</a>, we discussed the general format of a game loop, and we implemented
+  a game loop that moved a dot across the LED Matrix display. For the next few
+  projects, we're going to modify that game loop to incorporate some more
+  features; these will help explain how we can use the LED Matrix display for
+  some more interesting games that we'll introduce in a bit.</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>For this project, we're going to modify the game loop to provide some
+  testing of the location of the dot to determine when it reaches the edge of
+  the display. When it does, we will reverse direction of the dot so that it
+  never doesn't fall off the screen.</p>
+  <h2>Tracking Direction</h2>
+
+  <p>Here's a reminder of what our current code looks like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
@@ -52,135 +63,115 @@ x, y = (0, 0)
 fb.erase()
 
 while True:
-	# Get user input
+        # Get user input
 
-	# Update the game world
-	x += 1
+        # Update the game world
+        x += 1
 
-	# Draw graphics on the screen
-	fb.erase()
-	fb.point(x, y)
-	fb.show()
+        # Draw graphics on the screen
+        fb.erase()
+        fb.point(x, y)
+        fb.show()
 
-	# Wait for some period of time
-	time.sleep(.5)
+        # Wait for some period of time
+        time.sleep(.5)
 
-# Finish & Cleanup
-</textarea></div>
+# Finish &amp; Cleanup
+</textarea>
+  </div>
 
-<p>You'll
-notice that on Line 13, we increment (increase) x by 1 to move the dot
-to the right on the display.  This works great...until we get
-to
-the edge of the screen and we don't want to go any further.
- At
-that point, we're going to want the dot to move in the OPPOSITE
-direction (in this case, to the left).  To do that, instead of
-incrementing x by 1, we're going to want to decrement (decrease) x by
-1.  </p>
-<p>In other words, to go to the right,
-we increase x by 1.  And to go to the left, we decrease x by 1
---
-which is the same as increasing x by -1.  </p>
-<p>We
-can do this by creating a variable (let's call it "direction"), setting
-that variable to either 1 or -1 (depending on the direction we want the
-dot to go) and then increasing x by that variable.  When
-direction
-is set to 1, the ball will move right; when direction is set to -1, the
-ball will move left.</p>
-<p>This will require two changes to our
-code.  First, Line 13 will change to:</p>
+  <p>You'll notice that on Line 13, we increment (increase) x by 1 to move the
+  dot to the right on the display. This works great...until we get to the edge
+  of the screen and we don't want to go any further. At that point, we're going
+  to want the dot to move in the OPPOSITE direction (in this case, to the
+  left). To do that, instead of incrementing x by 1, we're going to want to
+  decrement (decrease) x by 1.</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>In other words, to go to the right, we increase x by 1. And to go to the
+  left, we decrease x by 1 -- which is the same as increasing x by -1.</p>
+
+  <p>We can do this by creating a variable (let's call it "direction"), setting
+  that variable to either 1 or -1 (depending on the direction we want the dot
+  to go) and then increasing x by that variable. When direction is set to 1,
+  the ball will move right; when direction is set to -1, the ball will move
+  left.</p>
+
+  <p>This will require two changes to our code. First, Line 13 will change
+  to:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 x += direction
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Next,
-because the variable direction hasn't yet been set to anything (which
-would break our program), we need to initialize that variable before we
-jump into our loop.  Since we want the ball to move right at
-first, we can initially set the variable equal to 1.  We can do
-that by adding the following line to our initialization code:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Next, because the variable direction hasn't yet been set to anything
+  (which would break our program), we need to initialize that variable before
+  we jump into our loop. Since we want the ball to move right at first, we can
+  initially set the variable equal to 1. We can do that by adding the following
+  line to our initialization code:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 direction = 1
-</textarea></div>
+</textarea>
+  </div>
 
-<p>If you now run this code, you'll
-see that things work exactly the way they did in the last project --
-the dot moves to the right and then disappears from the screen.
- We're now tracking the dot's direction, but we haven't done
-anything to test
-for when it reaches the edge of the display or to change direction when
-that happens.</p>
-<h2>Testing Location</h2>
-<p>When the program starts, the first x position of the dot is 0.
- Each time through the loop, we increment x by 1.  So, after the
-first
-loop, the position of the dot moves to x = 2.  After the next
-loop, the dot moves to x = 3.  And so on...
-</p><p>
-We know that
-the LED Matrix display is 8 dots wide, so when x = 7, the dot will be at the right side of the LED
-Matrix.
-from the screen.  In order to keep the dot from disappearing
-from
-the screen, we need to know when x = 7 (or more than 7) and we need to
-reverse the direction of movement before the next time through the
-loop. We can check the value of x (which is the same as
-checking
-the position of the dot) using an <code>if</code> statement, and if we determine
-that we're at the edge of the screen, we can change the direction of
-the dot by switching direction from 1 to -1:</p>
+  <p>If you now run this code, you'll see that things work exactly the way they
+  did in the last project -- the dot moves to the right and then disappears
+  from the screen. We're now tracking the dot's direction, but we haven't done
+  anything to test for when it reaches the edge of the display or to change
+  direction when that happens.</p>
+  <h2>Testing Location</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if (x >= 7):
-	direction = -1
-</textarea></div>
+  <p>When the program starts, the first x position of the dot is 0. Each time
+  through the loop, we increment x by 1. So, after the first loop, the position
+  of the dot moves to x = 2. After the next loop, the dot moves to x = 3. And
+  so on...</p>
 
-<p>If
-you insert this code at any point after <code>x += direction</code> and run the program, you'll see that the
-ball reaches the right edge of the display and then -- before disappearing off the display
--- reverses direction.</p>
-<p>But,
-you'll probably notice that, after heading back to where it started, it
-falls off the other side of the screen! </p>
-<p>Whoops.
- We checked to ensure that the ball didn't fall off the screen
-when x got too big (too far right), but we didn't check for when x got
-too small (too far left).  Luckily, this is pretty easy to add
-to
-our code.  We can just update the <code>if</code> statement we just wrote as follows:</p>
+  <p>We know that the LED Matrix display is 8 dots wide, so when x = 7, the dot
+  will be at the right side of the LED Matrix. from the screen. In order to
+  keep the dot from disappearing from the screen, we need to know when x = 7
+  (or more than 7) and we need to reverse the direction of movement before the
+  next time through the loop. We can check the value of x (which is the same as
+  checking the position of the dot) using an <code>if</code> statement, and if
+  we determine that we're at the edge of the screen, we can change the
+  direction of the dot by switching direction from 1 to -1:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if (x &gt;= 7):
+        direction = -1
+</textarea>
+  </div>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if (x >= 7) or (x <= 0):
-	direction = -direction
-</textarea></div>
+  <p>If you insert this code at any point after <code>x += direction</code> and
+  run the program, you'll see that the ball reaches the right edge of the
+  display and then -- before disappearing off the display -- reverses
+  direction.</p>
 
-<p> This
-checks whether x is too big (greater than or equal to 7) or whether x
-is too small (less than or equal to 0) -- in either of those cases, we
-need to change direction. Notice that we also changed the
-line
-handling the direction -- this reverses the direction
-from whatever it previously was.
-</p>
-<p>Give it a
-try.  You should now see the dot bouncing back and forth on the
-display.</p><p>Here is the final code:</p>
+  <p>But, you'll probably notice that, after heading back to where it started,
+  it falls off the other side of the screen!</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>Whoops. We checked to ensure that the ball didn't fall off the screen when
+  x got too big (too far right), but we didn't check for when x got too small
+  (too far left). Luckily, this is pretty easy to add to our code. We can just
+  update the <code>if</code> statement we just wrote as follows:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if (x &gt;= 7) or (x &lt;= 0):
+        direction = -direction
+</textarea>
+  </div>
+
+  <p>This checks whether x is too big (greater than or equal to 7) or whether x
+  is too small (less than or equal to 0) -- in either of those cases, we need
+  to change direction. Notice that we also changed the line handling the
+  direction -- this reverses the direction from whatever it previously was.</p>
+
+  <p>Give it a try. You should now see the dot bouncing back and forth on the
+  display.</p>
+
+  <p>Here is the final code:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # Initialize the game environment
 from rstem.led_matrix import FrameBuffer
 import time
@@ -192,23 +183,25 @@ fb.erase()
 direction = 1
 
 while True:
-	# Get user input
+        # Get user input
 
-	# Update the game world
-	x += direction
-	if (x <= 0) or (x >= 7):
-		direction = -direction
+        # Update the game world
+        x += direction
+        if (x &lt;= 0) or (x &gt;= 7):
+                direction = -direction
 
-	# Draw graphics on the screen
-	fb.erase()
-	fb.point(x, y)
-	fb.show()
+        # Draw graphics on the screen
+        fb.erase()
+        fb.point(x, y)
+        fb.show()
 
-	# Wait for some period of time
-	time.sleep(.5)
+        # Wait for some period of time
+        time.sleep(.5)
 
-# Finish & Cleanup
-</textarea></div>
-	<p class=nextprev><a href="index.html">home</a> | <a href="GAME_LOOPS.html">prev</a> |
-<a href="BOUNCING_BALL_2.html">next</a></p>
-</body></html>
+# Finish &amp; Cleanup
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "GAME_LOOPS.html">prev</a> | <a href="BOUNCING_BALL_2.html">next</a></p>
+</body>
+</html>

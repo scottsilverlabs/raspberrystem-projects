@@ -1,25 +1,33 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>WHILE LOOPS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>WHILE LOOPS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <h1>WHILE LOOPS</h1>
 
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>WHILE LOOPS</h1>
-<p>While loops allow your program to repeat a certain piece of code
-over and over as long as some specific condition is met.</p>  
+  <p>While loops allow your program to repeat a certain piece of code over and
+  over as long as some specific condition is met.</p>
 
-<p>While loops are used as follows:</p>
-
-<pre>
+  <p>While loops are used as follows:</p>
+  <pre>
 while (expression):
     If expression is True, execute this code block
     .
@@ -29,62 +37,84 @@ while (expression):
 
 When expression is False, continue here...
 </pre>
-<p>As an example, imagine you want to write some code to build a countdown timer.  The 
-code would start at a specified number of seconds (let's say 60), and then count backwards 
--- once per second -- until the timer reached zero.  At that point, an alarm would go off.</p>
 
-<p>The code for this application is pretty simple:</p>
-<ol>
-	<li><p>Create a variable (let's call it <code>time_left</code>) and set it to 60.</p></li>
-	<li><p>If <code>time_left</code> has reached 0, jump to Step #5.</p></li>
-	<li><p>Subtract 1 from <code>time_left</code> and wait a second.</p></li>
-	<li><p>Go back to Step #2 </p></li>
-	<li><p>Sound the alarm!</p></li>
-</ol>
+  <p>As an example, imagine you want to write some code to build a countdown
+  timer. The code would start at a specified number of seconds (let's say 60),
+  and then count backwards -- once per second -- until the timer reached zero.
+  At that point, an alarm would go off.</p>
 
-<p>You'll notice that Steps #2-4 will repeat many times (60, to be exact) before our variable
-gets to 0 and we jump to Step #6. The easiest way to implement that repeating code is to use
-a while loop, as follows:</p>
+  <p>The code for this application is pretty simple:</p>
+  <ol>
+    <li>
 
+      <p>Create a variable (let's call it <code>time_left</code>) and set it to
+      60.</p>
+    </li>
+    <li>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+      <p>If <code>time_left</code> has reached 0, jump to Step #5.</p>
+    </li>
+    <li>
+
+      <p>Subtract 1 from <code>time_left</code> and wait a second.</p>
+    </li>
+    <li>
+
+      <p>Go back to Step #2</p>
+    </li>
+    <li>
+
+      <p>Sound the alarm!</p>
+    </li>
+  </ol>
+
+  <p>You'll notice that Steps #2-4 will repeat many times (60, to be exact)
+  before our variable gets to 0 and we jump to Step #6. The easiest way to
+  implement that repeating code is to use a while loop, as follows:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 time_left = 60
 
-while (time_left > 0):
-	time_left -= 1
+while (time_left &gt; 0):
+        time_left -= 1
     time.sleep(1)
 
 sound_the_alarm()
-</textarea></div>
+</textarea>
+  </div>
 
+  <p>In our code above, the first line sets our variable <code>time_left</code>
+  to 60.</p>
 
-<p>In our code above, the first line sets our variable <code>time_left</code> to 60.</p>
-<p>Next, we use a while loop to test whether <code>time_left</code> equals 0 or not.  If the
-expression <code>(time_left > 0)</code> tests true (i.e., we haven't yet gotten to zero), we
-subtract 1 from <code>time_left</code> and go back to the top to test the expression again.</p>
-<p>We continue this loop until the expression tests False (i.e., our variable gets to 0), 
-at which point we drop through the loop and start executing the code below it.</p>
+  <p>Next, we use a while loop to test whether <code>time_left</code> equals 0
+  or not. If the expression <code>(time_left &gt; 0)</code> tests true (i.e.,
+  we haven't yet gotten to zero), we subtract 1 from <code>time_left</code> and
+  go back to the top to test the expression again.</p>
 
-<p>The most basic while loop is one that will execute forever.
-In fact, that's the point of it -- it will keep going until
-someone explicitly stops the program. </p>
-<p>It is written as follows:</p>
+  <p>We continue this loop until the expression tests False (i.e., our variable
+  gets to 0), at which point we drop through the loop and start executing the
+  code below it.</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>The most basic while loop is one that will execute forever. In fact,
+  that's the point of it -- it will keep going until someone explicitly stops
+  the program.</p>
+
+  <p>It is written as follows:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 while True:
-	CODE BLOCK HERE
-</textarea></div>
+        CODE BLOCK HERE
+</textarea>
+  </div>
 
-<p>Because the expression "True" always evaluates to True, this
-code block will loop over and over forever until the program is stopped
-by the user.</p>
-<p>One more thing to note -- sometimes we want to break out of a loop while we're in the middle
-of executing the code block, even if the expression that we were testing still tests True.
-This can be accomplished by using the <code>break</code> keyword from within the loop, and will
-immediately drop through the loop to the code below.</p>
-<p class=nextprev><a href="index.html">home</a></p>
-</body></html>
+  <p>Because the expression "True" always evaluates to True, this code block
+  will loop over and over forever until the program is stopped by the user.</p>
+
+  <p>One more thing to note -- sometimes we want to break out of a loop while
+  we're in the middle of executing the code block, even if the expression that
+  we were testing still tests True. This can be accomplished by using the
+  <code>break</code> keyword from within the loop, and will immediately drop
+  through the loop to the code below.</p>
+  <p class="nextprev"><a href="index.html">home</a></p>
+</body>
+</html>

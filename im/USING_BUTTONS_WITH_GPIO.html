@@ -1,175 +1,181 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>GPIO AS INPUTS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>GPIO AS INPUTS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>GPIO AS INPUTS (READING BUTTONS)</div>
-    <div id=description>In this project, we will use GPIOs to get input from a pushbutton
-    into our software.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=concepts_required><a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br><a href="STRING_THEORY.html">STRING THEORY</a><br><a href="CALCULATIONS.html">CALCULATIONS</a></div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      GPIO AS INPUTS (READING BUTTONS)
+    </div>
+    <div id="description">
+      In this project, we will use GPIOs to get input from a pushbutton into
+      our software.
+    </div>
+    <div id="hw_required">
+      I/O (Input/Output) RaspberrySTEM Cell
+    </div>
+    <div id="concepts_required">
+      <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a><br>
+      <a href="STRING_THEORY.html">STRING THEORY</a><br>
+      <a href="CALCULATIONS.html">CALCULATIONS</a>
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<p>Before jumping into this project, we very strongly recommend that you 
-read <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
-concepts will be the basis for this project and nearly all future RaspberrySTEM
-projects.</p>
+  <p>Before jumping into this project, we very strongly recommend that you read
+  <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, as these
+  concepts will be the basis for this project and nearly all future
+  RaspberrySTEM projects.</p>
 
-<p>In the previous project, we saw how GPIOs can be used as outputs to control
-components attached to the Raspberry Pi (like our LED). GPIOs can also be
-used as inputs to take information from external components; that
-input can then be acted upon by the Raspberry Pi and appropriate
-actions can be taken.</p>
+  <p>In the previous project, we saw how GPIOs can be used as outputs to
+  control components attached to the Raspberry Pi (like our LED). GPIOs can
+  also be used as inputs to take information from external components; that
+  input can then be acted upon by the Raspberry Pi and appropriate actions can
+  be taken.</p>
+  <h2>Reading Buttons Using GPIOs</h2>
 
-<h2>Reading Buttons Using GPIOs</h2>
-<p>In <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, we 
-introduced the idea of reading button state based using GPIOs as inputs and 
-then provided a schematic for the circuit we'd need to accomplish this.  It
-turns out that implementing that circuit on our breadboard is easy.  Let's 
-give it a try...</p>  
+  <p>In <a href="GPIO_CONCEPT.html">GENERAL PURPOSE INPUTS/OUTPUTS</a>, we
+  introduced the idea of reading button state based using GPIOs as inputs and
+  then provided a schematic for the circuit we'd need to accomplish this. It
+  turns out that implementing that circuit on our breadboard is easy. Let's
+  give it a try...</p>
 
-<p>First, we start with an empty breadboard, with power and ground wired from 
-the Lid Connector Board, like this:</p>
+  <p>First, we start with an empty breadboard, with power and ground wired from
+  the Lid Connector Board, like this:</p><img class="bb" src=
+  "img/Just_Power_bb.png" alt=""> With our breadboard empty, here is how we
+  build our circuit and then use code to get input from the button through the
+  GPIO:
+  <h4>Step #1: Place button on breadboard.</h4>
 
-<img class="bb" src="img/Just_Power_bb.png">
+  <p>We start by placing a button on the breadboard. Remember, it is important
+  that the button is oriented correctly -- the two independent sides of the
+  button must sit on different connect strips, as follows:</p>
+  <table style="margin: auto; width: 70%;">
+    <tbody>
+      <tr>
+        <td><img src="img/Button_orientation_correct.png" width="285" alt=
+        ""></td>
+        <td><img src="img/Button_orientation_wrong.png" width="285" alt=
+        ""></td>
+      </tr>
+      <tr>
+        <td><strong>CORRECT</strong></td>
+        <td><strong><span style="color: red;">WRONG!!!</span></strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>Step #2: Wire one side of the button to a GPIO.</h4>
 
+  <p>Next, we connect one side of the button (it doesn’t matter which one, as
+  the internal components of the button are symmetrical) to a GPIO. In this
+  example, we’ll connect the button to GPIO14.</p><img class="bb" src=
+  "img/Buttons_with_GPIO_1_bb.png" alt="">
+  <h4>Step #3: Wire the other side of the button to ground.</h4>
 
-With our breadboard empty, here is how we build our circuit and then use code to get input 
-from the button through the GPIO:</p>
+  <p>Finally, we connect the other side of the button to ground.</p><img class=
+  "bb" src="img/Buttons_with_GPIO_2_bb.png" alt="">
 
-<h4>Step #1:  Place button on breadboard.</h4>
-<p>
-We start by placing a button on
-the breadboard.  Remember, it is important that the button is oriented correctly -- the two independent sides of the button
-must sit
-on different connect strips, as follows:</p>
+  <p>That’s it for the wiring – pretty simple, right?</p>
+  <h4>Step #4: Write the code.</h4>
 
-<table style="margin: auto; width: 70%;">
-<tbody>
-<tr>
-<td><img src="img/Button_orientation_correct.png" width="285"></td>
-<td><img src="img/Button_orientation_wrong.png" width="285"></td>
-</tr>
-<tr>
-<td><strong>CORRECT</strong></td>
-<td><strong><span style="color: red;">WRONG!!!</span></strong></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Step #2:  Wire one side of the button to a GPIO.</h4>
-<p>Next, we connect one side of the
-button (it doesn’t matter which one, as the internal components of the
-button
-are symmetrical) to a GPIO.  In
-this
-example, we’ll connect the button to GPIO14.</p>
-
-<img class="bb" src="img/Buttons_with_GPIO_1_bb.png">
-
-<h4>Step #3: Wire the other side of the button to ground.</h4>
-<p>Finally, we connect the other side
-of the button to ground.
-</p>
-
-<img class="bb" src="img/Buttons_with_GPIO_2_bb.png">
-<p>That’s it for the wiring – pretty
-simple, right?</p>
-
-<h4>Step #4: Write the code.  </h4>
-<p>Now that the circuit is wired, we can
-write the code to get
-the GPIO state (low or high):</p>
-
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>Now that the circuit is wired, we can write the code to get the GPIO state
+  (low or high):</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.button import Button
 my_button = Button(14)
 print(my_button.is_pressed())
-</textarea></div>
+</textarea>
+  </div>
 
-<p>In this most basic example, we are
-reading the GPIO a single
-time (the moment the program is run) and we are printing the state of
-the
-button at that moment.  Try
-running the
-program a couple times, either holding down or not holding down the
-button at
-the moment the program is run.</p>
-<p>You may notice that this example is similar to the 
-<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING LEDS)</a>
-example.  But in this case, we configure the GPIO as a input instead of an
-output:
-</p>
-<ul>
-<li> <p>In Line 2: We're configuring GPIO 14 as a button input.</p> </li>
-<li> <p>In Line 3: We're getting the state of the button, and printing it.</p> </li>
-</ul>
-<p>
-We'll look at these concepts again in more detail in upcoming projects.
-</p>
-<p>To make the program a little more
-interesting (and
-convenient!), we can insert a loop so that, instead of just reading the
-state
-of the GPIO one time, we can continually read and print the state of
-the GPIO
-for as long as the program is running. 
-</p>
-<p>Here’s what that code would look like:</p>
+  <p>In this most basic example, we are reading the GPIO a single time (the
+  moment the program is run) and we are printing the state of the button at
+  that moment. Try running the program a couple times, either holding down or
+  not holding down the button at the moment the program is run.</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>You may notice that this example is similar to the <a href=
+  "GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING LEDS)</a>
+  example. But in this case, we configure the GPIO as a input instead of an
+  output:</p>
+  <ul>
+    <li>
+
+      <p>In Line 2: We're configuring GPIO 14 as a button input.</p>
+    </li>
+    <li>
+
+      <p>In Line 3: We're getting the state of the button, and printing it.</p>
+    </li>
+  </ul>
+
+  <p>We'll look at these concepts again in more detail in upcoming
+  projects.</p>
+
+  <p>To make the program a little more interesting (and convenient!), we can
+  insert a loop so that, instead of just reading the state of the GPIO one
+  time, we can continually read and print the state of the GPIO for as long as
+  the program is running.</p>
+
+  <p>Here’s what that code would look like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.button import Button
 import time
 
 my_button = Button(14)
 
 while True: 
-	print(my_button.is_pressed())
-	time.sleep(0.1)
-</textarea></div>
+        print(my_button.is_pressed())
+        time.sleep(0.1)
+</textarea>
+  </div>
 
-<p>Run this program and then alternate
-between pressing and not
-pressing the button.  Take
-a look at the
-output window – you should see an indication of when the button is
-pressed and
-when it is released.</p>
+  <p>Run this program and then alternate between pressing and not pressing the
+  button. Take a look at the output window – you should see an indication of
+  when the button is pressed and when it is released.</p>
+  <div class="info">
+    <div>
+      "while True:"
+    </div>
+    <div>
 
-<div class="info">
-<div>"while True:"</div>
-<div>
-<p>
-You may have noticed that we used a new programming concept above:</p>
-<pre>while True:</pre>
-<p>We'll discuss exactly how this works in a future project, but for now, just know
-that using this line of code will force the block of code below it to be repeated over 
-and over, forever.
-</p>
-</div>
-</div>
+      <p>You may have noticed that we used a new programming concept above:</p>
+      <pre>
+while True:
+</pre>
 
-<p>When you're done testing your button, you can stop the program by pressing the
-square STOP icon in the upper-left-hand corner of the code window (this icon replaced the PLAY
-icon while the program was running).
-</p>
-<p class=nextprev><a href="index.html">home</a> | 
-<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a> |
-<a href="FLASHLIGHT.html">next</a></p>
-</body></html>
+      <p>We'll discuss exactly how this works in a future project, but for now,
+      just know that using this line of code will force the block of code below
+      it to be repeated over and over, forever.</p>
+    </div>
+  </div>
+
+  <p>When you're done testing your button, you can stop the program by pressing
+  the square STOP icon in the upper-left-hand corner of the code window (this
+  icon replaced the PLAY icon while the program was running).</p>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "GENERAL_PURPOSE_INPUT-OUTPUT.html">prev</a> | <a href=
+  "FLASHLIGHT.html">next</a></p>
+</body>
+</html>

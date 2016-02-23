@@ -1,155 +1,177 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>WORKING WITH BUTTONS</title>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>WORKING WITH BUTTONS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style=
+"background: transparent none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; direction: ltr; color: rgb(0, 0, 10);"
+lang="en-US" link="#0563C1">
+  <header>
+    <div id="title">
+      WORKING WITH BUTTONS
+    </div>
+    <div id="description">
+      In this project, we're going to introduce an input device -- the
+      pushbutton -- that will allow us to start controlling the functionality
+      of our circuit.
+    </div>
+    <div id="hw_required">
+      Hardware setup from previous project<br>
+      I/O (Input/Output) RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
-<body style="background: transparent none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>WORKING WITH BUTTONS</div>
-    <div id=description>In this project, we're going to introduce an input device -- the pushbutton -- that will allow us to start controlling the functionality of our circuit.</div>
-    <div id=hw_required>Hardware setup from previous project<br>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>In this project we'll be adding a new input device -- the pushbutton (or
+  just "button"). A button is just a very simple switch – electric current can
+  flow through it only when it is pressed.</p>
 
-<p>In this project we'll be adding a new input device -- the 
-pushbutton (or just "button").  A button is just a very simple switch – electric current can flow
-through it only when it is pressed.  </p>
-<p>Take one of the buttons out of your 
-<strong>I/O (Input/Output) RaspberrySTEM Cell</strong> so we can take a closer look at how a button works.  
-This is a representation of most basic pushbuttons – they have four “legs”
-that can be attached to your breadboard and wired to the circuit and
-then one button in the center of the device that can be pushed
-(“closed”) or released (“open”):</p>
-<img style="display: block; margin: auto; width: 200px;" alt="" src="img/button1%20cropped.jpg">
-<p>Internally, the left side of the
-button (the two legs on the
-left) are connected together, and the right side of the button (the two
-legs on
-the right) are connected together:
-</p>
-<img style="width: 402px;" alt="" src="img/button2%20cropped.jpg" v:shapes="Picture_x0020_243">
-<p>When we insert a button into a circuit, it has one of two
-operations:</p>
-<ol>
-<li>
-<p>When the button is left unpressed, it creates an open
-circuit, no electric current can flow through the button and nothing
-happens.</p>
-</li>
-<li>
-<p>When the button is pressed, the button acts as a wire and
-closes the circuit – electric current can then flow through the button.</p>
-</li>
-</ol>
-<p>So, if we go back to our first
-breadboard circuit containing
-a simple resistor and LED that is always illuminated, we should be able
-to add
-a switch that we can then use to control the LED turning on and off (by
-pressing the button).</p>
-<p>Let’s build that circuit now…</p>
-<p>Here’s what the schematic will look
-like:
-<img class="schematic" style="width:200px;" src="img/Battery-LED-Circuit-With-Button.png">  
-<p>To build the circuit, let's start with the circuit we built in the last project --
-	<a href="RASPBERRY_PI_POWER.html">GETTING POWER FROM THE RASPBERRY PI</a>:</p>
-<img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png">
+  <p>Take one of the buttons out of your <strong>I/O (Input/Output)
+  RaspberrySTEM Cell</strong> so we can take a closer look at how a button
+  works. This is a representation of most basic pushbuttons – they have four
+  “legs” that can be attached to your breadboard and wired to the circuit and
+  then one button in the center of the device that can be pushed (“closed”) or
+  released (“open”):</p><img style=
+  "display: block; margin: auto; width: 200px;" alt="" src=
+  "img/button1%20cropped.jpg">
 
-<h4>Step #1: Remove wire from LED to ground.</h4>
-<p>We’re going to be adding the button
-into the circuit between
-the LED and ground, so the first step will be to remove the wire that
-connects
-the LED to ground.  </p>
-<p>This is what the breadboard should
-look like at this point:</p>
-<img class="bb" src="img/Introducing_Buttons_1_bb.png">
+  <p>Internally, the left side of the button (the two legs on the left) are
+  connected together, and the right side of the button (the two legs on the
+  right) are connected together:</p><img style="width: 402px;" alt="" src=
+  "img/button2%20cropped.jpg">
 
-<h4>Step #2: Provide connectivity from the LED to the button.</h4>
-<p>The next step is to provide connectivity between the second lead of
-the LED and the button.  You can wire the button directly to the LED, but to space the parts out a
-little more, we're going to first add an additional wire (one of the the half-inch green
-wires).
-</p><p>This is what the breadboard should
-look like at this point:</p>
-<img class="bb" src="img/Introducing_Buttons_2_bb.png">
-<h4>Step #3: Place button on the breadboard.</h4>
-<p>Next, we’ll place the button on the
-breadboard.    Note
-that the button should be oriented so
-that the two sides of the button sit on different connect strips, as follows:    </p>
-<table style="margin: auto; width: 70%;">
-<tbody>
-<tr>
-<td><img src="img/Button_orientation_correct.png"></td>
-<td><img src="img/Button_orientation_wrong.png"></td>
-</tr>
-<tr>
-<td><strong>CORRECT</strong></td>
-<td><strong><span style="color: red;">WRONG!!!</span></strong></td>
-</tr>
-</tbody>
-</table>
-<p>One side of the button should sit in the same connect strip as
-the green wire from the LED.  This will provide connectivity from
-the LED through the green wire and to the button, as follows:</p><p>   </p>
-<img class="bb" src="img/Introducing_Buttons_3_bb.png">
-<p><strong>Note:</strong>  In our diagram
-above, you'll notice that the button sits across a notch in the
-breadboard.  This isn't absolutely necessary -- the button could
-sit with both left legs in the same connect strip and both right legs
-in the same connect strip.  But, because buttons take up a lot of
-space on the breadboard, we find it easier to position them across a
-notch in many cases.  You can decide how you want to wire your
-buttons, but keep in mind that either way will work.
-<h4>Step #4: Connect the other side of the button to ground.</h4>
-<p> Finally,
-we can
-complete the circuit by connecting the other side of the button to
-ground, like
-this:  </p>
-<img class="bb" src="img/Introducing_Buttons_4_bb.png">
-<p> At this
-point, your
-LED should <strong>not</strong> be lit.   Remember,
-while
-we have a <span style="font-style: italic;">potentially</span>
-complete circuit, there is still a lack of physical
-connection through the button until the button is pressed.
-In other words, there is a break in the circuit <i>inside</i> the button (this
-is how a button works) and the way to complete the circuit is to press
-the button.</p><p> If you press the button,
-you should see the
-LED illuminate.</p>
-<div class="info">
-<div>"Breaking the Circuit"</div>
-<div>
-<p>
-In this project, we controlled the flow of electric current
-through the circuit by inserting a switch (the button) between the LED
-and ground.
-That said, the switch didn't need to be inserted at that point in the
-circuit for it to work -- we could have inserted the switch anywhere in
-the circuit
-and it would have worked the exact same way. Remember, if the flow of
-electric charge is broken anywhere
-in the circuit, the circuit will fail to
-operate. So, our decision to insert the button where we did was
-completely arbitrary. 
-</p>
-</div></div>
-<p>Congratulations - you’ve just built the same circuit used in most simple flashlights!</p>
-<p>
-In the next project, we’ll add software into the equation, and will start using "GPIOs"
-to control our output.</p>
-<p class=nextprev><a href="index.html">home</a> | 
-<a href="RASPBERRY_PI_POWER.html">prev</a> |
-<a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">next</a></p>
-</body></html>
+  <p>When we insert a button into a circuit, it has one of two operations:</p>
+  <ol>
+    <li>
+
+      <p>When the button is left unpressed, it creates an open circuit, no
+      electric current can flow through the button and nothing happens.</p>
+    </li>
+    <li>
+
+      <p>When the button is pressed, the button acts as a wire and closes the
+      circuit – electric current can then flow through the button.</p>
+    </li>
+  </ol>
+
+  <p>So, if we go back to our first breadboard circuit containing a simple
+  resistor and LED that is always illuminated, we should be able to add a
+  switch that we can then use to control the LED turning on and off (by
+  pressing the button).</p>
+
+  <p>Let’s build that circuit now…</p>
+
+  <p>Here’s what the schematic will look like: <img class="schematic" style=
+  "width:200px;" src="img/Battery-LED-Circuit-With-Button.png" alt=""></p>
+
+  <p>To build the circuit, let's start with the circuit we built in the last
+  project -- <a href="RASPBERRY_PI_POWER.html">GETTING POWER FROM THE RASPBERRY
+  PI</a>:</p><img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+  <h4>Step #1: Remove wire from LED to ground.</h4>
+
+  <p>We’re going to be adding the button into the circuit between the LED and
+  ground, so the first step will be to remove the wire that connects the LED to
+  ground.</p>
+
+  <p>This is what the breadboard should look like at this point:</p><img class=
+  "bb" src="img/Introducing_Buttons_1_bb.png" alt="">
+  <h4>Step #2: Provide connectivity from the LED to the button.</h4>
+
+  <p>The next step is to provide connectivity between the second lead of the
+  LED and the button. You can wire the button directly to the LED, but to space
+  the parts out a little more, we're going to first add an additional wire (one
+  of the the half-inch green wires).</p>
+
+  <p>This is what the breadboard should look like at this point:</p><img class=
+  "bb" src="img/Introducing_Buttons_2_bb.png" alt="">
+  <h4>Step #3: Place button on the breadboard.</h4>
+
+  <p>Next, we’ll place the button on the breadboard. Note that the button
+  should be oriented so that the two sides of the button sit on different
+  connect strips, as follows:</p>
+  <table style="margin: auto; width: 70%;">
+    <tbody>
+      <tr>
+        <td><img src="img/Button_orientation_correct.png" alt=""></td>
+        <td><img src="img/Button_orientation_wrong.png" alt=""></td>
+      </tr>
+      <tr>
+        <td><strong>CORRECT</strong></td>
+        <td><strong><span style="color: red;">WRONG!!!</span></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>One side of the button should sit in the same connect strip as the green
+  wire from the LED. This will provide connectivity from the LED through the
+  green wire and to the button, as follows:</p><img class="bb" src=
+  "img/Introducing_Buttons_3_bb.png" alt="">
+
+  <p><strong>Note:</strong> In our diagram above, you'll notice that the button
+  sits across a notch in the breadboard. This isn't absolutely necessary -- the
+  button could sit with both left legs in the same connect strip and both right
+  legs in the same connect strip. But, because buttons take up a lot of space
+  on the breadboard, we find it easier to position them across a notch in many
+  cases. You can decide how you want to wire your buttons, but keep in mind
+  that either way will work.</p>
+  <h4>Step #4: Connect the other side of the button to ground.</h4>
+
+  <p>Finally, we can complete the circuit by connecting the other side of the
+  button to ground, like this:</p><img class="bb" src=
+  "img/Introducing_Buttons_4_bb.png" alt="">
+
+  <p>At this point, your LED should <strong>not</strong> be lit. Remember,
+  while we have a <span style="font-style: italic;">potentially</span> complete
+  circuit, there is still a lack of physical connection through the button
+  until the button is pressed. In other words, there is a break in the circuit
+  <i>inside</i> the button (this is how a button works) and the way to complete
+  the circuit is to press the button.</p>
+
+  <p>If you press the button, you should see the LED illuminate.</p>
+  <div class="info">
+    <div>
+      "Breaking the Circuit"
+    </div>
+    <div>
+
+      <p>In this project, we controlled the flow of electric current through
+      the circuit by inserting a switch (the button) between the LED and
+      ground. That said, the switch didn't need to be inserted at that point in
+      the circuit for it to work -- we could have inserted the switch anywhere
+      in the circuit and it would have worked the exact same way. Remember, if
+      the flow of electric charge is broken anywhere in the circuit, the
+      circuit will fail to operate. So, our decision to insert the button where
+      we did was completely arbitrary.</p>
+    </div>
+  </div>
+
+  <p>Congratulations - you’ve just built the same circuit used in most simple
+  flashlights!</p>
+
+  <p>In the next project, we’ll add software into the equation, and will start
+  using "GPIOs" to control our output.</p>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "RASPBERRY_PI_POWER.html">prev</a> | <a href=
+  "GENERAL_PURPOSE_INPUT-OUTPUT.html">next</a></p>
+</body>
+</html>

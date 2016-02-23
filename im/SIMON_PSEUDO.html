@@ -1,70 +1,73 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 0</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SIMON 0</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>SIMON 0</div>
-    <div id=description>In this project, we kick off the development of our Simon-like
-    pattern matching game by writing the pseudo-code for our game.</div>
-    <div id=concepts_required><a href="WHILE_LOOPS.html">WHILE LOOPS</a></div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      SIMON 0
+    </div>
+    <div id="description">
+      In this project, we kick off the development of our Simon-like pattern
+      matching game by writing the pseudo-code for our game.
+    </div>
+    <div id="concepts_required">
+      <a href="WHILE_LOOPS.html">WHILE LOOPS</a>
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<p>Over the next eight projects, we're going to use buttons, LEDs
-and a good bit of code to build and program a pattern-matching game
-much like the popular toy Simon.  </p>
-<p>If you're not
-familiar with Simon, let me describe how our pattern-matching game will
-work.  The game will start by flashing one of four LEDs at
-random (and
-will
-play a tone specific to that LED).  You (the player) will
-then have a short
-amount of time to press the button associated with the LED that
-flashed.
- If
-you do that successfully, the game will repeat the first LED flash and
-then add a second LED flash at random.  Again, you'll need to
-remember the pattern and press the correct buttons to replicate the
-pattern.  Each time you successfully enter the correct
-sequence,
-the game will replay the previous pattern and add a random new
-LED
-flash at the end.  This will continue until you incorrectly
-repeat the sequence --
-of if
-you take too long between button presses -- at which point the game
-ends and the entire sequence is repeated back to you one last time.</p>
-<p>
-Since
-this is a bit longer and more complex project than we've done so far,
-it's important to spend some time planning what the code will do and in
-what order.  
-To do this, we'll create an outline for Simon is through a common
-programming technique called pseudo-code.
-</p>
-<p></p>
-<div class="info">
-<div>Pseudo-Code</div>
-<div>
-<p>
- Writing pseudo-code before you write software is similar to
-writing an outline before you write a paper or an article.
- Basically, you create an outline for your code using a
-combination of regular English mixed with some bits of programming
-code.  This allows you (or others) to read the order of the
-code and determine if what you're getting ready to write is logical and
-will accomplish what you'd expect.</p>
-<p>Let's use the 
-    <a href="MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a> project to show an example of
-    how we'd write pseudo-code.  In that project, we had a bunch of buttons, and we wanted to print
-    when the buttons were pressed.</p>
-<p>Here is what our pseudo-code might look like:</p>
-<pre>
+  <p>Over the next eight projects, we're going to use buttons, LEDs and a good
+  bit of code to build and program a pattern-matching game much like the
+  popular toy Simon.</p>
+
+  <p>If you're not familiar with Simon, let me describe how our
+  pattern-matching game will work. The game will start by flashing one of four
+  LEDs at random (and will play a tone specific to that LED). You (the player)
+  will then have a short amount of time to press the button associated with the
+  LED that flashed. If you do that successfully, the game will repeat the first
+  LED flash and then add a second LED flash at random. Again, you'll need to
+  remember the pattern and press the correct buttons to replicate the pattern.
+  Each time you successfully enter the correct sequence, the game will replay
+  the previous pattern and add a random new LED flash at the end. This will
+  continue until you incorrectly repeat the sequence -- of if you take too long
+  between button presses -- at which point the game ends and the entire
+  sequence is repeated back to you one last time.</p>
+
+  <p>Since this is a bit longer and more complex project than we've done so
+  far, it's important to spend some time planning what the code will do and in
+  what order. To do this, we'll create an outline for Simon is through a common
+  programming technique called pseudo-code.</p>
+  <div class="info">
+    <div>
+      Pseudo-Code
+    </div>
+    <div>
+
+      <p>Writing pseudo-code before you write software is similar to writing an
+      outline before you write a paper or an article. Basically, you create an
+      outline for your code using a combination of regular English mixed with
+      some bits of programming code. This allows you (or others) to read the
+      order of the code and determine if what you're getting ready to write is
+      logical and will accomplish what you'd expect.</p>
+
+      <p>Let's use the <a href="MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a>
+      project to show an example of how we'd write pseudo-code. In that
+      project, we had a bunch of buttons, and we wanted to print when the
+      buttons were pressed.</p>
+
+      <p>Here is what our pseudo-code might look like:</p>
+      <pre>
 Create a list of Buttons
 Repeat:
     For each button in the list of buttons:
@@ -72,26 +75,27 @@ Repeat:
             Print which button was pressed
     Pause
 </pre>
-<p>You notice that each line is easily
-readable as English -- with some indenting to help the readability
--- and overall, you now have a outline that you can
-use as a template to create your code.  </p>
-<p>Now, in reality, you might not need to use pseudo-code for such a simple program.
-But, for more complex software, writing
-the pseudo-code before you start writing the actual code can make the
-entire process much easier.</p>
-</div>
-</div>
 
-<p>
-Let's talk about what the pseudo-code for our Simon game will
-look like.  An effective way to outline a programming project is to start with big
-ideas and then break those ideas down into smaller and smaller pieces, until
-the pieces are small enough that we're comfortable starting to write our
-code.</p>
-<p>For example, this is what the very high level outline for our
-Simon game might look like:</p>
-<pre>
+      <p>You notice that each line is easily readable as English -- with some
+      indenting to help the readability -- and overall, you now have a outline
+      that you can use as a template to create your code.</p>
+
+      <p>Now, in reality, you might not need to use pseudo-code for such a
+      simple program. But, for more complex software, writing the pseudo-code
+      before you start writing the actual code can make the entire process much
+      easier.</p>
+    </div>
+  </div>
+
+  <p>Let's talk about what the pseudo-code for our Simon game will look like.
+  An effective way to outline a programming project is to start with big ideas
+  and then break those ideas down into smaller and smaller pieces, until the
+  pieces are small enough that we're comfortable starting to write our
+  code.</p>
+
+  <p>For example, this is what the very high level outline for our Simon game
+  might look like:</p>
+  <pre>
 Import Modules and Initialize Game
 Add another random LED to sequence
 Play LED sequence 
@@ -102,24 +106,22 @@ If user enters correct button, flash LED and play tone
 If the user enters the entire sequence, go back to top and add another LED to the sequence 
 If the user enters the wrong sequence, play an error sequence
 </pre>
-<p>That's
-basically all our Simon game needs to do.  But, now it's time
-to start thinking about how this outline would actually look when
-written with code. You'll notice that the last two lines indicate that
--- for as long as the user does something correctly -- we go back to
-the top of the code.  Does this sound like a concept we've
-already discussed?  A <code>while</code>
-loop, perhaps?</p>
-<p>Also, you'll notice that in the middle of the code, we're
-checking for the sequence of button presses from the user --
-one-by-one.  This sequence of getting input and checking it
-would likely be a loop as well -- in this case, probably a <code>for</code>
-loop.</p>
-<p>Let's
-rewrite our pseudo-code above, but this time, let's add in a couple
-loops to make it more clear how the code will work:</p>
 
-<pre>
+  <p>That's basically all our Simon game needs to do. But, now it's time to
+  start thinking about how this outline would actually look when written with
+  code. You'll notice that the last two lines indicate that -- for as long as
+  the user does something correctly -- we go back to the top of the code. Does
+  this sound like a concept we've already discussed? A <code>while</code> loop,
+  perhaps?</p>
+
+  <p>Also, you'll notice that in the middle of the code, we're checking for the
+  sequence of button presses from the user -- one-by-one. This sequence of
+  getting input and checking it would likely be a loop as well -- in this case,
+  probably a <code>for</code> loop.</p>
+
+  <p>Let's rewrite our pseudo-code above, but this time, let's add in a couple
+  loops to make it more clear how the code will work:</p>
+  <pre>
 Import Modules and Initialize Game
 while (user enters the sequence correctly):
     Add another random LED to sequence
@@ -131,16 +133,17 @@ while (user enters the sequence correctly):
         Otherwise (user entered correct button), so flash LED and play tone
 If the user enters the wrong sequence, play an error sequence
 </pre>
-<p>The pseudo-code above is still very simple to follow, but by
-adding in the two loops, we start to see the format for our program.</p>
-<p>We
-could drill down into each piece of the pseudo-code further -- and in
-some future projects we'll be much more detailed -- but for our
-Simon-like game, we think this is enough detail to get started.
- As we build up the code over the next many projects, we'll
-use
-the outline above to organize and ensure that we're doing everything
-that needs to be done to get the game working properly.</p>
-<p class=nextprev><a href="index.html">home</a> | <a href="WALKABLE_PIANO.html">prev</a> |
-<a href="SIMON_1.html">next</a></p>
-</body></html>
+
+  <p>The pseudo-code above is still very simple to follow, but by adding in the
+  two loops, we start to see the format for our program.</p>
+
+  <p>We could drill down into each piece of the pseudo-code further -- and in
+  some future projects we'll be much more detailed -- but for our Simon-like
+  game, we think this is enough detail to get started. As we build up the code
+  over the next many projects, we'll use the outline above to organize and
+  ensure that we're doing everything that needs to be done to get the game
+  working properly.</p>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "WALKABLE_PIANO.html">prev</a> | <a href="SIMON_1.html">next</a></p>
+</body>
+</html>

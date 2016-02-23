@@ -1,127 +1,131 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 2</title>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SIMON 2</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      SIMON 2
+    </div>
+    <div id="description">
+      In this project, we continue the development of our Simon-like pattern
+      matching game by adding the LEDs to our circuit.
+    </div>
+    <div id="hw_required">
+      Speaker &amp; Audio Cable<br>
+      I/O (Input/Output) RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>SIMON 2</div>
-    <div id=description>In this project, we continue the development of our Simon-like
-    pattern matching game by adding the LEDs to our circuit.</div>
-    <div id=hw_required>Speaker &amp; Audio Cable<br>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>In the previous project, we wired up and tested the four buttons we'll be
+  using for our pattern-matching game. Now it's time to add four LEDs to the
+  circuit from our last project and test those.</p>
+  <h2>Hardware Implementation</h2>
 
+  <p>We're going to start with the breadboard setup from the previous
+  project.</p>
+  <h4>Hardware Step #1: Wire Your First LED Using a GPIO Output</h4>
 
-<p>In
-the previous project, we wired up and tested the four buttons we'll be
-using for our pattern-matching game.  Now it's time to add
-four
-LEDs to the circuit from our last project and test those.</p>
-<h2>Hardware
-Implementation</h2>
-<p>We're going to start with the breadboard setup from the
-previous project.</p>
+  <p>For this game that we're building, we'll have four different colored LEDs,
+  and each LED will be associated with a particular button. For that reason,
+  we're going to want to wire our LEDs in locations where we can easily tell
+  which button each LED is associated with. While you're welcome to wire the
+  buttons in any locations you choose, our instructions below will put each LED
+  as close as possible to its button.</p>
 
-<h4>Hardware Step #1: Wire Your First LED Using a GPIO Output</h4>
-<p>For
-this game that we're building, we'll have four different colored
-LEDs, and each LED will be associated with a particular button.
- For
-that reason, we're going to want to wire our LEDs in locations where we
-can
-easily tell which button each LED is associated with.  While
-you're welcome to wire the buttons in any locations you choose, our
-instructions below will put each LED as close as possible to its
-button.</p>
-<p>If you recall
-from <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING LEDS)</a>, to wire an LED to a GPIO, the circuit
-schematic should look as follows:</p>
+  <p>If you recall from <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS
+  OUTPUTS (CONTROLLING LEDS)</a>, to wire an LED to a GPIO, the circuit
+  schematic should look as follows:</p><img class="schematic" style=
+  "width: 500px;" src="img/Battery-LED-Circuit-to-GPIO.png" alt="">
 
-<img class="schematic" style="width: 500px;" src="img/Battery-LED-Circuit-to-GPIO.png">
+  <p>We've chosen GPIO4 for our first LED. As for LED color, it shouldn't
+  matter which LED color goes with which button, so we've arbitrarily chosen
+  orange for this one.</p>
 
-<p>
- We've chosen GPIO4 for our first LED.  As
-for LED color, it
-shouldn't matter which LED color goes with which button, so we've
-arbitrarily chosen orange for this one.</p>
-<p>Here is what your breadboard
-should look like:</p>
+  <p>Here is what your breadboard should look like:</p><img class="bb" src=
+  "img/simon-4but-1led_bb.png" alt="">
 
-<img class="bb" src="img/simon-4but-1led_bb.png">
+  <p>Keep in mind that you're going to want to ensure that neither leg of the
+  LED sits in the same connect strip as a button or another LED.</p>
+  <h4>Hardware Step #2: Wire Your Second LED Using a GPIO Output</h4>
 
-<p>Keep
-in mind that you're going to want to ensure that neither leg of the
-LED sits in the same connect strip as a button or another LED.
-</p>
+  <p>We can now wire our second LED. We've chosen GPIO18 for this LED and are
+  using a yellow LED.</p>
 
-<h4>Hardware Step #2: Wire Your Second LED Using a GPIO Output</h4>
-<p>We can now wire our second LED.
- We've chosen GPIO18 for this LED and are using a yellow LED.</p>
-<p>Here is what your breadboard
-should look like:</p>
+  <p>Here is what your breadboard should look like:</p><img class="bb" src=
+  "img/simon-4but-2led_bb.png" alt="">
+  <h4>Hardware Step #3: Wire Your Third LED Using a GPIO Output</h4>
 
-<img class="bb" src="img/simon-4but-2led_bb.png">
+  <p>Time to wire our third LED to the bottom button, like just the previous
+  two. We've chosen GPIO24 for this LED and are using a red LED.</p>
 
-<h4>Hardware Step #3: Wire Your Third LED Using a GPIO Output</h4>
-<p>Time to wire our third LED to the bottom button, like just the
-previous two.
- We've chosen GPIO24 for this LED and are using a red LED.</p>
-<pHere is what your breadboard
-should look like:</p>
+  <p>Here is what your breadboard should look like:</p><img class="bb" src=
+  "img/simon-4but-3led_bb.png" alt="">
+  <h4>Hardware Step #4: Wire Your Fourth LED Using a GPIO Output</h4>
 
-<img class="bb" src="img/simon-4but-3led_bb.png">
+  <p>It's time to wire our final LED. We've chosen GPIO27 for this LED and are
+  using a green LED.</p>
 
-<h4>Hardware Step #4: Wire Your Fourth LED Using a GPIO Output</h4>
-<p>It's time to wire our final LED.
- We've chosen GPIO27 for this LED and are using a green LED.
- </p>
-<p>Here is what your breadboard
-should look like:</p>
+  <p>Here is what your breadboard should look like:</p><img class="bb" src=
+  "img/simon-4but-4led_bb.png" alt="">
 
-<img class="bb" src="img/simon-4but-4led_bb.png">
+  <p>You'll notice that we chose to use an extra jumper to attach the LED to
+  the GPIO -- again, we're going to want to be able to press each of the
+  buttons in our circuit, so keeping the wires off to the sides as much as
+  possible is highly recommended.</p>
 
-<p>You'll
-notice that we chose to use an extra jumper to attach the LED to the
-GPIO -- again, we're going to want to be able to press each of the
-buttons in our circuit, so keeping the wires off to the sides as much
-as possible is highly recommended.</p>
-<p>Congratulations...you've just
-finished the wiring for your first game!</p>
-<p>Before
-we move on to start implementing the game software, we're going to
-write some code to verify that the LEDs are all wired
-correctly and are working properly.  Like with our button test
-code, our LED test code is going to have two
-sections -- the first will import the functions we're going to need for
-the rest of the code and the second will test each of the LEDs.</p>
-<h2>Programming
-Implementation</h2><p>To test our LEDs, we'll create a list of LEDs and cycle through turning each
-of them on and off.</p><p>Here's what this import
-code should look like (this probably looks familiar from earlier GPIO projects):</p>
+  <p>Congratulations...you've just finished the wiring for your first game!</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>from rstem.gpio import Output
+  <p>Before we move on to start implementing the game software, we're going to
+  write some code to verify that the LEDs are all wired correctly and are
+  working properly. Like with our button test code, our LED test code is going
+  to have two sections -- the first will import the functions we're going to
+  need for the rest of the code and the second will test each of the LEDs.</p>
+  <h2>Programming Implementation</h2>
+
+  <p>To test our LEDs, we'll create a list of LEDs and cycle through turning
+  each of them on and off.</p>
+
+  <p>Here's what this import code should look like (this probably looks
+  familiar from earlier GPIO projects):</p>
+  <div class="code" data-firstline="1">
+    <textarea>
+from rstem.gpio import Output
 import time
 
 my_leds = [Output(4), Output(18), Output(24), Output(27)]
 
 for led in my_leds: 
-	led.on()
-	time.sleep(.6)
-	led.off()
-	time.sleep(.2)
+        led.on()
+        time.sleep(.6)
+        led.off()
+        time.sleep(.2)
 
-</textarea></div>
-<p></p>
-	<p class=nextprev><a href="index.html">home</a> | <a href="SIMON_1.html">prev</a> |
-<a href="SIMON_3.html">next</a></p>
-</body></html>
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SIMON_1.html">prev</a> | <a href="SIMON_3.html">next</a></p>
+</body>
+</html>

@@ -1,124 +1,147 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>SPACE INVADERS 6</title>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-<header>
-    <div id=title>SPACE INVADERS 6</div>
-    <div id=description>In this project, we're going to continue building our Space Invaders
-	    game by starting to animate the aliens and add some collision detection
-	    for the missiles we're firing at them.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
-<p>In this project, we're going to move the aliens to the right.
- Moving the aliens is going to look very similar to how we moved
-the missile in the previous project -- we'll track time to determine
-when to move the aliens, we'll define how quickly to move them, we'll
-move them when the time is right.</p>
-<p>Here is our initialization code:</p>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SPACE INVADERS 6</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body dir="ltr" lang="en-US" link="#0563C1" text="#00000A">
+  <header>
+    <div id="title">
+      SPACE INVADERS 6
+    </div>
+    <div id="description">
+      In this project, we're going to continue building our Space Invaders game
+      by starting to animate the aliens and add some collision detection for
+      the missiles we're firing at them.
+    </div>
+    <div id="hw_required">
+      I/O (Input/Output) RaspberrySTEM Cell<br>
+      LED Matrix RaspberrySTEM Cell<br>
+      Accelerometer RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<div class="code" data-firstline=""> 
-<div></div> <textarea>alien_start_time = time.time()
+  <p>In this project, we're going to move the aliens to the right. Moving the
+  aliens is going to look very similar to how we moved the missile in the
+  previous project -- we'll track time to determine when to move the aliens,
+  we'll define how quickly to move them, we'll move them when the time is
+  right.</p>
+
+  <p>Here is our initialization code:</p>
+  <div class="code" data-firstline="">
+    <textarea>
+alien_start_time = time.time()
 
 ALIENS_STEP_TIME = 0.8
-</textarea></div>
+</textarea>
+  </div>
 
+  <p>We'll move the aliens to the right, and for now, we'll never move them
+  left. So, of course, that means that once they move off of the screen, they
+  aren't coming back!</p>
 
-<p>  We'll move the aliens to the right, and for now, we'll never move them left.  So, of course,
-that means that once they move off of the screen, they aren't coming back!
-</p><p>
-
-Here is our code to move the aliens when the time is right:</p>
-
-<div class="code" data-firstline=""> 
-<div></div> <textarea># Move alien
+  <p>Here is our code to move the aliens when the time is right:</p>
+  <div class="code" data-firstline="">
+    <textarea>
+# Move alien
 if now - alien_start_time &gt; ALIENS_STEP_TIME:
-	alien_columns = [column + 1 for column in alien_columns]
-	alien_start_time = now
-</textarea></div>
+        alien_columns = [column + 1 for column in alien_columns]
+        alien_start_time = now
+</textarea>
+  </div>
+  <div class="info">
+    <div>
+      List Comprehensions
+    </div>
+    <div>
 
-<div class="info">
-<div>List Comprehensions</div>
-<div>
-<p>
-<p>In the above code, we snuck in a completely new concept in the line:
-<pre>
+      <p>In the above code, we snuck in a completely new concept in the
+      line:</p>
+      <pre>
 alien_columns = [column + 1 for column in alien_columns]
-</pre>
-It's called a list comprehension, and it's a handy tool in Python that combines
-the features of lists and for loops into one.  They are useful in cases where you want to
-create a list using a loop.  For example, perhaps you want to create a list of
-the first five perfect squares (the product of a number multiplied by itself):
-</p>
-<pre>
+</pre>It's called a list comprehension, and it's a handy tool in Python that
+combines the features of lists and for loops into one. They are useful in cases
+where you want to create a list using a loop. For example, perhaps you want to
+create a list of the first five perfect squares (the product of a number
+multiplied by itself):
+      <pre>
 [1, 4, 9, 16, 25]
 </pre>
-<p>You could easily do this in a loop, by creating a list and appending to it:
-<pre>
+
+      <p>You could easily do this in a loop, by creating a list and appending
+      to it:</p>
+      <pre>
 squares = []
 for i in range(1, 6):
     squares += [i * i]
 </pre>
-<p>
-List comprehensions provide a way to do the same thing, in a much more concise (and faster!)
-format:
-</p>
-<pre>
+
+      <p>List comprehensions provide a way to do the same thing, in a much more
+      concise (and faster!) format:</p>
+      <pre>
 squares = [i * i for i in range(1, 6)]
 </pre>
-<p>
-In English, the above list comprehension would read something like:
-</p>
-<pre>
+
+      <p>In English, the above list comprehension would read something
+      like:</p>
+      <pre>
 a list where each item equals (i * i) for i in the range 1 to 5
 </pre>
-</div>
-</div>
-<p>Another thing we're going to want to do in this project is to detect
-whether the aliens have collided with an existing missile, and if one
-of them has, remove it from the screen (and from the array).  And
-if we remove an alien, we need to check if that's the last alien (if
-the array is empty), in which case we drop through the loop and end the
-game:</p>
+    </div>
+  </div>
 
-<div class="code" data-firstline=""> 
-<div></div> <textarea># Check for collision
+  <p>Another thing we're going to want to do in this project is to detect
+  whether the aliens have collided with an existing missile, and if one of them
+  has, remove it from the screen (and from the array). And if we remove an
+  alien, we need to check if that's the last alien (if the array is empty), in
+  which case we drop through the loop and end the game:</p>
+  <div class="code" data-firstline="">
+    <textarea>
+# Check for collision
 if missile_y == alien_row and missile_x in alien_columns:
-	alien_columns.remove(missile_x)
-	missile_x, missile_y = -1, -1
-	if not alien_columns:
-		break
-</textarea></div>
+        alien_columns.remove(missile_x)
+        missile_x, missile_y = -1, -1
+        if not alien_columns:
+                break
+</textarea>
+  </div>
 
-<p>Lastly, once we drop through the loop to end the game, we'll want to
-test if the alien array is empty (in which case the player wins) or if the
-array is still populated with one or more aliens (in which case the
-player loses):</p> 
-
-
-
-<div class="code" data-firstline=""> 
-<div></div> <textarea>if alien_columns:
-	print("Ouch!")
+  <p>Lastly, once we drop through the loop to end the game, we'll want to test
+  if the alien array is empty (in which case the player wins) or if the array
+  is still populated with one or more aliens (in which case the player
+  loses):</p>
+  <div class="code" data-firstline="">
+    <textarea>
+if alien_columns:
+        print("Ouch!")
 else:
-	print("You win!")
-</textarea></div>
+        print("You win!")
+</textarea>
+  </div>
 
-
-<p>Here is the full project code to this point -- when you run it, you should be able
-to fire missiles and destroy the aliens:</p>
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>Here is the full project code to this point -- when you run it, you should
+  be able to fire missiles and destroy the aliens:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # ###############################################################
 #
 # SPACE INVADERS GAME
@@ -128,7 +151,7 @@ to fire missiles and destroy the aliens:</p>
 # ################################
 # Initialize the game environment
 # ################################
-		
+                
 # Import required functions/modules
 from rstem.accel import Accel
 from rstem.button import Button
@@ -159,74 +182,76 @@ MISSILE_COLOR = 10
 MISSILE_STEP_TIME = 0.1
 
 while True:
-	# ########################################
-	# Get inputs
-	# ########################################
-	presses = fire_button.presses()
-	x_force, y_force, z_force = accel.forces()
-	now = time.time()
+        # ########################################
+        # Get inputs
+        # ########################################
+        presses = fire_button.presses()
+        x_force, y_force, z_force = accel.forces()
+        now = time.time()
 
-	# ########################################
-	# Change the World
-	# ########################################
+        # ########################################
+        # Change the World
+        # ########################################
 
-	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
-		# Missile already launched - move it up
-		missile_y += 1
-		if missile_y &gt;= fb.height:
-			missile_x, missile_y = -1, -1
-		missile_start_time = now
-	elif presses:
-		# Button was pressed - launch missile
-		missile_x, missile_y = (round(spaceship_position), 1)
-		missile_start_time = now
+        if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
+                # Missile already launched - move it up
+                missile_y += 1
+                if missile_y &gt;= fb.height:
+                        missile_x, missile_y = -1, -1
+                missile_start_time = now
+        elif presses:
+                # Button was pressed - launch missile
+                missile_x, missile_y = (round(spaceship_position), 1)
+                missile_start_time = now
 
-	# Move spaceship
-	if x_force &gt; TILT_FORCE:
-		spaceship_position -= SPACESHIP_STEP
-	elif x_force &lt; -TILT_FORCE:
-		spaceship_position += SPACESHIP_STEP
-	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+        # Move spaceship
+        if x_force &gt; TILT_FORCE:
+                spaceship_position -= SPACESHIP_STEP
+        elif x_force &lt; -TILT_FORCE:
+                spaceship_position += SPACESHIP_STEP
+        spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
-	# Move alien
-	if now - alien_start_time &gt; ALIENS_STEP_TIME:
+        # Move alien
+        if now - alien_start_time &gt; ALIENS_STEP_TIME:
         alien_columns = [column + 1 for column in alien_columns]
-		alien_start_time = now
+                alien_start_time = now
 
-	# Check for collision
-	if missile_y == alien_row and missile_x in alien_columns:
-		alien_columns.remove(missile_x)
-		missile_x, missile_y = -1, -1
-		if not alien_columns:
-			break
+        # Check for collision
+        if missile_y == alien_row and missile_x in alien_columns:
+                alien_columns.remove(missile_x)
+                missile_x, missile_y = -1, -1
+                if not alien_columns:
+                        break
 
-	# ########################################
-	# Show world
-	# ########################################
+        # ########################################
+        # Show world
+        # ########################################
 
-	fb.erase()
+        fb.erase()
 
-	# Draw missile
-	if missile_x &gt;= 0:
-		fb.point(missile_x, missile_y, MISSILE_COLOR)
+        # Draw missile
+        if missile_x &gt;= 0:
+                fb.point(missile_x, missile_y, MISSILE_COLOR)
 
-	# Draw spaceship
-	fb.point(round(spaceship_position), 0)
+        # Draw spaceship
+        fb.point(round(spaceship_position), 0)
 
-	# Draw aliens
-	for column in alien_columns:
-		fb.point(column, alien_row)
+        # Draw aliens
+        for column in alien_columns:
+                fb.point(column, alien_row)
 
-	# Show FrameBuffer on LED Matrix
-	fb.show()
-	time.sleep(0.001)
+        # Show FrameBuffer on LED Matrix
+        fb.show()
+        time.sleep(0.001)
 
 if alien_columns:
-	print("Ouch!")
+        print("Ouch!")
 else:
-	print("You win!")
-</textarea></div>
-
-	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_5.html">prev</a> |
-<a href="SPACE_INVADERS_7.html">next</a></p>
-</body></html>
+        print("You win!")
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SPACE_INVADERS_5.html">prev</a> | <a href=
+  "SPACE_INVADERS_7.html">next</a></p>
+</body>
+</html>

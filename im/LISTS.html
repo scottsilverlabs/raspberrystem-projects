@@ -1,192 +1,277 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>LISTS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>LISTS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <h1>LISTS</h1>
 
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>LISTS</h1>
-<p>Oftentimes when programming, you're going to need a way to
-organize and manage sets of data.  This is no different than
-in real life.  If you're putting together an invite list for a
-party; or creating a shopping list; or even just a basic To Do list.
- In each of these situations, organizing data in a list format
-makes the creating, sorting, managing and finding of the information
-easier and faster. </p>
-<p>Most programming languages have concepts of lists as well, and
-Python is no exception.  
-As an example, let's consider a list
-of strings containing the names of the months of the
-year. To keep things simple, let’s just create a list containing
-the first five months; we’ll use a variable called “months”:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Oftentimes when programming, you're going to need a way to organize and
+  manage sets of data. This is no different than in real life. If you're
+  putting together an invite list for a party; or creating a shopping list; or
+  even just a basic To Do list. In each of these situations, organizing data in
+  a list format makes the creating, sorting, managing and finding of the
+  information easier and faster.</p>
+
+  <p>Most programming languages have concepts of lists as well, and Python is
+  no exception. As an example, let's consider a list of strings containing the
+  names of the months of the year. To keep things simple, let’s just create a
+  list containing the first five months; we’ll use a variable called
+  “months”:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 months = ['January', 'February', 'March', 'April', 'May']
-</textarea></div>
-<p>Notice how the
-entire list has brackets [] around it.   Each of the items in
-the list are strings and they are separated by commas.</p>
-<p>Now let’s look at
-some of the things we can do with that list:</p>
-<ul>
-<li>
-<p>We can reference the entire list. For example, let’s say we wanted to print the whole thing out:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+</textarea>
+  </div>
+
+  <p>Notice how the entire list has brackets [] around it. Each of the items in
+  the list are strings and they are separated by commas.</p>
+
+  <p>Now let’s look at some of the things we can do with that list:</p>
+  <ul>
+    <li>
+
+      <p>We can reference the entire list. For example, let’s say we wanted to
+      print the whole thing out:</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 print(months)
-</textarea></div>
-</li>
-</ul>
-<ul>
-<li>
-<p>We can reference a single item in the list. For example,
-let’s
-say we wanted to print out the third item in the list (which is,
-“March”):</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+</textarea>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+
+      <p>We can reference a single item in the list. For example, let’s say we
+      wanted to print out the third item in the list (which is, “March”):</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 print(months[2])
-</textarea></div>
+</textarea>
+      </div>
 
-<p>
-Wait! We said we were going
-to print out
-the third item on the list, and
-then we had it print months[2]
-– that’s not a typo. Computers always start counting lists at 0,
-not 1. So, the first item on a list is [0], the second item on a
-list is [1] and so on. To get the third item on the item, we
-reference it as [2].</p>
-<p>Here
-is how the computer sees our list:</p>
-<p></p>
-<table style="display: block; margin: auto;" border="1">
-<tbody>
-<tr>
-<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
-<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
-</tr><tr>
-<td><p>0</p></td>
-<td><p>January</p></td>
-</tr><tr>
-<td><p>1</p></td>
-<td><p>February</p></td>
-</tr><tr>
-<td><p>2</p></td>
-<td><p>March</p></td>
-</tr><tr>
-<td><p>3</p></td>
-<td><p>April</p></td>
-</tr><tr>
-<td><p>4</p></td>
-<td><p>May</p></td>
-</tr>
-</tbody>
-</table>
-<p>So,
-the third item on our list of months is months[2].</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>We can reference a range of items on the list. For
-example,
-let’s say we wanted to print out items 2 and 3 in the list (February,
-March):</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+      <p>Wait! We said we were going to print out the third item on the list,
+      and then we had it print months[2] – that’s not a typo. Computers always
+      start counting lists at 0, not 1. So, the first item on a list is [0],
+      the second item on a list is [1] and so on. To get the third item on the
+      item, we reference it as [2].</p>
+
+      <p>Here is how the computer sees our list:</p>
+      <table style="display: block; margin: auto;" border="1">
+        <tbody>
+          <tr>
+            <td style="width: 100px;">
+
+              <p><strong>ITEM #</strong></p>
+            </td>
+            <td style="width: 150px;">
+
+              <p><strong>ITEM NAME</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>0</p>
+            </td>
+            <td>
+
+              <p>January</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>1</p>
+            </td>
+            <td>
+
+              <p>February</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>2</p>
+            </td>
+            <td>
+
+              <p>March</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>3</p>
+            </td>
+            <td>
+
+              <p>April</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>4</p>
+            </td>
+            <td>
+
+              <p>May</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>So, the third item on our list of months is months[2].</p>
+    </li>
+  </ul>
+  <ul>
+    <li>
+
+      <p>We can reference a range of items on the list. For example, let’s say
+      we wanted to print out items 2 and 3 in the list (February, March):</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 print(months[1:3])
-</textarea></div>
-<p>Notice
-that we referenced [1:3] to get items 1 and 2. When we reference a
-range, the second number is the item where we stop – that item is
-not included in the range.</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>We can change an item in the list. For example, let’s say
-we
-wanted to change “February” to “Feb” to make it shorter (and then print
-it out to verify that it has been changed):</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+</textarea>
+      </div>
+
+      <p>Notice that we referenced [1:3] to get items 1 and 2. When we
+      reference a range, the second number is the item where we stop – that
+      item is not included in the range.</p>
+    </li>
+  </ul>
+  <ul>
+    <li>
+
+      <p>We can change an item in the list. For example, let’s say we wanted to
+      change “February” to “Feb” to make it shorter (and then print it out to
+      verify that it has been changed):</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 months[1] = 'Feb'
-</textarea></div>
-</li>
-</ul>
-<ul>
-<li><p>We can add an item to the list. For example, if we decide
-that
-we want to include June at the end of the list, we can do the following:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+</textarea>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+
+      <p>We can add an item to the list. For example, if we decide that we want
+      to include June at the end of the list, we can do the following:</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 months.append('June')
-</textarea></div>
+</textarea>
+      </div>
 
+      <p>The .append() that we used above is called a function -- see <a href=
+      "INTRO_TO_FUNCTIONS.html">INTRO TO FUNCTIONS</a> for more
+      information.</p>
+    </li>
+  </ul>
+  <ul>
+    <li>
 
-<p>The
-.append() that we used above
-is called a function -- see 
-	<a href="INTRO_TO_FUNCTIONS.html">INTRO TO FUNCTIONS</a> for more information.  
-</p>
-</li>
-</ul>
-<ul>
-<li>
-<p>Just like we added an item to the list above, we can also
-remove
-an item from the list. For example, if we decide that we don’t like
-April, we can get rid of it from the list:</p>
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+      <p>Just like we added an item to the list above, we can also remove an
+      item from the list. For example, if we decide that we don’t like April,
+      we can get rid of it from the list:</p>
+      <div class="code" data-firstline="0">
+        <textarea>
 months.remove('April')
-</textarea></div>
-</li>
-</ul>
-<ul>
-<li>
-<p>After making all of these changes, here is how the
-computer would now see this list:</p><p></p>
-<table style="display: block; margin: auto;" border="1">
-<tbody>
-<tr>
-<td style="width: 100px;"><p><strong>ITEM #</strong></p></td>
-<td style="width: 150px;"><p><strong>ITEM NAME</strong></p></td>
-</tr><tr>
-<td><p>0</p></td>
-<td><p>January</p></td>
-</tr><tr>
-<td><p>1</p></td>
-<td><p>Feb</p></td>
-</tr><tr>
-<td><p>2</p></td>
-<td><p>March</p></td>
-</tr><tr>
-<td><p>3</p></td>
-<td><p>May</p></td>
-</tr><tr>
-<td><p>4</p></td>
-<td><p>June</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<p class=nextprev><a href="index.html">home</a></p>
-</body></html>
+</textarea>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+
+      <p>After making all of these changes, here is how the computer would now
+      see this list:</p>
+      <table style="display: block; margin: auto;" border="1">
+        <tbody>
+          <tr>
+            <td style="width: 100px;">
+
+              <p><strong>ITEM #</strong></p>
+            </td>
+            <td style="width: 150px;">
+
+              <p><strong>ITEM NAME</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>0</p>
+            </td>
+            <td>
+
+              <p>January</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>1</p>
+            </td>
+            <td>
+
+              <p>Feb</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>2</p>
+            </td>
+            <td>
+
+              <p>March</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>3</p>
+            </td>
+            <td>
+
+              <p>May</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <p>4</p>
+            </td>
+            <td>
+
+              <p>June</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+  <p class="nextprev"><a href="index.html">home</a></p>
+</body>
+</html>

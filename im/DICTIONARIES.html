@@ -1,80 +1,124 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>Dictionaries</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Dictionaries</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <h1>DICTIONARIES</h1>
 
-<h1>DICTIONARIES</h1>
+  <p>In a previous concept, we discussed "Lists," how they work and what they
+  are good for. If you recall, Lists are great for storing an ordered sequence
+  of items. For example, a list of names or a list of values. In a List, the
+  sequence of the data is important, and each piece of data is an independent
+  entity.</p>
 
-<p>In a previous concept, we discussed "Lists," how they work and what they
-are good for.  If you recall, Lists are great for storing an ordered 
-sequence of items.  For example, a list of names or a list of values.  
-In a List, the sequence of the data is important, and each piece of data
-is an independent entity.
+  <p>Sometimes though, you want to be able to associate certain pieces of data
+  with other pieces of data. For example, you may have a list of people, and
+  you want to associate each person's age with each name.</p>
 
-<p>Sometimes though, you want to be able to associate certain pieces of 
-data with other pieces of data.  For example, you may have a list of
-people, and you want to associate each person's age with each name.
+  <p>Here's an example:</p>
+  <div align="center">
+    <table border="1" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td style="width: 100px;">
 
-<p>Here's an example:
+            <p><strong>NAME</strong></p>
+          </td>
+          <td style="width: 100px;">
 
-<p></p>
+            <p><strong>AGE</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
 
-<div align="center">
-<table border="1" cellpadding="0" cellspacing="0">
-<tbody>
-<tr>
-<td style="width: 100px;"><p><strong>NAME</strong></p></td>
-<td style="width: 100px;"><p><strong>AGE</strong></p></td>
-</tr><tr>
-<td><p>Bob</p></td>
-<td><p>22</p></td>
-</tr><tr>
-<td><p>John</p></td>
-<td><p>14</p></td>
-</tr><tr>
-<td><p>Alice</p></td>
-<td><p>36</p></td>
-</tr><tr>
-<td><p>Carol</p></td>
-<td><p>29</p></td>
-</tr><tr>
-<td><p>Alex</p></td>
-<td><p>64</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+            <p>Bob</p>
+          </td>
+          <td>
 
-<p>Using a list to store this these associated pieces of data is very
-difficult and cumbersome.  But, Python provides another mechanism
-that is perfect for storing data in this way -- it's called a 
-<i>Dictionary</i>.  Just like a regular Dictionary that is use to map words to their 
-defintions, a Python Dictionary maps "keys" (the first column)
-to their "values" (the second column).</p>  
+            <p>22</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
 
-<p>Here's an example of how we could use Dictionaries in our code...
+            <p>John</p>
+          </td>
+          <td>
 
-<p>Imagine we wanted to make use of the months of the year, along
-with their abbreviations and the number of days they contain.  We 
-could create two Dictionaries -- one that maps the months of the year
-to their abbreviations and another that maps the abbreviations to
-the number of days in that particular month.
+            <p>14</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
 
-<p>Here is what the code to define these Dictionaries might look 
-like (to keep things short, we won't use all the months):
+            <p>Alice</p>
+          </td>
+          <td>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+            <p>36</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+            <p>Carol</p>
+          </td>
+          <td>
+
+            <p>29</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+
+            <p>Alex</p>
+          </td>
+          <td>
+
+            <p>64</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Using a list to store this these associated pieces of data is very
+  difficult and cumbersome. But, Python provides another mechanism that is
+  perfect for storing data in this way -- it's called a <i>Dictionary</i>. Just
+  like a regular Dictionary that is use to map words to their defintions, a
+  Python Dictionary maps "keys" (the first column) to their "values" (the
+  second column).</p>
+
+  <p>Here's an example of how we could use Dictionaries in our code...</p>
+
+  <p>Imagine we wanted to make use of the months of the year, along with their
+  abbreviations and the number of days they contain. We could create two
+  Dictionaries -- one that maps the months of the year to their abbreviations
+  and another that maps the abbreviations to the number of days in that
+  particular month.</p>
+
+  <p>Here is what the code to define these Dictionaries might look like (to
+  keep things short, we won't use all the months):</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Create a Dictionary of months to abbreviations
 month_abbr = {
     'January': 'Jan',
@@ -91,58 +135,56 @@ month_days = {
     'Apr': '30',
     'May': '31'
 }
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Now that we have our Dictionaries created, we can perform
-a number of operations on them.  Here are just a few examples
-of what we can do with our Dictionaries:
+  <p>Now that we have our Dictionaries created, we can perform a number of
+  operations on them. Here are just a few examples of what we can do with our
+  Dictionaries:</p>
 
-<p>We can add more entries to our Dictionaries:
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We can add more entries to our Dictionaries:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Add some new months
 month_abbr['June'] = 'Jun'
 month_abbr['July'] = 'Jul'
 
 month_days['June'] = '30'
 month_days['July'] = '31'
-</textarea></div>
+</textarea>
+  </div>
 
-<p>We can access our entries and print out information:
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We can access our entries and print out information:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Print out information about the months
 print "Abbreviation for January is: ", month_abbr['January']
 print "Abbreviation for February is: ", month_days['February']
 
 print "# of Days in March: ", month_days['Mar']
 print "# of Days in April: ", month_days['Apr']
-</textarea></div>
+</textarea>
+  </div>
 
-<p>We can use information from one Dictionary to query another Dictionary:
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We can use information from one Dictionary to query another
+  Dictionary:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Print number of days the month
 print "# of Day in January: ", month_days[month_abbr['January']]
 print "# of Day in Febuary: ", month_days[month_abbr['February']]
-</textarea></div>
+</textarea>
+  </div>
 
-<p>We can use a loop to print out all available Dictionary entries:
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We can use a loop to print out all available Dictionary entries:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Print months along with abbreviations and number of days
 for month, abbreviation in months_abbr.items():
     print "The month %s is abbreviated %s and has %s days" % (
         month, abbreviation, month_days[abbreviation])
-</textarea></div>
-
-<p class=nextprev><a href="index.html">home</a></p>
-</body></html>
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a></p>
+</body>
+</html>

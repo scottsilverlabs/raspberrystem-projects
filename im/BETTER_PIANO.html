@@ -1,42 +1,66 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>BUILD A BETTER PIANO</title>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>BUILD A BETTER PIANO</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body dir="ltr" lang="en-US" link="#0563C1" text="#00000A">
+  <header>
+    <div id="title">
+      BUILD A BETTER PIANO
+    </div>
+    <div id="description">
+      In this project, we improve on the Simple Piano we created in the
+      previous project by monitoring the buttons and playing the notes for the
+      duration of the button press.
+    </div>
+    <div id="hw_required">
+      Speaker &amp; Audio Cable<br>
+      Hardware setup from the <a href="MANY_BUTTONS.html">READING MULTIPLE
+      BUTTONS</a> project.
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
-<header>
-    <div id=title>BUILD A BETTER PIANO</div>
-    <div id=description>In this project, we improve on the Simple Piano we created in the previous project by monitoring the buttons and playing the notes for the duration of the button press.</div>
-    <div id=hw_required>Speaker &amp; Audio Cable<br>Hardware setup from the <a
-    href="MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a> project.</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
-<p>Using the same hardware setup from the <a href="SIMPLE_PIANO.html">BUILD A SIMPLE PIANO</a> project, we can turn our RaspberrySTEM into a mini-keyboard.  We will modify the code so that 
-each time you press one of the buttons on the RaspberrySTEM, the 
-corresponding note plays for as long as the button is held:
-</p>
+  <p>Using the same hardware setup from the <a href="SIMPLE_PIANO.html">BUILD A
+  SIMPLE PIANO</a> project, we can turn our RaspberrySTEM into a mini-keyboard.
+  We will modify the code so that each time you press one of the buttons on the
+  RaspberrySTEM, the corresponding note plays for as long as the button is
+  held:</p>
+  <h4>Step #1: Build the circuit.</h4>
 
-<h4>Step #1: Build the circuit.</h4>
-<p>Your breadboard should still have the circuit we wired in the <a
-href="MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a> project.  As a reminder, here is what it should look like: 
-<img class="bb" src="img/Many_Buttons_bb.png">
+  <p>Your breadboard should still have the circuit we wired in the <a href=
+  "MANY_BUTTONS.html">READING MULTIPLE BUTTONS</a> project. As a reminder, here
+  is what it should look like: <img class="bb" src="img/Many_Buttons_bb.png"
+  alt=""></p>
+  <h4>Step #2: Write the code.</h4>
 
-<h4>Step #2: Write the code.</h4>
-<p>The main change in the code for this project is -- after detecting a button press -- to 
-monitor the button state to determine if continues to be pressed, and if so, continue to play the note.
-<p>Here is what the code should look like:
-</p>
+  <p>The main change in the code for this project is -- after detecting a
+  button press -- to monitor the button state to determine if continues to be
+  pressed, and if so, continue to play the note.</p>
 
-<div class="code" data-firstline="1"> <div></div> <textarea>from rstem.button import Button
+  <p>Here is what the code should look like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
+from rstem.button import Button
 from rstem.sound import Note
 import time
 
@@ -44,14 +68,16 @@ buttons = [Button(14), Button(15), Button(25), Button(7)]
 notes = [Note('A'), Note('B'), Note('C'), Note('D')]
 
 while True:
-	for button, note in zip(buttons, notes):
-		if button.is_pressed():
-			if not note.is_playing():
-				note.play(duration=None)
-		else:
-			note.stop()
-	time.sleep(0.01)
-</textarea></div>
-	<p class=nextprev><a href="index.html">home</a> | <a href="SIMPLE_PIANO.html">prev</a> |
-<a href="WALKABLE_PIANO.html">next</a></p>
-</body></html>
+        for button, note in zip(buttons, notes):
+                if button.is_pressed():
+                        if not note.is_playing():
+                                note.play(duration=None)
+                else:
+                        note.stop()
+        time.sleep(0.01)
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SIMPLE_PIANO.html">prev</a> | <a href="WALKABLE_PIANO.html">next</a></p>
+</body>
+</html>

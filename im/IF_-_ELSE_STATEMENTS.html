@@ -1,389 +1,366 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>IF - ELSE STATEMENTS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>IF - ELSE STATEMENTS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>IF/ELSE STATEMENTS</h1>
-<p>Much of our lives are spent asking
-questions in order to
-figure out what we should be saying or doing at any given time.  For example, we may ask
-our friend, “Is it time
-for lunch?”  If the
-answer is “Yes,”
-we’ll eat lunch… if the answer is “No,” we’ll probably do something else.</p>
-<p>As another example, you may ask a
-friend, “What would you
-like to do today?”  If
-he says, “I’d like
-to go to a movie,” perhaps you’ll spend some time figuring out what
-movie to
-see.  But, if he
-says, “I’d like to play
-in the park,” you probably won’t be eating popcorn in a dark theater
-that day.</p>
-<p>Programming is very similar – we
-often ask a lot of
-questions in our software to determine what to do next. 
-For example, when you push a button on your
-television remote control, it sends a signal to your TV telling the TV
-to
-change the station or adjust the volume. 
-But, what you probably don’t realize is that this works
-because several
-times per second, the software in your TV is asking, “Did I receive a
-signal
-from the remote control?”  </p>
-<p>Most of the time the answer is “No,”
-so the TV software
-moves onto something else for short period of time. 
-But, if the answer is “Yes” (in other words,
-if you were pressing a button on the remote), the TV will then take
-action to
-determine what button was pressed and then carry out the request.</p>
-<p>The most basic way for software to
-ask and respond to a
-question is by using what is known as an <code>if</code>
-statement.  An <code>if</code>
-statement asks a True or False
-question, and based on the answer, takes appropriate action.</p>
-<p>Let’s say we have a circuit that
-contains a thermometer and
-sends the current temperature back to computer. 
-And let’s pretend that the current temperature is 95
-degrees and that
-value is stored in a variable named <code>temperature</code>:</p>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <h1>IF/ELSE STATEMENTS</h1>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Much of our lives are spent asking questions in order to figure out what
+  we should be saying or doing at any given time. For example, we may ask our
+  friend, “Is it time for lunch?” If the answer is “Yes,” we’ll eat lunch… if
+  the answer is “No,” we’ll probably do something else.</p>
+
+  <p>As another example, you may ask a friend, “What would you like to do
+  today?” If he says, “I’d like to go to a movie,” perhaps you’ll spend some
+  time figuring out what movie to see. But, if he says, “I’d like to play in
+  the park,” you probably won’t be eating popcorn in a dark theater that
+  day.</p>
+
+  <p>Programming is very similar – we often ask a lot of questions in our
+  software to determine what to do next. For example, when you push a button on
+  your television remote control, it sends a signal to your TV telling the TV
+  to change the station or adjust the volume. But, what you probably don’t
+  realize is that this works because several times per second, the software in
+  your TV is asking, “Did I receive a signal from the remote control?”</p>
+
+  <p>Most of the time the answer is “No,” so the TV software moves onto
+  something else for short period of time. But, if the answer is “Yes” (in
+  other words, if you were pressing a button on the remote), the TV will then
+  take action to determine what button was pressed and then carry out the
+  request.</p>
+
+  <p>The most basic way for software to ask and respond to a question is by
+  using what is known as an <code>if</code> statement. An <code>if</code>
+  statement asks a True or False question, and based on the answer, takes
+  appropriate action.</p>
+
+  <p>Let’s say we have a circuit that contains a thermometer and sends the
+  current temperature back to computer. And let’s pretend that the current
+  temperature is 95 degrees and that value is stored in a variable named
+  <code>temperature</code>:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 temperature = 95
-</textarea></div>
+</textarea>
+  </div>
 
-<p>The software might then use an <code>if</code>
-statement to evaluate the
-temperature and comment on it if it’s over 90 degrees:</p>
+  <p>The software might then use an <code>if</code> statement to evaluate the
+  temperature and comment on it if it’s over 90 degrees:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if temperature &gt; 90:
+        print ("Wow, it's hot out there!")
+</textarea>
+  </div>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if temperature > 90:
-	print ("Wow, it's hot out there!")
-</textarea></div>
-
-<p>Type those three lines into your code
-window and see what
-happens:</p>
-
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>Type those three lines into your code window and see what happens:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 temperature = 95
 
-if temperature > 90:
-	print ("Wow, it's hot out there!")
-</textarea></div>
+if temperature &gt; 90:
+        print ("Wow, it's hot out there!")
+</textarea>
+  </div>
 
-<p>If you run the program, you’ll see
-that the computer prints,
-“Wow, it’s hot out there!” in your output window. 
-In this case, the computer evaluated the
-statement (<code>temperature &gt; 90</code>),
-determined that the statement was True (the temperature is 95, which is
-over
-90) and then took the specified action based on the fact that the
-statement was True.</p>
-<p>What if the statement were False?  For example, like this:</p>
+  <p>If you run the program, you’ll see that the computer prints, “Wow, it’s
+  hot out there!” in your output window. In this case, the computer evaluated
+  the statement (<code>temperature &gt; 90</code>), determined that the
+  statement was True (the temperature is 95, which is over 90) and then took
+  the specified action based on the fact that the statement was True.</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>What if the statement were False? For example, like this:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 temperature = 95
 
-if temperature < 90:
-	print("Okay, it's not too hot out there.")
-</textarea></div>
+if temperature &lt; 90:
+        print("Okay, it's not too hot out there.")
+</textarea>
+  </div>
 
-<p>In this case, the temperature is
-still defined as 95
-degrees, but this time, we’re asking if the temperature is LESS THAN 90.  The answer to that
-question is obviously
-False (the temperature is not less than 90). 
-And because the statement is False, the action following
-the <code>if</code>
-statement is not executed, and nothing is printed to the screen.</p>
-<p>We typically call the evaluation a
-“conditional statement”
-and we typically call the action commands after the conditional
-statement the
-“code block.”  We’ll
-be using those terms
-from here on out.</p>
-<p>Now, let’s discuss some additional
-features of conditional statements
-and code blocks…</p>
-<h2>Comparison Operators</h2>
-<p>In the above examples, we used the
-symbols &gt; and &lt; in
-our condition statements.  We
-used &gt; to
-ask the question, “Is the first value greater than the second value?”  And, we used the symbol
-&lt; to ask the
-question “Is the first value less than the second value?”</p>
-<p>These are just two of several symbols
-(we call them
-“operators”) that can be used to compare values in a conditional
-statement.  Here is
-the list of the most common comparison operators:</p>
+  <p>In this case, the temperature is still defined as 95 degrees, but this
+  time, we’re asking if the temperature is LESS THAN 90. The answer to that
+  question is obviously False (the temperature is not less than 90). And
+  because the statement is False, the action following the <code>if</code>
+  statement is not executed, and nothing is printed to the screen.</p>
 
-<div align="center">
-<table border="1" cellpadding="0" cellspacing="0">
-<tbody>
-<tr>
-<td><p><strong>OPERATOR</strong></p> </td>
-<td><p><strong>DEFINITION</strong></p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>==</strong></p> </td>
-<td><p>Is Equal To?</p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>!=</strong></p> </td>
-<td><p>Is Not Equal To?</p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>&gt; </strong></p> </td>
-<td><p>Is Greater Than?</p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>&lt; </strong></p> </td>
-<td><p>Is Less Than?</p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>&gt;=</strong></p> </td>
-<td><p>Is Greater Than or Equal To?</p> </td>
-</tr> <tr>
-<td><p style="text-align: center"><strong>&lt;=</strong></p> </td>
-<td><p>Is Less Than or Equal To?</p> </td>
-</tr>
-</tbody>
-</table>
-</div>
+  <p>We typically call the evaluation a “conditional statement” and we
+  typically call the action commands after the conditional statement the “code
+  block.” We’ll be using those terms from here on out.</p>
 
-<p>Let’s look at some examples…but
-first, let’s define a couple
-variables to use in our examples:</p>
+  <p>Now, let’s discuss some additional features of conditional statements and
+  code blocks…</p>
+  <h2>Comparison Operators</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>In the above examples, we used the symbols &gt; and &lt; in our condition
+  statements. We used &gt; to ask the question, “Is the first value greater
+  than the second value?” And, we used the symbol &lt; to ask the question “Is
+  the first value less than the second value?”</p>
+
+  <p>These are just two of several symbols (we call them “operators”) that can
+  be used to compare values in a conditional statement. Here is the list of the
+  most common comparison operators:</p>
+  <div align="center">
+    <table border="1" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td>
+
+            <p><strong>OPERATOR</strong></p>
+          </td>
+          <td>
+
+            <p><strong>DEFINITION</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>==</strong></p>
+          </td>
+          <td>
+
+            <p>Is Equal To?</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>!=</strong></p>
+          </td>
+          <td>
+
+            <p>Is Not Equal To?</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>&gt;</strong></p>
+          </td>
+          <td>
+
+            <p>Is Greater Than?</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>&lt;</strong></p>
+          </td>
+          <td>
+
+            <p>Is Less Than?</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>&gt;=</strong></p>
+          </td>
+          <td>
+
+            <p>Is Greater Than or Equal To?</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="text-align: center"><strong>&lt;=</strong></p>
+          </td>
+          <td>
+
+            <p>Is Less Than or Equal To?</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Let’s look at some examples…but first, let’s define a couple variables to
+  use in our examples:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 my_dogs_age = 4
 my_age = 43
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Now for our examples:</p>
-<p style="margin-left: 0.5in;"><code>my_dogs_age == 4</code> would evaluate as True </p>
-<p style="margin-left: 0.5in;"><code>my_age != 43</code> would evaluate as False</p>
-<p style="margin-left: 0.5in;"><code>my_age &gt; my_dogs_age</code> would evaluate as True</p>
-<p style="margin-left: 0.5in;"><code>my_age &lt; my_dogs_age</code> would evaluate as False</p>
-<p style="margin-left: 0.5in;"><code>my_dogs_age &gt;= 4</code> would evaluate as True</p>
-<p style="margin-left: 0.5in;"><code>my_age &lt;= 35</code> would evaluate as False</p>
-<p><strong>Note:</strong>  Keep in mind that = and ==
-are very different
-in programming.  The
-= sign tells the
-computer that we’re assigning the value of one thing (whatever is on
-the right side of the = sign) to another
-thing (the variable on the left side of the = sign). 
-But, the == asks the computer
-whether two things are equal, and returns a True (if they are equal) or
-a False
-(if they are not equal).</p>
-<h2>Code Blocks</h2>
-<p>In all the examples so far in this
-chapter, our code blocks
-have consisted of a single line of code. 
-For example, in this piece of code:</p>
+  <p>Now for our examples:</p>
+  <p style="margin-left: 0.5in;"><code>my_dogs_age == 4</code> would evaluate
+  as True</p>
+  <p style="margin-left: 0.5in;"><code>my_age != 43</code> would evaluate as
+  False</p>
+  <p style="margin-left: 0.5in;"><code>my_age &gt; my_dogs_age</code> would
+  evaluate as True</p>
+  <p style="margin-left: 0.5in;"><code>my_age &lt; my_dogs_age</code> would
+  evaluate as False</p>
+  <p style="margin-left: 0.5in;"><code>my_dogs_age &gt;= 4</code> would
+  evaluate as True</p>
+  <p style="margin-left: 0.5in;"><code>my_age &lt;= 35</code> would evaluate as
+  False</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p><strong>Note:</strong> Keep in mind that = and == are very different in
+  programming. The = sign tells the computer that we’re assigning the value of
+  one thing (whatever is on the right side of the = sign) to another thing (the
+  variable on the left side of the = sign). But, the == asks the computer
+  whether two things are equal, and returns a True (if they are equal) or a
+  False (if they are not equal).</p>
+  <h2>Code Blocks</h2>
+
+  <p>In all the examples so far in this chapter, our code blocks have consisted
+  of a single line of code. For example, in this piece of code:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 temperature = 95
 
-if temperature < 90:
-	print("Okay, it's not too hot out there.")
-</textarea></div>
+if temperature &lt; 90:
+        print("Okay, it's not too hot out there.")
+</textarea>
+  </div>
 
-<p>our code block was a single print
-statement.</p>
-<p>But, in many situations, after
-evaluating a conditional,
-we’re going to want to take action that requires many commands, not just
-one.  For this
-reason, code blocks can be
-any number of commands following a conditional statement.  Our example above could be
-changed to:</p>
+  <p>our code block was a single print statement.</p>
 
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>But, in many situations, after evaluating a conditional, we’re going to
+  want to take action that requires many commands, not just one. For this
+  reason, code blocks can be any number of commands following a conditional
+  statement. Our example above could be changed to:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 temperature = 85
 
-if temperature < 90:
-	print("Okay, it's not too hot out there.")
-	print("It's only", temperature, "degrees.")
-</textarea></div>
+if temperature &lt; 90:
+        print("Okay, it's not too hot out there.")
+        print("It's only", temperature, "degrees.")
+</textarea>
+  </div>
 
-<p>In this example, we have two print
-statements in our code
-block.  Notice that
-both commands are
-indented the exact same amount – this is how the computer knows that
-all the
-lines are part of the same code block. 
-It’s very important that you use the same number of spaces
-or indents
-for every line of the code block, or your code will not function as you
-expect
-(and may not function at all).</p>
-<h2>Compound Conditional Statements</h2>
-<p>In some situations, you may find that
-you need to have more
-complex conditional statements in your code than just a single
-comparison.  When
-that need arises, we can use compound
-conditional statements, which is really just a fancy way of saying that
-we can chain multiple comparisons together into a single conditional
-statement.</p>
-<p>For example, in the previous section,
-we used the condition:</p>
+  <p>In this example, we have two print statements in our code block. Notice
+  that both commands are indented the exact same amount – this is how the
+  computer knows that all the lines are part of the same code block. It’s very
+  important that you use the same number of spaces or indents for every line of
+  the code block, or your code will not function as you expect (and may not
+  function at all).</p>
+  <h2>Compound Conditional Statements</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-temperature < 90
-</textarea></div>
+  <p>In some situations, you may find that you need to have more complex
+  conditional statements in your code than just a single comparison. When that
+  need arises, we can use compound conditional statements, which is really just
+  a fancy way of saying that we can chain multiple comparisons together into a
+  single conditional statement.</p>
 
-<p>to determine if it was less than 90
-degrees outside.</p>
-<p>But, what if we didn’t just want to know
-if the temperature was
-less than 90 degrees – we wanted to know whether the temperature was
-between 80
-and 90 degrees?  That
-would actually
-require two different conditions:</p>
+  <p>For example, in the previous section, we used the condition:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+temperature &lt; 90
+</textarea>
+  </div>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-temperature > 80
-temperature < 90
-</textarea></div>
+  <p>to determine if it was less than 90 degrees outside.</p>
 
-<p>We can create a compound conditional
-statement that will
-check both of those comparisons before taking any action, as follows:</p>
+  <p>But, what if we didn’t just want to know if the temperature was less than
+  90 degrees – we wanted to know whether the temperature was between 80 and 90
+  degrees? That would actually require two different conditions:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+temperature &gt; 80
+temperature &lt; 90
+</textarea>
+  </div>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if (temperature > 80) and (temperature < 90):
-	print("The temperature is between 80 and 90 degrees.")
-</textarea></div>
+  <p>We can create a compound conditional statement that will check both of
+  those comparisons before taking any action, as follows:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if (temperature &gt; 80) and (temperature &lt; 90):
+        print("The temperature is between 80 and 90 degrees.")
+</textarea>
+  </div>
 
-<p>The <code>and</code>
-keyword tells the computer that both statements must be True in order
-for the
-entire compound conditional statement to be True.</p>
-<p>What if we only cared about the
-situation where the
-temperature was less than 80 degrees or more than 90 degrees?  We can create a compound
-conditional
-statement to do this as well:</p>
+  <p>The <code>and</code> keyword tells the computer that both statements must
+  be True in order for the entire compound conditional statement to be
+  True.</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if (temperature < 80) or (temperature > 90):
-	print("The temperature is not between 80 and 90 degrees.")
-</textarea></div>
+  <p>What if we only cared about the situation where the temperature was less
+  than 80 degrees or more than 90 degrees? We can create a compound conditional
+  statement to do this as well:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if (temperature &lt; 80) or (temperature &gt; 90):
+        print("The temperature is not between 80 and 90 degrees.")
+</textarea>
+  </div>
 
-<p>In this case, the <code>or</code>
-keyword tells the computer that either one or both of the statements
-must be
-True in order for the entire compound conditional statement to be True.</p>
-<p>Any number or combination of <code>and</code>
-and <code>or</code>
-keywords can be used to
-combine conditional statements.</p>
-<h2>IF/ELSE Statements</h2>
-<p>In our previous examples, we
-evaluated a conditional, and
-took action if the result of the evaluation was True. 
-But, in many cases, we also want to take
-action when the result of the evaluation is False, in addition to when
-it’s
-True.</p>
-<p>For example, perhaps we don’t just
-want to let the user know
-if the temperature is over 90 degrees, but we also want to let the user
-know if
-the temperature is under 90 degrees:</p>
+  <p>In this case, the <code>or</code> keyword tells the computer that either
+  one or both of the statements must be True in order for the entire compound
+  conditional statement to be True.</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if temperature > 90:
-	print("Over 90 degrees -- make sure to wear sunscreen.")
+  <p>Any number or combination of <code>and</code> and <code>or</code> keywords
+  can be used to combine conditional statements.</p>
+  <h2>IF/ELSE Statements</h2>
+
+  <p>In our previous examples, we evaluated a conditional, and took action if
+  the result of the evaluation was True. But, in many cases, we also want to
+  take action when the result of the evaluation is False, in addition to when
+  it’s True.</p>
+
+  <p>For example, perhaps we don’t just want to let the user know if the
+  temperature is over 90 degrees, but we also want to let the user know if the
+  temperature is under 90 degrees:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if temperature &gt; 90:
+        print("Over 90 degrees -- make sure to wear sunscreen.")
 else:
-	print("Under 90 degrees today – keep warm!")
-</textarea></div>
+        print("Under 90 degrees today – keep warm!")
+</textarea>
+  </div>
 
-<p>We use the else: keyword to indicate
-what action should be
-taken if the conditional statement evaluates to False. 
-We are basically telling the computer: 
-</p>
-<p><i>If the
-conditional
-statement is True, do this.  Otherwise
-(<code>else:</code>),
-do that.</i></p>
-<h2>ELIF Statements</h2>
-<p>There are going to be some cases
-where, “If True, do
-this.  If False, do
-that,” just isn’t
-enough to provide the functionality you need. 
-</p>
-<p>For example, perhaps we want to know
-more than whether the
-temperature is above or below 90 degrees? 
-Perhaps we want to know if it’s below 60 degrees?  Or in the 60s?  Or in the 70s?  Or in the 80s?  Or in the 90s?  Or above 90 degrees?</p>
-<p>In the case where you want to test
-for many different conditions,
-you can use the <code>elif</code>
-(“else if”) statement. 
-Like this:</p>
+  <p>We use the else: keyword to indicate what action should be taken if the
+  conditional statement evaluates to False. We are basically telling the
+  computer:</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
-if temperature < 60:
-	print("Brrrr…under 60 degrees.")
-elif temperature < 70:
-	print("Between 60 and 70degrees.")
-elif temperature < 80:
-	print("Between 70 and 80 degrees.")
-elif temperature < 90:
-	print("Between 80 and 90 degrees.")
+  <p><i>If the conditional statement is True, do this. Otherwise
+  (<code>else:</code>), do that.</i></p>
+  <h2>ELIF Statements</h2>
+
+  <p>There are going to be some cases where, “If True, do this. If False, do
+  that,” just isn’t enough to provide the functionality you need.</p>
+
+  <p>For example, perhaps we want to know more than whether the temperature is
+  above or below 90 degrees? Perhaps we want to know if it’s below 60 degrees?
+  Or in the 60s? Or in the 70s? Or in the 80s? Or in the 90s? Or above 90
+  degrees?</p>
+
+  <p>In the case where you want to test for many different conditions, you can
+  use the <code>elif</code> (“else if”) statement. Like this:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+if temperature &lt; 60:
+        print("Brrrr…under 60 degrees.")
+elif temperature &lt; 70:
+        print("Between 60 and 70degrees.")
+elif temperature &lt; 80:
+        print("Between 70 and 80 degrees.")
+elif temperature &lt; 90:
+        print("Between 80 and 90 degrees.")
 else:
-	print("It is over 90 degrees")
-</textarea></div>
-<p class=nextprev><a href="index.html">home</a></p>
-</body></html>
-
+        print("It is over 90 degrees")
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a></p>
+</body>
+</html>

@@ -1,161 +1,153 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>VARIABLES - ASSIGNMENTS</title>
-
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>VARIABLES - ASSIGNMENTS</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
 </head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<h1>VARIABLES &amp; ASSIGNMENTS</h1>
-<p>Variables are one of
-the most important concepts in programming, and you will 
-certainly be using them in every useful program you write.
-Variables are like labels, or names, for the numbers, strings and other
-values in your programs.  Variables are used
-for keeping track of all the facts and figures you use throughout
-your code. 
-</p><p>Variables can be given any name you choose (although
-there are some rules to that!)   Choosing good variable names
-makes it easier to write your code, to change your
-code later and to help others understand your code.
-</p>
-<p>The definition of "variable" is something that can vary
-(change),
-and that's what program variables do  throughout a
-program. 
-To assign a variable a value, you use the equals sign in what is called
-an assignment statement, which looks like:</p>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <h1>VARIABLES &amp; ASSIGNMENTS</h1>
 
-<div class="code" data-firstline="0">
-<div> </div>
-<textarea>
+  <p>Variables are one of the most important concepts in programming, and you
+  will certainly be using them in every useful program you write. Variables are
+  like labels, or names, for the numbers, strings and other values in your
+  programs. Variables are used for keeping track of all the facts and figures
+  you use throughout your code.</p>
+
+  <p>Variables can be given any name you choose (although there are some rules
+  to that!) Choosing good variable names makes it easier to write your code, to
+  change your code later and to help others understand your code.</p>
+
+  <p>The definition of "variable" is something that can vary (change), and
+  that's what program variables do throughout a program. To assign a variable a
+  value, you use the equals sign in what is called an assignment statement,
+  which looks like:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 my_variable = 5
-</textarea></div>
+</textarea>
+  </div>
 
-<p>To change it to a different value, you also use another assignment
-statement:</p>
-
-<div class="code" data-firstline="0">
-<div> </div>
-<textarea>
+  <p>To change it to a different value, you also use another assignment
+  statement:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 my_variable = 7
-</textarea></div>
+</textarea>
+  </div>
 
-<p>A variable can be any type of value, including a number, a phrase, the results of a calculation,
-or a list.</p>
-<h2>Variables Can Be Numbers</h2>
-<p>As an example, we'll calculate the number of seconds in a day.  To do do
-this, we'll start by creating a variable called “sec_in_minute” that will be
-the number of seconds in a minute (which is 60):</p>
+  <p>A variable can be any type of value, including a number, a phrase, the
+  results of a calculation, or a list.</p>
+  <h2>Variables Can Be Numbers</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>As an example, we'll calculate the number of seconds in a day. To do do
+  this, we'll start by creating a variable called “sec_in_minute” that will be
+  the number of seconds in a minute (which is 60):</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 sec_in_minute = 60
-</textarea></div>
+</textarea>
+  </div>
 
-<p><strong>Note:</strong> When
-naming variables, you can use any combination of uppercase letters,
-lowercase letters, numbers and underscore characters (_). The only
-rule is that the variable name must start with a letter. It’s good
-practice to use variable names that make your code easier to
-understand and read.</p>
-<p>Now, let’s create
-two more variables:</p>
+  <p><strong>Note:</strong> When naming variables, you can use any combination
+  of uppercase letters, lowercase letters, numbers and underscore characters
+  (_). The only rule is that the variable name must start with a letter. It’s
+  good practice to use variable names that make your code easier to understand
+  and read.</p>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Now, let’s create two more variables:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 min_in_hour = 60
 hour_in_day = 24
-</textarea></div>
+</textarea>
+  </div>
 
-<p>
-We can now compute (and print) the number of seconds in a day with:
-</p>
-
-<div class="code" data-firstline="0">
-<div> </div>
-<textarea>
+  <p>We can now compute (and print) the number of seconds in a day with:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 print(sec_in_minute * min_in_hour * hour_in_day)
-</textarea></div>
+</textarea>
+  </div>
 
-<p>The asterisk ('*') is a multiplication symbol - see the 
-	<a href="CALCULATIONS.html">CALCULATIONS</a> project for more information.
-</p><p>
-Here is what the
-output would look like if you ran that code:</p>
+  <p>The asterisk ('*') is a multiplication symbol - see the <a href=
+  "CALCULATIONS.html">CALCULATIONS</a> project for more information.</p>
 
-<div class="output">
-<div> </div>
-<pre>86400</pre>
-</div>
-<h2>Variables Can Be Assigned the Value of Other Variables</h2>
-<p>Remember we said
-above that variables can be almost any type of data – that
-includes data from other variables. We can take our program one step
-further by creating a variable called sec_in_day
-and using it to be our calculation for the number of seconds in a
-day:</p>
+  <p>Here is what the output would look like if you ran that code:</p>
+  <div class="output">
+    <pre>
+86400
+</pre>
+  </div>
+  <h2>Variables Can Be Assigned the Value of Other Variables</h2>
 
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Remember we said above that variables can be almost any type of data –
+  that includes data from other variables. We can take our program one step
+  further by creating a variable called sec_in_day and using it to be our
+  calculation for the number of seconds in a day:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 sec_in_day = sec_in_minute * min_in_hour * hour_in_day
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Now, if you want to
-output the number of seconds in a day, you can simply print the
-number being held by the sec_in_day
-variable:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Now, if you want to output the number of seconds in a day, you can simply
+  print the number being held by the sec_in_day variable:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 print(sec_in_day)
-</textarea></div>
+</textarea>
+  </div>
 
-<p>This is what the
-output would look like:</p>
+  <p>This is what the output would look like:</p>
+  <div class="output">
+    <pre>
+86400
+</pre>
+  </div>
+  <h2>Variables Can Be Strings</h2>
 
-<div class="output">
-<div> </div>
-<pre>86400</pre>
-</div>
-
-<h2>Variables Can Be Strings</h2>
-<p>Variables can also be strings. For example, we could have a variable that
-holds one of the output message we’re using above:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Variables can also be strings. For example, we could have a variable that
+  holds one of the output message we’re using above:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 message = "Number of seconds in a day: "
-</textarea></div>
+</textarea>
+  </div>
 
-<p>We could then print
-that message to the output, along with our calculation:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>We could then print that message to the output, along with our
+  calculation:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 print(message, sec_in_day)
-</textarea></div>
+</textarea>
+  </div>
 
-<p>Here is what the
-code and output would look like using a variable for the text string:</p>
+  <p>Here is what the code and output would look like using a variable for the
+  text string:</p>
+  <div class="output">
+    <pre>
+Number of seconds in a day: 86400
+</pre>
+  </div>
 
-<div class="output">
-<div> </div>
-<pre>Number of seconds in a day: 86400</pre>
-</div>
-<p>Note that because
-message is now a variable, we don’t put quotation marks around it.</p>
-<p class=nextprev><a href="index.html">home</a></p>
-</body></html>
+  <p>Note that because message is now a variable, we don’t put quotation marks
+  around it.</p>
+  <p class="nextprev"><a href="index.html">home</a></p>
+</body>
+</html>

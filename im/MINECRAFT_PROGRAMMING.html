@@ -1,92 +1,112 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <title></title>
 </head>
 <body>
-<header>
-    <div id=title></div>
-    <div id=description>Minecraft Programming</div>
-    <div id=hw_required>
+  <header>
+    <div id="title"></div>
+    <div id="description">
+      Minecraft Programming
     </div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+    <div id="hw_required"></div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<p>
-As mentioned earlier, Minecraft has its own API that can be used to control 
-and manipulate the Minecraft world.  The API is called <code>mcpi</code>, which 
-stands for Minecraft Pi.  The mcpi API is a set of functions to query and
-control the player and the environment in the Minecraft world.  
+  <p>As mentioned earlier, Minecraft has its own API that can be used to
+  control and manipulate the Minecraft world. The API is called
+  <code>mcpi</code>, which stands for Minecraft Pi. The mcpi API is a set of
+  functions to query and control the player and the environment in the
+  Minecraft world.</p>
 
-<p>Note:  There is an mcpi API downloadable online, which is slightly different 
-from the one available on the RaspberrySTEM.  The RaspberrySTEM has an enhanced 
-version that includes functions for controlling the movement of the Minecraft 
-player, determining the direction the player is looking, and showing/hiding the 
-Minecraft window.  When using the mcpi API on the RaspberrySTEM, we highly 
-recommend using our API, as opposed to the standard mcpi API.
-</p>
+  <p>Note: There is an mcpi API downloadable online, which is slightly
+  different from the one available on the RaspberrySTEM. The RaspberrySTEM has
+  an enhanced version that includes functions for controlling the movement of
+  the Minecraft player, determining the direction the player is looking, and
+  showing/hiding the Minecraft window. When using the mcpi API on the
+  RaspberrySTEM, we highly recommend using our API, as opposed to the standard
+  mcpi API.</p>
 
-<p>
-A typical Minecraft program will consist of four parts: 
+  <p>A typical Minecraft program will consist of four parts:</p>
+  <ol>
+    <li>
 
-<ol>
-<li><p>Initialization Code</li>
-<li><p>Starting Minecraft</li>
-<li><p>Connecting to the Minecraft Server</li>
-<li><p>The Game Loop</li>
-</ol>
+      <p>Initialization Code</p>
+    </li>
+    <li>
 
-<h3>Initialization Code</h3>
-<p>
-The first thing we typically do in any program (including our Minecraft programs)
-is to import the modules and functions we'll need for our code.  The set of 
-functions that the RaspberrySTEM uses for Minecraft programs is called <code>
-rstem.mcpi</code>, so in addition to any other functions we will need to import,
-we'll typically either import the entire <code>rstem.mcpi</code> module or
-we'll import specific functions within the <code>rstem.mcpi</code> module.
+      <p>Starting Minecraft</p>
+    </li>
+    <li>
 
-<h3>Starting Minecraft</h3>
-<p>
-In order to start Minecraft, we use a function within the <code>rstem.mcpi</code>
-module called <code>control.show()</code>.  This function will be used in pretty
-much every Minecraft program to start the game prior to executing our game loop.
+      <p>Connecting to the Minecraft Server</p>
+    </li>
+    <li>
 
-<h3>Connecting to the Minecraft Server</h3>
-<p>
-Once the Minecraft game has been started and we have our Minecraft window open,
-we next need to connect our code to the Minecraft server so that we can interact
-with the existing game.  This is accomplished using a function from the 
-<code>rstem.mcpi</code> module called <code>minecraft.Minecraft.create()</code>.  
+      <p>The Game Loop</p>
+    </li>
+  </ol>
+  <h3>Initialization Code</h3>
 
-<p>Note that not every Minecraft function will require that this step was 
-completed, but many do.  There is no downside to including this in the code, 
-so even for programs that don't require this step, it's still good to get in 
-the habit of including it.
+  <p>The first thing we typically do in any program (including our Minecraft
+  programs) is to import the modules and functions we'll need for our code. The
+  set of functions that the RaspberrySTEM uses for Minecraft programs is called
+  <code>rstem.mcpi</code>, so in addition to any other functions we will need
+  to import, we'll typically either import the entire <code>rstem.mcpi</code>
+  module or we'll import specific functions within the <code>rstem.mcpi</code>
+  module.</p>
+  <h3>Starting Minecraft</h3>
 
-<h3>The Game Loop</h3>
-<p>
-Once we have our initialization complete and we've started the Minecraft game, 
-we then create the game loop that will house the logic for our code.  In many
-cases, the game loop will be a <code>while TRUE:</code> loop that will run
-forever (until we manually stop it).
+  <p>In order to start Minecraft, we use a function within the
+  <code>rstem.mcpi</code> module called <code>control.show()</code>. This
+  function will be used in pretty much every Minecraft program to start the
+  game prior to executing our game loop.</p>
+  <h3>Connecting to the Minecraft Server</h3>
 
-<h3>Putting It All Together</h3>
-<p>
-Putting all three steps together, the basic framework of our Minecraft programs
-will look something like this:
+  <p>Once the Minecraft game has been started and we have our Minecraft window
+  open, we next need to connect our code to the Minecraft server so that we can
+  interact with the existing game. This is accomplished using a function from
+  the <code>rstem.mcpi</code> module called
+  <code>minecraft.Minecraft.create()</code>.</p>
 
-<div class="code" data-firstline="1">
-<div> </div>
-<textarea>
+  <p>Note that not every Minecraft function will require that this step was
+  completed, but many do. There is no downside to including this in the code,
+  so even for programs that don't require this step, it's still good to get in
+  the habit of including it.</p>
+  <h3>The Game Loop</h3>
+
+  <p>Once we have our initialization complete and we've started the Minecraft
+  game, we then create the game loop that will house the logic for our code. In
+  many cases, the game loop will be a <code>while TRUE:</code> loop that will
+  run forever (until we manually stop it).</p>
+  <h3>Putting It All Together</h3>
+
+  <p>Putting all three steps together, the basic framework of our Minecraft
+  programs will look something like this:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.mcpi import minecraft, control
 
 control.show()
@@ -95,15 +115,13 @@ mc = minecraft.Minecraft.create()
 
 while True:
     ...
-</textarea></div>
+</textarea>
+  </div>
 
-<p>
-All of our subsequent Minecraft projects will take the form above.
+  <p>All of our subsequent Minecraft projects will take the form above.</p>
 
-<p>
-For more detailed information about these -- and all -- Minecraft APIs, check out the
-API documentation linked from the RDE above.
-</p>
-
-<div id=footer></div>
-</body></html>
+  <p>For more detailed information about these -- and all -- Minecraft APIs,
+  check out the API documentation linked from the RDE above.</p>
+  <div id="footer"></div>
+</body>
+</html>

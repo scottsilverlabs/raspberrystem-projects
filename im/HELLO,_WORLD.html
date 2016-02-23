@@ -1,165 +1,204 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>HELLO, WORLD</title>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>HELLO, WORLD</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      HELLO, WORLD!
+    </div>
+    <div id="description">
+      In this project, we'll write our first code.
+    </div>
+  </header>
 
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>HELLO, WORLD!</div>
-    <div id=description>In this project, we'll write our first code.</div>
-</header>
+  <p>It’s customary in the programming world that the very first program you
+  write is called, “Hello, World!” The purpose of this program is simple – have
+  the computer print the words, “Hello, World!” on the screen.</p>
 
-<p>It’s customary in
-the programming world that the very first program you write is
-called, “Hello, World!” The purpose of this program is simple –
-have the computer print the words, “Hello, World!” on the screen. </p>
-<p>We’re not ones to
-buck tradition, so we’re going to make “Hello, World!” our very
-first project. The nice thing about this project is that it’s easy
-to do (it’s only one line of code) and it will give us an
-opportunity to start exploring our RaspberrySTEM Development Environment
-(RDE).</p>
-<div class="info">
-<div>What is Programming?</div>
-<div>
-<p>Programming is the process of writing instructions for a
-computer to
-follow. You write these instructions using an editing tool (we provide
-a custom editing tool as part of the RaspberrySTEM CREATOR Kit) and then "send"
-those instructions to the the computer to carry out (or "execute"). Just like
-there are lots of different languages that people can speak, there are
-also many languages that computer instructions
-can be written in -- each of which will ultimately be converted into a
-format that the computer understands.
-</p>
-<p>The RaspberrySTEM CREATOR Kit supports many different programming
-languages, but we
-will primarily be focused on one of the most common, called Python.
-Python is a versatile language that is used in both the academic and
-the professional world to build a varied set of applications and tools.
-Learning how to program in the Python programming language will provide
-a solid foundation for all future programming education.
-</p>
-</div>
-</div>
-<p>Here are step-by-by
-instructions for implementing this project; after we’ve completed
-it, we’ll talk more about how and why it works.</p><p></p>
-<h4>Step #1: Find the Code Window on Your RDE</h4><p>All the code you
-will be writing as part of the RaspberrySTEM projects will be done
-within the RDE. Specifically, you’ll be writing your code in the
-Code Window portion of the RDE.
-As a reminder, here is where the Code Window is located:</p>
-<img style="border: 1px solid ; width: 80%;" alt="" src="img/This%20is%20the%20Code%20Window.jpg">
-<p>You’ll notice that
-at the top left corner of the Code Window, there is a line numbered
-“1”. This is where you will type in your program’s code:</p>
-<img style="border: 1px solid ; width: 60%;" alt="" src="img/Enter%20Your%20Code.png"></p>
-<h4>Step #2: Enter Your Code in The Code Window</h4>
-<p>It's now time to enter the code for this project. In
-the code window, enter the following:</p>
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+  <p>We’re not ones to buck tradition, so we’re going to make “Hello, World!”
+  our very first project. The nice thing about this project is that it’s easy
+  to do (it’s only one line of code) and it will give us an opportunity to
+  start exploring our RaspberrySTEM Development Environment (RDE).</p>
+  <div class="info">
+    <div>
+      What is Programming?
+    </div>
+    <div>
+
+      <p>Programming is the process of writing instructions for a computer to
+      follow. You write these instructions using an editing tool (we provide a
+      custom editing tool as part of the RaspberrySTEM CREATOR Kit) and then
+      "send" those instructions to the the computer to carry out (or
+      "execute"). Just like there are lots of different languages that people
+      can speak, there are also many languages that computer instructions can
+      be written in -- each of which will ultimately be converted into a format
+      that the computer understands.</p>
+
+      <p>The RaspberrySTEM CREATOR Kit supports many different programming
+      languages, but we will primarily be focused on one of the most common,
+      called Python. Python is a versatile language that is used in both the
+      academic and the professional world to build a varied set of applications
+      and tools. Learning how to program in the Python programming language
+      will provide a solid foundation for all future programming education.</p>
+    </div>
+  </div>
+
+  <p>Here are step-by-by instructions for implementing this project; after
+  we’ve completed it, we’ll talk more about how and why it works.</p>
+  <h4>Step #1: Find the Code Window on Your RDE</h4>
+
+  <p>All the code you will be writing as part of the RaspberrySTEM projects
+  will be done within the RDE. Specifically, you’ll be writing your code in the
+  Code Window portion of the RDE. As a reminder, here is where the Code Window
+  is located:</p><img style="border: 1px solid ; width: 80%;" alt="" src=
+  "img/This%20is%20the%20Code%20Window.jpg">
+
+  <p>You’ll notice that at the top left corner of the Code Window, there is a
+  line numbered “1”. This is where you will type in your program’s
+  code:</p><img style="border: 1px solid ; width: 60%;" alt="" src=
+  "img/Enter%20Your%20Code.png">
+  <h4>Step #2: Enter Your Code in The Code Window</h4>
+
+  <p>It's now time to enter the code for this project. In the code window,
+  enter the following:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 print("Hello, World!")
-</textarea></div>
-<p>A few things worth noting at this point:
-<ul>
-	<li><p>The line number "1" will automatically be visible
-	before you start entering your code </p></li>
-	<li><p>In future projects, the code boxes
-we present may or may not indicate line numbers next to the lines of
-code. Whenever possible, we'll include line numbers to
-make it easier to ensure that your code is identical to ours; but, in
-some
-cases, we'll leave out line numbers to avoid confusion -- this is
-typically when we're adding new code to existing code and we can't be
-sure our line numbers will be the same as yours.</p></li>
-<li><p>Capitalization generally DOES matter when
-you’re programming. In this line of code, if the word “print”
-isn’t in all lowercase letters, you may find that your code doesn’t
-work as expected.</p></li>
-<li><p>We mentioned in the Projects Guide introduction that there's a way to
-cut-and-paste code instead of typing it all in. As an example
-of
-how you do this, you can cut-and-paste the line above right into your
-code window. To do that, follow these steps:</p>
-<ol>
-<li>
-<p>Highlight the print('Hello, World!') line in the code box
-above using
-your mouse</p>
-</li>
-<li>
-<p>Press and hold the &lt;CTRL&gt; key on your
-keyboard and press the letter "C" at the same time --
-this copies your text</p>
-</li>
-<li>
-<p>Click in the Code Window where you want to paste the code</p>
-</li>
-<li>
-<p>Press and hold the &lt;CTRL&gt; key on your
-keyboard and press the letter "V" at the same time --
-this pastes the text</p>
-</li>
-</ol>
-</li>
-</ul>
-<h4>Step #3: Run Your Code</h4>
-<p>Now that you’ve
-typed (or cut-and-pasted) the line of code into the Code Window,
-let’s see if it works. We do this by “running” the program. To run the
-program, click on the Play icon (<img class=inline_icon alt="" src="img/play.png">)
-at the top of the Code Window.</p>
-<p>The program runs by
-starting at the first line, doing what that line says (“executing”
-that line), and then moving on to the next line. It does that until
-it reaches the bottom. In this case, we only have one line, so only
-that line of code is executed.</p>
-<p>It may take a few seconds for the code to run, and you may notice two things during this time:
-<ol>
-	<li><p>The the triangular PLAY icon turns to a square; and</li>
-	<li><p>That the little RaspberrySTEM icon at the top of the code window spins.
-</ol>
+</textarea>
+  </div>
 
-<p>These are just indications that the Raspberry Pi is busy running your code.  And don't 
-worry if you don't notice these things -- sometimes they happen so fast they they're
-not very noticeable.</p>
-<h4>Step #4: Verify the “Output” of Your Code</h4>
-<p>If you’ve done
-everything correctly, you should see the following in your Output
-Window (the window in the lower left of the RDE, below the Code
-Window):</p>
-<div class="output">
-<div></div>
-<pre>Hello, World!<br><span style="color: red; font-weight: bold;">-- PROGRAM FINISHED --</span>
+  <p>A few things worth noting at this point:</p>
+  <ul>
+    <li>
+
+      <p>The line number "1" will automatically be visible before you start
+      entering your code</p>
+    </li>
+    <li>
+
+      <p>In future projects, the code boxes we present may or may not indicate
+      line numbers next to the lines of code. Whenever possible, we'll include
+      line numbers to make it easier to ensure that your code is identical to
+      ours; but, in some cases, we'll leave out line numbers to avoid confusion
+      -- this is typically when we're adding new code to existing code and we
+      can't be sure our line numbers will be the same as yours.</p>
+    </li>
+    <li>
+
+      <p>Capitalization generally DOES matter when you’re programming. In this
+      line of code, if the word “print” isn’t in all lowercase letters, you may
+      find that your code doesn’t work as expected.</p>
+    </li>
+    <li>
+
+      <p>We mentioned in the Projects Guide introduction that there's a way to
+      cut-and-paste code instead of typing it all in. As an example of how you
+      do this, you can cut-and-paste the line above right into your code
+      window. To do that, follow these steps:</p>
+      <ol>
+        <li>
+
+          <p>Highlight the print('Hello, World!') line in the code box above
+          using your mouse</p>
+        </li>
+        <li>
+
+          <p>Press and hold the &lt;CTRL&gt; key on your keyboard and press the
+          letter "C" at the same time -- this copies your text</p>
+        </li>
+        <li>
+
+          <p>Click in the Code Window where you want to paste the code</p>
+        </li>
+        <li>
+
+          <p>Press and hold the &lt;CTRL&gt; key on your keyboard and press the
+          letter "V" at the same time -- this pastes the text</p>
+        </li>
+      </ol>
+    </li>
+  </ul>
+  <h4>Step #3: Run Your Code</h4>
+
+  <p>Now that you’ve typed (or cut-and-pasted) the line of code into the Code
+  Window, let’s see if it works. We do this by “running” the program. To run
+  the program, click on the Play icon (<img class="inline_icon" alt="" src=
+  "img/play.png">) at the top of the Code Window.</p>
+
+  <p>The program runs by starting at the first line, doing what that line says
+  (“executing” that line), and then moving on to the next line. It does that
+  until it reaches the bottom. In this case, we only have one line, so only
+  that line of code is executed.</p>
+
+  <p>It may take a few seconds for the code to run, and you may notice two
+  things during this time:</p>
+  <ol>
+    <li>
+
+      <p>The the triangular PLAY icon turns to a square; and</p>
+    </li>
+    <li>
+
+      <p>That the little RaspberrySTEM icon at the top of the code window
+      spins.</p>
+    </li>
+  </ol>
+
+  <p>These are just indications that the Raspberry Pi is busy running your
+  code. And don't worry if you don't notice these things -- sometimes they
+  happen so fast they they're not very noticeable.</p>
+  <h4>Step #4: Verify the “Output” of Your Code</h4>
+
+  <p>If you’ve done everything correctly, you should see the following in your
+  Output Window (the window in the lower left of the RDE, below the Code
+  Window):</p>
+  <div class="output">
+    <pre>
+Hello, World!<br><span style=
+"color: red; font-weight: bold;">-- PROGRAM FINISHED --</span>
 </pre>
-</div>
-<p>The first line of
-the output window is the result of the code you’ve written –
-you’ve successfully had the computer print the words “Hello,
-World!”</p>
-<p>The last line
-indicates that the program is finished running – this will be
-helpful later when you’re writing longer and more complicated
-programs.</p>
-<p>Congratulations! You’ve just written your first program!</p>
-<p>But wait! What if the output from your program
-doesn't look like it's supposed to? Or if you get a jumbled
-red and black error-looking message in the Output Window? If
-that's the case, you likely have an error in your code. But, even
-if your code worked perfectly and you
-didn't get any errors in your code above, we highly recommend reading
-the next section, as you're certain to encounter programming
-errors at some point:</p><p><a href="HANDLING_ERRORS.html">Click here to read about handling errors in your code...</a></p>
-	<p class=nextprev><a href="index.html">home</a> | <a href="INTRODUCTION_TO_THE_IDE.html">prev</a> |
-<a href="YOUR_FIRST_CIRCUIT.html">next</a></p>
-</body></html>
+  </div>
+
+  <p>The first line of the output window is the result of the code you’ve
+  written – you’ve successfully had the computer print the words “Hello,
+  World!”</p>
+
+  <p>The last line indicates that the program is finished running – this will
+  be helpful later when you’re writing longer and more complicated
+  programs.</p>
+
+  <p>Congratulations! You’ve just written your first program!</p>
+
+  <p>But wait! What if the output from your program doesn't look like it's
+  supposed to? Or if you get a jumbled red and black error-looking message in
+  the Output Window? If that's the case, you likely have an error in your code.
+  But, even if your code worked perfectly and you didn't get any errors in your
+  code above, we highly recommend reading the next section, as you're certain
+  to encounter programming errors at some point:</p>
+
+  <p><a href="HANDLING_ERRORS.html">Click here to read about handling errors in
+  your code...</a></p>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "INTRODUCTION_TO_THE_IDE.html">prev</a> | <a href=
+  "YOUR_FIRST_CIRCUIT.html">next</a></p>
+</body>
+</html>

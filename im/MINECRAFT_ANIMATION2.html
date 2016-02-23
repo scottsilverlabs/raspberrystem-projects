@@ -1,45 +1,56 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <title></title>
 </head>
 <body>
-<header>
-    <div id=title></div>
-    <div id=description>This is a minecraft project</div>
-    <div id=hw_required>
-    Accelerometer Cell<br>
-    LED Matrix Cell
+  <header>
+    <div id="title"></div>
+    <div id="description">
+      This is a minecraft project
     </div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+    <div id="hw_required">
+      Accelerometer Cell<br>
+      LED Matrix Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
+  <h2>Overview</h2>
 
-<h2>Overview</h2>
-<p>In this project, we'll build on the sprite animations we did in
-the previous project by not only animating Steve on the LED Matrix,
-but also creating a synchronized animation of Steve in the Minecraft
-world.  What we draw on the LED Matrix will be replicated in blocks
-in the Minecraft world.
+  <p>In this project, we'll build on the sprite animations we did in the
+  previous project by not only animating Steve on the LED Matrix, but also
+  creating a synchronized animation of Steve in the Minecraft world. What we
+  draw on the LED Matrix will be replicated in blocks in the Minecraft
+  world.</p>
+  <h2>Hardware Setup</h2><img class="bb" src="img/LED_Matrix_bb.png" alt="">
+  <h2>Writing Our Code</h2>
 
-
-<h2>Hardware Setup</h2>
-<img class="bb" src="img/LED_Matrix_bb.png">
-
-<h2>Writing Our Code</h2>
-
-<p>xxx
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>xxx</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.mcpi import minecraft, control, block
 from rstem.mcpi.vec3 import Vec3
 from rstem.led_matrix import FrameBuffer, Sprite
@@ -118,7 +129,8 @@ while True:
 
     time.sleep(0.1)
 
-</textarea></div>
-
-<div id=footer></div>
-</body></html>
+</textarea>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

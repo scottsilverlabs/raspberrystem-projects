@@ -1,65 +1,100 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><title>SIMON 7</title>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SIMON 7</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link=
+"#0563C1">
+  <header>
+    <div id="title">
+      SIMON 7
+    </div>
+    <div id="description">
+      In this project, we finish the development of our Simon-like pattern
+      matching game by adding a final win/lose sequence.
+    </div>
+    <div id="hw_required">
+      Speaker &amp; Audio Cable<br>
+      I/O (Input/Output) RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<link rel="stylesheet" type="text/css" href="default.css">
-<link rel="stylesheet" type="text/css" href="project.css">
-<link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-<link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-<script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-<script type="text/javascript" src="/assets/cmirror/python.js"></script>
-<script type="text/javascript" src="onload.js"></script>
-<script type="text/javascript" src="codeblocks.js"></script></head>
-<body style="direction: ltr; color: rgb(0, 0, 10);" lang="en-US" link="#0563c1">
-<header>
-    <div id=title>SIMON 7</div>
-    <div id=description>In this project, we finish the development of our Simon-like
-    pattern matching game by adding a final win/lose sequence.</div>
-    <div id=hw_required>Speaker &amp; Audio Cable<br>I/O (Input/Output) RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>In this project, we're going to add in our final sequence when the user
+  makes a mistake and we drop through the <code>while</code> loop.</p>
 
-<p>
-In this project, we're going to add in our final sequence when the user makes a mistake and we
-drop through the <code>while</code> loop. </p>
-<p>When this happens, we want to do the following: </p><ol><li>
-<p>If the user has lost due to a time-out (he didn't hit a button in time), we light up all the LEDs </p></li><li>
-<p>If the user has lost due to hitting a wrong button in the sequence, we light up the LED that was incorrectly pressed </p></li><li>
-<p>We then play an error tone </p></li><li>
-<p>Finally, we play the correct sequence one last time (quickly)</p></li></ol>
-<p>Here is what that code will look like:
+  <p>When this happens, we want to do the following:</p>
+  <ol>
+    <li>
 
+      <p>If the user has lost due to a time-out (he didn't hit a button in
+      time), we light up all the LEDs</p>
+    </li>
+    <li>
 
-</p><div class="code" data-firstline="0">
-<div></div>
-<textarea>
+      <p>If the user has lost due to hitting a wrong button in the sequence, we
+      light up the LED that was incorrectly pressed</p>
+    </li>
+    <li>
+
+      <p>We then play an error tone</p>
+    </li>
+    <li>
+
+      <p>Finally, we play the correct sequence one last time (quickly)</p>
+    </li>
+  </ol>
+
+  <p>Here is what that code will look like:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 # Game Over -- Play error sequence
 if button_pressed == None: 
-	for light in lights: 
-		light.on()
+        for light in lights: 
+                light.on()
 else: 
-	lights[button_pressed].on()
+        lights[button_pressed].on()
 
 you_failed_note.play(1.5).wait()
 
 for light in lights: 
-	light.off()
+        light.off()
 
 time.sleep(0.5)
 
 # Play correct sequence fast
 for i in play_order: 
-	lights[i].on() 
-	notes[i].play(0.1).wait()
-	lights[i].off() 
-	time.sleep(0.05)
-</textarea></div>
-<p>
-Here is what the final code for this project looks like -- go have some fun playing
-and feel free to add more features to customize the game how you'd like:</p>
-<div class="code" data-firstline="1">
-<div></div>
-<textarea>
+        lights[i].on() 
+        notes[i].play(0.1).wait()
+        lights[i].off() 
+        time.sleep(0.05)
+</textarea>
+  </div>
+
+  <p>Here is what the final code for this project looks like -- go have some
+  fun playing and feel free to add more features to customize the game how
+  you'd like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # ##################################
 # Import Modules and Initialize Game
 # ##################################
@@ -77,7 +112,7 @@ notes = [Note('C'), Note('D'), Note('E'), Note('F')]
 you_failed_note = Note('E2')
 
 for light in lights: 
-	light.off()
+        light.off()
 
 play_order = []
 
@@ -88,65 +123,65 @@ failed = False
 # ##################################
 
 while not failed:
-	
-	# Add another random LED to sequence
-	play_order += [randrange(4)] 
+        
+        # Add another random LED to sequence
+        play_order += [randrange(4)] 
 
-	# Play LED sequence 
-	for i in play_order: 
-		lights[i].on() 
-		notes[i].play(0.4).wait() 
-		lights[i].off()
-		time.sleep(0.2) 
+        # Play LED sequence 
+        for i in play_order: 
+                lights[i].on() 
+                notes[i].play(0.4).wait() 
+                lights[i].off()
+                time.sleep(0.2) 
 
-	# #############################
-	# for: loop to get player input
-	# #############################
+        # #############################
+        # for: loop to get player input
+        # #############################
 
-	for i in play_order:
+        for i in play_order:
 
-		# Get the user's button press
-		button_pressed = Button.wait_many(buttons, timeout=3) 
+                # Get the user's button press
+                button_pressed = Button.wait_many(buttons, timeout=3) 
 
-		# If user enters incorrect button, end game
-		if button_pressed != i: 
-			failed = True 
-			break 
+                # If user enters incorrect button, end game
+                if button_pressed != i: 
+                        failed = True 
+                        break 
 
-		# If user enters correct button, flash LED and play tone
-		lights[button_pressed].on()     
-		notes[button_pressed].play(duration=None)
-		buttons[button_pressed].wait(press=False) 
-		time.sleep(0.2)
-		lights[button_pressed].off() 
-		notes[button_pressed].stop() 
+                # If user enters correct button, flash LED and play tone
+                lights[button_pressed].on()     
+                notes[button_pressed].play(duration=None)
+                buttons[button_pressed].wait(press=False) 
+                time.sleep(0.2)
+                lights[button_pressed].off() 
+                notes[button_pressed].stop() 
 
-	if not failed: 
-		time.sleep(1.0)
+        if not failed: 
+                time.sleep(1.0)
 
 # Game Over -- Play error sequence
 if button_pressed == None: 
-	for light in lights: 
-		light.on()
+        for light in lights: 
+                light.on()
 else: 
-	lights[button_pressed].on()
+        lights[button_pressed].on()
 
 you_failed_note.play(1.5).wait()
 
 for light in lights: 
-	light.off()
+        light.off()
 
 time.sleep(0.5)
 
 # Play correct sequence fast
 for i in play_order: 
-	lights[i].on() 
-	notes[i].play(0.2).wait()
-	lights[i].off() 
-	time.sleep(0.2)
-</textarea></div>
-
-
-<p class=nextprev><a href="index.html">home</a> | <a href="SIMON_6.html">prev</a> |
-<a href="LED_MATRIX.html">next</a></p>
-</body></html>
+        lights[i].on() 
+        notes[i].play(0.2).wait()
+        lights[i].off() 
+        time.sleep(0.2)
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SIMON_6.html">prev</a> | <a href="LED_MATRIX.html">next</a></p>
+</body>
+</html>

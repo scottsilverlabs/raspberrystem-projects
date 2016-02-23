@@ -1,55 +1,66 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <title></title>
 </head>
 <body>
-<header>
-    <div id=title></div>
-    <div id=description>This is a minecraft project</div>
-    <div id=hw_required>
-    Accelerometer Cell<br>
-    LED Matrix Cell
+  <header>
+    <div id="title"></div>
+    <div id="description">
+      This is a minecraft project
     </div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+    <div id="hw_required">
+      Accelerometer Cell<br>
+      LED Matrix Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
+  <h2>Overview</h2>
 
-<h2>Overview</h2>
-<p>In our last project, we improved our Minecraft controller code to make it
-simpler and more readible (and also more extensible).  But, with the current
-code, our controller is awkward because it requires us to rotate it away from
-us (which is difficult to do) in order for our character to look down.
+  <p>In our last project, we improved our Minecraft controller code to make it
+  simpler and more readible (and also more extensible). But, with the current
+  code, our controller is awkward because it requires us to rotate it away from
+  us (which is difficult to do) in order for our character to look down.</p>
 
-<p>In this project, we're going to improve that -- we're going to modify
-the tilt functionality so that our character looking down while the controller 
-is in the default position -- horizontal or "flat on a table" -- and have then 
-we only need to rotate the controller towards us (which is easy) to have him 
-start to look upwards. 
+  <p>In this project, we're going to improve that -- we're going to modify the
+  tilt functionality so that our character looking down while the controller is
+  in the default position -- horizontal or "flat on a table" -- and have then
+  we only need to rotate the controller towards us (which is easy) to have him
+  start to look upwards.</p>
+  <h2>Hardware Setup</h2><img class="bb" src=
+  "img/Minecraft_Accel_4way_1button_bb.png" alt="">
+  <h2>Writing Our Code</h2>
 
+  <p>For this project, the changes to the code will be in the
+  <code>while</code> loop, specifically around the <code>control.look()</code>
+  function, which defines where the character is looking.</p>
 
-<h2>Hardware Setup</h2>
-<img class="bb" src="img/Minecraft_Accel_4way_1button_bb.png">
-
-<h2>Writing Our Code</h2>
-
-<p>For this project, the changes to the code will be in the <code>while</code>
-loop, specifically around the <code>control.look()</code> function, which
-defines where the character is looking.
-
-<p>
-Here is what the full code for this project should look like:
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>Here is what the full code for this project should look like:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.accel import Accel
 from rstem.button import Button
 from rstem.mcpi import minecraft, control
@@ -78,7 +89,8 @@ while True:
     
     time.sleep(0.01)
 
-</textarea></div>
-
-<div id=footer></div>
-</body></html>
+</textarea>
+  </div>
+  <div id="footer"></div>
+</body>
+</html>

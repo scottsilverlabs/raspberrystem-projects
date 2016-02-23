@@ -1,57 +1,68 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script>
-    <script type="text/javascript" src="toc_order.js"></script>
-    <script type="text/javascript" src="project.js"></script>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <title></title>
 </head>
 <body>
-<header>
-    <div id=title></div>
-    <div id=description>This is a minecraft project</div>
-    <div id=hw_required>
-    Accelerometer Cell<br>
-    LED Matrix Cell
+  <header>
+    <div id="title"></div>
+    <div id="description">
+      This is a minecraft project
     </div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+    <div id="hw_required">
+      Accelerometer Cell<br>
+      LED Matrix Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
+  <h2>Overview</h2>
 
-<h2>Overview</h2>
-<p>In the previous projects, we remapped the control functions that
-are typically handled by keyboard presses and implemented them in a
-custom controller that we built.  In this project, we're going to 
-start actually manipulating the game world by writing code directly
-to the Minecraft server.  This will allow us to add new logic to our 
-game, in addition to just remapping the various control functions.  
+  <p>In the previous projects, we remapped the control functions that are
+  typically handled by keyboard presses and implemented them in a custom
+  controller that we built. In this project, we're going to start actually
+  manipulating the game world by writing code directly to the Minecraft server.
+  This will allow us to add new logic to our game, in addition to just
+  remapping the various control functions.</p>
 
-<p>In this specific project, we will learn how to monitor when 
-Minecraft blocks have been hit and then gather and use that
-information in our code.
+  <p>In this specific project, we will learn how to monitor when Minecraft
+  blocks have been hit and then gather and use that information in our
+  code.</p>
+  <h2>Hardware Setup</h2>
 
-<h2>Hardware Setup</h2>
-<p>For this project, we need just a single button mapped to GPIO7.  
-You are welcome to keep the hardware setup from a previous project 
-that has a button attached to that GPIO, or you can simplify your
-hardware to the following:
- 
-<img class="bb" src="img/Minecraft_1button_bb.png">
+  <p>For this project, we need just a single button mapped to GPIO7. You are
+  welcome to keep the hardware setup from a previous project that has a button
+  attached to that GPIO, or you can simplify your hardware to the following:
+  <img class="bb" src="img/Minecraft_1button_bb.png" alt=""></p>
+  <h2>Writing Our Code</h2>
 
-<h2>Writing Our Code</h2>
-
-<p>Here is the code that will allow us to get information about a
-block that was hit and then print out information about the block
-that was hit. Below the code, we will discuss the line-by-line 
-details:
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>Here is the code that will allow us to get information about a block that
+  was hit and then print out information about the block that was hit. Below
+  the code, we will discuss the line-by-line details:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 from rstem.button import Button
 from rstem.mcpi import minecraft, control, block
 import time
@@ -72,76 +83,92 @@ while True:
 
     time.sleep(0.01)
 
-</textarea></div>
+</textarea>
+  </div>
 
-<p>
-Here's how the code works:
-</p>
-<ul>
-<li><p>
-On Lines 1-3, we import all the functions we'll later need for this code.
-</p></li>
-<li><p>
-On Line 5, we use <code>control.show()</code> to open up the Minecraft window.  
-</p></li>
-<li><p>
-On Line 6, we initalize a connection to the Minecraft server and store that in an object <code>mc</code>.
-</p></li>
-<li><p>
-On Line 8, we create a Button object for the button attached to GPIO7
-</p></li>
-<li><p>
-On Line 10, we implement a Game Loop that will continue forever (until we stop it).
-</p></li>
-<li><p>
-On Lines 11-12, we check to see if our button has been pressed.  If so, we implement a "hit" -- 
-the equivalent of a right mouse click when holding the sword.
-</p></li>
-<li><p>
-On Line 14, we get a list of all hit events that have taken place since the last time
-we ran this function.  We store that list of hits in a variable called <code>hits</code>.
-We talk about this function in more detail below.
-</p></li>
-<li><p>
-On Lines 16-17, we implement a <code>for</code> that cycles through each hit event in our
-<code>hits</code> variable, and then prints out the coordinates (X, Y, Z) of each block
-that was hit since the last time we cycled through this function.
-</p></li>
-<li><p>
-On Line 19, we implement a <code>sleep</code> to slow our game loop down, so as not to
-over-burden the processor.
-</p></li></ul>
+  <p>Here's how the code works:</p>
+  <ul>
+    <li>
 
-    <div class="info">
-    <div>mc.event.pollBlockHits()</div>
+      <p>On Lines 1-3, we import all the functions we'll later need for this
+      code.</p>
+    </li>
+    <li>
+
+      <p>On Line 5, we use <code>control.show()</code> to open up the Minecraft
+      window.</p>
+    </li>
+    <li>
+
+      <p>On Line 6, we initalize a connection to the Minecraft server and store
+      that in an object <code>mc</code>.</p>
+    </li>
+    <li>
+
+      <p>On Line 8, we create a Button object for the button attached to
+      GPIO7</p>
+    </li>
+    <li>
+
+      <p>On Line 10, we implement a Game Loop that will continue forever (until
+      we stop it).</p>
+    </li>
+    <li>
+
+      <p>On Lines 11-12, we check to see if our button has been pressed. If so,
+      we implement a "hit" -- the equivalent of a right mouse click when
+      holding the sword.</p>
+    </li>
+    <li>
+
+      <p>On Line 14, we get a list of all hit events that have taken place
+      since the last time we ran this function. We store that list of hits in a
+      variable called <code>hits</code>. We talk about this function in more
+      detail below.</p>
+    </li>
+    <li>
+
+      <p>On Lines 16-17, we implement a <code>for</code> that cycles through
+      each hit event in our <code>hits</code> variable, and then prints out the
+      coordinates (X, Y, Z) of each block that was hit since the last time we
+      cycled through this function.</p>
+    </li>
+    <li>
+
+      <p>On Line 19, we implement a <code>sleep</code> to slow our game loop
+      down, so as not to over-burden the processor.</p>
+    </li>
+  </ul>
+  <div class="info">
     <div>
-    <p>In our code above, we used the function <code>mc.event.pollBlockHits()</code>
-	to gather information about all the "events" that have taken place with all of
-	the Minecraft blocks.  Currently, the Minecraft API only supports one "event" 
-	type, which is a block being hit, so this function will simply return a list of
-	all blocks that have been hit since the last time this function was called.
-	
-	<p>We can store that list of blocks that were hit in an object/variable (we use
-	<code>hits</code> in our code above), and can then use that variable to gather 
-	information about those blocks or to act on them.  The most common piece of 
-	information we will want to know about a block that was hit is the block's
-	position, in X, Y and Z coordinates.  This can be gathered using the 
-	<code>.pos</code> property of the object, as we saw in this line of code above:
-
-    <code>print "The X, Y, Z coordinates of the block you hit is:", hit.pos</code>
-
-	<p>Specific coordinate positions can be determined as well.  For example, we 
-	could replace the previous line of code with:
-	
-    <code>print "The X coordinate of the block you hit is:", hit.pos.x</code>
-    <code>print "The Y coordinate of the block you hit is:", hit.pos.y</code>
-    <code>print "The Z coordinate of the block you hit is:", hit.pos.z</code>
-	
+      mc.event.pollBlockHits()
     </div>
+    <div>
+
+      <p>In our code above, we used the function
+      <code>mc.event.pollBlockHits()</code> to gather information about all the
+      "events" that have taken place with all of the Minecraft blocks.
+      Currently, the Minecraft API only supports one "event" type, which is a
+      block being hit, so this function will simply return a list of all blocks
+      that have been hit since the last time this function was called.</p>
+
+      <p>We can store that list of blocks that were hit in an object/variable
+      (we use <code>hits</code> in our code above), and can then use that
+      variable to gather information about those blocks or to act on them. The
+      most common piece of information we will want to know about a block that
+      was hit is the block's position, in X, Y and Z coordinates. This can be
+      gathered using the <code>.pos</code> property of the object, as we saw in
+      this line of code above: <code>print "The X, Y, Z coordinates of the
+      block you hit is:", hit.pos</code></p>
+
+      <p>Specific coordinate positions can be determined as well. For example,
+      we could replace the previous line of code with: <code>print "The X
+      coordinate of the block you hit is:", hit.pos.x</code> <code>print "The Y
+      coordinate of the block you hit is:", hit.pos.y</code> <code>print "The Z
+      coordinate of the block you hit is:", hit.pos.z</code></p>
     </div>
-
-<h2>Additional Challenges</h2>
-
-
-<div id=footer></div>
-</body></html>
+  </div>
+  <h2>Additional Challenges</h2>
+  <div id="footer"></div>
+</body>
+</html>

@@ -1,90 +1,107 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head>
-	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	
-    <title>SPACE INVADERS 8</title>
-    <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="project.css">
-    <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
-    <link type="text/css" id="theme" rel="stylesheet" href="/assets/themes/solarized-dark.css">
-    <script type="text/javascript" src="/assets/cmirror/codemirror.js"></script>
-    <script type="text/javascript" src="/assets/cmirror/python.js"></script>
-    <script type="text/javascript" src="onload.js"></script>
-    <script type="text/javascript" src="codeblocks.js"></script></head>
-<body dir="ltr" lang="en-US" link="#0563c1" text="#00000a">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>SPACE INVADERS 8</title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body dir="ltr" lang="en-US" link="#0563C1" text="#00000A">
+  <header>
+    <div id="title">
+      SPACE INVADERS 8
+    </div>
+    <div id="description">
+      In this project, we'll continue building our Space Invaders game by
+      animating our ship using a sprite.
+    </div>
+    <div id="hw_required">
+      I/O (Input/Output) RaspberrySTEM Cell<br>
+      LED Matrix RaspberrySTEM Cell<br>
+      Accelerometer RaspberrySTEM Cell
+    </div>
+    <div id="troubleshooting">
+      <a href="TROUBLESHOOTING.html">Having issues? Check out the
+      Troubleshooting Guide.</a>
+    </div>
+  </header>
 
-<header>
-    <div id=title>SPACE INVADERS 8</div>
-    <div id=description>In this project, we'll continue building our Space Invaders game
-	    by animating our ship using a sprite.</div>
-    <div id=hw_required>I/O (Input/Output) RaspberrySTEM Cell<br>LED Matrix RaspberrySTEM Cell<br>Accelerometer RaspberrySTEM Cell</div>
-    <div id=troubleshooting><a href="TROUBLESHOOTING.html">Having issues?  Check out the Troubleshooting Guide.</a></div>
-</header>
+  <p>We should now have a working Space Invaders game, but we can make it more
+  visually appealing by custom designing our ship using "Sprite" functionality
+  in the API.</p>
+  <div class="info">
+    <div>
+      What Are Sprites?
+    </div>
+    <div>
 
-<p>We should now have a working Space Invaders game, but we can make it
-more visually appealing by custom designing our ship using "Sprite"
-functionality in the API.</p>
+      <p>Sprites are two-dimensional bitmaps, which are representations of
+      images created by encoding information for each individual pixel (dot) in
+      the image. In the RaspberrySTEM API, Sprites allow you to define graphics
+      on the 8x8 LED Matrix display, by defining a "color" for each pixel of
+      the graphic. The LED Matrix only has one color, but the intensity of the
+      pixel brightness can be altered for each pixel in the sprite, or a pixel
+      can be turned off completely.</p>
 
+      <p>For more information on how to use sprites, click on the "API" button
+      at the top of this page, then click on "rstem.led_matrix" and finally,
+      click on "Sprite." The API documentation will tell you how the various
+      sprite functions work, and we demonstrate using sprites in our project
+      below.</p>
+    </div>
+  </div>
 
+  <p>To change the ship to a custom sprite, we need to include some basic
+  initialization code, code to design the sprite configuration and code to draw
+  the sprite.</p>
 
-<div class="info">
-<div>What Are Sprites?</div>
-<div>
-<p>
-Sprites are two-dimensional bitmaps, which are representations of images created by
-encoding information for each individual pixel (dot) in the image.  In the
-RaspberrySTEM API, Sprites allow you to define graphics on the 8x8 LED
-Matrix display, by defining a "color"
-for each pixel of the graphic.  The LED Matrix only has one color, but the intensity of
-the pixel brightness can be altered for each pixel in the sprite, or a pixel can be 
-turned off completely.
-<p>
-For more information on how to use sprites, click on the "API" button at the top of this page,
-then click on "rstem.led_matrix" and finally, click on "Sprite."  The API documentation
-will tell you how the various sprite functions work, and we demonstrate using sprites in our
-project below.
-</div>
-</div>
+  <p>Here is the initialization code:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+from rstem.led_matrix import FrameBuffer, Sprite
+</textarea>
+  </div>
 
-<p>To
-change the ship to a custom sprite, we need to include some basic
-initialization code, code to design the sprite configuration and code
-to draw the sprite.</p><p>Here is the initialization code:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>from rstem.led_matrix import FrameBuffer, Sprite
-</textarea></div>
-
-<p>Here is the sprite code:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea>
+  <p>Here is the sprite code:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
 spaceship = Sprite('''
 -F-
 FAF
 ''')
 
 spaceship_middle = 1
-</textarea></div>
+</textarea>
+  </div>
 
-
-<p>Here is the drawing code:</p>
-
-<div class="code" data-firstline="0">
-<div></div>
-<textarea># Draw spaceship
+  <p>Here is the drawing code:</p>
+  <div class="code" data-firstline="0">
+    <textarea>
+# Draw spaceship
 spaceship_x = round(spaceship_position) - spaceship_middle
 
 fb.draw(spaceship, origin=(spaceship_x, 0))
-</textarea></div>
+</textarea>
+  </div>
 
-
-<p>And here is what our full project should look like at this point -- when you run the 
-code, you should now see our spaceship dot replaced with a nicer spaceship design:</p>
-
-<div class="code" data-firstline="1"> <div></div> <textarea>
+  <p>And here is what our full project should look like at this point -- when
+  you run the code, you should now see our spaceship dot replaced with a nicer
+  spaceship design:</p>
+  <div class="code" data-firstline="1">
+    <textarea>
 # ###############################################################
 #
 # SPACE INVADERS GAME
@@ -94,7 +111,7 @@ code, you should now see our spaceship dot replaced with a nicer spaceship desig
 # ################################
 # Initialize the game environment
 # ################################
-		
+                
 # Import required functions/modules
 from rstem.accel import Accel
 from rstem.button import Button
@@ -109,9 +126,9 @@ accel = Accel()
 
 # Initialize spaceship
 spaceship = Sprite('''
-	-F-
-	FAF
-	''')
+        -F-
+        FAF
+        ''')
 spaceship_middle = 1
 spaceship_position = fb.width / 2
 TILT_FORCE = 0.1
@@ -129,86 +146,89 @@ ALIENS_STEP_TIME = .8
 fire_button = Button(7)
 missile_x, missile_y = -1, -1
 MISSILE_COLOR = 10
-MISSILE_STEP_TIME = 0.1		
+MISSILE_STEP_TIME = 0.1         
 
 while True:
-	# ########################################
-	# Get inputs
-	# ########################################
-	presses = fire_button.presses()
-	x_force, y_force, z_force = accel.forces()
-	now = time.time()
+        # ########################################
+        # Get inputs
+        # ########################################
+        presses = fire_button.presses()
+        x_force, y_force, z_force = accel.forces()
+        now = time.time()
 
-	# ########################################
-	# Change the World
-	# ########################################
+        # ########################################
+        # Change the World
+        # ########################################
 
-	if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
-		# Missile already launched - move it up
-		missile_y += 1
-		if missile_y &gt;= fb.height:
-			missile_x, missile_y = -1, -1
-		missile_start_time = now
-	elif presses:
-		# Button was pressed - launch missile
-		missile_x, missile_y = (round(spaceship_position), 1)
-		missile_start_time = now
+        if missile_x &gt;= 0 and now - missile_start_time &gt; MISSILE_STEP_TIME:
+                # Missile already launched - move it up
+                missile_y += 1
+                if missile_y &gt;= fb.height:
+                        missile_x, missile_y = -1, -1
+                missile_start_time = now
+        elif presses:
+                # Button was pressed - launch missile
+                missile_x, missile_y = (round(spaceship_position), 1)
+                missile_start_time = now
 
-	# Move spaceship
-	if x_force &gt; TILT_FORCE:
-		spaceship_position -= SPACESHIP_STEP
-	elif x_force &lt; -TILT_FORCE:
-		spaceship_position += SPACESHIP_STEP
-	spaceship_position = max(0, min(fb.width - 1, spaceship_position))
+        # Move spaceship
+        if x_force &gt; TILT_FORCE:
+                spaceship_position -= SPACESHIP_STEP
+        elif x_force &lt; -TILT_FORCE:
+                spaceship_position += SPACESHIP_STEP
+        spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 
-	# Move alien
-	if now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:
-		alien_at_right_side = alien_direction &gt; 0 and max(alien_columns) == fb.width - 1
-		alien_at_left_side = alien_direction &lt; 0 and min(alien_columns) == 0
-		if alien_at_left_side or alien_at_right_side:
-			alien_row -= 1
-			alien_speed *= 1.3
-			alien_direction = - alien_direction
-			if alien_row == 0:
-				break
-		else:
-			alien_columns = [column + alien_direction for column in alien_columns]
-		alien_start_time = now
+        # Move alien
+        if now - alien_start_time &gt; ALIENS_STEP_TIME / alien_speed:
+                alien_at_right_side = alien_direction &gt; 0 and max(alien_columns) == fb.width - 1
+                alien_at_left_side = alien_direction &lt; 0 and min(alien_columns) == 0
+                if alien_at_left_side or alien_at_right_side:
+                        alien_row -= 1
+                        alien_speed *= 1.3
+                        alien_direction = - alien_direction
+                        if alien_row == 0:
+                                break
+                else:
+                        alien_columns = [column + alien_direction for column in alien_columns]
+                alien_start_time = now
 
-	# Check for collision
-	if missile_y == alien_row and missile_x in alien_columns:
-		alien_columns.remove(missile_x)
-		missile_x, missile_y = -1, -1
-		if not alien_columns:
-			break
+        # Check for collision
+        if missile_y == alien_row and missile_x in alien_columns:
+                alien_columns.remove(missile_x)
+                missile_x, missile_y = -1, -1
+                if not alien_columns:
+                        break
 
-	# ########################################
-	# Show world
-	# ########################################
+        # ########################################
+        # Show world
+        # ########################################
 
-	fb.erase()
+        fb.erase()
 
-	# Draw missile
-	if missile_x &gt;= 0:
-		fb.point(missile_x, missile_y, MISSILE_COLOR)
+        # Draw missile
+        if missile_x &gt;= 0:
+                fb.point(missile_x, missile_y, MISSILE_COLOR)
 
-	# Draw spaceship
-	spaceship_x = round(spaceship_position) - spaceship_middle
-	fb.draw(spaceship, origin=(spaceship_x, 0))
+        # Draw spaceship
+        spaceship_x = round(spaceship_position) - spaceship_middle
+        fb.draw(spaceship, origin=(spaceship_x, 0))
 
-	# Draw aliens
-	for column in alien_columns:
-		fb.point(column, alien_row)
+        # Draw aliens
+        for column in alien_columns:
+                fb.point(column, alien_row)
 
-	# Show FrameBuffer on LED Matrix
-	fb.show()
-	time.sleep(0.001)
+        # Show FrameBuffer on LED Matrix
+        fb.show()
+        time.sleep(0.001)
 
 if alien_columns:
-	print("Ouch!")
+        print("Ouch!")
 else:
-	print("You win!")
-</textarea></div>
-	<p class=nextprev><a href="index.html">home</a> | <a href="SPACE_INVADERS_7.html">prev</a> |
-<a href="SPACE_INVADERS_9.html">next</a></p>
-</body></html>
+        print("You win!")
+</textarea>
+  </div>
+  <p class="nextprev"><a href="index.html">home</a> | <a href=
+  "SPACE_INVADERS_7.html">prev</a> | <a href=
+  "SPACE_INVADERS_9.html">next</a></p>
+</body>
+</html>
