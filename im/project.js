@@ -100,9 +100,15 @@ chainedOnload(function() {
         footer_html += '</div>';
     footer_html += '</div>';
 
+    /*
+     * Remove original header hw node
+     */
+    while(hw.length > 0){
+        hw[0].parentNode.removeChild(hw[0]);
+    }
+
     /* Add header/footer */
     body.innerHTML = header_html + body.innerHTML + footer_html;
-
 
     var title = document.getElementsByTagName("title")[0];
     title.innerHTML = pg_index[pos].title;
