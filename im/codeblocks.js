@@ -1,7 +1,7 @@
 chainedOnload(function() {
     var codeblocks = document.getElementsByClassName("code");
     for (i = 0; i < codeblocks.length; i++) { 
-        var codeblock = codeblocks[i].children[1];
+        var codetext = codeblocks[i].lastElementChild;
         var firstLineNumber = codeblocks[i].getAttribute("data-firstline");
         var lineNumberFormatter = function (line) {return String(line)};
         var gutters = [];
@@ -19,7 +19,7 @@ chainedOnload(function() {
         // Rationale: There is sometimes, but not always, an extra newline at
         // the end.
         var lineHighlight = [];
-        var lines = codeblock.value.split('\n');
+        var lines = codetext.value.split('\n');
         if (lines[lines.length-1] == '') {
             lines.splice(-1,1);
         }
@@ -39,10 +39,10 @@ chainedOnload(function() {
             gutters.unshift("CodeMirror-arrow");
         }
 
-        // Reaasmble codeblock from lines.
-        codeblock.value = lines.join('\n');
+        // Reaasmble codetext from lines.
+        codetext.value = lines.join('\n');
 
-        var cm = CodeMirror.fromTextArea(codeblock, {
+        var cm = CodeMirror.fromTextArea(codetext, {
             mode: {
                 name: "python",
                 version: 3,
@@ -62,11 +62,19 @@ chainedOnload(function() {
             }
         }
 
+        // If first element is not a div, prepend a div.  We need a black div
+        // as a header that is CSSed.
+        if (codeblocks[i].firstElementChild.tagName != "DIV") {
+            var codeheader = document.createElement("div");
+            codeblocks[i].insertBefore(
+                codeheader, codeblocks[i].firstElementChild);
+        }
+
         function makeMarker() {
-          var marker = document.createElement("div");
-          marker.className = "CodeMirror-linemarker";
-          marker.innerHTML = "&#10148;";
-          return marker;
+            var marker = document.createElement("div");
+            marker.className = "CodeMirror-linemarker";
+            marker.innerHTML = "&#10148;";
+            return marker;
         }
 
         // Auto height computation...  CodeMirror seems like it supports
