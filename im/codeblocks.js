@@ -62,14 +62,6 @@ chainedOnload(function() {
             }
         }
 
-        // If first element is not a div, prepend a div.  We need a black div
-        // as a header that is CSSed.
-        if (codeblocks[i].firstElementChild.tagName != "DIV") {
-            var codeheader = document.createElement("div");
-            codeblocks[i].insertBefore(
-                codeheader, codeblocks[i].firstElementChild);
-        }
-
         function makeMarker() {
             var marker = document.createElement("div");
             marker.className = "CodeMirror-linemarker";
@@ -81,5 +73,19 @@ chainedOnload(function() {
         // auto-height via CSS, but it wasn't working.
         // Note: not-workingness is related to HTML 4 DOCTYPE
         cm.setSize(null, cm.defaultTextHeight() * (lines.length+1));
+    }
+
+    //
+    // For both codeblocks and output blocks, if first element is not a
+    // div, prepend a div.  We need a blank div as a header that is CSSed.
+    //
+    var output_blocks = document.getElementsByClassName("output");
+    var cb = Array.prototype.slice.call(codeblocks);
+    var blocks = cb.concat(Array.prototype.slice.call(output_blocks));
+    for (i = 0; i < blocks.length; i++) { 
+        if (blocks[i].firstElementChild.tagName != "DIV") {
+            var header = document.createElement("div");
+            blocks[i].insertBefore(header, blocks[i].firstElementChild);
+        }
     }
 });
