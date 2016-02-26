@@ -8,7 +8,7 @@
 var pg_index = [
     {filename: "INTRODUCTION_TO_THE_IDE.html",      title: "LET'S GET STARTED",             concept: true, uid: "", section: "YOUR FIRST CIRCUIT"},
     {filename: "HELLO,_WORLD.html",                 title: "HELLO, WORLD!",                 concept: false, uid: "hello"},
-    {filename: "HANDLING_ERRORS.html",              title: "HANDLING ERRORS",               concept: true, uid: ""},
+    {filename: "HANDLING_ERRORS.html",              title: "HANDLING ERRORS",               concept: true, uid: "errors"},
     {filename: "INTRO_TO_ELECTRONICS.html",         title: "INTRO TO ELECTRONICS",          concept: true, uid: ""},
     {filename: "YOUR_FIRST_CIRCUIT.html",           title: "YOUR FIRST CIRCUIT",            concept: false, uid: ""},
     {filename: "YOUR_FIRST_SCHEMATIC.html",         title: "INTRO TO SCHEMATICS",           concept: true, uid: ""},

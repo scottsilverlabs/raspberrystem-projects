@@ -38,6 +38,9 @@ pre {
 
 code {
     font-family: Courier New,Courier,monospace;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 110%;
     font-weight: bold;
 }
 

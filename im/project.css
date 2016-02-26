@@ -276,9 +276,7 @@ div.code > textarea {
  * Output blocks
  */
 div.output {
-    margin-left: 0.5in;
-    margin-top: 0.3in;
-    margin-bottom: 0.3in;
+    margin: 0.25in;
 }
 div.output > div:first-child::before {
     content: "Program Output";
@@ -289,17 +287,19 @@ div.output > div:first-child {
     background-color: #657777;
     padding: 10
 }
-div.output > pre {
-    font-family: Courier;
-    font-size: 12pt;
+div.output pre {
     padding: 10px;
+}
+div.output * {
+    font-family: monospace;
+    font-size: 12pt;
     padding-left: 20px;
     margin-top: 0;
     margin-bottom: 0;
     color: #657777;
     background-color: #002B36;
     margin-left: 0in;
-    line-height: 100%;
+    line-height: 110%;
 }
 
 /*
