@@ -68,6 +68,7 @@ div.hw table {
     border: 0;
     border-spacing: 0;
     min-width: 200px;
+    margin: 0;
 }
 div.hw td {
     padding: 0px;

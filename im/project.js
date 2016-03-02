@@ -9,6 +9,10 @@ var hw_types = {
         { file : "hw_accelerometer.png",item : "Accelerometer", cell : "(Accel. Cell)" },
     "battery" :         
         { file : "hw_battery.png",      item : "Battery",       cell : "(YFC Cell)" },
+    "resistor_yfc" :        
+        { file : "hw_resistor.png",     item : "Resistor",      cell : "(YFC Cell)" },
+    "led_yfc" :             
+        { file : "hw_led.png",          item : "LED",           cell : "(YFC Cell)" },
     "led_matrix" :      
         { file : "hw_led_matrix.png",   item : "LED Matrix",    cell : "(LED Matrix Cell)" },
     "led_matrix_cable" :

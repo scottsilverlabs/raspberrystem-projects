@@ -34,10 +34,8 @@
       an LED when the button is pressed. The flashlight will rely on software
       for both input and output.
 
-  <p>In the <a href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS (READING
-  BUTTONS)</a> project, we were able to get button input from a GPIO. In the
-  <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS OUTPUTS (CONTROLLING
-  LEDS)</a> project, we were able to control an LED using GPIO. In this
+  <p>In the <a data-uid="button"></a> project, we were able to get button input from a GPIO. In the
+  <a data-uid="gpoutp"></a> project, we were able to control an LED using GPIO. In this
   project, we're going to put those concepts together to read a button input
   using one GPIO and use that information toggle an LED using another GPIO.</p>
   <h4>Step #1: Wire the button and LED to GPIOs</h4>
@@ -48,14 +46,12 @@
     <li>
 
       <p>The first circuit will consist of a button wired to a GPIO (like we
-      did in <a href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS (READING
-      BUTTONS)</a>);</p>
+      did in <a data-uid="button"></a>);</p>
     </li>
     <li>
 
       <p>The second circuit will consist of an LED wired to a separate GPIO
-      (like we did in <a href="GENERAL_PURPOSE_INPUT-OUTPUT.html">GPIO AS
-      OUTPUTS (CONTROLLING LEDS)</a>)</p>
+      (like we did in <a data-uid="gpoutp"></a>)</p>
     </li>
   </ol>
 
@@ -117,8 +113,7 @@ else:
 
       <p>On Line 4, we initialize our button. We call the <code>Button()</code>
       function, which returns a "Button object" to our <code>my_button</code>
-      variable. We talked about that a bit in <a href=
-      "VARIABLES_-_ASSIGNMENTS.html">VARIABLES &amp; ASSIGNMENTS</a>, but the
+      variable. We talked about that a bit in <a data-uid="vars"></a>, but the
       important thing to understand is that we can now use
       <code>my_button</code> to call other GPIO functions that can control our
       button</p>
@@ -127,8 +122,7 @@ else:
 
       <p>On Line 5, we initialize our LED. We call the <code>Output()</code>
       function, which returns a "GPIO Output object" to our <code>my_led</code>
-      variable. Again, we talked about that a bit in <a href=
-      "VARIABLES_-_ASSIGNMENTS.html">VARIABLES &amp; ASSIGNMENTS</a>, but the
+      variable. Again, we talked about that a bit in <a data-uid="vars"></a>, but the
       important thing to understand is that we can now use <code>my_led</code>
       to call other GPIO functions that can control our LED</p>
     </li>
@@ -137,8 +131,7 @@ else:
       <p>On Line 7, we check the state of the button using the
       <code>is_pressed()</code> function. This function will return True if the
       button is pressed (this is done by reading the voltage at the GPIO, like
-      we discussed in <a href="USING_BUTTONS_WITH_GPIO.html">GPIO AS INPUTS
-      (READING BUTTONS)</a>), and will return False if the button is
+      we discussed in <a data-uid="button"></a>), and will return False if the button is
       released</p>
     </li>
     <li>
