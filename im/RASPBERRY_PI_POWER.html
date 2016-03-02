@@ -26,6 +26,8 @@
   </script>
 </head>
 <body>
+  <div class="hw" data-count="1" data-name="led_yfc"></div>
+  <div class="hw" data-count="1" data-name="resistor_yfc"></div>
   <div class="section" id="intro">
       <p>
       In this project, we'll replace the battery power source we used in the
@@ -52,16 +54,19 @@
   <p>Here is a reminder of that schematic:</p><img class="schematic" style=
   "width: 200px;" src="img/Battery-LED-Circuit-Unlooped.png" alt="">
 
+  </div>
+  <div class="section" id="hw">
   <p>And here are step-by-step instructions for how we make the change to the
-  circuit:</p>
-  <h4>Step #1: Disconnect the 3V battery</h4>
+  circuit (assumes you starting with where you left off in the previous
+  project, <a data-uid="yfcbreadboard"></a>):</p>
+  <h2 class=step>Disconnect the 3V battery</h2>
 
   <p>First, we need to disconnect our existing power source. From the
   breadboard, remove the power and ground wires leading from the battery.</p>
 
-  <p>Your breadboard should now look like this:</p><img class="bb" src=
-  "img/Your_First_Breadboard_Remove_Battery_bb.png" alt="">
-  <h4>Step #2: Add power and ground from the Lid Connector Board</h4>
+  <p>Your breadboard should now look like this:</p>
+  <img class="bb" src= "img/Your_First_Breadboard_Remove_Battery_bb.png" alt="">
+  <h2 class=step>Add power and ground from the Lid Connector Board</h2>
 
   <p>We can now add power from the connect board to the breadboard. This is
   accomplished by running a wire from one of the pins labeled “3.3V” on the Lid
@@ -70,8 +75,8 @@
   labeled “GND” on the Lid Connector Board.</p>
 
   <p>At this point, our LED should once again be lit, and here’s what our
-  breadboard should now look like:</p><img class="bb" src=
-  "img/Your_First_Breadboard_Add_Power_bb.png" alt="">
+  breadboard should now look like:</p>
+  <img class="bb" src= "img/Your_First_Breadboard_Add_Power_bb.png" alt="">
 
   <p>We have successfully replaced the battery (our previous power and ground
   source) with power and ground coming directly from the Raspberry Pi. For all
@@ -125,9 +130,16 @@
   </div>
 
   </div>
-  <div class="section" id="hw">
   </div>
-  <div class="section" id="sw">
+  <div class="section" id="challenge">
+  <ol>
+    <li>
+      <p>
+    </li>
+    <li>
+      <p>
+    </li>
+  </ol>
   </div>
 </body>
 </html>
