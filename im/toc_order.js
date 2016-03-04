@@ -17,7 +17,7 @@ var pg_index = [
     {filename: "MAKING_ELECTRICITY.html",           title: "MAKING ELECTRICITY",            concept: true, uid: "sources"},
     {filename: "RASPBERRY_PI_POWER.html",           title: "POWER UP",                      concept: false, uid: "rpipower"},
     {filename: "INTRODUCING_BUTTONS.html",          title: "HOW BUTTONS WORK",              concept: true, uid: ""},
-    {filename: "INTRODUCING_BUTTONS2.html",         title: "ADDING A BUTTON",               concept: false, uid: ""},
+    {filename: "INTRODUCING_BUTTONS_PROJECT.html",  title: "ADDING A BUTTON",               concept: false, uid: ""},
     {filename: "CIRCUIT_THEORY.html",               title: "CIRCUIT THEORY",                concept: true, uid: ""},
     {filename: "TWEAKING_YOUR_CIRCUIT.html",        title: "TWEAKING YOUR CIRCUIT",         concept: false, uid: ""},
     {filename: "SERIES_PARALLEL.html",              title: "SERIES & PARALLEL",             concept: true, uid: ""},
