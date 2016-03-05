@@ -9,12 +9,6 @@ img {
     margin-bottom: 0.1in;
     display: block;
 }
-img.inline_icon {
-    width: 25px;
-    margin: initial;
-    display: initial;
-    vertical-align: middle;
-}
 * {
     font-family: "Verdana", serif;
 }
@@ -35,7 +29,6 @@ pre {
     font-family: Courier New,Courier,monospace;
     font-size: 12pt;
 }
-
 code {
     font-family: Courier New,Courier,monospace;
     margin-left: 5px;

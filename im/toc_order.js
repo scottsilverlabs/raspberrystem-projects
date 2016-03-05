@@ -6,7 +6,6 @@
 //{filename: "STRING_THEORY.html",                title: "STRING THEORY",                         concept: true, uid: "strings"},
 //{filename: "CALCULATIONS.html",                 title: "CALCULATIONS",                          concept: true, uid: "calc"},
 //{filename: "HANDLING_ERRORS.html",              title: "HANDLING ERRORS",               concept: true, uid: ""},
-//{filename: "USING_THE_BREADBOARD.html",         title: "HOW BREADBOARDS WORK",          concept: true, uid: ""},
 var pg_index = [
     {filename: "INTRODUCTION_TO_THE_IDE.html",      title: "LET'S GET STARTED",             concept: true, uid: "", section: "YOUR FIRST CIRCUIT"},
     {filename: "HELLO,_WORLD.html",                 title: "HELLO, WORLD!",                 concept: false, uid: "hello"},

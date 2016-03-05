@@ -151,6 +151,9 @@ div.outer#troubleshooting p {
     margin-bottom: 30px;
     border-radius: 10px;
 }
+.section *:first-child {
+    margin-top: 0;
+}
 .section:nth-child(odd)     { background: hsl(0, 0%, 80%); }
 .section:nth-child(even)    { background: hsl(0, 0%, 80%); }
 .section_heading {
@@ -222,6 +225,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
     font-size: 20pt;
+    padding: 0.4em;
+    background: hsl(358, 84%, 70%);
+    border-radius: 10px;  
 }
 h2 {
     font-size: 16pt;
@@ -289,7 +295,7 @@ div.output > div:first-child {
     font-size: 14pt;
     color: #ffffff;
     background-color: #657777;
-    padding: 10
+    padding: 10px;
 }
 div.output pre {
     padding: 10px;
@@ -297,7 +303,6 @@ div.output pre {
 div.output * {
     font-family: monospace;
     font-size: 12pt;
-    padding-left: 20px;
     margin-top: 0;
     margin-bottom: 0;
     color: #657777;
@@ -365,6 +370,14 @@ img {
     padding: 20px;
     border-radius: 10px;
 }
+img.inline_icon {
+    width: 25px;
+    margin: initial;
+    display: initial;
+    vertical-align: middle;
+    padding: 0;
+    background: transparent;
+}
 img.bb {
     margin: auto;
     margin-top: 0.25in;
@@ -372,7 +385,6 @@ img.bb {
     width: calc(100% - 0.75in);
     max-width: 800px;
 }
-
 img.schematic {
     display: block;
     margin: auto;
