@@ -27,41 +27,9 @@
 </head>
 <body>
 <div class=section>
-      In this project, we're going to introduce an input device -- the
-      pushbutton -- that will allow us to start controlling the functionality
-      of our circuit.
-
   <p>In this project we'll be adding a new input device -- the pushbutton (or
   just "button"). A button is just a very simple switch – electric current can
   flow through it only when it is pressed.</p>
-
-  <p>Take one of the buttons out of your <strong>I/O (Input/Output)
-  RaspberrySTEM Cell</strong> so we can take a closer look at how a button
-  works. This is a representation of most basic pushbuttons – they have four
-  “legs” that can be attached to your breadboard and wired to the circuit and
-  then one button in the center of the device that can be pushed (“closed”) or
-  released (“open”):</p><img style=
-  "display: block; margin: auto; width: 200px;" alt="" src=
-  "img/button1%20cropped.jpg">
-
-  <p>Internally, the left side of the button (the two legs on the left) are
-  connected together, and the right side of the button (the two legs on the
-  right) are connected together:</p><img style="width: 402px;" alt="" src=
-  "img/button2%20cropped.jpg">
-
-  <p>When we insert a button into a circuit, it has one of two operations:</p>
-  <ol>
-    <li>
-
-      <p>When the button is left unpressed, it creates an open circuit, no
-      electric current can flow through the button and nothing happens.</p>
-    </li>
-    <li>
-
-      <p>When the button is pressed, the button acts as a wire and closes the
-      circuit – electric current can then flow through the button.</p>
-    </li>
-  </ol>
 
   <p>So, if we go back to our first breadboard circuit containing a simple
   resistor and LED that is always illuminated, we should be able to add a
@@ -161,44 +129,5 @@
   <p>In the next project, we’ll add software into the equation, and will start
   using "GPIOs" to control our output.</p>
 
-  <h2>Resistive Circuits, Open Circuits &amp; Short Circuits</h2>
-
-  <p>Where we have electricity flowing from a power source (Vcc), through one
-  or more components (Load) and to a point of lower voltage (many times 0V or
-  Ground), we call that type of circuit a <strong>Resistive Circuit</strong>.
-  Creating a resistive circuit is the first step in creating a useful piece of
-  electronics.</p>
-
-  <p>Remember our battery and lightbulb circuit above?</p><img style=
-  "margin: auto; width: 600px;" src=
-  "img/Projects%20Guide%20-%20061115-2_html_m184d94fb.jpg" alt="">
-
-  <p>This is an example of a resistive circuit.</p>
-
-  <p>Sometimes we don't have all the components of a resistive circuit, in
-  which case our electronics will typically not work as expected. Two common
-  examples are open circuits and short circuits:</p>
-  <ul>
-    <li>
-
-      <p><strong>Open Circuit</strong> – An open circuit is one that is not
-      complete, and therefore electric charge can’t flow. As mentioned earlier,
-      electric charge can't easily flow through air, so if a circuit is not
-      complete, the electrical current is experiencing nearly infinite
-      resistance at some point in the circuit and circuit will not
-      function.</p>
-    </li>
-    <li>
-
-      <p><strong>Short Circuit</strong> – A short circuit is what happens when
-      the beginning of the circuit (Vcc) is attached to the end of the circuit
-      (Ground) with nothing (no Load) in between. Electricity can flow through
-      wire with almost no resistance, so attaching a wire from power to ground
-      with nothing in between will cause large amounts of electricity to flow
-      through that wire. This can dissipate your power source very quickly, or
-      worst-case, the large flow of current can heat up the wire to the point
-      where it breaks or causes a fire.</p>
-    </li>
-  </ul>
 </body>
 </html>

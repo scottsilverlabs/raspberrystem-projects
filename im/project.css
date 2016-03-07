@@ -151,7 +151,7 @@ div.outer#troubleshooting p {
     margin-bottom: 30px;
     border-radius: 10px;
 }
-.section *:first-child {
+.section > *:first-child {
     margin-top: 0;
 }
 .section:nth-child(odd)     { background: hsl(0, 0%, 80%); }

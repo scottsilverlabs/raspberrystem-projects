@@ -99,8 +99,9 @@
   can't see them.  Because of this, it is often helpful to talk of the how the
   flow of electrons through a conductor is very similar to the flow of water
   through a pipe. 
-  <p>This analogy isn't perfect, because electrons AREN'T water.  But there are
-  many very strong similarities - often so similar that the equations we
+  <p>This analogy isn't perfect, because electrons AREN'T water, and in some
+  ways behave differently.  But there are
+  many very strong similarities - often so similar that many of the equations we
   use to describe electric circuits are essentially the same equations used to
   describe the water flowing in pipes.  Most of the electrical concepts
   throughout the
@@ -184,100 +185,126 @@ animated</mark>
     the electrons in, they are held in by the strong pull of the metal atoms.
     </li>
   </ul>
-  <h2>Electrons</h2>
-  <mark>PIC: generic drawing or stock photo of a atoms/electrons. Animated?</mark>
-  <p>Electrons are the charged particles that flow through a conductor, analogous to the water flowing through a pipe.  <mark>basic description of atom/protons/electrons.  note about holes vs electrons</mark>
+  <h2>Charge</h2>
+  <p><mark>PIC: generic drawing or stock photo of a atoms/electrons.
+  Animated?</mark>
+  <p>Atoms are the fundamental bulding blocks of all matter.  Atoms themselves consist of 3 different particles: protons, neutrons and electrons.  In the study of electricity, it is the protons and electrons that are of importance - they are they charged particles that make electricity possible.
+  <p>Protons and electrons have an intrinsic property called charge.  For a
+  single proton and electron, the amount of charge is equal but opposite.
+  Opposite charges are attracted to one another, while like charges repel each
+  other.  Protons have a positive charge, and electrons have an equal but
+  opposite (negative) charge.
+  <p>In ordinary matter, for example a metal conductor, the positive protons
+  stay in a fixed location (the atom itself stays put), while some of the
+  electrons are free to drift about the metal.  It is these electrons that are
+  responsible for the electric current.
   
+  <div class="info">
+    <div>
+      Negative current?
+    </div>
+    <div>
+
+      <p>Benjamin Franklin is generally credited with defining the "positive"
+    and "negative" values of charge.  Unfortunately, he did so more than 200
+    years before the discovery of the electron.  In other words, he didn't know
+    what charge physically was, and in fact refered to it as the "electrical
+    fluid".  It turns out, you can understand many of the concepts of
+    electricity without knowing the details of the physical particles that carry
+    charge.  In fact, you can think of circuits as having positive charges that
+    flow in one direction, or negative charges that flow the opposite direction
+    - the result is the same.
+      <p>Franklin made the arbitrary choice to define current as the flow of
+      positive charges from a positive voltage to a negative voltage.  That is
+      the same definition that we use today, and we call it "conventional
+      current".  However, we now now that the particles that actually move are
+      the negatively charged electrons, and they flow from negative to positive
+      voltage.
+    <p>The thing to remember is that convertional current flows in the equal
+    but opposite direction as electron current flows.  And when engineers, teachers, and
+    electricians say just "current", they mean "conventional current".  
+    <p>One additional unfortunate twist: physicists like to use "current" to
+    mean "electron current flow", and so phyiscits have a backwards convention
+    compared to everyone else.  But, unless you become a physicist, you can
+    just ignore that!
+    </div>
+  </div>
 </div>
 <div class=section>
-  <h1>Voltage, Current & Resistance</h1>
-  <p>These three concepts define how and when electric charge flows, and
-  controlling these things allows us to harness the power that
-  <mark>electricity</mark>
-  provides. While we can’t actually see voltage, current or resistance, there
-  are some analogies we can use to help understand what each of these concepts
-  are and how they interact with each other.</p>
+  <h1>Power, Load, Ground</h1>
 
-    <mark>PIC: Battery resistive circuit vs water resistive circuit</mark>
-        <p>Similar to the previous example, the Battery/Pump forces
-        Electrons/Water around a closed loop (circuit).  But we've now added a
-        conscriction to the pipe so we can discuss additional elements of the
-        circuit:
-  <table style="table-layout: fixed;">
-    <tbody>
-      <tr>
-        <th><p>ELECTRICAL CIRCUIT</p></th>
-        <th><p>WATER CIRCUIT</th>
-      </tr>
-      <tr>
-        <td><p>Voltage</td>
-        <td><p>Pressure</td>
-      </tr>
-      <tr>
-        <td><p>Current</td>
-        <td><p>Current (Water Flow)</td>
-      </tr>
-      <tr>
-        <td><p>Resistance</td>
-        <td><p>Pipe constriction or obstruction (narrow pipe)</td>
-      </tr>
-    </tbody>
-    </table>
-  <h2>Voltage</h2>
+  <p>In all circuits, we can talk about three parts of the circuit:</p>
+  <ol>
+    <li>
 
-    <mark>PIC: Battery vs water circuits, with low/high voltage/pressure highlighted</mark>
-  <p>Voltage is essentially the difference in the amount of charge from one
-  point in a circuit to another. An important electrical concept is that
-  charge will typically only flow between two points that have a difference in
-  charge (a voltage). Specifically, charged particles will flow from a point of
-  higher charge to a point of lower charge. If there is the same amount of
-  charge at two points in a circuit, no electric charge will flow.</p>
+      <p><strong>Power:</strong> This is generally the point of highest charge
+      in your circuit -- for example, the positive terminal of your battery.
+      This point in a circuit is sometimes generically called "Vcc" or in the
+      case of the projects we'll be doing, "3.3V" (since the power source we'll
+      be using will be 3.3 volts). The power source provides the energy that
+      makes the circuit do something useful.</p>
+    </li>
+    <li>
 
-  <p>Using our water analogy, voltage is analogous to the amount of pressure
-  (basically, the force) that there is pushing water through a pipe filled with
-  water. Imagine a water
-  system that contains a water pump that is pushing water around a loop of a
-  water-filled pipe (a 'circuit') -- water enters the pump at a low pressure
-  and is ejected from the pump at a high pressure. It is this pressure
-  difference that generates the flow of water. Likewise in an electric circuit,
-  the electric power source is analogous to the water pump -- a power source
-  takes in charge at a low voltage and pushes it out at a high voltage. It is
-  this difference in voltage on the opposite sides of of the power source that
-  generates the flow of charged particles.</p>
+      <p><strong>Load:</strong> The part of the circuit that uses the flow of
+      charged particles -- the components in the circuit -- is typically
+      referred to as the Load. Above we talked about circuit resistance -- the
+      Load is the part of the circuit that provides resistance. An example from
+      our earlier circuit would be the lightbulb -- that is a part of the
+      circuit Load. The Load uses the energy that the power source
+      provides.</p>
+    </li>
+    <li>
 
-    <p>Whenever there is a difference in voltages from one point to another in
-    a circuit, and there is a conductive path for the electrons to flow between
-    those two two points, the electrons will flow.  This is true for forces in general - if you push someone else, they have to push back with the same amount of force, or else they will move.  The person who pushes with more force continues to move in the direction of that force.
+      <p><strong>Ground:</strong> In an electric circuit, Ground is generally
+      the point of lowest charge in the circuit. For example, in our lightbulb
+      circuit above, the negative terminal of the battery is the point of
+      lowest charge, and would be the physical ground point of this circuit.
+      Interestingly, the reason we use the term "Ground" is because in many
+      electrical applications (like the electricity running through your
+      house), the earth is used as both our reference point of lowest charge
+      and our physical point of attaching the electrical circuit. This is
+      because the earth is able to receive nearly infinite amounts of
+      electricity without increasing its total charge, so we can always assume
+      that the voltage between a power source and the earth will be
+      constant.</p>
+    </li>
+  </ol>
+  <div class="info">
+    <div>
+      Grounding Yourself
+    </div>
+    <div>
 
-  <h2>Current</h2>
+      <p>In our assembly guide, we mentioned that you should "ground" yourself
+      before touching electronic components. Now that you have a conceptual
+      idea of what ground is, we can explain this further. Have you ever gotten
+      a static shock by touching someone or something? Sometimes, electric
+      charge builds up in your body. This charge is then released -- in the
+      form of a static discharge (or shock) when you touch someone or something
+      that has a different amount of charge. In other words, if there is a
+      voltage difference between you and some object, and you touch that
+      object, you'll get a shock. Once your body has discharged the excess
+      charge, you don't get any more shocks -- until, of course, you build up
+      more charge.</p>
 
-    <mark>PIC: Battery vs water circuits, with constant current highlighted</mark>
-  <p>Current is the flow of electric charge through a
-  circuit. Using our water analogy, 
-  current is the amount of water actually flowing through the
-  pipe.  In both cases, its measured by the amount of stuff (electrons or
-  water) that flows through the pipe in an amount of time.</p>
+      <p>If you were to touch an electrical component when you have a charge
+      built up in your body, that resulting static shock that you feel could
+      very well be enough to zap the component and break it (we sometimes call
+      this "frying the component.") So, to avoid frying any electrical
+      components, we recommend that you discharge any excess charge in your
+      body before touching the components.</p>
 
-    <p>Its important to note that in our simple circuit example above, the
-  current is exactly the same at every point in the circuit.  That is, if your
-  were to look at any small segment of the circuit, the same amount of
-  electrons are going into that segment as are going out.  This is true in the
-  battery, the wires, and the resistor.
-
-  <p>If you think about the water analogy, you might realize this must be true.
-  If there was any segment of the circuit where there was more water going into
-  that circuit than going out, then the pipe would ballon up at that point, or
-  burst.  But that doesn't happen - the flow of current happens around the
-  entrie circuit all together, in lock step.
-
-  <p>One thing that the water analogy doesn't give a good picture is how fast the elections actually move through the circuit.  In a water circuit, you might imagine an actually water molecule moving, say, 1 foot along the pipe each second.  In electrical circuits, the electrons move rought a million times <i>slower</i>.  This may seem weird, as electric current is often viewed as being very fast.  <mark>[Elaborate more but put in info block?  Or just remove?]</mark>
-
-  <h2>Resistance</h2>
-    <mark>PIC: Two water resistive circuits, with different resistances</mark>
-  <p>If a water pipe is contricted (pinched), then less water can flow through it (for a certain water pressure).  This concept is familiar to anyone who has played with a garden hose - if you pinch the hose, less water comes out.  If you pinch the hose hard enough, <i>no</i> water comes out.
-
-voltage drop
-
+      <p>You can ground yourself by touching any piece of metal that is
+      connected via some relatively direct path to the earth. Since all the
+      electrical outlets in your house are connected to the earth, you can
+      generally ground yourself by touching the metal case of a electrical
+      device that is plugged in. On the RaspberrySTEM CREATOR Kit, you can
+      touch the metal casing on any of the USB ports or the Ethernet port on
+      the back of the Raspberry Pi -- assuming the RaspberrySTEM CREATOR Kit is
+      plugged into a wall outlet.</p>
+    </div>
+  </div>
 </div>
 </body>
 </html>
