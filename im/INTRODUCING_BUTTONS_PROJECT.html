@@ -26,7 +26,7 @@
   </script>
 </head>
 <body>
-<div class=section>
+<div class=section id=intro>
   <p>In this project we'll be adding a new input device -- the pushbutton (or
   just "button"). A button is just a very simple switch – electric current can
   flow through it only when it is pressed.</p>
@@ -41,10 +41,13 @@
   <p>Here’s what the schematic will look like: <img class="schematic" style=
   "width:200px;" src="img/Battery-LED-Circuit-With-Button.png" alt=""></p>
 
+</div>
+<div class=section id=hw>
+
   <p>To build the circuit, let's start with the circuit we built in the last
   project -- <a data-uid="rpipower"></a>:</p><img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
   alt="">
-  <h4>Step #1: Remove wire from LED to ground.</h4>
+  <h3 class=step>Remove wire from LED to ground.</h3>
 
   <p>We’re going to be adding the button into the circuit between the LED and
   ground, so the first step will be to remove the wire that connects the LED to
@@ -52,7 +55,7 @@
 
   <p>This is what the breadboard should look like at this point:</p><img class=
   "bb" src="img/Introducing_Buttons_1_bb.png" alt="">
-  <h4>Step #2: Provide connectivity from the LED to the button.</h4>
+  <h3 class=step>Provide connectivity from the LED to the button.</h3>
 
   <p>The next step is to provide connectivity between the second lead of the
   LED and the button. You can wire the button directly to the LED, but to space
@@ -61,7 +64,7 @@
 
   <p>This is what the breadboard should look like at this point:</p><img class=
   "bb" src="img/Introducing_Buttons_2_bb.png" alt="">
-  <h4>Step #3: Place button on the breadboard.</h4>
+  <h3 class=step>Place button on the breadboard.</h3>
 
   <p>Next, we’ll place the button on the breadboard. Note that the button
   should be oriented so that the two sides of the button sit on different
@@ -92,7 +95,7 @@
   on the breadboard, we find it easier to position them across a notch in many
   cases. You can decide how you want to wire your buttons, but keep in mind
   that either way will work.</p>
-  <h4>Step #4: Connect the other side of the button to ground.</h4>
+  <h3 class=step>Connect the other side of the button to ground.</h3>
 
   <p>Finally, we can complete the circuit by connecting the other side of the
   button to ground, like this:</p><img class="bb" src=
@@ -117,8 +120,9 @@
       ground. That said, the switch didn't need to be inserted at that point in
       the circuit for it to work -- we could have inserted the switch anywhere
       in the circuit and it would have worked the exact same way. Remember, if
-      the flow of electric charge is broken anywhere in the circuit, the
-      circuit will fail to operate. So, our decision to insert the button where
+      the flow of electric charge is broken anywhere in the circuit, then we've
+      created an <i>open circuit</i>, and current will not flow.
+      So, our decision to insert the button where
       we did was completely arbitrary.</p>
     </div>
   </div>
@@ -126,8 +130,23 @@
   <p>Congratulations - you’ve just built the same circuit used in most simple
   flashlights!</p>
 
-  <p>In the next project, we’ll add software into the equation, and will start
-  using "GPIOs" to control our output.</p>
+</div>
+<div class=section id=challenge>
+  <ol>
+    <li>
+      <p>We added the button in at the end of our circuit (after the LED and resistor).  What
+      happens if you add it before the LED and resistor?  Why or why not?
+    </li>
+    <li>
+      <p>Similarly, can you add the resistor into our circuit in between the
+      LED and resistor?  Why or why not?
+    </li>
+    <li>
+      <p>We used two additional short green wires to hook up the button.  Can
+      you hook it up without any additional green wires?
+    </li>
+  </ol>
+</div>
 
 </body>
 </html>

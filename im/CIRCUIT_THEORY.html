@@ -52,11 +52,11 @@
       </tr>
       <tr>
         <td><p>Current</td>
-        <td><p>Current (Water Flow)</td>
+        <td><p>Current (water flow)</td>
       </tr>
       <tr>
         <td><p>Resistance</td>
-        <td><p>Pipe constriction or obstruction (narrow pipe)</td>
+        <td><p>Narrow pipe</td>
       </tr>
     </tbody>
     </table>
@@ -96,7 +96,7 @@ every measured the voltage of a battery, you have to measure the voltage
 generally common to just discuss voltages at a single point in a circuit.  This
 is because it is <i>assumed</i> that you are asking for the voltage difference
 between that point and <i>ground</i>, which is generally the lowest point of
-volatge in a circuit.  We'll discuss <i>ground</i> more in later projects.
+volatge in a circuit.
 
   <h2>Current</h2>
 
@@ -120,7 +120,7 @@ volatge in a circuit.  We'll discuss <i>ground</i> more in later projects.
   entrie circuit all together, in lock step.
 
   <h2>Resistance</h2>
-    <mark>PIC: Two water resistive circuits, with different resistances</mark>
+    <mark>PIC: Labelled water/pump/narrowing resistance circuit</mark>
   <p>If a water pipe is contricted (pinched), then less water can flow through it (for a certain water pressure).  This concept is familiar to anyone who has played with a garden hose - if you pinch the hose, less water comes out.  If you pinch the hose hard enough, <i>no</i> water comes out.
 
 <p>As you might imagine from the water analogy, if the more resistance there is
@@ -132,6 +132,38 @@ resistor.  This is similar in the water analogy - when water is forced into a
 narrow pipe, the water gets "squished" together at the narrow entrance, and the
 pressure is greater there than after then end of the narrow region.
 
+<p>You can't tell how much resistance a resistor has by the size of it.  One
+resistor that is exactly the same size and shape as another can have a million
+or more resistance.  Because of this, some resistors are labelled with a color
+code - a set of colored bands that indicate what the value of the resistance.
+</div>
+<div class=section>
+  <h1>Ohm's Law</h1>
+
+<p>With the basic definitions of voltage, current and resistance in hand,
+you're ready for one of the fundamental equations in circuit theory, Ohm's law:
+
+<p>V=IR
+
+<p>(where V is voltage, I is Current, and R for resistance).  It says that, for
+any component in a circuit, the voltage drop across that component is equal to
+the current through that component times the Resistance of that component.
+<p><mark>Info box on why I for current
+<p>Thinking about a constricted pipe in the water analogy, this makes a lot of
+sense.  What it says is, for a given amount of resistance, if you increase the
+voltage some percentage, the current will increase by the same percentage.  Or
+in terms of water, if you increase the pressure some percentage, the water
+current will increase by the same percentage.
+<p>For example, for a given constriction in a pipe, if you pump twice as hard,
+twice as much water will flow.
+<p>A similar relationship is true for resistance:
+    <p><mark>PIC: resistive circuits, with resistance changing</mark>
+    <p>Assuming the pumping pressure stays constant, as the resistance
+    increases (the pipe gets narrower), the current decreases by the same
+    percentage.  For example, if the resistance doubled, the current would be
+    half as much.
+    <p>The same is true with electric circuits, and there are variable resistors
+    (cometime called potentiometers or "pots") that allow you to change the resistance in a circuit by turning a knob.
 </div>
 </body>
 </html>
