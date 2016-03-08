@@ -27,20 +27,16 @@
 </head>
 <body>
 <div class=section>
-  <h1>INTRODUCTION TO ELECTRONICS</h1>
-  <mark>Preface with note that this article is long but contains a lot of
-  valubale information for undertanding future electronics projects.  Read now,
-  come back to later.</mark>
+  <h1>What is Electricity?</h1>
 
-  <h2>What is Electricity</h2>
-  <mark>PIC: Need generic electricity image or diagram, or cartoon</mark>
+  <p><mark>PIC: Need generic electricity image or diagram, or cartoon</mark>
 
-  <p>Simply stated, electricity is a flow of charged particles (electrons).
-  When charged particles are allowed to flow from one place to another, they
-  transfer energy that can be used to power everything from a light bulb to an
-  entire city. All of our everyday electronic gadgets – from cell phones to
-  computers to microwave ovens – are powered by the flow of these charged
-  particles.</p>
+  <p>Simply stated, electricity is a flow of charged particles (or more simply,
+  a flow of "charge").  When charged particles are allowed to flow from one
+  place to another, they transfer energy that can be used to power everything
+  from a light bulb to an entire city. All of our everyday electronic gadgets –
+  from cell phones to computers to microwave ovens – are powered by the flow of
+  charge.
 
   <div class="info">
     <div>
@@ -53,11 +49,11 @@
       Even if you look it up in the dictionary, there will be multiple
       different definitions, and these vary from dictionary to dictionary.
       <p>For example, some people use the word electricity to mean the study of
-      electrical phenomenon: "I just read an article on electricity".  Its often
+      electrical phenomenon: "I just read a book about electricity".  Its often
       used to mean electric energy: "My batteries ran out of electricity".
-      Sometimes it means electric power: "We can plug in another heater,
+      Sometimes it means electric power: "We can't plug in another heater,
       because we don't have enough electricity".  Our definition we used at
-      the beginning was for electric current (a flow of charged particles).
+      the beginning was for electric current (a flow of charge).
       And there are even more definitions than that.
       <p>In the real world, scientists and engineers tend to be more specific
       about the vocabulary they use.  So if they mean "electric current" -
@@ -68,24 +64,25 @@
     </div>
   </div>
 
-  <h2>What is a Circuit</h2>
+  <h2>What is a Circuit?</h2>
 
-  <p>A circuit is a closed loop that allows charged particles to flow through
-  it. The parts of a circuit that charged particles flow through are called
-  conductors -- conductors are the building blocks of circuits, and metal wires
-  are one example of a conductor. Wires and other conductors allow charged
-  particles to flow through them and when you string together conductors in a
-  closed loop, you have created an electric circuit.</p>
-
-  <p>A typical circuit has a power source, conductors, and various other
-  components. The power source forces charged particles to flow through the
+  <p>A circuit is a closed loop that allows charge to flow through
+  it. The parts of a circuit that charge flows through are called
+  conductors -- conductors are the building blocks of circuits, and are
+  generally made from metal wires.  Conductors allow charge
+  to flow through them and when you string together conductors in a
+  closed loop, you have created an electric circuit.  A circuit does not have
+  to be just one single closed loop - they generally contain many intertwined
+  loops.
+  <p>A typical circuit has a power source, conductors, and other
+  components. The power source forces charge to flow through the
   circuit. The conductors (wires) connect together the components in the
   circuit. And, the components are the parts of the circuit that are affected
   by the electric charge as it passes through them.</p>
 
   <p>For example, a circuit may contain a battery and a lightbulb, attached
   together with wires. The battery serves as the power source, which forces
-  charged particles through the wires. When the charged particles flow through
+  charged particles through the wires. When the charge flows through
   the lightbulb, it illuminates.</p>
 
 <mark>PIC: Battery lightbulb circuit - animated</mark>
@@ -93,13 +90,16 @@
   <p>Some circuits are very simple (like our battery and lightbulb example),
   while other circuits are very complicated, containing many power sources,
   wires and components.</p>
-  <h2>The Water Analogy</h2>
-  <p>Often, electricy can be a hard to get an intuitive understand of because it
-  is invisible.  Electrons (charged particles) flow through wires, but you
+</div>
+<div class=section>
+  <h1>The Water Analogy</h1>
+  <p>Often, electricy can be a hard to get an intuitive understanding of because it
+  is invisible.  Charged particles flow through wires, but you
   can't see them.  Because of this, it is often helpful to talk of the how the
-  flow of electrons through a conductor is very similar to the flow of water
-  through a pipe. 
-  <p>This analogy isn't perfect, because electrons AREN'T water, and in some
+  flow of <i>charge</i> through a <i>conductor</i> is very similar to the flow
+  of <i>water</i> through a <i>pipe</i>. 
+  <p>This analogy isn't perfect, because the charged particles AREN'T water
+  molecules, and in some
   ways behave differently.  But there are
   many very strong similarities - often so similar that many of the equations we
   use to describe electric circuits are essentially the same equations used to
@@ -112,15 +112,15 @@
   too, so you can see where the analogy doesn't work.
   <p>For example, a simple circuit with a battery is <i>analogous</i> to water
   flowing through a closed loop of pipe:
-<mark>PIC: resistive circuit - animated, compared to water analogy,
+<p><mark>PIC: resistive circuit - animated, compared to water analogy,
 animated</mark>
   <p>But don't do this! If you do, you'll have created a short circuit, which
   we discuss in future projects - and you will quickly drain your battery.</p>
         
-        <p>In this example, the Battery/Pump forces Electrons/Water around a
-        closed loop (circuit).  You'll notice the analogy between the
+        <p>In this example, the battery (pump) forces charged particles (water)
+        around a closed loop (circuit).  You'll notice the analogy between the
         electrical circuit and the water circuit:
-  <table style="table-layout: fixed;">
+  <table class=basic style="table-layout: fixed;">
     <tbody>
       <tr>
         <th><p>ELECTRICAL CIRCUIT</p></th>
@@ -135,26 +135,26 @@ animated</mark>
         <td><p>Pipe</td>
       </tr>
       <tr>
-        <td><p>Electrons (charged particles)</td>
+        <td><p>Charged particles</td>
         <td><p>Water Molecules</td>
       </tr>
     </tbody>
   </table>
   <h2>Power Source</h2>
-  <mark>PIC: generic drawing or stock photo of a power plant</mark>
-  <p>Power sources provide the energy to make electrons flow in circuits.  There
+  <p><mark>PIC: generic drawing or stock photo of a battery</mark>
+  <p>Power sources provide the energy to make charge flow in circuits.  There
   are many different types of power sources, and we'll talk more about them in <a data-uid="sources"></a>.
     <p>In our simple circuit above, the power source is a battery.  A battery
     converts chemical enery into electrical energy.  That is, inside a battery,
-    a specific chemical reaction occurs that causes electrons to be pulled into
-    one side of the battery, and pushed out the other.
+    a specific chemical reaction occurs that causes charged particles to be
+    pulled into one side of the battery, and pushed out the other.
     <p>In the water analogy, we model this as a pump - a device that pulls in
     water from pulled into one side, and pushes out the other, similar to a
     battery.
     <p>What's great about this analogy is it is intuitively obvious that
-    exactly as much stuff (electrons/water) goes into the power source
-    (battery/pump) as comes out.  The power source does not <i>electrons</i>
-    and more than a pump creates water.
+    exactly as much stuff (charge/water) goes into the power source
+    (battery/pump) as comes out.  The power source does not <i>create</i> charge
+    just as a pump does not <i>create</i> water.
     <p>However, the water pump is just a <i>model</i> of the battery.  The
     battery does not have any spinning moving parts inside.  Both electrical
     batteries and water pumps are similar in that they convert one form of
@@ -163,28 +163,6 @@ animated</mark>
     <p>Still, another very common source of electrical power is a generator -
     and it <i>does</i> actually contain spinning moving parts - we'll discuss
     them more in <a data-uid="sources"></a>.
-  <h2>Conductors</h2>
-  <mark>PIC: generic drawing or stock photo of wires</mark>
-  <p>Conductors are the "pipes" of a circuit.  Conductors are made of materials
-  that allow electrons to flow freely through them.  In general, this means
-  conductors are made out of metal, and copper is one of the most common metals
-  used.  Metals are special in that their structure has some electrons that are
-  not tightly bound to any specific atom.  Instead, these electrons can flow
-  freely throughout the metal, and are sometimes refered to as a "sea of
-  electrons".
-  <p>There's some important differences between conductors and pipes that you
-  should keep in mind:
-  <ul>
-    <li><p>In the water analogy, all pipes is fully filled with water.  There is
-    no air in these pipes.
-    </li>
-    <li><p>Real pipes can leak water.  Conductors cannot leak electrons - the electrons are held too tightly to the metal atoms to escape.
-    </li>
-    <li><p>Metal conductors allow electrons to flow <i>throughout</i> the
-    metal.  Unlike a water pipe, there is no outside part (the pipe) that keeps
-    the electrons in, they are held in by the strong pull of the metal atoms.
-    </li>
-  </ul>
   <h2>Charge</h2>
   <p><mark>PIC: generic drawing or stock photo of a atoms/electrons.
   Animated?</mark>
@@ -229,25 +207,51 @@ animated</mark>
     just ignore that!
     </div>
   </div>
+  <h2>Conductors</h2>
+  <mark>PIC: generic drawing or stock photo of wires</mark>
+  <p>Conductors are the "pipes" of a circuit.  Conductors are made of materials
+  that allow charge to flow freely through them.  In general, this means
+  conductors are made out of metal, and copper is one of the most common metals
+  used.  Metals are special in that their structure has some "free" electrons
+  that are not tightly bound to any specific atom.  Instead, these electrons
+  can flow
+  freely throughout the metal, and are sometimes refered to as a "sea of
+  electrons".
+    <p>It's important to note that conductors are
+    completely filled throughout with charge.  Analogously, the pipes are fully filled with
+    water.  There is no air in the pipes.
+  <p>There's some important differences between conductors and pipes that you
+  should keep in mind:
+  <ul>
+    <li><p>Real pipes can leak water.  Conductors cannot leak electrons - the electrons are held too tightly to the metal atoms to escape.
+    </li>
+    <li><p>Metal conductors allow electrons to flow <i>throughout</i> the
+    metal.  Unlike a water pipe, there is no outside part (the pipe) that keeps
+    the electrons in, they are held in by the strong pull of the metal atoms.
+    </li>
+  </ul>
 </div>
 <div class=section>
-  <h1>Power, Load, Ground</h1>
+  <h1>Power & Ground</h1>
 
-  <p>In all circuits, we can talk about three parts of the circuit:</p>
-  <ol>
+  <p><mark>PIC: Lightbulb circuit with Power Ground and load marked.
+
+  <p>In all circuits, we often talk about the following parts:</p>
+  <ul>
     <li>
 
       <p><strong>Power:</strong> This is generally the point of highest charge
       in your circuit -- for example, the positive terminal of your battery.
       This point in a circuit is sometimes generically called "Vcc" or in the
-      case of the projects we'll be doing, "3.3V" (since the power source we'll
+      case of most of the projects we'll be doing, "3.3V" (since the power
+      source we'll
       be using will be 3.3 volts). The power source provides the energy that
-      makes the circuit do something useful.</p>
+      makes the circuit do something useful.
     </li>
     <li>
 
       <p><strong>Load:</strong> The part of the circuit that uses the flow of
-      charged particles -- the components in the circuit -- is typically
+      charge -- the components in the circuit -- is typically
       referred to as the Load. Above we talked about circuit resistance -- the
       Load is the part of the circuit that provides resistance. An example from
       our earlier circuit would be the lightbulb -- that is a part of the
@@ -256,11 +260,11 @@ animated</mark>
     </li>
     <li>
 
-      <p><strong>Ground:</strong> In an electric circuit, Ground is generally
+      <p><strong>Ground:</strong> In an electric circuit, ground is generally
       the point of lowest charge in the circuit. For example, in our lightbulb
       circuit above, the negative terminal of the battery is the point of
       lowest charge, and would be the physical ground point of this circuit.
-      Interestingly, the reason we use the term "Ground" is because in many
+      Interestingly, the reason we use the term "ground" is because in many
       electrical applications (like the electricity running through your
       house), the earth is used as both our reference point of lowest charge
       and our physical point of attaching the electrical circuit. This is
@@ -269,7 +273,7 @@ animated</mark>
       that the voltage between a power source and the earth will be
       constant.</p>
     </li>
-  </ol>
+  </ul>
   <div class="info">
     <div>
       Grounding Yourself
