@@ -1,4 +1,4 @@
-raspberrystem-ide
-=================
+raspberrystem-projects
+======================
 
 RaspberrySTEM(TM) Project Guides
