@@ -415,9 +415,11 @@ table p {
  */
 img {
     display: block;
-    background: white;
+    width: calc(100% - 40px); /* must include left/right padding */
     padding: 20px;
     border-radius: 10px;
+    background: white;
+    margin: 0;
 }
 img.inline_icon {
     width: 25px;
