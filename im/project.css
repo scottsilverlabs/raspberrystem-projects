@@ -26,7 +26,7 @@ header {
     margin-bottom: 0.5in;
 }
 div.outer {
-    background: hsl(84, 53%, 50%); /* Header green */
+    background: hsl(213, 53%, 52%); /* Header blue */
     border-radius: 10px;
     text-align: left;
     font-size: 0px;
@@ -37,7 +37,7 @@ div.outer {
 div.inner {
     font-size: 36px;
     text-align: center;
-    background: hsl(84, 53%, 75%); /* Header subblock green */
+    background: hsl(213, 53%, 82%); /* Header subblock blue */
     border-radius: 10px;
 }
 
