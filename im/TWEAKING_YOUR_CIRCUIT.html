@@ -26,29 +26,57 @@
   </script>
 </head>
 <body>
+  <div class="hw" data-count="2" data-name="led_yfc"></div>
+  <div class="hw" data-count="1" data-name="resistor_yfc"></div>
 <div class=section id=intro>
-  <p>In this project we'll be adding a new input device -- the pushbutton (or
-  just "button"). A button is just a very simple switch – electric current can
-  flow through it only when it is pressed.</p>
+  <p>Ohm's law, discussed in <a data-uid="circuits"></a>, gives the relationship between voltage,
+  current and resistance.  In this project, we'll test it.  Specifically, we'll take our LED
+  circuit:</p><img class="schematic" style=
+  "width: 200px;" src="img/Battery-LED-Circuit-Unlooped.png" alt="">
+  <p>and we'll adjust the voltage and resistance to see how it affects the
+  current.
 
-  <p>So, if we go back to our first breadboard circuit containing a simple
-  resistor and LED that is always illuminated, we should be able to add a
-  switch that we can then use to control the LED turning on and off (by
-  pressing the button).</p>
+  <p>To understand this, you have to understand a teensy bit more about how the
+  LED works.  Ideally, it acts simply as a wire that lights up
+  if there is current running through it.  The more current that runs through
+      it, the brighter it gets (up to a point - too much current, and it will
+      break).  
+      
+    <p>In addition, the current thought an LED will only flow in one direction,
+      which is the direction of the arrow (we saw this was true in <a
+      data-uid="yfc"></a>, when we flipped the LED backwards to saw that it
+      didn't light up).  In this project, we'll only be running the current in
+      one direction (because we <i>do</i> want it to light up!).
 
-  <p>Let’s build that circuit now…</p>
+<p>Remeber, Ohm's law is:
+<p style="margin-left: 0.5in; font-size: 150%;">
+<strong><i>Voltage</i></strong> = <strong><i>Current</i></strong> &middot; <strong><i>Resistance</i></strong>
+<p>which means that, for a given resistance, if we double the voltage the current will double.
+And,
+if the current doubles in our circuit above, the LED will be brighter.
+<p>Alternatively, it means that for a given voltage, if you double the resistance, the current will
+be cut in half.
+And,
+if the current is halved in our circuit above, the LED will be dimmer.
 
 </div>
 <div class=section id=hw>
 
-  <p>To build the circuit, let's start with the circuit we built in the last
-  project -- <a data-uid="rpipower"></a>:</p><img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
-  alt="">
-  <h3 class=step>Remove wire from LED to ground.</h3>
+  <p>To build this circuit, you'll build two identical LED circuits.  Then,
+  we'll experiment with changing the voltage and resistance.</p>
+  <h3 class=step>Build two identical LED circuits.</h3>
 
-  <p>We’re going to be adding the button into the circuit between the LED and
-  ground, so the first step will be to remove the wire that connects the LED to
-  ground.</p>
+  <p>These two circuits are equivalent to the circuits we've previously built.
+  Both LEDs should be just as bright as they were before.
+  <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+  <h3 class=step>Change the resistor.</h3>
+
+  <p>These two circuits are equivalent to the circuits we've previously built.
+  Both LEDs should be just as bright as they were before.
+  <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+
 
 </div>
 <div class=section id=challenge>
