@@ -20,7 +20,7 @@ var pg_index = [
     {filename: "CIRCUIT_THEORY.html",               title: "CIRCUIT THEORY",                concept: true, uid: "circuits"},
     {filename: "TWEAKING_YOUR_CIRCUIT.html",        title: "TWEAKING YOUR CIRCUIT",         concept: false, uid: ""},
     {filename: "SERIES_PARALLEL.html",              title: "SERIES & PARALLEL",             concept: true, uid: ""},
-    {filename: "SERIES_PARALLEL2.html",             title: "SERIES & PARALLEL",             concept: false, uid: ""},
+    {filename: "SERIES_PARALLEL_PROJECT.html",      title: "SERIES & PARALLEL",             concept: false, uid: ""},
 
     {filename: "GPIO_CONCEPT.html",                 title: "GPIO OUTPUTS",                  concept: true, uid: "gpioc", section: "INPUT/OUTPUT"},
     {filename: "GENERAL_PURPOSE_INPUT-OUTPUT.html", title: "OUTPUTS (LIGHTING LEDS)",       concept: false, uid: "gpoutp"},

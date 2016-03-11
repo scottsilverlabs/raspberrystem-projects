@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <script type="text/javascript" src="stickydiv.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body>
+  <div class="hw" data-count="2" data-name="led_yfc"></div>
+  <div class="hw" data-count="1" data-name="resistor_yfc"></div>
+<div class=section id=intro>
+  <p>Ohm's law, discussed in <a data-uid="circuits"></a>, gives the relationship between voltage,
+  current and resistance.  In this project, we'll test it.  Specifically, we'll take our LED
+  circuit:</p><img class="schematic" style=
+  "width: 200px;" src="img/Battery-LED-Circuit-Unlooped.png" alt="">
+  <p>and we'll adjust the voltage and resistance to see how it affects the
+  current.
+
+<p>A quick reminder about how LEDs work:
+  <ul>
+    <li>
+  <p>Ideally, LEDs acts simply as a wire that lights up if there is current
+  running through it.  But there's an important point: <strong>the more current
+  that runs through the LED, the brighter it gets</strong> (up to a point - too
+  much current, and it will break).  
+    </li>
+      
+    <li>
+    <p>In addition, the current thought an LED will only flow in one direction,
+      which is the direction of the arrow (we saw this was true in <a
+      data-uid="yfc"></a>, when we flipped the LED backwards to saw that it
+      didn't light up).  In this project, we'll only be running the current in
+      one direction (because we <i>do</i> want it to light up!).
+    </li>
+  </ul>
+
+<p>And remember, Ohm's law is:
+<p style="margin-left: 0.5in;">
+<strong><i>Voltage</i></strong> = <strong><i>Current</i></strong> &middot; <strong><i>Resistance</i></strong>
+  <p>which means that:
+  <ul>
+    <li>
+  <p>
+For a given resistance, if we double the voltage the current will double.
+And,
+if the current doubles in our circuit above, the LED will be <strong>brighter</strong>.
+    </li>
+    <li>
+<p>Alternatively, it means that for a given voltage, if you double the resistance, the current will
+be cut in half.
+And,
+if the current is halved in our circuit above, the LED will be <strong>dimmer</strong>.
+    </li>
+  </ul>
+
+</div>
+<div class=section id=hw>
+
+  <p>To build this circuit, you'll build two identical LED circuits.  Then,
+  we'll experiment with changing the voltage and resistance.</p>
+  <h3 class=step>Build two identical LED circuits.</h3>
+
+  <p>Build two LED circuits that are equivalent to the circuits we've previously built.  Both LED circuits
+  will use the 100 ohm resistor:
+  <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+  Both LEDs should be just as bright as they were before.
+  <h3 class=step>Change the resistor.</h3>
+
+  <p>For one of the circuits (we've chosen the circuit on the right in the diagram below), change
+  the resistor from 100 ohms to 470 ohms:
+  <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+  <p>Increasing the resistance will decrease the current, which makes the LED
+  dimmer.
+
+  <h3 class=step>Change the voltage.</h3>
+  <p>First, change the resistor back to 100 ohms so you have two identical circuits again.  Then,
+  for one of the circuits (we've chosen the circuit on the right in the diagram below), change the
+      voltage from 3.3V to 5V (shown labeled on the Lid Connector board).
+  <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
+  alt="">
+  <p>Increasing the voltage will increase the current, which makes the LED
+  brighter.
+
+</div>
+<div class=section id=challenge>
+  <p>The <strong>Your First Circuit RaspberrySTEM Cell</strong> includes three
+  resistors of different values (100 ohms, 470 ohms, and 1000 ohms).  With the
+  two voltage levels (3.3V and 5V) and the three resistors, there are 6 possible
+  combinations of voltage/resistance.  
+  <ol>
+    <li>
+  <p>Try all six combinations and verify that for each
+  voltage, increasing the resistance <i>does</i> decrease the current.
+
+    </li>
+    <li>
+      <p>Which voltage/resistance combination gives the brightest LED?  The
+      dimmest?
+    </li>
+    <li>
+      <p>Which is brighter: the LED using 470 ohms with 5V or using 100 ohms
+      with 3.3V?
+    </li>
+  </ol>
+</div>
+
+</body>
+</html>
+

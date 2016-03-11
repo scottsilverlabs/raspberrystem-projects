@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Mac OS X version 4.9.26">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="default.css">
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link type="text/css" rel="stylesheet" href="/assets/cmirror/codemirror.css">
+  <link type="text/css" id="theme" rel="stylesheet" href=
+  "/assets/themes/solarized-dark.css">
+  <script type="text/javascript" src="/assets/cmirror/codemirror.js">
+  </script>
+  <script type="text/javascript" src="/assets/cmirror/python.js">
+  </script>
+  <script type="text/javascript" src="onload.js">
+  </script>
+  <script type="text/javascript" src="toc_order.js">
+  </script>
+  <script type="text/javascript" src="project.js">
+  </script>
+  <script type="text/javascript" src="stickydiv.js">
+  </script>
+  <script type="text/javascript" src="codeblocks.js">
+  </script>
+</head>
+<body>
+<div class=section>
+  <h1>Going Loopy</h1>
+  <p>All of our first circuits contained just one loop - from our power source
+  through and LED and resistor, and then to the ground of our power source.  In
+  the real-world, circuits get more complicated as more components are added.
+  Inside processors, there are millions upon millions of interconnected wires
+  and components, making millions and millions of teensy loops.
+
+<p>Lets start with an example circuit we've seen before, a simple circuit that
+is a loop of two components: a battery and a resistor.
+    <p><mark>Battery/resistor schematic
+<p>When you add a new component to the loop, assuming it has just two leads
+(legs) like a resistor does, there are exactly two ways you can do it.  
+The first way is that you can add the component
+in <strong>series</strong> with the other component:
+    <p><mark>Battery/2-resistor series schematic
+<p>In addition, you could have even more components in <strong>series</strong>:
+    <p><mark>Battery/3-resistor series schematic
+<p>The second way is that you can add the component
+in <strong>parallel</strong> with the other component:
+    <p><mark>Battery/2-resistor parallel schematic
+<p>In addition, you could have even more components in <strong>parallel</strong>:
+    <p><mark>Battery/3-resistor parallel schematic <p>Of course, you aren't
+    limited to just series or just parallel - the two can be combined to create
+    more complex circuits:
+    <p><mark>Battery/multiple-resistor parallel and series schematic
+<p>And, finally, there are some types of components (like a computer chip) that
+have more the two leads, which means that series and parallel does not apply.
+
+</div>
+<div class=section>
+  <h1>Series & Parallel Resistance</h1>
+  <p>So what happens when you add a component is series or parallel?  The water analogy works
+  really well here to give us a picture of what's going on.
+
+  <p>When resistances are in series, the total resistance adds up.  That is,
+  each resistance contributes more to resist the current around the circuit.  For example, given
+  one of our examples from above:
+    <p><mark>Battery/2-resistor series schematic, marked with R1 and R2
+    <p><mark>PIC: Battery/2-resistor WATER series schematic
+<p>So, in this case, the total resistance is the sum: R1 + R2
+<p>And, this means that: <strong>two equal resistances in <i>series</i> gives
+exactly
+<i>twice</i> the resistance.</strong>
+
+  <p>When resistances are in parallel, the total <i>conductance</i> adds up.
+  <i>Conductance</i> is the reciprocal of the resistance.  In other words,
+  resistance is a measure of how <i>difficult</i> it is for current to flow
+  through a component, while conductance is the opposite - a measure of how
+  <i>easy</i> it is for current to flow through a component.  
+  This is more evident in a picture:
+    <p><mark>Battery/2-resistor parallel schematic, marked with R1 and R2
+    <p><mark>PIC: Battery/2-resistor WATER parallel schematic
+<p>As you increase the number of resistors you allow <i>more</i> current to
+flow.  So, in this case, the total
+<i>conductance</i> is the sum of the individual <i>conductances</i>, or:
+<sup>1</sup>&frasl;<sub>R1</sub> + 
+<sup>1</sup>&frasl;<sub>R2</sub>
+
+<p>The math for this can be a bit more confusing, but is very clear from the
+water analogy picture.  Two equal resistors in parallel allow twice the amount
+of current to flow, or in other words, they resist the current flow less (half
+as much).
+<p>So, this means that: 
+ <strong>two equal resistances in <i>parallel</i> gives
+exactly <i>half</i> the resistance.</strong>
+</div>
+</body>
+</html>
+
