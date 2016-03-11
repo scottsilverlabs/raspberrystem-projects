@@ -18,7 +18,7 @@ var pg_index = [
     {filename: "INTRODUCING_BUTTONS.html",          title: "HOW BUTTONS WORK",              concept: true, uid: ""},
     {filename: "INTRODUCING_BUTTONS_PROJECT.html",  title: "ADDING A BUTTON",               concept: false, uid: ""},
     {filename: "CIRCUIT_THEORY.html",               title: "CIRCUIT THEORY",                concept: true, uid: "circuits"},
-    {filename: "TWEAKING_YOUR_CIRCUIT.html",        title: "TWEAKING YOUR CIRCUIT",         concept: false, uid: ""},
+    {filename: "TWEAKING_YOUR_CIRCUIT.html",        title: "TWEAKING YOUR CIRCUIT",         concept: false, uid: "tweak"},
     {filename: "SERIES_PARALLEL.html",              title: "SERIES & PARALLEL",             concept: true, uid: ""},
     {filename: "SERIES_PARALLEL_PROJECT.html",      title: "SERIES & PARALLEL",             concept: false, uid: ""},
 

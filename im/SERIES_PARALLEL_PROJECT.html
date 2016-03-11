@@ -29,55 +29,19 @@
   <div class="hw" data-count="2" data-name="led_yfc"></div>
   <div class="hw" data-count="1" data-name="resistor_yfc"></div>
 <div class=section id=intro>
-  <p>Ohm's law, discussed in <a data-uid="circuits"></a>, gives the relationship between voltage,
-  current and resistance.  In this project, we'll test it.  Specifically, we'll take our LED
-  circuit:</p><img class="schematic" style=
+  <p>Similar to the <a data-uid="tweak"></a> project, lets look further at the LED circuit:
+  </p><img class="schematic" style=
   "width: 200px;" src="img/Battery-LED-Circuit-Unlooped.png" alt="">
-  <p>and we'll adjust the voltage and resistance to see how it affects the
-  current.
-
-<p>A quick reminder about how LEDs work:
-  <ul>
-    <li>
-  <p>Ideally, LEDs acts simply as a wire that lights up if there is current
-  running through it.  But there's an important point: <strong>the more current
-  that runs through the LED, the brighter it gets</strong> (up to a point - too
-  much current, and it will break).  
-    </li>
-      
-    <li>
-    <p>In addition, the current thought an LED will only flow in one direction,
-      which is the direction of the arrow (we saw this was true in <a
-      data-uid="yfc"></a>, when we flipped the LED backwards to saw that it
-      didn't light up).  In this project, we'll only be running the current in
-      one direction (because we <i>do</i> want it to light up!).
-    </li>
-  </ul>
-
-<p>And remember, Ohm's law is:
-<p style="margin-left: 0.5in;">
-<strong><i>Voltage</i></strong> = <strong><i>Current</i></strong> &middot; <strong><i>Resistance</i></strong>
-  <p>which means that:
-  <ul>
-    <li>
-  <p>
-For a given resistance, if we double the voltage the current will double.
-And,
-if the current doubles in our circuit above, the LED will be <strong>brighter</strong>.
-    </li>
-    <li>
-<p>Alternatively, it means that for a given voltage, if you double the resistance, the current will
-be cut in half.
-And,
-if the current is halved in our circuit above, the LED will be <strong>dimmer</strong>.
-    </li>
-  </ul>
+  <p>Previously, we swapped out the resistor in the circuit to change the
+  current (which changed the brightness of the LED). Now, we can use our
+  knowledge of series and parallel circuits to swap out the resistor for more
+  than one resistor, in different combinations of series and parallel.
 
 </div>
 <div class=section id=hw>
 
-  <p>To build this circuit, you'll build two identical LED circuits.  Then,
-  we'll experiment with changing the voltage and resistance.</p>
+  <p>To build this circuit, you'll again start with two identical LED circuits.
+  Then, we'll experiment with changing the voltage and resistance.</p>
   <h3 class=step>Build two identical LED circuits.</h3>
 
   <p>Build two LED circuits that are equivalent to the circuits we've previously built.  Both LED circuits
@@ -85,43 +49,54 @@ if the current is halved in our circuit above, the LED will be <strong>dimmer</s
   <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
   alt="">
   Both LEDs should be just as bright as they were before.
-  <h3 class=step>Change the resistor.</h3>
+  <h3 class=step>Put two resistors in series.</h3>
 
-  <p>For one of the circuits (we've chosen the circuit on the right in the diagram below), change
-  the resistor from 100 ohms to 470 ohms:
+  <p>For one of the circuits (we've chosen the circuit on the right in the
+  diagram below), change
+  the resistor from a single 100 ohms to two 100 ohms resistors in series:
   <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
   alt="">
-  <p>Increasing the resistance will decrease the current, which makes the LED
-  dimmer.
+  <p>This will increase the resistance which will decrease the current, which
+  makes the LED dimmer.  Note that, compared to the last project, the
+  difference in brightness will be slight (we used a large difference in
+  resistance last project)
 
-  <h3 class=step>Change the voltage.</h3>
-  <p>First, change the resistor back to 100 ohms so you have two identical circuits again.  Then,
-  for one of the circuits (we've chosen the circuit on the right in the diagram below), change the
-      voltage from 3.3V to 5V (shown labeled on the Lid Connector board).
+  <h3 class=step>Put two resistors in parallel.</h3>
+  <p>For one of the circuits (we've chosen the circuit on the right in the
+  diagram below), rewire the two series resistors as two resistors in parallel:
   <img class="bb" src="img/Your_First_Breadboard_Add_Power_bb.png"
   alt="">
-  <p>Increasing the voltage will increase the current, which makes the LED
-  brighter.
+  <p>This will decrease the resistance which will increase the current, which
+  makes the LED brighter.
+  Again note that the difference in brightness will be slight.
 
 </div>
 <div class=section id=challenge>
-  <p>The <strong>Your First Circuit RaspberrySTEM Cell</strong> includes three
-  resistors of different values (100 ohms, 470 ohms, and 1000 ohms).  With the
-  two voltage levels (3.3V and 5V) and the three resistors, there are 6 possible
-  combinations of voltage/resistance.  
+  <p>The <strong>Your First Circuit RaspberrySTEM Cell</strong> includes four
+  100 ohm resistors (in addition to the 470 ohms and 1000 ohms resistors).  The following
+  challenges will modify your LED/resistor circuit:
   <ol>
     <li>
-  <p>Try all six combinations and verify that for each
-  voltage, increasing the resistance <i>does</i> decrease the current.
+  <p>Compare four 100 ohm resistors in series to one 470 ohm.  Is there any
+  noticble difference in brightness?
 
     </li>
     <li>
-      <p>Which voltage/resistance combination gives the brightest LED?  The
-      dimmest?
+  <p>Add 100 ohm resistors in parallel, one at a time, until there are four in
+  parallel.  Notice the brightness change as each one is added (each new
+  resistor can be added in parallel while the LED is on, so you will see the
+  brightness change right as each resistor is added.
+
     </li>
     <li>
-      <p>Which is brighter: the LED using 470 ohms with 5V or using 100 ohms
-      with 3.3V?
+  <p>Put a 100 ohm resistor in <i>parallel</i> with a 1000 ohm resistor.  How does the brightness compare
+  to a 100 ohm resistor alone or a 1000 ohm resistor alone?  Why?
+
+    </li>
+    <li>
+  <p>Put a 100 ohm resistor in <i>series</i> with a 1000 ohm resistor.  How does the brightness compare
+  to a 100 ohm resistor alone or a 1000 ohm resistor alone?  Why?
+
     </li>
   </ol>
 </div>
