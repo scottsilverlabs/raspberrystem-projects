@@ -43,7 +43,7 @@
   Accel() function and then initializing the accelerometer:</p>
   <div class="code" data-firstline="0">
     <textarea>
-rstem.accel import Accel
+from rstem.accel import Accel
 accel = Accel()
 </textarea>
   </div>
@@ -109,7 +109,7 @@ if x_force &gt; TILT_FORCE:
 elif x_force &lt; -TILT_FORCE: 
     spaceship_position += SPACESHIP_STEP
 
-spaceship_position = max(0,min(fb.width - 1, spaceship_position))
+spaceship_position = max(0, min(fb.width - 1, spaceship_position))
 </textarea>
   </div>
 
