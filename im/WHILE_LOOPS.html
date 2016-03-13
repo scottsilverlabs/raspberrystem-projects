@@ -29,10 +29,10 @@
 <div class=section>
   <h1>WHILE LOOPS</h1>
 
-  <p>While loops allow your program to repeat a certain piece of code over and
+  <p><code>while</code> loops allow your program to repeat a certain piece of code over and
   over as long as some specific condition is met.</p>
 
-  <p>While loops are used as follows:</p>
+  <p><code>while</code> loops are used as follows:</p>
   <pre>
 while (expression):
     If expression is True, execute this code block
@@ -76,7 +76,7 @@ When expression is False, continue here...
 
   <p>You'll notice that Steps #2-4 will repeat many times (60, to be exact)
   before our variable gets to 0 and we jump to Step #6. The easiest way to
-  implement that repeating code is to use a while loop, as follows:</p>
+  implement that repeating code is to use a <code>while</code> loop, as follows:</p>
   <div class="code" data-firstline="0">
     <textarea>
 time_left = 60
@@ -92,7 +92,7 @@ sound_the_alarm()
   <p>In our code above, the first line sets our variable <code>time_left</code>
   to 60.</p>
 
-  <p>Next, we use a while loop to test whether <code>time_left</code> equals 0
+  <p>Next, we use a <code>while</code> loop to test whether <code>time_left</code> equals 0
   or not. If the expression <code>(time_left &gt; 0)</code> tests true (i.e.,
   we haven't yet gotten to zero), we subtract 1 from <code>time_left</code> and
   go back to the top to test the expression again.</p>
@@ -101,7 +101,7 @@ sound_the_alarm()
   gets to 0), at which point we drop through the loop and start executing the
   code below it.</p>
 
-  <p>The most basic while loop is one that will execute forever. In fact,
+  <p>The most basic <code>while</code> loop is one that will execute forever. In fact,
   that's the point of it -- it will keep going until someone explicitly stops
   the program.</p>
 
