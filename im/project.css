@@ -383,6 +383,11 @@ table.basic p {
     margin: 0;
     margin-left: 5px;
 }
+table.slim {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*
  * boring tables
@@ -419,7 +424,7 @@ img {
     padding: 20px;
     border-radius: 10px;
     background: white;
-    margin: 0;
+    margin: auto;
 }
 img.inline_icon {
     width: 25px;
